@@ -29,7 +29,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,13 +52,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,13 +95,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,13 +138,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,13 +181,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,13 +224,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
-     *             .botName(&#34;OrderFlowers&#34;)
-     *             .name(&#34;OrderFlowersProd&#34;)
+     *             .botName("OrderFlowers")
+     *             .name("OrderFlowersProd")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -234,7 +244,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -256,13 +267,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
-     *             .botName(&#34;OrderFlowers&#34;)
-     *             .name(&#34;OrderFlowersProd&#34;)
+     *             .botName("OrderFlowers")
+     *             .name("OrderFlowersProd")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +287,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -297,13 +310,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
-     *             .botName(&#34;OrderFlowers&#34;)
-     *             .name(&#34;OrderFlowersProd&#34;)
+     *             .botName("OrderFlowers")
+     *             .name("OrderFlowersProd")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -316,7 +330,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -338,13 +353,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
-     *             .botName(&#34;OrderFlowers&#34;)
-     *             .name(&#34;OrderFlowersProd&#34;)
+     *             .botName("OrderFlowers")
+     *             .name("OrderFlowersProd")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -357,7 +373,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -379,13 +396,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -398,7 +416,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -420,13 +439,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -439,7 +459,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -461,13 +482,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -480,7 +502,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -502,13 +525,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
-     *             .name(&#34;OrderFlowers&#34;)
-     *             .version(&#34;$LATEST&#34;)
+     *             .name("OrderFlowers")
+     *             .version("$LATEST")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -521,7 +545,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -543,13 +568,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
-     *             .name(&#34;FlowerTypes&#34;)
-     *             .version(&#34;1&#34;)
+     *             .name("FlowerTypes")
+     *             .version("1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -562,7 +588,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -584,13 +611,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
-     *             .name(&#34;FlowerTypes&#34;)
-     *             .version(&#34;1&#34;)
+     *             .name("FlowerTypes")
+     *             .version("1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -603,7 +631,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -625,13 +654,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
-     *             .name(&#34;FlowerTypes&#34;)
-     *             .version(&#34;1&#34;)
+     *             .name("FlowerTypes")
+     *             .version("1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -644,7 +674,8 @@ public final class LexFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -666,13 +697,14 @@ public final class LexFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
-     *             .name(&#34;FlowerTypes&#34;)
-     *             .version(&#34;1&#34;)
+     *             .name("FlowerTypes")
+     *             .version("1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

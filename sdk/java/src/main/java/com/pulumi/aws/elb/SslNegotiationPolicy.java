@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,56 +51,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer(&#34;lb&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;test-lb&#34;)
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()        
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(8000)
- *                 .instanceProtocol(&#34;https&#34;)
+ *                 .instanceProtocol("https")
  *                 .lbPort(443)
- *                 .lbProtocol(&#34;https&#34;)
- *                 .sslCertificateId(&#34;arn:aws:iam::123456789012:server-certificate/certName&#34;)
+ *                 .lbProtocol("https")
+ *                 .sslCertificateId("arn:aws:iam::123456789012:server-certificate/certName")
  *                 .build())
  *             .build());
  * 
- *         var foo = new SslNegotiationPolicy(&#34;foo&#34;, SslNegotiationPolicyArgs.builder()        
- *             .name(&#34;foo-policy&#34;)
+ *         var foo = new SslNegotiationPolicy("foo", SslNegotiationPolicyArgs.builder()        
+ *             .name("foo-policy")
  *             .loadBalancer(lb.id())
  *             .lbPort(443)
  *             .attributes(            
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1&#34;)
- *                     .value(&#34;false&#34;)
+ *                     .name("Protocol-TLSv1")
+ *                     .value("false")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1.1&#34;)
- *                     .value(&#34;false&#34;)
+ *                     .name("Protocol-TLSv1.1")
+ *                     .value("false")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Protocol-TLSv1.2&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("Protocol-TLSv1.2")
+ *                     .value("true")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;Server-Defined-Cipher-Order&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("Server-Defined-Cipher-Order")
+ *                     .value("true")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;ECDHE-RSA-AES128-GCM-SHA256&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("ECDHE-RSA-AES128-GCM-SHA256")
+ *                     .value("true")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;AES128-GCM-SHA256&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("AES128-GCM-SHA256")
+ *                     .value("true")
  *                     .build(),
  *                 SslNegotiationPolicyAttributeArgs.builder()
- *                     .name(&#34;EDH-RSA-DES-CBC3-SHA&#34;)
- *                     .value(&#34;false&#34;)
+ *                     .name("EDH-RSA-DES-CBC3-SHA")
+ *                     .value("false")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

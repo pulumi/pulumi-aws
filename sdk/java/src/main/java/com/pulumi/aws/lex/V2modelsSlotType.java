@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,13 +58,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RolePolicyAttachment(&#34;test&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var test = new RolePolicyAttachment("test", RolePolicyAttachmentArgs.builder()        
  *             .role(testAwsIamRole.name())
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonLexFullAccess&#34;, current.partition()))
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/AmazonLexFullAccess", current.partition()))
  *             .build());
  * 
- *         var testV2modelsBot = new V2modelsBot(&#34;testV2modelsBot&#34;, V2modelsBotArgs.builder()        
- *             .name(&#34;testbot&#34;)
+ *         var testV2modelsBot = new V2modelsBot("testV2modelsBot", V2modelsBotArgs.builder()        
+ *             .name("testbot")
  *             .idleSessionTtlInSeconds(60)
  *             .roleArn(testAwsIamRole.arn())
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
@@ -71,28 +72,29 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testV2modelsBotLocale = new V2modelsBotLocale(&#34;testV2modelsBotLocale&#34;, V2modelsBotLocaleArgs.builder()        
- *             .localeId(&#34;en_US&#34;)
+ *         var testV2modelsBotLocale = new V2modelsBotLocale("testV2modelsBotLocale", V2modelsBotLocaleArgs.builder()        
+ *             .localeId("en_US")
  *             .botId(testV2modelsBot.id())
- *             .botVersion(&#34;DRAFT&#34;)
+ *             .botVersion("DRAFT")
  *             .nLuIntentConfidenceThreshold(0.7)
  *             .build());
  * 
- *         var testV2modelsBotVersion = new V2modelsBotVersion(&#34;testV2modelsBotVersion&#34;, V2modelsBotVersionArgs.builder()        
+ *         var testV2modelsBotVersion = new V2modelsBotVersion("testV2modelsBotVersion", V2modelsBotVersionArgs.builder()        
  *             .botId(testV2modelsBot.id())
- *             .localeSpecification(testV2modelsBotLocale.localeId().applyValue(localeId -&gt; Map.of(localeId, Map.of(&#34;sourceBotVersion&#34;, &#34;DRAFT&#34;))))
+ *             .localeSpecification(testV2modelsBotLocale.localeId().applyValue(localeId -> Map.of(localeId, Map.of("sourceBotVersion", "DRAFT"))))
  *             .build());
  * 
- *         var testV2modelsSlotType = new V2modelsSlotType(&#34;testV2modelsSlotType&#34;, V2modelsSlotTypeArgs.builder()        
+ *         var testV2modelsSlotType = new V2modelsSlotType("testV2modelsSlotType", V2modelsSlotTypeArgs.builder()        
  *             .botId(testV2modelsBot.id())
  *             .botVersion(testV2modelsBotLocale.botVersion())
- *             .name(&#34;test&#34;)
+ *             .name("test")
  *             .localeId(testV2modelsBotLocale.localeId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

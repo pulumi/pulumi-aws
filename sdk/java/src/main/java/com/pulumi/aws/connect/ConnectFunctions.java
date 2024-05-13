@@ -67,7 +67,8 @@ public final class ConnectFunctions {
      * ### By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,15 +91,16 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
-     *                 .name(&#34;Test&#34;)
+     *                 .name("Test")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -113,7 +115,8 @@ public final class ConnectFunctions {
      * ### By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,15 +139,16 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
-     *                 .name(&#34;Test&#34;)
+     *                 .name("Test")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -159,7 +163,8 @@ public final class ConnectFunctions {
      * ### By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,15 +187,16 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
-     *                 .name(&#34;Test&#34;)
+     *                 .name("Test")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -205,7 +211,8 @@ public final class ConnectFunctions {
      * ### By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,15 +235,16 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
-     *                 .name(&#34;Test&#34;)
+     *                 .name("Test")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -251,7 +259,8 @@ public final class ConnectFunctions {
      * By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,19 +282,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -307,13 +318,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -328,7 +340,8 @@ public final class ConnectFunctions {
      * By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -350,19 +363,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -384,13 +399,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -405,7 +421,8 @@ public final class ConnectFunctions {
      * By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -427,19 +444,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -461,13 +480,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -482,7 +502,8 @@ public final class ConnectFunctions {
      * By name
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -504,19 +525,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -538,13 +561,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -559,7 +583,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -581,19 +606,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,13 +642,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowModuleId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -636,7 +664,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -658,19 +687,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -692,13 +723,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowModuleId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -713,7 +745,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -735,19 +768,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -769,13 +804,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowModuleId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -790,7 +826,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -812,19 +849,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -846,13 +885,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .contactFlowModuleId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -867,7 +907,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -889,19 +930,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -923,13 +966,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hoursOfOperationId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -944,7 +988,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -966,19 +1011,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1000,13 +1047,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hoursOfOperationId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1021,7 +1069,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1043,19 +1092,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1077,13 +1128,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hoursOfOperationId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1098,7 +1150,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1120,19 +1173,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Test&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Test")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1154,13 +1209,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hoursOfOperationId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1175,7 +1231,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1197,18 +1254,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1230,12 +1289,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1250,7 +1310,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1272,18 +1333,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1305,12 +1368,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1325,7 +1389,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1347,18 +1412,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1380,12 +1447,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1400,7 +1468,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1422,18 +1491,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1455,12 +1526,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1475,7 +1547,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1497,18 +1570,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1530,12 +1605,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1550,7 +1626,8 @@ public final class ConnectFunctions {
      * By instance_alias
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1572,18 +1649,20 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceAlias(&#34;foo&#34;)
+     *             .instanceAlias("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1605,12 +1684,13 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
-     *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
+     *             .instanceId("97afc98d-101a-ba98-ab97-ae114fc115ec")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1623,7 +1703,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1645,14 +1726,15 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1665,7 +1747,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1687,14 +1770,15 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1707,7 +1791,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1729,14 +1814,15 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1749,7 +1835,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1771,14 +1858,15 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId(&#34;1234567890123456789012345678901234567890123456789012345678901234&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
+     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1791,7 +1879,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1813,13 +1902,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
-     *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .functionArn("arn:aws:lambda:us-west-2:123456789123:function:abcdefg")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1832,7 +1922,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1854,13 +1945,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
-     *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .functionArn("arn:aws:lambda:us-west-2:123456789123:function:abcdefg")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1873,7 +1965,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1895,13 +1988,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
-     *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .functionArn("arn:aws:lambda:us-west-2:123456789123:function:abcdefg")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1914,7 +2008,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1936,13 +2031,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
-     *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .functionArn("arn:aws:lambda:us-west-2:123456789123:function:abcdefg")
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1957,7 +2053,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1979,13 +2076,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Beep.wav&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Beep.wav")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2000,7 +2098,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2022,13 +2121,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Beep.wav&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Beep.wav")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2043,7 +2143,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2065,13 +2166,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Beep.wav&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Beep.wav")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2086,7 +2188,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2108,13 +2211,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Beep.wav&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Beep.wav")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2129,7 +2233,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2151,19 +2256,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2185,13 +2292,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .queueId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2206,7 +2314,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2228,19 +2337,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2262,13 +2373,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .queueId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2283,7 +2395,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2305,19 +2418,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2339,13 +2454,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .queueId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2360,7 +2476,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2382,19 +2499,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2416,13 +2535,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .queueId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2437,7 +2557,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2459,19 +2580,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2493,13 +2616,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .quickConnectId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2514,7 +2638,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2536,19 +2661,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2570,13 +2697,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .quickConnectId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2591,7 +2719,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2613,19 +2742,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2647,13 +2778,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .quickConnectId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2668,7 +2800,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2690,19 +2823,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2724,13 +2859,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .quickConnectId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2745,7 +2881,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2767,19 +2904,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2801,13 +2940,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .routingProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2822,7 +2962,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2844,19 +2985,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2878,13 +3021,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .routingProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2899,7 +3043,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2921,19 +3066,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2955,13 +3102,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .routingProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2976,7 +3124,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2998,19 +3147,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3032,13 +3183,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .routingProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3053,7 +3205,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3075,19 +3228,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3109,13 +3264,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .securityProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3130,7 +3286,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3152,19 +3309,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3186,13 +3345,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .securityProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3207,7 +3367,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3229,19 +3390,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3263,13 +3426,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .securityProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3284,7 +3448,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3306,19 +3471,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3340,13 +3507,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .securityProfileId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3361,7 +3529,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3383,19 +3552,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3417,13 +3588,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .userId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .userId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3438,7 +3610,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3460,19 +3633,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3494,13 +3669,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .userId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .userId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3515,7 +3691,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3537,19 +3714,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3571,13 +3750,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .userId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .userId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3592,7 +3772,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3614,19 +3795,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3648,13 +3831,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUser(GetUserArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .userId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .userId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3669,7 +3853,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3691,19 +3876,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3725,13 +3912,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hierarchyGroupId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3746,7 +3934,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3768,19 +3957,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3802,13 +3993,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hierarchyGroupId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3823,7 +4015,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3845,19 +4038,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3879,13 +4074,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hierarchyGroupId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3900,7 +4096,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3922,19 +4119,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3956,13 +4155,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .hierarchyGroupId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3975,7 +4175,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4002,7 +4203,8 @@ public final class ConnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4015,7 +4217,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4042,7 +4245,8 @@ public final class ConnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4055,7 +4259,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4082,7 +4287,8 @@ public final class ConnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4095,7 +4301,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4122,7 +4329,8 @@ public final class ConnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4137,7 +4345,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4159,19 +4368,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4193,13 +4404,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .vocabularyId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .vocabularyId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4214,7 +4426,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4236,19 +4449,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4270,13 +4485,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .vocabularyId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .vocabularyId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4291,7 +4507,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4313,19 +4530,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4347,13 +4566,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .vocabularyId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .vocabularyId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4368,7 +4588,8 @@ public final class ConnectFunctions {
      * By `name`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4390,19 +4611,21 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .name(&#34;Example&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .name("Example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4424,13 +4647,14 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getVocabulary(GetVocabularyArgs.builder()
-     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .vocabularyId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+     *             .vocabularyId("cccccccc-bbbb-cccc-dddd-111111111111")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

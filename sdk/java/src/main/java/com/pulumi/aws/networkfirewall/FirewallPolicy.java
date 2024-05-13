@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,32 +46,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()        
+ *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions(&#34;aws:pass&#34;)
- *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                 .statelessDefaultActions("aws:pass")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
  *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
- *                 .tlsInspectionConfigurationArn(&#34;arn:aws:network-firewall:REGION:ACCT:tls-configuration/example&#34;)
+ *                 .tlsInspectionConfigurationArn("arn:aws:network-firewall:REGION:ACCT:tls-configuration/example")
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Policy with a HOME_NET Override
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,41 +96,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()        
+ *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
  *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
- *                         .key(&#34;HOME_NET&#34;)
+ *                         .key("HOME_NET")
  *                         .ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs.builder()
  *                             .definitions(                            
- *                                 &#34;10.0.0.0/16&#34;,
- *                                 &#34;10.1.0.0/24&#34;)
+ *                                 "10.0.0.0/16",
+ *                                 "10.1.0.0/24")
  *                             .build())
  *                         .build())
  *                     .build())
- *                 .statelessDefaultActions(&#34;aws:pass&#34;)
- *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                 .statelessDefaultActions("aws:pass")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
  *                     .priority(1)
  *                     .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Policy with a Custom Action for Stateless Inspection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -149,29 +154,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new FirewallPolicy(&#34;test&#34;, FirewallPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new FirewallPolicy("test", FirewallPolicyArgs.builder()        
+ *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .statelessDefaultActions(                
- *                     &#34;aws:pass&#34;,
- *                     &#34;ExampleCustomAction&#34;)
- *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                     "aws:pass",
+ *                     "ExampleCustomAction")
+ *                 .statelessFragmentDefaultActions("aws:drop")
  *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
  *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
  *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
  *                             .dimensions(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs.builder()
- *                                 .value(&#34;1&#34;)
+ *                                 .value("1")
  *                                 .build())
  *                             .build())
  *                         .build())
- *                     .actionName(&#34;ExampleCustomAction&#34;)
+ *                     .actionName("ExampleCustomAction")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

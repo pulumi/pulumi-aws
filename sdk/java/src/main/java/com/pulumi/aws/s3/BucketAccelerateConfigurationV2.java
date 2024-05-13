@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mybucket = new BucketV2(&#34;mybucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()        
+ *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketAccelerateConfigurationV2(&#34;example&#34;, BucketAccelerateConfigurationV2Args.builder()        
+ *         var example = new BucketAccelerateConfigurationV2("example", BucketAccelerateConfigurationV2Args.builder()        
  *             .bucket(mybucket.id())
- *             .status(&#34;Enabled&#34;)
+ *             .status("Enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

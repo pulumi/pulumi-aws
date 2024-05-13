@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,30 +48,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
+ *         var example = new Connector("example", ConnectorArgs.builder()        
  *             .accessRole(test.arn())
  *             .as2Config(ConnectorAs2ConfigArgs.builder()
- *                 .compression(&#34;DISABLED&#34;)
- *                 .encryptionAlgorithm(&#34;AWS128_CBC&#34;)
- *                 .messageSubject(&#34;For Connector&#34;)
+ *                 .compression("DISABLED")
+ *                 .encryptionAlgorithm("AWS128_CBC")
+ *                 .messageSubject("For Connector")
  *                 .localProfileId(local.profileId())
- *                 .mdnResponse(&#34;NONE&#34;)
- *                 .mdnSigningAlgorithm(&#34;NONE&#34;)
+ *                 .mdnResponse("NONE")
+ *                 .mdnSigningAlgorithm("NONE")
  *                 .partnerProfileId(partner.profileId())
- *                 .signingAlgorithm(&#34;NONE&#34;)
+ *                 .signingAlgorithm("NONE")
  *                 .build())
- *             .url(&#34;http://www.test.com&#34;)
+ *             .url("http://www.test.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SFTP Connector
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,18 +95,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
+ *         var example = new Connector("example", ConnectorArgs.builder()        
  *             .accessRole(test.arn())
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
- *                 .trustedHostKeys(&#34;ssh-rsa AAAAB3NYourKeysHere&#34;)
+ *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")
  *                 .userSecretId(exampleAwsSecretsmanagerSecret.id())
  *                 .build())
- *             .url(&#34;sftp://test.com&#34;)
+ *             .url("sftp://test.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

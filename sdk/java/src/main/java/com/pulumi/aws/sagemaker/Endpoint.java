@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var e = new Endpoint(&#34;e&#34;, EndpointArgs.builder()        
- *             .name(&#34;my-endpoint&#34;)
+ *         var e = new Endpoint("e", EndpointArgs.builder()        
+ *             .name("my-endpoint")
  *             .endpointConfigName(ec.name())
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
+ *             .tags(Map.of("Name", "foo"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

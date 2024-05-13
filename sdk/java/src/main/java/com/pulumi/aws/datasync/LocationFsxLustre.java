@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationFsxLustre(&#34;example&#34;, LocationFsxLustreArgs.builder()        
+ *         var example = new LocationFsxLustre("example", LocationFsxLustreArgs.builder()        
  *             .fsxFilesystemArn(exampleAwsFsxLustreFileSystem.arn())
  *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

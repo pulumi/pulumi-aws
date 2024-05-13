@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,35 +51,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .name(&#34;example-domain&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .name("example-domain")
  *             .scalingParameters(DomainScalingParametersArgs.builder()
- *                 .desiredInstanceType(&#34;search.medium&#34;)
+ *                 .desiredInstanceType("search.medium")
  *                 .build())
  *             .indexFields(            
  *                 DomainIndexFieldArgs.builder()
- *                     .name(&#34;headline&#34;)
- *                     .type(&#34;text&#34;)
+ *                     .name("headline")
+ *                     .type("text")
  *                     .search(true)
  *                     .return_(true)
  *                     .sort(true)
  *                     .highlight(false)
- *                     .analysisScheme(&#34;_en_default_&#34;)
+ *                     .analysisScheme("_en_default_")
  *                     .build(),
  *                 DomainIndexFieldArgs.builder()
- *                     .name(&#34;price&#34;)
- *                     .type(&#34;double&#34;)
+ *                     .name("price")
+ *                     .type("double")
  *                     .search(true)
  *                     .facet(true)
  *                     .return_(true)
  *                     .sort(true)
- *                     .sourceFields(&#34;headline&#34;)
+ *                     .sourceFields("headline")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

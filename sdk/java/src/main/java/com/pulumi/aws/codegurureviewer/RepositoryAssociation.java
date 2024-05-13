@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,27 +53,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;);
+ *         var example = new Key("example");
  * 
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;example-repo&#34;)
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *             .repositoryName("example-repo")
  *             .build());
  * 
- *         var exampleRepositoryAssociation = new RepositoryAssociation(&#34;exampleRepositoryAssociation&#34;, RepositoryAssociationArgs.builder()        
+ *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()        
  *             .repository(RepositoryAssociationRepositoryArgs.builder()
  *                 .codecommit(RepositoryAssociationRepositoryCodecommitArgs.builder()
  *                     .name(exampleRepository.repositoryName())
  *                     .build())
  *                 .build())
  *             .kmsKeyDetails(RepositoryAssociationKmsKeyDetailsArgs.builder()
- *                 .encryptionOption(&#34;CUSTOMER_MANAGED_CMK&#34;)
+ *                 .encryptionOption("CUSTOMER_MANAGED_CMK")
  *                 .kmsKeyId(example.keyId())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

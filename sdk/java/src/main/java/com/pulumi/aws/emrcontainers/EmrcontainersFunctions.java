@@ -20,7 +20,8 @@ public final class EmrcontainersFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,14 +43,15 @@ public final class EmrcontainersFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
+     *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
+     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -62,7 +64,8 @@ public final class EmrcontainersFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -84,14 +87,15 @@ public final class EmrcontainersFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
+     *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
+     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -104,7 +108,8 @@ public final class EmrcontainersFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,14 +131,15 @@ public final class EmrcontainersFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
+     *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
+     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +152,8 @@ public final class EmrcontainersFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,14 +175,15 @@ public final class EmrcontainersFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EmrcontainersFunctions.getVirtualCluster(GetVirtualClusterArgs.builder()
-     *             .virtualClusterId(&#34;example id&#34;)
+     *             .virtualClusterId("example id")
      *             .build());
      * 
-     *         ctx.export(&#34;name&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.name()));
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getVirtualClusterResult -&gt; getVirtualClusterResult.arn()));
+     *         ctx.export("name", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.name()));
+     *         ctx.export("arn", example.applyValue(getVirtualClusterResult -> getVirtualClusterResult.arn()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

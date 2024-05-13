@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Account(&#34;test&#34;, AccountArgs.builder()        
- *             .findingPublishingFrequency(&#34;FIFTEEN_MINUTES&#34;)
- *             .status(&#34;ENABLED&#34;)
+ *         var test = new Account("test", AccountArgs.builder()        
+ *             .findingPublishingFrequency("FIFTEEN_MINUTES")
+ *             .status("ENABLED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

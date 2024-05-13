@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * To create a basic traffic mirror session
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,17 +51,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var filter = new TrafficMirrorFilter(&#34;filter&#34;, TrafficMirrorFilterArgs.builder()        
- *             .description(&#34;traffic mirror filter - example&#34;)
- *             .networkServices(&#34;amazon-dns&#34;)
+ *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()        
+ *             .description("traffic mirror filter - example")
+ *             .networkServices("amazon-dns")
  *             .build());
  * 
- *         var target = new TrafficMirrorTarget(&#34;target&#34;, TrafficMirrorTargetArgs.builder()        
+ *         var target = new TrafficMirrorTarget("target", TrafficMirrorTargetArgs.builder()        
  *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
- *         var session = new TrafficMirrorSession(&#34;session&#34;, TrafficMirrorSessionArgs.builder()        
- *             .description(&#34;traffic mirror session - example&#34;)
+ *         var session = new TrafficMirrorSession("session", TrafficMirrorSessionArgs.builder()        
+ *             .description("traffic mirror session - example")
  *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .sessionNumber(1)
  *             .trafficMirrorFilterId(filter.id())
@@ -69,7 +70,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

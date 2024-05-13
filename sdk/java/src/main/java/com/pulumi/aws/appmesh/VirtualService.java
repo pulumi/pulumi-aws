@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Virtual Node Provider
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,8 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .name(&#34;servicea.simpleapp.local&#34;)
+ *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()        
+ *             .name("servicea.simpleapp.local")
  *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
@@ -62,13 +63,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Virtual Router Provider
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,8 +95,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var servicea = new VirtualService(&#34;servicea&#34;, VirtualServiceArgs.builder()        
- *             .name(&#34;servicea.simpleapp.local&#34;)
+ *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()        
+ *             .name("servicea.simpleapp.local")
  *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
  *                 .provider(VirtualServiceSpecProviderArgs.builder()
@@ -106,7 +109,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

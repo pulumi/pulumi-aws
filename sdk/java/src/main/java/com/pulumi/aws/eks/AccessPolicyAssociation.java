@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessPolicyAssociation(&#34;example&#34;, AccessPolicyAssociationArgs.builder()        
+ *         var example = new AccessPolicyAssociation("example", AccessPolicyAssociationArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .policyArn(&#34;arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy&#34;)
+ *             .policyArn("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy")
  *             .principalArn(exampleAwsIamUser.arn())
  *             .accessScope(AccessPolicyAssociationAccessScopeArgs.builder()
- *                 .type(&#34;namespace&#34;)
- *                 .namespaces(&#34;example-namespace&#34;)
+ *                 .type("namespace")
+ *                 .namespaces("example-namespace")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

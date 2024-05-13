@@ -60,7 +60,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,16 +83,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Request a spot instance at $0.03
- *         var cheapWorker = new SpotInstanceRequest(&#34;cheapWorker&#34;, SpotInstanceRequestArgs.builder()        
- *             .ami(&#34;ami-1234&#34;)
- *             .spotPrice(&#34;0.03&#34;)
- *             .instanceType(&#34;c4.xlarge&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;CheapWorker&#34;))
+ *         var cheapWorker = new SpotInstanceRequest("cheapWorker", SpotInstanceRequestArgs.builder()        
+ *             .ami("ami-1234")
+ *             .spotPrice("0.03")
+ *             .instanceType("c4.xlarge")
+ *             .tags(Map.of("Name", "CheapWorker"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +47,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceIntegration(&#34;example&#34;, ServiceIntegrationArgs.builder()        
+ *         var example = new ServiceIntegration("example", ServiceIntegrationArgs.builder()        
  *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
- *                 .optInStatus(&#34;ENABLED&#34;)
- *                 .type(&#34;AWS_OWNED_KMS_KEY&#34;)
+ *                 .optInStatus("ENABLED")
+ *                 .type("AWS_OWNED_KMS_KEY")
  *                 .build())
  *             .logsAnomalyDetection(ServiceIntegrationLogsAnomalyDetectionArgs.builder()
- *                 .optInStatus(&#34;ENABLED&#34;)
+ *                 .optInStatus("ENABLED")
  *                 .build())
  *             .opsCenter(ServiceIntegrationOpsCenterArgs.builder()
- *                 .optInStatus(&#34;ENABLED&#34;)
+ *                 .optInStatus("ENABLED")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Customer Managed KMS Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,25 +95,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;);
+ *         var example = new Key("example");
  * 
- *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
+ *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
  *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
  *                 .kmsKeyId(test.arn())
- *                 .optInStatus(&#34;ENABLED&#34;)
- *                 .type(&#34;CUSTOMER_MANAGED_KEY&#34;)
+ *                 .optInStatus("ENABLED")
+ *                 .type("CUSTOMER_MANAGED_KEY")
  *                 .build())
  *             .logsAnomalyDetection(ServiceIntegrationLogsAnomalyDetectionArgs.builder()
- *                 .optInStatus(&#34;DISABLED&#34;)
+ *                 .optInStatus("DISABLED")
  *                 .build())
  *             .opsCenter(ServiceIntegrationOpsCenterArgs.builder()
- *                 .optInStatus(&#34;DISABLED&#34;)
+ *                 .optInStatus("DISABLED")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

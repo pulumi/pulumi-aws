@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RestApi(&#34;test&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
+ *         var test = new RestApi("test", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
  *             .build());
  * 
  *         // ...
- *         var myusageplan = new UsagePlan(&#34;myusageplan&#34;, UsagePlanArgs.builder()        
- *             .name(&#34;my_usage_plan&#34;)
+ *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()        
+ *             .name("my_usage_plan")
  *             .apiStages(UsagePlanApiStageArgs.builder()
  *                 .apiId(test.id())
  *                 .stage(foo.stageName())
  *                 .build())
  *             .build());
  * 
- *         var mykey = new ApiKey(&#34;mykey&#34;, ApiKeyArgs.builder()        
- *             .name(&#34;my_key&#34;)
+ *         var mykey = new ApiKey("mykey", ApiKeyArgs.builder()        
+ *             .name("my_key")
  *             .build());
  * 
- *         var main = new UsagePlanKey(&#34;main&#34;, UsagePlanKeyArgs.builder()        
+ *         var main = new UsagePlanKey("main", UsagePlanKeyArgs.builder()        
  *             .keyId(mykey.id())
- *             .keyType(&#34;API_KEY&#34;)
+ *             .keyType("API_KEY")
  *             .usagePlanId(myusageplan.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

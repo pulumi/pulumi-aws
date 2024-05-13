@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new IdentityNotificationTopic(&#34;test&#34;, IdentityNotificationTopicArgs.builder()        
+ *         var test = new IdentityNotificationTopic("test", IdentityNotificationTopicArgs.builder()        
  *             .topicArn(exampleAwsSnsTopic.arn())
- *             .notificationType(&#34;Bounce&#34;)
+ *             .notificationType("Bounce")
  *             .identity(example.domain())
  *             .includeOriginalHeaders(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApplicationSnapshot(&#34;example&#34;, ApplicationSnapshotArgs.builder()        
+ *         var example = new ApplicationSnapshot("example", ApplicationSnapshotArgs.builder()        
  *             .applicationName(exampleAwsKinesisanalyticsv2Application.name())
- *             .snapshotName(&#34;example-snapshot&#34;)
+ *             .snapshotName("example-snapshot")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -52,7 +52,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -76,17 +77,18 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
      *             .vpcId(main.id())
      *             .build());
      * 
-     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+     *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
      *             .dependsOn(gw)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -99,7 +101,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -123,17 +126,18 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
      *             .vpcId(main.id())
      *             .build());
      * 
-     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+     *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
      *             .dependsOn(gw)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -255,7 +259,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -279,17 +284,18 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
          *             .vpcId(main.id())
          *             .build());
          * 
-         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+         *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
          *             .dependsOn(gw)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -306,7 +312,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -330,17 +337,18 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
          *             .vpcId(main.id())
          *             .build());
          * 
-         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+         *         var foo = new Instance("foo", InstanceArgs.Empty, CustomResourceOptions.builder()
          *             .dependsOn(gw)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

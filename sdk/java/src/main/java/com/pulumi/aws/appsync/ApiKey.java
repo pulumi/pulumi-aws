@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *             .authenticationType("API_KEY")
+ *             .name("example")
  *             .build());
  * 
- *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
+ *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()        
  *             .apiId(example.id())
- *             .expires(&#34;2018-05-03T04:00:00Z&#34;)
+ *             .expires("2018-05-03T04:00:00Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

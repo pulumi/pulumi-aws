@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,19 +57,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupRule(&#34;example&#34;, SecurityGroupRuleArgs.builder()        
- *             .type(&#34;ingress&#34;)
+ *         var example = new SecurityGroupRule("example", SecurityGroupRuleArgs.builder()        
+ *             .type("ingress")
  *             .fromPort(0)
  *             .toPort(65535)
- *             .protocol(&#34;tcp&#34;)
+ *             .protocol("tcp")
  *             .cidrBlocks(exampleAwsVpc.cidrBlock())
  *             .ipv6CidrBlocks(exampleAwsVpc.ipv6CidrBlock())
- *             .securityGroupId(&#34;sg-123456&#34;)
+ *             .securityGroupId("sg-123456")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage With Prefix List IDs
@@ -80,7 +82,8 @@ import javax.annotation.Nullable;
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,27 +106,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...
- *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
+ *         var myEndpoint = new VpcEndpoint("myEndpoint");
  * 
- *         var allowAll = new SecurityGroupRule(&#34;allowAll&#34;, SecurityGroupRuleArgs.builder()        
- *             .type(&#34;egress&#34;)
+ *         var allowAll = new SecurityGroupRule("allowAll", SecurityGroupRuleArgs.builder()        
+ *             .type("egress")
  *             .toPort(0)
- *             .protocol(&#34;-1&#34;)
+ *             .protocol("-1")
  *             .prefixListIds(myEndpoint.prefixListId())
  *             .fromPort(0)
- *             .securityGroupId(&#34;sg-123456&#34;)
+ *             .securityGroupId("sg-123456")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
  * or `ec2_managed_prefix_list` data sources:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -151,22 +156,23 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getRegion();
  * 
  *         final var s3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
- *             .name(String.format(&#34;com.amazonaws.%s.s3&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *             .name(String.format("com.amazonaws.%s.s3", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build());
  * 
- *         var s3GatewayEgress = new SecurityGroupRule(&#34;s3GatewayEgress&#34;, SecurityGroupRuleArgs.builder()        
- *             .description(&#34;S3 Gateway Egress&#34;)
- *             .type(&#34;egress&#34;)
- *             .securityGroupId(&#34;sg-123456&#34;)
+ *         var s3GatewayEgress = new SecurityGroupRule("s3GatewayEgress", SecurityGroupRuleArgs.builder()        
+ *             .description("S3 Gateway Egress")
+ *             .type("egress")
+ *             .securityGroupId("sg-123456")
  *             .fromPort(443)
  *             .toPort(443)
- *             .protocol(&#34;tcp&#34;)
- *             .prefixListIds(s3.applyValue(getPrefixListResult -&gt; getPrefixListResult.id()))
+ *             .protocol("tcp")
+ *             .prefixListIds(s3.applyValue(getPrefixListResult -> getPrefixListResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

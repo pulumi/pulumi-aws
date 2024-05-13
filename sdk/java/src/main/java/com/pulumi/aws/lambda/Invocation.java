@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Dynamic Invocation Example Using Triggers
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,28 +50,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
+ *         var example = new Invocation("example", InvocationArgs.builder()        
  *             .functionName(lambdaFunctionTest.functionName())
- *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1(Sha1Args.builder()
+ *             .triggers(Map.of("redeployment", StdFunctions.sha1(Sha1Args.builder()
  *                 .input(serializeJson(
  *                     jsonArray(exampleAwsLambdaFunction.environment())))
  *                 .build()).result()))
  *             .input(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
- *                     jsonProperty(&#34;key2&#34;, &#34;value2&#34;)
+ *                     jsonProperty("key1", "value1"),
+ *                     jsonProperty("key2", "value2")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CRUD Lifecycle Scope
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,19 +95,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
+ *         var example = new Invocation("example", InvocationArgs.builder()        
  *             .functionName(lambdaFunctionTest.functionName())
  *             .input(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
- *                     jsonProperty(&#34;key2&#34;, &#34;value2&#34;)
+ *                     jsonProperty("key1", "value1"),
+ *                     jsonProperty("key2", "value2")
  *                 )))
- *             .lifecycleScope(&#34;CRUD&#34;)
+ *             .lifecycleScope("CRUD")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.

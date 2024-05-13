@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,24 +50,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
  *             .vpcId(example.id())
- *             .cidrBlock(&#34;10.0.0.0/24&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *             .cidrBlock("10.0.0.0/24")
+ *             .availabilityZone("us-west-2a")
  *             .build());
  * 
- *         var exampleSubnetGroup = new SubnetGroup(&#34;exampleSubnetGroup&#34;, SubnetGroupArgs.builder()        
- *             .name(&#34;my-subnet-group&#34;)
+ *         var exampleSubnetGroup = new SubnetGroup("exampleSubnetGroup", SubnetGroupArgs.builder()        
+ *             .name("my-subnet-group")
  *             .subnetIds(exampleSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

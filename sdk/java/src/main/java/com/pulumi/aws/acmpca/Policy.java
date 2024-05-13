@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,45 +48,46 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;1&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("1")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
+ *                         .type("AWS")
  *                         .identifiers(current.accountId())
  *                         .build())
  *                     .actions(                    
- *                         &#34;acm-pca:DescribeCertificateAuthority&#34;,
- *                         &#34;acm-pca:GetCertificate&#34;,
- *                         &#34;acm-pca:GetCertificateAuthorityCertificate&#34;,
- *                         &#34;acm-pca:ListPermissions&#34;,
- *                         &#34;acm-pca:ListTags&#34;)
+ *                         "acm-pca:DescribeCertificateAuthority",
+ *                         "acm-pca:GetCertificate",
+ *                         "acm-pca:GetCertificateAuthorityCertificate",
+ *                         "acm-pca:ListPermissions",
+ *                         "acm-pca:ListTags")
  *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;2&#34;)
+ *                     .sid("2")
  *                     .effect(allow)
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
+ *                         .type("AWS")
  *                         .identifiers(current.accountId())
  *                         .build())
- *                     .actions(&#34;acm-pca:IssueCertificate&#34;)
+ *                     .actions("acm-pca:IssueCertificate")
  *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;acm-pca:TemplateArn&#34;)
- *                         .values(&#34;arn:aws:acm-pca:::template/EndEntityCertificate/V1&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("acm-pca:TemplateArn")
+ *                         .values("arn:aws:acm-pca:::template/EndEntityCertificate/V1")
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
  *             .resourceArn(exampleAwsAcmpcaCertificateAuthority.arn())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

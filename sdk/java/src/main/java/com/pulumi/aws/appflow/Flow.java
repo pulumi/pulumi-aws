@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,108 +67,109 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSourceBucketV2 = new BucketV2(&#34;exampleSourceBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-source&#34;)
+ *         var exampleSourceBucketV2 = new BucketV2("exampleSourceBucketV2", BucketV2Args.builder()        
+ *             .bucket("example-source")
  *             .build());
  * 
  *         final var exampleSource = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;AllowAppFlowSourceActions&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("AllowAppFlowSourceActions")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;appflow.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("appflow.amazonaws.com")
  *                     .build())
  *                 .actions(                
- *                     &#34;s3:ListBucket&#34;,
- *                     &#34;s3:GetObject&#34;)
+ *                     "s3:ListBucket",
+ *                     "s3:GetObject")
  *                 .resources(                
- *                     &#34;arn:aws:s3:::example-source&#34;,
- *                     &#34;arn:aws:s3:::example-source/*&#34;)
+ *                     "arn:aws:s3:::example-source",
+ *                     "arn:aws:s3:::example-source/*")
  *                 .build())
  *             .build());
  * 
- *         var exampleSourceBucketPolicy = new BucketPolicy(&#34;exampleSourceBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(exampleSourceBucketV2.id())
- *             .policy(exampleSource.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(exampleSource.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new BucketObjectv2(&#34;example&#34;, BucketObjectv2Args.builder()        
+ *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()        
  *             .bucket(exampleSourceBucketV2.id())
- *             .key(&#34;example_source.csv&#34;)
- *             .source(new FileAsset(&#34;example_source.csv&#34;))
+ *             .key("example_source.csv")
+ *             .source(new FileAsset("example_source.csv"))
  *             .build());
  * 
- *         var exampleDestinationBucketV2 = new BucketV2(&#34;exampleDestinationBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-destination&#34;)
+ *         var exampleDestinationBucketV2 = new BucketV2("exampleDestinationBucketV2", BucketV2Args.builder()        
+ *             .bucket("example-destination")
  *             .build());
  * 
  *         final var exampleDestination = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;AllowAppFlowDestinationActions&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("AllowAppFlowDestinationActions")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;appflow.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("appflow.amazonaws.com")
  *                     .build())
  *                 .actions(                
- *                     &#34;s3:PutObject&#34;,
- *                     &#34;s3:AbortMultipartUpload&#34;,
- *                     &#34;s3:ListMultipartUploadParts&#34;,
- *                     &#34;s3:ListBucketMultipartUploads&#34;,
- *                     &#34;s3:GetBucketAcl&#34;,
- *                     &#34;s3:PutObjectAcl&#34;)
+ *                     "s3:PutObject",
+ *                     "s3:AbortMultipartUpload",
+ *                     "s3:ListMultipartUploadParts",
+ *                     "s3:ListBucketMultipartUploads",
+ *                     "s3:GetBucketAcl",
+ *                     "s3:PutObjectAcl")
  *                 .resources(                
- *                     &#34;arn:aws:s3:::example-destination&#34;,
- *                     &#34;arn:aws:s3:::example-destination/*&#34;)
+ *                     "arn:aws:s3:::example-destination",
+ *                     "arn:aws:s3:::example-destination/*")
  *                 .build())
  *             .build());
  * 
- *         var exampleDestinationBucketPolicy = new BucketPolicy(&#34;exampleDestinationBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(exampleDestinationBucketV2.id())
- *             .policy(exampleDestination.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(exampleDestination.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleFlow = new Flow(&#34;exampleFlow&#34;, FlowArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleFlow = new Flow("exampleFlow", FlowArgs.builder()        
+ *             .name("example")
  *             .sourceFlowConfig(FlowSourceFlowConfigArgs.builder()
- *                 .connectorType(&#34;S3&#34;)
+ *                 .connectorType("S3")
  *                 .sourceConnectorProperties(FlowSourceFlowConfigSourceConnectorPropertiesArgs.builder()
  *                     .s3(FlowSourceFlowConfigSourceConnectorPropertiesS3Args.builder()
  *                         .bucketName(exampleSourceBucketPolicy.bucket())
- *                         .bucketPrefix(&#34;example&#34;)
+ *                         .bucketPrefix("example")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .destinationFlowConfigs(FlowDestinationFlowConfigArgs.builder()
- *                 .connectorType(&#34;S3&#34;)
+ *                 .connectorType("S3")
  *                 .destinationConnectorProperties(FlowDestinationFlowConfigDestinationConnectorPropertiesArgs.builder()
  *                     .s3(FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.builder()
  *                         .bucketName(exampleDestinationBucketPolicy.bucket())
  *                         .s3OutputFormatConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.builder()
  *                             .prefixConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs.builder()
- *                                 .prefixType(&#34;PATH&#34;)
+ *                                 .prefixType("PATH")
  *                                 .build())
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .build())
  *             .tasks(FlowTaskArgs.builder()
- *                 .sourceFields(&#34;exampleField&#34;)
- *                 .destinationField(&#34;exampleField&#34;)
- *                 .taskType(&#34;Map&#34;)
+ *                 .sourceFields("exampleField")
+ *                 .destinationField("exampleField")
+ *                 .taskType("Map")
  *                 .connectorOperators(FlowTaskConnectorOperatorArgs.builder()
- *                     .s3(&#34;NO_OP&#34;)
+ *                     .s3("NO_OP")
  *                     .build())
  *                 .build())
  *             .triggerConfig(FlowTriggerConfigArgs.builder()
- *                 .triggerType(&#34;OnDemand&#34;)
+ *                 .triggerType("OnDemand")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,36 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ec2 = new Budget(&#34;ec2&#34;, BudgetArgs.builder()        
- *             .name(&#34;budget-ec2-monthly&#34;)
- *             .budgetType(&#34;COST&#34;)
- *             .limitAmount(&#34;1200&#34;)
- *             .limitUnit(&#34;USD&#34;)
- *             .timePeriodEnd(&#34;2087-06-15_00:00&#34;)
- *             .timePeriodStart(&#34;2017-07-01_00:00&#34;)
- *             .timeUnit(&#34;MONTHLY&#34;)
+ *         var ec2 = new Budget("ec2", BudgetArgs.builder()        
+ *             .name("budget-ec2-monthly")
+ *             .budgetType("COST")
+ *             .limitAmount("1200")
+ *             .limitUnit("USD")
+ *             .timePeriodEnd("2087-06-15_00:00")
+ *             .timePeriodStart("2017-07-01_00:00")
+ *             .timeUnit("MONTHLY")
  *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;Service&#34;)
- *                 .values(&#34;Amazon Elastic Compute Cloud - Compute&#34;)
+ *                 .name("Service")
+ *                 .values("Amazon Elastic Compute Cloud - Compute")
  *                 .build())
  *             .notifications(BudgetNotificationArgs.builder()
- *                 .comparisonOperator(&#34;GREATER_THAN&#34;)
+ *                 .comparisonOperator("GREATER_THAN")
  *                 .threshold(100)
- *                 .thresholdType(&#34;PERCENTAGE&#34;)
- *                 .notificationType(&#34;FORECASTED&#34;)
- *                 .subscriberEmailAddresses(&#34;test@example.com&#34;)
+ *                 .thresholdType("PERCENTAGE")
+ *                 .notificationType("FORECASTED")
+ *                 .subscriberEmailAddresses("test{@literal @}example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget for *$100*.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -99,21 +102,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
- *             .budgetType(&#34;COST&#34;)
- *             .limitAmount(&#34;100&#34;)
- *             .limitUnit(&#34;USD&#34;)
+ *         var cost = new Budget("cost", BudgetArgs.builder()        
+ *             .budgetType("COST")
+ *             .limitAmount("100")
+ *             .limitUnit("USD")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget with planned budget limits.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -135,29 +140,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()        
  *             .plannedLimits(            
  *                 BudgetPlannedLimitArgs.builder()
- *                     .startTime(&#34;2017-07-01_00:00&#34;)
- *                     .amount(&#34;100&#34;)
- *                     .unit(&#34;USD&#34;)
+ *                     .startTime("2017-07-01_00:00")
+ *                     .amount("100")
+ *                     .unit("USD")
  *                     .build(),
  *                 BudgetPlannedLimitArgs.builder()
- *                     .startTime(&#34;2017-08-01_00:00&#34;)
- *                     .amount(&#34;200&#34;)
- *                     .unit(&#34;USD&#34;)
+ *                     .startTime("2017-08-01_00:00")
+ *                     .amount("200")
+ *                     .unit("USD")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a budget for s3 with a limit of *3 GB* of storage.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -178,21 +185,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new Budget(&#34;s3&#34;, BudgetArgs.builder()        
- *             .budgetType(&#34;USAGE&#34;)
- *             .limitAmount(&#34;3&#34;)
- *             .limitUnit(&#34;GB&#34;)
+ *         var s3 = new Budget("s3", BudgetArgs.builder()        
+ *             .budgetType("USAGE")
+ *             .limitAmount("3")
+ *             .limitUnit("GB")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a Savings Plan Utilization Budget
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -214,10 +223,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var savingsPlanUtilization = new Budget(&#34;savingsPlanUtilization&#34;, BudgetArgs.builder()        
- *             .budgetType(&#34;SAVINGS_PLANS_UTILIZATION&#34;)
- *             .limitAmount(&#34;100.0&#34;)
- *             .limitUnit(&#34;PERCENTAGE&#34;)
+ *         var savingsPlanUtilization = new Budget("savingsPlanUtilization", BudgetArgs.builder()        
+ *             .budgetType("SAVINGS_PLANS_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -234,13 +243,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a RI Utilization Budget
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -263,10 +274,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var riUtilization = new Budget(&#34;riUtilization&#34;, BudgetArgs.builder()        
- *             .budgetType(&#34;RI_UTILIZATION&#34;)
- *             .limitAmount(&#34;100.0&#34;)
- *             .limitUnit(&#34;PERCENTAGE&#34;)
+ *         var riUtilization = new Budget("riUtilization", BudgetArgs.builder()        
+ *             .budgetType("RI_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -280,20 +291,22 @@ import javax.annotation.Nullable;
  *                 .useBlended(false)
  *                 .build())
  *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;Service&#34;)
- *                 .values(&#34;Amazon Relational Database Service&#34;)
+ *                 .name("Service")
+ *                 .values("Amazon Relational Database Service")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a Cost Filter using Resource Tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -315,22 +328,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()        
  *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;TagKeyValue&#34;)
- *                 .values(&#34;TagKey$TagValue&#34;)
+ *                 .name("TagKeyValue")
+ *                 .values("TagKey$TagValue")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Create a cost_filter using resource tags, obtaining the tag value from a variable
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -352,16 +367,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget(&#34;cost&#34;, BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()        
  *             .costFilters(BudgetCostFilterArgs.builder()
- *                 .name(&#34;TagKeyValue&#34;)
- *                 .values(String.format(&#34;TagKey%s%s&#34;, &#34;$&#34;,tagValue))
+ *                 .name("TagKeyValue")
+ *                 .values(String.format("TagKey%s%s", "$",tagValue))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

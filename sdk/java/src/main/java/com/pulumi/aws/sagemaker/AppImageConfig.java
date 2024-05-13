@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,8 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
- *             .appImageConfigName(&#34;example&#34;)
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()        
+ *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
@@ -57,13 +58,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Default File System Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,8 +89,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppImageConfig(&#34;test&#34;, AppImageConfigArgs.builder()        
- *             .appImageConfigName(&#34;example&#34;)
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()        
+ *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .fileSystemConfig()
@@ -96,7 +99,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

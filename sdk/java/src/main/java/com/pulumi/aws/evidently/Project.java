@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example Description&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example")
+ *             .description("Example Description")
+ *             .tags(Map.of("Key1", "example Project"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Store evaluation events in a CloudWatch Log Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,26 +86,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example Description&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example")
+ *             .description("Example Description")
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .cloudwatchLogs(ProjectDataDeliveryCloudwatchLogsArgs.builder()
- *                     .logGroup(&#34;example-log-group-name&#34;)
+ *                     .logGroup("example-log-group-name")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
+ *             .tags(Map.of("Key1", "example Project"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Store evaluation events in an S3 bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,21 +130,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project(&#34;example&#34;, ProjectArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example Description&#34;)
+ *         var example = new Project("example", ProjectArgs.builder()        
+ *             .name("Example")
+ *             .description("Example Description")
  *             .dataDelivery(ProjectDataDeliveryArgs.builder()
  *                 .s3Destination(ProjectDataDeliveryS3DestinationArgs.builder()
- *                     .bucket(&#34;example-bucket-name&#34;)
- *                     .prefix(&#34;example&#34;)
+ *                     .bucket("example-bucket-name")
+ *                     .prefix("example")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Project&#34;))
+ *             .tags(Map.of("Key1", "example Project"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

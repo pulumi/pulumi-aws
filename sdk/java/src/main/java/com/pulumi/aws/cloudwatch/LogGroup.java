@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup(&#34;yada&#34;, LogGroupArgs.builder()        
- *             .name(&#34;Yada&#34;)
+ *         var yada = new LogGroup("yada", LogGroupArgs.builder()        
+ *             .name("Yada")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;serviceA&#34;)
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Application", "serviceA")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

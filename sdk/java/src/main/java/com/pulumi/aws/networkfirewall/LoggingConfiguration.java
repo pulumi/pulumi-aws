@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Logging to S3
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,29 +45,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.ofEntries(
- *                         Map.entry(&#34;bucketName&#34;, exampleAwsS3Bucket.bucket()),
- *                         Map.entry(&#34;prefix&#34;, &#34;/example&#34;)
+ *                         Map.entry("bucketName", exampleAwsS3Bucket.bucket()),
+ *                         Map.entry("prefix", "/example")
  *                     ))
- *                     .logDestinationType(&#34;S3&#34;)
- *                     .logType(&#34;FLOW&#34;)
+ *                     .logDestinationType("S3")
+ *                     .logType("FLOW")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging to CloudWatch
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,26 +91,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;logGroup&#34;, exampleAwsCloudwatchLogGroup.name()))
- *                     .logDestinationType(&#34;CloudWatchLogs&#34;)
- *                     .logType(&#34;ALERT&#34;)
+ *                     .logDestination(Map.of("logGroup", exampleAwsCloudwatchLogGroup.name()))
+ *                     .logDestinationType("CloudWatchLogs")
+ *                     .logType("ALERT")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging to Kinesis Data Firehose
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,20 +134,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration(&#34;example&#34;, LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
- *                     .logDestination(Map.of(&#34;deliveryStream&#34;, exampleAwsKinesisFirehoseDeliveryStream.name()))
- *                     .logDestinationType(&#34;KinesisDataFirehose&#34;)
- *                     .logType(&#34;ALERT&#34;)
+ *                     .logDestination(Map.of("deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.name()))
+ *                     .logDestinationType("KinesisDataFirehose")
+ *                     .logType("ALERT")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

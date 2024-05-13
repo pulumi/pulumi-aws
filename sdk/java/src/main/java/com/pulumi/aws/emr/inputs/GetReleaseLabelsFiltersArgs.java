@@ -16,14 +16,14 @@ public final class GetReleaseLabelsFiltersArgs extends com.pulumi.resources.Reso
     public static final GetReleaseLabelsFiltersArgs Empty = new GetReleaseLabelsFiltersArgs();
 
     /**
-     * Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     @Import(name="application")
     private @Nullable Output<String> application;
 
     /**
-     * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     public Optional<Output<String>> application() {
@@ -71,7 +71,7 @@ public final class GetReleaseLabelsFiltersArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param application Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+         * @param application Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetReleaseLabelsFiltersArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param application Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+         * @param application Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
          * 
          * @return builder
          * 

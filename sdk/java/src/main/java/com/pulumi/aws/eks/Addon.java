@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .addonName(&#34;vpc-cni&#34;)
+ *             .addonName("vpc-cni")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
@@ -58,7 +60,8 @@ import javax.annotation.Nullable;
  * `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,16 +82,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
- *             .resolveConflictsOnUpdate(&#34;PRESERVE&#34;)
+ *             .addonName("coredns")
+ *             .addonVersion("v1.10.1-eksbuild.1")
+ *             .resolveConflictsOnUpdate("PRESERVE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example add-on usage with custom configuration_values
@@ -103,7 +107,8 @@ import javax.annotation.Nullable;
  * Example to create a `coredns` managed addon with custom `configuration_values`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,22 +130,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
- *             .clusterName(&#34;mycluster&#34;)
- *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
- *             .resolveConflictsOnCreate(&#34;OVERWRITE&#34;)
+ *         var example = new Addon("example", AddonArgs.builder()        
+ *             .clusterName("mycluster")
+ *             .addonName("coredns")
+ *             .addonVersion("v1.10.1-eksbuild.1")
+ *             .resolveConflictsOnCreate("OVERWRITE")
  *             .configurationValues(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;replicaCount&#34;, 4),
- *                     jsonProperty(&#34;resources&#34;, jsonObject(
- *                         jsonProperty(&#34;limits&#34;, jsonObject(
- *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
- *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                     jsonProperty("replicaCount", 4),
+ *                     jsonProperty("resources", jsonObject(
+ *                         jsonProperty("limits", jsonObject(
+ *                             jsonProperty("cpu", "100m"),
+ *                             jsonProperty("memory", "150Mi")
  *                         )),
- *                         jsonProperty(&#34;requests&#34;, jsonObject(
- *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
- *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                         jsonProperty("requests", jsonObject(
+ *                             jsonProperty("cpu", "100m"),
+ *                             jsonProperty("memory", "150Mi")
  *                         ))
  *                     ))
  *                 )))
@@ -148,13 +153,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example IAM Role for EKS Addon &#34;vpc-cni&#34; with AWS managed policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -184,47 +191,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ *         var exampleCluster = new Cluster("exampleCluster");
  * 
  *         final var example = TlsFunctions.getCertificate(GetCertificateArgs.builder()
- *             .url(exampleCluster.identities().applyValue(identities -&gt; identities[0].oidcs()[0].issuer()))
+ *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
  *             .build());
  * 
- *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider(&#34;exampleOpenIdConnectProvider&#34;, OpenIdConnectProviderArgs.builder()        
- *             .clientIdLists(&#34;sts.amazonaws.com&#34;)
- *             .thumbprintLists(example.applyValue(getCertificateResult -&gt; getCertificateResult).applyValue(example -&gt; example.applyValue(getCertificateResult -&gt; getCertificateResult.certificates()[0].sha1Fingerprint())))
- *             .url(exampleCluster.identities().applyValue(identities -&gt; identities[0].oidcs()[0].issuer()))
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()        
+ *             .clientIdLists("sts.amazonaws.com")
+ *             .thumbprintLists(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.certificates()[0].sha1Fingerprint())))
+ *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
  *             .build());
  * 
  *         final var exampleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRoleWithWebIdentity&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .actions("sts:AssumeRoleWithWebIdentity")
+ *                 .effect("Allow")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;StringEquals&#34;)
- *                     .variable(StdFunctions.replace().applyValue(invoke -&gt; String.format(&#34;%s:sub&#34;, invoke.result())))
- *                     .values(&#34;system:serviceaccount:kube-system:aws-node&#34;)
+ *                     .test("StringEquals")
+ *                     .variable(StdFunctions.replace().applyValue(invoke -> String.format("%s:sub", invoke.result())))
+ *                     .values("system:serviceaccount:kube-system:aws-node")
  *                     .build())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(exampleOpenIdConnectProvider.arn())
- *                     .type(&#34;Federated&#34;)
+ *                     .type("Federated")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -&gt; exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .name(&#34;example-vpc-cni-role&#34;)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -> exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .name("example-vpc-cni-role")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy&#34;)
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
  *             .role(exampleRole.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

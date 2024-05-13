@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Standard usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Route(&#34;example&#34;, RouteArgs.builder()        
- *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
+ *         var example = new Route("example", RouteArgs.builder()        
+ *             .destinationCidrBlock("0.0.0.0/0")
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Blackhole route
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,15 +82,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Route(&#34;example&#34;, RouteArgs.builder()        
- *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
+ *         var example = new Route("example", RouteArgs.builder()        
+ *             .destinationCidrBlock("0.0.0.0/0")
  *             .blackhole(true)
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

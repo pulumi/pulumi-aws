@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Response
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,47 +54,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart(&#34;mydemoresource&#34;)
+ *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration(&#34;myDemoIntegration&#34;, IntegrationArgs.builder()        
- *             .restApi(myDemoAPI.id())
- *             .resourceId(myDemoResource.id())
- *             .httpMethod(myDemoMethod.httpMethod())
- *             .type(&#34;MOCK&#34;)
- *             .build());
- * 
- *         var response200 = new MethodResponse(&#34;response200&#34;, MethodResponseArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
- *             .statusCode(&#34;200&#34;)
+ *             .type("MOCK")
+ *             .build());
+ * 
+ *         var response200 = new MethodResponse("response200", MethodResponseArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .resourceId(myDemoResource.id())
+ *             .httpMethod(myDemoMethod.httpMethod())
+ *             .statusCode("200")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Response with Custom Header and Model
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,64 +128,65 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart(&#34;mydemoresource&#34;)
+ *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration(&#34;myDemoIntegration&#34;, IntegrationArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
- *             .type(&#34;MOCK&#34;)
+ *             .type("MOCK")
  *             .build());
  * 
- *         var myDemoResponseModel = new Model(&#34;myDemoResponseModel&#34;, ModelArgs.builder()        
+ *         var myDemoResponseModel = new Model("myDemoResponseModel", ModelArgs.builder()        
  *             .restApi(myDemoAPI.id())
- *             .name(&#34;MyDemoResponseModel&#34;)
- *             .description(&#34;API response for MyDemoMethod&#34;)
- *             .contentType(&#34;application/json&#34;)
+ *             .name("MyDemoResponseModel")
+ *             .description("API response for MyDemoMethod")
+ *             .contentType("application/json")
  *             .schema(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;$schema&#34;, &#34;http://json-schema.org/draft-04/schema#&#34;),
- *                     jsonProperty(&#34;title&#34;, &#34;MyDemoResponse&#34;),
- *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
- *                     jsonProperty(&#34;properties&#34;, jsonObject(
- *                         jsonProperty(&#34;Message&#34;, jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
+ *                     jsonProperty("$schema", "http://json-schema.org/draft-04/schema#"),
+ *                     jsonProperty("title", "MyDemoResponse"),
+ *                     jsonProperty("type", "object"),
+ *                     jsonProperty("properties", jsonObject(
+ *                         jsonProperty("Message", jsonObject(
+ *                             jsonProperty("type", "string")
  *                         ))
  *                     ))
  *                 )))
  *             .build());
  * 
- *         var response200 = new MethodResponse(&#34;response200&#34;, MethodResponseArgs.builder()        
+ *         var response200 = new MethodResponse("response200", MethodResponseArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
- *             .statusCode(&#34;200&#34;)
- *             .responseModels(Map.of(&#34;application/json&#34;, &#34;MyDemoResponseModel&#34;))
+ *             .statusCode("200")
+ *             .responseModels(Map.of("application/json", "MyDemoResponseModel"))
  *             .responseParameters(Map.ofEntries(
- *                 Map.entry(&#34;method.response.header.Content-Type&#34;, false),
- *                 Map.entry(&#34;method-response-header.X-My-Demo-Header&#34;, false)
+ *                 Map.entry("method.response.header.Content-Type", false),
+ *                 Map.entry("method-response-header.X-My-Demo-Header", false)
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

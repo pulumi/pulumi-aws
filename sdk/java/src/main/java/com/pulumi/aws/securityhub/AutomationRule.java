@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,36 +55,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutomationRule(&#34;example&#34;, AutomationRuleArgs.builder()        
- *             .description(&#34;Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk&#34;)
- *             .ruleName(&#34;Elevate severity of findings that relate to important resources&#34;)
+ *         var example = new AutomationRule("example", AutomationRuleArgs.builder()        
+ *             .description("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk")
+ *             .ruleName("Elevate severity of findings that relate to important resources")
  *             .ruleOrder(1)
  *             .actions(AutomationRuleActionArgs.builder()
  *                 .findingFieldsUpdate(AutomationRuleActionFindingFieldsUpdateArgs.builder()
  *                     .severity(AutomationRuleActionFindingFieldsUpdateSeverityArgs.builder()
- *                         .label(&#34;CRITICAL&#34;)
- *                         .product(&#34;0.0&#34;)
+ *                         .label("CRITICAL")
+ *                         .product("0.0")
  *                         .build())
  *                     .note(AutomationRuleActionFindingFieldsUpdateNoteArgs.builder()
- *                         .text(&#34;This is a critical resource. Please review ASAP.&#34;)
- *                         .updatedBy(&#34;sechub-automation&#34;)
+ *                         .text("This is a critical resource. Please review ASAP.")
+ *                         .updatedBy("sechub-automation")
  *                         .build())
- *                     .types(&#34;Software and Configuration Checks/Industry and Regulatory Standards&#34;)
- *                     .userDefinedFields(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *                     .types("Software and Configuration Checks/Industry and Regulatory Standards")
+ *                     .userDefinedFields(Map.of("key", "value"))
  *                     .build())
- *                 .type(&#34;FINDING_FIELDS_UPDATE&#34;)
+ *                 .type("FINDING_FIELDS_UPDATE")
  *                 .build())
  *             .criteria(AutomationRuleCriteriaArgs.builder()
  *                 .resourceIds(AutomationRuleCriteriaResourceIdArgs.builder()
- *                     .comparison(&#34;EQUALS&#34;)
- *                     .value(&#34;arn:aws:s3:::examplebucket/*&#34;)
+ *                     .comparison("EQUALS")
+ *                     .value("arn:aws:s3:::examplebucket/*")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

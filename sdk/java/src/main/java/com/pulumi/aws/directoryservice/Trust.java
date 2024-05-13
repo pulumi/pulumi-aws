@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Two-Way Trust
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,41 +54,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oneDirectory = new Directory(&#34;oneDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;one.example.com&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()        
+ *             .name("one.example.com")
+ *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var twoDirectory = new Directory(&#34;twoDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;two.example.com&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()        
+ *             .name("two.example.com")
+ *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var one = new Trust(&#34;one&#34;, TrustArgs.builder()        
+ *         var one = new Trust("one", TrustArgs.builder()        
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
- *             .trustDirection(&#34;Two-Way&#34;)
- *             .trustPassword(&#34;Some0therPassword&#34;)
+ *             .trustDirection("Two-Way")
+ *             .trustPassword("Some0therPassword")
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var two = new Trust(&#34;two&#34;, TrustArgs.builder()        
+ *         var two = new Trust("two", TrustArgs.builder()        
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
- *             .trustDirection(&#34;Two-Way&#34;)
- *             .trustPassword(&#34;Some0therPassword&#34;)
+ *             .trustDirection("Two-Way")
+ *             .trustPassword("Some0therPassword")
  *             .conditionalForwarderIpAddrs(oneDirectory.dnsIpAddresses())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### One-Way Trust
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -110,35 +113,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oneDirectory = new Directory(&#34;oneDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;one.example.com&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()        
+ *             .name("one.example.com")
+ *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var twoDirectory = new Directory(&#34;twoDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;two.example.com&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()        
+ *             .name("two.example.com")
+ *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var one = new Trust(&#34;one&#34;, TrustArgs.builder()        
+ *         var one = new Trust("one", TrustArgs.builder()        
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
- *             .trustDirection(&#34;One-Way: Incoming&#34;)
- *             .trustPassword(&#34;Some0therPassword&#34;)
+ *             .trustDirection("One-Way: Incoming")
+ *             .trustPassword("Some0therPassword")
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var two = new Trust(&#34;two&#34;, TrustArgs.builder()        
+ *         var two = new Trust("two", TrustArgs.builder()        
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
- *             .trustDirection(&#34;One-Way: Outgoing&#34;)
- *             .trustPassword(&#34;Some0therPassword&#34;)
+ *             .trustDirection("One-Way: Outgoing")
+ *             .trustPassword("Some0therPassword")
  *             .conditionalForwarderIpAddrs(oneDirectory.dnsIpAddresses())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

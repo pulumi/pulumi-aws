@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,39 +54,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
- *             .metricName(&#34;WAFRuleGroupExample&#34;)
- *             .name(&#34;WAF-Rule-Group-Example&#34;)
+ *         var exampleRuleGroup = new RuleGroup("exampleRuleGroup", RuleGroupArgs.builder()        
+ *             .metricName("WAFRuleGroupExample")
+ *             .name("WAF-Rule-Group-Example")
  *             .build());
  * 
- *         var example = new Policy(&#34;example&#34;, PolicyArgs.builder()        
- *             .name(&#34;FMS-Policy-Example&#34;)
+ *         var example = new Policy("example", PolicyArgs.builder()        
+ *             .name("FMS-Policy-Example")
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)
- *             .resourceType(&#34;AWS::ElasticLoadBalancingV2::LoadBalancer&#34;)
+ *             .resourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
  *             .securityServicePolicyData(PolicySecurityServicePolicyDataArgs.builder()
- *                 .type(&#34;WAF&#34;)
- *                 .managedServiceData(exampleRuleGroup.id().applyValue(id -&gt; serializeJson(
+ *                 .type("WAF")
+ *                 .managedServiceData(exampleRuleGroup.id().applyValue(id -> serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;type&#34;, &#34;WAF&#34;),
- *                         jsonProperty(&#34;ruleGroups&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;id&#34;, id),
- *                             jsonProperty(&#34;overrideAction&#34;, jsonObject(
- *                                 jsonProperty(&#34;type&#34;, &#34;COUNT&#34;)
+ *                         jsonProperty("type", "WAF"),
+ *                         jsonProperty("ruleGroups", jsonArray(jsonObject(
+ *                             jsonProperty("id", id),
+ *                             jsonProperty("overrideAction", jsonObject(
+ *                                 jsonProperty("type", "COUNT")
  *                             ))
  *                         ))),
- *                         jsonProperty(&#34;defaultAction&#34;, jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;BLOCK&#34;)
+ *                         jsonProperty("defaultAction", jsonObject(
+ *                             jsonProperty("type", "BLOCK")
  *                         )),
- *                         jsonProperty(&#34;overrideCustomerWebACLAssociation&#34;, false)
+ *                         jsonProperty("overrideCustomerWebACLAssociation", false)
  *                     ))))
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-fms-policy&#34;))
+ *             .tags(Map.of("Name", "example-fms-policy"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

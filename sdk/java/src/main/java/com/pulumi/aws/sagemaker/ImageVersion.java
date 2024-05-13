@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ImageVersion(&#34;test&#34;, ImageVersionArgs.builder()        
+ *         var test = new ImageVersion("test", ImageVersionArgs.builder()        
  *             .imageName(testAwsSagemakerImage.id())
- *             .baseImage(&#34;012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest&#34;)
+ *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

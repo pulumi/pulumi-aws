@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * To create a basic traffic mirror session
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,29 +52,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var filter = new TrafficMirrorFilter(&#34;filter&#34;, TrafficMirrorFilterArgs.builder()        
- *             .description(&#34;traffic mirror filter - example&#34;)
- *             .networkServices(&#34;amazon-dns&#34;)
+ *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()        
+ *             .description("traffic mirror filter - example")
+ *             .networkServices("amazon-dns")
  *             .build());
  * 
- *         var ruleout = new TrafficMirrorFilterRule(&#34;ruleout&#34;, TrafficMirrorFilterRuleArgs.builder()        
- *             .description(&#34;test rule&#34;)
+ *         var ruleout = new TrafficMirrorFilterRule("ruleout", TrafficMirrorFilterRuleArgs.builder()        
+ *             .description("test rule")
  *             .trafficMirrorFilterId(filter.id())
- *             .destinationCidrBlock(&#34;10.0.0.0/8&#34;)
- *             .sourceCidrBlock(&#34;10.0.0.0/8&#34;)
+ *             .destinationCidrBlock("10.0.0.0/8")
+ *             .sourceCidrBlock("10.0.0.0/8")
  *             .ruleNumber(1)
- *             .ruleAction(&#34;accept&#34;)
- *             .trafficDirection(&#34;egress&#34;)
+ *             .ruleAction("accept")
+ *             .trafficDirection("egress")
  *             .build());
  * 
- *         var rulein = new TrafficMirrorFilterRule(&#34;rulein&#34;, TrafficMirrorFilterRuleArgs.builder()        
- *             .description(&#34;test rule&#34;)
+ *         var rulein = new TrafficMirrorFilterRule("rulein", TrafficMirrorFilterRuleArgs.builder()        
+ *             .description("test rule")
  *             .trafficMirrorFilterId(filter.id())
- *             .destinationCidrBlock(&#34;10.0.0.0/8&#34;)
- *             .sourceCidrBlock(&#34;10.0.0.0/8&#34;)
+ *             .destinationCidrBlock("10.0.0.0/8")
+ *             .sourceCidrBlock("10.0.0.0/8")
  *             .ruleNumber(1)
- *             .ruleAction(&#34;accept&#34;)
- *             .trafficDirection(&#34;ingress&#34;)
+ *             .ruleAction("accept")
+ *             .trafficDirection("ingress")
  *             .protocol(6)
  *             .destinationPortRange(TrafficMirrorFilterRuleDestinationPortRangeArgs.builder()
  *                 .fromPort(22)
@@ -87,7 +88,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

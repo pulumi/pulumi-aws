@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,80 +56,81 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
- *             .name(&#34;tf-test-pipeline&#34;)
+ *         var bar = new Pipeline("bar", PipelineArgs.builder()        
+ *             .name("tf-test-pipeline")
  *             .roleArn(barAwsIamRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
  *                 .location(barAwsS3Bucket.bucket())
- *                 .type(&#34;S3&#34;)
+ *                 .type("S3")
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
  *                     .id(s3kmskey.arn())
- *                     .type(&#34;KMS&#34;)
+ *                     .type("KMS")
  *                     .build())
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Source&#34;)
+ *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Source&#34;)
- *                         .category(&#34;Source&#34;)
- *                         .owner(&#34;ThirdParty&#34;)
- *                         .provider(&#34;GitHub&#34;)
- *                         .version(&#34;1&#34;)
- *                         .outputArtifacts(&#34;test&#34;)
+ *                         .name("Source")
+ *                         .category("Source")
+ *                         .owner("ThirdParty")
+ *                         .provider("GitHub")
+ *                         .version("1")
+ *                         .outputArtifacts("test")
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;Owner&#34;, &#34;my-organization&#34;),
- *                             Map.entry(&#34;Repo&#34;, &#34;test&#34;),
- *                             Map.entry(&#34;Branch&#34;, &#34;master&#34;)
+ *                             Map.entry("Owner", "my-organization"),
+ *                             Map.entry("Repo", "test"),
+ *                             Map.entry("Branch", "master")
  *                         ))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Build&#34;)
+ *                     .name("Build")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Build&#34;)
- *                         .category(&#34;Build&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeBuild&#34;)
- *                         .inputArtifacts(&#34;test&#34;)
- *                         .version(&#34;1&#34;)
- *                         .configuration(Map.of(&#34;ProjectName&#34;, &#34;test&#34;))
+ *                         .name("Build")
+ *                         .category("Build")
+ *                         .owner("AWS")
+ *                         .provider("CodeBuild")
+ *                         .inputArtifacts("test")
+ *                         .version("1")
+ *                         .configuration(Map.of("ProjectName", "test"))
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         final var webhookSecret = &#34;super-secret&#34;;
+ *         final var webhookSecret = "super-secret";
  * 
- *         var barWebhook = new Webhook(&#34;barWebhook&#34;, WebhookArgs.builder()        
- *             .name(&#34;test-webhook-github-bar&#34;)
- *             .authentication(&#34;GITHUB_HMAC&#34;)
- *             .targetAction(&#34;Source&#34;)
+ *         var barWebhook = new Webhook("barWebhook", WebhookArgs.builder()        
+ *             .name("test-webhook-github-bar")
+ *             .authentication("GITHUB_HMAC")
+ *             .targetAction("Source")
  *             .targetPipeline(bar.name())
  *             .authenticationConfiguration(WebhookAuthenticationConfigurationArgs.builder()
  *                 .secretToken(webhookSecret)
  *                 .build())
  *             .filters(WebhookFilterArgs.builder()
- *                 .jsonPath(&#34;$.ref&#34;)
- *                 .matchEquals(&#34;refs/heads/{Branch}&#34;)
+ *                 .jsonPath("$.ref")
+ *                 .matchEquals("refs/heads/{Branch}")
  *                 .build())
  *             .build());
  * 
  *         // Wire the CodePipeline webhook into a GitHub repository.
- *         var barRepositoryWebhook = new RepositoryWebhook(&#34;barRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
+ *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()        
  *             .repository(repo.name())
- *             .name(&#34;web&#34;)
+ *             .name("web")
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
  *                 .url(barWebhook.url())
- *                 .contentType(&#34;json&#34;)
+ *                 .contentType("json")
  *                 .insecureSsl(true)
  *                 .secret(webhookSecret)
  *                 .build())
- *             .events(&#34;push&#34;)
+ *             .events("push")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

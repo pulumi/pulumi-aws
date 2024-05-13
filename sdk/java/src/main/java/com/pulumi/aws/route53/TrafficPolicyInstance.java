@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TrafficPolicyInstance(&#34;test&#34;, TrafficPolicyInstanceArgs.builder()        
- *             .name(&#34;test.example.com&#34;)
- *             .trafficPolicyId(&#34;b3gb108f-ea6f-45a5-baab-9d112d8b4037&#34;)
+ *         var test = new TrafficPolicyInstance("test", TrafficPolicyInstanceArgs.builder()        
+ *             .name("test.example.com")
+ *             .trafficPolicyId("b3gb108f-ea6f-45a5-baab-9d112d8b4037")
  *             .trafficPolicyVersion(1)
- *             .hostedZoneId(&#34;Z033120931TAQO548OGJC&#34;)
+ *             .hostedZoneId("Z033120931TAQO548OGJC")
  *             .ttl(360)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Forward Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,31 +55,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
+ *         var frontEndTargetGroup = new TargetGroup("frontEndTargetGroup");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEnd.arn())
- *             .port(&#34;443&#34;)
- *             .protocol(&#34;HTTPS&#34;)
- *             .sslPolicy(&#34;ELBSecurityPolicy-2016-08&#34;)
- *             .certificateArn(&#34;arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4&#34;)
+ *             .port("443")
+ *             .protocol("HTTPS")
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
+ *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .targetGroupArn(frontEndTargetGroup.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To a NLB:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,27 +103,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new Listener(&#34;frontEnd&#34;, ListenerArgs.builder()        
+ *         var frontEnd = new Listener("frontEnd", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEndAwsLb.arn())
- *             .port(&#34;443&#34;)
- *             .protocol(&#34;TLS&#34;)
- *             .certificateArn(&#34;arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4&#34;)
- *             .alpnPolicy(&#34;HTTP2Preferred&#34;)
+ *             .port("443")
+ *             .protocol("TLS")
+ *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
+ *             .alpnPolicy("HTTP2Preferred")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .targetGroupArn(frontEndAwsLbTargetGroup.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redirect Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -144,31 +149,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEnd.arn())
- *             .port(&#34;80&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *             .port("80")
+ *             .protocol("HTTP")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;redirect&#34;)
+ *                 .type("redirect")
  *                 .redirect(ListenerDefaultActionRedirectArgs.builder()
- *                     .port(&#34;443&#34;)
- *                     .protocol(&#34;HTTPS&#34;)
- *                     .statusCode(&#34;HTTP_301&#34;)
+ *                     .port("443")
+ *                     .protocol("HTTPS")
+ *                     .statusCode("HTTP_301")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Fixed-response Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -192,31 +199,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEnd.arn())
- *             .port(&#34;80&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *             .port("80")
+ *             .protocol("HTTP")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type(&#34;fixed-response&#34;)
+ *                 .type("fixed-response")
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
- *                     .contentType(&#34;text/plain&#34;)
- *                     .messageBody(&#34;Fixed response content&#34;)
- *                     .statusCode(&#34;200&#34;)
+ *                     .contentType("text/plain")
+ *                     .messageBody("Fixed response content")
+ *                     .statusCode("200")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Authenticate-cognito Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -244,23 +253,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
+ *         var frontEndTargetGroup = new TargetGroup("frontEndTargetGroup");
  * 
- *         var pool = new UserPool(&#34;pool&#34;);
+ *         var pool = new UserPool("pool");
  * 
- *         var client = new UserPoolClient(&#34;client&#34;);
+ *         var client = new UserPoolClient("client");
  * 
- *         var domain = new UserPoolDomain(&#34;domain&#34;);
+ *         var domain = new UserPoolDomain("domain");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEnd.arn())
- *             .port(&#34;80&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *             .port("80")
+ *             .protocol("HTTP")
  *             .defaultActions(            
  *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;authenticate-cognito&#34;)
+ *                     .type("authenticate-cognito")
  *                     .authenticateCognito(ListenerDefaultActionAuthenticateCognitoArgs.builder()
  *                         .userPoolArn(pool.arn())
  *                         .userPoolClientId(client.id())
@@ -268,20 +277,22 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;forward&#34;)
+ *                     .type("forward")
  *                     .targetGroupArn(frontEndTargetGroup.arn())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Authenticate-OIDC Action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -306,41 +317,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
+ *         var frontEndTargetGroup = new TargetGroup("frontEndTargetGroup");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
+ *         var frontEndListener = new Listener("frontEndListener", ListenerArgs.builder()        
  *             .loadBalancerArn(frontEnd.arn())
- *             .port(&#34;80&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *             .port("80")
+ *             .protocol("HTTP")
  *             .defaultActions(            
  *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;authenticate-oidc&#34;)
+ *                     .type("authenticate-oidc")
  *                     .authenticateOidc(ListenerDefaultActionAuthenticateOidcArgs.builder()
- *                         .authorizationEndpoint(&#34;https://example.com/authorization_endpoint&#34;)
- *                         .clientId(&#34;client_id&#34;)
- *                         .clientSecret(&#34;client_secret&#34;)
- *                         .issuer(&#34;https://example.com&#34;)
- *                         .tokenEndpoint(&#34;https://example.com/token_endpoint&#34;)
- *                         .userInfoEndpoint(&#34;https://example.com/user_info_endpoint&#34;)
+ *                         .authorizationEndpoint("https://example.com/authorization_endpoint")
+ *                         .clientId("client_id")
+ *                         .clientSecret("client_secret")
+ *                         .issuer("https://example.com")
+ *                         .tokenEndpoint("https://example.com/token_endpoint")
+ *                         .userInfoEndpoint("https://example.com/user_info_endpoint")
  *                         .build())
  *                     .build(),
  *                 ListenerDefaultActionArgs.builder()
- *                     .type(&#34;forward&#34;)
+ *                     .type("forward")
  *                     .targetGroupArn(frontEndTargetGroup.arn())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Gateway Load Balancer Listener
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -368,42 +381,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
- *             .loadBalancerType(&#34;gateway&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *             .loadBalancerType("gateway")
+ *             .name("example")
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()        
+ *             .name("example")
  *             .port(6081)
- *             .protocol(&#34;GENEVE&#34;)
+ *             .protocol("GENEVE")
  *             .vpcId(exampleAwsVpc.id())
  *             .healthCheck(TargetGroupHealthCheckArgs.builder()
  *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
  *             .loadBalancerArn(example.id())
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .targetGroupArn(exampleTargetGroup.id())
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mutual TLS Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -429,27 +444,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
- *             .loadBalancerType(&#34;application&#34;)
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *             .loadBalancerType("application")
  *             .build());
  * 
- *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;);
+ *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup");
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
  *             .loadBalancerArn(example.id())
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .targetGroupArn(exampleTargetGroup.id())
- *                 .type(&#34;forward&#34;)
+ *                 .type("forward")
  *                 .build())
  *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
- *                 .mode(&#34;verify&#34;)
- *                 .trustStoreArn(&#34;...&#34;)
+ *                 .mode("verify")
+ *                 .trustStoreArn("...")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,28 +51,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -85,7 +87,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -111,28 +114,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +150,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -172,28 +177,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -207,7 +213,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -233,28 +240,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -268,7 +276,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -294,28 +303,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +339,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,28 +366,29 @@ public final class AutoscalingFunctions {
      *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Team&#34;)
-     *                     .values(&#34;Pets&#34;)
+     *                     .name("tag:Team")
+     *                     .values("Pets")
      *                     .build(),
      *                 GetAmiIdsFilterArgs.builder()
-     *                     .name(&#34;tag-key&#34;)
-     *                     .values(&#34;Environment&#34;)
+     *                     .name("tag-key")
+     *                     .values("Environment")
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
-     *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
-     *             .topicArn(&#34;TOPIC ARN&#34;)
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +401,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +424,13 @@ public final class AutoscalingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -429,7 +443,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -451,12 +466,13 @@ public final class AutoscalingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -469,7 +485,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,12 +508,13 @@ public final class AutoscalingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +527,8 @@ public final class AutoscalingFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -531,12 +550,13 @@ public final class AutoscalingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

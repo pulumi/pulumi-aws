@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FargateProfile(&#34;example&#34;, FargateProfileArgs.builder()        
+ *         var example = new FargateProfile("example", FargateProfileArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .fargateProfileName(&#34;example&#34;)
+ *             .fargateProfileName("example")
  *             .podExecutionRoleArn(exampleAwsIamRole.arn())
- *             .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .selectors(FargateProfileSelectorArgs.builder()
- *                 .namespace(&#34;example&#34;)
+ *                 .namespace("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example IAM Role for EKS Fargate Profile
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,29 +90,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;eks-fargate-profile-example&#34;)
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("eks-fargate-profile-example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;eks-fargate-pods.amazonaws.com&#34;)
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "eks-fargate-pods.amazonaws.com")
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty("Version", "2012-10-17")
  *                 )))
  *             .build());
  * 
- *         var example_AmazonEKSFargatePodExecutionRolePolicy = new RolePolicyAttachment(&#34;example-AmazonEKSFargatePodExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy&#34;)
+ *         var example_AmazonEKSFargatePodExecutionRolePolicy = new RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy")
  *             .role(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

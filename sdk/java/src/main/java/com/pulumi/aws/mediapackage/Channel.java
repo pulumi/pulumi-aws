@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var kittens = new Channel(&#34;kittens&#34;, ChannelArgs.builder()        
- *             .channelId(&#34;kitten-channel&#34;)
- *             .description(&#34;A channel dedicated to amusing videos of kittens.&#34;)
+ *         var kittens = new Channel("kittens", ChannelArgs.builder()        
+ *             .channelId("kitten-channel")
+ *             .description("A channel dedicated to amusing videos of kittens.")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

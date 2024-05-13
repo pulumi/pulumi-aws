@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AssessmentTemplate(&#34;example&#34;, AssessmentTemplateArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new AssessmentTemplate("example", AssessmentTemplateArgs.builder()        
+ *             .name("example")
  *             .targetArn(exampleAwsInspectorAssessmentTarget.arn())
  *             .duration(3600)
  *             .rulesPackageArns(            
- *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p&#34;,
- *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc&#34;,
- *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ&#34;,
- *                 &#34;arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD&#34;)
+ *                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+ *                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+ *                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD")
  *             .eventSubscriptions(AssessmentTemplateEventSubscriptionArgs.builder()
- *                 .event(&#34;ASSESSMENT_RUN_COMPLETED&#34;)
+ *                 .event("ASSESSMENT_RUN_COMPLETED")
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

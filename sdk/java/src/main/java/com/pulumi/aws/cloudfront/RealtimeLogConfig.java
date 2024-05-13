@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,46 +55,46 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;cloudfront.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("cloudfront.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;cloudfront-realtime-log-config-example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("cloudfront-realtime-log-config-example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;kinesis:DescribeStreamSummary&#34;,
- *                     &#34;kinesis:DescribeStream&#34;,
- *                     &#34;kinesis:PutRecord&#34;,
- *                     &#34;kinesis:PutRecords&#34;)
+ *                     "kinesis:DescribeStreamSummary",
+ *                     "kinesis:DescribeStream",
+ *                     "kinesis:PutRecord",
+ *                     "kinesis:PutRecords")
  *                 .resources(exampleAwsKinesisStream.arn())
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;cloudfront-realtime-log-config-example&#34;)
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *             .name("cloudfront-realtime-log-config-example")
  *             .role(exampleRole.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRealtimeLogConfig = new RealtimeLogConfig(&#34;exampleRealtimeLogConfig&#34;, RealtimeLogConfigArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()        
+ *             .name("example")
  *             .samplingRate(75)
  *             .fields(            
- *                 &#34;timestamp&#34;,
- *                 &#34;c-ip&#34;)
+ *                 "timestamp",
+ *                 "c-ip")
  *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType(&#34;Kinesis&#34;)
+ *                 .streamType("Kinesis")
  *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
  *                     .roleArn(exampleRole.arn())
  *                     .streamArn(exampleAwsKinesisStream.arn())
@@ -105,7 +106,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

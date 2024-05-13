@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,15 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RoleAssociation(&#34;example&#34;, RoleAssociationArgs.builder()        
+ *         var example = new RoleAssociation("example", RoleAssociationArgs.builder()        
  *             .dbInstanceIdentifier(exampleAwsDbInstance.identifier())
- *             .featureName(&#34;S3_INTEGRATION&#34;)
+ *             .featureName("S3_INTEGRATION")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

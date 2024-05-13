@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,16 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myInstance = new RdsDbInstance(&#34;myInstance&#34;, RdsDbInstanceArgs.builder()        
+ *         var myInstance = new RdsDbInstance("myInstance", RdsDbInstanceArgs.builder()        
  *             .stackId(myStack.id())
  *             .rdsDbInstanceArn(myInstanceAwsDbInstance.arn())
- *             .dbUser(&#34;someUser&#34;)
- *             .dbPassword(&#34;somePass&#34;)
+ *             .dbUser("someUser")
+ *             .dbPassword("somePass")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

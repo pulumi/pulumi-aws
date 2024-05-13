@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,14 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultAz1 = new DefaultSubnet(&#34;defaultAz1&#34;, DefaultSubnetArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;Default subnet for us-west-2a&#34;))
+ *         var defaultAz1 = new DefaultSubnet("defaultAz1", DefaultSubnetArgs.builder()        
+ *             .availabilityZone("us-west-2a")
+ *             .tags(Map.of("Name", "Default subnet for us-west-2a"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

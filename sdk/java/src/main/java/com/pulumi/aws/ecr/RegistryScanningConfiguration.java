@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var configuration = new RegistryScanningConfiguration(&#34;configuration&#34;, RegistryScanningConfigurationArgs.builder()        
- *             .scanType(&#34;ENHANCED&#34;)
+ *         var configuration = new RegistryScanningConfiguration("configuration", RegistryScanningConfigurationArgs.builder()        
+ *             .scanType("ENHANCED")
  *             .rules(RegistryScanningConfigurationRuleArgs.builder()
- *                 .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
+ *                 .scanFrequency("CONTINUOUS_SCAN")
  *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                     .filter(&#34;example&#34;)
- *                     .filterType(&#34;WILDCARD&#34;)
+ *                     .filter("example")
+ *                     .filterType("WILDCARD")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multiple rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,28 +90,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RegistryScanningConfiguration(&#34;test&#34;, RegistryScanningConfigurationArgs.builder()        
- *             .scanType(&#34;ENHANCED&#34;)
+ *         var test = new RegistryScanningConfiguration("test", RegistryScanningConfigurationArgs.builder()        
+ *             .scanType("ENHANCED")
  *             .rules(            
  *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency(&#34;SCAN_ON_PUSH&#34;)
+ *                     .scanFrequency("SCAN_ON_PUSH")
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter(&#34;*&#34;)
- *                         .filterType(&#34;WILDCARD&#34;)
+ *                         .filter("*")
+ *                         .filterType("WILDCARD")
  *                         .build())
  *                     .build(),
  *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency(&#34;CONTINUOUS_SCAN&#34;)
+ *                     .scanFrequency("CONTINUOUS_SCAN")
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter(&#34;example&#34;)
- *                         .filterType(&#34;WILDCARD&#34;)
+ *                         .filter("example")
+ *                         .filterType("WILDCARD")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

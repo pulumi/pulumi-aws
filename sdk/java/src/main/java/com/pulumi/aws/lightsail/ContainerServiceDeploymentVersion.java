@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,24 +55,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContainerServiceDeploymentVersion(&#34;example&#34;, ContainerServiceDeploymentVersionArgs.builder()        
+ *         var example = new ContainerServiceDeploymentVersion("example", ContainerServiceDeploymentVersionArgs.builder()        
  *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .image(&#34;amazon/amazon-lightsail:hello-world&#34;)
+ *                 .containerName("hello-world")
+ *                 .image("amazon/amazon-lightsail:hello-world")
  *                 .commands()
- *                 .environment(Map.of(&#34;MY_ENVIRONMENT_VARIABLE&#34;, &#34;my_value&#34;))
- *                 .ports(Map.of(&#34;80&#34;, &#34;HTTP&#34;))
+ *                 .environment(Map.of("MY_ENVIRONMENT_VARIABLE", "my_value"))
+ *                 .ports(Map.of("80", "HTTP"))
  *                 .build())
  *             .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
+ *                 .containerName("hello-world")
  *                 .containerPort(80)
  *                 .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
  *                     .healthyThreshold(2)
  *                     .unhealthyThreshold(2)
  *                     .timeoutSeconds(2)
  *                     .intervalSeconds(5)
- *                     .path(&#34;/&#34;)
- *                     .successCodes(&#34;200-499&#34;)
+ *                     .path("/")
+ *                     .successCodes("200-499")
  *                     .build())
  *                 .build())
  *             .serviceName(exampleAwsLightsailContainerService.name())
@@ -79,7 +80,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

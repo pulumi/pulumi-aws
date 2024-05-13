@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataIntegration(&#34;example&#34;, DataIntegrationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new DataIntegration("example", DataIntegrationArgs.builder()        
+ *             .name("example")
+ *             .description("example")
  *             .kmsKey(test.arn())
- *             .sourceUri(&#34;Salesforce://AppFlow/example&#34;)
+ *             .sourceUri("Salesforce://AppFlow/example")
  *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
- *                 .firstExecutionFrom(&#34;1439788442681&#34;)
- *                 .object(&#34;Account&#34;)
- *                 .scheduleExpression(&#34;rate(1 hour)&#34;)
+ *                 .firstExecutionFrom("1439788442681")
+ *                 .object("Account")
+ *                 .scheduleExpression("rate(1 hour)")
  *                 .build())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *             .tags(Map.of("Key1", "Value1"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

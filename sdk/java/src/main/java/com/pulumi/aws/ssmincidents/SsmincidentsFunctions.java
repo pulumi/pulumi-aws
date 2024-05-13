@@ -27,7 +27,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -52,7 +53,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -94,7 +97,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,7 +141,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -153,7 +159,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -178,7 +185,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +203,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -220,7 +229,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -237,7 +247,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -262,7 +273,8 @@ public final class SsmincidentsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -298,13 +311,14 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
-     *             .arn(&#34;exampleARN&#34;)
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+     *             .arn("exampleARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -319,7 +333,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -340,13 +355,14 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
-     *             .arn(&#34;exampleARN&#34;)
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+     *             .arn("exampleARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -361,7 +377,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -382,13 +399,14 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
-     *             .arn(&#34;exampleARN&#34;)
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+     *             .arn("exampleARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -403,7 +421,8 @@ public final class SsmincidentsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -424,13 +443,14 @@ public final class SsmincidentsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
-     *             .arn(&#34;exampleARN&#34;)
+     *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+     *             .arn("exampleARN")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

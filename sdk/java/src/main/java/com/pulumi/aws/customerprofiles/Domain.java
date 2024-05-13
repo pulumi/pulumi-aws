@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .domainName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With SQS DLQ and KMS set
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,62 +91,62 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Queue(&#34;example&#34;, QueueArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Queue("example", QueueArgs.builder()        
+ *             .name("example")
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;Customer Profiles SQS policy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;profile.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "Customer Profiles SQS policy"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray("sqs:SendMessage")),
+ *                         jsonProperty("Resource", "*"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "profile.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .description("example")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
+ *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
  *                 var exampleBucketV2Arn = values.t1;
  *                 var exampleBucketV2Arn1 = values.t2;
  *                 return serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Customer Profiles S3 policy&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
- *                                 &#34;s3:GetObject&#34;, 
- *                                 &#34;s3:PutObject&#34;, 
- *                                 &#34;s3:ListBucket&#34;
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Sid", "Customer Profiles S3 policy"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "s3:GetObject", 
+ *                                 "s3:PutObject", 
+ *                                 "s3:ListBucket"
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+ *                             jsonProperty("Resource", jsonArray(
  *                                 exampleBucketV2Arn, 
- *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
+ *                                 String.format("%s/*", exampleBucketV2Arn1)
  *                             )),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;profile.amazonaws.com&#34;)
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "profile.amazonaws.com")
  *                             ))
  *                         )))
  *                     ));
  *             }))
  *             .build());
  * 
- *         var test = new Domain(&#34;test&#34;, DomainArgs.builder()        
+ *         var test = new Domain("test", DomainArgs.builder()        
  *             .domainName(example)
  *             .deadLetterQueueUrl(example.id())
  *             .defaultEncryptionKey(exampleKey.arn())
@@ -152,7 +155,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

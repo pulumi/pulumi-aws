@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfiguration(&#34;example&#34;, BucketLifecycleConfigurationArgs.builder()        
+ *         var example = new BucketLifecycleConfiguration("example", BucketLifecycleConfigurationArgs.builder()        
  *             .bucket(exampleAwsS3controlBucket.arn())
  *             .rules(            
  *                 BucketLifecycleConfigurationRuleArgs.builder()
@@ -57,24 +58,25 @@ import javax.annotation.Nullable;
  *                         .days(365)
  *                         .build())
  *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
+ *                         .prefix("logs/")
  *                         .build())
- *                     .id(&#34;logs&#34;)
+ *                     .id("logs")
  *                     .build(),
  *                 BucketLifecycleConfigurationRuleArgs.builder()
  *                     .expiration(BucketLifecycleConfigurationRuleExpirationArgs.builder()
  *                         .days(7)
  *                         .build())
  *                     .filter(BucketLifecycleConfigurationRuleFilterArgs.builder()
- *                         .prefix(&#34;temp/&#34;)
+ *                         .prefix("temp/")
  *                         .build())
- *                     .id(&#34;temp&#34;)
+ *                     .id("temp")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

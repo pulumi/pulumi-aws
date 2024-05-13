@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyTable(&#34;example&#34;, PolicyTableArgs.builder()        
+ *         var example = new PolicyTable("example", PolicyTableArgs.builder()        
  *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Policy Table&#34;))
+ *             .tags(Map.of("Name", "Example Policy Table"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

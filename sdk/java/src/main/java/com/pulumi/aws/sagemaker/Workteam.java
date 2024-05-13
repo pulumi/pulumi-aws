@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Cognito Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workteam(&#34;example&#34;, WorkteamArgs.builder()        
- *             .workteamName(&#34;example&#34;)
+ *         var example = new Workteam("example", WorkteamArgs.builder()        
+ *             .workteamName("example")
  *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description(&#34;example&#34;)
+ *             .description("example")
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
  *                     .clientId(exampleAwsCognitoUserPoolClient.id())
@@ -64,13 +65,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Oidc Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,20 +96,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workteam(&#34;example&#34;, WorkteamArgs.builder()        
- *             .workteamName(&#34;example&#34;)
+ *         var example = new Workteam("example", WorkteamArgs.builder()        
+ *             .workteamName("example")
  *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description(&#34;example&#34;)
+ *             .description("example")
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs.builder()
- *                     .groups(&#34;example&#34;)
+ *                     .groups("example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

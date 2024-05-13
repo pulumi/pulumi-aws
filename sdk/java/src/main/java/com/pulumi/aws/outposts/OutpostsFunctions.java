@@ -70,7 +70,8 @@ public final class OutpostsFunctions {
      * ### Basic
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -97,13 +98,15 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Host ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,18 +129,20 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Status ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -160,12 +165,13 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -180,7 +186,8 @@ public final class OutpostsFunctions {
      * ### Basic
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -207,13 +214,15 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Host ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -236,18 +245,20 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Status ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -270,12 +281,13 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -290,7 +302,8 @@ public final class OutpostsFunctions {
      * ### Basic
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -317,13 +330,15 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Host ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -346,18 +361,20 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Status ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -380,12 +397,13 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class OutpostsFunctions {
      * ### Basic
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -427,13 +446,15 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Host ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -456,18 +477,20 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .hostIdFilters(&#34;h-x38g5n0yd2a0ueb61&#34;)
+     *             .hostIdFilters("h-x38g5n0yd2a0ueb61")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Status ID Filter
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -490,12 +513,13 @@ public final class OutpostsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
-     *             .statusIdFilters(&#34;ACTIVE&#34;)
+     *             .statusIdFilters("ACTIVE")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -508,7 +532,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -530,12 +555,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -548,7 +574,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -570,12 +597,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -588,7 +616,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -610,12 +639,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -628,7 +658,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -650,12 +681,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -668,7 +700,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -690,12 +723,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +742,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,12 +765,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -748,7 +784,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -774,17 +811,18 @@ public final class OutpostsFunctions {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .preferredInstanceTypes(            
-     *                 &#34;m5.large&#34;,
-     *                 &#34;m5.4xlarge&#34;)
+     *                 "m5.large",
+     *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -797,7 +835,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -823,17 +862,18 @@ public final class OutpostsFunctions {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .preferredInstanceTypes(            
-     *                 &#34;m5.large&#34;,
-     *                 &#34;m5.4xlarge&#34;)
+     *                 "m5.large",
+     *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -846,7 +886,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -872,17 +913,18 @@ public final class OutpostsFunctions {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .preferredInstanceTypes(            
-     *                 &#34;m5.large&#34;,
-     *                 &#34;m5.4xlarge&#34;)
+     *                 "m5.large",
+     *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -895,7 +937,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -921,17 +964,18 @@ public final class OutpostsFunctions {
      *         final var example = OutpostsFunctions.getOutpostInstanceType(GetOutpostInstanceTypeArgs.builder()
      *             .arn(exampleAwsOutpostsOutpost.arn())
      *             .preferredInstanceTypes(            
-     *                 &#34;m5.large&#34;,
-     *                 &#34;m5.4xlarge&#34;)
+     *                 "m5.large",
+     *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance(&#34;exampleEc2Instance&#34;, Ec2InstanceArgs.builder()        
-     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -&gt; getOutpostInstanceTypeResult.instanceType()))
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -944,7 +988,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -971,7 +1016,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -984,7 +1030,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1011,7 +1058,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1024,7 +1072,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1051,7 +1100,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1064,7 +1114,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1091,7 +1142,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1104,7 +1156,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1131,7 +1184,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1144,7 +1198,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1171,7 +1226,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1184,7 +1240,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1211,7 +1268,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1224,7 +1282,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1251,7 +1310,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1264,7 +1324,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1291,7 +1352,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1304,7 +1366,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1331,7 +1394,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1344,7 +1408,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1366,12 +1431,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1384,7 +1450,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1406,12 +1473,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1424,7 +1492,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1446,12 +1515,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1464,7 +1534,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1486,12 +1557,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1504,7 +1576,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1526,12 +1599,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1544,7 +1618,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1566,12 +1641,13 @@ public final class OutpostsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1584,7 +1660,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1608,7 +1685,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1621,7 +1699,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1645,7 +1724,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1658,7 +1738,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1682,7 +1763,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1695,7 +1777,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1719,7 +1802,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1732,7 +1816,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1756,7 +1841,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1769,7 +1855,8 @@ public final class OutpostsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1793,7 +1880,8 @@ public final class OutpostsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

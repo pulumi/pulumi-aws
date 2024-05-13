@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,50 +55,50 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(example.bucket())
- *             .policy(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .policy(example.arn().applyValue(arn -> """
  * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
+ *   "Version": "2012-10-17",
+ *   "Statement": [
  *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;bedrock.amazonaws.com&#34;
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "bedrock.amazonaws.com"
  *       },
- *       &#34;Action&#34;: [
- *         &#34;s3:*&#34;
+ *       "Action": [
+ *         "s3:*"
  *       ],
- *       &#34;Resource&#34;: [
- *         &#34;%s/*&#34;
+ *       "Resource": [
+ *         "%s/*"
  *       ],
- *       &#34;Condition&#34;: {
- *         &#34;StringEquals&#34;: {
- *           &#34;aws:SourceAccount&#34;: &#34;%s&#34;
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "aws:SourceAccount": "%s"
  *         },
- *         &#34;ArnLike&#34;: {
- *           &#34;aws:SourceArn&#34;: &#34;arn:aws:bedrock:us-east-1:%s:*&#34;
+ *         "ArnLike": {
+ *           "aws:SourceArn": "arn:aws:bedrock:us-east-1:%s:*"
  *         }
  *       }
  *     }
  *   ]
  * }
- * &#34;, arn,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ * ", arn,current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))))
  *             .build());
  * 
- *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration(&#34;exampleInvocationLoggingConfiguration&#34;, InvocationLoggingConfigurationArgs.builder()        
+ *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration("exampleInvocationLoggingConfiguration", InvocationLoggingConfigurationArgs.builder()        
  *             .loggingConfig(InvocationLoggingConfigurationLoggingConfigArgs.builder()
  *                 .embeddingDataDeliveryEnabled(true)
  *                 .imageDataDeliveryEnabled(true)
  *                 .textDataDeliveryEnabled(true)
  *                 .s3Config(InvocationLoggingConfigurationLoggingConfigS3ConfigArgs.builder()
  *                     .bucketName(example.id())
- *                     .keyPrefix(&#34;bedrock&#34;)
+ *                     .keyPrefix("bedrock")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -106,7 +107,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

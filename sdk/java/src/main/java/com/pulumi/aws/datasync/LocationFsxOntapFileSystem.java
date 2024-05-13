@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,14 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new LocationFsxOntapFileSystem(&#34;test&#34;, LocationFsxOntapFileSystemArgs.builder()        
+ *         var test = new LocationFsxOntapFileSystem("test", LocationFsxOntapFileSystemArgs.builder()        
  *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
  *             .securityGroupArns(testAwsSecurityGroup.arn())
  *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
  *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
  *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()
- *                         .version(&#34;NFS3&#34;)
+ *                         .version("NFS3")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

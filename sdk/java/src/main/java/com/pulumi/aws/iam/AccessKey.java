@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,38 +49,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
- *             .name(&#34;loadbalancer&#34;)
- *             .path(&#34;/system/&#34;)
+ *         var lbUser = new User("lbUser", UserArgs.builder()        
+ *             .name("loadbalancer")
+ *             .path("/system/")
  *             .build());
  * 
- *         var lb = new AccessKey(&#34;lb&#34;, AccessKeyArgs.builder()        
+ *         var lb = new AccessKey("lb", AccessKeyArgs.builder()        
  *             .user(lbUser.name())
- *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
+ *             .pgpKey("keybase:some_person_that_exists")
  *             .build());
  * 
  *         final var lbRo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;ec2:Describe*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("ec2:Describe*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var lbRoUserPolicy = new UserPolicy(&#34;lbRoUserPolicy&#34;, UserPolicyArgs.builder()        
- *             .name(&#34;test&#34;)
+ *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()        
+ *             .name("test")
  *             .user(lbUser.name())
- *             .policy(lbRo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         ctx.export(&#34;secret&#34;, lb.encryptedSecret());
+ *         ctx.export("secret", lb.encryptedSecret());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,19 +105,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User(&#34;test&#34;, UserArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .path(&#34;/test/&#34;)
+ *         var test = new User("test", UserArgs.builder()        
+ *             .name("test")
+ *             .path("/test/")
  *             .build());
  * 
- *         var testAccessKey = new AccessKey(&#34;testAccessKey&#34;, AccessKeyArgs.builder()        
+ *         var testAccessKey = new AccessKey("testAccessKey", AccessKeyArgs.builder()        
  *             .user(test.name())
  *             .build());
  * 
- *         ctx.export(&#34;awsIamSmtpPasswordV4&#34;, testAccessKey.sesSmtpPasswordV4());
+ *         ctx.export("awsIamSmtpPasswordV4", testAccessKey.sesSmtpPasswordV4());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

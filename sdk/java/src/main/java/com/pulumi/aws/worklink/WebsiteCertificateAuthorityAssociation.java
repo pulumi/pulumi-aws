@@ -18,7 +18,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,20 +42,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Fleet("example", FleetArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var test = new WebsiteCertificateAuthorityAssociation(&#34;test&#34;, WebsiteCertificateAuthorityAssociationArgs.builder()        
+ *         var test = new WebsiteCertificateAuthorityAssociation("test", WebsiteCertificateAuthorityAssociationArgs.builder()        
  *             .fleetArn(testAwsWorklinkFleet.arn())
  *             .certificate(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;certificate.pem&#34;)
+ *                 .input("certificate.pem")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

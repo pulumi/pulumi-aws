@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,28 +53,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FindingAggregator(&#34;example&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;ALL_REGIONS&#34;)
+ *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()        
+ *             .linkingMode("ALL_REGIONS")
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(false)
- *             .autoEnableStandards(&#34;NONE&#34;)
+ *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
- *                 .configurationType(&#34;CENTRAL&#34;)
+ *                 .configurationType("CENTRAL")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleConfigurationPolicy = new ConfigurationPolicy(&#34;exampleConfigurationPolicy&#34;, ConfigurationPolicyArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .description(&#34;This is an example configuration policy&#34;)
+ *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()        
+ *             .name("Example")
+ *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
- *                     &#34;arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0&#34;,
- *                     &#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
+ *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
  *                     .disabledControlIdentifiers()
  *                     .build())
@@ -82,24 +83,25 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleOrganizationConfiguration)
  *                 .build());
  * 
- *         var accountExample = new ConfigurationPolicyAssociation(&#34;accountExample&#34;, ConfigurationPolicyAssociationArgs.builder()        
- *             .targetId(&#34;123456789012&#34;)
+ *         var accountExample = new ConfigurationPolicyAssociation("accountExample", ConfigurationPolicyAssociationArgs.builder()        
+ *             .targetId("123456789012")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
- *         var rootExample = new ConfigurationPolicyAssociation(&#34;rootExample&#34;, ConfigurationPolicyAssociationArgs.builder()        
- *             .targetId(&#34;r-abcd&#34;)
+ *         var rootExample = new ConfigurationPolicyAssociation("rootExample", ConfigurationPolicyAssociationArgs.builder()        
+ *             .targetId("r-abcd")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
- *         var ouExample = new ConfigurationPolicyAssociation(&#34;ouExample&#34;, ConfigurationPolicyAssociationArgs.builder()        
- *             .targetId(&#34;ou-abcd-12345678&#34;)
+ *         var ouExample = new ConfigurationPolicyAssociation("ouExample", ConfigurationPolicyAssociationArgs.builder()        
+ *             .targetId("ou-abcd-12345678")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale(&#34;example&#34;, V2modelsBotLocaleArgs.builder()        
+ *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()        
  *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(&#34;DRAFT&#34;)
- *             .localeId(&#34;en_US&#34;)
+ *             .botVersion("DRAFT")
+ *             .localeId("en_US")
  *             .nLuIntentConfidenceThreshold(0.7)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Voice Settings
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,20 +86,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale(&#34;example&#34;, V2modelsBotLocaleArgs.builder()        
+ *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()        
  *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(&#34;DRAFT&#34;)
- *             .localeId(&#34;en_US&#34;)
+ *             .botVersion("DRAFT")
+ *             .localeId("en_US")
  *             .nLuIntentConfidenceThreshold(0.7)
  *             .voiceSettings(V2modelsBotLocaleVoiceSettingsArgs.builder()
- *                 .voiceId(&#34;Kendra&#34;)
- *                 .engine(&#34;standard&#34;)
+ *                 .voiceId("Kendra")
+ *                 .engine("standard")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

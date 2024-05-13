@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,43 +44,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var prodSp = new SigningProfile(&#34;prodSp&#34;, SigningProfileArgs.builder()        
- *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
- *             .namePrefix(&#34;prod_sp_&#34;)
+ *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()        
+ *             .platformId("AWSLambda-SHA384-ECDSA")
+ *             .namePrefix("prod_sp_")
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
  *                 .value(5)
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value2&#34;)
+ *                 Map.entry("tag1", "value1"),
+ *                 Map.entry("tag2", "value2")
  *             ))
  *             .build());
  * 
- *         var spPermission1 = new SigningProfilePermission(&#34;spPermission1&#34;, SigningProfilePermissionArgs.builder()        
+ *         var spPermission1 = new SigningProfilePermission("spPermission1", SigningProfilePermissionArgs.builder()        
  *             .profileName(prodSp.name())
- *             .action(&#34;signer:StartSigningJob&#34;)
+ *             .action("signer:StartSigningJob")
  *             .principal(awsAccount)
  *             .build());
  * 
- *         var spPermission2 = new SigningProfilePermission(&#34;spPermission2&#34;, SigningProfilePermissionArgs.builder()        
+ *         var spPermission2 = new SigningProfilePermission("spPermission2", SigningProfilePermissionArgs.builder()        
  *             .profileName(prodSp.name())
- *             .action(&#34;signer:GetSigningProfile&#34;)
+ *             .action("signer:GetSigningProfile")
  *             .principal(awsTeamRoleArn)
- *             .statementId(&#34;ProdAccountStartSigningJob_StatementId&#34;)
+ *             .statementId("ProdAccountStartSigningJob_StatementId")
  *             .build());
  * 
- *         var spPermission3 = new SigningProfilePermission(&#34;spPermission3&#34;, SigningProfilePermissionArgs.builder()        
+ *         var spPermission3 = new SigningProfilePermission("spPermission3", SigningProfilePermissionArgs.builder()        
  *             .profileName(prodSp.name())
- *             .action(&#34;signer:RevokeSignature&#34;)
- *             .principal(&#34;123456789012&#34;)
+ *             .action("signer:RevokeSignature")
+ *             .principal("123456789012")
  *             .profileVersion(prodSp.version())
- *             .statementIdPrefix(&#34;version-permission-&#34;)
+ *             .statementIdPrefix("version-permission-")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

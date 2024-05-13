@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .pattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,10,\&#34;&lt;=\&#34;,20]}]}&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
+ *         var example = new Segment("example", SegmentArgs.builder()        
+ *             .name("example")
+ *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
+ *             .tags(Map.of("Key1", "example Segment"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With JSON object in pattern
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,29 +83,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .pattern(&#34;&#34;&#34;
+ *         var example = new Segment("example", SegmentArgs.builder()        
+ *             .name("example")
+ *             .pattern("""
  *   {
- *     &#34;Price&#34;: [
+ *     "Price": [
  *       {
- *         &#34;numeric&#34;: [&#34;&gt;&#34;,10,&#34;&lt;=&#34;,20]
+ *         "numeric": [">",10,"<=",20]
  *       }
  *     ]
  *   }
- *             &#34;&#34;&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
+ *             """)
+ *             .tags(Map.of("Key1", "example Segment"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Description
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,15 +128,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .pattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,10,\&#34;&lt;=\&#34;,20]}]}&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new Segment("example", SegmentArgs.builder()        
+ *             .name("example")
+ *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
+ *             .description("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

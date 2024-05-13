@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,26 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DistributionConfiguration(&#34;example&#34;, DistributionConfigurationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new DistributionConfiguration("example", DistributionConfigurationArgs.builder()        
+ *             .name("example")
  *             .distributions(DistributionConfigurationDistributionArgs.builder()
  *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()
- *                     .amiTags(Map.of(&#34;CostCenter&#34;, &#34;IT&#34;))
- *                     .name(&#34;example-{{ imagebuilder:buildDate }}&#34;)
+ *                     .amiTags(Map.of("CostCenter", "IT"))
+ *                     .name("example-{{ imagebuilder:buildDate }}")
  *                     .launchPermission(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.builder()
- *                         .userIds(&#34;123456789012&#34;)
+ *                         .userIds("123456789012")
  *                         .build())
  *                     .build())
  *                 .launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.builder()
- *                     .launchTemplateId(&#34;lt-0aaa1bcde2ff3456&#34;)
+ *                     .launchTemplateId("lt-0aaa1bcde2ff3456")
  *                     .build())
- *                 .region(&#34;us-east-1&#34;)
+ *                 .region("us-east-1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

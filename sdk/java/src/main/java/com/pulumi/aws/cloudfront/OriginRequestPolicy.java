@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * The following example below creates a CloudFront origin request policy.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +51,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginRequestPolicy(&#34;example&#34;, OriginRequestPolicyArgs.builder()        
- *             .name(&#34;example-policy&#34;)
- *             .comment(&#34;example comment&#34;)
+ *         var example = new OriginRequestPolicy("example", OriginRequestPolicyArgs.builder()        
+ *             .name("example-policy")
+ *             .comment("example comment")
  *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()
- *                 .cookieBehavior(&#34;whitelist&#34;)
+ *                 .cookieBehavior("whitelist")
  *                 .cookies(OriginRequestPolicyCookiesConfigCookiesArgs.builder()
- *                     .items(&#34;example&#34;)
+ *                     .items("example")
  *                     .build())
  *                 .build())
  *             .headersConfig(OriginRequestPolicyHeadersConfigArgs.builder()
- *                 .headerBehavior(&#34;whitelist&#34;)
+ *                 .headerBehavior("whitelist")
  *                 .headers(OriginRequestPolicyHeadersConfigHeadersArgs.builder()
- *                     .items(&#34;example&#34;)
+ *                     .items("example")
  *                     .build())
  *                 .build())
  *             .queryStringsConfig(OriginRequestPolicyQueryStringsConfigArgs.builder()
- *                 .queryStringBehavior(&#34;whitelist&#34;)
+ *                 .queryStringBehavior("whitelist")
  *                 .queryStrings(OriginRequestPolicyQueryStringsConfigQueryStringsArgs.builder()
- *                     .items(&#34;example&#34;)
+ *                     .items("example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

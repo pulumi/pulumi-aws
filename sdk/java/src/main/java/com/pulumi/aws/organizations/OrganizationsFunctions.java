@@ -49,7 +49,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -71,12 +72,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -89,7 +91,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -111,12 +114,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -129,7 +133,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -151,12 +156,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -169,7 +175,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -191,12 +198,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -209,7 +217,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,12 +240,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -249,7 +259,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -271,12 +282,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
-     *             .servicePrincipal(&#34;SERVICE PRINCIPAL&#34;)
+     *             .servicePrincipal("SERVICE PRINCIPAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -289,7 +301,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -311,12 +324,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedServices(GetDelegatedServicesArgs.builder()
-     *             .accountId(&#34;AWS ACCOUNT ID&#34;)
+     *             .accountId("AWS ACCOUNT ID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -329,7 +343,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -351,12 +366,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedServices(GetDelegatedServicesArgs.builder()
-     *             .accountId(&#34;AWS ACCOUNT ID&#34;)
+     *             .accountId("AWS ACCOUNT ID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -369,7 +385,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -391,12 +408,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedServices(GetDelegatedServicesArgs.builder()
-     *             .accountId(&#34;AWS ACCOUNT ID&#34;)
+     *             .accountId("AWS ACCOUNT ID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -409,7 +427,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -431,12 +450,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getDelegatedServices(GetDelegatedServicesArgs.builder()
-     *             .accountId(&#34;AWS ACCOUNT ID&#34;)
+     *             .accountId("AWS ACCOUNT ID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -451,7 +471,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -473,16 +494,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,37 +533,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -555,7 +579,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -577,16 +602,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -614,37 +641,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -659,7 +687,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -681,16 +710,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -718,37 +749,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -763,7 +795,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -785,16 +818,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -822,37 +857,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -867,7 +903,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -889,16 +926,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -926,37 +965,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -971,7 +1011,8 @@ public final class OrganizationsFunctions {
      * ### List all account IDs for the organization
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -993,16 +1034,18 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         ctx.export(&#34;accountIds&#34;, example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### SNS topic that can be interacted by the organization only
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1030,37 +1073,38 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic(&#34;snsTopic&#34;, TopicArgs.builder()        
-     *             .name(&#34;my-sns-topic&#34;)
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *             .name("my-sns-topic")
      *             .build());
      * 
      *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .effect(&#34;Allow&#34;)
+     *                 .effect("Allow")
      *                 .actions(                
-     *                     &#34;SNS:Subscribe&#34;,
-     *                     &#34;SNS:Publish&#34;)
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
      *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
-     *                     .test(&#34;StringEquals&#34;)
-     *                     .variable(&#34;aws:PrincipalOrgID&#34;)
-     *                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
      *                     .build())
      *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                     .type(&#34;AWS&#34;)
-     *                     .identifiers(&#34;*&#34;)
+     *                     .type("AWS")
+     *                     .identifiers("*")
      *                     .build())
      *                 .resources(snsTopic.arn())
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy(&#34;snsTopicPolicyTopicPolicy&#34;, TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1075,7 +1119,8 @@ public final class OrganizationsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1099,13 +1144,14 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
-     *             .name(&#34;dev&#34;)
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .name("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1120,7 +1166,8 @@ public final class OrganizationsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1144,13 +1191,14 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
-     *             .name(&#34;dev&#34;)
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .name("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1165,7 +1213,8 @@ public final class OrganizationsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,13 +1238,14 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
-     *             .name(&#34;dev&#34;)
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .name("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1210,7 +1260,8 @@ public final class OrganizationsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1234,13 +1285,14 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
-     *             .name(&#34;dev&#34;)
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .name("dev")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1253,7 +1305,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1277,12 +1330,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1295,7 +1349,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1319,12 +1374,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1337,7 +1393,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1361,12 +1418,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1379,7 +1437,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1403,12 +1462,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1421,7 +1481,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1445,12 +1506,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1463,7 +1525,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1487,12 +1550,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1505,7 +1569,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1529,12 +1594,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1547,7 +1613,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1571,12 +1638,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1589,7 +1657,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1613,12 +1682,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1631,7 +1701,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1655,12 +1726,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1673,7 +1745,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1697,12 +1770,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1715,7 +1789,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1739,12 +1814,13 @@ public final class OrganizationsFunctions {
      *         final var org = OrganizationsFunctions.getOrganization();
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
-     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1865,7 +1941,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1887,12 +1964,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = OrganizationsFunctions.getResourceTags(GetResourceTagsArgs.builder()
-     *             .resourceId(&#34;123456123846&#34;)
+     *             .resourceId("123456123846")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1905,7 +1983,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1927,12 +2006,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = OrganizationsFunctions.getResourceTags(GetResourceTagsArgs.builder()
-     *             .resourceId(&#34;123456123846&#34;)
+     *             .resourceId("123456123846")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1945,7 +2025,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1967,12 +2048,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = OrganizationsFunctions.getResourceTags(GetResourceTagsArgs.builder()
-     *             .resourceId(&#34;123456123846&#34;)
+     *             .resourceId("123456123846")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1985,7 +2067,8 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2007,12 +2090,13 @@ public final class OrganizationsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var account = OrganizationsFunctions.getResourceTags(GetResourceTagsArgs.builder()
-     *             .resourceId(&#34;123456123846&#34;)
+     *             .resourceId("123456123846")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

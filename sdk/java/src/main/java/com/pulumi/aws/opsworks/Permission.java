@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myStackPermission = new Permission(&#34;myStackPermission&#34;, PermissionArgs.builder()        
+ *         var myStackPermission = new Permission("myStackPermission", PermissionArgs.builder()        
  *             .allowSsh(true)
  *             .allowSudo(true)
- *             .level(&#34;iam_only&#34;)
+ *             .level("iam_only")
  *             .userArn(user.arn())
  *             .stackId(stack.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

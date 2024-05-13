@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,13 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alias = new AccountAlias(&#34;alias&#34;, AccountAliasArgs.builder()        
- *             .accountAlias(&#34;my-account-alias&#34;)
+ *         var alias = new AccountAlias("alias", AccountAliasArgs.builder()        
+ *             .accountAlias("my-account-alias")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

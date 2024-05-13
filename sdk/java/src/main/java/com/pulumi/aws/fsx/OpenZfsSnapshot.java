@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Root volume Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,27 +48,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
- *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
+ *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()        
+ *             .name("example")
  *             .volumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Child volume Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,26 +95,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem(&#34;exampleOpenZfsFileSystem&#34;, OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
- *             .deploymentType(&#34;SINGLE_AZ_1&#34;)
+ *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleOpenZfsVolume = new OpenZfsVolume(&#34;exampleOpenZfsVolume&#34;, OpenZfsVolumeArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleOpenZfsVolume = new OpenZfsVolume("exampleOpenZfsVolume", OpenZfsVolumeArgs.builder()        
+ *             .name("example")
  *             .parentVolumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
- *         var example = new OpenZfsSnapshot(&#34;example&#34;, OpenZfsSnapshotArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()        
+ *             .name("example")
  *             .volumeId(exampleOpenZfsVolume.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

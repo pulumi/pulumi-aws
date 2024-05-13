@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var byteSet = new ByteMatchSet(&#34;byteSet&#34;, ByteMatchSetArgs.builder()        
- *             .name(&#34;my_waf_byte_match_set&#34;)
+ *         var byteSet = new ByteMatchSet("byteSet", ByteMatchSetArgs.builder()        
+ *             .name("my_waf_byte_match_set")
  *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .targetString(&#34;badrefer1&#34;)
- *                 .positionalConstraint(&#34;CONTAINS&#34;)
+ *                 .textTransformation("NONE")
+ *                 .targetString("badrefer1")
+ *                 .positionalConstraint("CONTAINS")
  *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
- *                     .type(&#34;HEADER&#34;)
- *                     .data(&#34;referer&#34;)
+ *                     .type("HEADER")
+ *                     .data("referer")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

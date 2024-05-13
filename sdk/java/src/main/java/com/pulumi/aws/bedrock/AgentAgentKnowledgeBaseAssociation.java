@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AgentAgentKnowledgeBaseAssociation(&#34;example&#34;, AgentAgentKnowledgeBaseAssociationArgs.builder()        
- *             .agentId(&#34;012EXAMPLE&#34;)
- *             .description(&#34;Example Knowledge base&#34;)
- *             .knowledgeBaseId(&#34;345EXAMPLE&#34;)
- *             .knowledgeBaseState(&#34;ENABLED&#34;)
+ *         var example = new AgentAgentKnowledgeBaseAssociation("example", AgentAgentKnowledgeBaseAssociationArgs.builder()        
+ *             .agentId("012EXAMPLE")
+ *             .description("Example Knowledge base")
+ *             .knowledgeBaseId("345EXAMPLE")
+ *             .knowledgeBaseState("ENABLED")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

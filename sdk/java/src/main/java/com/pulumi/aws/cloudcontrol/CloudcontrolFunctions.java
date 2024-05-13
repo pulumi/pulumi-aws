@@ -20,7 +20,8 @@ public final class CloudcontrolFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,13 +43,14 @@ public final class CloudcontrolFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+     *             .identifier("example")
+     *             .typeName("AWS::ECS::Cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -61,7 +63,8 @@ public final class CloudcontrolFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -83,13 +86,14 @@ public final class CloudcontrolFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+     *             .identifier("example")
+     *             .typeName("AWS::ECS::Cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -102,7 +106,8 @@ public final class CloudcontrolFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -124,13 +129,14 @@ public final class CloudcontrolFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+     *             .identifier("example")
+     *             .typeName("AWS::ECS::Cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class CloudcontrolFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,13 +172,14 @@ public final class CloudcontrolFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudcontrolFunctions.getResource(GetResourceArgs.builder()
-     *             .identifier(&#34;example&#34;)
-     *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+     *             .identifier("example")
+     *             .typeName("AWS::ECS::Cluster")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var alphaSubnet = new Subnet(&#34;alphaSubnet&#34;, SubnetArgs.builder()        
+ *         var alphaSubnet = new Subnet("alphaSubnet", SubnetArgs.builder()        
  *             .vpcId(foo.id())
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .availabilityZone("us-west-2a")
+ *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
+ *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()        
  *             .fileSystemId(fooAwsEfsFileSystem.id())
  *             .subnetId(alphaSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StudioLifecycleConfig(&#34;example&#34;, StudioLifecycleConfigArgs.builder()        
- *             .studioLifecycleConfigName(&#34;example&#34;)
- *             .studioLifecycleConfigAppType(&#34;JupyterServer&#34;)
+ *         var example = new StudioLifecycleConfig("example", StudioLifecycleConfigArgs.builder()        
+ *             .studioLifecycleConfigName("example")
+ *             .studioLifecycleConfigAppType("JupyterServer")
  *             .studioLifecycleConfigContent(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(&#34;echo Hello&#34;)
+ *                 .input("echo Hello")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

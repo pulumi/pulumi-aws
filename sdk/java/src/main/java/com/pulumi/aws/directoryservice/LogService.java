@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,38 +47,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(String.format(&#34;/aws/directoryservice/%s&#34;, exampleAwsDirectoryServiceDirectory.id()))
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name(String.format("/aws/directoryservice/%s", exampleAwsDirectoryServiceDirectory.id()))
  *             .retentionInDays(14)
  *             .build());
  * 
  *         final var ad-log-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;)
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;ds.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("ds.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
- *                 .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
- *                 .effect(&#34;Allow&#34;)
+ *                 .resources(example.arn().applyValue(arn -> String.format("%s:*", arn)))
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
- *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy(&#34;ad-log-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(ad_log_policy.applyValue(ad_log_policy -&gt; ad_log_policy.json()))
- *             .policyName(&#34;ad-log-policy&#34;)
+ *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy("ad-log-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *             .policyDocument(ad_log_policy.applyValue(ad_log_policy -> ad_log_policy.json()))
+ *             .policyName("ad-log-policy")
  *             .build());
  * 
- *         var exampleLogService = new LogService(&#34;exampleLogService&#34;, LogServiceArgs.builder()        
+ *         var exampleLogService = new LogService("exampleLogService", LogServiceArgs.builder()        
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .logGroupName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

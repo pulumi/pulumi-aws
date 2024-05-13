@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,25 +57,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new endpoint
- *         var test = new Endpoint(&#34;test&#34;, EndpointArgs.builder()        
- *             .certificateArn(&#34;arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012&#34;)
- *             .databaseName(&#34;test&#34;)
- *             .endpointId(&#34;test-dms-endpoint-tf&#34;)
- *             .endpointType(&#34;source&#34;)
- *             .engineName(&#34;aurora&#34;)
- *             .extraConnectionAttributes(&#34;&#34;)
- *             .kmsKeyArn(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
- *             .password(&#34;test&#34;)
+ *         var test = new Endpoint("test", EndpointArgs.builder()        
+ *             .certificateArn("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012")
+ *             .databaseName("test")
+ *             .endpointId("test-dms-endpoint-tf")
+ *             .endpointType("source")
+ *             .engineName("aurora")
+ *             .extraConnectionAttributes("")
+ *             .kmsKeyArn("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
+ *             .password("test")
  *             .port(3306)
- *             .serverName(&#34;test&#34;)
- *             .sslMode(&#34;none&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *             .username(&#34;test&#34;)
+ *             .serverName("test")
+ *             .sslMode("none")
+ *             .tags(Map.of("Name", "test"))
+ *             .username("test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
- *             .description(&#34;clientvpn-example&#34;)
+ *         var example = new Endpoint("example", EndpointArgs.builder()        
+ *             .description("clientvpn-example")
  *             .serverCertificateArn(cert.arn())
- *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .clientCidrBlock("10.0.0.0/16")
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
- *                 .type(&#34;certificate-authentication&#34;)
+ *                 .type("certificate-authentication")
  *                 .rootCertificateChainArn(rootCert.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
@@ -69,7 +70,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

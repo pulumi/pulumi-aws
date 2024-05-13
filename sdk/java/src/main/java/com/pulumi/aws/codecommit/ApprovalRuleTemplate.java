@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,24 +43,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApprovalRuleTemplate(&#34;example&#34;, ApprovalRuleTemplateArgs.builder()        
- *             .name(&#34;MyExampleApprovalRuleTemplate&#34;)
- *             .description(&#34;This is an example approval rule template&#34;)
+ *         var example = new ApprovalRuleTemplate("example", ApprovalRuleTemplateArgs.builder()        
+ *             .name("MyExampleApprovalRuleTemplate")
+ *             .description("This is an example approval rule template")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2018-11-08&#34;),
- *                     jsonProperty(&#34;DestinationReferences&#34;, jsonArray(&#34;refs/heads/master&#34;)),
- *                     jsonProperty(&#34;Statements&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Type&#34;, &#34;Approvers&#34;),
- *                         jsonProperty(&#34;NumberOfApprovalsNeeded&#34;, 2),
- *                         jsonProperty(&#34;ApprovalPoolMembers&#34;, jsonArray(&#34;arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*&#34;))
+ *                     jsonProperty("Version", "2018-11-08"),
+ *                     jsonProperty("DestinationReferences", jsonArray("refs/heads/master")),
+ *                     jsonProperty("Statements", jsonArray(jsonObject(
+ *                         jsonProperty("Type", "Approvers"),
+ *                         jsonProperty("NumberOfApprovalsNeeded", 2),
+ *                         jsonProperty("ApprovalPoolMembers", jsonArray("arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"))
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

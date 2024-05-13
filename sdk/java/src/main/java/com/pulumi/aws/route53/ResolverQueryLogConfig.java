@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverQueryLogConfig(&#34;example&#34;, ResolverQueryLogConfigArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new ResolverQueryLogConfig("example", ResolverQueryLogConfigArgs.builder()        
+ *             .name("example")
  *             .destinationArn(exampleAwsS3Bucket.arn())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
+ *             .tags(Map.of("Environment", "Prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

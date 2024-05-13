@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,16 +52,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new NetworkAcl(&#34;bar&#34;, NetworkAclArgs.builder()        
+ *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
  *             .vpcId(foo.id())
  *             .build());
  * 
- *         var barNetworkAclRule = new NetworkAclRule(&#34;barNetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
+ *         var barNetworkAclRule = new NetworkAclRule("barNetworkAclRule", NetworkAclRuleArgs.builder()        
  *             .networkAclId(bar.id())
  *             .ruleNumber(200)
  *             .egress(false)
- *             .protocol(&#34;tcp&#34;)
- *             .ruleAction(&#34;allow&#34;)
+ *             .protocol("tcp")
+ *             .ruleAction("allow")
  *             .cidrBlock(foo.cidrBlock())
  *             .fromPort(22)
  *             .toPort(22)
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.

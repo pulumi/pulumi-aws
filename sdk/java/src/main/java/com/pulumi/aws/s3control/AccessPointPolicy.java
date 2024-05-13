@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,13 +50,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
  *             .bucket(example.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .publicAccessBlockConfiguration(AccessPointPublicAccessBlockConfigurationArgs.builder()
  *                 .blockPublicAcls(true)
  *                 .blockPublicPolicy(false)
@@ -64,25 +65,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccessPointPolicy = new AccessPointPolicy(&#34;exampleAccessPointPolicy&#34;, AccessPointPolicyArgs.builder()        
+ *         var exampleAccessPointPolicy = new AccessPointPolicy("exampleAccessPointPolicy", AccessPointPolicyArgs.builder()        
  *             .accessPointArn(exampleAccessPoint.arn())
- *             .policy(exampleAccessPoint.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(exampleAccessPoint.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObjectTagging&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, &#34;*&#34;)
+ *                     jsonProperty("Version", "2008-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", "s3:GetObjectTagging"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", "*")
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, String.format(&#34;%s/object/*&#34;, arn))
+ *                         jsonProperty("Resource", String.format("%s/object/*", arn))
  *                     )))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,53 +59,55 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;osis-pipelines.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "osis-pipelines.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
- *             .pipelineName(&#34;example&#34;)
- *             .pipelineConfigurationBody(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * version: &#34;2&#34;
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *             .pipelineName("example")
+ *             .pipelineConfigurationBody(example.arn().applyValue(arn -> """
+ * version: "2"
  * example-pipeline:
  *   source:
  *     http:
- *       path: &#34;/example&#34;
+ *       path: "/example"
  *   sink:
  *     - s3:
  *         aws:
- *           sts_role_arn: &#34;%s&#34;
- *           region: &#34;%s&#34;
- *         bucket: &#34;example&#34;
+ *           sts_role_arn: "%s"
+ *           region: "%s"
+ *         bucket: "example"
  *         threshold:
- *           event_collect_timeout: &#34;60s&#34;
+ *           event_collect_timeout: "60s"
  *         codec:
  *           ndjson:
- * &#34;, arn,current.applyValue(getRegionResult -&gt; getRegionResult.name()))))
+ * ", arn,current.applyValue(getRegionResult -> getRegionResult.name()))))
  *             .maxUnits(1)
  *             .minUnits(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using file function
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,10 +128,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipeline(&#34;example&#34;, PipelineArgs.builder()        
- *             .pipelineName(&#34;example&#34;)
+ *         var example = new Pipeline("example", PipelineArgs.builder()        
+ *             .pipelineName("example")
  *             .pipelineConfigurationBody(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;example.yaml&#34;)
+ *                 .input("example.yaml")
  *                 .build()).result())
  *             .maxUnits(1)
  *             .minUnits(1)
@@ -136,7 +139,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

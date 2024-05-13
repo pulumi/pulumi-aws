@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DirectoryBucket(&#34;example&#34;, DirectoryBucketArgs.builder()        
- *             .bucket(&#34;example--usw2-az1--x-s3&#34;)
+ *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()        
+ *             .bucket("example--usw2-az1--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
- *                 .name(&#34;usw2-az1&#34;)
+ *                 .name("usw2-az1")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

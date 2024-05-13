@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,8 +68,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .clusterName(&#34;example&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .clusterName("example")
  *             .clientAuthentication(ClusterClientAuthenticationArgs.builder()
  *                 .sasl(ClusterClientAuthenticationSaslArgs.builder()
  *                     .scram(true)
@@ -76,25 +77,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;Example Key for MSK Cluster Scram Secret Association&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .description("Example Key for MSK Cluster Scram Secret Association")
  *             .build());
  * 
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
- *             .name(&#34;AmazonMSK_example&#34;)
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *             .name("AmazonMSK_example")
  *             .kmsKeyId(exampleKey.keyId())
  *             .build());
  * 
- *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
  *             .secretId(exampleSecret.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;username&#34;, &#34;user&#34;),
- *                     jsonProperty(&#34;password&#34;, &#34;pass&#34;)
+ *                     jsonProperty("username", "user"),
+ *                     jsonProperty("password", "pass")
  *                 )))
  *             .build());
  * 
- *         var exampleScramSecretAssociation = new ScramSecretAssociation(&#34;exampleScramSecretAssociation&#34;, ScramSecretAssociationArgs.builder()        
+ *         var exampleScramSecretAssociation = new ScramSecretAssociation("exampleScramSecretAssociation", ScramSecretAssociationArgs.builder()        
  *             .clusterArn(exampleCluster.arn())
  *             .secretArnLists(exampleSecret.arn())
  *             .build(), CustomResourceOptions.builder()
@@ -103,25 +104,26 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;AWSKafkaResourcePolicy&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("AWSKafkaResourcePolicy")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;kafka.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("kafka.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;secretsmanager:getSecretValue&#34;)
+ *                 .actions("secretsmanager:getSecretValue")
  *                 .resources(exampleSecret.arn())
  *                 .build())
  *             .build());
  * 
- *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
+ *         var exampleSecretPolicy = new SecretPolicy("exampleSecretPolicy", SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Create a basic user pool client
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,24 +54,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;client&#34;)
+ *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()        
+ *             .name("client")
  *             .userPoolId(pool.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create a user pool client with no SRP authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,26 +96,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;client&#34;)
+ *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()        
+ *             .name("client")
  *             .userPoolId(pool.id())
  *             .generateSecret(true)
- *             .explicitAuthFlows(&#34;ADMIN_NO_SRP_AUTH&#34;)
+ *             .explicitAuthFlows("ADMIN_NO_SRP_AUTH")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create a user pool client with pinpoint analytics
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,36 +151,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUserPool = new UserPool(&#34;testUserPool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var testUserPool = new UserPool("testUserPool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var testApp = new App(&#34;testApp&#34;, AppArgs.builder()        
- *             .name(&#34;pinpoint&#34;)
+ *         var testApp = new App("testApp", AppArgs.builder()        
+ *             .name("pinpoint")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;cognito-idp.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("cognito-idp.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .name(&#34;role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *             .name("role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testUserPoolClient = new UserPoolClient(&#34;testUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;pool_client&#34;)
+ *         var testUserPoolClient = new UserPoolClient("testUserPoolClient", UserPoolClientArgs.builder()        
+ *             .name("pool_client")
  *             .userPoolId(testUserPool.id())
  *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
  *                 .applicationId(testApp.applicationId())
- *                 .externalId(&#34;some_id&#34;)
+ *                 .externalId("some_id")
  *                 .roleArn(testRole.arn())
  *                 .userDataShared(true)
  *                 .build())
@@ -185,29 +190,31 @@ import javax.annotation.Nullable;
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;mobiletargeting:UpdateEndpoint&#34;,
- *                     &#34;mobiletargeting:PutEvents&#34;)
- *                 .resources(testApp.applicationId().applyValue(applicationId -&gt; String.format(&#34;arn:aws:mobiletargeting:*:%s:apps/%s*&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),applicationId)))
+ *                     "mobiletargeting:UpdateEndpoint",
+ *                     "mobiletargeting:PutEvents")
+ *                 .resources(testApp.applicationId().applyValue(applicationId -> String.format("arn:aws:mobiletargeting:*:%s:apps/%s*", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),applicationId)))
  *                 .build())
  *             .build());
  * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;role_policy&#34;)
+ *         var testRolePolicy = new RolePolicy("testRolePolicy", RolePolicyArgs.builder()        
+ *             .name("role_policy")
  *             .role(testRole.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create a user pool client with Cognito as the identity provider
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -230,27 +237,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;pool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("pool")
  *             .build());
  * 
- *         var userpoolClient = new UserPoolClient(&#34;userpoolClient&#34;, UserPoolClientArgs.builder()        
- *             .name(&#34;client&#34;)
+ *         var userpoolClient = new UserPoolClient("userpoolClient", UserPoolClientArgs.builder()        
+ *             .name("client")
  *             .userPoolId(pool.id())
- *             .callbackUrls(&#34;https://example.com&#34;)
+ *             .callbackUrls("https://example.com")
  *             .allowedOauthFlowsUserPoolClient(true)
  *             .allowedOauthFlows(            
- *                 &#34;code&#34;,
- *                 &#34;implicit&#34;)
+ *                 "code",
+ *                 "implicit")
  *             .allowedOauthScopes(            
- *                 &#34;email&#34;,
- *                 &#34;openid&#34;)
- *             .supportedIdentityProviders(&#34;COGNITO&#34;)
+ *                 "email",
+ *                 "openid")
+ *             .supportedIdentityProviders("COGNITO")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,8 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExportTask(&#34;example&#34;, ExportTaskArgs.builder()        
- *             .exportTaskIdentifier(&#34;example&#34;)
+ *         var example = new ExportTask("example", ExportTaskArgs.builder()        
+ *             .exportTaskIdentifier("example")
  *             .sourceArn(exampleAwsDbSnapshot.dbSnapshotArn())
  *             .s3BucketName(exampleAwsS3Bucket.id())
  *             .iamRoleArn(exampleAwsIamRole.arn())
@@ -56,13 +57,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Complete Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,27 +105,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;export.rds.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "export.rds.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
@@ -131,69 +134,70 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(&#34;s3:ListAllMyBuckets&#34;)
- *                     .resources(&#34;*&#34;)
+ *                     .actions("s3:ListAllMyBuckets")
+ *                     .resources("*")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
- *                         &#34;s3:GetBucketLocation&#34;,
- *                         &#34;s3:ListBucket&#34;)
+ *                         "s3:GetBucketLocation",
+ *                         "s3:ListBucket")
  *                     .resources(exampleBucketV2.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
- *                         &#34;s3:GetObject&#34;,
- *                         &#34;s3:PutObject&#34;,
- *                         &#34;s3:DeleteObject&#34;)
- *                     .resources(exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                         "s3:GetObject",
+ *                         "s3:PutObject",
+ *                         "s3:DeleteObject")
+ *                     .resources(exampleBucketV2.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                     .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *             .name("example")
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(exampleRole.name())
  *             .policyArn(examplePolicy.arn())
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .identifier(&#34;example&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .identifier("example")
  *             .allocatedStorage(10)
- *             .dbName(&#34;test&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .username(&#34;foo&#34;)
- *             .password(&#34;foobarbaz&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
+ *             .dbName("test")
+ *             .engine("mysql")
+ *             .engineVersion("5.7")
+ *             .instanceClass("db.t3.micro")
+ *             .username("foo")
+ *             .password("foobarbaz")
+ *             .parameterGroupName("default.mysql5.7")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
  *             .dbInstanceIdentifier(exampleInstance.identifier())
- *             .dbSnapshotIdentifier(&#34;example&#34;)
+ *             .dbSnapshotIdentifier("example")
  *             .build());
  * 
- *         var exampleExportTask = new ExportTask(&#34;exampleExportTask&#34;, ExportTaskArgs.builder()        
- *             .exportTaskIdentifier(&#34;example&#34;)
+ *         var exampleExportTask = new ExportTask("exampleExportTask", ExportTaskArgs.builder()        
+ *             .exportTaskIdentifier("example")
  *             .sourceArn(exampleSnapshot.dbSnapshotArn())
  *             .s3BucketName(exampleBucketV2.id())
  *             .iamRoleArn(exampleRole.arn())
  *             .kmsKeyId(exampleKey.arn())
- *             .exportOnlies(&#34;database&#34;)
- *             .s3Prefix(&#34;my_prefix/example&#34;)
+ *             .exportOnlies("database")
+ *             .s3Prefix("my_prefix/example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

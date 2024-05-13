@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReportPlan(&#34;example&#34;, ReportPlanArgs.builder()        
- *             .name(&#34;example_name&#34;)
- *             .description(&#34;example description&#34;)
+ *         var example = new ReportPlan("example", ReportPlanArgs.builder()        
+ *             .name("example_name")
+ *             .description("example description")
  *             .reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs.builder()
  *                 .formats(                
- *                     &#34;CSV&#34;,
- *                     &#34;JSON&#34;)
- *                 .s3BucketName(&#34;example-bucket-name&#34;)
+ *                     "CSV",
+ *                     "JSON")
+ *                 .s3BucketName("example-bucket-name")
  *                 .build())
  *             .reportSetting(ReportPlanReportSettingArgs.builder()
- *                 .reportTemplate(&#34;RESTORE_JOB_REPORT&#34;)
+ *                 .reportTemplate("RESTORE_JOB_REPORT")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Report Plan&#34;))
+ *             .tags(Map.of("Name", "Example Report Plan"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

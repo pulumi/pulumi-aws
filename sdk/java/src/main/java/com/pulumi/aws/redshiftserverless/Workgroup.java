@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,14 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
- *             .namespaceName(&#34;concurrency-scaling&#34;)
- *             .workgroupName(&#34;concurrency-scaling&#34;)
+ *         var example = new Workgroup("example", WorkgroupArgs.builder()        
+ *             .namespaceName("concurrency-scaling")
+ *             .workgroupName("concurrency-scaling")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

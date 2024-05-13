@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new SnapshotSchedule(&#34;default&#34;, SnapshotScheduleArgs.builder()        
- *             .identifier(&#34;tf-redshift-snapshot-schedule&#34;)
- *             .definitions(&#34;rate(12 hours)&#34;)
+ *         var default_ = new SnapshotSchedule("default", SnapshotScheduleArgs.builder()        
+ *             .identifier("tf-redshift-snapshot-schedule")
+ *             .definitions("rate(12 hours)")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

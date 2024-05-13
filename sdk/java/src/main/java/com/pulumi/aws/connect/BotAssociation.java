@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BotAssociation(&#34;example&#34;, BotAssociationArgs.builder()        
+ *         var example = new BotAssociation("example", BotAssociationArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(&#34;us-west-2&#34;)
- *                 .name(&#34;Test&#34;)
+ *                 .lexRegion("us-west-2")
+ *                 .name("Test")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Including a sample Lex bot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,49 +100,50 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Intent(&#34;example&#34;, IntentArgs.builder()        
+ *         var example = new Intent("example", IntentArgs.builder()        
  *             .createVersion(true)
- *             .name(&#34;connect_lex_intent&#34;)
+ *             .name("connect_lex_intent")
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
- *                 .type(&#34;ReturnIntent&#34;)
+ *                 .type("ReturnIntent")
  *                 .build())
- *             .sampleUtterances(&#34;I would like to pick up flowers.&#34;)
+ *             .sampleUtterances("I would like to pick up flowers.")
  *             .build());
  * 
- *         var exampleBot = new Bot(&#34;exampleBot&#34;, BotArgs.builder()        
+ *         var exampleBot = new Bot("exampleBot", BotArgs.builder()        
  *             .abortStatement(BotAbortStatementArgs.builder()
  *                 .messages(BotAbortStatementMessageArgs.builder()
- *                     .content(&#34;Sorry, I am not able to assist at this time.&#34;)
- *                     .contentType(&#34;PlainText&#34;)
+ *                     .content("Sorry, I am not able to assist at this time.")
+ *                     .contentType("PlainText")
  *                     .build())
  *                 .build())
  *             .clarificationPrompt(BotClarificationPromptArgs.builder()
  *                 .maxAttempts(2)
  *                 .messages(BotClarificationPromptMessageArgs.builder()
- *                     .content(&#34;I didn&#39;t understand you, what would you like to do?&#34;)
- *                     .contentType(&#34;PlainText&#34;)
+ *                     .content("I didn't understand you, what would you like to do?")
+ *                     .contentType("PlainText")
  *                     .build())
  *                 .build())
  *             .intents(BotIntentArgs.builder()
  *                 .intentName(example.name())
- *                 .intentVersion(&#34;1&#34;)
+ *                 .intentVersion("1")
  *                 .build())
  *             .childDirected(false)
- *             .name(&#34;connect_lex_bot&#34;)
- *             .processBehavior(&#34;BUILD&#34;)
+ *             .name("connect_lex_bot")
+ *             .processBehavior("BUILD")
  *             .build());
  * 
- *         var exampleBotAssociation = new BotAssociation(&#34;exampleBotAssociation&#34;, BotAssociationArgs.builder()        
+ *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .lexRegion(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .name(exampleBot.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

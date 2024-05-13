@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCurReportDefinition = new ReportDefinition(&#34;exampleCurReportDefinition&#34;, ReportDefinitionArgs.builder()        
- *             .reportName(&#34;example-cur-report-definition&#34;)
- *             .timeUnit(&#34;HOURLY&#34;)
- *             .format(&#34;textORcsv&#34;)
- *             .compression(&#34;GZIP&#34;)
+ *         var exampleCurReportDefinition = new ReportDefinition("exampleCurReportDefinition", ReportDefinitionArgs.builder()        
+ *             .reportName("example-cur-report-definition")
+ *             .timeUnit("HOURLY")
+ *             .format("textORcsv")
+ *             .compression("GZIP")
  *             .additionalSchemaElements(            
- *                 &#34;RESOURCES&#34;,
- *                 &#34;SPLIT_COST_ALLOCATION_DATA&#34;)
- *             .s3Bucket(&#34;example-bucket-name&#34;)
- *             .s3Region(&#34;us-east-1&#34;)
+ *                 "RESOURCES",
+ *                 "SPLIT_COST_ALLOCATION_DATA")
+ *             .s3Bucket("example-bucket-name")
+ *             .s3Region("us-east-1")
  *             .additionalArtifacts(            
- *                 &#34;REDSHIFT&#34;,
- *                 &#34;QUICKSIGHT&#34;)
+ *                 "REDSHIFT",
+ *                 "QUICKSIGHT")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

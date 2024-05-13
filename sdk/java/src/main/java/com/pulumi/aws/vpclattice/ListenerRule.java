@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new ListenerRule("test", ListenerRuleArgs.builder()        
+ *             .name("example")
  *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(20)
  *             .match(ListenerRuleMatchArgs.builder()
  *                 .httpMatch(ListenerRuleMatchHttpMatchArgs.builder()
  *                     .headerMatches(ListenerRuleMatchHttpMatchHeaderMatchArgs.builder()
- *                         .name(&#34;example-header&#34;)
+ *                         .name("example-header")
  *                         .caseSensitive(false)
  *                         .match(ListenerRuleMatchHttpMatchHeaderMatchMatchArgs.builder()
- *                             .exact(&#34;example-contains&#34;)
+ *                             .exact("example-contains")
  *                             .build())
  *                         .build())
  *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
  *                         .caseSensitive(true)
  *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
- *                             .prefix(&#34;/example-path&#34;)
+ *                             .prefix("/example-path")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -90,13 +91,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,8 +126,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule(&#34;test&#34;, ListenerRuleArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new ListenerRule("test", ListenerRuleArgs.builder()        
+ *             .name("example")
  *             .listenerIdentifier(example.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
  *             .priority(10)
@@ -133,7 +136,7 @@ import javax.annotation.Nullable;
  *                     .pathMatch(ListenerRuleMatchHttpMatchPathMatchArgs.builder()
  *                         .caseSensitive(false)
  *                         .match(ListenerRuleMatchHttpMatchPathMatchMatchArgs.builder()
- *                             .exact(&#34;/example-path&#34;)
+ *                             .exact("/example-path")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -147,7 +150,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

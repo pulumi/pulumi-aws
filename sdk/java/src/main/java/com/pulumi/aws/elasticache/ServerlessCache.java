@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Memcached Serverless
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,34 +53,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
- *             .engine(&#34;memcached&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()        
+ *             .engine("memcached")
+ *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
- *                     .unit(&#34;GB&#34;)
+ *                     .unit("GB")
  *                     .build())
  *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
  *                     .maximum(5000)
  *                     .build())
  *                 .build())
- *             .description(&#34;Test Server&#34;)
+ *             .description("Test Server")
  *             .kmsKeyId(test.arn())
- *             .majorEngineVersion(&#34;1.6&#34;)
+ *             .majorEngineVersion("1.6")
  *             .securityGroupIds(testAwsSecurityGroup.id())
- *             .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Redis Serverless
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -102,30 +105,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessCache(&#34;example&#34;, ServerlessCacheArgs.builder()        
- *             .engine(&#34;redis&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()        
+ *             .engine("redis")
+ *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
- *                     .unit(&#34;GB&#34;)
+ *                     .unit("GB")
  *                     .build())
  *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
  *                     .maximum(5000)
  *                     .build())
  *                 .build())
- *             .dailySnapshotTime(&#34;09:00&#34;)
- *             .description(&#34;Test Server&#34;)
+ *             .dailySnapshotTime("09:00")
+ *             .description("Test Server")
  *             .kmsKeyId(test.arn())
- *             .majorEngineVersion(&#34;7&#34;)
+ *             .majorEngineVersion("7")
  *             .snapshotRetentionLimit(1)
  *             .securityGroupIds(testAwsSecurityGroup.id())
- *             .subnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

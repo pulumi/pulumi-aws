@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxDataview(&#34;example&#34;, KxDataviewArgs.builder()        
- *             .name(&#34;my-tf-kx-dataview&#34;)
+ *         var example = new KxDataview("example", KxDataviewArgs.builder()        
+ *             .name("my-tf-kx-dataview")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .databaseName(exampleAwsFinspaceKxDatabase.name())
- *             .availabilityZoneId(&#34;use1-az2&#34;)
- *             .description(&#34;Terraform managed Kx Dataview&#34;)
- *             .azMode(&#34;SINGLE&#34;)
+ *             .availabilityZoneId("use1-az2")
+ *             .description("Terraform managed Kx Dataview")
+ *             .azMode("SINGLE")
  *             .autoUpdate(true)
  *             .segmentConfigurations(KxDataviewSegmentConfigurationArgs.builder()
  *                 .volumeName(exampleAwsFinspaceKxVolume.name())
- *                 .dbPaths(&#34;/*&#34;)
+ *                 .dbPaths("/*")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

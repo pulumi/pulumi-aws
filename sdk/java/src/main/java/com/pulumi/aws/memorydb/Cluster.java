@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .aclName(&#34;open-access&#34;)
- *             .name(&#34;my-cluster&#34;)
- *             .nodeType(&#34;db.t4g.small&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .aclName("open-access")
+ *             .name("my-cluster")
+ *             .nodeType("db.t4g.small")
  *             .numShards(2)
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .snapshotRetentionLimit(7)
@@ -61,7 +62,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

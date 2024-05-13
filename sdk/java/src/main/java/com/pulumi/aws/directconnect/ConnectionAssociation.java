@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,26 +45,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .bandwidth(&#34;1Gbps&#34;)
- *             .location(&#34;EqSe2-EQ&#34;)
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .name("example")
+ *             .bandwidth("1Gbps")
+ *             .location("EqSe2-EQ")
  *             .build());
  * 
- *         var exampleLinkAggregationGroup = new LinkAggregationGroup(&#34;exampleLinkAggregationGroup&#34;, LinkAggregationGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .connectionsBandwidth(&#34;1Gbps&#34;)
- *             .location(&#34;EqSe2-EQ&#34;)
+ *         var exampleLinkAggregationGroup = new LinkAggregationGroup("exampleLinkAggregationGroup", LinkAggregationGroupArgs.builder()        
+ *             .name("example")
+ *             .connectionsBandwidth("1Gbps")
+ *             .location("EqSe2-EQ")
  *             .build());
  * 
- *         var exampleConnectionAssociation = new ConnectionAssociation(&#34;exampleConnectionAssociation&#34;, ConnectionAssociationArgs.builder()        
+ *         var exampleConnectionAssociation = new ConnectionAssociation("exampleConnectionAssociation", ConnectionAssociationArgs.builder()        
  *             .connectionId(example.id())
  *             .lagId(exampleLinkAggregationGroup.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,55 +55,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoRestApi = new RestApi(&#34;demoRestApi&#34;, RestApiArgs.builder()        
- *             .name(&#34;auth-demo&#34;)
+ *         var demoRestApi = new RestApi("demoRestApi", RestApiArgs.builder()        
+ *             .name("auth-demo")
  *             .build());
  * 
  *         final var invocationAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;apigateway.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("apigateway.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var invocationRole = new Role(&#34;invocationRole&#34;, RoleArgs.builder()        
- *             .name(&#34;api_gateway_auth_invocation&#34;)
- *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(invocationAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var invocationRole = new Role("invocationRole", RoleArgs.builder()        
+ *             .name("api_gateway_auth_invocation")
+ *             .path("/")
+ *             .assumeRolePolicy(invocationAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var lambdaAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;lambda.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var lambda = new Role(&#34;lambda&#34;, RoleArgs.builder()        
- *             .name(&#34;demo-lambda&#34;)
- *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var lambda = new Role("lambda", RoleArgs.builder()        
+ *             .name("demo-lambda")
+ *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var authorizer = new Function(&#34;authorizer&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambda-function.zip&#34;))
- *             .name(&#34;api_gateway_authorizer&#34;)
+ *         var authorizer = new Function("authorizer", FunctionArgs.builder()        
+ *             .code(new FileArchive("lambda-function.zip"))
+ *             .name("api_gateway_authorizer")
  *             .role(lambda.arn())
- *             .handler(&#34;exports.example&#34;)
+ *             .handler("exports.example")
  *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input(&#34;lambda-function.zip&#34;)
+ *                 .input("lambda-function.zip")
  *                 .build()).result())
  *             .build());
  * 
- *         var demo = new Authorizer(&#34;demo&#34;, AuthorizerArgs.builder()        
- *             .name(&#34;demo&#34;)
+ *         var demo = new Authorizer("demo", AuthorizerArgs.builder()        
+ *             .name("demo")
  *             .restApi(demoRestApi.id())
  *             .authorizerUri(authorizer.invokeArn())
  *             .authorizerCredentials(invocationRole.arn())
@@ -110,21 +111,22 @@ import javax.annotation.Nullable;
  * 
  *         final var invocationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;lambda:InvokeFunction&#34;)
+ *                 .effect("Allow")
+ *                 .actions("lambda:InvokeFunction")
  *                 .resources(authorizer.arn())
  *                 .build())
  *             .build());
  * 
- *         var invocationPolicyRolePolicy = new RolePolicy(&#34;invocationPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;default&#34;)
+ *         var invocationPolicyRolePolicy = new RolePolicy("invocationPolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("default")
  *             .role(invocationRole.id())
- *             .policy(invocationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(invocationPolicy -&gt; invocationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(invocationPolicy -> invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

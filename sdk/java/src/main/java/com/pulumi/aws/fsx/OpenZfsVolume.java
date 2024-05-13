@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,14 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OpenZfsVolume(&#34;test&#34;, OpenZfsVolumeArgs.builder()        
- *             .name(&#34;testvolume&#34;)
+ *         var test = new OpenZfsVolume("test", OpenZfsVolumeArgs.builder()        
+ *             .name("testvolume")
  *             .parentVolumeId(testAwsFsxOpenzfsFileSystem.rootVolumeId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

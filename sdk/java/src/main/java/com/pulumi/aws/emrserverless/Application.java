@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,21 +52,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .name("example")
+ *             .releaseLabel("emr-6.6.0")
+ *             .type("hive")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Initial Capacity Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,17 +92,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .name("example")
+ *             .releaseLabel("emr-6.6.0")
+ *             .type("hive")
  *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
- *                 .initialCapacityType(&#34;HiveDriver&#34;)
+ *                 .initialCapacityType("HiveDriver")
  *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
  *                     .workerCount(1)
  *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
- *                         .cpu(&#34;2 vCPU&#34;)
- *                         .memory(&#34;10 GB&#34;)
+ *                         .cpu("2 vCPU")
+ *                         .memory("10 GB")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -107,13 +110,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Maximum Capacity Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -135,19 +140,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
+ *         var example = new Application("example", ApplicationArgs.builder()        
+ *             .name("example")
+ *             .releaseLabel("emr-6.6.0")
+ *             .type("hive")
  *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
- *                 .cpu(&#34;2 vCPU&#34;)
- *                 .memory(&#34;10 GB&#34;)
+ *                 .cpu("2 vCPU")
+ *                 .memory("10 GB")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,65 +54,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Preset(&#34;bar&#34;, PresetArgs.builder()        
- *             .container(&#34;mp4&#34;)
- *             .description(&#34;Sample Preset&#34;)
- *             .name(&#34;sample_preset&#34;)
+ *         var bar = new Preset("bar", PresetArgs.builder()        
+ *             .container("mp4")
+ *             .description("Sample Preset")
+ *             .name("sample_preset")
  *             .audio(PresetAudioArgs.builder()
- *                 .audioPackingMode(&#34;SingleTrack&#34;)
+ *                 .audioPackingMode("SingleTrack")
  *                 .bitRate(96)
  *                 .channels(2)
- *                 .codec(&#34;AAC&#34;)
+ *                 .codec("AAC")
  *                 .sampleRate(44100)
  *                 .build())
  *             .audioCodecOptions(PresetAudioCodecOptionsArgs.builder()
- *                 .profile(&#34;AAC-LC&#34;)
+ *                 .profile("AAC-LC")
  *                 .build())
  *             .video(PresetVideoArgs.builder()
- *                 .bitRate(&#34;1600&#34;)
- *                 .codec(&#34;H.264&#34;)
- *                 .displayAspectRatio(&#34;16:9&#34;)
- *                 .fixedGop(&#34;false&#34;)
- *                 .frameRate(&#34;auto&#34;)
- *                 .maxFrameRate(&#34;60&#34;)
+ *                 .bitRate("1600")
+ *                 .codec("H.264")
+ *                 .displayAspectRatio("16:9")
+ *                 .fixedGop("false")
+ *                 .frameRate("auto")
+ *                 .maxFrameRate("60")
  *                 .keyframesMaxDist(240)
- *                 .maxHeight(&#34;auto&#34;)
- *                 .maxWidth(&#34;auto&#34;)
- *                 .paddingPolicy(&#34;Pad&#34;)
- *                 .sizingPolicy(&#34;Fit&#34;)
+ *                 .maxHeight("auto")
+ *                 .maxWidth("auto")
+ *                 .paddingPolicy("Pad")
+ *                 .sizingPolicy("Fit")
  *                 .build())
  *             .videoCodecOptions(Map.ofEntries(
- *                 Map.entry(&#34;Profile&#34;, &#34;main&#34;),
- *                 Map.entry(&#34;Level&#34;, &#34;2.2&#34;),
- *                 Map.entry(&#34;MaxReferenceFrames&#34;, 3),
- *                 Map.entry(&#34;InterlacedMode&#34;, &#34;Progressive&#34;),
- *                 Map.entry(&#34;ColorSpaceConversionMode&#34;, &#34;None&#34;)
+ *                 Map.entry("Profile", "main"),
+ *                 Map.entry("Level", "2.2"),
+ *                 Map.entry("MaxReferenceFrames", 3),
+ *                 Map.entry("InterlacedMode", "Progressive"),
+ *                 Map.entry("ColorSpaceConversionMode", "None")
  *             ))
  *             .videoWatermarks(PresetVideoWatermarkArgs.builder()
- *                 .id(&#34;Test&#34;)
- *                 .maxWidth(&#34;20%&#34;)
- *                 .maxHeight(&#34;20%&#34;)
- *                 .sizingPolicy(&#34;ShrinkToFit&#34;)
- *                 .horizontalAlign(&#34;Right&#34;)
- *                 .horizontalOffset(&#34;10px&#34;)
- *                 .verticalAlign(&#34;Bottom&#34;)
- *                 .verticalOffset(&#34;10px&#34;)
- *                 .opacity(&#34;55.5&#34;)
- *                 .target(&#34;Content&#34;)
+ *                 .id("Test")
+ *                 .maxWidth("20%")
+ *                 .maxHeight("20%")
+ *                 .sizingPolicy("ShrinkToFit")
+ *                 .horizontalAlign("Right")
+ *                 .horizontalOffset("10px")
+ *                 .verticalAlign("Bottom")
+ *                 .verticalOffset("10px")
+ *                 .opacity("55.5")
+ *                 .target("Content")
  *                 .build())
  *             .thumbnails(PresetThumbnailsArgs.builder()
- *                 .format(&#34;png&#34;)
+ *                 .format("png")
  *                 .interval(120)
- *                 .maxWidth(&#34;auto&#34;)
- *                 .maxHeight(&#34;auto&#34;)
- *                 .paddingPolicy(&#34;Pad&#34;)
- *                 .sizingPolicy(&#34;Fit&#34;)
+ *                 .maxWidth("auto")
+ *                 .maxHeight("auto")
+ *                 .paddingPolicy("Pad")
+ *                 .sizingPolicy("Fit")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

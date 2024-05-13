@@ -29,7 +29,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
-     *             .name(&#34;my-activity&#34;)
+     *             .name("my-activity")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -271,7 +283,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -293,13 +306,14 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;my_sfn_alias&#34;)
+     *             .name("my_sfn_alias")
      *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -314,7 +328,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -336,13 +351,14 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;my_sfn_alias&#34;)
+     *             .name("my_sfn_alias")
      *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -357,7 +373,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -379,13 +396,14 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;my_sfn_alias&#34;)
+     *             .name("my_sfn_alias")
      *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -400,7 +418,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,13 +441,14 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
-     *             .name(&#34;my_sfn_alias&#34;)
+     *             .name("my_sfn_alias")
      *             .statemachineArn(sfnTest.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -443,7 +463,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -465,12 +486,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getStateMachine(GetStateMachineArgs.builder()
-     *             .name(&#34;an_example_sfn_name&#34;)
+     *             .name("an_example_sfn_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -485,7 +507,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -507,12 +530,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getStateMachine(GetStateMachineArgs.builder()
-     *             .name(&#34;an_example_sfn_name&#34;)
+     *             .name("an_example_sfn_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -527,7 +551,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -549,12 +574,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getStateMachine(GetStateMachineArgs.builder()
-     *             .name(&#34;an_example_sfn_name&#34;)
+     *             .name("an_example_sfn_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -569,7 +595,8 @@ public final class SfnFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -591,12 +618,13 @@ public final class SfnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SfnFunctions.getStateMachine(GetStateMachineArgs.builder()
-     *             .name(&#34;an_example_sfn_name&#34;)
+     *             .name("an_example_sfn_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -611,7 +639,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -638,7 +667,8 @@ public final class SfnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -653,7 +683,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -680,7 +711,8 @@ public final class SfnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -695,7 +727,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -722,7 +755,8 @@ public final class SfnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -737,7 +771,8 @@ public final class SfnFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -764,7 +799,8 @@ public final class SfnFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

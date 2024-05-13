@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Simple routing policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,17 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()        
  *             .zoneId(primary.zoneId())
- *             .name(&#34;www.example.com&#34;)
- *             .type(&#34;A&#34;)
+ *             .name("www.example.com")
+ *             .type("A")
  *             .ttl(300)
  *             .records(lb.publicIp())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Weighted routing policy
@@ -71,7 +73,8 @@ import javax.annotation.Nullable;
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,39 +96,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www_dev = new Record(&#34;www-dev&#34;, RecordArgs.builder()        
+ *         var www_dev = new Record("www-dev", RecordArgs.builder()        
  *             .zoneId(primary.zoneId())
- *             .name(&#34;www&#34;)
- *             .type(&#34;CNAME&#34;)
+ *             .name("www")
+ *             .type("CNAME")
  *             .ttl(5)
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(10)
  *                 .build())
- *             .setIdentifier(&#34;dev&#34;)
- *             .records(&#34;dev.example.com&#34;)
+ *             .setIdentifier("dev")
+ *             .records("dev.example.com")
  *             .build());
  * 
- *         var www_live = new Record(&#34;www-live&#34;, RecordArgs.builder()        
+ *         var www_live = new Record("www-live", RecordArgs.builder()        
  *             .zoneId(primary.zoneId())
- *             .name(&#34;www&#34;)
- *             .type(&#34;CNAME&#34;)
+ *             .name("www")
+ *             .type("CNAME")
  *             .ttl(5)
  *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
  *                 .weight(90)
  *                 .build())
- *             .setIdentifier(&#34;live&#34;)
- *             .records(&#34;live.example.com&#34;)
+ *             .setIdentifier("live")
+ *             .records("live.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Geoproximity routing policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,24 +152,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()        
  *             .zoneId(primary.zoneId())
- *             .name(&#34;www.example.com&#34;)
- *             .type(&#34;CNAME&#34;)
+ *             .name("www.example.com")
+ *             .type("CNAME")
  *             .ttl(300)
  *             .geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs.builder()
  *                 .coordinates(RecordGeoproximityRoutingPolicyCoordinateArgs.builder()
- *                     .latitude(&#34;49.22&#34;)
- *                     .longitude(&#34;-74.01&#34;)
+ *                     .latitude("49.22")
+ *                     .longitude("-74.01")
  *                     .build())
  *                 .build())
- *             .setIdentifier(&#34;dev&#34;)
- *             .records(&#34;dev.example.com&#34;)
+ *             .setIdentifier("dev")
+ *             .records("dev.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Alias record
@@ -176,7 +182,8 @@ import javax.annotation.Nullable;
  * you cannot change this, therefore `ttl` has to be omitted in alias records.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -201,21 +208,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new LoadBalancer(&#34;main&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;foobar-elb&#34;)
- *             .availabilityZones(&#34;us-east-1c&#34;)
+ *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()        
+ *             .name("foobar-elb")
+ *             .availabilityZones("us-east-1c")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(80)
- *                 .instanceProtocol(&#34;http&#34;)
+ *                 .instanceProtocol("http")
  *                 .lbPort(80)
- *                 .lbProtocol(&#34;http&#34;)
+ *                 .lbProtocol("http")
  *                 .build())
  *             .build());
  * 
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()        
  *             .zoneId(primary.zoneId())
- *             .name(&#34;example.com&#34;)
- *             .type(&#34;A&#34;)
+ *             .name("example.com")
+ *             .type("A")
  *             .aliases(RecordAliasArgs.builder()
  *                 .name(main.dnsName())
  *                 .zoneId(main.zoneId())
@@ -225,7 +232,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### NS and SOA Record Management
@@ -233,7 +241,8 @@ import javax.annotation.Nullable;
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -256,26 +265,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
- *             .name(&#34;test.example.com&#34;)
+ *         var example = new Zone("example", ZoneArgs.builder()        
+ *             .name("test.example.com")
  *             .build());
  * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
  *             .allowOverwrite(true)
- *             .name(&#34;test.example.com&#34;)
+ *             .name("test.example.com")
  *             .ttl(172800)
- *             .type(&#34;NS&#34;)
+ *             .type("NS")
  *             .zoneId(example.zoneId())
  *             .records(            
- *                 example.nameServers().applyValue(nameServers -&gt; nameServers[0]),
- *                 example.nameServers().applyValue(nameServers -&gt; nameServers[1]),
- *                 example.nameServers().applyValue(nameServers -&gt; nameServers[2]),
- *                 example.nameServers().applyValue(nameServers -&gt; nameServers[3]))
+ *                 example.nameServers().applyValue(nameServers -> nameServers[0]),
+ *                 example.nameServers().applyValue(nameServers -> nameServers[1]),
+ *                 example.nameServers().applyValue(nameServers -> nameServers[2]),
+ *                 example.nameServers().applyValue(nameServers -> nameServers[3]))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
- *             .name(&#34;test-group&#34;)
+ *         var group = new Group("group", GroupArgs.builder()        
+ *             .name("test-group")
  *             .build());
  * 
- *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
- *             .name(&#34;test-policy&#34;)
- *             .description(&#34;A test policy&#34;)
- *             .policy(&#34;{ ... policy JSON ... }&#34;)
+ *         var policy = new Policy("policy", PolicyArgs.builder()        
+ *             .name("test-policy")
+ *             .description("A test policy")
+ *             .policy("{ ... policy JSON ... }")
  *             .build());
  * 
- *         var test_attach = new GroupPolicyAttachment(&#34;test-attach&#34;, GroupPolicyAttachmentArgs.builder()        
+ *         var test_attach = new GroupPolicyAttachment("test-attach", GroupPolicyAttachmentArgs.builder()        
  *             .group(group.name())
  *             .policyArn(policy.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

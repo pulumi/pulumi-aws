@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,13 +52,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schedule(&#34;example&#34;, ScheduleArgs.builder()        
- *             .name(&#34;my-schedule&#34;)
- *             .groupName(&#34;default&#34;)
+ *         var example = new Schedule("example", ScheduleArgs.builder()        
+ *             .name("my-schedule")
+ *             .groupName("default")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
- *                 .mode(&#34;OFF&#34;)
+ *                 .mode("OFF")
  *                 .build())
- *             .scheduleExpression(&#34;rate(1 hours)&#34;)
+ *             .scheduleExpression("rate(1 hours)")
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn(exampleAwsSqsQueue.arn())
  *                 .roleArn(exampleAwsIamRole.arn())
@@ -66,13 +67,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Universal Target
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,28 +100,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Queue(&#34;example&#34;);
+ *         var example = new Queue("example");
  * 
- *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
- *             .name(&#34;my-schedule&#34;)
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *             .name("my-schedule")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
- *                 .mode(&#34;OFF&#34;)
+ *                 .mode("OFF")
  *                 .build())
- *             .scheduleExpression(&#34;rate(1 hours)&#34;)
+ *             .scheduleExpression("rate(1 hours)")
  *             .target(ScheduleTargetArgs.builder()
- *                 .arn(&#34;arn:aws:scheduler:::aws-sdk:sqs:sendMessage&#34;)
+ *                 .arn("arn:aws:scheduler:::aws-sdk:sqs:sendMessage")
  *                 .roleArn(exampleAwsIamRole.arn())
- *                 .input(example.url().applyValue(url -&gt; serializeJson(
+ *                 .input(example.url().applyValue(url -> serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;MessageBody&#34;, &#34;Greetings, programs!&#34;),
- *                         jsonProperty(&#34;QueueUrl&#34;, url)
+ *                         jsonProperty("MessageBody", "Greetings, programs!"),
+ *                         jsonProperty("QueueUrl", url)
  *                     ))))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

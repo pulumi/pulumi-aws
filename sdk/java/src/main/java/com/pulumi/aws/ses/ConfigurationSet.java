@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,19 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
- *             .name(&#34;some-configuration-set-test&#34;)
+ *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()        
+ *             .name("some-configuration-set-test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Require TLS Connections
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,22 +85,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
- *             .name(&#34;some-configuration-set-test&#34;)
+ *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()        
+ *             .name("some-configuration-set-test")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
- *                 .tlsPolicy(&#34;Require&#34;)
+ *                 .tlsPolicy("Require")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Tracking Options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -119,16 +124,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ConfigurationSet(&#34;test&#34;, ConfigurationSetArgs.builder()        
- *             .name(&#34;some-configuration-set-test&#34;)
+ *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()        
+ *             .name("some-configuration-set-test")
  *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
- *                 .customRedirectDomain(&#34;sub.example.com&#34;)
+ *                 .customRedirectDomain("sub.example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

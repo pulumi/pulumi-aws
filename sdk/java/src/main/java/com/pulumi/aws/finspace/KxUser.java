@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,41 +52,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Example KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Example KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example-role&#34;)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "ec2.amazonaws.com")
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleKxUser = new KxUser(&#34;exampleKxUser&#34;, KxUserArgs.builder()        
- *             .name(&#34;my-tf-kx-user&#34;)
+ *         var exampleKxUser = new KxUser("exampleKxUser", KxUserArgs.builder()        
+ *             .name("my-tf-kx-user")
  *             .environmentId(exampleKxEnvironment.id())
  *             .iamRole(exampleRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

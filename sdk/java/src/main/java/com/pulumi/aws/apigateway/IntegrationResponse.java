@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,55 +56,56 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart(&#34;mydemoresource&#34;)
+ *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration(&#34;myDemoIntegration&#34;, IntegrationArgs.builder()        
- *             .restApi(myDemoAPI.id())
- *             .resourceId(myDemoResource.id())
- *             .httpMethod(myDemoMethod.httpMethod())
- *             .type(&#34;MOCK&#34;)
- *             .build());
- * 
- *         var response200 = new MethodResponse(&#34;response200&#34;, MethodResponseArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
- *             .statusCode(&#34;200&#34;)
+ *             .type("MOCK")
  *             .build());
  * 
- *         var myDemoIntegrationResponse = new IntegrationResponse(&#34;myDemoIntegrationResponse&#34;, IntegrationResponseArgs.builder()        
+ *         var response200 = new MethodResponse("response200", MethodResponseArgs.builder()        
+ *             .restApi(myDemoAPI.id())
+ *             .resourceId(myDemoResource.id())
+ *             .httpMethod(myDemoMethod.httpMethod())
+ *             .statusCode("200")
+ *             .build());
+ * 
+ *         var myDemoIntegrationResponse = new IntegrationResponse("myDemoIntegrationResponse", IntegrationResponseArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
  *             .statusCode(response200.statusCode())
- *             .responseTemplates(Map.of(&#34;application/xml&#34;, &#34;&#34;&#34;
- * #set($inputRoot = $input.path(&#39;$&#39;))
- * &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
- * &lt;message&gt;
+ *             .responseTemplates(Map.of("application/xml", """
+ * #set($inputRoot = $input.path('$'))
+ * <?xml version="1.0" encoding="UTF-8"?>
+ * <message>
  *     $inputRoot.body
- * &lt;/message&gt;
- *             &#34;&#34;&#34;))
+ * </message>
+ *             """))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

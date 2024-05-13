@@ -38,7 +38,8 @@ public final class SsmFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -60,12 +61,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -78,7 +80,8 @@ public final class SsmFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,12 +103,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class SsmFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,12 +145,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +164,8 @@ public final class SsmFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,12 +187,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getContactsRotation(GetContactsRotationArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -200,7 +208,8 @@ public final class SsmFunctions {
      * To get the contents of the document owned by AWS.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -222,20 +231,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
+     *             .name("AWS-GatherSoftwareInventory")
+     *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,12 +269,13 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(testAwsSsmDocument.name())
-     *             .documentFormat(&#34;JSON&#34;)
+     *             .documentFormat("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +290,8 @@ public final class SsmFunctions {
      * To get the contents of the document owned by AWS.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -300,20 +313,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
+     *             .name("AWS-GatherSoftwareInventory")
+     *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -336,12 +351,13 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(testAwsSsmDocument.name())
-     *             .documentFormat(&#34;JSON&#34;)
+     *             .documentFormat("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -356,7 +372,8 @@ public final class SsmFunctions {
      * To get the contents of the document owned by AWS.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -378,20 +395,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
+     *             .name("AWS-GatherSoftwareInventory")
+     *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,12 +433,13 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(testAwsSsmDocument.name())
-     *             .documentFormat(&#34;JSON&#34;)
+     *             .documentFormat("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -434,7 +454,8 @@ public final class SsmFunctions {
      * To get the contents of the document owned by AWS.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -456,20 +477,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
-     *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
-     *             .documentFormat(&#34;YAML&#34;)
+     *             .name("AWS-GatherSoftwareInventory")
+     *             .documentFormat("YAML")
      *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export("content", foo.applyValue(getDocumentResult -> getDocumentResult.content()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -492,12 +515,13 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(testAwsSsmDocument.name())
-     *             .documentFormat(&#34;JSON&#34;)
+     *             .documentFormat("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -510,7 +534,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -533,14 +558,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -553,7 +579,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -576,14 +603,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -596,7 +624,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -619,14 +648,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -639,7 +669,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -662,14 +693,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -682,7 +714,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -705,14 +738,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,7 +759,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -748,14 +783,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
-     *                 .name(&#34;PlatformTypes&#34;)
-     *                 .values(&#34;Linux&#34;)
+     *                 .name("PlatformTypes")
+     *                 .values("Linux")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -768,7 +804,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -791,14 +828,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -811,7 +849,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -834,14 +873,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -854,7 +894,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -877,14 +918,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -897,7 +939,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -920,14 +963,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -940,7 +984,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -963,14 +1008,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -983,7 +1029,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1006,14 +1053,15 @@ public final class SsmFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
-     *                 .name(&#34;Enabled&#34;)
-     *                 .values(&#34;true&#34;)
+     *                 .name("Enabled")
+     *                 .values("true")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1026,7 +1074,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1048,12 +1097,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
@@ -1068,7 +1118,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1090,12 +1141,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
@@ -1110,7 +1162,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1132,12 +1185,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
@@ -1152,7 +1206,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1174,12 +1229,13 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
-     *             .name(&#34;foo&#34;)
+     *             .name("foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
@@ -1208,7 +1264,8 @@ public final class SsmFunctions {
      * To retrieve a baseline provided by AWS:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1230,20 +1287,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;AWS&#34;)
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
+     *             .owner("AWS")
+     *             .namePrefix("AWS-")
+     *             .operatingSystem("CENTOS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1265,15 +1324,16 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;Self&#34;)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .owner("Self")
+     *             .namePrefix("MyCustomBaseline")
      *             .defaultBaseline(true)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
+     *             .operatingSystem("WINDOWS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1288,7 +1348,8 @@ public final class SsmFunctions {
      * To retrieve a baseline provided by AWS:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1310,20 +1371,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;AWS&#34;)
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
+     *             .owner("AWS")
+     *             .namePrefix("AWS-")
+     *             .operatingSystem("CENTOS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1345,15 +1408,16 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;Self&#34;)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .owner("Self")
+     *             .namePrefix("MyCustomBaseline")
      *             .defaultBaseline(true)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
+     *             .operatingSystem("WINDOWS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1368,7 +1432,8 @@ public final class SsmFunctions {
      * To retrieve a baseline provided by AWS:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1390,20 +1455,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;AWS&#34;)
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
+     *             .owner("AWS")
+     *             .namePrefix("AWS-")
+     *             .operatingSystem("CENTOS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1425,15 +1492,16 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;Self&#34;)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .owner("Self")
+     *             .namePrefix("MyCustomBaseline")
      *             .defaultBaseline(true)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
+     *             .operatingSystem("WINDOWS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1448,7 +1516,8 @@ public final class SsmFunctions {
      * To retrieve a baseline provided by AWS:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1470,20 +1539,22 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;AWS&#34;)
-     *             .namePrefix(&#34;AWS-&#34;)
-     *             .operatingSystem(&#34;CENTOS&#34;)
+     *             .owner("AWS")
+     *             .namePrefix("AWS-")
+     *             .operatingSystem("CENTOS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1505,15 +1576,16 @@ public final class SsmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
-     *             .owner(&#34;Self&#34;)
-     *             .namePrefix(&#34;MyCustomBaseline&#34;)
+     *             .owner("Self")
+     *             .namePrefix("MyCustomBaseline")
      *             .defaultBaseline(true)
-     *             .operatingSystem(&#34;WINDOWS&#34;)
+     *             .operatingSystem("WINDOWS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

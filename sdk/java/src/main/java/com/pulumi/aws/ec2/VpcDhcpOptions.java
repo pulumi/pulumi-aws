@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dnsResolver = new VpcDhcpOptions(&#34;dnsResolver&#34;, VpcDhcpOptionsArgs.builder()        
+ *         var dnsResolver = new VpcDhcpOptions("dnsResolver", VpcDhcpOptionsArgs.builder()        
  *             .domainNameServers(            
- *                 &#34;8.8.8.8&#34;,
- *                 &#34;8.8.4.4&#34;)
+ *                 "8.8.8.8",
+ *                 "8.8.4.4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Full usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,21 +83,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcDhcpOptions(&#34;foo&#34;, VpcDhcpOptionsArgs.builder()        
- *             .domainName(&#34;service.consul&#34;)
+ *         var foo = new VpcDhcpOptions("foo", VpcDhcpOptionsArgs.builder()        
+ *             .domainName("service.consul")
  *             .domainNameServers(            
- *                 &#34;127.0.0.1&#34;,
- *                 &#34;10.0.0.2&#34;)
+ *                 "127.0.0.1",
+ *                 "10.0.0.2")
  *             .ipv6AddressPreferredLeaseTime(1440)
- *             .ntpServers(&#34;127.0.0.1&#34;)
- *             .netbiosNameServers(&#34;127.0.0.1&#34;)
+ *             .ntpServers("127.0.0.1")
+ *             .netbiosNameServers("127.0.0.1")
  *             .netbiosNodeType(2)
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo-name&#34;))
+ *             .tags(Map.of("Name", "foo-name"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Remarks

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
- *             .name(&#34;example_api&#34;)
+ *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()        
+ *             .name("example_api")
  *             .build());
  * 
- *         var exampleDocumentationPart = new DocumentationPart(&#34;exampleDocumentationPart&#34;, DocumentationPartArgs.builder()        
+ *         var exampleDocumentationPart = new DocumentationPart("exampleDocumentationPart", DocumentationPartArgs.builder()        
  *             .location(DocumentationPartLocationArgs.builder()
- *                 .type(&#34;API&#34;)
+ *                 .type("API")
  *                 .build())
- *             .properties(&#34;{\&#34;description\&#34;:\&#34;Example\&#34;}&#34;)
+ *             .properties("{\"description\":\"Example\"}")
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
- *         var example = new DocumentationVersion(&#34;example&#34;, DocumentationVersionArgs.builder()        
- *             .version(&#34;example_version&#34;)
+ *         var example = new DocumentationVersion("example", DocumentationVersionArgs.builder()        
+ *             .version("example_version")
  *             .restApiId(exampleRestApi.id())
- *             .description(&#34;Example description&#34;)
+ *             .description("Example description")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleDocumentationPart)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

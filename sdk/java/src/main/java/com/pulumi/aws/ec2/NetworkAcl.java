@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,30 +59,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new NetworkAcl(&#34;main&#34;, NetworkAclArgs.builder()        
+ *         var main = new NetworkAcl("main", NetworkAclArgs.builder()        
  *             .vpcId(mainAwsVpc.id())
  *             .egress(NetworkAclEgressArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
+ *                 .protocol("tcp")
  *                 .ruleNo(200)
- *                 .action(&#34;allow&#34;)
- *                 .cidrBlock(&#34;10.3.0.0/18&#34;)
+ *                 .action("allow")
+ *                 .cidrBlock("10.3.0.0/18")
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .build())
  *             .ingress(NetworkAclIngressArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
+ *                 .protocol("tcp")
  *                 .ruleNo(100)
- *                 .action(&#34;allow&#34;)
- *                 .cidrBlock(&#34;10.3.0.0/18&#34;)
+ *                 .action("allow")
+ *                 .cidrBlock("10.3.0.0/18")
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *             .tags(Map.of("Name", "main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyTemplate(&#34;example&#34;, PolicyTemplateArgs.builder()        
+ *         var example = new PolicyTemplate("example", PolicyTemplateArgs.builder()        
  *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.id())
- *             .statement(&#34;permit (principal in ?principal, action in PhotoFlash::Action::\&#34;FullPhotoAccess\&#34;, resource == ?resource) unless { resource.IsPrivate };&#34;)
+ *             .statement("permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

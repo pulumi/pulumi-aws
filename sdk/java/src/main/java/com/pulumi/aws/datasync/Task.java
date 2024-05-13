@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### With Scheduling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,24 +54,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
+ *         var example = new Task("example", TaskArgs.builder()        
  *             .destinationLocationArn(destination.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .sourceLocationArn(source.arn())
  *             .schedule(TaskScheduleArgs.builder()
- *                 .scheduleExpression(&#34;cron(0 12 ? * SUN,WED *)&#34;)
+ *                 .scheduleExpression("cron(0 12 ? * SUN,WED *)")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Filtering
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,23 +96,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Task(&#34;example&#34;, TaskArgs.builder()        
+ *         var example = new Task("example", TaskArgs.builder()        
  *             .destinationLocationArn(destination.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .sourceLocationArn(source.arn())
  *             .excludes(TaskExcludesArgs.builder()
- *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
- *                 .value(&#34;/folder1|/folder2&#34;)
+ *                 .filterType("SIMPLE_PATTERN")
+ *                 .value("/folder1|/folder2")
  *                 .build())
  *             .includes(TaskIncludesArgs.builder()
- *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
- *                 .value(&#34;/folder1|/folder2&#34;)
+ *                 .filterType("SIMPLE_PATTERN")
+ *                 .value("/folder1|/folder2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

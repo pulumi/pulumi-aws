@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .permanentDeletionTimeInDays(7)
@@ -65,13 +66,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Short-lived certificate
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,26 +97,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
- *             .usageMode(&#34;SHORT_LIVED_CERTIFICATE&#34;)
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
+ *             .usageMode("SHORT_LIVED_CERTIFICATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable Certificate Revocation List
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,48 +150,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         final var acmpcaBucketAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;s3:GetBucketAcl&#34;,
- *                     &#34;s3:GetBucketLocation&#34;,
- *                     &#34;s3:PutObject&#34;,
- *                     &#34;s3:PutObjectAcl&#34;)
+ *                     "s3:GetBucketAcl",
+ *                     "s3:GetBucketLocation",
+ *                     "s3:PutObject",
+ *                     "s3:PutObjectAcl")
  *                 .resources(                
  *                     example.arn(),
- *                     example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     example.arn().applyValue(arn -> String.format("%s/*", arn)))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;acm-pca.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("acm-pca.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(example.id())
- *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(acmpcaBucketAccess -&gt; acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(acmpcaBucketAccess -> acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
  *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
+ *                     .commonName("example.com")
  *                     .build())
  *                 .build())
  *             .revocationConfiguration(CertificateAuthorityRevocationConfigurationArgs.builder()
  *                 .crlConfiguration(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.builder()
- *                     .customCname(&#34;crl.example.com&#34;)
+ *                     .customCname("crl.example.com")
  *                     .enabled(true)
  *                     .expirationInDays(7)
  *                     .s3BucketName(example.id())
- *                     .s3ObjectAcl(&#34;BUCKET_OWNER_FULL_CONTROL&#34;)
+ *                     .s3ObjectAcl("BUCKET_OWNER_FULL_CONTROL")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -195,7 +200,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

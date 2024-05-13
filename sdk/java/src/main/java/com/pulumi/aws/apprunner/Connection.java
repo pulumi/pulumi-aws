@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .connectionName(&#34;example&#34;)
- *             .providerType(&#34;GITHUB&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-connection&#34;))
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .connectionName("example")
+ *             .providerType("GITHUB")
+ *             .tags(Map.of("Name", "example-apprunner-connection"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

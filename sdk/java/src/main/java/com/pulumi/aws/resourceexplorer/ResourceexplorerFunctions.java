@@ -22,7 +22,8 @@ public final class ResourceexplorerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,13 +45,14 @@ public final class ResourceexplorerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
-     *             .queryString(&#34;region:us-west-2&#34;)
+     *             .queryString("region:us-west-2")
      *             .viewArn(test.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +67,8 @@ public final class ResourceexplorerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -87,13 +90,14 @@ public final class ResourceexplorerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
-     *             .queryString(&#34;region:us-west-2&#34;)
+     *             .queryString("region:us-west-2")
      *             .viewArn(test.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -108,7 +112,8 @@ public final class ResourceexplorerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -130,13 +135,14 @@ public final class ResourceexplorerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
-     *             .queryString(&#34;region:us-west-2&#34;)
+     *             .queryString("region:us-west-2")
      *             .viewArn(test.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class ResourceexplorerFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,13 +180,14 @@ public final class ResourceexplorerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ResourceexplorerFunctions.Search(SearchArgs.builder()
-     *             .queryString(&#34;region:us-west-2&#34;)
+     *             .queryString("region:us-west-2")
      *             .viewArn(test.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

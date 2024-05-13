@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,29 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2(&#34;test&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test&#34;)
+ *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *             .bucket("tf-test")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .name(&#34;tf-test&#34;)
+ *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()        
+ *             .name("tf-test")
  *             .build());
  * 
- *         var testDatabase = new Database(&#34;testDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testDatabase = new Database("testDatabase", DatabaseArgs.builder()        
+ *             .name("example")
  *             .bucket(test.bucket())
  *             .build());
  * 
- *         var testPreparedStatement = new PreparedStatement(&#34;testPreparedStatement&#34;, PreparedStatementArgs.builder()        
- *             .name(&#34;tf_test&#34;)
- *             .queryStatement(testDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s WHERE x = ?&#34;, name)))
+ *         var testPreparedStatement = new PreparedStatement("testPreparedStatement", PreparedStatementArgs.builder()        
+ *             .name("tf_test")
+ *             .queryStatement(testDatabase.name().applyValue(name -> String.format("SELECT * FROM %s WHERE x = ?", name)))
  *             .workgroup(testWorkgroup.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

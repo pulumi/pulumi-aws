@@ -32,7 +32,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -56,15 +57,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -77,7 +79,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -101,15 +104,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -122,7 +126,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -146,15 +151,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -167,7 +173,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -191,15 +198,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -212,7 +220,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -236,15 +245,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -257,7 +267,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -281,15 +292,16 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
+     *         var example = new Volume("example", VolumeArgs.builder()        
+     *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
-     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
+     *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -398,7 +410,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -422,7 +435,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -435,7 +449,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -459,7 +474,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -472,7 +488,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -496,7 +513,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +527,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -533,7 +552,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -546,7 +566,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -570,7 +591,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -583,7 +605,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -607,7 +630,8 @@ public final class EbsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -620,7 +644,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -643,21 +668,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -670,7 +696,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -693,21 +720,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -720,7 +748,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -743,21 +772,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -770,7 +800,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -793,21 +824,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -820,7 +852,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -843,21 +876,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -870,7 +904,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -893,21 +928,22 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .mostRecent(true)
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -921,7 +957,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -943,21 +980,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -971,7 +1009,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -993,21 +1032,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1021,7 +1061,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1043,21 +1084,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1071,7 +1113,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1093,21 +1136,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1121,7 +1165,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1143,21 +1188,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1171,7 +1217,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1193,21 +1240,22 @@ public final class EbsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
-     *             .owners(&#34;self&#34;)
+     *             .owners("self")
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;volume-size&#34;)
-     *                     .values(&#34;40&#34;)
+     *                     .name("volume-size")
+     *                     .values("40")
      *                     .build(),
      *                 GetSnapshotIdsFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1221,7 +1269,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1246,18 +1295,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1271,7 +1321,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1296,18 +1347,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1321,7 +1373,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1346,18 +1399,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1371,7 +1425,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1396,18 +1451,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1421,7 +1477,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1446,18 +1503,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1471,7 +1529,8 @@ public final class EbsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1496,18 +1555,19 @@ public final class EbsFunctions {
      *             .mostRecent(true)
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;volume-type&#34;)
-     *                     .values(&#34;gp2&#34;)
+     *                     .name("volume-type")
+     *                     .values("gp2")
      *                     .build(),
      *                 GetVolumeFilterArgs.builder()
-     *                     .name(&#34;tag:Name&#34;)
-     *                     .values(&#34;Example&#34;)
+     *                     .name("tag:Name")
+     *                     .values("Example")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

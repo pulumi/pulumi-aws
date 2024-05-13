@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,31 +44,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Queue(&#34;example&#34;, QueueArgs.builder()        
- *             .name(&#34;examplequeue&#34;)
+ *         var example = new Queue("example", QueueArgs.builder()        
+ *             .name("examplequeue")
  *             .build());
  * 
- *         var src = new Queue(&#34;src&#34;, QueueArgs.builder()        
- *             .name(&#34;srcqueue&#34;)
- *             .redrivePolicy(example.arn().applyValue(arn -&gt; serializeJson(
+ *         var src = new Queue("src", QueueArgs.builder()        
+ *             .name("srcqueue")
+ *             .redrivePolicy(example.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, arn),
- *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                     jsonProperty("deadLetterTargetArn", arn),
+ *                     jsonProperty("maxReceiveCount", 4)
  *                 ))))
  *             .build());
  * 
- *         var exampleRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *         var exampleRedriveAllowPolicy = new RedriveAllowPolicy("exampleRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()        
  *             .queueUrl(example.id())
- *             .redriveAllowPolicy(src.arn().applyValue(arn -&gt; serializeJson(
+ *             .redriveAllowPolicy(src.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(arn))
+ *                     jsonProperty("redrivePermission", "byQueue"),
+ *                     jsonProperty("sourceQueueArns", jsonArray(arn))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

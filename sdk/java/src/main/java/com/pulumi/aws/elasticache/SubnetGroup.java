@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,26 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
+ *             .tags(Map.of("Name", "tf-test"))
  *             .build());
  * 
- *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
+ *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()        
  *             .vpcId(foo.id())
- *             .cidrBlock(&#34;10.0.0.0/24&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test&#34;))
+ *             .cidrBlock("10.0.0.0/24")
+ *             .availabilityZone("us-west-2a")
+ *             .tags(Map.of("Name", "tf-test"))
  *             .build());
  * 
- *         var bar = new SubnetGroup(&#34;bar&#34;, SubnetGroupArgs.builder()        
- *             .name(&#34;tf-test-cache-subnet&#34;)
+ *         var bar = new SubnetGroup("bar", SubnetGroupArgs.builder()        
+ *             .name("tf-test-cache-subnet")
  *             .subnetIds(fooSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### SimpleAD
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,44 +55,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet(&#34;foo&#34;, SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .availabilityZone("us-west-2a")
+ *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var barSubnet = new Subnet(&#34;barSubnet&#34;, SubnetArgs.builder()        
+ *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2b&#34;)
- *             .cidrBlock(&#34;10.0.2.0/24&#34;)
+ *             .availabilityZone("us-west-2b")
+ *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var bar = new Directory(&#34;bar&#34;, DirectoryArgs.builder()        
- *             .name(&#34;corp.notexample.com&#34;)
- *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .size(&#34;Small&#34;)
+ *         var bar = new Directory("bar", DirectoryArgs.builder()        
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .size("Small")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(main.id())
  *                 .subnetIds(                
  *                     foo.id(),
  *                     barSubnet.id())
  *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;foo&#34;))
+ *             .tags(Map.of("Project", "foo"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Microsoft Active Directory (MicrosoftAD)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -117,45 +120,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet(&#34;foo&#34;, SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .availabilityZone("us-west-2a")
+ *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var barSubnet = new Subnet(&#34;barSubnet&#34;, SubnetArgs.builder()        
+ *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2b&#34;)
- *             .cidrBlock(&#34;10.0.2.0/24&#34;)
+ *             .availabilityZone("us-west-2b")
+ *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var bar = new Directory(&#34;bar&#34;, DirectoryArgs.builder()        
- *             .name(&#34;corp.notexample.com&#34;)
- *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .edition(&#34;Standard&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
+ *         var bar = new Directory("bar", DirectoryArgs.builder()        
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .edition("Standard")
+ *             .type("MicrosoftAD")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(main.id())
  *                 .subnetIds(                
  *                     foo.id(),
  *                     barSubnet.id())
  *                 .build())
- *             .tags(Map.of(&#34;Project&#34;, &#34;foo&#34;))
+ *             .tags(Map.of("Project", "foo"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Microsoft Active Directory Connector (ADConnector)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -181,30 +186,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet(&#34;foo&#34;, SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .availabilityZone("us-west-2a")
+ *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
+ *         var bar = new Subnet("bar", SubnetArgs.builder()        
  *             .vpcId(main.id())
- *             .availabilityZone(&#34;us-west-2b&#34;)
- *             .cidrBlock(&#34;10.0.2.0/24&#34;)
+ *             .availabilityZone("us-west-2b")
+ *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var connector = new Directory(&#34;connector&#34;, DirectoryArgs.builder()        
- *             .name(&#34;corp.notexample.com&#34;)
- *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .size(&#34;Small&#34;)
- *             .type(&#34;ADConnector&#34;)
+ *         var connector = new Directory("connector", DirectoryArgs.builder()        
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .size("Small")
+ *             .type("ADConnector")
  *             .connectSettings(DirectoryConnectSettingsArgs.builder()
- *                 .customerDnsIps(&#34;A.B.C.D&#34;)
- *                 .customerUsername(&#34;Admin&#34;)
+ *                 .customerDnsIps("A.B.C.D")
+ *                 .customerUsername("Admin")
  *                 .subnetIds(                
  *                     foo.id(),
  *                     bar.id())
@@ -214,7 +219,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

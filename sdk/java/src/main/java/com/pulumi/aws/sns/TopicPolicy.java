@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,46 +47,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Topic(&#34;test&#34;, TopicArgs.builder()        
- *             .name(&#34;my-topic-with-policy&#34;)
+ *         var test = new Topic("test", TopicArgs.builder()        
+ *             .name("my-topic-with-policy")
  *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
+ *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;SNS:Subscribe&#34;,
- *                     &#34;SNS:SetTopicAttributes&#34;,
- *                     &#34;SNS:RemovePermission&#34;,
- *                     &#34;SNS:Receive&#34;,
- *                     &#34;SNS:Publish&#34;,
- *                     &#34;SNS:ListSubscriptionsByTopic&#34;,
- *                     &#34;SNS:GetTopicAttributes&#34;,
- *                     &#34;SNS:DeleteTopic&#34;,
- *                     &#34;SNS:AddPermission&#34;)
+ *                     "SNS:Subscribe",
+ *                     "SNS:SetTopicAttributes",
+ *                     "SNS:RemovePermission",
+ *                     "SNS:Receive",
+ *                     "SNS:Publish",
+ *                     "SNS:ListSubscriptionsByTopic",
+ *                     "SNS:GetTopicAttributes",
+ *                     "SNS:DeleteTopic",
+ *                     "SNS:AddPermission")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;StringEquals&#34;)
- *                     .variable(&#34;AWS:SourceOwner&#34;)
+ *                     .test("StringEquals")
+ *                     .variable("AWS:SourceOwner")
  *                     .values(account_id)
  *                     .build())
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
  *                 .resources(test.arn())
- *                 .sid(&#34;__default_statement_ID&#34;)
+ *                 .sid("__default_statement_ID")
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
  *             .arn(test.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

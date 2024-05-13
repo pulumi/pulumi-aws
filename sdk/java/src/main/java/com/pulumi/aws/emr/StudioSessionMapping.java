@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,16 +41,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StudioSessionMapping(&#34;example&#34;, StudioSessionMappingArgs.builder()        
+ *         var example = new StudioSessionMapping("example", StudioSessionMappingArgs.builder()        
  *             .studioId(exampleAwsEmrStudio.id())
- *             .identityType(&#34;USER&#34;)
- *             .identityId(&#34;example&#34;)
+ *             .identityType("USER")
+ *             .identityId("example")
  *             .sessionPolicyArn(exampleAwsIamPolicy.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

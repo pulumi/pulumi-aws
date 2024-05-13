@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,21 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxVolume(&#34;example&#34;, KxVolumeArgs.builder()        
- *             .name(&#34;my-tf-kx-volume&#34;)
+ *         var example = new KxVolume("example", KxVolumeArgs.builder()        
+ *             .name("my-tf-kx-volume")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
- *             .availabilityZones(&#34;use1-az2&#34;)
- *             .azMode(&#34;SINGLE&#34;)
- *             .type(&#34;NAS_1&#34;)
+ *             .availabilityZones("use1-az2")
+ *             .azMode("SINGLE")
+ *             .type("NAS_1")
  *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
  *                 .size(1200)
- *                 .type(&#34;SSD_250&#34;)
+ *                 .type("SSD_250")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Instance(&#34;example&#34;);
+ *         var example = new Instance("example");
  * 
- *         var exampleTrustProvider = new TrustProvider(&#34;exampleTrustProvider&#34;, TrustProviderArgs.builder()        
- *             .deviceTrustProviderType(&#34;jamf&#34;)
- *             .policyReferenceName(&#34;example&#34;)
- *             .trustProviderType(&#34;device&#34;)
+ *         var exampleTrustProvider = new TrustProvider("exampleTrustProvider", TrustProviderArgs.builder()        
+ *             .deviceTrustProviderType("jamf")
+ *             .policyReferenceName("example")
+ *             .trustProviderType("device")
  *             .deviceOptions(TrustProviderDeviceOptionsArgs.builder()
- *                 .tenantId(&#34;example&#34;)
+ *                 .tenantId("example")
  *                 .build())
  *             .build());
  * 
- *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment(&#34;exampleInstanceTrustProviderAttachment&#34;, InstanceTrustProviderAttachmentArgs.builder()        
+ *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", InstanceTrustProviderAttachmentArgs.builder()        
  *             .verifiedaccessInstanceId(example.id())
  *             .verifiedaccessTrustProviderId(exampleTrustProvider.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

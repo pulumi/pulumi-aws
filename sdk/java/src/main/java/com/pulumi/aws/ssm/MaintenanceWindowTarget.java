@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Instance Target
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
- *             .name(&#34;maintenance-window-webapp&#34;)
- *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
+ *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()        
+ *             .name("maintenance-window-webapp")
+ *             .schedule("cron(0 16 ? * TUE *)")
  *             .duration(3)
  *             .cutoff(1)
  *             .build());
  * 
- *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
+ *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
- *             .name(&#34;maintenance-window-target&#34;)
- *             .description(&#34;This is a maintenance window target&#34;)
- *             .resourceType(&#34;INSTANCE&#34;)
+ *             .name("maintenance-window-target")
+ *             .description("This is a maintenance window target")
+ *             .resourceType("INSTANCE")
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
- *                 .key(&#34;tag:Name&#34;)
- *                 .values(&#34;acceptance_test&#34;)
+ *                 .key("tag:Name")
+ *                 .values("acceptance_test")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Resource Group Target
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,27 +101,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var window = new MaintenanceWindow(&#34;window&#34;, MaintenanceWindowArgs.builder()        
- *             .name(&#34;maintenance-window-webapp&#34;)
- *             .schedule(&#34;cron(0 16 ? * TUE *)&#34;)
+ *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()        
+ *             .name("maintenance-window-webapp")
+ *             .schedule("cron(0 16 ? * TUE *)")
  *             .duration(3)
  *             .cutoff(1)
  *             .build());
  * 
- *         var target1 = new MaintenanceWindowTarget(&#34;target1&#34;, MaintenanceWindowTargetArgs.builder()        
+ *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()        
  *             .windowId(window.id())
- *             .name(&#34;maintenance-window-target&#34;)
- *             .description(&#34;This is a maintenance window target&#34;)
- *             .resourceType(&#34;RESOURCE_GROUP&#34;)
+ *             .name("maintenance-window-target")
+ *             .description("This is a maintenance window target")
+ *             .resourceType("RESOURCE_GROUP")
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
- *                 .key(&#34;resource-groups:ResourceTypeFilters&#34;)
- *                 .values(&#34;AWS::EC2::Instance&#34;)
+ *                 .key("resource-groups:ResourceTypeFilters")
+ *                 .values("AWS::EC2::Instance")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

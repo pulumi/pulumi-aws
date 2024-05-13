@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new ClusterPolicy(&#34;example&#34;, ClusterPolicyArgs.builder()        
+ *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()        
  *             .clusterArn(exampleAwsMskCluster.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;ExampleMskClusterPolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "ExampleMskClusterPolicy"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;kafka:Describe*&#34;, 
- *                             &#34;kafka:Get*&#34;, 
- *                             &#34;kafka:CreateVpcConnection&#34;, 
- *                             &#34;kafka:GetBootstrapBrokers&#34;
+ *                         jsonProperty("Action", jsonArray(
+ *                             "kafka:Describe*", 
+ *                             "kafka:Get*", 
+ *                             "kafka:CreateVpcConnection", 
+ *                             "kafka:GetBootstrapBrokers"
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, exampleAwsMskCluster.arn())
+ *                         jsonProperty("Resource", exampleAwsMskCluster.arn())
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

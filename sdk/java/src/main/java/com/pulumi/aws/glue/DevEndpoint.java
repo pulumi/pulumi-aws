@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,32 +55,33 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;glue.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("glue.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;AWSGlueServiceRole-foo&#34;)
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("AWSGlueServiceRole-foo")
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDevEndpoint = new DevEndpoint(&#34;exampleDevEndpoint&#34;, DevEndpointArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var exampleDevEndpoint = new DevEndpoint("exampleDevEndpoint", DevEndpointArgs.builder()        
+ *             .name("foo")
  *             .roleArn(exampleRole.arn())
  *             .build());
  * 
- *         var example_AWSGlueServiceRole = new RolePolicyAttachment(&#34;example-AWSGlueServiceRole&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole&#34;)
+ *         var example_AWSGlueServiceRole = new RolePolicyAttachment("example-AWSGlueServiceRole", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole")
  *             .role(exampleRole.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

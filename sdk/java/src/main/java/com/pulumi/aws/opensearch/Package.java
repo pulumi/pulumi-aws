@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myOpensearchPackages = new BucketV2(&#34;myOpensearchPackages&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-opensearch-packages&#34;)
+ *         var myOpensearchPackages = new BucketV2("myOpensearchPackages", BucketV2Args.builder()        
+ *             .bucket("my-opensearch-packages")
  *             .build());
  * 
- *         var example = new BucketObjectv2(&#34;example&#34;, BucketObjectv2Args.builder()        
+ *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()        
  *             .bucket(myOpensearchPackages.bucket())
- *             .key(&#34;example.txt&#34;)
- *             .source(new FileAsset(&#34;./example.txt&#34;))
+ *             .key("example.txt")
+ *             .source(new FileAsset("./example.txt"))
  *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input(&#34;./example.txt&#34;)
+ *                 .input("./example.txt")
  *                 .build()).result())
  *             .build());
  * 
- *         var examplePackage = new Package(&#34;examplePackage&#34;, PackageArgs.builder()        
- *             .packageName(&#34;example-txt&#34;)
+ *         var examplePackage = new Package("examplePackage", PackageArgs.builder()        
+ *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())
  *                 .s3Key(example.key())
  *                 .build())
- *             .packageType(&#34;TXT-DICTIONARY&#34;)
+ *             .packageType("TXT-DICTIONARY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

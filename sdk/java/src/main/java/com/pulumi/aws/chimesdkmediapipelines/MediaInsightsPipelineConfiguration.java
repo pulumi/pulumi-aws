@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,52 +58,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Stream("example", StreamArgs.builder()        
+ *             .name("example")
  *             .shardCount(2)
  *             .build());
  * 
  *         final var mediaPipelinesAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;mediapipelines.chime.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("mediapipelines.chime.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var callAnalyticsRole = new Role(&#34;callAnalyticsRole&#34;, RoleArgs.builder()        
- *             .name(&#34;CallAnalyticsRole&#34;)
- *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var callAnalyticsRole = new Role("callAnalyticsRole", RoleArgs.builder()        
+ *             .name("CallAnalyticsRole")
+ *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyBasicConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyBasicConfiguration")
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
+ *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode(&#34;en-US&#34;)
+ *                         .languageCode("en-US")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(example.arn())
  *                         .build())
  *                     .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
+ *                 Map.entry("Key1", "Value1"),
+ *                 Map.entry("Key2", "Value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
@@ -110,7 +112,8 @@ import javax.annotation.Nullable;
  * ### Transcribe Call Analytics processor usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -141,50 +144,50 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var transcribeAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transcribe.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("transcribe.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var postCallRole = new Role(&#34;postCallRole&#34;, RoleArgs.builder()        
- *             .name(&#34;PostCallAccessRole&#34;)
- *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var postCallRole = new Role("postCallRole", RoleArgs.builder()        
+ *             .name("PostCallAccessRole")
+ *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyCallAnalyticsConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyCallAnalyticsConfiguration")
  *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
+ *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
  *                         .callAnalyticsStreamCategories(                        
- *                             &#34;category_1&#34;,
- *                             &#34;category_2&#34;)
- *                         .contentRedactionType(&#34;PII&#34;)
+ *                             "category_1",
+ *                             "category_2")
+ *                         .contentRedactionType("PII")
  *                         .enablePartialResultsStabilization(true)
  *                         .filterPartialResults(true)
- *                         .languageCode(&#34;en-US&#34;)
- *                         .languageModelName(&#34;MyLanguageModel&#34;)
- *                         .partialResultsStability(&#34;high&#34;)
- *                         .piiEntityTypes(&#34;ADDRESS,BANK_ACCOUNT_NUMBER&#34;)
+ *                         .languageCode("en-US")
+ *                         .languageModelName("MyLanguageModel")
+ *                         .partialResultsStability("high")
+ *                         .piiEntityTypes("ADDRESS,BANK_ACCOUNT_NUMBER")
  *                         .postCallAnalyticsSettings(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs.builder()
- *                             .contentRedactionOutput(&#34;redacted&#34;)
+ *                             .contentRedactionOutput("redacted")
  *                             .dataAccessRoleArn(postCallRole.arn())
- *                             .outputEncryptionKmsKeyId(&#34;MyKmsKeyId&#34;)
- *                             .outputLocation(&#34;s3://MyBucket&#34;)
+ *                             .outputEncryptionKmsKeyId("MyKmsKeyId")
+ *                             .outputLocation("s3://MyBucket")
  *                             .build())
- *                         .vocabularyFilterMethod(&#34;mask&#34;)
- *                         .vocabularyFilterName(&#34;MyVocabularyFilter&#34;)
- *                         .vocabularyName(&#34;MyVocabulary&#34;)
+ *                         .vocabularyFilterMethod("mask")
+ *                         .vocabularyFilterName("MyVocabularyFilter")
+ *                         .vocabularyName("MyVocabulary")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(example.arn())
  *                         .build())
@@ -193,13 +196,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Real time alerts usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -224,18 +229,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyRealTimeAlertConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyRealTimeAlertConfiguration")
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeCallAnalyticsProcessor&#34;)
+ *                     .type("AmazonTranscribeCallAnalyticsProcessor")
  *                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs.builder()
- *                         .languageCode(&#34;en-US&#34;)
+ *                         .languageCode("en-US")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(example.arn())
  *                         .build())
@@ -244,26 +249,26 @@ import javax.annotation.Nullable;
  *                 .disabled(false)
  *                 .rules(                
  *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;IssueDetection&#34;)
+ *                         .type("IssueDetection")
  *                         .issueDetectionConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs.builder()
- *                             .ruleName(&#34;MyIssueDetectionRule&#34;)
+ *                             .ruleName("MyIssueDetectionRule")
  *                             .build())
  *                         .build(),
  *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;KeywordMatch&#34;)
+ *                         .type("KeywordMatch")
  *                         .keywordMatchConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs.builder()
  *                             .keywords(                            
- *                                 &#34;keyword1&#34;,
- *                                 &#34;keyword2&#34;)
+ *                                 "keyword1",
+ *                                 "keyword2")
  *                             .negate(false)
- *                             .ruleName(&#34;MyKeywordMatchRule&#34;)
+ *                             .ruleName("MyKeywordMatchRule")
  *                             .build())
  *                         .build(),
  *                     MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.builder()
- *                         .type(&#34;Sentiment&#34;)
+ *                         .type("Sentiment")
  *                         .sentimentConfiguration(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs.builder()
- *                             .ruleName(&#34;MySentimentRule&#34;)
- *                             .sentimentType(&#34;NEGATIVE&#34;)
+ *                             .ruleName("MySentimentRule")
+ *                             .sentimentType("NEGATIVE")
  *                             .timePeriod(60)
  *                             .build())
  *                         .build())
@@ -272,13 +277,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Transcribe processor usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -302,28 +309,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyTranscribeConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyTranscribeConfiguration")
  *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;AmazonTranscribeProcessor&#34;)
+ *                     .type("AmazonTranscribeProcessor")
  *                     .amazonTranscribeProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.builder()
- *                         .contentIdentificationType(&#34;PII&#34;)
+ *                         .contentIdentificationType("PII")
  *                         .enablePartialResultsStabilization(true)
  *                         .filterPartialResults(true)
- *                         .languageCode(&#34;en-US&#34;)
- *                         .languageModelName(&#34;MyLanguageModel&#34;)
- *                         .partialResultsStability(&#34;high&#34;)
- *                         .piiEntityTypes(&#34;ADDRESS,BANK_ACCOUNT_NUMBER&#34;)
+ *                         .languageCode("en-US")
+ *                         .languageModelName("MyLanguageModel")
+ *                         .partialResultsStability("high")
+ *                         .piiEntityTypes("ADDRESS,BANK_ACCOUNT_NUMBER")
  *                         .showSpeakerLabel(true)
- *                         .vocabularyFilterMethod(&#34;mask&#34;)
- *                         .vocabularyFilterName(&#34;MyVocabularyFilter&#34;)
- *                         .vocabularyName(&#34;MyVocabulary&#34;)
+ *                         .vocabularyFilterMethod("mask")
+ *                         .vocabularyFilterName("MyVocabularyFilter")
+ *                         .vocabularyName("MyVocabulary")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(example.arn())
  *                         .build())
@@ -332,13 +339,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Voice analytics processor usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -365,37 +374,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyVoiceAnalyticsConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyVoiceAnalyticsConfiguration")
  *             .resourceAccessRoleArn(example.arn())
  *             .elements(            
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;VoiceAnalyticsProcessor&#34;)
+ *                     .type("VoiceAnalyticsProcessor")
  *                     .voiceAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs.builder()
- *                         .speakerSearchStatus(&#34;Enabled&#34;)
- *                         .voiceToneAnalysisStatus(&#34;Enabled&#34;)
+ *                         .speakerSearchStatus("Enabled")
+ *                         .voiceToneAnalysisStatus("Enabled")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;LambdaFunctionSink&#34;)
+ *                     .type("LambdaFunctionSink")
  *                     .lambdaFunctionSinkConfiguration(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:lambda:us-west-2:1111111111:function:MyFunction&#34;)
+ *                         .insightsTarget("arn:aws:lambda:us-west-2:1111111111:function:MyFunction")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;SnsTopicSink&#34;)
+ *                     .type("SnsTopicSink")
  *                     .snsTopicSinkConfiguration(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:sns:us-west-2:1111111111:topic/MyTopic&#34;)
+ *                         .insightsTarget("arn:aws:sns:us-west-2:1111111111:topic/MyTopic")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;SqsQueueSink&#34;)
+ *                     .type("SqsQueueSink")
  *                     .sqsQueueSinkConfiguration(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs.builder()
- *                         .insightsTarget(&#34;arn:aws:sqs:us-west-2:1111111111:queue/MyQueue&#34;)
+ *                         .insightsTarget("arn:aws:sqs:us-west-2:1111111111:queue/MyQueue")
  *                         .build())
  *                     .build(),
  *                 MediaInsightsPipelineConfigurationElementArgs.builder()
- *                     .type(&#34;KinesisDataStreamSink&#34;)
+ *                     .type("KinesisDataStreamSink")
  *                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs.builder()
  *                         .insightsTarget(test.arn())
  *                         .build())
@@ -404,13 +413,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### S3 Recording sink usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -433,20 +444,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration(&#34;myConfiguration&#34;, MediaInsightsPipelineConfigurationArgs.builder()        
- *             .name(&#34;MyS3RecordingConfiguration&#34;)
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *             .name("MyS3RecordingConfiguration")
  *             .resourceAccessRoleArn(example.arn())
  *             .elements(MediaInsightsPipelineConfigurationElementArgs.builder()
- *                 .type(&#34;S3RecordingSink&#34;)
+ *                 .type("S3RecordingSink")
  *                 .s3RecordingSinkConfiguration(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs.builder()
- *                     .destination(&#34;arn:aws:s3:::MyBucket&#34;)
+ *                     .destination("arn:aws:s3:::MyBucket")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

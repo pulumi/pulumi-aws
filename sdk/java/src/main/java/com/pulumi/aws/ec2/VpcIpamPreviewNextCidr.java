@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,34 +58,35 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
+ *         var exampleVpcIpam = new VpcIpam("exampleVpcIpam", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(exampleVpcIpam.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .build());
  * 
- *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr("exampleVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.20.0.0/16&#34;)
+ *             .cidr("172.20.0.0/16")
  *             .build());
  * 
- *         var example = new VpcIpamPreviewNextCidr(&#34;example&#34;, VpcIpamPreviewNextCidrArgs.builder()        
+ *         var example = new VpcIpamPreviewNextCidr("example", VpcIpamPreviewNextCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
  *             .netmaskLength(28)
- *             .disallowedCidrs(&#34;172.2.0.0/32&#34;)
+ *             .disallowedCidrs("172.2.0.0/32")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleVpcIpamPoolCidr)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

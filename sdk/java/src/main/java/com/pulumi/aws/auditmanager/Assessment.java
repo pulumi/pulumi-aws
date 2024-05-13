@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Assessment(&#34;test&#34;, AssessmentArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new Assessment("test", AssessmentArgs.builder()        
+ *             .name("example")
  *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
- *                 .destination(String.format(&#34;s3://%s&#34;, testAwsS3Bucket.id()))
- *                 .destinationType(&#34;S3&#34;)
+ *                 .destination(String.format("s3://%s", testAwsS3Bucket.id()))
+ *                 .destinationType("S3")
  *                 .build())
  *             .frameworkId(testAwsAuditmanagerFramework.id())
  *             .roles(AssessmentRoleArgs.builder()
  *                 .roleArn(testAwsIamRole.arn())
- *                 .roleType(&#34;PROCESS_OWNER&#34;)
+ *                 .roleType("PROCESS_OWNER")
  *                 .build())
  *             .scope(AssessmentScopeArgs.builder()
  *                 .awsAccounts(AssessmentScopeAwsAccountArgs.builder()
  *                     .id(current.accountId())
  *                     .build())
  *                 .awsServices(AssessmentScopeAwsServiceArgs.builder()
- *                     .serviceName(&#34;S3&#34;)
+ *                     .serviceName("S3")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

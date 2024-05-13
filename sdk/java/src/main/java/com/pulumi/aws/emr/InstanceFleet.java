@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,45 +53,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
+ *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()        
  *             .clusterId(cluster.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
- *                         .type(&#34;gp2&#34;)
+ *                         .type("gp2")
  *                         .volumesPerInstance(1)
  *                         .build())
- *                     .instanceType(&#34;m4.xlarge&#34;)
+ *                     .instanceType("m4.xlarge")
  *                     .weightedCapacity(1)
  *                     .build(),
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
- *                         .type(&#34;gp2&#34;)
+ *                         .type("gp2")
  *                         .volumesPerInstance(1)
  *                         .build())
- *                     .instanceType(&#34;m4.2xlarge&#34;)
+ *                     .instanceType("m4.2xlarge")
  *                     .weightedCapacity(2)
  *                     .build())
  *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
  *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy(&#34;capacity-optimized&#34;)
+ *                     .allocationStrategy("capacity-optimized")
  *                     .blockDurationMinutes(0)
- *                     .timeoutAction(&#34;TERMINATE_CLUSTER&#34;)
+ *                     .timeoutAction("TERMINATE_CLUSTER")
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
- *             .name(&#34;task fleet&#34;)
+ *             .name("task fleet")
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

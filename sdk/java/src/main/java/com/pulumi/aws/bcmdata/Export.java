@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Export(&#34;test&#34;, ExportArgs.builder()        
+ *         var test = new Export("test", ExportArgs.builder()        
  *             .export(ExportExportArgs.builder()
- *                 .name(&#34;testexample&#34;)
+ *                 .name("testexample")
  *                 .dataQueries(ExportExportDataQueryArgs.builder()
- *                     .queryStatement(&#34;SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT&#34;)
- *                     .tableConfigurations(Map.of(&#34;COST_AND_USAGE_REPORT&#34;, Map.ofEntries(
- *                         Map.entry(&#34;TIME_GRANULARITY&#34;, &#34;HOURLY&#34;),
- *                         Map.entry(&#34;INCLUDE_RESOURCES&#34;, &#34;FALSE&#34;),
- *                         Map.entry(&#34;INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY&#34;, &#34;FALSE&#34;),
- *                         Map.entry(&#34;INCLUDE_SPLIT_COST_ALLOCATION_DATA&#34;, &#34;FALSE&#34;)
+ *                     .queryStatement("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT")
+ *                     .tableConfigurations(Map.of("COST_AND_USAGE_REPORT", Map.ofEntries(
+ *                         Map.entry("TIME_GRANULARITY", "HOURLY"),
+ *                         Map.entry("INCLUDE_RESOURCES", "FALSE"),
+ *                         Map.entry("INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY", "FALSE"),
+ *                         Map.entry("INCLUDE_SPLIT_COST_ALLOCATION_DATA", "FALSE")
  *                     )))
  *                     .build())
  *                 .destinationConfigurations(ExportExportDestinationConfigurationArgs.builder()
@@ -64,22 +65,23 @@ import javax.annotation.Nullable;
  *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
  *                         .s3Region(testAwsS3Bucket.region())
  *                         .s3OutputConfigurations(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.builder()
- *                             .overwrite(&#34;OVERWRITE_REPORT&#34;)
- *                             .format(&#34;TEXT_OR_CSV&#34;)
- *                             .compression(&#34;GZIP&#34;)
- *                             .outputType(&#34;CUSTOM&#34;)
+ *                             .overwrite("OVERWRITE_REPORT")
+ *                             .format("TEXT_OR_CSV")
+ *                             .compression("GZIP")
+ *                             .outputType("CUSTOM")
  *                             .build())
  *                         .build())
  *                     .build())
  *                 .refreshCadences(ExportExportRefreshCadenceArgs.builder()
- *                     .frequency(&#34;SYNCHRONOUS&#34;)
+ *                     .frequency("SYNCHRONOUS")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

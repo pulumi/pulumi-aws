@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,35 +47,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;domain key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domain(&#34;example&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domain("example")
  *             .encryptionKey(example.arn())
  *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;codeartifact:CreateRepository&#34;)
+ *                 .actions("codeartifact:CreateRepository")
  *                 .resources(exampleDomain.arn())
  *                 .build())
  *             .build());
  * 
- *         var testDomainPermissions = new DomainPermissions(&#34;testDomainPermissions&#34;, DomainPermissionsArgs.builder()        
+ *         var testDomainPermissions = new DomainPermissions("testDomainPermissions", DomainPermissionsArgs.builder()        
  *             .domain(exampleDomain.domain())
- *             .policyDocument(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policyDocument(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

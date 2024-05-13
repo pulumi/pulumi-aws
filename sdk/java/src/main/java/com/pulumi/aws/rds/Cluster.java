@@ -42,7 +42,8 @@ import javax.annotation.Nullable;
  * ### Aurora MySQL 2.x (MySQL 5.7)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -63,30 +64,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
- *             .engine(&#34;aurora-mysql&#34;)
- *             .engineVersion(&#34;5.7.mysql_aurora.2.03.2&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
+ *             .engine("aurora-mysql")
+ *             .engineVersion("5.7.mysql_aurora.2.03.2")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;bar&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("bar")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Aurora MySQL 1.x (MySQL 5.6)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,28 +110,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;bar&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("bar")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Aurora with PostgreSQL engine
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -149,23 +154,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var postgresql = new Cluster(&#34;postgresql&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
- *             .engine(&#34;aurora-postgresql&#34;)
+ *         var postgresql = new Cluster("postgresql", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
+ *             .engine("aurora-postgresql")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;bar&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("bar")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Multi-AZ Cluster
@@ -175,7 +181,8 @@ import javax.annotation.Nullable;
  * To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -196,24 +203,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterIdentifier("example")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .dbClusterInstanceClass(&#34;db.r6gd.xlarge&#34;)
- *             .storageType(&#34;io1&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .engine("mysql")
+ *             .dbClusterInstanceClass("db.r6gd.xlarge")
+ *             .storageType("io1")
  *             .allocatedStorage(100)
  *             .iops(1000)
- *             .masterUsername(&#34;test&#34;)
- *             .masterPassword(&#34;mustbeeightcharaters&#34;)
+ *             .masterUsername("test")
+ *             .masterPassword("mustbeeightcharaters")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Serverless v2 Cluster
@@ -226,7 +234,8 @@ import javax.annotation.Nullable;
  * To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -250,14 +259,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
- *             .engine(&#34;aurora-postgresql&#34;)
- *             .engineMode(&#34;provisioned&#34;)
- *             .engineVersion(&#34;13.6&#34;)
- *             .databaseName(&#34;test&#34;)
- *             .masterUsername(&#34;test&#34;)
- *             .masterPassword(&#34;must_be_eight_characters&#34;)
+ *         var example = new Cluster("example", ClusterArgs.builder()        
+ *             .clusterIdentifier("example")
+ *             .engine("aurora-postgresql")
+ *             .engineMode("provisioned")
+ *             .engineVersion("13.6")
+ *             .databaseName("test")
+ *             .masterUsername("test")
+ *             .masterPassword("must_be_eight_characters")
  *             .storageEncrypted(true)
  *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
  *                 .maxCapacity(1)
@@ -265,16 +274,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleClusterInstance = new ClusterInstance(&#34;exampleClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var exampleClusterInstance = new ClusterInstance("exampleClusterInstance", ClusterInstanceArgs.builder()        
  *             .clusterIdentifier(example.id())
- *             .instanceClass(&#34;db.serverless&#34;)
+ *             .instanceClass("db.serverless")
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
@@ -284,7 +294,8 @@ import javax.annotation.Nullable;
  * You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -305,16 +316,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
- *             .databaseName(&#34;test&#34;)
+ *         var test = new Cluster("test", ClusterArgs.builder()        
+ *             .clusterIdentifier("example")
+ *             .databaseName("test")
  *             .manageMasterUserPassword(true)
- *             .masterUsername(&#34;test&#34;)
+ *             .masterUsername("test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
@@ -324,7 +336,8 @@ import javax.annotation.Nullable;
  * You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -347,27 +360,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Example KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Example KMS Key")
  *             .build());
  * 
- *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;example&#34;)
- *             .databaseName(&#34;test&#34;)
+ *         var test = new Cluster("test", ClusterArgs.builder()        
+ *             .clusterIdentifier("example")
+ *             .databaseName("test")
  *             .manageMasterUserPassword(true)
- *             .masterUsername(&#34;test&#34;)
+ *             .masterUsername("test")
  *             .masterUserSecretKmsKeyId(example.keyId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Global Cluster Restored From Snapshot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -393,26 +408,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
- *             .dbClusterIdentifier(&#34;example-original-cluster&#34;)
+ *             .dbClusterIdentifier("example-original-cluster")
  *             .mostRecent(true)
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .engine(&#34;aurora&#34;)
- *             .engineVersion(&#34;5.6.mysql_aurora.1.22.4&#34;)
- *             .clusterIdentifier(&#34;example&#34;)
- *             .snapshotIdentifier(example.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .engine("aurora")
+ *             .engineVersion("5.6.mysql_aurora.1.22.4")
+ *             .clusterIdentifier("example")
+ *             .snapshotIdentifier(example.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
  *             .build());
  * 
- *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;example&#34;)
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(exampleCluster.arn())
  *             .forceDestroy(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

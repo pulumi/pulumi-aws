@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,48 +49,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new UserPool(&#34;main&#34;, UserPoolArgs.builder()        
- *             .name(&#34;identity pool&#34;)
+ *         var main = new UserPool("main", UserPoolArgs.builder()        
+ *             .name("identity pool")
  *             .build());
  * 
  *         final var groupRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Federated&#34;)
- *                     .identifiers(&#34;cognito-identity.amazonaws.com&#34;)
+ *                     .type("Federated")
+ *                     .identifiers("cognito-identity.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRoleWithWebIdentity&#34;)
+ *                 .actions("sts:AssumeRoleWithWebIdentity")
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;cognito-identity.amazonaws.com:aud&#34;)
- *                         .values(&#34;us-east-1:12345678-dead-beef-cafe-123456790ab&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("cognito-identity.amazonaws.com:aud")
+ *                         .values("us-east-1:12345678-dead-beef-cafe-123456790ab")
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;ForAnyValue:StringLike&#34;)
- *                         .variable(&#34;cognito-identity.amazonaws.com:amr&#34;)
- *                         .values(&#34;authenticated&#34;)
+ *                         .test("ForAnyValue:StringLike")
+ *                         .variable("cognito-identity.amazonaws.com:amr")
+ *                         .values("authenticated")
  *                         .build())
  *                 .build())
  *             .build());
  * 
- *         var groupRoleRole = new Role(&#34;groupRoleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;user-group-role&#34;)
- *             .assumeRolePolicy(groupRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var groupRoleRole = new Role("groupRoleRole", RoleArgs.builder()        
+ *             .name("user-group-role")
+ *             .assumeRolePolicy(groupRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var mainUserGroup = new UserGroup(&#34;mainUserGroup&#34;, UserGroupArgs.builder()        
- *             .name(&#34;user-group&#34;)
+ *         var mainUserGroup = new UserGroup("mainUserGroup", UserGroupArgs.builder()        
+ *             .name("user-group")
  *             .userPoolId(main.id())
- *             .description(&#34;Managed by Pulumi&#34;)
+ *             .description("Managed by Pulumi")
  *             .precedence(42)
  *             .roleArn(groupRoleRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

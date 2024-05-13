@@ -26,7 +26,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -48,14 +49,15 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
+     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -68,7 +70,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -90,14 +93,15 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
+     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -110,7 +114,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -132,14 +137,15 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
+     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,14 +181,15 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
+     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -194,7 +202,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,7 +228,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -232,7 +242,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,7 +268,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -270,7 +282,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -295,7 +308,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -308,7 +322,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -333,7 +348,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -346,7 +362,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,7 +388,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -384,7 +402,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -409,7 +428,8 @@ public final class ElasticbeanstalkFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -422,7 +442,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -445,12 +466,13 @@ public final class ElasticbeanstalkFunctions {
      *     public static void stack(Context ctx) {
      *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
+     *             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -463,7 +485,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -486,12 +509,13 @@ public final class ElasticbeanstalkFunctions {
      *     public static void stack(Context ctx) {
      *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
+     *             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -504,7 +528,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -527,12 +552,13 @@ public final class ElasticbeanstalkFunctions {
      *     public static void stack(Context ctx) {
      *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
+     *             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -545,7 +571,8 @@ public final class ElasticbeanstalkFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -568,12 +595,13 @@ public final class ElasticbeanstalkFunctions {
      *     public static void stack(Context ctx) {
      *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
-     *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
+     *             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

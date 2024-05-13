@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BudgetResourceAssociation(&#34;example&#34;, BudgetResourceAssociationArgs.builder()        
- *             .budgetName(&#34;budget-pjtvyakdlyo3m&#34;)
- *             .resourceId(&#34;prod-dnigbtea24ste&#34;)
+ *         var example = new BudgetResourceAssociation("example", BudgetResourceAssociationArgs.builder()        
+ *             .budgetName("budget-pjtvyakdlyo3m")
+ *             .resourceId("prod-dnigbtea24ste")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

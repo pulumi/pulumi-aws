@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance(&#34;example&#34;);
+ *         var example = new AccessGrantsInstance("example");
  * 
- *         var exampleAccessGrantsLocation = new AccessGrantsLocation(&#34;exampleAccessGrantsLocation&#34;, AccessGrantsLocationArgs.builder()        
+ *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .locationScope(String.format(&#34;s3://%s/prefixA*&#34;, exampleAwsS3Bucket.bucket()))
+ *             .locationScope(String.format("s3://%s/prefixA*", exampleAwsS3Bucket.bucket()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleAccessGrant = new AccessGrant(&#34;exampleAccessGrant&#34;, AccessGrantArgs.builder()        
+ *         var exampleAccessGrant = new AccessGrant("exampleAccessGrant", AccessGrantArgs.builder()        
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
- *             .permission(&#34;READ&#34;)
+ *             .permission("READ")
  *             .accessGrantsLocationConfiguration(AccessGrantAccessGrantsLocationConfigurationArgs.builder()
- *                 .s3SubPrefix(&#34;prefixB*&#34;)
+ *                 .s3SubPrefix("prefixB*")
  *                 .build())
  *             .grantee(AccessGrantGranteeArgs.builder()
- *                 .granteeType(&#34;IAM&#34;)
+ *                 .granteeType("IAM")
  *                 .granteeIdentifier(exampleAwsIamUser.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

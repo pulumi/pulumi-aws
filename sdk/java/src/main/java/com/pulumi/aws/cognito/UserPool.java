@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ### Basic configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,19 +60,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;mypool&#34;)
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *             .name("mypool")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enabling SMS and Software Token Multi-Factor Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,13 +97,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool(&#34;example&#34;, UserPoolArgs.builder()        
- *             .mfaConfiguration(&#34;ON&#34;)
- *             .smsAuthenticationMessage(&#34;Your code is {####}&#34;)
+ *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *             .mfaConfiguration("ON")
+ *             .smsAuthenticationMessage("Your code is {####}")
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
- *                 .externalId(&#34;example&#34;)
+ *                 .externalId("example")
  *                 .snsCallerArn(exampleAwsIamRole.arn())
- *                 .snsRegion(&#34;us-east-1&#34;)
+ *                 .snsRegion("us-east-1")
  *                 .build())
  *             .softwareTokenMfaConfiguration(UserPoolSoftwareTokenMfaConfigurationArgs.builder()
  *                 .enabled(true)
@@ -109,13 +112,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Account Recovery Setting
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -137,16 +142,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new UserPool(&#34;test&#34;, UserPoolArgs.builder()        
- *             .name(&#34;mypool&#34;)
+ *         var test = new UserPool("test", UserPoolArgs.builder()        
+ *             .name("mypool")
  *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
  *                 .recoveryMechanisms(                
  *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
- *                         .name(&#34;verified_email&#34;)
+ *                         .name("verified_email")
  *                         .priority(1)
  *                         .build(),
  *                     UserPoolAccountRecoverySettingRecoveryMechanismArgs.builder()
- *                         .name(&#34;verified_phone_number&#34;)
+ *                         .name("verified_phone_number")
  *                         .priority(2)
  *                         .build())
  *                 .build())
@@ -154,7 +159,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

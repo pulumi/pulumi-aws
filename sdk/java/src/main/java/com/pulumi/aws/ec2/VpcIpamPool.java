@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,27 +54,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcIpamPool = new VpcIpamPool(&#34;exampleVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Nested Pools:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,37 +106,38 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam(&#34;example&#34;, VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var parent = new VpcIpamPool(&#34;parent&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var parent = new VpcIpamPool("parent", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
  *             .build());
  * 
- *         var parentTest = new VpcIpamPoolCidr(&#34;parentTest&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var parentTest = new VpcIpamPoolCidr("parentTest", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(parent.id())
- *             .cidr(&#34;172.20.0.0/16&#34;)
+ *             .cidr("172.20.0.0/16")
  *             .build());
  * 
- *         var child = new VpcIpamPool(&#34;child&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .sourceIpamPoolId(parent.id())
  *             .build());
  * 
- *         var childTest = new VpcIpamPoolCidr(&#34;childTest&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var childTest = new VpcIpamPoolCidr("childTest", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(child.id())
- *             .cidr(&#34;172.20.0.0/24&#34;)
+ *             .cidr("172.20.0.0/24")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

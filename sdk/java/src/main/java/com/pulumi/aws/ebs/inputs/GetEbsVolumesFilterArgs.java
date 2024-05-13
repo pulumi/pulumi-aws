@@ -21,7 +21,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * For example, if matching against the `size` filter, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -44,16 +45,17 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      *     public static void stack(Context ctx) {
      *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
      *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name(&#34;size&#34;)
+     *                 .name("size")
      *                 .values(                
-     *                     &#34;10&#34;,
-     *                     &#34;20&#34;)
+     *                     "10",
+     *                     "20")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * For example, if matching against the `size` filter, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,16 +92,17 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      *     public static void stack(Context ctx) {
      *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
      *             .filters(GetEbsVolumesFilterArgs.builder()
-     *                 .name(&#34;size&#34;)
+     *                 .name("size")
      *                 .values(                
-     *                     &#34;10&#34;,
-     *                     &#34;20&#34;)
+     *                     "10",
+     *                     "20")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +158,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * For example, if matching against the `size` filter, use:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -177,16 +182,17 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          *     public static void stack(Context ctx) {
          *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
          *             .filters(GetEbsVolumesFilterArgs.builder()
-         *                 .name(&#34;size&#34;)
+         *                 .name("size")
          *                 .values(                
-         *                     &#34;10&#34;,
-         *                     &#34;20&#34;)
+         *                     "10",
+         *                     "20")
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -203,7 +209,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * For example, if matching against the `size` filter, use:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -226,16 +233,17 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          *     public static void stack(Context ctx) {
          *         final var tenOrTwentyGbVolumes = EbsFunctions.getEbsVolumes(GetEbsVolumesArgs.builder()
          *             .filters(GetEbsVolumesFilterArgs.builder()
-         *                 .name(&#34;size&#34;)
+         *                 .name("size")
          *                 .values(                
-         *                     &#34;10&#34;,
-         *                     &#34;20&#34;)
+         *                     "10",
+         *                     "20")
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

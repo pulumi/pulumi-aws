@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,8 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare(&#34;example&#34;, SmbFileShareArgs.builder()        
- *             .authentication(&#34;ActiveDirectory&#34;)
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *             .authentication("ActiveDirectory")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
  *             .roleArn(exampleAwsIamRole.arn())
@@ -58,7 +59,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Guest Authentication
@@ -66,7 +68,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,8 +90,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare(&#34;example&#34;, SmbFileShareArgs.builder()        
- *             .authentication(&#34;GuestAccess&#34;)
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *             .authentication("GuestAccess")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
  *             .roleArn(exampleAwsIamRole.arn())
@@ -96,7 +99,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -493,14 +497,14 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     @Export(name="validUserLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> validUserLists;
 
     /**
-     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;@&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
+     * @return A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
     public Output<Optional<List<String>>> validUserLists() {

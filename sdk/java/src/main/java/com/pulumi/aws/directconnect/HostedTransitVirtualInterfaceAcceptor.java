@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,33 +55,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
- *         // Accepter&#39;s side of the VIF.
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;tf-dxg-example&#34;)
+ *         // Accepter's side of the VIF.
+ *         var example = new Gateway("example", GatewayArgs.builder()        
+ *             .name("tf-dxg-example")
  *             .amazonSideAsn(64512)
  *             .build());
  * 
- *         // Creator&#39;s side of the VIF
- *         var creator = new HostedTransitVirtualInterface(&#34;creator&#34;, HostedTransitVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .name(&#34;tf-transit-vif-example&#34;)
+ *         // Creator's side of the VIF
+ *         var creator = new HostedTransitVirtualInterface("creator", HostedTransitVirtualInterfaceArgs.builder()        
+ *             .connectionId("dxcon-zzzzzzzz")
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .name("tf-transit-vif-example")
  *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
+ *             .addressFamily("ipv4")
  *             .bgpAsn(65352)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor(&#34;accepterHostedTransitVirtualInterfaceAcceptor&#34;, HostedTransitVirtualInterfaceAcceptorArgs.builder()        
+ *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", HostedTransitVirtualInterfaceAcceptorArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .dxGatewayId(example.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

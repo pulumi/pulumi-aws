@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,26 +51,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
- *             .elasticsearchVersion(&#34;1.5&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .domainName("example")
+ *             .elasticsearchVersion("1.5")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;r4.large.elasticsearch&#34;)
+ *                 .instanceType("r4.large.elasticsearch")
  *                 .build())
  *             .snapshotOptions(DomainSnapshotOptionsArgs.builder()
  *                 .automatedSnapshotStartHour(23)
  *                 .build())
- *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
+ *             .tags(Map.of("Domain", "TestDomain"))
  *             .build());
  * 
- *         var exampleDomainSamlOptions = new DomainSamlOptions(&#34;exampleDomainSamlOptions&#34;, DomainSamlOptionsArgs.builder()        
+ *         var exampleDomainSamlOptions = new DomainSamlOptions("exampleDomainSamlOptions", DomainSamlOptionsArgs.builder()        
  *             .domainName(example.domainName())
  *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
  *                 .enabled(true)
  *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
- *                     .entityId(&#34;https://example.com&#34;)
+ *                     .entityId("https://example.com")
  *                     .metadataContent(StdFunctions.file(FileArgs.builder()
- *                         .input(&#34;./saml-metadata.xml&#34;)
+ *                         .input("./saml-metadata.xml")
  *                         .build()).result())
  *                     .build())
  *                 .build())
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

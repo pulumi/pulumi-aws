@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new FieldLevelEncryptionConfig(&#34;test&#34;, FieldLevelEncryptionConfigArgs.builder()        
- *             .comment(&#34;test comment&#34;)
+ *         var test = new FieldLevelEncryptionConfig("test", FieldLevelEncryptionConfigArgs.builder()        
+ *             .comment("test comment")
  *             .contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs.builder()
  *                 .forwardWhenContentTypeIsUnknown(true)
  *                 .contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.builder()
- *                         .contentType(&#34;application/x-www-form-urlencoded&#34;)
- *                         .format(&#34;URLEncoded&#34;)
+ *                         .contentType("application/x-www-form-urlencoded")
+ *                         .format("URLEncoded")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -63,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
  *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
- *                         .queryArg(&#34;Arg1&#34;)
+ *                         .queryArg("Arg1")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,17 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateVirtualInterface(&#34;foo&#34;, PrivateVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .name(&#34;vif-foo&#34;)
+ *         var foo = new PrivateVirtualInterface("foo", PrivateVirtualInterfaceArgs.builder()        
+ *             .connectionId("dxcon-zzzzzzzz")
+ *             .name("vif-foo")
  *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
+ *             .addressFamily("ipv4")
  *             .bgpAsn(65352)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

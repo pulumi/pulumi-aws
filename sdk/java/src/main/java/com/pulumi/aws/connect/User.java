@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .name(&#34;example&#34;)
- *             .password(&#34;Password123&#34;)
+ *             .name("example")
+ *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
+ *                 .firstName("example")
+ *                 .lastName("example2")
  *                 .build())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
+ *                 .phoneType("SOFT_PHONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With hierarchy_group_id
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,32 +100,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .name(&#34;example&#34;)
- *             .password(&#34;Password123&#34;)
+ *             .name("example")
+ *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .hierarchyGroupId(exampleAwsConnectUserHierarchyGroup.hierarchyGroupId())
  *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
+ *                 .firstName("example")
+ *                 .lastName("example2")
  *                 .build())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
+ *                 .phoneType("SOFT_PHONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With identity_info filled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,32 +150,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .name(&#34;example&#34;)
- *             .password(&#34;Password123&#34;)
+ *             .name("example")
+ *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .identityInfo(UserIdentityInfoArgs.builder()
- *                 .email(&#34;example@example.com&#34;)
- *                 .firstName(&#34;example&#34;)
- *                 .lastName(&#34;example2&#34;)
+ *                 .email("example{@literal @}example.com")
+ *                 .firstName("example")
+ *                 .lastName("example2")
  *                 .build())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
+ *                 .phoneType("SOFT_PHONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With phone_config phone type as desk phone
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -192,27 +199,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .name(&#34;example&#34;)
- *             .password(&#34;Password123&#34;)
+ *             .name("example")
+ *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(exampleAwsConnectSecurityProfile.securityProfileId())
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
- *                 .phoneType(&#34;SOFT_PHONE&#34;)
+ *                 .phoneType("SOFT_PHONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With multiple Security profile ids specified in security_profile_ids
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -234,10 +243,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()        
  *             .instanceId(exampleAwsConnectInstance.id())
- *             .name(&#34;example&#34;)
- *             .password(&#34;Password123&#34;)
+ *             .name("example")
+ *             .password("Password123")
  *             .routingProfileId(exampleAwsConnectRoutingProfile.routingProfileId())
  *             .securityProfileIds(            
  *                 exampleAwsConnectSecurityProfile.securityProfileId(),
@@ -245,14 +254,15 @@ import javax.annotation.Nullable;
  *             .phoneConfig(UserPhoneConfigArgs.builder()
  *                 .afterContactWorkTimeLimit(0)
  *                 .autoAccept(false)
- *                 .deskPhoneNumber(&#34;+112345678912&#34;)
- *                 .phoneType(&#34;DESK_PHONE&#34;)
+ *                 .deskPhoneNumber("+112345678912")
+ *                 .phoneType("DESK_PHONE")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -337,14 +347,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.instanceId;
     }
     /**
-     * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
+     * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\{@literal @}]+`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
+     * @return The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\{@literal @}]+`.
      * 
      */
     public Output<String> name() {

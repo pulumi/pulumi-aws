@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Registry(&#34;test&#34;, RegistryArgs.builder()        
- *             .name(&#34;my_own_registry&#34;)
- *             .description(&#34;A custom schema registry&#34;)
+ *         var test = new Registry("test", RegistryArgs.builder()        
+ *             .name("my_own_registry")
+ *             .description("A custom schema registry")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

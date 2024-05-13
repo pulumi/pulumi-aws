@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,23 +57,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("sagemaker.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .path("/")
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
- *             .authMode(&#34;IAM&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domainName("example")
+ *             .authMode("IAM")
  *             .vpcId(exampleAwsVpc.id())
  *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
@@ -82,13 +83,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using Custom Images
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,26 +121,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .imageName(&#34;example&#34;)
+ *         var example = new Image("example", ImageArgs.builder()        
+ *             .imageName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
- *         var exampleAppImageConfig = new AppImageConfig(&#34;exampleAppImageConfig&#34;, AppImageConfigArgs.builder()        
- *             .appImageConfigName(&#34;example&#34;)
+ *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()        
+ *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
- *         var exampleImageVersion = new ImageVersion(&#34;exampleImageVersion&#34;, ImageVersionArgs.builder()        
+ *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()        
  *             .imageName(example.id())
- *             .baseImage(&#34;base-image&#34;)
+ *             .baseImage("base-image")
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
- *             .authMode(&#34;IAM&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domainName("example")
+ *             .authMode("IAM")
  *             .vpcId(exampleAwsVpc.id())
  *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
@@ -153,7 +156,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

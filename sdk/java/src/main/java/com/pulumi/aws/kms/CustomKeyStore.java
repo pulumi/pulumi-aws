@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new CustomKeyStore(&#34;test&#34;, CustomKeyStoreArgs.builder()        
+ *         var test = new CustomKeyStore("test", CustomKeyStoreArgs.builder()        
  *             .cloudHsmClusterId(cloudHsmClusterId)
- *             .customKeyStoreName(&#34;kms-custom-key-store-test&#34;)
- *             .keyStorePassword(&#34;noplaintextpasswords1&#34;)
+ *             .customKeyStoreName("kms-custom-key-store-test")
+ *             .keyStorePassword("noplaintextpasswords1")
  *             .trustAnchorCertificate(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;anchor-certificate.crt&#34;)
+ *                 .input("anchor-certificate.crt")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

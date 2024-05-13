@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventApiDestination(&#34;test&#34;, EventApiDestinationArgs.builder()        
- *             .name(&#34;api-destination&#34;)
- *             .description(&#34;An API Destination&#34;)
- *             .invocationEndpoint(&#34;https://api.destination.com/endpoint&#34;)
- *             .httpMethod(&#34;POST&#34;)
+ *         var test = new EventApiDestination("test", EventApiDestinationArgs.builder()        
+ *             .name("api-destination")
+ *             .description("An API Destination")
+ *             .invocationEndpoint("https://api.destination.com/endpoint")
+ *             .httpMethod("POST")
  *             .invocationRateLimitPerSecond(20)
  *             .connectionArn(testAwsCloudwatchEventConnection.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

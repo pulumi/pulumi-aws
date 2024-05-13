@@ -36,7 +36,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -58,12 +59,13 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
+     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -78,7 +80,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,12 +103,13 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
+     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -120,7 +124,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,12 +147,13 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
+     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -162,7 +168,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -184,12 +191,13 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn(&#34;arn:aws:sso::012345678901:application/ssoins-1234/apl-5678&#34;)
+     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -204,7 +212,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -231,7 +240,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -246,7 +256,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -273,7 +284,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -288,7 +300,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -315,7 +328,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -330,7 +344,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -357,7 +372,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -372,7 +388,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -397,7 +414,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -412,7 +430,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -437,7 +456,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -452,7 +472,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -477,7 +498,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -492,7 +514,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -517,7 +540,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -532,7 +556,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -557,7 +582,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -572,7 +598,8 @@ public final class SsoadminFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -597,7 +624,8 @@ public final class SsoadminFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

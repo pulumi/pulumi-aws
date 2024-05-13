@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Accelerator(&#34;example&#34;, AcceleratorArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .ipAddressType(&#34;IPV4&#34;)
+ *         var example = new Accelerator("example", AcceleratorArgs.builder()        
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
  *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
- *                 .flowLogsS3Bucket(&#34;example-bucket&#34;)
- *                 .flowLogsS3Prefix(&#34;flow-logs/&#34;)
+ *                 .flowLogsS3Bucket("example-bucket")
+ *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
  *             .acceleratorArn(example.id())
- *             .clientAffinity(&#34;SOURCE_IP&#34;)
- *             .protocol(&#34;TCP&#34;)
+ *             .clientAffinity("SOURCE_IP")
+ *             .protocol("TCP")
  *             .portRanges(ListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
@@ -70,7 +71,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

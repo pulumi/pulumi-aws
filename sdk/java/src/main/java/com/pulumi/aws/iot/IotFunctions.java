@@ -22,7 +22,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -49,9 +50,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -60,7 +61,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -100,9 +103,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -111,7 +114,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -124,7 +128,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -151,9 +156,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -162,7 +167,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -175,7 +181,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -202,9 +209,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -213,7 +220,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -226,7 +234,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -253,9 +262,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -264,7 +273,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +287,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -304,9 +315,9 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod(&#34;agent&#34;, PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()        
      *             .metadata(ObjectMetaArgs.builder()
-     *                 .name(&#34;my-device&#34;)
+     *                 .name("my-device")
      *                 .build())
      *             .spec(PodSpecArgs.builder()
      *                 .container(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -315,7 +326,8 @@ public final class IotFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -328,7 +340,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,21 +368,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -382,7 +396,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -409,21 +424,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +452,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -463,21 +480,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -490,7 +508,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -517,21 +536,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -544,7 +564,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -571,21 +592,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -598,7 +620,8 @@ public final class IotFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -625,21 +648,22 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey(&#34;verification&#34;, PrivateKeyArgs.builder()        
-     *             .algorithm(&#34;RSA&#34;)
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest(&#34;verificationCertRequest&#34;, CertRequestArgs.builder()        
-     *             .keyAlgorithm(&#34;RSA&#34;)
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
-     *                 .commonName(example.applyValue(getRegistrationCodeResult -&gt; getRegistrationCodeResult.registrationCode()))
+     *                 .commonName(example.applyValue(getRegistrationCodeResult -> getRegistrationCodeResult.registrationCode()))
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

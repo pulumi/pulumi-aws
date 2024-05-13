@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,19 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var path = new NetworkInsightsPath(&#34;path&#34;, NetworkInsightsPathArgs.builder()        
+ *         var path = new NetworkInsightsPath("path", NetworkInsightsPathArgs.builder()        
  *             .source(source.id())
  *             .destination(destination.id())
- *             .protocol(&#34;tcp&#34;)
+ *             .protocol("tcp")
  *             .build());
  * 
- *         var analysis = new NetworkInsightsAnalysis(&#34;analysis&#34;, NetworkInsightsAnalysisArgs.builder()        
+ *         var analysis = new NetworkInsightsAnalysis("analysis", NetworkInsightsAnalysisArgs.builder()        
  *             .networkInsightsPathId(path.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic (Standard Workflow)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,35 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .name(&#34;my-state-machine&#34;)
+ *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()        
+ *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
- *             .definition(&#34;&#34;&#34;
+ *             .definition("""
  * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "%s",
+ *       "End": true
  *     }
  *   }
  * }
- * &#34;, lambda.arn()))
+ * ", lambda.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic (Express Workflow)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,34 +99,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .name(&#34;my-state-machine&#34;)
+ *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()        
+ *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
- *             .type(&#34;EXPRESS&#34;)
- *             .definition(&#34;&#34;&#34;
+ *             .type("EXPRESS")
+ *             .definition("""
  * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "%s",
+ *       "End": true
  *     }
  *   }
  * }
- * &#34;, lambda.arn()))
+ * ", lambda.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Publish (Publish SFN version)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,29 +150,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .name(&#34;my-state-machine&#34;)
+ *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()        
+ *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
  *             .publish(true)
- *             .type(&#34;EXPRESS&#34;)
- *             .definition(&#34;&#34;&#34;
+ *             .type("EXPRESS")
+ *             .definition("""
  * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "%s",
+ *       "End": true
  *     }
  *   }
  * }
- * &#34;, lambda.arn()))
+ * ", lambda.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Logging
@@ -175,7 +181,8 @@ import javax.annotation.Nullable;
  * &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -198,32 +205,33 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ...
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .name(&#34;my-state-machine&#34;)
+ *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()        
+ *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
- *             .definition(&#34;&#34;&#34;
+ *             .definition("""
  * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "%s",
+ *       "End": true
  *     }
  *   }
  * }
- * &#34;, lambda.arn()))
+ * ", lambda.arn()))
  *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format(&#34;%s:*&#34;, logGroupForSfn.arn()))
+ *                 .logDestination(String.format("%s:*", logGroupForSfn.arn()))
  *                 .includeExecutionData(true)
- *                 .level(&#34;ERROR&#34;)
+ *                 .level("ERROR")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
- *             .email(&#34;example@example.com&#34;)
+ *         var exampleMember = new Member("exampleMember", MemberArgs.builder()        
+ *             .accountId("123456789012")
+ *             .email("example{@literal @}example.com")
  *             .invite(true)
  *             .build());
  * 
- *         var invitee = new Account(&#34;invitee&#34;);
+ *         var invitee = new Account("invitee");
  * 
- *         var inviteeInviteAccepter = new InviteAccepter(&#34;inviteeInviteAccepter&#34;, InviteAccepterArgs.builder()        
+ *         var inviteeInviteAccepter = new InviteAccepter("inviteeInviteAccepter", InviteAccepterArgs.builder()        
  *             .masterId(exampleMember.masterId())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(invitee)
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

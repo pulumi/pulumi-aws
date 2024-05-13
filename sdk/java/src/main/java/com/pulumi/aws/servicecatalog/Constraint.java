@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Constraint(&#34;example&#34;, ConstraintArgs.builder()        
- *             .description(&#34;Back off, man. I&#39;m a scientist.&#34;)
+ *         var example = new Constraint("example", ConstraintArgs.builder()        
+ *             .description("Back off, man. I'm a scientist.")
  *             .portfolioId(exampleAwsServicecatalogPortfolio.id())
  *             .productId(exampleAwsServicecatalogProduct.id())
- *             .type(&#34;LAUNCH&#34;)
+ *             .type("LAUNCH")
  *             .parameters(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;RoleArn&#34;, &#34;arn:aws:iam::123456789012:role/LaunchRole&#34;)
+ *                     jsonProperty("RoleArn", "arn:aws:iam::123456789012:role/LaunchRole")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProxyEndpoint(&#34;example&#34;, ProxyEndpointArgs.builder()        
+ *         var example = new ProxyEndpoint("example", ProxyEndpointArgs.builder()        
  *             .dbProxyName(test.name())
- *             .dbProxyEndpointName(&#34;example&#34;)
- *             .vpcSubnetIds(testAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
- *             .targetRole(&#34;READ_ONLY&#34;)
+ *             .dbProxyEndpointName("example")
+ *             .vpcSubnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .targetRole("READ_ONLY")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

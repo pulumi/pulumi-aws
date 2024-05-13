@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,37 +54,38 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ssm.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("ssm.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .name(&#34;test_role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *             .name("test_role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testAttach = new RolePolicyAttachment(&#34;testAttach&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var testAttach = new RolePolicyAttachment("testAttach", RolePolicyAttachmentArgs.builder()        
  *             .role(testRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
  *             .build());
  * 
- *         var foo = new Activation(&#34;foo&#34;, ActivationArgs.builder()        
- *             .name(&#34;test_ssm_activation&#34;)
- *             .description(&#34;Test&#34;)
+ *         var foo = new Activation("foo", ActivationArgs.builder()        
+ *             .name("test_ssm_activation")
+ *             .description("Test")
  *             .iamRole(testRole.id())
- *             .registrationLimit(&#34;5&#34;)
+ *             .registrationLimit("5")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAttach)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

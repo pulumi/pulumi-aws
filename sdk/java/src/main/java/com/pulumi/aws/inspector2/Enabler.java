@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,20 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Enabler(&#34;example&#34;, EnablerArgs.builder()        
- *             .accountIds(&#34;123456789012&#34;)
- *             .resourceTypes(&#34;EC2&#34;)
+ *         var example = new Enabler("example", EnablerArgs.builder()        
+ *             .accountIds("123456789012")
+ *             .resourceTypes("EC2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### For the Calling Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,16 +86,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var test = new Enabler(&#34;test&#34;, EnablerArgs.builder()        
- *             .accountIds(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *         var test = new Enabler("test", EnablerArgs.builder()        
+ *             .accountIds(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .resourceTypes(            
- *                 &#34;ECR&#34;,
- *                 &#34;EC2&#34;)
+ *                 "ECR",
+ *                 "EC2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

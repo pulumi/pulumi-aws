@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,9 +50,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GatewayRoute(&#34;example&#34;, GatewayRouteArgs.builder()        
- *             .name(&#34;example-gateway-route&#34;)
- *             .meshName(&#34;example-service-mesh&#34;)
+ *         var example = new GatewayRoute("example", GatewayRouteArgs.builder()        
+ *             .name("example-gateway-route")
+ *             .meshName("example-service-mesh")
  *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())
  *             .spec(GatewayRouteSpecArgs.builder()
  *                 .httpRoute(GatewayRouteSpecHttpRouteArgs.builder()
@@ -63,16 +64,17 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .match(GatewayRouteSpecHttpRouteMatchArgs.builder()
- *                         .prefix(&#34;/&#34;)
+ *                         .prefix("/")
  *                         .build())
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -38,7 +38,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,22 +63,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;barbut8chars&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("barbut8chars")
  *             .build());
  * 
- *         for (var i = 0; i &lt; 2; i++) {
- *             new ClusterInstance(&#34;clusterInstances-&#34; + i, ClusterInstanceArgs.builder()            
- *                 .identifier(String.format(&#34;aurora-cluster-demo-%s&#34;, range.value()))
+ *         for (var i = 0; i < 2; i++) {
+ *             new ClusterInstance("clusterInstances-" + i, ClusterInstanceArgs.builder()            
+ *                 .identifier(String.format("aurora-cluster-demo-%s", range.value()))
  *                 .clusterIdentifier(default_.id())
- *                 .instanceClass(&#34;db.r4.large&#34;)
+ *                 .instanceClass("db.r4.large")
  *                 .engine(default_.engine())
  *                 .engineVersion(default_.engineVersion())
  *                 .build());
@@ -86,7 +87,8 @@ import javax.annotation.Nullable;
  * }
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

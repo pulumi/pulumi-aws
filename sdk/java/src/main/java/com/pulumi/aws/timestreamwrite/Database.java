@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Database(&#34;example&#34;, DatabaseArgs.builder()        
- *             .databaseName(&#34;database-example&#34;)
+ *         var example = new Database("example", DatabaseArgs.builder()        
+ *             .databaseName("database-example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Full usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -78,15 +81,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Database(&#34;example&#34;, DatabaseArgs.builder()        
- *             .databaseName(&#34;database-example&#34;)
+ *         var example = new Database("example", DatabaseArgs.builder()        
+ *             .databaseName("database-example")
  *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .tags(Map.of(&#34;Name&#34;, &#34;value&#34;))
+ *             .tags(Map.of("Name", "value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Map(&#34;example&#34;, MapArgs.builder()        
+ *         var example = new Map("example", MapArgs.builder()        
  *             .configuration(MapConfigurationArgs.builder()
- *                 .style(&#34;VectorHereBerlin&#34;)
+ *                 .style("VectorHereBerlin")
  *                 .build())
- *             .mapName(&#34;example&#34;)
+ *             .mapName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

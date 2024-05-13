@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
- *             .description(&#34;oauth config&#34;)
+ *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+ *             .description("oauth config")
  *             .isEnabled(true)
  *             .build());
  * 
- *         var oauth = new Ciphertext(&#34;oauth&#34;, CiphertextArgs.builder()        
+ *         var oauth = new Ciphertext("oauth", CiphertextArgs.builder()        
  *             .keyId(oauthConfig.keyId())
- *             .plaintext(&#34;&#34;&#34;
+ *             .plaintext("""
  * {
- *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
- *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
+ *   "client_id": "e587dbae22222f55da22",
+ *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

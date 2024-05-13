@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrustProvider(&#34;example&#34;, TrustProviderArgs.builder()        
- *             .policyReferenceName(&#34;example&#34;)
- *             .trustProviderType(&#34;user&#34;)
- *             .userTrustProviderType(&#34;iam-identity-center&#34;)
+ *         var example = new TrustProvider("example", TrustProviderArgs.builder()        
+ *             .policyReferenceName("example")
+ *             .trustProviderType("user")
+ *             .userTrustProviderType("iam-identity-center")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

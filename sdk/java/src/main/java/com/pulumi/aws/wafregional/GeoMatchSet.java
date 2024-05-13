@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var geoMatchSet = new GeoMatchSet(&#34;geoMatchSet&#34;, GeoMatchSetArgs.builder()        
- *             .name(&#34;geo_match_set&#34;)
+ *         var geoMatchSet = new GeoMatchSet("geoMatchSet", GeoMatchSetArgs.builder()        
+ *             .name("geo_match_set")
  *             .geoMatchConstraints(            
  *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type(&#34;Country&#34;)
- *                     .value(&#34;US&#34;)
+ *                     .type("Country")
+ *                     .value("US")
  *                     .build(),
  *                 GeoMatchSetGeoMatchConstraintArgs.builder()
- *                     .type(&#34;Country&#34;)
- *                     .value(&#34;CA&#34;)
+ *                     .type("Country")
+ *                     .value("CA")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

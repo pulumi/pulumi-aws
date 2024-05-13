@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,15 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceQuota(&#34;example&#34;, ServiceQuotaArgs.builder()        
- *             .quotaCode(&#34;L-F678F1CE&#34;)
- *             .serviceCode(&#34;vpc&#34;)
+ *         var example = new ServiceQuota("example", ServiceQuotaArgs.builder()        
+ *             .quotaCode("L-F678F1CE")
+ *             .serviceCode("vpc")
  *             .value(75)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

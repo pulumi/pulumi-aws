@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,18 +55,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new GitLab Lightsail Instance
- *         var gitlabTest = new Instance(&#34;gitlabTest&#34;, InstanceArgs.builder()        
- *             .name(&#34;custom_gitlab&#34;)
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_3_0&#34;)
- *             .keyPairName(&#34;some_key_name&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *         var gitlabTest = new Instance("gitlabTest", InstanceArgs.builder()        
+ *             .name("custom_gitlab")
+ *             .availabilityZone("us-east-1b")
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
+ *             .keyPairName("some_key_name")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example With User Data
@@ -73,7 +75,8 @@ import javax.annotation.Nullable;
  * Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,23 +97,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custom = new Instance(&#34;custom&#34;, InstanceArgs.builder()        
- *             .name(&#34;custom&#34;)
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_3_0&#34;)
- *             .userData(&#34;sudo yum install -y httpd &amp;&amp; sudo systemctl start httpd &amp;&amp; sudo systemctl enable httpd &amp;&amp; echo &#39;&lt;h1&gt;Deployed via Pulumi&lt;/h1&gt;&#39; | sudo tee /var/www/html/index.html&#34;)
+ *         var custom = new Instance("custom", InstanceArgs.builder()        
+ *             .name("custom")
+ *             .availabilityZone("us-east-1b")
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
+ *             .userData("sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable Auto Snapshots
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -132,22 +137,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .name(&#34;custom_instance&#34;)
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_3_0&#34;)
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .name("custom_instance")
+ *             .availabilityZone("us-east-1b")
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
  *             .addOn(InstanceAddOnArgs.builder()
- *                 .type(&#34;AutoSnapshot&#34;)
- *                 .snapshotTime(&#34;06:00&#34;)
- *                 .status(&#34;Enabled&#34;)
+ *                 .type("AutoSnapshot")
+ *                 .snapshotTime("06:00")
+ *                 .status("Enabled")
  *                 .build())
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

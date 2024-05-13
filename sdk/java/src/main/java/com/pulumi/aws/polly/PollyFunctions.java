@@ -22,7 +22,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -47,13 +48,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -75,12 +78,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -95,7 +99,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -120,13 +125,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -148,12 +155,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -168,7 +176,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -193,13 +202,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -221,12 +232,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +253,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -266,13 +279,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -294,12 +309,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -314,7 +330,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,13 +356,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -367,12 +386,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -387,7 +407,8 @@ public final class PollyFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -412,13 +433,15 @@ public final class PollyFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### With Language Code
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -440,12 +463,13 @@ public final class PollyFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
-     *             .languageCode(&#34;en-GB&#34;)
+     *             .languageCode("en-GB")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,45 +49,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
- *             .name(&#34;example-connection&#34;)
- *             .providerType(&#34;Bitbucket&#34;)
+ *         var example = new Connection("example", ConnectionArgs.builder()        
+ *             .name("example-connection")
+ *             .providerType("Bitbucket")
  *             .build());
  * 
- *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
  *             .artifactStores()
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name(&#34;Source&#34;)
+ *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
- *                         .name(&#34;Source&#34;)
- *                         .category(&#34;Source&#34;)
- *                         .owner(&#34;AWS&#34;)
- *                         .provider(&#34;CodeStarSourceConnection&#34;)
- *                         .version(&#34;1&#34;)
- *                         .outputArtifacts(&#34;source_output&#34;)
+ *                         .name("Source")
+ *                         .category("Source")
+ *                         .owner("AWS")
+ *                         .provider("CodeStarSourceConnection")
+ *                         .version("1")
+ *                         .outputArtifacts("source_output")
  *                         .configuration(Map.ofEntries(
- *                             Map.entry(&#34;ConnectionArn&#34;, example.arn()),
- *                             Map.entry(&#34;FullRepositoryId&#34;, &#34;my-organization/test&#34;),
- *                             Map.entry(&#34;BranchName&#34;, &#34;main&#34;)
+ *                             Map.entry("ConnectionArn", example.arn()),
+ *                             Map.entry("FullRepositoryId", "my-organization/test"),
+ *                             Map.entry("BranchName", "main")
  *                         ))
  *                         .build())
  *                     .build(),
  *                 PipelineStageArgs.builder()
  *                     .actions()
- *                     .name(&#34;Build&#34;)
+ *                     .name("Build")
  *                     .build(),
  *                 PipelineStageArgs.builder()
  *                     .actions()
- *                     .name(&#34;Deploy&#34;)
+ *                     .name("Deploy")
  *                     .build())
- *             .name(&#34;tf-test-pipeline&#34;)
+ *             .name("tf-test-pipeline")
  *             .roleArn(codepipelineRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

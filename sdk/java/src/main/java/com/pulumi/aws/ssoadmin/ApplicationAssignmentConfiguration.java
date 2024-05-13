@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignmentConfiguration(&#34;example&#34;, ApplicationAssignmentConfigurationArgs.builder()        
+ *         var example = new ApplicationAssignmentConfiguration("example", ApplicationAssignmentConfigurationArgs.builder()        
  *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
  *             .assignmentRequired(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

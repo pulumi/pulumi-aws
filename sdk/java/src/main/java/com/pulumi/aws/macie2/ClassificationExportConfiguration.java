@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration(&#34;exampleClassificationExportConfiguration&#34;, ClassificationExportConfigurationArgs.builder()        
+ *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration("exampleClassificationExportConfiguration", ClassificationExportConfigurationArgs.builder()        
  *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
  *                 .bucketName(exampleAwsS3Bucket.bucket())
- *                 .keyPrefix(&#34;exampleprefix/&#34;)
+ *                 .keyPrefix("exampleprefix/")
  *                 .kmsKeyArn(exampleAwsKmsKey.arn())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -58,7 +59,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

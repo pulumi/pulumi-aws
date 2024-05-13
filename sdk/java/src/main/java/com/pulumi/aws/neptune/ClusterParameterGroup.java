@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterParameterGroup(&#34;example&#34;, ClusterParameterGroupArgs.builder()        
- *             .family(&#34;neptune1&#34;)
- *             .name(&#34;example&#34;)
- *             .description(&#34;neptune cluster parameter group&#34;)
+ *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()        
+ *             .family("neptune1")
+ *             .name("example")
+ *             .description("neptune cluster parameter group")
  *             .parameters(ClusterParameterGroupParameterArgs.builder()
- *                 .name(&#34;neptune_enable_audit_log&#34;)
+ *                 .name("neptune_enable_audit_log")
  *                 .value(1)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

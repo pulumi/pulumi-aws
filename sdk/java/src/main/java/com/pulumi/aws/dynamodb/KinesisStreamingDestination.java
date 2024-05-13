@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,28 +46,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .name(&#34;orders&#34;)
- *             .hashKey(&#34;id&#34;)
+ *         var example = new Table("example", TableArgs.builder()        
+ *             .name("orders")
+ *             .hashKey("id")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;id&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("id")
+ *                 .type("S")
  *                 .build())
  *             .build());
  * 
- *         var exampleStream = new Stream(&#34;exampleStream&#34;, StreamArgs.builder()        
- *             .name(&#34;order_item_changes&#34;)
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *             .name("order_item_changes")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination(&#34;exampleKinesisStreamingDestination&#34;, KinesisStreamingDestinationArgs.builder()        
+ *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination("exampleKinesisStreamingDestination", KinesisStreamingDestinationArgs.builder()        
  *             .streamArn(exampleStream.arn())
  *             .tableName(example.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

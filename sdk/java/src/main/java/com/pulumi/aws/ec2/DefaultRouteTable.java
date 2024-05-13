@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,29 +52,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
+ *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()        
  *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes(            
  *                 DefaultRouteTableRouteArgs.builder()
- *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *                     .cidrBlock("10.0.1.0/24")
  *                     .gatewayId(exampleAwsInternetGateway.id())
  *                     .build(),
  *                 DefaultRouteTableRouteArgs.builder()
- *                     .ipv6CidrBlock(&#34;::/0&#34;)
+ *                     .ipv6CidrBlock("::/0")
  *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To subsequently remove all managed routes:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,15 +97,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable(&#34;example&#34;, DefaultRouteTableArgs.builder()        
+ *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()        
  *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes()
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

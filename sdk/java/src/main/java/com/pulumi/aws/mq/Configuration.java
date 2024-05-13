@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### ActiveMQ
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,32 +48,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
- *             .description(&#34;Example Configuration&#34;)
- *             .name(&#34;example&#34;)
- *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.17.6&#34;)
- *             .data(&#34;&#34;&#34;
- * &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;yes&#34;?&gt;
- * &lt;broker xmlns=&#34;http://activemq.apache.org/schema/core&#34;&gt;
- *   &lt;plugins&gt;
- *     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=&#34;true&#34;/&gt;
- *     &lt;statisticsBrokerPlugin/&gt;
- *     &lt;timeStampingBrokerPlugin ttlCeiling=&#34;86400000&#34; zeroExpirationOverride=&#34;86400000&#34;/&gt;
- *   &lt;/plugins&gt;
- * &lt;/broker&gt;
- *             &#34;&#34;&#34;)
+ *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *             .description("Example Configuration")
+ *             .name("example")
+ *             .engineType("ActiveMQ")
+ *             .engineVersion("5.17.6")
+ *             .data("""
+ * <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ * <broker xmlns="http://activemq.apache.org/schema/core">
+ *   <plugins>
+ *     <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
+ *     <statisticsBrokerPlugin/>
+ *     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
+ *   </plugins>
+ * </broker>
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RabbitMQ
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,20 +96,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
- *             .description(&#34;Example Configuration&#34;)
- *             .name(&#34;example&#34;)
- *             .engineType(&#34;RabbitMQ&#34;)
- *             .engineVersion(&#34;3.11.20&#34;)
- *             .data(&#34;&#34;&#34;
+ *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *             .description("Example Configuration")
+ *             .name("example")
+ *             .engineType("RabbitMQ")
+ *             .engineVersion("3.11.20")
+ *             .data("""
  * # Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
  * consumer_timeout = 1800000
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

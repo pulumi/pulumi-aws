@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationProfile(&#34;example&#34;, ConfigurationProfileArgs.builder()        
+ *         var example = new ConfigurationProfile("example", ConfigurationProfileArgs.builder()        
  *             .applicationId(exampleAwsAppconfigApplication.id())
- *             .description(&#34;Example Configuration Profile&#34;)
- *             .name(&#34;example-configuration-profile-tf&#34;)
- *             .locationUri(&#34;hosted&#34;)
+ *             .description("Example Configuration Profile")
+ *             .name("example-configuration-profile-tf")
+ *             .locationUri("hosted")
  *             .validators(ConfigurationProfileValidatorArgs.builder()
  *                 .content(exampleAwsLambdaFunction.arn())
- *                 .type(&#34;LAMBDA&#34;)
+ *                 .type("LAMBDA")
  *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Configuration Profile&#34;))
+ *             .tags(Map.of("Type", "AppConfig Configuration Profile"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

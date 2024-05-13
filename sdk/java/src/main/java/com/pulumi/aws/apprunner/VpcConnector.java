@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var connector = new VpcConnector(&#34;connector&#34;, VpcConnectorArgs.builder()        
- *             .vpcConnectorName(&#34;name&#34;)
+ *         var connector = new VpcConnector("connector", VpcConnectorArgs.builder()        
+ *             .vpcConnectorName("name")
  *             .subnets(            
- *                 &#34;subnet1&#34;,
- *                 &#34;subnet2&#34;)
+ *                 "subnet1",
+ *                 "subnet2")
  *             .securityGroups(            
- *                 &#34;sg1&#34;,
- *                 &#34;sg2&#34;)
+ *                 "sg1",
+ *                 "sg2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

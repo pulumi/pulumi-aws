@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,28 +49,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new ThingGroup(&#34;parent&#34;, ThingGroupArgs.builder()        
- *             .name(&#34;parent&#34;)
+ *         var parent = new ThingGroup("parent", ThingGroupArgs.builder()        
+ *             .name("parent")
  *             .build());
  * 
- *         var example = new ThingGroup(&#34;example&#34;, ThingGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new ThingGroup("example", ThingGroupArgs.builder()        
+ *             .name("example")
  *             .parentGroupName(parent.name())
  *             .properties(ThingGroupPropertiesArgs.builder()
  *                 .attributePayload(ThingGroupPropertiesAttributePayloadArgs.builder()
  *                     .attributes(Map.ofEntries(
- *                         Map.entry(&#34;One&#34;, &#34;11111&#34;),
- *                         Map.entry(&#34;Two&#34;, &#34;TwoTwo&#34;)
+ *                         Map.entry("One", "11111"),
+ *                         Map.entry("Two", "TwoTwo")
  *                     ))
  *                     .build())
- *                 .description(&#34;This is my thing group&#34;)
+ *                 .description("This is my thing group")
  *                 .build())
- *             .tags(Map.of(&#34;managed&#34;, &#34;true&#34;))
+ *             .tags(Map.of("managed", "true"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,26 +51,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
- *             .name(&#34;example-websocket-api&#34;)
- *             .protocolType(&#34;WEBSOCKET&#34;)
- *             .routeSelectionExpression(&#34;$request.body.action&#34;)
+ *         var example = new Api("example", ApiArgs.builder()        
+ *             .name("example-websocket-api")
+ *             .protocolType("WEBSOCKET")
+ *             .routeSelectionExpression("$request.body.action")
  *             .build());
  * 
- *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
  *             .apiId(example.id())
- *             .routeKey(&#34;$default&#34;)
+ *             .routeKey("$default")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### HTTP Proxy Integration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,27 +97,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api(&#34;example&#34;, ApiArgs.builder()        
- *             .name(&#34;example-http-api&#34;)
- *             .protocolType(&#34;HTTP&#34;)
+ *         var example = new Api("example", ApiArgs.builder()        
+ *             .name("example-http-api")
+ *             .protocolType("HTTP")
  *             .build());
  * 
- *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
+ *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()        
  *             .apiId(example.id())
- *             .integrationType(&#34;HTTP_PROXY&#34;)
- *             .integrationMethod(&#34;ANY&#34;)
- *             .integrationUri(&#34;https://example.com/{proxy}&#34;)
+ *             .integrationType("HTTP_PROXY")
+ *             .integrationMethod("ANY")
+ *             .integrationUri("https://example.com/{proxy}")
  *             .build());
  * 
- *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
  *             .apiId(example.id())
- *             .routeKey(&#34;ANY /example/{proxy+}&#34;)
- *             .target(exampleIntegration.id().applyValue(id -&gt; String.format(&#34;integrations/%s&#34;, id)))
+ *             .routeKey("ANY /example/{proxy+}")
+ *             .target(exampleIntegration.id().applyValue(id -> String.format("integrations/%s", id)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

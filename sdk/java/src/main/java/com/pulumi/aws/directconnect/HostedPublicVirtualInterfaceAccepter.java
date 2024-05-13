@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,30 +50,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
- *         // Creator&#39;s side of the VIF
- *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .name(&#34;vif-foo&#34;)
+ *         // Creator's side of the VIF
+ *         var creator = new HostedPublicVirtualInterface("creator", HostedPublicVirtualInterfaceArgs.builder()        
+ *             .connectionId("dxcon-zzzzzzzz")
+ *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .name("vif-foo")
  *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
+ *             .addressFamily("ipv4")
  *             .bgpAsn(65352)
- *             .customerAddress(&#34;175.45.176.1/30&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
+ *             .customerAddress("175.45.176.1/30")
+ *             .amazonAddress("175.45.176.2/30")
  *             .routeFilterPrefixes(            
- *                 &#34;210.52.109.0/24&#34;,
- *                 &#34;175.45.176.0/22&#34;)
+ *                 "210.52.109.0/24",
+ *                 "175.45.176.0/22")
  *             .build());
  * 
- *         // Accepter&#39;s side of the VIF.
- *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
+ *         // Accepter's side of the VIF.
+ *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", HostedPublicVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

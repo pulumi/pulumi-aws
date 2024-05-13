@@ -50,7 +50,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -78,7 +79,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -91,7 +93,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -119,7 +122,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -132,7 +136,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -160,7 +165,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -173,7 +179,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -201,7 +208,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -214,7 +222,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -237,12 +246,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -255,7 +265,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -278,12 +289,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -296,7 +308,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -319,12 +332,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -337,7 +351,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -360,12 +375,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -382,7 +398,8 @@ public final class NetworkmanagerFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -406,68 +423,69 @@ public final class NetworkmanagerFunctions {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
      *                 .vpnEcmpSupport(false)
-     *                 .asnRanges(&#34;64512-64555&#34;)
+     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;us-east-1&#34;)
+     *                         .location("us-east-1")
      *                         .asn(64512)
      *                         .build(),
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;eu-central-1&#34;)
+     *                         .location("eu-central-1")
      *                         .asn(64513)
      *                         .build())
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;shared&#34;)
-     *                     .description(&#34;Segment for shared services&#34;)
+     *                     .name("shared")
+     *                     .description("Segment for shared services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;prod&#34;)
-     *                     .description(&#34;Segment for prod services&#34;)
+     *                     .name("prod")
+     *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
      *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(100)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;shared&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
      *                         .build())
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(200)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;prod&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
@@ -486,7 +504,8 @@ public final class NetworkmanagerFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,68 +529,69 @@ public final class NetworkmanagerFunctions {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
      *                 .vpnEcmpSupport(false)
-     *                 .asnRanges(&#34;64512-64555&#34;)
+     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;us-east-1&#34;)
+     *                         .location("us-east-1")
      *                         .asn(64512)
      *                         .build(),
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;eu-central-1&#34;)
+     *                         .location("eu-central-1")
      *                         .asn(64513)
      *                         .build())
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;shared&#34;)
-     *                     .description(&#34;Segment for shared services&#34;)
+     *                     .name("shared")
+     *                     .description("Segment for shared services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;prod&#34;)
-     *                     .description(&#34;Segment for prod services&#34;)
+     *                     .name("prod")
+     *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
      *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(100)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;shared&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
      *                         .build())
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(200)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;prod&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
@@ -590,7 +610,8 @@ public final class NetworkmanagerFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -614,68 +635,69 @@ public final class NetworkmanagerFunctions {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
      *                 .vpnEcmpSupport(false)
-     *                 .asnRanges(&#34;64512-64555&#34;)
+     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;us-east-1&#34;)
+     *                         .location("us-east-1")
      *                         .asn(64512)
      *                         .build(),
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;eu-central-1&#34;)
+     *                         .location("eu-central-1")
      *                         .asn(64513)
      *                         .build())
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;shared&#34;)
-     *                     .description(&#34;Segment for shared services&#34;)
+     *                     .name("shared")
+     *                     .description("Segment for shared services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;prod&#34;)
-     *                     .description(&#34;Segment for prod services&#34;)
+     *                     .name("prod")
+     *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
      *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(100)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;shared&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
      *                         .build())
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(200)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;prod&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
@@ -694,7 +716,8 @@ public final class NetworkmanagerFunctions {
      * ### Basic Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -718,68 +741,69 @@ public final class NetworkmanagerFunctions {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
      *                 .vpnEcmpSupport(false)
-     *                 .asnRanges(&#34;64512-64555&#34;)
+     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;us-east-1&#34;)
+     *                         .location("us-east-1")
      *                         .asn(64512)
      *                         .build(),
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
-     *                         .location(&#34;eu-central-1&#34;)
+     *                         .location("eu-central-1")
      *                         .asn(64513)
      *                         .build())
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;shared&#34;)
-     *                     .description(&#34;Segment for shared services&#34;)
+     *                     .name("shared")
+     *                     .description("Segment for shared services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
-     *                     .name(&#34;prod&#34;)
-     *                     .description(&#34;Segment for prod services&#34;)
+     *                     .name("prod")
+     *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
      *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action(&#34;share&#34;)
-     *                 .mode(&#34;attachment-route&#34;)
-     *                 .segment(&#34;shared&#34;)
-     *                 .shareWiths(&#34;*&#34;)
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(100)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;shared&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;shared&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
      *                         .build())
      *                     .build(),
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .ruleNumber(200)
-     *                     .conditionLogic(&#34;or&#34;)
+     *                     .conditionLogic("or")
      *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type(&#34;tag-value&#34;)
-     *                         .operator(&#34;equals&#34;)
-     *                         .key(&#34;segment&#34;)
-     *                         .value(&#34;prod&#34;)
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
      *                         .build())
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod(&#34;constant&#34;)
-     *                         .segment(&#34;prod&#34;)
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
      *                         .build())
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
@@ -794,7 +818,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -822,7 +847,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -835,7 +861,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -863,7 +890,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -876,7 +904,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -904,7 +933,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -917,7 +947,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -945,7 +976,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -958,7 +990,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -981,12 +1014,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -999,7 +1033,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1022,12 +1057,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1040,7 +1076,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1063,12 +1100,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1081,7 +1119,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1104,12 +1143,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1122,7 +1162,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1149,7 +1190,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1162,7 +1204,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1189,7 +1232,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1202,7 +1246,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1229,7 +1274,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1242,7 +1288,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1269,7 +1316,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1282,7 +1330,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1304,12 +1353,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1322,7 +1372,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1344,12 +1395,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1362,7 +1414,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1384,12 +1437,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1402,7 +1456,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1424,12 +1479,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1442,7 +1498,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1464,12 +1521,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1482,7 +1540,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1504,12 +1563,13 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1522,7 +1582,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1550,7 +1611,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1563,7 +1625,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1591,7 +1654,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1604,7 +1668,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1632,7 +1697,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1645,7 +1711,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1673,7 +1740,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1686,7 +1754,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1709,12 +1778,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1727,7 +1797,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1750,12 +1821,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1768,7 +1840,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1791,12 +1864,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1809,7 +1883,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1832,12 +1907,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1850,7 +1926,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1878,7 +1955,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1891,7 +1969,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1919,7 +1998,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1932,7 +2012,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1960,7 +2041,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1973,7 +2055,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2001,7 +2084,8 @@ public final class NetworkmanagerFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2014,7 +2098,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2037,12 +2122,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2055,7 +2141,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2078,12 +2165,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2096,7 +2184,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2119,12 +2208,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2137,7 +2227,8 @@ public final class NetworkmanagerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2160,12 +2251,13 @@ public final class NetworkmanagerFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(globalNetworkId)
-     *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+     *             .tags(Map.of("Env", "test"))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

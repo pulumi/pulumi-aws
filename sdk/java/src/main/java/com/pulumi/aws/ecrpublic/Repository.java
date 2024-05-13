@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,24 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;bar&#34;)
+ *         var foo = new Repository("foo", RepositoryArgs.builder()        
+ *             .repositoryName("bar")
  *             .catalogData(RepositoryCatalogDataArgs.builder()
- *                 .aboutText(&#34;About Text&#34;)
- *                 .architectures(&#34;ARM&#34;)
- *                 .description(&#34;Description&#34;)
+ *                 .aboutText("About Text")
+ *                 .architectures("ARM")
+ *                 .description("Description")
  *                 .logoImageBlob(StdFunctions.filebase64(Filebase64Args.builder()
  *                     .input(png)
  *                     .build()).result())
- *                 .operatingSystems(&#34;Linux&#34;)
- *                 .usageText(&#34;Usage Text&#34;)
+ *                 .operatingSystems("Linux")
+ *                 .usageText("Usage Text")
  *                 .build())
- *             .tags(Map.of(&#34;env&#34;, &#34;production&#34;))
+ *             .tags(Map.of("env", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

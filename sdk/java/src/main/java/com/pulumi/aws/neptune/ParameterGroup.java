@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
- *             .family(&#34;neptune1&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()        
+ *             .family("neptune1")
+ *             .name("example")
  *             .parameters(ParameterGroupParameterArgs.builder()
- *                 .name(&#34;neptune_query_timeout&#34;)
- *                 .value(&#34;25&#34;)
+ *                 .name("neptune_query_timeout")
+ *                 .value("25")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

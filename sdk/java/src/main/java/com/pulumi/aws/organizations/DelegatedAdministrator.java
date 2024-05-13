@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DelegatedAdministrator(&#34;example&#34;, DelegatedAdministratorArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
- *             .servicePrincipal(&#34;principal&#34;)
+ *         var example = new DelegatedAdministrator("example", DelegatedAdministratorArgs.builder()        
+ *             .accountId("123456789012")
+ *             .servicePrincipal("principal")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

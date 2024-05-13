@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Email Address Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,19 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;testing@example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .emailIdentity("testing{@literal @}example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Domain Identity
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,19 +84,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .emailIdentity("example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Configuration Set
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -116,24 +121,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet(&#34;example&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
+ *         var exampleEmailIdentity = new EmailIdentity("exampleEmailIdentity", EmailIdentityArgs.builder()        
+ *             .emailIdentity("example.com")
  *             .configurationSetName(example.configurationSetName())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### DKIM Signing Attributes (BYODKIM)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -155,17 +162,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .emailIdentity("example.com")
  *             .dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs.builder()
- *                 .domainSigningPrivateKey(&#34;MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...&#34;)
- *                 .domainSigningSelector(&#34;example&#34;)
+ *                 .domainSigningPrivateKey("MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...")
+ *                 .domainSigningSelector("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

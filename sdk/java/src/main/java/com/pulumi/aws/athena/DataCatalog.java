@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,23 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
- *             .name(&#34;athena-data-catalog&#34;)
- *             .description(&#34;Example Athena data catalog&#34;)
- *             .type(&#34;LAMBDA&#34;)
- *             .parameters(Map.of(&#34;function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-athena-data-catalog&#34;))
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *             .name("athena-data-catalog")
+ *             .description("Example Athena data catalog")
+ *             .type("LAMBDA")
+ *             .parameters(Map.of("function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"))
+ *             .tags(Map.of("Name", "example-athena-data-catalog"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Hive based Data Catalog
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,22 +86,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
- *             .name(&#34;hive-data-catalog&#34;)
- *             .description(&#34;Hive based Data Catalog&#34;)
- *             .type(&#34;HIVE&#34;)
- *             .parameters(Map.of(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function&#34;))
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *             .name("hive-data-catalog")
+ *             .description("Hive based Data Catalog")
+ *             .type("HIVE")
+ *             .parameters(Map.of("metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Glue based Data Catalog
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -119,22 +124,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
- *             .name(&#34;glue-data-catalog&#34;)
- *             .description(&#34;Glue based Data Catalog&#34;)
- *             .type(&#34;GLUE&#34;)
- *             .parameters(Map.of(&#34;catalog-id&#34;, &#34;123456789012&#34;))
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *             .name("glue-data-catalog")
+ *             .description("Glue based Data Catalog")
+ *             .type("GLUE")
+ *             .parameters(Map.of("catalog-id", "123456789012"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda based Data Catalog
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -155,19 +162,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog(&#34;example&#34;, DataCatalogArgs.builder()        
- *             .name(&#34;lambda-data-catalog&#34;)
- *             .description(&#34;Lambda based Data Catalog&#34;)
- *             .type(&#34;LAMBDA&#34;)
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *             .name("lambda-data-catalog")
+ *             .description("Lambda based Data Catalog")
+ *             .type("LAMBDA")
  *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;metadata-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1&#34;),
- *                 Map.entry(&#34;record-function&#34;, &#34;arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2&#34;)
+ *                 Map.entry("metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
+ *                 Map.entry("record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

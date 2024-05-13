@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,15 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationObjectStorage(&#34;example&#34;, LocationObjectStorageArgs.builder()        
+ *         var example = new LocationObjectStorage("example", LocationObjectStorageArgs.builder()        
  *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .serverHostname(&#34;example&#34;)
- *             .bucketName(&#34;example&#34;)
+ *             .serverHostname("example")
+ *             .bucketName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

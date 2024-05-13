@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Sink(&#34;example&#34;, SinkArgs.builder()        
- *             .name(&#34;ExampleSink&#34;)
- *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
+ *         var example = new Sink("example", SinkArgs.builder()        
+ *             .name("ExampleSink")
+ *             .tags(Map.of("Env", "prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

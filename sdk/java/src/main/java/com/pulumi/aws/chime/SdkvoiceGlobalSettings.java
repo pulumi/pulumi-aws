@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceGlobalSettings(&#34;example&#34;, SdkvoiceGlobalSettingsArgs.builder()        
+ *         var example = new SdkvoiceGlobalSettings("example", SdkvoiceGlobalSettingsArgs.builder()        
  *             .voiceConnector(SdkvoiceGlobalSettingsVoiceConnectorArgs.builder()
- *                 .cdrBucket(&#34;example-bucket-name&#34;)
+ *                 .cdrBucket("example-bucket-name")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

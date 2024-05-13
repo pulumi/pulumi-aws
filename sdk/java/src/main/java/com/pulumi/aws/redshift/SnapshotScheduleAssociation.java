@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,28 +43,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;Mustbe8characters&#34;)
- *             .nodeType(&#34;dc1.large&#34;)
- *             .clusterType(&#34;single-node&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("tf-redshift-cluster")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("Mustbe8characters")
+ *             .nodeType("dc1.large")
+ *             .clusterType("single-node")
  *             .build());
  * 
- *         var defaultSnapshotSchedule = new SnapshotSchedule(&#34;defaultSnapshotSchedule&#34;, SnapshotScheduleArgs.builder()        
- *             .identifier(&#34;tf-redshift-snapshot-schedule&#34;)
- *             .definitions(&#34;rate(12 hours)&#34;)
+ *         var defaultSnapshotSchedule = new SnapshotSchedule("defaultSnapshotSchedule", SnapshotScheduleArgs.builder()        
+ *             .identifier("tf-redshift-snapshot-schedule")
+ *             .definitions("rate(12 hours)")
  *             .build());
  * 
- *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation(&#34;defaultSnapshotScheduleAssociation&#34;, SnapshotScheduleAssociationArgs.builder()        
+ *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", SnapshotScheduleAssociationArgs.builder()        
  *             .clusterIdentifier(default_.id())
  *             .scheduleIdentifier(defaultSnapshotSchedule.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

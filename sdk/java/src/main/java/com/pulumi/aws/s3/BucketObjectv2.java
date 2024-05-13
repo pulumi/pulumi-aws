@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Uploading a file to a bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,24 +51,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var object = new BucketObjectv2(&#34;object&#34;, BucketObjectv2Args.builder()        
- *             .bucket(&#34;your_bucket_name&#34;)
- *             .key(&#34;new_object_key&#34;)
- *             .source(new FileAsset(&#34;path/to/file&#34;))
+ *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()        
+ *             .bucket("your_bucket_name")
+ *             .key("new_object_key")
+ *             .source(new FileAsset("path/to/file"))
  *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input(&#34;path/to/file&#34;)
+ *                 .input("path/to/file")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Encrypting with KMS Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,36 +98,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplekms = new Key(&#34;examplekms&#34;, KeyArgs.builder()        
- *             .description(&#34;KMS key 1&#34;)
+ *         var examplekms = new Key("examplekms", KeyArgs.builder()        
+ *             .description("KMS key 1")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;examplebuckettftest&#34;)
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .key(&#34;someobject&#34;)
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *             .key("someobject")
  *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;index.html&#34;))
+ *             .source(new FileAsset("index.html"))
  *             .kmsKeyId(examplekms.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Server Side Encryption with S3 Default Master Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,31 +155,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;examplebuckettftest&#34;)
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .key(&#34;someobject&#34;)
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *             .key("someobject")
  *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;index.html&#34;))
- *             .serverSideEncryption(&#34;aws:kms&#34;)
+ *             .source(new FileAsset("index.html"))
+ *             .serverSideEncryption("aws:kms")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Server Side Encryption with AWS-Managed Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -200,31 +207,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;examplebuckettftest&#34;)
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .key(&#34;someobject&#34;)
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *             .key("someobject")
  *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;index.html&#34;))
- *             .serverSideEncryption(&#34;AES256&#34;)
+ *             .source(new FileAsset("index.html"))
+ *             .serverSideEncryption("AES256")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### S3 Object Lock
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -254,30 +263,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;examplebuckettftest&#34;)
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *             .bucket("examplebuckettftest")
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var example = new BucketAclV2(&#34;example&#34;, BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
  *             .bucket(examplebucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2(&#34;exampleBucketVersioningV2&#34;, BucketVersioningV2Args.builder()        
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()        
  *             .bucket(examplebucket.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var examplebucketObject = new BucketObjectv2(&#34;examplebucketObject&#34;, BucketObjectv2Args.builder()        
- *             .key(&#34;someobject&#34;)
+ *         var examplebucketObject = new BucketObjectv2("examplebucketObject", BucketObjectv2Args.builder()        
+ *             .key("someobject")
  *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;important.txt&#34;))
- *             .objectLockLegalHoldStatus(&#34;ON&#34;)
- *             .objectLockMode(&#34;GOVERNANCE&#34;)
- *             .objectLockRetainUntilDate(&#34;2021-12-31T23:59:60Z&#34;)
+ *             .source(new FileAsset("important.txt"))
+ *             .objectLockLegalHoldStatus("ON")
+ *             .objectLockMode("GOVERNANCE")
+ *             .objectLockRetainUntilDate("2021-12-31T23:59:60Z")
  *             .forceDestroy(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketVersioningV2)
@@ -285,7 +294,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Ignoring Provider `default_tags`
@@ -296,7 +306,8 @@ import javax.annotation.Nullable;
  * &gt; S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `default_tags` must be suppressed.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -322,15 +333,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2(&#34;examplebucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;examplebuckettftest&#34;)
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var examplebucketObject = new BucketObjectv2(&#34;examplebucketObject&#34;, BucketObjectv2Args.builder()        
- *             .key(&#34;someobject&#34;)
+ *         var examplebucketObject = new BucketObjectv2("examplebucketObject", BucketObjectv2Args.builder()        
+ *             .key("someobject")
  *             .bucket(examplebucket.id())
- *             .source(new FileAsset(&#34;important.txt&#34;))
- *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+ *             .source(new FileAsset("important.txt"))
+ *             .tags(Map.of("Env", "test"))
  *             .overrideProvider(BucketObjectv2OverrideProviderArgs.builder()
  *                 .defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs.builder()
  *                     .tags()
@@ -340,7 +351,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

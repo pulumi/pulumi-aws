@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,9 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Location(&#34;example&#34;, S3LocationArgs.builder()        
+ *         var example = new S3Location("example", S3LocationArgs.builder()        
  *             .s3BucketArn(exampleAwsS3Bucket.arn())
- *             .subdirectory(&#34;/example/prefix&#34;)
+ *             .subdirectory("/example/prefix")
  *             .s3Config(S3LocationS3ConfigArgs.builder()
  *                 .bucketAccessRoleArn(exampleAwsIamRole.arn())
  *                 .build())
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

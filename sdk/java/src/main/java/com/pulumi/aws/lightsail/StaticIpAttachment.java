@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;, StaticIpArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;string&#34;)
- *             .bundleId(&#34;string&#34;)
- *             .keyPairName(&#34;some_key_name&#34;)
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *             .name("example")
+ *             .availabilityZone("us-east-1b")
+ *             .blueprintId("string")
+ *             .bundleId("string")
+ *             .keyPairName("some_key_name")
  *             .build());
  * 
- *         var test = new StaticIpAttachment(&#34;test&#34;, StaticIpAttachmentArgs.builder()        
+ *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()        
  *             .staticIpName(testStaticIp.id())
  *             .instanceName(testInstance.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

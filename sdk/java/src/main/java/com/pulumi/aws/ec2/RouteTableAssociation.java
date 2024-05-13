@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new RouteTableAssociation(&#34;a&#34;, RouteTableAssociationArgs.builder()        
+ *         var a = new RouteTableAssociation("a", RouteTableAssociationArgs.builder()        
  *             .subnetId(foo.id())
  *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -74,14 +77,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new RouteTableAssociation(&#34;b&#34;, RouteTableAssociationArgs.builder()        
+ *         var b = new RouteTableAssociation("b", RouteTableAssociationArgs.builder()        
  *             .gatewayId(foo.id())
  *             .routeTableId(bar.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

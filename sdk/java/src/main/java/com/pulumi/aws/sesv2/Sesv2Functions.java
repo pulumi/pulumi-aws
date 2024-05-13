@@ -31,7 +31,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,12 +54,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
-     *             .configurationSetName(&#34;example&#34;)
+     *             .configurationSetName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,12 +98,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
-     *             .configurationSetName(&#34;example&#34;)
+     *             .configurationSetName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -137,12 +142,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
-     *             .configurationSetName(&#34;example&#34;)
+     *             .configurationSetName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -157,7 +163,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -179,12 +186,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
-     *             .configurationSetName(&#34;example&#34;)
+     *             .configurationSetName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +207,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -221,12 +230,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getDedicatedIpPool(GetDedicatedIpPoolArgs.builder()
-     *             .poolName(&#34;my-pool&#34;)
+     *             .poolName("my-pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +251,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,12 +274,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getDedicatedIpPool(GetDedicatedIpPoolArgs.builder()
-     *             .poolName(&#34;my-pool&#34;)
+     *             .poolName("my-pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +295,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,12 +318,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getDedicatedIpPool(GetDedicatedIpPoolArgs.builder()
-     *             .poolName(&#34;my-pool&#34;)
+     *             .poolName("my-pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -325,7 +339,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,12 +362,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getDedicatedIpPool(GetDedicatedIpPoolArgs.builder()
-     *             .poolName(&#34;my-pool&#34;)
+     *             .poolName("my-pool")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -367,7 +383,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -389,12 +406,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -409,7 +427,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -431,12 +450,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -451,7 +471,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -473,12 +494,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -493,7 +515,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -515,12 +538,13 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -535,7 +559,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -558,16 +583,17 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -582,7 +608,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -605,16 +632,17 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -629,7 +657,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -652,16 +681,17 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -676,7 +706,8 @@ public final class Sesv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -699,16 +730,17 @@ public final class Sesv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
-     *             .emailIdentity(&#34;example.com&#34;)
+     *             .emailIdentity("example.com")
      *             .build());
      * 
      *         final var exampleGetEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
-     *             .emailIdentity(example.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .emailIdentity(example.applyValue(getEmailIdentityResult -> getEmailIdentityResult.emailIdentity()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

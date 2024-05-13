@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AggregateAuthorization(&#34;example&#34;, AggregateAuthorizationArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
- *             .region(&#34;eu-west-2&#34;)
+ *         var example = new AggregateAuthorization("example", AggregateAuthorizationArgs.builder()        
+ *             .accountId("123456789012")
+ *             .region("eu-west-2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

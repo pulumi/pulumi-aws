@@ -38,7 +38,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -60,14 +61,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getGatewayRoute(GetGatewayRouteArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualGatewayName(&#34;test-gateway&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualGatewayName("test-gateway")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +82,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,14 +105,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getGatewayRoute(GetGatewayRouteArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualGatewayName(&#34;test-gateway&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualGatewayName("test-gateway")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -122,7 +126,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -144,14 +149,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getGatewayRoute(GetGatewayRouteArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualGatewayName(&#34;test-gateway&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualGatewayName("test-gateway")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -164,7 +170,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,14 +193,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getGatewayRoute(GetGatewayRouteArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualGatewayName(&#34;test-gateway&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualGatewayName("test-gateway")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +214,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,16 +237,18 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
+     *             .name("simpleapp")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,13 +274,14 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("simpleapp")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -282,7 +294,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -304,16 +317,18 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
+     *             .name("simpleapp")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -339,13 +354,14 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("simpleapp")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -358,7 +374,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -380,16 +397,18 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
+     *             .name("simpleapp")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -415,13 +434,14 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("simpleapp")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -434,7 +454,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -456,16 +477,18 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
+     *             .name("simpleapp")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -491,13 +514,14 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var simple = AppmeshFunctions.getMesh(GetMeshArgs.builder()
-     *             .name(&#34;simpleapp&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("simpleapp")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -510,7 +534,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -532,14 +557,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualRouterName(&#34;test-router&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualRouterName("test-router")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -552,7 +578,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -574,14 +601,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualRouterName(&#34;test-router&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualRouterName("test-router")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -594,7 +622,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -616,14 +645,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualRouterName(&#34;test-router&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualRouterName("test-router")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -636,7 +666,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -658,14 +689,15 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;test-route&#34;)
-     *             .meshName(&#34;test-mesh&#34;)
-     *             .virtualRouterName(&#34;test-router&#34;)
+     *             .name("test-route")
+     *             .meshName("test-mesh")
+     *             .virtualRouterName("test-router")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -680,7 +712,8 @@ public final class AppmeshFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -702,17 +735,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .meshName(&#34;mesh-gateway&#34;)
-     *             .name(&#34;example-mesh&#34;)
+     *             .meshName("mesh-gateway")
+     *             .name("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -738,14 +773,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -760,7 +796,8 @@ public final class AppmeshFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -782,17 +819,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .meshName(&#34;mesh-gateway&#34;)
-     *             .name(&#34;example-mesh&#34;)
+     *             .meshName("mesh-gateway")
+     *             .name("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -818,14 +857,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -840,7 +880,8 @@ public final class AppmeshFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -862,17 +903,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .meshName(&#34;mesh-gateway&#34;)
-     *             .name(&#34;example-mesh&#34;)
+     *             .meshName("mesh-gateway")
+     *             .name("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -898,14 +941,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -920,7 +964,8 @@ public final class AppmeshFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -942,17 +987,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .meshName(&#34;mesh-gateway&#34;)
-     *             .name(&#34;example-mesh&#34;)
+     *             .meshName("mesh-gateway")
+     *             .name("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -978,14 +1025,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualGateway(GetVirtualGatewayArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -998,7 +1046,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1020,13 +1069,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualNode(GetVirtualNodeArgs.builder()
-     *             .name(&#34;serviceBv1&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("serviceBv1")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1039,7 +1089,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1061,13 +1112,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualNode(GetVirtualNodeArgs.builder()
-     *             .name(&#34;serviceBv1&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("serviceBv1")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1080,7 +1132,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1102,13 +1155,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualNode(GetVirtualNodeArgs.builder()
-     *             .name(&#34;serviceBv1&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("serviceBv1")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1121,7 +1175,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1143,13 +1198,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualNode(GetVirtualNodeArgs.builder()
-     *             .name(&#34;serviceBv1&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("serviceBv1")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1162,7 +1218,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1184,13 +1241,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualRouter(GetVirtualRouterArgs.builder()
-     *             .name(&#34;example-router-name&#34;)
-     *             .meshName(&#34;example-mesh-name&#34;)
+     *             .name("example-router-name")
+     *             .meshName("example-mesh-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1203,7 +1261,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1225,13 +1284,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualRouter(GetVirtualRouterArgs.builder()
-     *             .name(&#34;example-router-name&#34;)
-     *             .meshName(&#34;example-mesh-name&#34;)
+     *             .name("example-router-name")
+     *             .meshName("example-mesh-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1244,7 +1304,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1266,13 +1327,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualRouter(GetVirtualRouterArgs.builder()
-     *             .name(&#34;example-router-name&#34;)
-     *             .meshName(&#34;example-mesh-name&#34;)
+     *             .name("example-router-name")
+     *             .meshName("example-mesh-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1285,7 +1347,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1307,13 +1370,14 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualRouter(GetVirtualRouterArgs.builder()
-     *             .name(&#34;example-router-name&#34;)
-     *             .meshName(&#34;example-mesh-name&#34;)
+     *             .name("example-router-name")
+     *             .meshName("example-mesh-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1326,7 +1390,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1348,17 +1413,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1384,14 +1451,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1404,7 +1472,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1426,17 +1495,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1462,14 +1533,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1482,7 +1554,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1504,17 +1577,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1540,14 +1615,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1560,7 +1636,8 @@ public final class AppmeshFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1582,17 +1659,19 @@ public final class AppmeshFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1618,14 +1697,15 @@ public final class AppmeshFunctions {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
      *         final var test = AppmeshFunctions.getVirtualService(GetVirtualServiceArgs.builder()
-     *             .name(&#34;example.mesh.local&#34;)
-     *             .meshName(&#34;example-mesh&#34;)
-     *             .meshOwner(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+     *             .name("example.mesh.local")
+     *             .meshName("example-mesh")
+     *             .meshOwner(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

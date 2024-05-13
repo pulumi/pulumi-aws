@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGateway(&#34;example&#34;, TransitGatewayArgs.builder()        
- *             .multicastSupport(&#34;enable&#34;)
+ *         var example = new TransitGateway("example", TransitGatewayArgs.builder()        
+ *             .multicastSupport("enable")
  *             .build());
  * 
- *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()        
  *             .subnetIds(exampleAwsSubnet.id())
  *             .transitGatewayId(example.id())
  *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
- *         var exampleMulticastDomain = new MulticastDomain(&#34;exampleMulticastDomain&#34;, MulticastDomainArgs.builder()        
+ *         var exampleMulticastDomain = new MulticastDomain("exampleMulticastDomain", MulticastDomainArgs.builder()        
  *             .transitGatewayId(example.id())
  *             .build());
  * 
- *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation(&#34;exampleMulticastDomainAssociation&#34;, MulticastDomainAssociationArgs.builder()        
+ *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation("exampleMulticastDomainAssociation", MulticastDomainAssociationArgs.builder()        
  *             .subnetId(exampleAwsSubnet.id())
  *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
  *             .transitGatewayMulticastDomainId(exampleMulticastDomain.id())
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

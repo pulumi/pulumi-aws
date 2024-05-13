@@ -37,7 +37,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,36 +63,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer
- *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
- *             .name(&#34;foobar-elb&#34;)
+ *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+ *             .name("foobar-elb")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
  *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
- *                 .bucket(&#34;foo&#34;)
- *                 .bucketPrefix(&#34;bar&#34;)
+ *                 .bucket("foo")
+ *                 .bucketPrefix("bar")
  *                 .interval(60)
  *                 .build())
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()
  *                     .instancePort(8000)
- *                     .instanceProtocol(&#34;http&#34;)
+ *                     .instanceProtocol("http")
  *                     .lbPort(80)
- *                     .lbProtocol(&#34;http&#34;)
+ *                     .lbProtocol("http")
  *                     .build(),
  *                 LoadBalancerListenerArgs.builder()
  *                     .instancePort(8000)
- *                     .instanceProtocol(&#34;http&#34;)
+ *                     .instanceProtocol("http")
  *                     .lbPort(443)
- *                     .lbProtocol(&#34;https&#34;)
- *                     .sslCertificateId(&#34;arn:aws:iam::123456789012:server-certificate/certName&#34;)
+ *                     .lbProtocol("https")
+ *                     .sslCertificateId("arn:aws:iam::123456789012:server-certificate/certName")
  *                     .build())
  *             .healthCheck(LoadBalancerHealthCheckArgs.builder()
  *                 .healthyThreshold(2)
  *                 .unhealthyThreshold(2)
  *                 .timeout(3)
- *                 .target(&#34;HTTP:8000/&#34;)
+ *                 .target("HTTP:8000/")
  *                 .interval(30)
  *                 .build())
  *             .instances(foo.id())
@@ -99,12 +100,13 @@ import javax.annotation.Nullable;
  *             .idleTimeout(400)
  *             .connectionDraining(true)
  *             .connectionDrainingTimeout(400)
- *             .tags(Map.of(&#34;Name&#34;, &#34;foobar-elb&#34;))
+ *             .tags(Map.of("Name", "foobar-elb"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Note on ECDSA Key Algorithm

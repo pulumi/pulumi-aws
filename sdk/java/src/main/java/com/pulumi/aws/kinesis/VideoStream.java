@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VideoStream(&#34;default&#34;, VideoStreamArgs.builder()        
- *             .name(&#34;kinesis-video-stream&#34;)
+ *         var default_ = new VideoStream("default", VideoStreamArgs.builder()        
+ *             .name("kinesis-video-stream")
  *             .dataRetentionInHours(1)
- *             .deviceName(&#34;kinesis-video-device-name&#34;)
- *             .mediaType(&#34;video/h264&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;kinesis-video-stream&#34;))
+ *             .deviceName("kinesis-video-device-name")
+ *             .mediaType("video/h264")
+ *             .tags(Map.of("Name", "kinesis-video-stream"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

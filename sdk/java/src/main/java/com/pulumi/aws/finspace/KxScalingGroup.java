@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,16 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxScalingGroup(&#34;example&#34;, KxScalingGroupArgs.builder()        
- *             .name(&#34;my-tf-kx-scalinggroup&#34;)
+ *         var example = new KxScalingGroup("example", KxScalingGroupArgs.builder()        
+ *             .name("my-tf-kx-scalinggroup")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
- *             .availabilityZoneId(&#34;use1-az2&#34;)
- *             .hostType(&#34;kx.sg.4xlarge&#34;)
+ *             .availabilityZoneId("use1-az2")
+ *             .hostType("kx.sg.4xlarge")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

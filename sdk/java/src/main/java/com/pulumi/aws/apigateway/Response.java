@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new RestApi(&#34;main&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
+ *         var main = new RestApi("main", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
  *             .build());
  * 
- *         var test = new Response(&#34;test&#34;, ResponseArgs.builder()        
+ *         var test = new Response("test", ResponseArgs.builder()        
  *             .restApiId(main.id())
- *             .statusCode(&#34;401&#34;)
- *             .responseType(&#34;UNAUTHORIZED&#34;)
- *             .responseTemplates(Map.of(&#34;application/json&#34;, &#34;{\&#34;message\&#34;:$context.error.messageString}&#34;))
- *             .responseParameters(Map.of(&#34;gatewayresponse.header.Authorization&#34;, &#34;&#39;Basic&#39;&#34;))
+ *             .statusCode("401")
+ *             .responseType("UNAUTHORIZED")
+ *             .responseTemplates(Map.of("application/json", "{\"message\":$context.error.messageString}"))
+ *             .responseParameters(Map.of("gatewayresponse.header.Authorization", "'Basic'"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

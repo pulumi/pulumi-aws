@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
- *             .name(&#34;tf-example&#34;)
- *             .password(&#34;SuperSecretPassw0rd&#34;)
- *             .type(&#34;MicrosoftAD&#34;)
- *             .edition(&#34;Standard&#34;)
+ *         var example = new Directory("example", DirectoryArgs.builder()        
+ *             .name("tf-example")
+ *             .password("SuperSecretPassw0rd")
+ *             .type("MicrosoftAD")
+ *             .edition("Standard")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleAwsVpc.id())
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
+ *         var exampleSharedDirectory = new SharedDirectory("exampleSharedDirectory", SharedDirectoryArgs.builder()        
  *             .directoryId(example.id())
- *             .notes(&#34;You wanna have a catch?&#34;)
+ *             .notes("You wanna have a catch?")
  *             .target(SharedDirectoryTargetArgs.builder()
  *                 .id(receiver.accountId())
  *                 .build())
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

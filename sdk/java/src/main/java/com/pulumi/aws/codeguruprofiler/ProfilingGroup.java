@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,9 +47,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProfilingGroup(&#34;example&#34;, ProfilingGroupArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .computePlatform(&#34;Default&#34;)
+ *         var example = new ProfilingGroup("example", ProfilingGroupArgs.builder()        
+ *             .name("example")
+ *             .computePlatform("Default")
  *             .agentOrchestrationConfig(ProfilingGroupAgentOrchestrationConfigArgs.builder()
  *                 .profilingEnabled(true)
  *                 .build())
@@ -56,7 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

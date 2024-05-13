@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FrameworkShare(&#34;example&#34;, FrameworkShareArgs.builder()        
- *             .destinationAccount(&#34;012345678901&#34;)
- *             .destinationRegion(&#34;us-east-1&#34;)
+ *         var example = new FrameworkShare("example", FrameworkShareArgs.builder()        
+ *             .destinationAccount("012345678901")
+ *             .destinationRegion("us-east-1")
  *             .frameworkId(exampleAwsAuditmanagerFramework.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

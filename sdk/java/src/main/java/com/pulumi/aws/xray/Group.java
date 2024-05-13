@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,9 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
- *             .groupName(&#34;example&#34;)
- *             .filterExpression(&#34;responsetime &gt; 5&#34;)
+ *         var example = new Group("example", GroupArgs.builder()        
+ *             .groupName("example")
+ *             .filterExpression("responsetime > 5")
  *             .insightsConfiguration(GroupInsightsConfigurationArgs.builder()
  *                 .insightsEnabled(true)
  *                 .notificationsEnabled(true)
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

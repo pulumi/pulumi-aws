@@ -15,14 +15,14 @@ public final class GetReleaseLabelsFilters extends com.pulumi.resources.InvokeAr
     public static final GetReleaseLabelsFilters Empty = new GetReleaseLabelsFilters();
 
     /**
-     * Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     @Import(name="application")
     private @Nullable String application;
 
     /**
-     * @return Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+     * @return Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
      * 
      */
     public Optional<String> application() {
@@ -70,7 +70,7 @@ public final class GetReleaseLabelsFilters extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param application Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+         * @param application Optional release label application filter. For example, `Spark{@literal @}2.1.0` or `Spark`.
          * 
          * @return builder
          * 

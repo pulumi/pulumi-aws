@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpAssignment(&#34;example&#34;, DedicatedIpAssignmentArgs.builder()        
- *             .ip(&#34;0.0.0.0&#34;)
- *             .destinationPoolName(&#34;my-pool&#34;)
+ *         var example = new DedicatedIpAssignment("example", DedicatedIpAssignmentArgs.builder()        
+ *             .ip("0.0.0.0")
+ *             .destinationPoolName("my-pool")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

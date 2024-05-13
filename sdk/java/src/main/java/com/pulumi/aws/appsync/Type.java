@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,27 +43,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .name(&#34;example&#34;)
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *             .authenticationType("API_KEY")
+ *             .name("example")
  *             .build());
  * 
- *         var exampleType = new Type(&#34;exampleType&#34;, TypeArgs.builder()        
+ *         var exampleType = new Type("exampleType", TypeArgs.builder()        
  *             .apiId(example.id())
- *             .format(&#34;SDL&#34;)
- *             .definition(&#34;&#34;&#34;
+ *             .format("SDL")
+ *             .definition("""
  * type Mutation
  * 
  * {
  * putPost(id: ID!,title: String! ): Post
  * 
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

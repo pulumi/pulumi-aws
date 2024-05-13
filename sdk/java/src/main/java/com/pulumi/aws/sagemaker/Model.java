@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,33 +60,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("sagemaker.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
- *             .repositoryName(&#34;kmeans&#34;)
+ *             .repositoryName("kmeans")
  *             .build());
  * 
- *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
- *             .name(&#34;my-model&#34;)
+ *         var example = new Model("example", ModelArgs.builder()        
+ *             .name("my-model")
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
- *                 .image(test.applyValue(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))
+ *                 .image(test.applyValue(getPrebuiltEcrImageResult -> getPrebuiltEcrImageResult.registryPath()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Inference Execution Config

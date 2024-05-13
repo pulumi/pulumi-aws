@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,56 +53,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooServer = new Server(&#34;fooServer&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;SERVICE_MANAGED&#34;)
- *             .tags(Map.of(&#34;NAME&#34;, &#34;tf-acc-test-transfer-server&#34;))
+ *         var fooServer = new Server("fooServer", ServerArgs.builder()        
+ *             .identityProviderType("SERVICE_MANAGED")
+ *             .tags(Map.of("NAME", "tf-acc-test-transfer-server"))
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;transfer.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("transfer.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var fooRole = new Role(&#34;fooRole&#34;, RoleArgs.builder()        
- *             .name(&#34;tf-test-transfer-user-iam-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var fooRole = new Role("fooRole", RoleArgs.builder()        
+ *             .name("tf-test-transfer-user-iam-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var foo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;AllowFullAccesstoS3&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;s3:*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .sid("AllowFullAccesstoS3")
+ *                 .effect("Allow")
+ *                 .actions("s3:*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var fooRolePolicy = new RolePolicy(&#34;fooRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;tf-test-transfer-user-iam-policy&#34;)
+ *         var fooRolePolicy = new RolePolicy("fooRolePolicy", RolePolicyArgs.builder()        
+ *             .name("tf-test-transfer-user-iam-policy")
  *             .role(fooRole.id())
- *             .policy(foo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(foo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
+ *         var fooUser = new User("fooUser", UserArgs.builder()        
  *             .serverId(fooServer.id())
- *             .userName(&#34;tftestuser&#34;)
+ *             .userName("tftestuser")
  *             .role(fooRole.arn())
- *             .homeDirectoryType(&#34;LOGICAL&#34;)
+ *             .homeDirectoryType("LOGICAL")
  *             .homeDirectoryMappings(UserHomeDirectoryMappingArgs.builder()
- *                 .entry(&#34;/test.pdf&#34;)
- *                 .target(&#34;/bucket3/test-path/tftestuser.pdf&#34;)
+ *                 .entry("/test.pdf")
+ *                 .target("/bucket3/test-path/tftestuser.pdf")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

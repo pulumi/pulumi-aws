@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ComputeEnvironment(&#34;example&#34;, ComputeEnvironmentArgs.builder()        
- *             .computeEnvironmentName(&#34;example&#34;)
+ *         var example = new ComputeEnvironment("example", ComputeEnvironmentArgs.builder()        
+ *             .computeEnvironmentName("example")
  *             .serviceRole(exampleAwsIamRole.arn())
- *             .type(&#34;UNMANAGED&#34;)
+ *             .type("UNMANAGED")
  *             .build());
  * 
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
  *             .resourceArn(example.ecsClusterArn())
- *             .key(&#34;Name&#34;)
- *             .value(&#34;Hello World&#34;)
+ *             .key("Name")
+ *             .value("Hello World")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

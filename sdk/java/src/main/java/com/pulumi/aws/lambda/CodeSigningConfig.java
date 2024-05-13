@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var newCsc = new CodeSigningConfig(&#34;newCsc&#34;, CodeSigningConfigArgs.builder()        
+ *         var newCsc = new CodeSigningConfig("newCsc", CodeSigningConfigArgs.builder()        
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
  *                     example1.arn(),
  *                     example2.arn())
  *                 .build())
  *             .policies(CodeSigningConfigPoliciesArgs.builder()
- *                 .untrustedArtifactOnDeployment(&#34;Warn&#34;)
+ *                 .untrustedArtifactOnDeployment("Warn")
  *                 .build())
- *             .description(&#34;My awesome code signing config.&#34;)
+ *             .description("My awesome code signing config.")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

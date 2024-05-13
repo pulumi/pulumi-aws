@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroupAttachment(&#34;example&#34;, TargetGroupAttachmentArgs.builder()        
+ *         var example = new TargetGroupAttachment("example", TargetGroupAttachmentArgs.builder()        
  *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
  *             .target(TargetGroupAttachmentTargetArgs.builder()
  *                 .id(exampleAwsLb.arn())
@@ -54,7 +55,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

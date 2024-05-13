@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var order = new EventBus(&#34;order&#34;, EventBusArgs.builder()        
- *             .name(&#34;orders&#34;)
+ *         var order = new EventBus("order", EventBusArgs.builder()        
+ *             .name("orders")
  *             .build());
  * 
- *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
- *             .name(&#34;order-archive&#34;)
+ *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()        
+ *             .name("order-archive")
  *             .eventSourceArn(order.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example all optional arguments
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,24 +90,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var order = new EventBus(&#34;order&#34;, EventBusArgs.builder()        
- *             .name(&#34;orders&#34;)
+ *         var order = new EventBus("order", EventBusArgs.builder()        
+ *             .name("orders")
  *             .build());
  * 
- *         var orderEventArchive = new EventArchive(&#34;orderEventArchive&#34;, EventArchiveArgs.builder()        
- *             .name(&#34;order-archive&#34;)
- *             .description(&#34;Archived events from order service&#34;)
+ *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()        
+ *             .name("order-archive")
+ *             .description("Archived events from order service")
  *             .eventSourceArn(order.arn())
  *             .retentionDays(7)
  *             .eventPattern(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;source&#34;, jsonArray(&#34;company.team.order&#34;))
+ *                     jsonProperty("source", jsonArray("company.team.order"))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

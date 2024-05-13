@@ -49,7 +49,8 @@ import javax.annotation.Nullable;
  * The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -73,48 +74,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var basic_dynamodb_table = new Table(&#34;basic-dynamodb-table&#34;, TableArgs.builder()        
- *             .name(&#34;GameScores&#34;)
- *             .billingMode(&#34;PROVISIONED&#34;)
+ *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()        
+ *             .name("GameScores")
+ *             .billingMode("PROVISIONED")
  *             .readCapacity(20)
  *             .writeCapacity(20)
- *             .hashKey(&#34;UserId&#34;)
- *             .rangeKey(&#34;GameTitle&#34;)
+ *             .hashKey("UserId")
+ *             .rangeKey("GameTitle")
  *             .attributes(            
  *                 TableAttributeArgs.builder()
- *                     .name(&#34;UserId&#34;)
- *                     .type(&#34;S&#34;)
+ *                     .name("UserId")
+ *                     .type("S")
  *                     .build(),
  *                 TableAttributeArgs.builder()
- *                     .name(&#34;GameTitle&#34;)
- *                     .type(&#34;S&#34;)
+ *                     .name("GameTitle")
+ *                     .type("S")
  *                     .build(),
  *                 TableAttributeArgs.builder()
- *                     .name(&#34;TopScore&#34;)
- *                     .type(&#34;N&#34;)
+ *                     .name("TopScore")
+ *                     .type("N")
  *                     .build())
  *             .ttl(TableTtlArgs.builder()
- *                 .attributeName(&#34;TimeToExist&#34;)
+ *                 .attributeName("TimeToExist")
  *                 .enabled(false)
  *                 .build())
  *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
- *                 .name(&#34;GameTitleIndex&#34;)
- *                 .hashKey(&#34;GameTitle&#34;)
- *                 .rangeKey(&#34;TopScore&#34;)
+ *                 .name("GameTitleIndex")
+ *                 .hashKey("GameTitle")
+ *                 .rangeKey("TopScore")
  *                 .writeCapacity(10)
  *                 .readCapacity(10)
- *                 .projectionType(&#34;INCLUDE&#34;)
- *                 .nonKeyAttributes(&#34;UserId&#34;)
+ *                 .projectionType("INCLUDE")
+ *                 .nonKeyAttributes("UserId")
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;dynamodb-table-1&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
+ *                 Map.entry("Name", "dynamodb-table-1"),
+ *                 Map.entry("Environment", "production")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Global Tables
@@ -124,7 +126,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** aws.dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `aws.dynamodb.Table` together with aws_dynamodb_table_replica.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -147,28 +150,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .hashKey(&#34;TestTableHashKey&#34;)
- *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
+ *         var example = new Table("example", TableArgs.builder()        
+ *             .name("example")
+ *             .hashKey("TestTableHashKey")
+ *             .billingMode("PAY_PER_REQUEST")
  *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;TestTableHashKey&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("TestTableHashKey")
+ *                 .type("S")
  *                 .build())
  *             .replicas(            
  *                 TableReplicaArgs.builder()
- *                     .regionName(&#34;us-east-2&#34;)
+ *                     .regionName("us-east-2")
  *                     .build(),
  *                 TableReplicaArgs.builder()
- *                     .regionName(&#34;us-west-2&#34;)
+ *                     .regionName("us-west-2")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Replica Tagging
@@ -176,7 +180,8 @@ import javax.annotation.Nullable;
  * You can manage global table replicas&#39; tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -209,39 +214,40 @@ import javax.annotation.Nullable;
  * 
  *         final var third = AwsFunctions.getRegion();
  * 
- *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
- *             .billingMode(&#34;PAY_PER_REQUEST&#34;)
- *             .hashKey(&#34;TestTableHashKey&#34;)
- *             .name(&#34;example-13281&#34;)
+ *         var example = new Table("example", TableArgs.builder()        
+ *             .billingMode("PAY_PER_REQUEST")
+ *             .hashKey("TestTableHashKey")
+ *             .name("example-13281")
  *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
+ *             .streamViewType("NEW_AND_OLD_IMAGES")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;TestTableHashKey&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("TestTableHashKey")
+ *                 .type("S")
  *                 .build())
  *             .replicas(            
  *                 TableReplicaArgs.builder()
- *                     .regionName(alternate.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                     .regionName(alternate.applyValue(getRegionResult -> getRegionResult.name()))
  *                     .build(),
  *                 TableReplicaArgs.builder()
- *                     .regionName(third.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                     .regionName(third.applyValue(getRegionResult -> getRegionResult.name()))
  *                     .propagateTags(true)
  *                     .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Architect&#34;, &#34;Eleanor&#34;),
- *                 Map.entry(&#34;Zone&#34;, &#34;SW&#34;)
+ *                 Map.entry("Architect", "Eleanor"),
+ *                 Map.entry("Zone", "SW")
  *             ))
  *             .build());
  * 
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .resourceArn(example.arn().applyValue(arn -&gt; StdFunctions.replace()).applyValue(invoke -&gt; invoke.result()))
- *             .key(&#34;Architect&#34;)
- *             .value(&#34;Gigi&#34;)
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
+ *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
+ *             .key("Architect")
+ *             .value("Gigi")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

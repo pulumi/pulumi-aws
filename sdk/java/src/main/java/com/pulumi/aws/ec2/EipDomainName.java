@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var example = new Eip("example", EipArgs.builder()        
+ *             .domain("vpc")
  *             .build());
  * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
  *             .zoneId(main.zoneId())
- *             .name(&#34;reverse&#34;)
- *             .type(&#34;A&#34;)
+ *             .name("reverse")
+ *             .type("A")
  *             .records(example.publicIp())
  *             .build());
  * 
- *         var exampleEipDomainName = new EipDomainName(&#34;exampleEipDomainName&#34;, EipDomainNameArgs.builder()        
+ *         var exampleEipDomainName = new EipDomainName("exampleEipDomainName", EipDomainNameArgs.builder()        
  *             .allocationId(example.allocationId())
  *             .domainName(exampleRecord.fqdn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

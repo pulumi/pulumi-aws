@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,17 +53,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var main = new VpcIpamResourceDiscovery(&#34;main&#34;, VpcIpamResourceDiscoveryArgs.builder()        
- *             .description(&#34;My IPAM Resource Discovery&#34;)
+ *         var main = new VpcIpamResourceDiscovery("main", VpcIpamResourceDiscoveryArgs.builder()        
+ *             .description("My IPAM Resource Discovery")
  *             .operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
- *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
+ *             .tags(Map.of("Test", "Main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

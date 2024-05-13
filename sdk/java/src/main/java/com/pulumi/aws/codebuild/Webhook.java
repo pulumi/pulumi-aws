@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,25 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
+ *         var example = new Webhook("example", WebhookArgs.builder()        
  *             .projectName(exampleAwsCodebuildProject.name())
- *             .buildType(&#34;BUILD&#34;)
+ *             .buildType("BUILD")
  *             .filterGroups(WebhookFilterGroupArgs.builder()
  *                 .filters(                
  *                     WebhookFilterGroupFilterArgs.builder()
- *                         .type(&#34;EVENT&#34;)
- *                         .pattern(&#34;PUSH&#34;)
+ *                         .type("EVENT")
+ *                         .pattern("PUSH")
  *                         .build(),
  *                     WebhookFilterGroupFilterArgs.builder()
- *                         .type(&#34;BASE_REF&#34;)
- *                         .pattern(&#34;master&#34;)
+ *                         .type("BASE_REF")
+ *                         .pattern("master")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### GitHub Enterprise
@@ -80,7 +82,8 @@ import javax.annotation.Nullable;
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,26 +107,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Webhook(&#34;example&#34;, WebhookArgs.builder()        
+ *         var example = new Webhook("example", WebhookArgs.builder()        
  *             .projectName(exampleAwsCodebuildProject.name())
  *             .build());
  * 
- *         var exampleRepositoryWebhook = new RepositoryWebhook(&#34;exampleRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
+ *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()        
  *             .active(true)
- *             .events(&#34;push&#34;)
- *             .name(&#34;example&#34;)
+ *             .events("push")
+ *             .name("example")
  *             .repository(exampleGithubRepository.name())
  *             .configuration(RepositoryWebhookConfigurationArgs.builder()
  *                 .url(example.payloadUrl())
  *                 .secret(example.secret())
- *                 .contentType(&#34;json&#34;)
+ *                 .contentType("json")
  *                 .insecureSsl(false)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

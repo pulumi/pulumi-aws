@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,34 +53,35 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new ServiceNetwork(&#34;example&#34;, ServiceNetworkArgs.builder()        
- *             .name(&#34;example-vpclattice-service-network&#34;)
+ *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()        
+ *             .name("example-vpclattice-service-network")
  *             .build());
  * 
- *         var exampleResourcePolicy = new ResourcePolicy(&#34;exampleResourcePolicy&#34;, ResourcePolicyArgs.builder()        
+ *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()        
  *             .resourceArn(example.arn())
- *             .policy(example.arn().applyValue(arn -&gt; serializeJson(
+ *             .policy(example.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;test-pol-principals-6&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "test-pol-principals-6"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;vpc-lattice:CreateServiceNetworkVpcAssociation&#34;, 
- *                             &#34;vpc-lattice:CreateServiceNetworkServiceAssociation&#34;, 
- *                             &#34;vpc-lattice:GetServiceNetwork&#34;
+ *                         jsonProperty("Action", jsonArray(
+ *                             "vpc-lattice:CreateServiceNetworkVpcAssociation", 
+ *                             "vpc-lattice:CreateServiceNetworkServiceAssociation", 
+ *                             "vpc-lattice:GetServiceNetwork"
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty("Resource", arn)
  *                     )))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,49 +58,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()        
  *             .name(awsShieldDrtAccessRoleArn)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;drt.shield.amazonaws.com&#34;)
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "drt.shield.amazonaws.com")
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
+ *                         jsonProperty("Action", "sts:AssumeRole")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(example.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
  *             .build());
  * 
- *         var exampleDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation(&#34;exampleDrtAccessRoleArnAssociation&#34;, DrtAccessRoleArnAssociationArgs.builder()        
+ *         var exampleDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("exampleDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()        
  *             .roleArn(example.arn())
  *             .build());
  * 
- *         var test = new ProtectionGroup(&#34;test&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;MAX&#34;)
- *             .pattern(&#34;ALL&#34;)
+ *         var test = new ProtectionGroup("test", ProtectionGroupArgs.builder()        
+ *             .protectionGroupId("example")
+ *             .aggregation("MAX")
+ *             .pattern("ALL")
  *             .build());
  * 
- *         var testProactiveEngagement = new ProactiveEngagement(&#34;testProactiveEngagement&#34;, ProactiveEngagementArgs.builder()        
+ *         var testProactiveEngagement = new ProactiveEngagement("testProactiveEngagement", ProactiveEngagementArgs.builder()        
  *             .enabled(true)
  *             .emergencyContacts(            
  *                 ProactiveEngagementEmergencyContactArgs.builder()
- *                     .contactNotes(&#34;Notes&#34;)
- *                     .emailAddress(&#34;test@company.com&#34;)
- *                     .phoneNumber(&#34;+12358132134&#34;)
+ *                     .contactNotes("Notes")
+ *                     .emailAddress("test{@literal @}company.com")
+ *                     .phoneNumber("+12358132134")
  *                     .build(),
  *                 ProactiveEngagementEmergencyContactArgs.builder()
- *                     .contactNotes(&#34;Notes 2&#34;)
- *                     .emailAddress(&#34;test2@company.com&#34;)
- *                     .phoneNumber(&#34;+12358132134&#34;)
+ *                     .contactNotes("Notes 2")
+ *                     .emailAddress("test2{@literal @}company.com")
+ *                     .phoneNumber("+12358132134")
  *                     .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAwsShieldDrtAccessRoleArnAssociation)
@@ -107,7 +108,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

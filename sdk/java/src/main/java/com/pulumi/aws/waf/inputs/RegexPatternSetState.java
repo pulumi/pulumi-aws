@@ -47,14 +47,14 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+     * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
      * 
      */
     @Import(name="regexPatternStrings")
     private @Nullable Output<List<String>> regexPatternStrings;
 
     /**
-     * @return A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+     * @return A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
      * 
      */
     public Optional<Output<List<String>>> regexPatternStrings() {
@@ -130,7 +130,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+         * @param regexPatternStrings A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
          * 
          * @return builder
          * 

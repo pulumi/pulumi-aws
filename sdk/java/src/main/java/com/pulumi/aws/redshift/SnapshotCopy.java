@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SnapshotCopy(&#34;example&#34;, SnapshotCopyArgs.builder()        
+ *         var example = new SnapshotCopy("example", SnapshotCopyArgs.builder()        
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
- *             .destinationRegion(&#34;us-east-1&#34;)
+ *             .destinationRegion("us-east-1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

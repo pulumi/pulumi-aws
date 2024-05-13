@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +47,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new DelegatedAdminAccount(&#34;example&#34;, DelegatedAdminAccountArgs.builder()        
- *             .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *         var example = new DelegatedAdminAccount("example", DelegatedAdminAccountArgs.builder()        
+ *             .accountId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

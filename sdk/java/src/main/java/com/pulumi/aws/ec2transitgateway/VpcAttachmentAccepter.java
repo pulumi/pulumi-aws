@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,14 +51,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachmentAccepter(&#34;example&#34;, VpcAttachmentAccepterArgs.builder()        
+ *         var example = new VpcAttachmentAccepter("example", VpcAttachmentAccepterArgs.builder()        
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example cross-account attachment&#34;))
+ *             .tags(Map.of("Name", "Example cross-account attachment"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

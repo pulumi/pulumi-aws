@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Detector(&#34;example&#34;, DetectorArgs.builder()        
+ *         var example = new Detector("example", DetectorArgs.builder()        
  *             .enable(true)
  *             .build());
  * 
- *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature(&#34;eksRuntimeMonitoring&#34;, OrganizationConfigurationFeatureArgs.builder()        
+ *         var eksRuntimeMonitoring = new OrganizationConfigurationFeature("eksRuntimeMonitoring", OrganizationConfigurationFeatureArgs.builder()        
  *             .detectorId(example.id())
- *             .name(&#34;EKS_RUNTIME_MONITORING&#34;)
- *             .autoEnable(&#34;ALL&#34;)
+ *             .name("EKS_RUNTIME_MONITORING")
+ *             .autoEnable("ALL")
  *             .additionalConfigurations(OrganizationConfigurationFeatureAdditionalConfigurationArgs.builder()
- *                 .name(&#34;EKS_ADDON_MANAGEMENT&#34;)
- *                 .autoEnable(&#34;NEW&#34;)
+ *                 .name("EKS_ADDON_MANAGEMENT")
+ *                 .autoEnable("NEW")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

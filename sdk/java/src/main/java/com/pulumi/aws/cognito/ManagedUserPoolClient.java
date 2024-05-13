@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -69,41 +70,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleIdentityPool = new IdentityPool(&#34;exampleIdentityPool&#34;, IdentityPoolArgs.builder()        
- *             .identityPoolName(&#34;example&#34;)
+ *         var exampleIdentityPool = new IdentityPool("exampleIdentityPool", IdentityPoolArgs.builder()        
+ *             .identityPoolName("example")
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;&#34;)
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("")
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(String.format(&#34;es.%s&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
+ *                     .type("Service")
+ *                     .identifiers(String.format("es.%s", current.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example-role&#34;)
- *             .path(&#34;/service-role/&#34;)
- *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example-role")
+ *             .path("/service-role/")
+ *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(exampleRole.name())
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonESCognitoAccess&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/AmazonESCognitoAccess", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .build());
  * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domainName(&#34;example&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .domainName("example")
  *             .cognitoOptions(DomainCognitoOptionsArgs.builder()
  *                 .enabled(true)
  *                 .userPoolId(exampleUserPool.id())
@@ -120,8 +121,8 @@ import javax.annotation.Nullable;
  *                     exampleRolePolicyAttachment)
  *                 .build());
  * 
- *         var exampleManagedUserPoolClient = new ManagedUserPoolClient(&#34;exampleManagedUserPoolClient&#34;, ManagedUserPoolClientArgs.builder()        
- *             .namePrefix(&#34;AmazonOpenSearchService-example&#34;)
+ *         var exampleManagedUserPoolClient = new ManagedUserPoolClient("exampleManagedUserPoolClient", ManagedUserPoolClientArgs.builder()        
+ *             .namePrefix("AmazonOpenSearchService-example")
  *             .userPoolId(exampleUserPool.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleDomain)
@@ -129,7 +130,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

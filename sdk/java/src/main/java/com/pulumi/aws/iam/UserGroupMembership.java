@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,37 +51,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user1 = new User(&#34;user1&#34;, UserArgs.builder()        
- *             .name(&#34;user1&#34;)
+ *         var user1 = new User("user1", UserArgs.builder()        
+ *             .name("user1")
  *             .build());
  * 
- *         var group1 = new Group(&#34;group1&#34;, GroupArgs.builder()        
- *             .name(&#34;group1&#34;)
+ *         var group1 = new Group("group1", GroupArgs.builder()        
+ *             .name("group1")
  *             .build());
  * 
- *         var group2 = new Group(&#34;group2&#34;, GroupArgs.builder()        
- *             .name(&#34;group2&#34;)
+ *         var group2 = new Group("group2", GroupArgs.builder()        
+ *             .name("group2")
  *             .build());
  * 
- *         var example1 = new UserGroupMembership(&#34;example1&#34;, UserGroupMembershipArgs.builder()        
+ *         var example1 = new UserGroupMembership("example1", UserGroupMembershipArgs.builder()        
  *             .user(user1.name())
  *             .groups(            
  *                 group1.name(),
  *                 group2.name())
  *             .build());
  * 
- *         var group3 = new Group(&#34;group3&#34;, GroupArgs.builder()        
- *             .name(&#34;group3&#34;)
+ *         var group3 = new Group("group3", GroupArgs.builder()        
+ *             .name("group3")
  *             .build());
  * 
- *         var example2 = new UserGroupMembership(&#34;example2&#34;, UserGroupMembershipArgs.builder()        
+ *         var example2 = new UserGroupMembership("example2", UserGroupMembershipArgs.builder()        
  *             .user(user1.name())
  *             .groups(group3.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

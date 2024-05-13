@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var peer = new BgpPeer(&#34;peer&#34;, BgpPeerArgs.builder()        
+ *         var peer = new BgpPeer("peer", BgpPeerArgs.builder()        
  *             .virtualInterfaceId(foo.id())
- *             .addressFamily(&#34;ipv6&#34;)
+ *             .addressFamily("ipv6")
  *             .bgpAsn(65351)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

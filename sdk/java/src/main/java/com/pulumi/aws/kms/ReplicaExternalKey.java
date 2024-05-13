@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,24 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ExternalKey(&#34;primary&#34;, ExternalKeyArgs.builder()        
- *             .description(&#34;Multi-Region primary key&#34;)
+ *         var primary = new ExternalKey("primary", ExternalKeyArgs.builder()        
+ *             .description("Multi-Region primary key")
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
  *             .enabled(true)
- *             .keyMaterialBase64(&#34;...&#34;)
+ *             .keyMaterialBase64("...")
  *             .build());
  * 
- *         var replica = new ReplicaExternalKey(&#34;replica&#34;, ReplicaExternalKeyArgs.builder()        
- *             .description(&#34;Multi-Region replica key&#34;)
+ *         var replica = new ReplicaExternalKey("replica", ReplicaExternalKeyArgs.builder()        
+ *             .description("Multi-Region replica key")
  *             .deletionWindowInDays(7)
  *             .primaryKeyArn(primaryAwsKmsExternal.arn())
- *             .keyMaterialBase64(&#34;...&#34;)
+ *             .keyMaterialBase64("...")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

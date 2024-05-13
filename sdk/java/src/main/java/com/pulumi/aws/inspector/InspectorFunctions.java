@@ -21,7 +21,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,25 +52,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -84,7 +86,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -114,25 +117,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -147,7 +151,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,25 +182,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -210,7 +216,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -240,25 +247,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -273,7 +281,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -303,25 +312,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -336,7 +346,8 @@ public final class InspectorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,25 +377,26 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
-     *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget(&#34;assessment&#34;, AssessmentTargetArgs.builder()        
-     *             .name(&#34;test&#34;)
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate(&#34;assessmentAssessmentTemplate&#34;, AssessmentTemplateArgs.builder()        
-     *             .name(&#34;Test&#34;)
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *             .name("Test")
      *             .targetArn(assessment.arn())
-     *             .duration(&#34;60&#34;)
-     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -&gt; getRulesPackagesResult.arns()))
+     *             .duration("60")
+     *             .rulesPackageArns(rules.applyValue(getRulesPackagesResult -> getRulesPackagesResult.arns()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

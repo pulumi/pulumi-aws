@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,69 +53,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactFlowModule(&#34;example&#34;, ContactFlowModuleArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example Contact Flow Module Description&#34;)
+ *         var example = new ContactFlowModule("example", ContactFlowModuleArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example")
+ *             .description("Example Contact Flow Module Description")
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2019-10-30&#34;),
- *                     jsonProperty(&#34;StartAction&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                     jsonProperty(&#34;Actions&#34;, jsonArray(
+ *                     jsonProperty("Version", "2019-10-30"),
+ *                     jsonProperty("StartAction", "12345678-1234-1234-1234-123456789012"),
+ *                     jsonProperty("Actions", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;12345678-1234-1234-1234-123456789012&#34;),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                                 jsonProperty(&#34;Text&#34;, &#34;Hello contact flow module&#34;)
+ *                             jsonProperty("Identifier", "12345678-1234-1234-1234-123456789012"),
+ *                             jsonProperty("Parameters", jsonObject(
+ *                                 jsonProperty("Text", "Hello contact flow module")
  *                             )),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
- *                                 jsonProperty(&#34;NextAction&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                                 jsonProperty(&#34;Errors&#34;, jsonArray(
+ *                             jsonProperty("Transitions", jsonObject(
+ *                                 jsonProperty("NextAction", "abcdef-abcd-abcd-abcd-abcdefghijkl"),
+ *                                 jsonProperty("Errors", jsonArray(
  *                                 )),
- *                                 jsonProperty(&#34;Conditions&#34;, jsonArray(
+ *                                 jsonProperty("Conditions", jsonArray(
  *                                 ))
  *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;MessageParticipant&#34;)
+ *                             jsonProperty("Type", "MessageParticipant")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Identifier&#34;, &#34;abcdef-abcd-abcd-abcd-abcdefghijkl&#34;),
- *                             jsonProperty(&#34;Type&#34;, &#34;DisconnectParticipant&#34;),
- *                             jsonProperty(&#34;Parameters&#34;, jsonObject(
+ *                             jsonProperty("Identifier", "abcdef-abcd-abcd-abcd-abcdefghijkl"),
+ *                             jsonProperty("Type", "DisconnectParticipant"),
+ *                             jsonProperty("Parameters", jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;Transitions&#34;, jsonObject(
+ *                             jsonProperty("Transitions", jsonObject(
  * 
  *                             ))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Settings&#34;, jsonObject(
- *                         jsonProperty(&#34;InputParameters&#34;, jsonArray(
+ *                     jsonProperty("Settings", jsonObject(
+ *                         jsonProperty("InputParameters", jsonArray(
  *                         )),
- *                         jsonProperty(&#34;OutputParameters&#34;, jsonArray(
+ *                         jsonProperty("OutputParameters", jsonArray(
  *                         )),
- *                         jsonProperty(&#34;Transitions&#34;, jsonArray(
+ *                         jsonProperty("Transitions", jsonArray(
  *                             jsonObject(
- *                                 jsonProperty(&#34;DisplayName&#34;, &#34;Success&#34;),
- *                                 jsonProperty(&#34;ReferenceName&#34;, &#34;Success&#34;),
- *                                 jsonProperty(&#34;Description&#34;, &#34;&#34;)
+ *                                 jsonProperty("DisplayName", "Success"),
+ *                                 jsonProperty("ReferenceName", "Success"),
+ *                                 jsonProperty("Description", "")
  *                             ), 
  *                             jsonObject(
- *                                 jsonProperty(&#34;DisplayName&#34;, &#34;Error&#34;),
- *                                 jsonProperty(&#34;ReferenceName&#34;, &#34;Error&#34;),
- *                                 jsonProperty(&#34;Description&#34;, &#34;&#34;)
+ *                                 jsonProperty("DisplayName", "Error"),
+ *                                 jsonProperty("ReferenceName", "Error"),
+ *                                 jsonProperty("Description", "")
  *                             )
  *                         ))
  *                     ))
  *                 )))
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;Example Contact Flow Module&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
- *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *                 Map.entry("Name", "Example Contact Flow Module"),
+ *                 Map.entry("Application", "Example"),
+ *                 Map.entry("Method", "Create")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With External Content
@@ -124,7 +126,8 @@ import javax.annotation.Nullable;
  * Use the generated file as input:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -145,24 +148,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactFlowModule(&#34;example&#34;, ContactFlowModuleArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example&#34;)
- *             .description(&#34;Example Contact Flow Module Description&#34;)
- *             .filename(&#34;contact_flow_module.json&#34;)
+ *         var example = new ContactFlowModule("example", ContactFlowModuleArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example")
+ *             .description("Example Contact Flow Module Description")
+ *             .filename("contact_flow_module.json")
  *             .contentHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input(&#34;contact_flow_module.json&#34;)
+ *                 .input("contact_flow_module.json")
  *                 .build()).result())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;Example Contact Flow Module&#34;),
- *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
- *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *                 Map.entry("Name", "Example Contact Flow Module"),
+ *                 Map.entry("Application", "Example"),
+ *                 Map.entry("Method", "Create")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,26 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSp = new SigningProfile(&#34;testSp&#34;, SigningProfileArgs.builder()        
- *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
+ *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()        
+ *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .build());
  * 
- *         var prodSp = new SigningProfile(&#34;prodSp&#34;, SigningProfileArgs.builder()        
- *             .platformId(&#34;AWSLambda-SHA384-ECDSA&#34;)
- *             .namePrefix(&#34;prod_sp_&#34;)
+ *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()        
+ *             .platformId("AWSLambda-SHA384-ECDSA")
+ *             .namePrefix("prod_sp_")
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
  *                 .value(5)
- *                 .type(&#34;YEARS&#34;)
+ *                 .type("YEARS")
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value2&#34;)
+ *                 Map.entry("tag1", "value1"),
+ *                 Map.entry("tag2", "value2")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

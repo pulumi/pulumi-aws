@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,21 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSubscription(&#34;example&#34;, EventSubscriptionArgs.builder()        
+ *         var example = new EventSubscription("example", EventSubscriptionArgs.builder()        
  *             .enabled(true)
  *             .eventCategories(            
- *                 &#34;creation&#34;,
- *                 &#34;failure&#34;)
- *             .name(&#34;my-favorite-event-subscription&#34;)
+ *                 "creation",
+ *                 "failure")
+ *             .name("my-favorite-event-subscription")
  *             .snsTopicArn(exampleAwsSnsTopic.arn())
  *             .sourceIds(exampleAwsDmsReplicationTask.replicationTaskId())
- *             .sourceType(&#34;replication-task&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .sourceType("replication-task")
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

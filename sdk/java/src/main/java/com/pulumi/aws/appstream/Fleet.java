@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,28 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testFleet = new Fleet(&#34;testFleet&#34;, FleetArgs.builder()        
- *             .name(&#34;test-fleet&#34;)
+ *         var testFleet = new Fleet("testFleet", FleetArgs.builder()        
+ *             .name("test-fleet")
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)
  *                 .build())
- *             .description(&#34;test fleet&#34;)
+ *             .description("test fleet")
  *             .idleDisconnectTimeoutInSeconds(60)
- *             .displayName(&#34;test-fleet&#34;)
+ *             .displayName("test-fleet")
  *             .enableDefaultInternetAccess(false)
- *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
- *             .instanceType(&#34;stream.standard.large&#34;)
+ *             .fleetType("ON_DEMAND")
+ *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
+ *             .instanceType("stream.standard.large")
  *             .maxUserDurationInSeconds(600)
  *             .vpcConfig(FleetVpcConfigArgs.builder()
- *                 .subnetIds(&#34;subnet-06e9b13400c225127&#34;)
+ *                 .subnetIds("subnet-06e9b13400c225127")
  *                 .build())
- *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
+ *             .tags(Map.of("TagName", "tag-value"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

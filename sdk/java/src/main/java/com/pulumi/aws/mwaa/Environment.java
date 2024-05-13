@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,26 +53,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
- *             .dagS3Path(&#34;dags/&#34;)
+ *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with Airflow configuration options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,24 +96,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()        
  *             .airflowConfigurationOptions(Map.ofEntries(
- *                 Map.entry(&#34;core.default_task_retries&#34;, 16),
- *                 Map.entry(&#34;core.parallelism&#34;, 1)
+ *                 Map.entry("core.default_task_retries", 16),
+ *                 Map.entry("core.parallelism", 1)
  *             ))
- *             .dagS3Path(&#34;dags/&#34;)
+ *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with logging configurations
@@ -118,7 +122,8 @@ import javax.annotation.Nullable;
  * Note that Airflow task logs are enabled by default with the `INFO` log level.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -146,48 +151,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
- *             .dagS3Path(&#34;dags/&#34;)
+ *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .loggingConfiguration(EnvironmentLoggingConfigurationArgs.builder()
  *                 .dagProcessingLogs(EnvironmentLoggingConfigurationDagProcessingLogsArgs.builder()
  *                     .enabled(true)
- *                     .logLevel(&#34;DEBUG&#34;)
+ *                     .logLevel("DEBUG")
  *                     .build())
  *                 .schedulerLogs(EnvironmentLoggingConfigurationSchedulerLogsArgs.builder()
  *                     .enabled(true)
- *                     .logLevel(&#34;INFO&#34;)
+ *                     .logLevel("INFO")
  *                     .build())
  *                 .taskLogs(EnvironmentLoggingConfigurationTaskLogsArgs.builder()
  *                     .enabled(true)
- *                     .logLevel(&#34;WARNING&#34;)
+ *                     .logLevel("WARNING")
  *                     .build())
  *                 .webserverLogs(EnvironmentLoggingConfigurationWebserverLogsArgs.builder()
  *                     .enabled(true)
- *                     .logLevel(&#34;ERROR&#34;)
+ *                     .logLevel("ERROR")
  *                     .build())
  *                 .workerLogs(EnvironmentLoggingConfigurationWorkerLogsArgs.builder()
  *                     .enabled(true)
- *                     .logLevel(&#34;CRITICAL&#34;)
+ *                     .logLevel("CRITICAL")
  *                     .build())
  *                 .build())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -209,24 +216,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
- *             .dagS3Path(&#34;dags/&#34;)
+ *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;production&#34;)
+ *                 Map.entry("Name", "example"),
+ *                 Map.entry("Environment", "production")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LambdaFunctionAssociation(&#34;example&#34;, LambdaFunctionAssociationArgs.builder()        
+ *         var example = new LambdaFunctionAssociation("example", LambdaFunctionAssociationArgs.builder()        
  *             .functionArn(exampleAwsLambdaFunction.arn())
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

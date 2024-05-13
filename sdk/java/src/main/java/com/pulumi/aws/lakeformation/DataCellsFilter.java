@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCellsFilter(&#34;example&#34;, DataCellsFilterArgs.builder()        
+ *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()        
  *             .tableData(DataCellsFilterTableDataArgs.builder()
  *                 .databaseName(test.name())
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .tableCatalogId(current.accountId())
  *                 .tableName(testAwsGlueCatalogTable.name())
- *                 .columnNames(&#34;my_column&#34;)
+ *                 .columnNames("my_column")
  *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
- *                     .filterExpression(&#34;my_column=&#39;example&#39;&#34;)
+ *                     .filterExpression("my_column='example'")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

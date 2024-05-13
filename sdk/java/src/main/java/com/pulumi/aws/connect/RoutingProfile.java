@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,27 +49,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RoutingProfile(&#34;example&#34;, RoutingProfileArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;example&#34;)
- *             .defaultOutboundQueueId(&#34;12345678-1234-1234-1234-123456789012&#34;)
- *             .description(&#34;example description&#34;)
+ *         var example = new RoutingProfile("example", RoutingProfileArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("example")
+ *             .defaultOutboundQueueId("12345678-1234-1234-1234-123456789012")
+ *             .description("example description")
  *             .mediaConcurrencies(RoutingProfileMediaConcurrencyArgs.builder()
- *                 .channel(&#34;VOICE&#34;)
+ *                 .channel("VOICE")
  *                 .concurrency(1)
  *                 .build())
  *             .queueConfigs(RoutingProfileQueueConfigArgs.builder()
- *                 .channel(&#34;VOICE&#34;)
+ *                 .channel("VOICE")
  *                 .delay(2)
  *                 .priority(1)
- *                 .queueId(&#34;12345678-1234-1234-1234-123456789012&#34;)
+ *                 .queueId("12345678-1234-1234-1234-123456789012")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Routing Profile&#34;))
+ *             .tags(Map.of("Name", "Example Routing Profile"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

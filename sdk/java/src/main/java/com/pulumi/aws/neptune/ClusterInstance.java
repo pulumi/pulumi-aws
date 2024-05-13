@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,21 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
- *             .engine(&#34;neptune&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("neptune-cluster-demo")
+ *             .engine("neptune")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .skipFinalSnapshot(true)
  *             .iamDatabaseAuthenticationEnabled(true)
  *             .applyImmediately(true)
  *             .build());
  * 
- *         for (var i = 0; i &lt; 2; i++) {
- *             new ClusterInstance(&#34;example-&#34; + i, ClusterInstanceArgs.builder()            
+ *         for (var i = 0; i < 2; i++) {
+ *             new ClusterInstance("example-" + i, ClusterInstanceArgs.builder()            
  *                 .clusterIdentifier(default_.id())
- *                 .engine(&#34;neptune&#34;)
- *                 .instanceClass(&#34;db.r4.large&#34;)
+ *                 .engine("neptune")
+ *                 .instanceClass("db.r4.large")
  *                 .applyImmediately(true)
  *                 .build());
  * 
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  * }
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

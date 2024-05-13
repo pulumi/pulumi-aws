@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,38 +59,40 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;backup.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("backup.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup&#34;)
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup")
  *             .role(example.name())
  *             .build());
  * 
- *         var exampleSelection = new Selection(&#34;exampleSelection&#34;, SelectionArgs.builder()        
+ *         var exampleSelection = new Selection("exampleSelection", SelectionArgs.builder()        
  *             .iamRoleArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Selecting Backups By Tag
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -111,26 +114,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;my_example_backup_selection&#34;)
+ *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
  *             .selectionTags(SelectionSelectionTagArgs.builder()
- *                 .type(&#34;STRINGEQUALS&#34;)
- *                 .key(&#34;foo&#34;)
- *                 .value(&#34;bar&#34;)
+ *                 .type("STRINGEQUALS")
+ *                 .key("foo")
+ *                 .value("bar")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Selecting Backups By Conditions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -152,40 +157,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;my_example_backup_selection&#34;)
+ *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
- *             .resources(&#34;*&#34;)
+ *             .resources("*")
  *             .conditions(SelectionConditionArgs.builder()
  *                 .stringEquals(SelectionConditionStringEqualArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Component&#34;)
- *                     .value(&#34;rds&#34;)
+ *                     .key("aws:ResourceTag/Component")
+ *                     .value("rds")
  *                     .build())
  *                 .stringLikes(SelectionConditionStringLikeArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Application&#34;)
- *                     .value(&#34;app*&#34;)
+ *                     .key("aws:ResourceTag/Application")
+ *                     .value("app*")
  *                     .build())
  *                 .stringNotEquals(SelectionConditionStringNotEqualArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Backup&#34;)
- *                     .value(&#34;false&#34;)
+ *                     .key("aws:ResourceTag/Backup")
+ *                     .value("false")
  *                     .build())
  *                 .stringNotLikes(SelectionConditionStringNotLikeArgs.builder()
- *                     .key(&#34;aws:ResourceTag/Environment&#34;)
- *                     .value(&#34;test*&#34;)
+ *                     .key("aws:ResourceTag/Environment")
+ *                     .value("test*")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Selecting Backups By Resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -206,9 +213,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;my_example_backup_selection&#34;)
+ *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
  *             .resources(            
  *                 exampleAwsDbInstance.arn(),
@@ -218,13 +225,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Selecting Backups By Not Resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -245,9 +254,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
- *             .name(&#34;my_example_backup_selection&#34;)
+ *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
  *             .notResources(            
  *                 exampleAwsDbInstance.arn(),
@@ -257,7 +266,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

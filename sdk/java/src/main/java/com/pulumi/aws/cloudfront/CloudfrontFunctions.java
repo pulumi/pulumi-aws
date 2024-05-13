@@ -46,7 +46,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -68,12 +69,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -81,7 +83,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -103,12 +106,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -123,7 +127,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -145,12 +150,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -158,7 +164,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,12 +187,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -200,7 +208,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -222,12 +231,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -235,7 +245,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,12 +268,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -277,7 +289,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -299,12 +312,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -312,7 +326,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,12 +349,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -354,7 +370,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -376,12 +393,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -389,7 +407,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +430,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -431,7 +451,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -453,12 +474,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -466,7 +488,8 @@ public final class CloudfrontFunctions {
      * AWS managed cache policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -488,12 +511,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
-     *             .name(&#34;Managed-CachingOptimized&#34;)
+     *             .name("Managed-CachingOptimized")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -506,7 +530,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -528,12 +553,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id("EDFDVBD632BHDS5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -546,7 +572,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -568,12 +595,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id("EDFDVBD632BHDS5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -586,7 +614,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -608,12 +637,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id("EDFDVBD632BHDS5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -626,7 +656,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,12 +679,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
-     *             .id(&#34;EDFDVBD632BHDS5&#34;)
+     *             .id("EDFDVBD632BHDS5")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +698,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -688,14 +721,15 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +742,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,14 +765,15 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +786,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,14 +809,15 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +830,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -814,14 +853,15 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var functionName = config.get(&#34;functionName&#34;);
+     *         final var functionName = config.get("functionName");
      *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -835,7 +875,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -863,26 +904,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -896,7 +938,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -924,26 +967,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -957,7 +1001,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -985,26 +1030,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1018,7 +1064,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1046,26 +1093,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1079,7 +1127,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1107,26 +1156,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1140,7 +1190,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1168,26 +1219,27 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
-     *             .bucket(&#34;example&#34;)
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
-     *                         .type(&#34;CanonicalUser&#34;)
+     *                         .id(example.applyValue(getLogDeliveryCanonicalUserIdResult -> getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .type("CanonicalUser")
      *                         .build())
-     *                     .permission(&#34;FULL_CONTROL&#34;)
+     *                     .permission("FULL_CONTROL")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1202,7 +1254,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1227,7 +1280,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1235,7 +1289,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1258,13 +1313,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1279,7 +1335,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1304,7 +1361,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1312,7 +1370,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1335,13 +1394,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1356,7 +1416,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1381,7 +1442,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1389,7 +1451,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1412,13 +1475,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1433,7 +1497,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1458,7 +1523,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1466,7 +1532,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1489,13 +1556,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1510,7 +1578,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1535,7 +1604,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1543,7 +1613,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1566,13 +1637,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1587,7 +1659,8 @@ public final class CloudfrontFunctions {
      * ### All origin access identities in the account
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1612,7 +1685,8 @@ public final class CloudfrontFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Origin access identities filtered by comment/name
@@ -1620,7 +1694,8 @@ public final class CloudfrontFunctions {
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1643,13 +1718,14 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
-     *                 &#34;example-comment1&#34;,
-     *                 &#34;example-comment2&#34;)
+     *                 "example-comment1",
+     *                 "example-comment2")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1664,7 +1740,8 @@ public final class CloudfrontFunctions {
      * The following example below creates a CloudFront origin access identity.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1686,12 +1763,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;E1ZAKK699EOLAL&#34;)
+     *             .id("E1ZAKK699EOLAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1706,7 +1784,8 @@ public final class CloudfrontFunctions {
      * The following example below creates a CloudFront origin access identity.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1728,12 +1807,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;E1ZAKK699EOLAL&#34;)
+     *             .id("E1ZAKK699EOLAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1748,7 +1828,8 @@ public final class CloudfrontFunctions {
      * The following example below creates a CloudFront origin access identity.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1770,12 +1851,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;E1ZAKK699EOLAL&#34;)
+     *             .id("E1ZAKK699EOLAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1790,7 +1872,8 @@ public final class CloudfrontFunctions {
      * The following example below creates a CloudFront origin access identity.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1812,12 +1895,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginAccessIdentity(GetOriginAccessIdentityArgs.builder()
-     *             .id(&#34;E1ZAKK699EOLAL&#34;)
+     *             .id("E1ZAKK699EOLAL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1830,7 +1914,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1852,12 +1937,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -1865,7 +1951,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1887,12 +1974,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1905,7 +1993,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1927,12 +2016,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -1940,7 +2030,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1962,12 +2053,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1980,7 +2072,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2002,12 +2095,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2015,7 +2109,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2037,12 +2132,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2055,7 +2151,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2077,12 +2174,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2090,7 +2188,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2112,12 +2211,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2130,7 +2230,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2152,12 +2253,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2165,7 +2267,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2187,12 +2290,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2205,7 +2309,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2227,12 +2332,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2240,7 +2346,8 @@ public final class CloudfrontFunctions {
      * AWS managed origin request policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2262,12 +2369,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var uaReferer = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
-     *             .name(&#34;Managed-UserAgentRefererHeaders&#34;)
+     *             .name("Managed-UserAgentRefererHeaders")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2280,7 +2388,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2302,12 +2411,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2320,7 +2430,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2342,12 +2453,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2360,7 +2472,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2382,12 +2495,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2400,7 +2514,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2422,12 +2537,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2442,7 +2558,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2464,12 +2581,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2477,7 +2595,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2499,12 +2618,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2519,7 +2639,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2541,12 +2662,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2554,7 +2676,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2576,12 +2699,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2596,7 +2720,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2618,12 +2743,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2631,7 +2757,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2653,12 +2780,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2673,7 +2801,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2695,12 +2824,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2708,7 +2838,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2730,12 +2861,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2750,7 +2882,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2772,12 +2905,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2785,7 +2919,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2807,12 +2942,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2827,7 +2963,8 @@ public final class CloudfrontFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2849,12 +2986,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;example-policy&#34;)
+     *             .name("example-policy")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### AWS-Managed Policies
@@ -2862,7 +3000,8 @@ public final class CloudfrontFunctions {
      * AWS managed response header policy names are prefixed with `Managed-`:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2884,12 +3023,13 @@ public final class CloudfrontFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
-     *             .name(&#34;Managed-SimpleCORS&#34;)
+     *             .name("Managed-SimpleCORS")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

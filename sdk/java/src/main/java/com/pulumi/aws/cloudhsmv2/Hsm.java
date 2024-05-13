@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * The following example below creates an HSM module in CloudHSM cluster.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,14 +49,15 @@ import javax.annotation.Nullable;
  *             .clusterId(cloudhsmClusterId)
  *             .build());
  * 
- *         var cloudhsmV2Hsm = new Hsm(&#34;cloudhsmV2Hsm&#34;, HsmArgs.builder()        
- *             .subnetId(cluster.applyValue(getClusterResult -&gt; getClusterResult.subnetIds()[0]))
- *             .clusterId(cluster.applyValue(getClusterResult -&gt; getClusterResult.clusterId()))
+ *         var cloudhsmV2Hsm = new Hsm("cloudhsmV2Hsm", HsmArgs.builder()        
+ *             .subnetId(cluster.applyValue(getClusterResult -> getClusterResult.subnetIds()[0]))
+ *             .clusterId(cluster.applyValue(getClusterResult -> getClusterResult.clusterId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

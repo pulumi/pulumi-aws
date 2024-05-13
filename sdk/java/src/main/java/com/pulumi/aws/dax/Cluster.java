@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Cluster(&#34;bar&#34;, ClusterArgs.builder()        
- *             .clusterName(&#34;cluster-example&#34;)
+ *         var bar = new Cluster("bar", ClusterArgs.builder()        
+ *             .clusterName("cluster-example")
  *             .iamRoleArn(example.arn())
- *             .nodeType(&#34;dax.r4.large&#34;)
+ *             .nodeType("dax.r4.large")
  *             .replicationFactor(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

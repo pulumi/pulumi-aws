@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,24 +52,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AgentKnowledgeBase(&#34;test&#34;, AgentKnowledgeBaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new AgentKnowledgeBase("test", AgentKnowledgeBaseArgs.builder()        
+ *             .name("example")
  *             .roleArn(example.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
- *                     .embeddingModelArn(&#34;arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1&#34;)
+ *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1")
  *                     .build())
- *                 .type(&#34;VECTOR&#34;)
+ *                 .type("VECTOR")
  *                 .build())
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
- *                 .type(&#34;OPENSEARCH_SERVERLESS&#34;)
+ *                 .type("OPENSEARCH_SERVERLESS")
  *                 .opensearchServerlessConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs.builder()
- *                     .collectionArn(&#34;arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf&#34;)
- *                     .vectorIndexName(&#34;bedrock-knowledge-base-default-index&#34;)
+ *                     .collectionArn("arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf")
+ *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs.builder()
- *                         .vectorField(&#34;bedrock-knowledge-base-default-vector&#34;)
- *                         .textField(&#34;AMAZON_BEDROCK_TEXT_CHUNK&#34;)
- *                         .metadataField(&#34;AMAZON_BEDROCK_METADATA&#34;)
+ *                         .vectorField("bedrock-knowledge-base-default-vector")
+ *                         .textField("AMAZON_BEDROCK_TEXT_CHUNK")
+ *                         .metadataField("AMAZON_BEDROCK_METADATA")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -76,7 +77,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

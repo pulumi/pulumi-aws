@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,24 +51,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomLogSource(&#34;example&#34;, CustomLogSourceArgs.builder()        
- *             .sourceName(&#34;example-name&#34;)
- *             .sourceVersion(&#34;1.0&#34;)
- *             .eventClasses(&#34;FILE_ACTIVITY&#34;)
+ *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()        
+ *             .sourceName("example-name")
+ *             .sourceVersion("1.0")
+ *             .eventClasses("FILE_ACTIVITY")
  *             .configuration(CustomLogSourceConfigurationArgs.builder()
  *                 .crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfigurationArgs.builder()
  *                     .roleArn(customLog.arn())
  *                     .build())
  *                 .providerIdentity(CustomLogSourceConfigurationProviderIdentityArgs.builder()
- *                     .externalId(&#34;example-id&#34;)
- *                     .principal(&#34;123456789012&#34;)
+ *                     .externalId("example-id")
+ *                     .principal("123456789012")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

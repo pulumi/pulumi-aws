@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,33 +43,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance(&#34;example&#34;);
+ *         var example = new AccessGrantsInstance("example");
  * 
- *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy(&#34;exampleAccessGrantsInstanceResourcePolicy&#34;, AccessGrantsInstanceResourcePolicyArgs.builder()        
- *             .policy(example.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -&gt; &#34;&#34;&#34;
+ *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()        
+ *             .policy(example.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -> """
  * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;S3AccessGrantsPolicy&#34;,
- *   &#34;Statement&#34;: [{
- *     &#34;Sid&#34;: &#34;AllowAccessToS3AccessGrants&#34;,
- *     &#34;Effect&#34;: &#34;Allow&#34;,
- *     &#34;Principal&#34;: {
- *       &#34;AWS&#34;: &#34;123456789456&#34;
+ *   "Version": "2012-10-17",
+ *   "Id": "S3AccessGrantsPolicy",
+ *   "Statement": [{
+ *     "Sid": "AllowAccessToS3AccessGrants",
+ *     "Effect": "Allow",
+ *     "Principal": {
+ *       "AWS": "123456789456"
  *     },
- *     &#34;Action&#34;: [
- *       &#34;s3:ListAccessGrants&#34;,
- *       &#34;s3:ListAccessGrantsLocations&#34;,
- *       &#34;s3:GetDataAccess&#34;
+ *     "Action": [
+ *       "s3:ListAccessGrants",
+ *       "s3:ListAccessGrantsLocations",
+ *       "s3:GetDataAccess"
  *     ],
- *     &#34;Resource&#34;: &#34;%s&#34;
+ *     "Resource": "%s"
  *   }]
  * }
- * &#34;, accessGrantsInstanceArn)))
+ * ", accessGrantsInstanceArn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

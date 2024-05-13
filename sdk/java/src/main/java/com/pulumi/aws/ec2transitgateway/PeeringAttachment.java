@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,26 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var peer = AwsFunctions.getRegion();
  * 
- *         var local = new TransitGateway(&#34;local&#34;, TransitGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Local TGW&#34;))
+ *         var local = new TransitGateway("local", TransitGatewayArgs.builder()        
+ *             .tags(Map.of("Name", "Local TGW"))
  *             .build());
  * 
- *         var peerTransitGateway = new TransitGateway(&#34;peerTransitGateway&#34;, TransitGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;Peer TGW&#34;))
+ *         var peerTransitGateway = new TransitGateway("peerTransitGateway", TransitGatewayArgs.builder()        
+ *             .tags(Map.of("Name", "Peer TGW"))
  *             .build());
  * 
- *         var example = new PeeringAttachment(&#34;example&#34;, PeeringAttachmentArgs.builder()        
+ *         var example = new PeeringAttachment("example", PeeringAttachmentArgs.builder()        
  *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peer.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .peerRegion(peer.applyValue(getRegionResult -> getRegionResult.name()))
  *             .peerTransitGatewayId(peerTransitGateway.id())
  *             .transitGatewayId(local.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;TGW Peering Requestor&#34;))
+ *             .tags(Map.of("Name", "TGW Peering Requestor"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,16 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var org = new Organization(&#34;org&#34;, OrganizationArgs.builder()        
+ *         var org = new Organization("org", OrganizationArgs.builder()        
  *             .awsServiceAccessPrincipals(            
- *                 &#34;cloudtrail.amazonaws.com&#34;,
- *                 &#34;config.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *                 "cloudtrail.amazonaws.com",
+ *                 "config.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

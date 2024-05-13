@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,10 +52,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessCluster(&#34;example&#34;, ServerlessClusterArgs.builder()        
- *             .clusterName(&#34;Example&#34;)
+ *         var example = new ServerlessCluster("example", ServerlessClusterArgs.builder()        
+ *             .clusterName("Example")
  *             .vpcConfigs(ServerlessClusterVpcConfigArgs.builder()
- *                 .subnetIds(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .build())
  *             .clientAuthentication(ServerlessClusterClientAuthenticationArgs.builder()
@@ -68,7 +69,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

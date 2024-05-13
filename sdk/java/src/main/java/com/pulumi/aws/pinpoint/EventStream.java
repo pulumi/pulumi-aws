@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,29 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
+ *         var app = new App("app");
  * 
- *         var testStream = new Stream(&#34;testStream&#34;, StreamArgs.builder()        
- *             .name(&#34;pinpoint-kinesis-test&#34;)
+ *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *             .name("pinpoint-kinesis-test")
  *             .shardCount(1)
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;pinpoint.us-east-1.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("pinpoint.us-east-1.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var stream = new EventStream(&#34;stream&#34;, EventStreamArgs.builder()        
+ *         var stream = new EventStream("stream", EventStreamArgs.builder()        
  *             .applicationId(app.applicationId())
  *             .destinationStreamArn(testStream.arn())
  *             .roleArn(testRole.arn())
@@ -79,23 +80,24 @@ import javax.annotation.Nullable;
  * 
  *         final var testRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;kinesis:PutRecords&#34;,
- *                     &#34;kinesis:DescribeStream&#34;)
- *                 .resources(&#34;arn:aws:kinesis:us-east-1:*:*{@literal /}*&#34;)
+ *                     "kinesis:PutRecords",
+ *                     "kinesis:DescribeStream")
+ *                 .resources("arn:aws:kinesis:us-east-1:*:*{@literal /}*")
  *                 .build())
  *             .build());
  * 
- *         var testRolePolicyRolePolicy = new RolePolicy(&#34;testRolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;test_policy&#34;)
+ *         var testRolePolicyRolePolicy = new RolePolicy("testRolePolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("test_policy")
  *             .role(testRole.id())
- *             .policy(testRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(testRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

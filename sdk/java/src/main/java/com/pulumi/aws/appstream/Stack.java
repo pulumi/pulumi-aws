@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,54 +52,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stack(&#34;example&#34;, StackArgs.builder()        
- *             .name(&#34;stack name&#34;)
- *             .description(&#34;stack description&#34;)
- *             .displayName(&#34;stack display name&#34;)
- *             .feedbackUrl(&#34;http://your-domain/feedback&#34;)
- *             .redirectUrl(&#34;http://your-domain/redirect&#34;)
+ *         var example = new Stack("example", StackArgs.builder()        
+ *             .name("stack name")
+ *             .description("stack description")
+ *             .displayName("stack display name")
+ *             .feedbackUrl("http://your-domain/feedback")
+ *             .redirectUrl("http://your-domain/redirect")
  *             .storageConnectors(StackStorageConnectorArgs.builder()
- *                 .connectorType(&#34;HOMEFOLDERS&#34;)
+ *                 .connectorType("HOMEFOLDERS")
  *                 .build())
  *             .userSettings(            
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;CLIPBOARD_COPY_FROM_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("CLIPBOARD_COPY_FROM_LOCAL_DEVICE")
+ *                     .permission("ENABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;CLIPBOARD_COPY_TO_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("CLIPBOARD_COPY_TO_LOCAL_DEVICE")
+ *                     .permission("ENABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;DOMAIN_PASSWORD_SIGNIN&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("DOMAIN_PASSWORD_SIGNIN")
+ *                     .permission("ENABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;DOMAIN_SMART_CARD_SIGNIN&#34;)
- *                     .permission(&#34;DISABLED&#34;)
+ *                     .action("DOMAIN_SMART_CARD_SIGNIN")
+ *                     .permission("DISABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;FILE_DOWNLOAD&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("FILE_DOWNLOAD")
+ *                     .permission("ENABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;FILE_UPLOAD&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("FILE_UPLOAD")
+ *                     .permission("ENABLED")
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;PRINTING_TO_LOCAL_DEVICE&#34;)
- *                     .permission(&#34;ENABLED&#34;)
+ *                     .action("PRINTING_TO_LOCAL_DEVICE")
+ *                     .permission("ENABLED")
  *                     .build())
  *             .applicationSettings(StackApplicationSettingsArgs.builder()
  *                 .enabled(true)
- *                 .settingsGroup(&#34;SettingsGroup&#34;)
+ *                 .settingsGroup("SettingsGroup")
  *                 .build())
- *             .tags(Map.of(&#34;TagName&#34;, &#34;TagValue&#34;))
+ *             .tags(Map.of("TagName", "TagValue"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

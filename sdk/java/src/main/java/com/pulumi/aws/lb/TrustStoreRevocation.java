@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Trust Store With Revocations
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TrustStore(&#34;test&#34;, TrustStoreArgs.builder()        
- *             .name(&#34;tf-example-lb-ts&#34;)
- *             .caCertificatesBundleS3Bucket(&#34;...&#34;)
- *             .caCertificatesBundleS3Key(&#34;...&#34;)
+ *         var test = new TrustStore("test", TrustStoreArgs.builder()        
+ *             .name("tf-example-lb-ts")
+ *             .caCertificatesBundleS3Bucket("...")
+ *             .caCertificatesBundleS3Key("...")
  *             .build());
  * 
- *         var testTrustStoreRevocation = new TrustStoreRevocation(&#34;testTrustStoreRevocation&#34;, TrustStoreRevocationArgs.builder()        
+ *         var testTrustStoreRevocation = new TrustStoreRevocation("testTrustStoreRevocation", TrustStoreRevocationArgs.builder()        
  *             .trustStoreArn(test.arn())
- *             .revocationsS3Bucket(&#34;...&#34;)
- *             .revocationsS3Key(&#34;...&#34;)
+ *             .revocationsS3Bucket("...")
+ *             .revocationsS3Key("...")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

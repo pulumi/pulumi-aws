@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Environment(&#34;test&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;test-env&#34;)
- *             .engineType(&#34;bluage&#34;)
- *             .instanceType(&#34;M2.m5.large&#34;)
- *             .securityGroups(&#34;sg-01234567890abcdef&#34;)
+ *         var test = new Environment("test", EnvironmentArgs.builder()        
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups("sg-01234567890abcdef")
  *             .subnetIds(            
- *                 &#34;subnet-01234567890abcdef&#34;,
- *                 &#34;subnet-01234567890abcdea&#34;)
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### High Availability
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,14 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Environment(&#34;test&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;test-env&#34;)
- *             .engineType(&#34;bluage&#34;)
- *             .instanceType(&#34;M2.m5.large&#34;)
- *             .securityGroups(&#34;sg-01234567890abcdef&#34;)
+ *         var test = new Environment("test", EnvironmentArgs.builder()        
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups("sg-01234567890abcdef")
  *             .subnetIds(            
- *                 &#34;subnet-01234567890abcdef&#34;,
- *                 &#34;subnet-01234567890abcdea&#34;)
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
  *             .highAvailabilityConfig(EnvironmentHighAvailabilityConfigArgs.builder()
  *                 .desiredCapacity(2)
  *                 .build())
@@ -104,13 +107,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### EFS Filesystem
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,31 +138,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Environment(&#34;test&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;test-env&#34;)
- *             .engineType(&#34;bluage&#34;)
- *             .instanceType(&#34;M2.m5.large&#34;)
- *             .securityGroups(&#34;sg-01234567890abcdef&#34;)
+ *         var test = new Environment("test", EnvironmentArgs.builder()        
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups("sg-01234567890abcdef")
  *             .subnetIds(            
- *                 &#34;subnet-01234567890abcdef&#34;,
- *                 &#34;subnet-01234567890abcdea&#34;)
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
  *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
  *                 .efs(EnvironmentStorageConfigurationEfsArgs.builder()
- *                     .fileSystemId(&#34;fs-01234567890abcdef&#34;)
- *                     .mountPoint(&#34;/m2/mount/example&#34;)
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### FSX Filesystem
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -180,25 +187,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Environment(&#34;test&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;test-env&#34;)
- *             .engineType(&#34;bluage&#34;)
- *             .instanceType(&#34;M2.m5.large&#34;)
- *             .securityGroups(&#34;sg-01234567890abcdef&#34;)
+ *         var test = new Environment("test", EnvironmentArgs.builder()        
+ *             .name("test-env")
+ *             .engineType("bluage")
+ *             .instanceType("M2.m5.large")
+ *             .securityGroups("sg-01234567890abcdef")
  *             .subnetIds(            
- *                 &#34;subnet-01234567890abcdef&#34;,
- *                 &#34;subnet-01234567890abcdea&#34;)
+ *                 "subnet-01234567890abcdef",
+ *                 "subnet-01234567890abcdea")
  *             .storageConfiguration(EnvironmentStorageConfigurationArgs.builder()
  *                 .fsx(EnvironmentStorageConfigurationFsxArgs.builder()
- *                     .fileSystemId(&#34;fs-01234567890abcdef&#34;)
- *                     .mountPoint(&#34;/m2/mount/example&#34;)
+ *                     .fileSystemId("fs-01234567890abcdef")
+ *                     .mountPoint("/m2/mount/example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

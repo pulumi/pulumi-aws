@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,17 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .name(&#34;yak_sail&#34;)
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .name("yak_sail")
  *             .availabilityZone(available.names()[0])
- *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_3_0&#34;)
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testInstancePublicPorts = new InstancePublicPorts(&#34;testInstancePublicPorts&#34;, InstancePublicPortsArgs.builder()        
+ *         var testInstancePublicPorts = new InstancePublicPorts("testInstancePublicPorts", InstancePublicPortsArgs.builder()        
  *             .instanceName(test.name())
  *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
+ *                 .protocol("tcp")
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
@@ -67,7 +68,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

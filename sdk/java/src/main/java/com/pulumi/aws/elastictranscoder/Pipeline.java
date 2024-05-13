@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,23 +50,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Pipeline(&#34;bar&#34;, PipelineArgs.builder()        
+ *         var bar = new Pipeline("bar", PipelineArgs.builder()        
  *             .inputBucket(inputBucket.id())
- *             .name(&#34;aws_elastictranscoder_pipeline_my_test_&#34;)
+ *             .name("aws_elastictranscoder_pipeline_my_test_")
  *             .role(testRole.arn())
  *             .contentConfig(PipelineContentConfigArgs.builder()
  *                 .bucket(contentBucket.id())
- *                 .storageClass(&#34;Standard&#34;)
+ *                 .storageClass("Standard")
  *                 .build())
  *             .thumbnailConfig(PipelineThumbnailConfigArgs.builder()
  *                 .bucket(thumbBucket.id())
- *                 .storageClass(&#34;Standard&#34;)
+ *                 .storageClass("Standard")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

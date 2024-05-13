@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### CloudWatch Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,29 +50,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cloudwatch = new EventDestination(&#34;cloudwatch&#34;, EventDestinationArgs.builder()        
- *             .name(&#34;event-destination-cloudwatch&#34;)
+ *         var cloudwatch = new EventDestination("cloudwatch", EventDestinationArgs.builder()        
+ *             .name("event-destination-cloudwatch")
  *             .configurationSetName(example.name())
  *             .enabled(true)
  *             .matchingTypes(            
- *                 &#34;bounce&#34;,
- *                 &#34;send&#34;)
+ *                 "bounce",
+ *                 "send")
  *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
- *                 .defaultValue(&#34;default&#34;)
- *                 .dimensionName(&#34;dimension&#34;)
- *                 .valueSource(&#34;emailHeader&#34;)
+ *                 .defaultValue("default")
+ *                 .dimensionName("dimension")
+ *                 .valueSource("emailHeader")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Kinesis Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,13 +96,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var kinesis = new EventDestination(&#34;kinesis&#34;, EventDestinationArgs.builder()        
- *             .name(&#34;event-destination-kinesis&#34;)
+ *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()        
+ *             .name("event-destination-kinesis")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
- *                 &#34;bounce&#34;,
- *                 &#34;send&#34;)
+ *                 "bounce",
+ *                 "send")
  *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
  *                 .streamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .roleArn(example.arn())
@@ -108,13 +111,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SNS Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -136,13 +141,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sns = new EventDestination(&#34;sns&#34;, EventDestinationArgs.builder()        
- *             .name(&#34;event-destination-sns&#34;)
+ *         var sns = new EventDestination("sns", EventDestinationArgs.builder()        
+ *             .name("event-destination-sns")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
- *                 &#34;bounce&#34;,
- *                 &#34;send&#34;)
+ *                 "bounce",
+ *                 "send")
  *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
  *                 .topicArn(example.arn())
  *                 .build())
@@ -150,7 +155,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Elasticsearch Log Publishing
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,31 +48,33 @@ import javax.annotation.Nullable;
  *         final var elasticsearch-log-publishing-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;,
- *                     &#34;logs:PutLogEventsBatch&#34;)
- *                 .resources(&#34;arn:aws:logs:*&#34;)
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents",
+ *                     "logs:PutLogEventsBatch")
+ *                 .resources("arn:aws:logs:*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;es.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("es.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy(&#34;elasticsearch-log-publishing-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
+ *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
  *             .policyDocument(elasticsearch_log_publishing_policy.json())
- *             .policyName(&#34;elasticsearch-log-publishing-policy&#34;)
+ *             .policyName("elasticsearch-log-publishing-policy")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Route53 Query Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,24 +100,25 @@ import javax.annotation.Nullable;
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;logs:CreateLogStream&#34;,
- *                     &#34;logs:PutLogEvents&#34;)
- *                 .resources(&#34;arn:aws:logs:*:*:log-group:/aws/route53/*&#34;)
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;route53.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
+ *                     .identifiers("route53.amazonaws.com")
+ *                     .type("Service")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy(&#34;route53-query-logging-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
+ *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
  *             .policyDocument(route53_query_logging_policy.json())
- *             .policyName(&#34;route53-query-logging-policy&#34;)
+ *             .policyName("route53-query-logging-policy")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

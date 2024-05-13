@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Create an association between a protected EIP and a Route53 Health Check
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,34 +62,35 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *         var example = new Eip("example", EipArgs.builder()        
+ *             .domain("vpc")
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .name(&#34;example-protection&#34;)
- *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *             .name("example-protection")
+ *             .resourceArn(example.id().applyValue(id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
- *         var exampleHealthCheck = new HealthCheck(&#34;exampleHealthCheck&#34;, HealthCheckArgs.builder()        
+ *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()        
  *             .ipAddress(example.publicIp())
  *             .port(80)
- *             .type(&#34;HTTP&#34;)
- *             .resourcePath(&#34;/ready&#34;)
- *             .failureThreshold(&#34;3&#34;)
- *             .requestInterval(&#34;30&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example-health-check&#34;))
+ *             .type("HTTP")
+ *             .resourcePath("/ready")
+ *             .failureThreshold("3")
+ *             .requestInterval("30")
+ *             .tags(Map.of("Name", "tf-example-health-check"))
  *             .build());
  * 
- *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation(&#34;exampleProtectionHealthCheckAssociation&#34;, ProtectionHealthCheckAssociationArgs.builder()        
+ *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", ProtectionHealthCheckAssociationArgs.builder()        
  *             .healthCheckArn(exampleHealthCheck.arn())
  *             .shieldProtectionId(exampleProtection.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

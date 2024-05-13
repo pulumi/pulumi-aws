@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;securityhub.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var example = new Organization("example", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("securityhub.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
+ *         var exampleAccount = new Account("exampleAccount");
  * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
- *             .adminAccountId(&#34;123456789012&#34;)
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()        
+ *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *         // Auto enable security hub in organization member accounts
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

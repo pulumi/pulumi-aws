@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new DrtAccessRoleArnAssociation(&#34;test&#34;, DrtAccessRoleArnAssociationArgs.builder()        
- *             .roleArn(String.format(&#34;arn:aws:iam:%s:%s:%s&#34;, current.name(),currentAwsCallerIdentity.accountId(),shieldDrtAccessRoleName))
+ *         var test = new DrtAccessRoleArnAssociation("test", DrtAccessRoleArnAssociationArgs.builder()        
+ *             .roleArn(String.format("arn:aws:iam:%s:%s:%s", current.name(),currentAwsCallerIdentity.accountId(),shieldDrtAccessRoleName))
  *             .build());
  * 
- *         var testDrtAccessLogBucketAssociation = new DrtAccessLogBucketAssociation(&#34;testDrtAccessLogBucketAssociation&#34;, DrtAccessLogBucketAssociationArgs.builder()        
+ *         var testDrtAccessLogBucketAssociation = new DrtAccessLogBucketAssociation("testDrtAccessLogBucketAssociation", DrtAccessLogBucketAssociationArgs.builder()        
  *             .logBucket(shieldDrtAccessLogBucket)
  *             .roleArnAssociationId(test.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

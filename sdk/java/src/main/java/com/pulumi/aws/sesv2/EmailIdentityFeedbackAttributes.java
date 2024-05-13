@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *             .emailIdentity("example.com")
  *             .build());
  * 
- *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes(&#34;exampleEmailIdentityFeedbackAttributes&#34;, EmailIdentityFeedbackAttributesArgs.builder()        
+ *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", EmailIdentityFeedbackAttributesArgs.builder()        
  *             .emailIdentity(example.emailIdentity())
  *             .emailForwardingEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

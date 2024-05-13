@@ -44,7 +44,8 @@ import javax.annotation.Nullable;
  * ### Basic example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -66,29 +67,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
+ *         var example = new RouteTable("example", RouteTableArgs.builder()        
  *             .vpcId(exampleAwsVpc.id())
  *             .routes(            
  *                 RouteTableRouteArgs.builder()
- *                     .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *                     .cidrBlock("10.0.1.0/24")
  *                     .gatewayId(exampleAwsInternetGateway.id())
  *                     .build(),
  *                 RouteTableRouteArgs.builder()
- *                     .ipv6CidrBlock(&#34;::/0&#34;)
+ *                     .ipv6CidrBlock("::/0")
  *                     .egressOnlyGatewayId(exampleAwsEgressOnlyInternetGateway.id())
  *                     .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To subsequently remove all managed routes:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -109,15 +112,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
+ *         var example = new RouteTable("example", RouteTableArgs.builder()        
  *             .vpcId(exampleAwsVpc.id())
  *             .routes()
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Adopting an existing local route
@@ -127,7 +131,8 @@ import javax.annotation.Nullable;
  * First, adopt an existing AWS-created route:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -151,27 +156,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var test = new Vpc("test", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
+ *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()        
  *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
- *                 .cidrBlock(&#34;10.1.0.0/16&#34;)
- *                 .gatewayId(&#34;local&#34;)
+ *                 .cidrBlock("10.1.0.0/16")
+ *                 .gatewayId("local")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Next, update the target of the route:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -199,20 +206,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Vpc(&#34;test&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var test = new Vpc("test", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var testSubnet = new Subnet(&#34;testSubnet&#34;, SubnetArgs.builder()        
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
+ *         var testSubnet = new Subnet("testSubnet", SubnetArgs.builder()        
+ *             .cidrBlock("10.1.1.0/24")
  *             .vpcId(test.id())
  *             .build());
  * 
- *         var testNetworkInterface = new NetworkInterface(&#34;testNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *         var testNetworkInterface = new NetworkInterface("testNetworkInterface", NetworkInterfaceArgs.builder()        
  *             .subnetId(testSubnet.id())
  *             .build());
  * 
- *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
+ *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()        
  *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock(test.cidrBlock())
@@ -222,7 +229,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The target could then be updated again back to `local`.

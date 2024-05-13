@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,30 +53,31 @@ import javax.annotation.Nullable;
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*&#34;)
+ *                     .name("name")
+ *                     .values("ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*")
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
+ *                     .name("virtualization-type")
+ *                     .values("hvm")
  *                     .build())
- *             .owners(&#34;099720109477&#34;)
+ *             .owners("099720109477")
  *             .build());
  * 
- *         var test = new Instance(&#34;test&#34;, InstanceArgs.builder()        
- *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *         var test = new Instance("test", InstanceArgs.builder()        
+ *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t3.micro")
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var testInstanceState = new InstanceState(&#34;testInstanceState&#34;, InstanceStateArgs.builder()        
+ *         var testInstanceState = new InstanceState("testInstanceState", InstanceStateArgs.builder()        
  *             .instanceId(test.id())
- *             .state(&#34;stopped&#34;)
+ *             .state("stopped")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

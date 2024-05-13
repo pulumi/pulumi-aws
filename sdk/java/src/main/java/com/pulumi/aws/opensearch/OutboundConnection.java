@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,24 +57,25 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var foo = new OutboundConnection(&#34;foo&#34;, OutboundConnectionArgs.builder()        
- *             .connectionAlias(&#34;outbound_connection&#34;)
- *             .connectionMode(&#34;DIRECT&#34;)
+ *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()        
+ *             .connectionAlias("outbound_connection")
+ *             .connectionMode("DIRECT")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .ownerId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                 .region(currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .domainName(localDomain.domainName())
  *                 .build())
  *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .ownerId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *                 .region(currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .domainName(remoteDomain.domainName())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

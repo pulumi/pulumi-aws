@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,27 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;app&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("app")
  *             .build());
  * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()        
  *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
- *             .framework(&#34;React&#34;)
- *             .stage(&#34;PRODUCTION&#34;)
- *             .environmentVariables(Map.of(&#34;REACT_APP_API_SERVER&#34;, &#34;https://api.example.com&#34;))
+ *             .branchName("master")
+ *             .framework("React")
+ *             .stage("PRODUCTION")
+ *             .environmentVariables(Map.of("REACT_APP_API_SERVER", "https://api.example.com"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic Authentication
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,22 +92,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;app&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("app")
  *             .build());
  * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()        
  *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
+ *             .branchName("master")
  *             .enableBasicAuth(true)
  *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(&#34;username:password&#34;)
+ *                 .input("username:password")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Notifications
@@ -112,7 +116,8 @@ import javax.annotation.Nullable;
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -149,88 +154,89 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;app&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("app")
  *             .build());
  * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()        
  *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
+ *             .branchName("master")
  *             .enableNotification(true)
  *             .build());
  * 
  *         // EventBridge Rule for Amplify notifications
- *         var amplifyAppMasterEventRule = new EventRule(&#34;amplifyAppMasterEventRule&#34;, EventRuleArgs.builder()        
- *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s-%s-branch-notification&#34;, app.id(),branchName)))
- *             .description(master.branchName().applyValue(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, app.id(),branchName)))
- *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -&gt; {
+ *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()        
+ *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),branchName)))
+ *             .description(master.branchName().applyValue(branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),branchName)))
+ *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> {
  *                 var id = values.t1;
  *                 var branchName = values.t2;
  *                 return serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;detail&#34;, jsonObject(
- *                             jsonProperty(&#34;appId&#34;, jsonArray(id)),
- *                             jsonProperty(&#34;branchName&#34;, jsonArray(branchName)),
- *                             jsonProperty(&#34;jobStatus&#34;, jsonArray(
- *                                 &#34;SUCCEED&#34;, 
- *                                 &#34;FAILED&#34;, 
- *                                 &#34;STARTED&#34;
+ *                         jsonProperty("detail", jsonObject(
+ *                             jsonProperty("appId", jsonArray(id)),
+ *                             jsonProperty("branchName", jsonArray(branchName)),
+ *                             jsonProperty("jobStatus", jsonArray(
+ *                                 "SUCCEED", 
+ *                                 "FAILED", 
+ *                                 "STARTED"
  *                             ))
  *                         )),
- *                         jsonProperty(&#34;detail-type&#34;, jsonArray(&#34;Amplify Deployment Status Change&#34;)),
- *                         jsonProperty(&#34;source&#34;, jsonArray(&#34;aws.amplify&#34;))
+ *                         jsonProperty("detail-type", jsonArray("Amplify Deployment Status Change")),
+ *                         jsonProperty("source", jsonArray("aws.amplify"))
  *                     ));
  *             }))
  *             .build());
  * 
  *         // SNS Topic for Amplify notifications
- *         var amplifyAppMasterTopic = new Topic(&#34;amplifyAppMasterTopic&#34;, TopicArgs.builder()        
- *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s_%s&#34;, app.id(),branchName)))
+ *         var amplifyAppMasterTopic = new Topic("amplifyAppMasterTopic", TopicArgs.builder()        
+ *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s_%s", app.id(),branchName)))
  *             .build());
  * 
- *         var amplifyAppMasterEventTarget = new EventTarget(&#34;amplifyAppMasterEventTarget&#34;, EventTargetArgs.builder()        
+ *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()        
  *             .rule(amplifyAppMasterEventRule.name())
  *             .targetId(master.branchName())
  *             .arn(amplifyAppMasterTopic.arn())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.ofEntries(
- *                     Map.entry(&#34;jobId&#34;, &#34;$.detail.jobId&#34;),
- *                     Map.entry(&#34;appId&#34;, &#34;$.detail.appId&#34;),
- *                     Map.entry(&#34;region&#34;, &#34;$.region&#34;),
- *                     Map.entry(&#34;branch&#34;, &#34;$.detail.branchName&#34;),
- *                     Map.entry(&#34;status&#34;, &#34;$.detail.jobStatus&#34;)
+ *                     Map.entry("jobId", "$.detail.jobId"),
+ *                     Map.entry("appId", "$.detail.appId"),
+ *                     Map.entry("region", "$.region"),
+ *                     Map.entry("branch", "$.detail.branchName"),
+ *                     Map.entry("status", "$.detail.jobStatus")
  *                 ))
- *                 .inputTemplate(&#34;\&#34;Build notification from the AWS Amplify Console for app: https://&lt;branch&gt;.&lt;appId&gt;.amplifyapp.com/. Your build status is &lt;status&gt;. Go to https://console.aws.amazon.com/amplify/home?region=&lt;region&gt;#&lt;appId&gt;/&lt;branch&gt;/&lt;jobId&gt; to view details on your build. \&#34;&#34;)
+ *                 .inputTemplate("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"")
  *                 .build())
  *             .build());
  * 
  *         final var amplifyAppMaster = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(master.arn().applyValue(arn -&gt; String.format(&#34;Allow_Publish_Events %s&#34;, arn)))
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;SNS:Publish&#34;)
+ *                 .sid(master.arn().applyValue(arn -> String.format("Allow_Publish_Events %s", arn)))
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;events.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("events.amazonaws.com")
  *                     .build())
  *                 .resources(amplifyAppMasterTopic.arn())
  *                 .build())
  *             .build());
  * 
- *         var amplifyAppMasterTopicPolicy = new TopicPolicy(&#34;amplifyAppMasterTopicPolicy&#34;, TopicPolicyArgs.builder()        
+ *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()        
  *             .arn(amplifyAppMasterTopic.arn())
- *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(amplifyAppMaster -&gt; amplifyAppMaster.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(amplifyAppMaster -> amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var this_ = new TopicSubscription(&#34;this&#34;, TopicSubscriptionArgs.builder()        
+ *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()        
  *             .topic(amplifyAppMasterTopic.arn())
- *             .protocol(&#34;email&#34;)
- *             .endpoint(&#34;user@acme.com&#34;)
+ *             .protocol("email")
+ *             .endpoint("user{@literal @}acme.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

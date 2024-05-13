@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var cisAwsFoundationsBenchmark = new StandardsSubscription(&#34;cisAwsFoundationsBenchmark&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
+ *         var cisAwsFoundationsBenchmark = new StandardsSubscription("cisAwsFoundationsBenchmark", StandardsSubscriptionArgs.builder()        
+ *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl(&#34;ensureIamPasswordPolicyPreventsPasswordReuse&#34;, StandardsControlArgs.builder()        
- *             .standardsControlArn(&#34;arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10&#34;)
- *             .controlStatus(&#34;DISABLED&#34;)
- *             .disabledReason(&#34;We handle password policies within Okta&#34;)
+ *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", StandardsControlArgs.builder()        
+ *             .standardsControlArn("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10")
+ *             .controlStatus("DISABLED")
+ *             .disabledReason("We handle password policies within Okta")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(cisAwsFoundationsBenchmark)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

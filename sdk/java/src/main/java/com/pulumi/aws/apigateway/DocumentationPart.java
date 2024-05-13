@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
- *             .name(&#34;example_api&#34;)
+ *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()        
+ *             .name("example_api")
  *             .build());
  * 
- *         var example = new DocumentationPart(&#34;example&#34;, DocumentationPartArgs.builder()        
+ *         var example = new DocumentationPart("example", DocumentationPartArgs.builder()        
  *             .location(DocumentationPartLocationArgs.builder()
- *                 .type(&#34;METHOD&#34;)
- *                 .method(&#34;GET&#34;)
- *                 .path(&#34;/example&#34;)
+ *                 .type("METHOD")
+ *                 .method("GET")
+ *                 .path("/example")
  *                 .build())
- *             .properties(&#34;{\&#34;description\&#34;:\&#34;Example description\&#34;}&#34;)
+ *             .properties("{\"description\":\"Example description\"}")
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

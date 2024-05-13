@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,33 +46,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Sink(&#34;example&#34;, SinkArgs.builder()        
- *             .name(&#34;ExampleSink&#34;)
+ *         var example = new Sink("example", SinkArgs.builder()        
+ *             .name("ExampleSink")
  *             .build());
  * 
- *         var exampleSinkPolicy = new SinkPolicy(&#34;exampleSinkPolicy&#34;, SinkPolicyArgs.builder()        
+ *         var exampleSinkPolicy = new SinkPolicy("exampleSinkPolicy", SinkPolicyArgs.builder()        
  *             .sinkIdentifier(example.id())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;oam:CreateLink&#34;, 
- *                             &#34;oam:UpdateLink&#34;
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "oam:CreateLink", 
+ *                             "oam:UpdateLink"
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, jsonArray(
- *                                 &#34;1111111111111&#34;, 
- *                                 &#34;222222222222&#34;
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", jsonArray(
+ *                                 "1111111111111", 
+ *                                 "222222222222"
  *                             ))
  *                         )),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;ForAllValues:StringEquals&#34;, jsonObject(
- *                                 jsonProperty(&#34;oam:ResourceTypes&#34;, jsonArray(
- *                                     &#34;AWS::CloudWatch::Metric&#34;, 
- *                                     &#34;AWS::Logs::LogGroup&#34;
+ *                         jsonProperty("Condition", jsonObject(
+ *                             jsonProperty("ForAllValues:StringEquals", jsonObject(
+ *                                 jsonProperty("oam:ResourceTypes", jsonArray(
+ *                                     "AWS::CloudWatch::Metric", 
+ *                                     "AWS::Logs::LogGroup"
  *                                 ))
  *                             ))
  *                         ))
@@ -81,7 +82,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new DelegationSet(&#34;main&#34;, DelegationSetArgs.builder()        
- *             .referenceName(&#34;DynDNS&#34;)
+ *         var main = new DelegationSet("main", DelegationSetArgs.builder()        
+ *             .referenceName("DynDNS")
  *             .build());
  * 
- *         var primary = new Zone(&#34;primary&#34;, ZoneArgs.builder()        
- *             .name(&#34;mydomain.com&#34;)
+ *         var primary = new Zone("primary", ZoneArgs.builder()        
+ *             .name("mydomain.com")
  *             .delegationSetId(main.id())
  *             .build());
  * 
- *         var secondary = new Zone(&#34;secondary&#34;, ZoneArgs.builder()        
- *             .name(&#34;coolcompany.io&#34;)
+ *         var secondary = new Zone("secondary", ZoneArgs.builder()        
+ *             .name("coolcompany.io")
  *             .delegationSetId(main.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

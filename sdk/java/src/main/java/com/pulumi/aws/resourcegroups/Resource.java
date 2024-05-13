@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedHost(&#34;example&#34;, DedicatedHostArgs.builder()        
- *             .instanceFamily(&#34;t3&#34;)
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .hostRecovery(&#34;off&#34;)
- *             .autoPlacement(&#34;on&#34;)
+ *         var example = new DedicatedHost("example", DedicatedHostArgs.builder()        
+ *             .instanceFamily("t3")
+ *             .availabilityZone("us-east-1a")
+ *             .hostRecovery("off")
+ *             .autoPlacement("on")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
  *             .groupArn(exampleGroup.arn())
  *             .resourceArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

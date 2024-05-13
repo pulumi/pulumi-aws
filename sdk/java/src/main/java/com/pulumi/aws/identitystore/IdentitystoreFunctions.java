@@ -56,7 +56,8 @@ public final class IdentitystoreFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -81,12 +82,13 @@ public final class IdentitystoreFunctions {
      *         final var example = SsoadminFunctions.getInstances();
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -101,7 +103,8 @@ public final class IdentitystoreFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -126,12 +129,13 @@ public final class IdentitystoreFunctions {
      *         final var example = SsoadminFunctions.getInstances();
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -146,7 +150,8 @@ public final class IdentitystoreFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +176,13 @@ public final class IdentitystoreFunctions {
      *         final var example = SsoadminFunctions.getInstances();
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +197,8 @@ public final class IdentitystoreFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,12 +223,13 @@ public final class IdentitystoreFunctions {
      *         final var example = SsoadminFunctions.getInstances();
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
-     *             .identityStoreId(example.applyValue(getInstancesResult -&gt; getInstancesResult.identityStoreIds()[0]))
+     *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

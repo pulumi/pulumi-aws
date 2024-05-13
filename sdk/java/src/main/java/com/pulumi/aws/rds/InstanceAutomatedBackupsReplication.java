@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,20 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
+ *         var default_ = new InstanceAutomatedBackupsReplication("default", InstanceAutomatedBackupsReplicationArgs.builder()        
+ *             .sourceDbInstanceArn("arn:aws:rds:us-west-2:123456789012:db:mydatabase")
  *             .retentionPeriod(14)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Encrypting the automated backup with KMS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,20 +83,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
- *             .kmsKeyId(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
+ *         var default_ = new InstanceAutomatedBackupsReplication("default", InstanceAutomatedBackupsReplicationArgs.builder()        
+ *             .sourceDbInstanceArn("arn:aws:rds:us-west-2:123456789012:db:mydatabase")
+ *             .kmsKeyId("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example including a RDS DB instance
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -118,32 +123,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()        
  *             .allocatedStorage(10)
- *             .identifier(&#34;mydb&#34;)
- *             .engine(&#34;postgres&#34;)
- *             .engineVersion(&#34;13.4&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .dbName(&#34;mydb&#34;)
- *             .username(&#34;masterusername&#34;)
- *             .password(&#34;mustbeeightcharacters&#34;)
+ *             .identifier("mydb")
+ *             .engine("postgres")
+ *             .engineVersion("13.4")
+ *             .instanceClass("db.t3.micro")
+ *             .dbName("mydb")
+ *             .username("masterusername")
+ *             .password("mustbeeightcharacters")
  *             .backupRetentionPeriod(7)
  *             .storageEncrypted(true)
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
- *             .description(&#34;Encryption key for automated backups&#34;)
+ *         var defaultKey = new Key("defaultKey", KeyArgs.builder()        
+ *             .description("Encryption key for automated backups")
  *             .build());
  * 
- *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication(&#34;defaultInstanceAutomatedBackupsReplication&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
+ *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", InstanceAutomatedBackupsReplicationArgs.builder()        
  *             .sourceDbInstanceArn(default_.arn())
  *             .kmsKeyId(defaultKey.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

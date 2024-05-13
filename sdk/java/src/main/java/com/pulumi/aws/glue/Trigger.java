@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Conditional Trigger
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,29 +52,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;CONDITIONAL&#34;)
+ *         var example = new Trigger("example", TriggerArgs.builder()        
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .jobName(example2.name())
- *                     .state(&#34;SUCCEEDED&#34;)
+ *                     .state("SUCCEEDED")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### On-Demand Trigger
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,9 +98,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;ON_DEMAND&#34;)
+ *         var example = new Trigger("example", TriggerArgs.builder()        
+ *             .name("example")
+ *             .type("ON_DEMAND")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
@@ -105,13 +108,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Scheduled Trigger
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,10 +138,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .schedule(&#34;cron(15 12 * * ? *)&#34;)
- *             .type(&#34;SCHEDULED&#34;)
+ *         var example = new Trigger("example", TriggerArgs.builder()        
+ *             .name("example")
+ *             .schedule("cron(15 12 * * ? *)")
+ *             .type("SCHEDULED")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
@@ -144,7 +149,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Conditional Trigger with Crawler Action
@@ -152,7 +158,8 @@ import javax.annotation.Nullable;
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -175,23 +182,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;CONDITIONAL&#34;)
+ *         var example = new Trigger("example", TriggerArgs.builder()        
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()
  *                 .crawlerName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .jobName(example2.name())
- *                     .state(&#34;SUCCEEDED&#34;)
+ *                     .state("SUCCEEDED")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Conditional Trigger with Crawler Condition
@@ -199,7 +207,8 @@ import javax.annotation.Nullable;
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -222,23 +231,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .type(&#34;CONDITIONAL&#34;)
+ *         var example = new Trigger("example", TriggerArgs.builder()        
+ *             .name("example")
+ *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .crawlerName(example2.name())
- *                     .crawlState(&#34;SUCCEEDED&#34;)
+ *                     .crawlState("SUCCEEDED")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

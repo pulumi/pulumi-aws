@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,34 +44,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Topic(&#34;example&#34;, TopicArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Topic("example", TopicArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleDataProtectionPolicy = new DataProtectionPolicy(&#34;exampleDataProtectionPolicy&#34;, DataProtectionPolicyArgs.builder()        
+ *         var exampleDataProtectionPolicy = new DataProtectionPolicy("exampleDataProtectionPolicy", DataProtectionPolicyArgs.builder()        
  *             .arn(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Description&#34;, &#34;Example data protection policy&#34;),
- *                     jsonProperty(&#34;Name&#34;, &#34;__example_data_protection_policy&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;DataDirection&#34;, &#34;Inbound&#34;),
- *                         jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                         jsonProperty(&#34;Operation&#34;, jsonObject(
- *                             jsonProperty(&#34;Deny&#34;, jsonObject(
+ *                     jsonProperty("Description", "Example data protection policy"),
+ *                     jsonProperty("Name", "__example_data_protection_policy"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("DataDirection", "Inbound"),
+ *                         jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
+ *                         jsonProperty("Operation", jsonObject(
+ *                             jsonProperty("Deny", jsonObject(
  * 
  *                             ))
  *                         )),
- *                         jsonProperty(&#34;Principal&#34;, jsonArray(&#34;*&#34;)),
- *                         jsonProperty(&#34;Sid&#34;, &#34;__deny_statement_11ba9d96&#34;)
+ *                         jsonProperty("Principal", jsonArray("*")),
+ *                         jsonProperty("Sid", "__deny_statement_11ba9d96")
  *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2021-06-01&#34;)
+ *                     jsonProperty("Version", "2021-06-01")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

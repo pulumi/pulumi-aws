@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TapePool(&#34;example&#34;, TapePoolArgs.builder()        
- *             .poolName(&#34;example&#34;)
- *             .storageClass(&#34;GLACIER&#34;)
+ *         var example = new TapePool("example", TapePoolArgs.builder()        
+ *             .poolName("example")
+ *             .storageClass("GLACIER")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

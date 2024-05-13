@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var operations = new AlternativeContact(&#34;operations&#34;, AlternativeContactArgs.builder()        
- *             .alternateContactType(&#34;OPERATIONS&#34;)
- *             .name(&#34;Example&#34;)
- *             .title(&#34;Example&#34;)
- *             .emailAddress(&#34;test@example.com&#34;)
- *             .phoneNumber(&#34;+1234567890&#34;)
+ *         var operations = new AlternativeContact("operations", AlternativeContactArgs.builder()        
+ *             .alternateContactType("OPERATIONS")
+ *             .name("Example")
+ *             .title("Example")
+ *             .emailAddress("test{@literal @}example.com")
+ *             .phoneNumber("+1234567890")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

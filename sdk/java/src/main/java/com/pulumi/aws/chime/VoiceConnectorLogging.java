@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector(&#34;default&#34;, VoiceConnectorArgs.builder()        
- *             .name(&#34;vc-name-test&#34;)
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging(&#34;defaultVoiceConnectorLogging&#34;, VoiceConnectorLoggingArgs.builder()        
+ *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging("defaultVoiceConnectorLogging", VoiceConnectorLoggingArgs.builder()        
  *             .enableSipLogs(true)
  *             .enableMediaMetricLogs(true)
  *             .voiceConnectorId(default_.id())
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

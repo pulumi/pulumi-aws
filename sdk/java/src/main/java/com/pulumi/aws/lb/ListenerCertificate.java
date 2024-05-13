@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,20 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Certificate(&#34;example&#34;);
+ *         var example = new Certificate("example");
  * 
- *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
+ *         var frontEnd = new LoadBalancer("frontEnd");
  * 
- *         var frontEndListener = new Listener(&#34;frontEndListener&#34;);
+ *         var frontEndListener = new Listener("frontEndListener");
  * 
- *         var exampleListenerCertificate = new ListenerCertificate(&#34;exampleListenerCertificate&#34;, ListenerCertificateArgs.builder()        
+ *         var exampleListenerCertificate = new ListenerCertificate("exampleListenerCertificate", ListenerCertificateArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .certificateArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Cached and VTL Gateway Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,20 +52,22 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var testUploadBuffer = new UploadBuffer(&#34;testUploadBuffer&#34;, UploadBufferArgs.builder()        
- *             .diskPath(test.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
+ *         var testUploadBuffer = new UploadBuffer("testUploadBuffer", UploadBufferArgs.builder()        
+ *             .diskPath(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskPath()))
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Stored Gateway Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,14 +95,15 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var example = new UploadBuffer(&#34;example&#34;, UploadBufferArgs.builder()        
+ *         var example = new UploadBuffer("example", UploadBufferArgs.builder()        
  *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

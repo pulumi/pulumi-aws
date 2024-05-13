@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,21 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var example = new Organization("example", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationManagedRule = new OrganizationManagedRule(&#34;exampleOrganizationManagedRule&#34;, OrganizationManagedRuleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .ruleIdentifier(&#34;IAM_PASSWORD_POLICY&#34;)
+ *         var exampleOrganizationManagedRule = new OrganizationManagedRule("exampleOrganizationManagedRule", OrganizationManagedRuleArgs.builder()        
+ *             .name("example")
+ *             .ruleIdentifier("IAM_PASSWORD_POLICY")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

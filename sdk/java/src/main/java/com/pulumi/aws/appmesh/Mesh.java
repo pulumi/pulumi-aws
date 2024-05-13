@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
- *             .name(&#34;simpleapp&#34;)
+ *         var simple = new Mesh("simple", MeshArgs.builder()        
+ *             .name("simpleapp")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Egress Filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,18 +83,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh(&#34;simple&#34;, MeshArgs.builder()        
- *             .name(&#34;simpleapp&#34;)
+ *         var simple = new Mesh("simple", MeshArgs.builder()        
+ *             .name("simpleapp")
  *             .spec(MeshSpecArgs.builder()
  *                 .egressFilter(MeshSpecEgressFilterArgs.builder()
- *                     .type(&#34;ALLOW_ALL&#34;)
+ *                     .type("ALLOW_ALL")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

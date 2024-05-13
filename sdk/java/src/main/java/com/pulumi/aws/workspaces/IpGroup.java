@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,27 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var contractors = new IpGroup(&#34;contractors&#34;, IpGroupArgs.builder()        
- *             .name(&#34;Contractors&#34;)
- *             .description(&#34;Contractors IP access control group&#34;)
+ *         var contractors = new IpGroup("contractors", IpGroupArgs.builder()        
+ *             .name("Contractors")
+ *             .description("Contractors IP access control group")
  *             .rules(            
  *                 IpGroupRuleArgs.builder()
- *                     .source(&#34;150.24.14.0/24&#34;)
- *                     .description(&#34;NY&#34;)
+ *                     .source("150.24.14.0/24")
+ *                     .description("NY")
  *                     .build(),
  *                 IpGroupRuleArgs.builder()
- *                     .source(&#34;125.191.14.85/32&#34;)
- *                     .description(&#34;LA&#34;)
+ *                     .source("125.191.14.85/32")
+ *                     .description("LA")
  *                     .build(),
  *                 IpGroupRuleArgs.builder()
- *                     .source(&#34;44.98.100.0/24&#34;)
- *                     .description(&#34;STL&#34;)
+ *                     .source("44.98.100.0/24")
+ *                     .description("STL")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

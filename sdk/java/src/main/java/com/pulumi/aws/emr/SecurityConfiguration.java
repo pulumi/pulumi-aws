@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,30 +41,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SecurityConfiguration(&#34;foo&#34;, SecurityConfigurationArgs.builder()        
- *             .name(&#34;emrsc_other&#34;)
- *             .configuration(&#34;&#34;&#34;
+ *         var foo = new SecurityConfiguration("foo", SecurityConfigurationArgs.builder()        
+ *             .name("emrsc_other")
+ *             .configuration("""
  * {
- *   &#34;EncryptionConfiguration&#34;: {
- *     &#34;AtRestEncryptionConfiguration&#34;: {
- *       &#34;S3EncryptionConfiguration&#34;: {
- *         &#34;EncryptionMode&#34;: &#34;SSE-S3&#34;
+ *   "EncryptionConfiguration": {
+ *     "AtRestEncryptionConfiguration": {
+ *       "S3EncryptionConfiguration": {
+ *         "EncryptionMode": "SSE-S3"
  *       },
- *       &#34;LocalDiskEncryptionConfiguration&#34;: {
- *         &#34;EncryptionKeyProviderType&#34;: &#34;AwsKms&#34;,
- *         &#34;AwsKmsKey&#34;: &#34;arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key&#34;
+ *       "LocalDiskEncryptionConfiguration": {
+ *         "EncryptionKeyProviderType": "AwsKms",
+ *         "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key"
  *       }
  *     },
- *     &#34;EnableInTransitEncryption&#34;: false,
- *     &#34;EnableAtRestEncryption&#34;: true
+ *     "EnableInTransitEncryption": false,
+ *     "EnableAtRestEncryption": true
  *   }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

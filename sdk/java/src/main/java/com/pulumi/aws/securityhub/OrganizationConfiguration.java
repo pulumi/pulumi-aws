@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Local Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,30 +58,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization(&#34;example&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;securityhub.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var example = new Organization("example", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("securityhub.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
- *             .adminAccountId(&#34;123456789012&#34;)
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()        
+ *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Central Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -107,23 +110,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationAdminAccount(&#34;example&#34;, OrganizationAdminAccountArgs.builder()        
- *             .adminAccountId(&#34;123456789012&#34;)
+ *         var example = new OrganizationAdminAccount("example", OrganizationAdminAccountArgs.builder()        
+ *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsOrganizationsOrganization)
  *                 .build());
  * 
- *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
- *             .linkingMode(&#34;ALL_REGIONS&#34;)
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *             .linkingMode("ALL_REGIONS")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
  *             .autoEnable(false)
- *             .autoEnableStandards(&#34;NONE&#34;)
+ *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
- *                 .configurationType(&#34;CENTRAL&#34;)
+ *                 .configurationType("CENTRAL")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFindingAggregator)
@@ -131,7 +134,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

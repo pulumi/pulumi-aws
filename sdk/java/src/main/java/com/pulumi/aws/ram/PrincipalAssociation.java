@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### AWS Account ID
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,24 +55,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceShare(&#34;example&#34;, ResourceShareArgs.builder()        
+ *         var example = new ResourceShare("example", ResourceShareArgs.builder()        
  *             .allowExternalPrincipals(true)
  *             .build());
  * 
- *         var examplePrincipalAssociation = new PrincipalAssociation(&#34;examplePrincipalAssociation&#34;, PrincipalAssociationArgs.builder()        
- *             .principal(&#34;111111111111&#34;)
+ *         var examplePrincipalAssociation = new PrincipalAssociation("examplePrincipalAssociation", PrincipalAssociationArgs.builder()        
+ *             .principal("111111111111")
  *             .resourceShareArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS Organization
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,14 +95,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrincipalAssociation(&#34;example&#34;, PrincipalAssociationArgs.builder()        
+ *         var example = new PrincipalAssociation("example", PrincipalAssociationArgs.builder()        
  *             .principal(exampleAwsOrganizationsOrganization.arn())
  *             .resourceShareArn(exampleAwsRamResourceShare.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      * For example, if filtering using `ProductSKU`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -43,14 +44,15 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      *     public static void stack(Context ctx) {
      *         final var selected = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;ProductSKU&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("ProductSKU")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      * For example, if filtering using `ProductSKU`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -86,14 +89,15 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      *     public static void stack(Context ctx) {
      *         final var selected = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
      *             .filters(GetLicenseGrantsFilterArgs.builder()
-     *                 .name(&#34;ProductSKU&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("ProductSKU")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -147,7 +151,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
          * For example, if filtering using `ProductSKU`, use:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -170,14 +175,15 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
          *     public static void stack(Context ctx) {
          *         final var selected = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
          *             .filters(GetLicenseGrantsFilterArgs.builder()
-         *                 .name(&#34;ProductSKU&#34;)
-         *                 .values(&#34;&#34;)
+         *                 .name("ProductSKU")
+         *                 .values("")
          *                 .build())
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

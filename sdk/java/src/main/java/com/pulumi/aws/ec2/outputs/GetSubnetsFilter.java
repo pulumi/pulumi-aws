@@ -17,7 +17,8 @@ public final class GetSubnetsFilter {
      * For example, if matching against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -40,14 +41,15 @@ public final class GetSubnetsFilter {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
      *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("tag:Name")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -66,7 +68,8 @@ public final class GetSubnetsFilter {
      * For example, if matching against tag `Name`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,14 +92,15 @@ public final class GetSubnetsFilter {
      *     public static void stack(Context ctx) {
      *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
      *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name(&#34;tag:Name&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("tag:Name")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

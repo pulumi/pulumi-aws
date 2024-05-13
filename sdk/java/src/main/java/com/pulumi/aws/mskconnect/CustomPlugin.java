@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
  *             .bucket(example.id())
- *             .key(&#34;debezium.zip&#34;)
- *             .source(new FileAsset(&#34;debezium.zip&#34;))
+ *             .key("debezium.zip")
+ *             .source(new FileAsset("debezium.zip"))
  *             .build());
  * 
- *         var exampleCustomPlugin = new CustomPlugin(&#34;exampleCustomPlugin&#34;, CustomPluginArgs.builder()        
- *             .name(&#34;debezium-example&#34;)
- *             .contentType(&#34;ZIP&#34;)
+ *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()        
+ *             .name("debezium-example")
+ *             .contentType("ZIP")
  *             .location(CustomPluginLocationArgs.builder()
  *                 .s3(CustomPluginLocationS3Args.builder()
  *                     .bucketArn(example.arn())
@@ -75,7 +76,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

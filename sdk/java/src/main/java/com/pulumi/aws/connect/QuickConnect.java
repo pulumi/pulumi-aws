@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new QuickConnect(&#34;test&#34;, QuickConnectArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .name(&#34;Example Name&#34;)
- *             .description(&#34;quick connect phone number&#34;)
+ *         var test = new QuickConnect("test", QuickConnectArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
+ *             .name("Example Name")
+ *             .description("quick connect phone number")
  *             .quickConnectConfig(QuickConnectQuickConnectConfigArgs.builder()
- *                 .quickConnectType(&#34;PHONE_NUMBER&#34;)
+ *                 .quickConnectType("PHONE_NUMBER")
  *                 .phoneConfigs(QuickConnectQuickConnectConfigPhoneConfigArgs.builder()
- *                     .phoneNumber(&#34;+12345678912&#34;)
+ *                     .phoneNumber("+12345678912")
  *                     .build())
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Quick Connect&#34;))
+ *             .tags(Map.of("Name", "Example Quick Connect"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

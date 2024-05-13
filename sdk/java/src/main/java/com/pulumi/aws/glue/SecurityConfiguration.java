@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityConfiguration(&#34;example&#34;, SecurityConfigurationArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new SecurityConfiguration("example", SecurityConfigurationArgs.builder()        
+ *             .name("example")
  *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
  *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
- *                     .cloudwatchEncryptionMode(&#34;DISABLED&#34;)
+ *                     .cloudwatchEncryptionMode("DISABLED")
  *                     .build())
  *                 .jobBookmarksEncryption(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.builder()
- *                     .jobBookmarksEncryptionMode(&#34;DISABLED&#34;)
+ *                     .jobBookmarksEncryptionMode("DISABLED")
  *                     .build())
  *                 .s3Encryption(SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.builder()
  *                     .kmsKeyArn(exampleAwsKmsKey.arn())
- *                     .s3EncryptionMode(&#34;SSE-KMS&#34;)
+ *                     .s3EncryptionMode("SSE-KMS")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

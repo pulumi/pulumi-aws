@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,24 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;app&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("app")
  *             .build());
  * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()        
  *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
+ *             .branchName("master")
  *             .build());
  * 
- *         var masterWebhook = new Webhook(&#34;masterWebhook&#34;, WebhookArgs.builder()        
+ *         var masterWebhook = new Webhook("masterWebhook", WebhookArgs.builder()        
  *             .appId(example.id())
  *             .branchName(master.branchName())
- *             .description(&#34;triggermaster&#34;)
+ *             .description("triggermaster")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

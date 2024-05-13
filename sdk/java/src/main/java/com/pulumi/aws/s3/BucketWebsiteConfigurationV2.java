@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### With `routing_rule` configured
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,33 +56,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
+ *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()        
  *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
- *                 .suffix(&#34;index.html&#34;)
+ *                 .suffix("index.html")
  *                 .build())
  *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
- *                 .key(&#34;error.html&#34;)
+ *                 .key("error.html")
  *                 .build())
  *             .routingRules(BucketWebsiteConfigurationV2RoutingRuleArgs.builder()
  *                 .condition(BucketWebsiteConfigurationV2RoutingRuleConditionArgs.builder()
- *                     .keyPrefixEquals(&#34;docs/&#34;)
+ *                     .keyPrefixEquals("docs/")
  *                     .build())
  *                 .redirect(BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.builder()
- *                     .replaceKeyPrefixWith(&#34;documents/&#34;)
+ *                     .replaceKeyPrefixWith("documents/")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With `routing_rules` configured
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,29 +107,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2(&#34;example&#34;, BucketWebsiteConfigurationV2Args.builder()        
+ *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()        
  *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
- *                 .suffix(&#34;index.html&#34;)
+ *                 .suffix("index.html")
  *                 .build())
  *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
- *                 .key(&#34;error.html&#34;)
+ *                 .key("error.html")
  *                 .build())
- *             .routingRuleDetails(&#34;&#34;&#34;
+ *             .routingRuleDetails("""
  * [{
- *     &#34;Condition&#34;: {
- *         &#34;KeyPrefixEquals&#34;: &#34;docs/&#34;
+ *     "Condition": {
+ *         "KeyPrefixEquals": "docs/"
  *     },
- *     &#34;Redirect&#34;: {
- *         &#34;ReplaceKeyPrefixWith&#34;: &#34;&#34;
+ *     "Redirect": {
+ *         "ReplaceKeyPrefixWith": ""
  *     }
  * }]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

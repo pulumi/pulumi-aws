@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Instance Target Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,26 +57,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;tf-example-lb-tg&#34;)
+ *         var test = new TargetGroup("test", TargetGroupArgs.builder()        
+ *             .name("tf-example-lb-tg")
  *             .port(80)
- *             .protocol(&#34;HTTP&#34;)
+ *             .protocol("HTTP")
  *             .vpcId(main.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Target Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,27 +101,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var ip_example = new TargetGroup(&#34;ip-example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;tf-example-lb-tg&#34;)
+ *         var ip_example = new TargetGroup("ip-example", TargetGroupArgs.builder()        
+ *             .name("tf-example-lb-tg")
  *             .port(80)
- *             .protocol(&#34;HTTP&#34;)
- *             .targetType(&#34;ip&#34;)
+ *             .protocol("HTTP")
+ *             .targetType("ip")
  *             .vpcId(main.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda Target Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -139,20 +144,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lambda_example = new TargetGroup(&#34;lambda-example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;tf-example-lb-tg&#34;)
- *             .targetType(&#34;lambda&#34;)
+ *         var lambda_example = new TargetGroup("lambda-example", TargetGroupArgs.builder()        
+ *             .name("tf-example-lb-tg")
+ *             .targetType("lambda")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### ALB Target Group
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -173,23 +180,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alb_example = new TargetGroup(&#34;alb-example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;tf-example-lb-alb-tg&#34;)
- *             .targetType(&#34;alb&#34;)
+ *         var alb_example = new TargetGroup("alb-example", TargetGroupArgs.builder()        
+ *             .name("tf-example-lb-alb-tg")
+ *             .targetType("alb")
  *             .port(80)
- *             .protocol(&#34;TCP&#34;)
+ *             .protocol("TCP")
  *             .vpcId(main.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Target group with unhealthy connection termination disabled
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -211,10 +220,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tcp_example = new TargetGroup(&#34;tcp-example&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;tf-example-lb-nlb-tg&#34;)
+ *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()        
+ *             .name("tf-example-lb-nlb-tg")
  *             .port(25)
- *             .protocol(&#34;TCP&#34;)
+ *             .protocol("TCP")
  *             .vpcId(main.id())
  *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
  *                 .enableUnhealthyConnectionTermination(false)
@@ -223,7 +232,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

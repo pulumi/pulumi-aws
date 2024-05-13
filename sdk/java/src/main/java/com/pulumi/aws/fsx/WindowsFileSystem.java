@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WindowsFileSystem(&#34;example&#34;, WindowsFileSystemArgs.builder()        
+ *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()        
  *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using a Self-Managed Microsoft Active Directory
@@ -72,7 +74,8 @@ import javax.annotation.Nullable;
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,24 +97,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WindowsFileSystem(&#34;example&#34;, WindowsFileSystemArgs.builder()        
+ *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()        
  *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .throughputCapacity(1024)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
- *                     &#34;10.0.0.111&#34;,
- *                     &#34;10.0.0.222&#34;)
- *                 .domainName(&#34;corp.example.com&#34;)
- *                 .password(&#34;avoid-plaintext-passwords&#34;)
- *                 .username(&#34;Admin&#34;)
+ *                     "10.0.0.111",
+ *                     "10.0.0.222")
+ *                 .domainName("corp.example.com")
+ *                 .password("avoid-plaintext-passwords")
+ *                 .username("Admin")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,49 +50,51 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
- *             .name(&#34;example.domain.local&#34;)
- *             .description(&#34;example&#34;)
+ *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()        
+ *             .name("example.domain.local")
+ *             .description("example")
  *             .vpc(example.id())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
- *                     .type(&#34;A&#34;)
+ *                     .type("A")
  *                     .build())
- *                 .routingPolicy(&#34;MULTIVALUE&#34;)
+ *                 .routingPolicy("MULTIVALUE")
  *                 .build())
  *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
  *                 .failureThreshold(1)
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .instanceId(&#34;example-instance-id&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .instanceId("example-instance-id")
  *             .serviceId(exampleService.id())
  *             .attributes(Map.ofEntries(
- *                 Map.entry(&#34;AWS_INSTANCE_IPV4&#34;, &#34;172.18.0.1&#34;),
- *                 Map.entry(&#34;custom_attribute&#34;, &#34;custom&#34;)
+ *                 Map.entry("AWS_INSTANCE_IPV4", "172.18.0.1"),
+ *                 Map.entry("custom_attribute", "custom")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -116,25 +119,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace(&#34;example&#34;, HttpNamespaceArgs.builder()        
- *             .name(&#34;example.domain.test&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()        
+ *             .name("example.domain.test")
+ *             .description("example")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example")
  *             .namespaceId(example.id())
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .instanceId(&#34;example-instance-id&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .instanceId("example-instance-id")
  *             .serviceId(exampleService.id())
- *             .attributes(Map.of(&#34;AWS_EC2_INSTANCE_ID&#34;, &#34;i-0abdg374kd892cj6dl&#34;))
+ *             .attributes(Map.of("AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,23 +52,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;example&#34;)
- *             .edition(&#34;DEVELOPER_EDITION&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
+ *             .description("example")
+ *             .edition("DEVELOPER_EDITION")
  *             .roleArn(this_.arn())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
+ *             .tags(Map.of("Key1", "Value1"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With capacity units
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,9 +92,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .edition(&#34;DEVELOPER_EDITION&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
+ *             .edition("DEVELOPER_EDITION")
  *             .roleArn(this_.arn())
  *             .capacityUnits(IndexCapacityUnitsArgs.builder()
  *                 .queryCapacityUnits(2)
@@ -101,13 +104,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With server side encryption configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,8 +134,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
  *             .roleArn(thisAwsIamRole.arn())
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
  *                 .kmsKeyId(this_.arn())
@@ -139,13 +144,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With user group resolution configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -167,17 +174,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
  *             .roleArn(this_.arn())
  *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
- *                 .userGroupResolutionMode(&#34;AWS_SSO&#34;)
+ *                 .userGroupResolutionMode("AWS_SSO")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Document Metadata Configuration Updates
@@ -187,7 +195,8 @@ import javax.annotation.Nullable;
  * Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -211,13 +220,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
  *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
+ *                     .name("_authors")
+ *                     .type("STRING_LIST_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -229,8 +238,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_category")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -243,8 +252,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
+ *                     .name("_created_at")
+ *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -254,13 +263,13 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .freshness(false)
  *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_data_source_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -273,8 +282,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_document_title")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -287,8 +296,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
+ *                     .name("_excerpt_page_number")
+ *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -297,12 +306,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_faq_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -315,8 +324,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_file_type")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -329,8 +338,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_language_code")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -343,8 +352,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
+ *                     .name("_last_updated_at")
+ *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -354,13 +363,13 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .freshness(false)
  *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_source_uri")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -373,8 +382,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_tenant_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_tenant_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -387,8 +396,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_version")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -401,8 +410,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
+ *                     .name("_view_count")
+ *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -411,14 +420,15 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Appending additional elements
@@ -426,7 +436,8 @@ import javax.annotation.Nullable;
  * The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -450,13 +461,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
  *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
+ *                     .name("_authors")
+ *                     .type("STRING_LIST_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -468,8 +479,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_category")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -482,8 +493,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
+ *                     .name("_created_at")
+ *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -493,13 +504,13 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .freshness(false)
  *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_data_source_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -512,8 +523,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_document_title")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -526,8 +537,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
+ *                     .name("_excerpt_page_number")
+ *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -536,12 +547,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_faq_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -554,8 +565,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_file_type")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -568,8 +579,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_language_code")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -582,8 +593,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
+ *                     .name("_last_updated_at")
+ *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -593,13 +604,13 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .freshness(false)
  *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_source_uri")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(false)
@@ -612,8 +623,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_tenant_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_tenant_id")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -626,8 +637,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("_version")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -640,8 +651,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
+ *                     .name("_view_count")
+ *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(false)
  *                         .facetable(false)
@@ -650,12 +661,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-value&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .name("example-string-value")
+ *                     .type("STRING_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -668,8 +679,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-long-value&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
+ *                     .name("example-long-value")
+ *                     .type("LONG_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -678,12 +689,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-list-value&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
+ *                     .name("example-string-list-value")
+ *                     .type("STRING_LIST_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -695,8 +706,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-date-value&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
+ *                     .name("example-date-value")
+ *                     .type("DATE_VALUE")
  *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
  *                         .displayable(true)
  *                         .facetable(true)
@@ -706,21 +717,23 @@ import javax.annotation.Nullable;
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .freshness(false)
  *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
+ *                         .duration("25920000s")
+ *                         .rankOrder("ASCENDING")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With JSON token type configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -743,20 +756,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Index("example", IndexArgs.builder()        
+ *             .name("example")
  *             .roleArn(this_.arn())
  *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
  *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
- *                     .groupAttributeField(&#34;groups&#34;)
- *                     .userNameAttributeField(&#34;username&#34;)
+ *                     .groupAttributeField("groups")
+ *                     .userNameAttributeField("username")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

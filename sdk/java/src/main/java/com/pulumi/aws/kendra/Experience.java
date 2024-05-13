@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Experience(&#34;example&#34;, ExperienceArgs.builder()        
+ *         var example = new Experience("example", ExperienceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .description(&#34;My Kendra Experience&#34;)
- *             .name(&#34;example&#34;)
+ *             .description("My Kendra Experience")
+ *             .name("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(ExperienceConfigurationArgs.builder()
  *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
@@ -60,14 +61,15 @@ import javax.annotation.Nullable;
  *                     .faqIds(exampleAwsKendraFaq.faqId())
  *                     .build())
  *                 .userIdentityConfiguration(ExperienceConfigurationUserIdentityConfigurationArgs.builder()
- *                     .identityAttributeName(&#34;12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245&#34;)
+ *                     .identityAttributeName("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

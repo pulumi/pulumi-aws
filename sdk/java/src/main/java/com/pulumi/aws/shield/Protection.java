@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Create protection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,19 +58,20 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var example = new Eip("example", EipArgs.builder()        
+ *             .domain("vpc")
  *             .build());
  * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .resourceArn(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Dev&#34;))
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *             .name("example")
+ *             .resourceArn(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
+ *             .tags(Map.of("Environment", "Dev"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

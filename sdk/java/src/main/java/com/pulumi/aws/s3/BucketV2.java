@@ -39,7 +39,8 @@ import javax.annotation.Nullable;
  * ### Private Bucket With Tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,17 +61,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-tf-test-bucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("my-tf-test-bucket")
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;My bucket&#34;),
- *                 Map.entry(&#34;Environment&#34;, &#34;Dev&#34;)
+ *                 Map.entry("Name", "My bucket"),
+ *                 Map.entry("Environment", "Dev")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

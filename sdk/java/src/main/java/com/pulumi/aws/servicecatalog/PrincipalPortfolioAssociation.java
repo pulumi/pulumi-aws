@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrincipalPortfolioAssociation(&#34;example&#34;, PrincipalPortfolioAssociationArgs.builder()        
- *             .portfolioId(&#34;port-68656c6c6f&#34;)
- *             .principalArn(&#34;arn:aws:iam::123456789012:user/Eleanor&#34;)
+ *         var example = new PrincipalPortfolioAssociation("example", PrincipalPortfolioAssociationArgs.builder()        
+ *             .portfolioId("port-68656c6c6f")
+ *             .principalArn("arn:aws:iam::123456789012:user/Eleanor")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### AWS Account ID
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .imageId(&#34;ami-12345678&#34;)
- *             .accountId(&#34;123456789012&#34;)
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *             .imageId("ami-12345678")
+ *             .accountId("123456789012")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Public Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,20 +80,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .imageId(&#34;ami-12345678&#34;)
- *             .group(&#34;all&#34;)
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *             .imageId("ami-12345678")
+ *             .group("all")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -114,14 +119,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = OrganizationsFunctions.getOrganization();
  * 
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .imageId(&#34;ami-12345678&#34;)
- *             .organizationArn(current.applyValue(getOrganizationResult -&gt; getOrganizationResult.arn()))
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *             .imageId("ami-12345678")
+ *             .organizationArn(current.applyValue(getOrganizationResult -> getOrganizationResult.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

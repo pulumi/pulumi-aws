@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,33 +42,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
+ *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()        
  *             .resourceArn(exampleAwsKinesisStream.arn())
- *             .policy(&#34;&#34;&#34;
+ *             .policy("""
  * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;writePolicy&#34;,
- *   &#34;Statement&#34;: [{
- *     &#34;Sid&#34;: &#34;writestatement&#34;,
- *     &#34;Effect&#34;: &#34;Allow&#34;,
- *     &#34;Principal&#34;: {
- *       &#34;AWS&#34;: &#34;123456789456&#34;
+ *   "Version": "2012-10-17",
+ *   "Id": "writePolicy",
+ *   "Statement": [{
+ *     "Sid": "writestatement",
+ *     "Effect": "Allow",
+ *     "Principal": {
+ *       "AWS": "123456789456"
  *     },
- *     &#34;Action&#34;: [
- *       &#34;kinesis:DescribeStreamSummary&#34;,
- *       &#34;kinesis:ListShards&#34;,
- *       &#34;kinesis:PutRecord&#34;,
- *       &#34;kinesis:PutRecords&#34;
+ *     "Action": [
+ *       "kinesis:DescribeStreamSummary",
+ *       "kinesis:ListShards",
+ *       "kinesis:PutRecord",
+ *       "kinesis:PutRecords"
  *     ],
- *     &#34;Resource&#34;: &#34;%s&#34;
+ *     "Resource": "%s"
  *   }]
  * }
- * &#34;, exampleAwsKinesisStream.arn()))
+ * ", exampleAwsKinesisStream.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

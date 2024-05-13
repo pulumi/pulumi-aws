@@ -23,7 +23,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,8 +46,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -54,7 +55,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -67,7 +69,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,8 +92,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -98,7 +101,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,8 +138,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -142,7 +147,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -177,8 +184,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -186,7 +193,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +207,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -221,8 +230,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -230,7 +239,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -243,7 +253,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -265,8 +276,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -274,7 +285,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -287,7 +299,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -309,8 +322,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -318,7 +331,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -331,7 +345,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -353,8 +368,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -362,7 +377,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -375,7 +391,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -397,8 +414,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -406,7 +423,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -419,7 +437,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -441,8 +460,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -450,7 +469,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -463,7 +483,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -485,8 +506,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -494,7 +515,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -507,7 +529,8 @@ public final class GlobalacceleratorFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -529,8 +552,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
-     *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
-     *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
      *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
@@ -538,7 +561,8 @@ public final class GlobalacceleratorFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

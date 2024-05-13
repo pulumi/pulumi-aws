@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
+ *         var r = new Route("r", RouteArgs.builder()        
  *             .routeTableId(testing.id())
- *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
- *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
+ *             .destinationCidrBlock("10.0.1.0/22")
+ *             .vpcPeeringConnectionId("pcx-45ff3dc1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example IPv6 Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,24 +87,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc(&#34;vpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .assignGeneratedIpv6CidrBlock(true)
  *             .build());
  * 
- *         var egress = new EgressOnlyInternetGateway(&#34;egress&#34;, EgressOnlyInternetGatewayArgs.builder()        
+ *         var egress = new EgressOnlyInternetGateway("egress", EgressOnlyInternetGatewayArgs.builder()        
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
- *             .routeTableId(&#34;rtb-4fbb3ac4&#34;)
- *             .destinationIpv6CidrBlock(&#34;::/0&#34;)
+ *         var r = new Route("r", RouteArgs.builder()        
+ *             .routeTableId("rtb-4fbb3ac4")
+ *             .destinationIpv6CidrBlock("::/0")
  *             .egressOnlyGatewayId(egress.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

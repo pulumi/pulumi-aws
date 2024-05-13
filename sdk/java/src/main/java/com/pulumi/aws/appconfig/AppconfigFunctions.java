@@ -31,7 +31,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,13 +54,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .configurationProfileId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +76,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,13 +99,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .configurationProfileId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -117,7 +121,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -139,13 +144,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .configurationProfileId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -160,7 +166,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,13 +189,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getConfigurationProfile(GetConfigurationProfileArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .configurationProfileId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .configurationProfileId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -263,7 +271,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -285,13 +294,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .environmentId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -306,7 +316,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -328,13 +339,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .environmentId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +361,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,13 +384,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .environmentId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +406,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,13 +429,14 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironment(GetEnvironmentArgs.builder()
-     *             .applicationId(&#34;b5d5gpj&#34;)
-     *             .environmentId(&#34;qrbb1c1&#34;)
+     *             .applicationId("b5d5gpj")
+     *             .environmentId("qrbb1c1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +452,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,12 +475,13 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
+     *             .applicationId("a1d3rpe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -479,7 +497,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -501,12 +520,13 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
+     *             .applicationId("a1d3rpe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -522,7 +542,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -544,12 +565,13 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
+     *             .applicationId("a1d3rpe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -565,7 +587,8 @@ public final class AppconfigFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -587,12 +610,13 @@ public final class AppconfigFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppconfigFunctions.getEnvironments(GetEnvironmentsArgs.builder()
-     *             .applicationId(&#34;a1d3rpe&#34;)
+     *             .applicationId("a1d3rpe")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,57 +61,57 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *             .name("example")
  *             .readCapacity(1)
  *             .writeCapacity(1)
- *             .hashKey(&#34;UserId&#34;)
+ *             .hashKey("UserId")
  *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;UserId&#34;)
- *                 .type(&#34;S&#34;)
+ *                 .name("UserId")
+ *                 .type("S")
  *                 .build())
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;appsync.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("appsync.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;dynamodb:*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("dynamodb:*")
  *                 .resources(exampleTable.arn())
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *             .name("example")
  *             .role(exampleRole.id())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .name(&#34;my_appsync_example&#34;)
+ *         var exampleGraphQLApi = new GraphQLApi("exampleGraphQLApi", GraphQLApiArgs.builder()        
+ *             .authenticationType("API_KEY")
+ *             .name("my_appsync_example")
  *             .build());
  * 
- *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
+ *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()        
  *             .apiId(exampleGraphQLApi.id())
- *             .name(&#34;my_appsync_example&#34;)
+ *             .name("my_appsync_example")
  *             .serviceRoleArn(exampleRole.arn())
- *             .type(&#34;AMAZON_DYNAMODB&#34;)
+ *             .type("AMAZON_DYNAMODB")
  *             .dynamodbConfig(DataSourceDynamodbConfigArgs.builder()
  *                 .tableName(exampleTable.name())
  *                 .build())
@@ -118,7 +119,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,27 +43,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrafficPolicy(&#34;example&#34;, TrafficPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .comment(&#34;example comment&#34;)
- *             .document(&#34;&#34;&#34;
+ *         var example = new TrafficPolicy("example", TrafficPolicyArgs.builder()        
+ *             .name("example")
+ *             .comment("example comment")
+ *             .document("""
  * {
- *   &#34;AWSPolicyFormatVersion&#34;: &#34;2015-10-01&#34;,
- *   &#34;RecordType&#34;: &#34;A&#34;,
- *   &#34;Endpoints&#34;: {
- *     &#34;endpoint-start-NkPh&#34;: {
- *       &#34;Type&#34;: &#34;value&#34;,
- *       &#34;Value&#34;: &#34;10.0.0.2&#34;
+ *   "AWSPolicyFormatVersion": "2015-10-01",
+ *   "RecordType": "A",
+ *   "Endpoints": {
+ *     "endpoint-start-NkPh": {
+ *       "Type": "value",
+ *       "Value": "10.0.0.2"
  *     }
  *   },
- *   &#34;StartEndpoint&#34;: &#34;endpoint-start-NkPh&#34;
+ *   "StartEndpoint": "endpoint-start-NkPh"
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

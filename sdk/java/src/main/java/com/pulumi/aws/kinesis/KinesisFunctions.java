@@ -28,7 +28,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,12 +51,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,12 +95,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +160,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,12 +183,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getFirehoseDeliveryStream(GetFirehoseDeliveryStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -197,7 +205,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -219,12 +228,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -240,7 +250,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -262,12 +273,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +295,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,12 +318,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -326,7 +340,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -348,12 +363,13 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var stream = KinesisFunctions.getStream(GetStreamArgs.builder()
-     *             .name(&#34;stream-name&#34;)
+     *             .name("stream-name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -368,7 +384,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -390,13 +407,14 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
+     *             .name("example-consumer")
      *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -411,7 +429,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -433,13 +452,14 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
+     *             .name("example-consumer")
      *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -454,7 +474,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -476,13 +497,14 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
+     *             .name("example-consumer")
      *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -497,7 +519,8 @@ public final class KinesisFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -519,13 +542,14 @@ public final class KinesisFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KinesisFunctions.getStreamConsumer(GetStreamConsumerArgs.builder()
-     *             .name(&#34;example-consumer&#34;)
+     *             .name("example-consumer")
      *             .streamArn(exampleAwsKinesisStream.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

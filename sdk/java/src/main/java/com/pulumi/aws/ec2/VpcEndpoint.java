@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,20 +57,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new VpcEndpoint(&#34;s3&#34;, VpcEndpointArgs.builder()        
+ *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()        
  *             .vpcId(main.id())
- *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
+ *             .serviceName("com.amazonaws.us-west-2.s3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic w/ Tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,21 +93,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new VpcEndpoint(&#34;s3&#34;, VpcEndpointArgs.builder()        
+ *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()        
  *             .vpcId(main.id())
- *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .serviceName("com.amazonaws.us-west-2.s3")
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Interface Endpoint Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,23 +130,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ec2 = new VpcEndpoint(&#34;ec2&#34;, VpcEndpointArgs.builder()        
+ *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()        
  *             .vpcId(main.id())
- *             .serviceName(&#34;com.amazonaws.us-west-2.ec2&#34;)
- *             .vpcEndpointType(&#34;Interface&#34;)
+ *             .serviceName("com.amazonaws.us-west-2.ec2")
+ *             .vpcEndpointType("Interface")
  *             .securityGroupIds(sg1.id())
  *             .privateDnsEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Gateway Load Balancer Endpoint Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -168,13 +175,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new VpcEndpointService(&#34;example&#34;, VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
  *             .acceptanceRequired(false)
- *             .allowedPrincipals(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+ *             .allowedPrincipals(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
  *             .gatewayLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
  *             .serviceName(example.serviceName())
  *             .subnetIds(exampleAwsSubnet.id())
  *             .vpcEndpointType(example.serviceType())
@@ -183,7 +190,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

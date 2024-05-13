@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,21 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SharedDirectory(&#34;example&#34;, SharedDirectoryArgs.builder()        
+ *         var example = new SharedDirectory("example", SharedDirectoryArgs.builder()        
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
- *             .notes(&#34;example&#34;)
+ *             .notes("example")
  *             .target(SharedDirectoryTargetArgs.builder()
  *                 .id(receiver.accountId())
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter(&#34;exampleSharedDirectoryAccepter&#34;, SharedDirectoryAccepterArgs.builder()        
+ *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter("exampleSharedDirectoryAccepter", SharedDirectoryAccepterArgs.builder()        
  *             .sharedDirectoryId(example.sharedDirectoryId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

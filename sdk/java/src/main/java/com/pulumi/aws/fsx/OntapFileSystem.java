@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapFileSystem(&#34;test&#34;, OntapFileSystemArgs.builder()        
+ *         var test = new OntapFileSystem("test", OntapFileSystemArgs.builder()        
  *             .storageCapacity(1024)
  *             .subnetIds(            
  *                 test1.id(),
  *                 test2.id())
- *             .deploymentType(&#34;MULTI_AZ_1&#34;)
+ *             .deploymentType("MULTI_AZ_1")
  *             .throughputCapacity(512)
  *             .preferredSubnetId(test1.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -84,17 +87,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testhapairs = new OntapFileSystem(&#34;testhapairs&#34;, OntapFileSystemArgs.builder()        
+ *         var testhapairs = new OntapFileSystem("testhapairs", OntapFileSystemArgs.builder()        
  *             .storageCapacity(2048)
  *             .subnetIds(test1.id())
- *             .deploymentType(&#34;SINGLE_AZ_2&#34;)
+ *             .deploymentType("SINGLE_AZ_2")
  *             .throughputCapacityPerHaPair(3072)
  *             .preferredSubnetId(test1.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

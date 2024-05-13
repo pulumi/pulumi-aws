@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,29 +51,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileCache(&#34;example&#34;, FileCacheArgs.builder()        
+ *         var example = new FileCache("example", FileCacheArgs.builder()        
  *             .dataRepositoryAssociations(FileCacheDataRepositoryAssociationArgs.builder()
- *                 .dataRepositoryPath(&#34;nfs://filer.domain.com&#34;)
+ *                 .dataRepositoryPath("nfs://filer.domain.com")
  *                 .dataRepositorySubdirectories(                
- *                     &#34;test&#34;,
- *                     &#34;test2&#34;)
- *                 .fileCachePath(&#34;/ns1&#34;)
+ *                     "test",
+ *                     "test2")
+ *                 .fileCachePath("/ns1")
  *                 .nfs(FileCacheDataRepositoryAssociationNfArgs.builder()
  *                     .dnsIps(                    
- *                         &#34;192.168.0.1&#34;,
- *                         &#34;192.168.0.2&#34;)
- *                     .version(&#34;NFS3&#34;)
+ *                         "192.168.0.1",
+ *                         "192.168.0.2")
+ *                     .version("NFS3")
  *                     .build())
  *                 .build())
- *             .fileCacheType(&#34;LUSTRE&#34;)
- *             .fileCacheTypeVersion(&#34;2.12&#34;)
+ *             .fileCacheType("LUSTRE")
+ *             .fileCacheTypeVersion("2.12")
  *             .lustreConfigurations(FileCacheLustreConfigurationArgs.builder()
- *                 .deploymentType(&#34;CACHE_1&#34;)
+ *                 .deploymentType("CACHE_1")
  *                 .metadataConfigurations(FileCacheLustreConfigurationMetadataConfigurationArgs.builder()
  *                     .storageCapacity(2400)
  *                     .build())
  *                 .perUnitStorageThroughput(1000)
- *                 .weeklyMaintenanceStartTime(&#34;2:05:00&#34;)
+ *                 .weeklyMaintenanceStartTime("2:05:00")
  *                 .build())
  *             .subnetIds(test1.id())
  *             .storageCapacity(1200)
@@ -80,7 +81,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

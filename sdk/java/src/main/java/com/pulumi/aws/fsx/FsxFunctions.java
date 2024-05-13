@@ -34,7 +34,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -56,12 +57,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapFileSystem(GetOntapFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -76,7 +78,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -98,12 +101,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapFileSystem(GetOntapFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -118,7 +122,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,12 +145,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapFileSystem(GetOntapFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -160,7 +166,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,12 +189,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapFileSystem(GetOntapFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -202,7 +210,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -224,18 +233,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,14 +269,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -280,7 +292,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,18 +315,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -336,14 +351,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -358,7 +374,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -380,18 +397,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,14 +433,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -436,7 +456,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -458,18 +479,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -492,14 +515,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +538,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -536,18 +561,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -570,14 +597,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -592,7 +620,8 @@ public final class FsxFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -614,18 +643,20 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
-     *             .id(&#34;svm-12345678&#34;)
+     *             .id("svm-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -648,14 +679,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachine(GetOntapStorageVirtualMachineArgs.builder()
      *             .filters(GetOntapStorageVirtualMachineFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -670,7 +702,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -693,14 +726,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -715,7 +749,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -738,14 +773,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -760,7 +796,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -783,14 +820,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -805,7 +843,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -828,14 +867,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -850,7 +890,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -873,14 +914,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -895,7 +937,8 @@ public final class FsxFunctions {
      * The following shows outputting all SVM IDs for a given FSx ONTAP File System.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -918,14 +961,15 @@ public final class FsxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getOntapStorageVirtualMachines(GetOntapStorageVirtualMachinesArgs.builder()
      *             .filters(GetOntapStorageVirtualMachinesFilterArgs.builder()
-     *                 .name(&#34;file-system-id&#34;)
-     *                 .values(&#34;fs-12345678&#34;)
+     *                 .name("file-system-id")
+     *                 .values("fs-12345678")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -940,7 +984,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -964,14 +1009,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -986,7 +1032,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1010,14 +1057,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1032,7 +1080,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1056,14 +1105,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1078,7 +1128,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1102,14 +1153,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1124,7 +1176,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1148,14 +1201,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1170,7 +1224,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1194,14 +1249,15 @@ public final class FsxFunctions {
      *         final var example = FsxFunctions.getOpenZfsSnapshot(GetOpenZfsSnapshotArgs.builder()
      *             .mostRecent(true)
      *             .filters(GetOpenZfsSnapshotFilterArgs.builder()
-     *                 .name(&#34;volume-id&#34;)
-     *                 .values(&#34;fsvol-073a32b6098a73feb&#34;)
+     *                 .name("volume-id")
+     *                 .values("fsvol-073a32b6098a73feb")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1216,7 +1272,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1238,12 +1295,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1258,7 +1316,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1280,12 +1339,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1300,7 +1360,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1322,12 +1383,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1342,7 +1404,8 @@ public final class FsxFunctions {
      * ### Root volume Example
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1364,12 +1427,13 @@ public final class FsxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
-     *             .id(&#34;fs-12345678&#34;)
+     *             .id("fs-12345678")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

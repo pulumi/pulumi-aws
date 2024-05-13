@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,78 +61,78 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCatalogDatabase = new CatalogDatabase(&#34;testCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testCatalogDatabase = new CatalogDatabase("testCatalogDatabase", CatalogDatabaseArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var testCatalogTable = new CatalogTable(&#34;testCatalogTable&#34;, CatalogTableArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testCatalogTable = new CatalogTable("testCatalogTable", CatalogTableArgs.builder()        
+ *             .name("example")
  *             .databaseName(testCatalogDatabase.name())
- *             .owner(&#34;my_owner&#34;)
+ *             .owner("my_owner")
  *             .retention(1)
- *             .tableType(&#34;VIRTUAL_VIEW&#34;)
- *             .viewExpandedText(&#34;view_expanded_text_1&#34;)
- *             .viewOriginalText(&#34;view_original_text_1&#34;)
+ *             .tableType("VIRTUAL_VIEW")
+ *             .viewExpandedText("view_expanded_text_1")
+ *             .viewOriginalText("view_original_text_1")
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .bucketColumns(&#34;bucket_column_1&#34;)
+ *                 .bucketColumns("bucket_column_1")
  *                 .compressed(false)
- *                 .inputFormat(&#34;SequenceFileInputFormat&#34;)
- *                 .location(&#34;my_location&#34;)
+ *                 .inputFormat("SequenceFileInputFormat")
+ *                 .location("my_location")
  *                 .numberOfBuckets(1)
- *                 .outputFormat(&#34;SequenceFileInputFormat&#34;)
+ *                 .outputFormat("SequenceFileInputFormat")
  *                 .storedAsSubDirectories(false)
- *                 .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
+ *                 .parameters(Map.of("param1", "param1_val"))
  *                 .columns(                
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_column_1&#34;)
- *                         .type(&#34;int&#34;)
- *                         .comment(&#34;my_column1_comment&#34;)
+ *                         .name("my_column_1")
+ *                         .type("int")
+ *                         .comment("my_column1_comment")
  *                         .build(),
  *                     CatalogTableStorageDescriptorColumnArgs.builder()
- *                         .name(&#34;my_column_2&#34;)
- *                         .type(&#34;string&#34;)
- *                         .comment(&#34;my_column2_comment&#34;)
+ *                         .name("my_column_2")
+ *                         .type("string")
+ *                         .comment("my_column2_comment")
  *                         .build())
  *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
- *                     .name(&#34;ser_de_name&#34;)
- *                     .parameters(Map.of(&#34;param1&#34;, &#34;param_val_1&#34;))
- *                     .serializationLibrary(&#34;org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe&#34;)
+ *                     .name("ser_de_name")
+ *                     .parameters(Map.of("param1", "param_val_1"))
+ *                     .serializationLibrary("org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe")
  *                     .build())
  *                 .sortColumns(CatalogTableStorageDescriptorSortColumnArgs.builder()
- *                     .column(&#34;my_column_1&#34;)
+ *                     .column("my_column_1")
  *                     .sortOrder(1)
  *                     .build())
  *                 .skewedInfo(CatalogTableStorageDescriptorSkewedInfoArgs.builder()
- *                     .skewedColumnNames(&#34;my_column_1&#34;)
- *                     .skewedColumnValueLocationMaps(Map.of(&#34;my_column_1&#34;, &#34;my_column_1_val_loc_map&#34;))
- *                     .skewedColumnValues(&#34;skewed_val_1&#34;)
+ *                     .skewedColumnNames("my_column_1")
+ *                     .skewedColumnValueLocationMaps(Map.of("my_column_1", "my_column_1_val_loc_map"))
+ *                     .skewedColumnValues("skewed_val_1")
  *                     .build())
  *                 .build())
  *             .partitionKeys(            
  *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name(&#34;my_column_1&#34;)
- *                     .type(&#34;int&#34;)
- *                     .comment(&#34;my_column_1_comment&#34;)
+ *                     .name("my_column_1")
+ *                     .type("int")
+ *                     .comment("my_column_1_comment")
  *                     .build(),
  *                 CatalogTablePartitionKeyArgs.builder()
- *                     .name(&#34;my_column_2&#34;)
- *                     .type(&#34;string&#34;)
- *                     .comment(&#34;my_column_2_comment&#34;)
+ *                     .name("my_column_2")
+ *                     .type("string")
+ *                     .comment("my_column_2_comment")
  *                     .build())
- *             .parameters(Map.of(&#34;param1&#34;, &#34;param1_val&#34;))
+ *             .parameters(Map.of("param1", "param1_val"))
  *             .build());
  * 
- *         var test = new MLTransform(&#34;test&#34;, MLTransformArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var test = new MLTransform("test", MLTransformArgs.builder()        
+ *             .name("example")
  *             .roleArn(testAwsIamRole.arn())
  *             .inputRecordTables(MLTransformInputRecordTableArgs.builder()
  *                 .databaseName(testCatalogTable.databaseName())
  *                 .tableName(testCatalogTable.name())
  *                 .build())
  *             .parameters(MLTransformParametersArgs.builder()
- *                 .transformType(&#34;FIND_MATCHES&#34;)
+ *                 .transformType("FIND_MATCHES")
  *                 .findMatchesParameters(MLTransformParametersFindMatchesParametersArgs.builder()
- *                     .primaryKeyColumnName(&#34;my_column_1&#34;)
+ *                     .primaryKeyColumnName("my_column_1")
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -140,7 +141,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

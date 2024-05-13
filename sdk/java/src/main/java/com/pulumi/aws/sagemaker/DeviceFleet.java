@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,17 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeviceFleet(&#34;example&#34;, DeviceFleetArgs.builder()        
- *             .deviceFleetName(&#34;example&#34;)
+ *         var example = new DeviceFleet("example", DeviceFleetArgs.builder()        
+ *             .deviceFleetName("example")
  *             .roleArn(test.arn())
  *             .outputConfig(DeviceFleetOutputConfigArgs.builder()
- *                 .s3OutputLocation(String.format(&#34;s3://%s/prefix/&#34;, exampleAwsS3Bucket.bucket()))
+ *                 .s3OutputLocation(String.format("s3://%s/prefix/", exampleAwsS3Bucket.bucket()))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

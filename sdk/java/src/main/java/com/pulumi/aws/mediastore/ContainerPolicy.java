@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,36 +50,37 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;MediaStoreFullAccess&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("MediaStoreFullAccess")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(String.format(&#34;arn:aws:iam::%s:root&#34;, currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                     .type("AWS")
+ *                     .identifiers(String.format("arn:aws:iam::%s:root", currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                     .build())
- *                 .actions(&#34;mediastore:*&#34;)
- *                 .resources(exampleContainer.name().applyValue(name -&gt; String.format(&#34;arn:aws:mediastore:%s:%s:container/%s/*&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),name)))
+ *                 .actions("mediastore:*")
+ *                 .resources(exampleContainer.name().applyValue(name -> String.format("arn:aws:mediastore:%s:%s:container/%s/*", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),name)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;Bool&#34;)
- *                     .variable(&#34;aws:SecureTransport&#34;)
- *                     .values(&#34;true&#34;)
+ *                     .test("Bool")
+ *                     .variable("aws:SecureTransport")
+ *                     .values("true")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleContainerPolicy = new ContainerPolicy(&#34;exampleContainerPolicy&#34;, ContainerPolicyArgs.builder()        
+ *         var exampleContainerPolicy = new ContainerPolicy("exampleContainerPolicy", ContainerPolicyArgs.builder()        
  *             .containerName(exampleContainer.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

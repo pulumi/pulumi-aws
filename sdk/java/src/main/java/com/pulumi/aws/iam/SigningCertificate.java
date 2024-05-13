@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * **Using certs on file:**
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCert = new SigningCertificate(&#34;testCert&#34;, SigningCertificateArgs.builder()        
- *             .username(&#34;some_test_cert&#34;)
+ *         var testCert = new SigningCertificate("testCert", SigningCertificateArgs.builder()        
+ *             .username("some_test_cert")
  *             .certificateBody(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .input("self-ca-cert.pem")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Example with cert in-line:**
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,18 +83,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCertAlt = new SigningCertificate(&#34;testCertAlt&#34;, SigningCertificateArgs.builder()        
- *             .username(&#34;some_test_cert&#34;)
- *             .certificateBody(&#34;&#34;&#34;
+ *         var testCertAlt = new SigningCertificate("testCertAlt", SigningCertificateArgs.builder()        
+ *             .username("some_test_cert")
+ *             .certificateBody("""
  * -----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

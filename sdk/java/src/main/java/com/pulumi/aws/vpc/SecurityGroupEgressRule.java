@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,17 +51,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupEgressRule(&#34;example&#34;, SecurityGroupEgressRuleArgs.builder()        
+ *         var example = new SecurityGroupEgressRule("example", SecurityGroupEgressRuleArgs.builder()        
  *             .securityGroupId(exampleAwsSecurityGroup.id())
- *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
+ *             .cidrIpv4("10.0.0.0/8")
  *             .fromPort(80)
- *             .ipProtocol(&#34;tcp&#34;)
+ *             .ipProtocol("tcp")
  *             .toPort(80)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

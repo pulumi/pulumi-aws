@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +47,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Stack(&#34;network&#34;, StackArgs.builder()        
- *             .name(&#34;networking-stack&#34;)
- *             .parameters(Map.of(&#34;VPCCidr&#34;, &#34;10.0.0.0/16&#34;))
+ *         var network = new Stack("network", StackArgs.builder()        
+ *             .name("networking-stack")
+ *             .parameters(Map.of("VPCCidr", "10.0.0.0/16"))
  *             .templateBody(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                         jsonProperty(&#34;VPCCidr&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;),
- *                             jsonProperty(&#34;Default&#34;, &#34;10.0.0.0/16&#34;),
- *                             jsonProperty(&#34;Description&#34;, &#34;Enter the CIDR block for the VPC. Default is 10.0.0.0/16.&#34;)
+ *                     jsonProperty("Parameters", jsonObject(
+ *                         jsonProperty("VPCCidr", jsonObject(
+ *                             jsonProperty("Type", "String"),
+ *                             jsonProperty("Default", "10.0.0.0/16"),
+ *                             jsonProperty("Description", "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.")
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;Resources&#34;, jsonObject(
- *                         jsonProperty(&#34;myVpc&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::EC2::VPC&#34;),
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;CidrBlock&#34;, jsonObject(
- *                                     jsonProperty(&#34;Ref&#34;, &#34;VPCCidr&#34;)
+ *                     jsonProperty("Resources", jsonObject(
+ *                         jsonProperty("myVpc", jsonObject(
+ *                             jsonProperty("Type", "AWS::EC2::VPC"),
+ *                             jsonProperty("Properties", jsonObject(
+ *                                 jsonProperty("CidrBlock", jsonObject(
+ *                                     jsonProperty("Ref", "VPCCidr")
  *                                 )),
- *                                 jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;Key&#34;, &#34;Name&#34;),
- *                                     jsonProperty(&#34;Value&#34;, &#34;Primary_CF_VPC&#34;)
+ *                                 jsonProperty("Tags", jsonArray(jsonObject(
+ *                                     jsonProperty("Key", "Name"),
+ *                                     jsonProperty("Value", "Primary_CF_VPC")
  *                                 )))
  *                             ))
  *                         ))
@@ -77,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,14 +41,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CostAllocationTag(&#34;example&#34;, CostAllocationTagArgs.builder()        
- *             .tagKey(&#34;example&#34;)
- *             .status(&#34;Active&#34;)
+ *         var example = new CostAllocationTag("example", CostAllocationTagArgs.builder()        
+ *             .tagKey("example")
+ *             .status("Active")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

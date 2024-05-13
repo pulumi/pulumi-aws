@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,45 +55,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var console = new EventRule(&#34;console&#34;, EventRuleArgs.builder()        
- *             .name(&#34;capture-aws-sign-in&#34;)
- *             .description(&#34;Capture each AWS Console Sign In&#34;)
+ *         var console = new EventRule("console", EventRuleArgs.builder()        
+ *             .name("capture-aws-sign-in")
+ *             .description("Capture each AWS Console Sign In")
  *             .eventPattern(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;detail-type&#34;, jsonArray(&#34;AWS Console Sign In via CloudTrail&#34;))
+ *                     jsonProperty("detail-type", jsonArray("AWS Console Sign In via CloudTrail"))
  *                 )))
  *             .build());
  * 
- *         var awsLogins = new Topic(&#34;awsLogins&#34;, TopicArgs.builder()        
- *             .name(&#34;aws-console-logins&#34;)
+ *         var awsLogins = new Topic("awsLogins", TopicArgs.builder()        
+ *             .name("aws-console-logins")
  *             .build());
  * 
- *         var sns = new EventTarget(&#34;sns&#34;, EventTargetArgs.builder()        
+ *         var sns = new EventTarget("sns", EventTargetArgs.builder()        
  *             .rule(console.name())
- *             .targetId(&#34;SendToSNS&#34;)
+ *             .targetId("SendToSNS")
  *             .arn(awsLogins.arn())
  *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;SNS:Publish&#34;)
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;events.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("events.amazonaws.com")
  *                     .build())
  *                 .resources(awsLogins.arn())
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
  *             .arn(awsLogins.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

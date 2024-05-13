@@ -32,7 +32,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,12 +55,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;my_example_backup_framework_name&#34;)
+     *             .name("my_example_backup_framework_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -72,7 +74,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -94,12 +97,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;my_example_backup_framework_name&#34;)
+     *             .name("my_example_backup_framework_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;my_example_backup_framework_name&#34;)
+     *             .name("my_example_backup_framework_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,12 +181,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .name(&#34;my_example_backup_framework_name&#34;)
+     *             .name("my_example_backup_framework_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -192,7 +200,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -214,12 +223,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;my_example_backup_plan_id&#34;)
+     *             .planId("my_example_backup_plan_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -232,7 +242,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -254,12 +265,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;my_example_backup_plan_id&#34;)
+     *             .planId("my_example_backup_plan_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -272,7 +284,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -294,12 +307,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;my_example_backup_plan_id&#34;)
+     *             .planId("my_example_backup_plan_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -312,7 +326,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,12 +349,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
-     *             .planId(&#34;my_example_backup_plan_id&#34;)
+     *             .planId("my_example_backup_plan_id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -352,7 +368,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -374,12 +391,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;my_example_backup_report_plan_name&#34;)
+     *             .name("my_example_backup_report_plan_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +410,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,12 +433,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;my_example_backup_report_plan_name&#34;)
+     *             .name("my_example_backup_report_plan_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -432,7 +452,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -454,12 +475,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;my_example_backup_report_plan_name&#34;)
+     *             .name("my_example_backup_report_plan_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -472,7 +494,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,12 +517,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
-     *             .name(&#34;my_example_backup_report_plan_name&#34;)
+     *             .name("my_example_backup_report_plan_name")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -512,7 +536,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -535,12 +560,13 @@ public final class BackupFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(exampleAwsBackupPlan.id())
-     *             .selectionId(&#34;selection-id-example&#34;)
+     *             .selectionId("selection-id-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -553,7 +579,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -576,12 +603,13 @@ public final class BackupFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(exampleAwsBackupPlan.id())
-     *             .selectionId(&#34;selection-id-example&#34;)
+     *             .selectionId("selection-id-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -594,7 +622,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -617,12 +646,13 @@ public final class BackupFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(exampleAwsBackupPlan.id())
-     *             .selectionId(&#34;selection-id-example&#34;)
+     *             .selectionId("selection-id-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +665,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -658,12 +689,13 @@ public final class BackupFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(exampleAwsBackupPlan.id())
-     *             .selectionId(&#34;selection-id-example&#34;)
+     *             .selectionId("selection-id-example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -676,7 +708,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -698,12 +731,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;example_backup_vault&#34;)
+     *             .name("example_backup_vault")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -716,7 +750,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -738,12 +773,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;example_backup_vault&#34;)
+     *             .name("example_backup_vault")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -756,7 +792,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -778,12 +815,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;example_backup_vault&#34;)
+     *             .name("example_backup_vault")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -796,7 +834,8 @@ public final class BackupFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -818,12 +857,13 @@ public final class BackupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
-     *             .name(&#34;example_backup_vault&#34;)
+     *             .name("example_backup_vault")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

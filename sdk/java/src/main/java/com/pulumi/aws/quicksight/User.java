@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,18 +42,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .sessionName(&#34;an-author&#34;)
- *             .email(&#34;author@example.com&#34;)
- *             .namespace(&#34;foo&#34;)
- *             .identityType(&#34;IAM&#34;)
- *             .iamArn(&#34;arn:aws:iam::123456789012:user/Example&#34;)
- *             .userRole(&#34;AUTHOR&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .sessionName("an-author")
+ *             .email("author{@literal @}example.com")
+ *             .namespace("foo")
+ *             .identityType("IAM")
+ *             .iamArn("arn:aws:iam::123456789012:user/Example")
+ *             .userRole("AUTHOR")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

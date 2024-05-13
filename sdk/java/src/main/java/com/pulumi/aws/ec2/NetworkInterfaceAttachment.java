@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new NetworkInterfaceAttachment(&#34;test&#34;, NetworkInterfaceAttachmentArgs.builder()        
+ *         var test = new NetworkInterfaceAttachment("test", NetworkInterfaceAttachmentArgs.builder()        
  *             .instanceId(testAwsInstance.id())
  *             .networkInterfaceId(testAwsNetworkInterface.id())
  *             .deviceIndex(0)
@@ -49,7 +50,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

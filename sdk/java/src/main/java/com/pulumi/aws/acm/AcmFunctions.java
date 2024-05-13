@@ -22,7 +22,8 @@ public final class AcmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,26 +46,27 @@ public final class AcmFunctions {
      *     public static void stack(Context ctx) {
      *         // Find a certificate that is issued
      *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .statuses("ISSUED")
      *             .build());
      * 
      *         // Find a certificate issued by (not imported into) ACM
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .types("AMAZON_ISSUED")
      *             .mostRecent(true)
      *             .build());
      * 
      *         // Find a RSA 4096 bit certificate
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
+     *             .domain("tf.example.com")
+     *             .keyTypes("RSA_4096")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -79,7 +81,8 @@ public final class AcmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,26 +105,27 @@ public final class AcmFunctions {
      *     public static void stack(Context ctx) {
      *         // Find a certificate that is issued
      *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .statuses("ISSUED")
      *             .build());
      * 
      *         // Find a certificate issued by (not imported into) ACM
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .types("AMAZON_ISSUED")
      *             .mostRecent(true)
      *             .build());
      * 
      *         // Find a RSA 4096 bit certificate
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
+     *             .domain("tf.example.com")
+     *             .keyTypes("RSA_4096")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -136,7 +140,8 @@ public final class AcmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -159,26 +164,27 @@ public final class AcmFunctions {
      *     public static void stack(Context ctx) {
      *         // Find a certificate that is issued
      *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .statuses("ISSUED")
      *             .build());
      * 
      *         // Find a certificate issued by (not imported into) ACM
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .types("AMAZON_ISSUED")
      *             .mostRecent(true)
      *             .build());
      * 
      *         // Find a RSA 4096 bit certificate
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
+     *             .domain("tf.example.com")
+     *             .keyTypes("RSA_4096")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +199,8 @@ public final class AcmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -216,26 +223,27 @@ public final class AcmFunctions {
      *     public static void stack(Context ctx) {
      *         // Find a certificate that is issued
      *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .statuses(&#34;ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .statuses("ISSUED")
      *             .build());
      * 
      *         // Find a certificate issued by (not imported into) ACM
      *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .types(&#34;AMAZON_ISSUED&#34;)
+     *             .domain("tf.example.com")
+     *             .types("AMAZON_ISSUED")
      *             .mostRecent(true)
      *             .build());
      * 
      *         // Find a RSA 4096 bit certificate
      *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .domain(&#34;tf.example.com&#34;)
-     *             .keyTypes(&#34;RSA_4096&#34;)
+     *             .domain("tf.example.com")
+     *             .keyTypes("RSA_4096")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

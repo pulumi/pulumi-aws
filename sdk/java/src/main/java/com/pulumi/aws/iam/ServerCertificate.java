@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * **Using certs on file:**
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,25 +55,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
- *             .name(&#34;some_test_cert&#34;)
+ *         var testCert = new ServerCertificate("testCert", ServerCertificateArgs.builder()        
+ *             .name("some_test_cert")
  *             .certificateBody(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .input("self-ca-cert.pem")
  *                 .build()).result())
  *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;test-key.pem&#34;)
+ *                 .input("test-key.pem")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Example with cert in-line:**
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -93,23 +96,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCertAlt = new ServerCertificate(&#34;testCertAlt&#34;, ServerCertificateArgs.builder()        
- *             .name(&#34;alt_test_cert&#34;)
- *             .certificateBody(&#34;&#34;&#34;
+ *         var testCertAlt = new ServerCertificate("testCertAlt", ServerCertificateArgs.builder()        
+ *             .name("alt_test_cert")
+ *             .certificateBody("""
  * -----BEGIN CERTIFICATE-----
  * [......] # cert contents
  * -----END CERTIFICATE-----
- *             &#34;&#34;&#34;)
- *             .privateKey(&#34;&#34;&#34;
+ *             """)
+ *             .privateKey("""
  * -----BEGIN RSA PRIVATE KEY-----
  * [......] # cert contents
  * -----END RSA PRIVATE KEY-----
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * **Use in combination with an AWS ELB resource:**

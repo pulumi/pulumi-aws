@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Account Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,20 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var devAccountAccess = new EventPermission(&#34;devAccountAccess&#34;, EventPermissionArgs.builder()        
- *             .principal(&#34;123456789012&#34;)
- *             .statementId(&#34;DevAccountAccess&#34;)
+ *         var devAccountAccess = new EventPermission("devAccountAccess", EventPermissionArgs.builder()        
+ *             .principal("123456789012")
+ *             .statementId("DevAccountAccess")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -83,19 +86,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var organizationAccess = new EventPermission(&#34;organizationAccess&#34;, EventPermissionArgs.builder()        
- *             .principal(&#34;*&#34;)
- *             .statementId(&#34;OrganizationAccess&#34;)
+ *         var organizationAccess = new EventPermission("organizationAccess", EventPermissionArgs.builder()        
+ *             .principal("*")
+ *             .statementId("OrganizationAccess")
  *             .condition(EventPermissionConditionArgs.builder()
- *                 .key(&#34;aws:PrincipalOrgID&#34;)
- *                 .type(&#34;StringEquals&#34;)
+ *                 .key("aws:PrincipalOrgID")
+ *                 .type("StringEquals")
  *                 .value(example.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

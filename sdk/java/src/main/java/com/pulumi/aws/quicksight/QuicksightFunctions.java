@@ -31,7 +31,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,12 +54,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
+     *             .dataSetId("example-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -73,7 +75,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,12 +98,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
+     *             .dataSetId("example-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -137,12 +142,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
+     *             .dataSetId("example-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -157,7 +163,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -179,12 +186,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
+     *             .dataSetId("example-id")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -201,7 +209,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -223,12 +232,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
+     *             .groupName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -245,7 +255,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -267,12 +278,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
+     *             .groupName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -289,7 +301,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -311,12 +324,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
+     *             .groupName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -333,7 +347,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,12 +370,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
+     *             .groupName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +393,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -399,12 +416,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
+     *             .userName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -421,7 +439,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -443,12 +462,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
+     *             .userName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -465,7 +485,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -487,12 +508,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
+     *             .userName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -509,7 +531,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -531,12 +554,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
+     *             .userName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -551,7 +575,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -573,12 +598,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
-     *             .themeId(&#34;example&#34;)
+     *             .themeId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -593,7 +619,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -615,12 +642,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
-     *             .themeId(&#34;example&#34;)
+     *             .themeId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -635,7 +663,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -657,12 +686,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
-     *             .themeId(&#34;example&#34;)
+     *             .themeId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -677,7 +707,8 @@ public final class QuicksightFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -699,12 +730,13 @@ public final class QuicksightFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
-     *             .themeId(&#34;example&#34;)
+     *             .themeId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

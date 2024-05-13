@@ -29,7 +29,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,12 +52,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
-     *             .apiId(&#34;aabbccddee&#34;)
+     *             .apiId("aabbccddee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,12 +94,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
-     *             .apiId(&#34;aabbccddee&#34;)
+     *             .apiId("aabbccddee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -109,7 +113,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -131,12 +136,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
-     *             .apiId(&#34;aabbccddee&#34;)
+     *             .apiId("aabbccddee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -149,7 +155,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -171,12 +178,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
-     *             .apiId(&#34;aabbccddee&#34;)
+     *             .apiId("aabbccddee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -189,7 +197,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -211,12 +220,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -229,7 +239,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -251,12 +262,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -269,7 +281,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -291,12 +304,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -309,7 +323,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +346,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -349,7 +365,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -371,12 +388,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -389,7 +407,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -411,12 +430,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
-     *             .protocolType(&#34;HTTP&#34;)
+     *             .protocolType("HTTP")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -429,7 +449,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -452,13 +473,14 @@ public final class Apigatewayv2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(testAwsApigatewayv2Route.apiId())
-     *             .specification(&#34;OAS30&#34;)
-     *             .outputType(&#34;JSON&#34;)
+     *             .specification("OAS30")
+     *             .outputType("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -471,7 +493,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,13 +517,14 @@ public final class Apigatewayv2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(testAwsApigatewayv2Route.apiId())
-     *             .specification(&#34;OAS30&#34;)
-     *             .outputType(&#34;JSON&#34;)
+     *             .specification("OAS30")
+     *             .outputType("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -513,7 +537,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -536,13 +561,14 @@ public final class Apigatewayv2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(testAwsApigatewayv2Route.apiId())
-     *             .specification(&#34;OAS30&#34;)
-     *             .outputType(&#34;JSON&#34;)
+     *             .specification("OAS30")
+     *             .outputType("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -555,7 +581,8 @@ public final class Apigatewayv2Functions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -578,13 +605,14 @@ public final class Apigatewayv2Functions {
      *     public static void stack(Context ctx) {
      *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(testAwsApigatewayv2Route.apiId())
-     *             .specification(&#34;OAS30&#34;)
-     *             .outputType(&#34;JSON&#34;)
+     *             .specification("OAS30")
+     *             .outputType("JSON")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -599,7 +627,8 @@ public final class Apigatewayv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -621,12 +650,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
-     *             .vpcLinkId(&#34;example&#34;)
+     *             .vpcLinkId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -641,7 +671,8 @@ public final class Apigatewayv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -663,12 +694,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
-     *             .vpcLinkId(&#34;example&#34;)
+     *             .vpcLinkId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -683,7 +715,8 @@ public final class Apigatewayv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -705,12 +738,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
-     *             .vpcLinkId(&#34;example&#34;)
+     *             .vpcLinkId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -725,7 +759,8 @@ public final class Apigatewayv2Functions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -747,12 +782,13 @@ public final class Apigatewayv2Functions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
-     *             .vpcLinkId(&#34;example&#34;)
+     *             .vpcLinkId("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

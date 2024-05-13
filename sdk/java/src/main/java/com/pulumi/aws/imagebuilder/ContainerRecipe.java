@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,37 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContainerRecipe(&#34;example&#34;, ContainerRecipeArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .version(&#34;1.0.0&#34;)
- *             .containerType(&#34;DOCKER&#34;)
- *             .parentImage(&#34;arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x&#34;)
+ *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()        
+ *             .name("example")
+ *             .version("1.0.0")
+ *             .containerType("DOCKER")
+ *             .parentImage("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x")
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
  *                 .repositoryName(exampleAwsEcrRepository.name())
- *                 .service(&#34;ECR&#34;)
+ *                 .service("ECR")
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
  *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ContainerRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter1&#34;)
- *                         .value(&#34;Value1&#34;)
+ *                         .name("Parameter1")
+ *                         .value("Value1")
  *                         .build(),
  *                     ContainerRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter2&#34;)
- *                         .value(&#34;Value2&#34;)
+ *                         .name("Parameter2")
+ *                         .value("Value2")
  *                         .build())
  *                 .build())
- *             .dockerfileTemplateData(&#34;&#34;&#34;
+ *             .dockerfileTemplateData("""
  * FROM {{{ imagebuilder:parentImage }}}
  * {{{ imagebuilder:environments }}}
  * {{{ imagebuilder:components }}}
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

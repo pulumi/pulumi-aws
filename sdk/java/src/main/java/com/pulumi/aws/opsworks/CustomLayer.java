@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,15 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custlayer = new CustomLayer(&#34;custlayer&#34;, CustomLayerArgs.builder()        
- *             .name(&#34;My Awesome Custom Layer&#34;)
- *             .shortName(&#34;awesome&#34;)
+ *         var custlayer = new CustomLayer("custlayer", CustomLayerArgs.builder()        
+ *             .name("My Awesome Custom Layer")
+ *             .shortName("awesome")
  *             .stackId(main.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

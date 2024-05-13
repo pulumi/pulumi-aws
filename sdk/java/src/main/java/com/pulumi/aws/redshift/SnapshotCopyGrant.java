@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SnapshotCopyGrant(&#34;test&#34;, SnapshotCopyGrantArgs.builder()        
- *             .snapshotCopyGrantName(&#34;my-grant&#34;)
+ *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()        
+ *             .snapshotCopyGrantName("my-grant")
  *             .build());
  * 
- *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
  *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
- *                 .destinationRegion(&#34;us-east-2&#34;)
+ *                 .destinationRegion("us-east-2")
  *                 .grantName(test.snapshotCopyGrantName())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

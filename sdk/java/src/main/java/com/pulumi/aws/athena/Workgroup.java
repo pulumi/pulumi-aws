@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,15 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Workgroup("example", WorkgroupArgs.builder()        
+ *             .name("example")
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .enforceWorkgroupConfiguration(true)
  *                 .publishCloudwatchMetricsEnabled(true)
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .outputLocation(String.format(&#34;s3://%s/output/&#34;, exampleAwsS3Bucket.bucket()))
+ *                     .outputLocation(String.format("s3://%s/output/", exampleAwsS3Bucket.bucket()))
  *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption(&#34;SSE_KMS&#34;)
+ *                         .encryptionOption("SSE_KMS")
  *                         .kmsKeyArn(exampleAwsKmsKey.arn())
  *                         .build())
  *                     .build())
@@ -64,7 +65,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

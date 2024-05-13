@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()        
  *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .launchTemplateId(exampleAwsLaunchTemplate.id())
@@ -61,14 +62,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .targetCapacitySpecification(FleetTargetCapacitySpecificationArgs.builder()
- *                 .defaultTargetCapacityType(&#34;spot&#34;)
+ *                 .defaultTargetCapacityType("spot")
  *                 .totalTargetCapacity(5)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

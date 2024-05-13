@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Non-VPC Connection
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()        
  *             .connectionProperties(Map.ofEntries(
- *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, &#34;jdbc:mysql://example.com/exampledatabase&#34;),
- *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
- *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
+ *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
+ *                 Map.entry("PASSWORD", "examplepassword"),
+ *                 Map.entry("USERNAME", "exampleusername")
  *             ))
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### VPC Connection
@@ -65,7 +67,8 @@ import javax.annotation.Nullable;
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,13 +90,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection(&#34;example&#34;, ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()        
  *             .connectionProperties(Map.ofEntries(
- *                 Map.entry(&#34;JDBC_CONNECTION_URL&#34;, String.format(&#34;jdbc:mysql://%s/exampledatabase&#34;, exampleAwsRdsCluster.endpoint())),
- *                 Map.entry(&#34;PASSWORD&#34;, &#34;examplepassword&#34;),
- *                 Map.entry(&#34;USERNAME&#34;, &#34;exampleusername&#34;)
+ *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.endpoint())),
+ *                 Map.entry("PASSWORD", "examplepassword"),
+ *                 Map.entry("USERNAME", "exampleusername")
  *             ))
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
  *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
  *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
@@ -103,7 +106,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

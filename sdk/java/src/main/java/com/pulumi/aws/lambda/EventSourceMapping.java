@@ -36,7 +36,8 @@ import javax.annotation.Nullable;
  * ### DynamoDB
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -57,21 +58,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .startingPosition(&#34;LATEST&#34;)
+ *             .startingPosition("LATEST")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Kinesis
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -92,21 +95,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .eventSourceArn(exampleAwsKinesisStream.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .startingPosition(&#34;LATEST&#34;)
+ *             .startingPosition("LATEST")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managed Streaming for Apache Kafka (MSK)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -127,22 +132,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .eventSourceArn(exampleAwsMskCluster.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .topics(&#34;Example&#34;)
- *             .startingPosition(&#34;TRIM_HORIZON&#34;)
+ *             .topics("Example")
+ *             .startingPosition("TRIM_HORIZON")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Self Managed Apache Kafka
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -165,37 +172,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .topics(&#34;Example&#34;)
- *             .startingPosition(&#34;TRIM_HORIZON&#34;)
+ *             .topics("Example")
+ *             .startingPosition("TRIM_HORIZON")
  *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
- *                 .endpoints(Map.of(&#34;KAFKA_BOOTSTRAP_SERVERS&#34;, &#34;kafka1.example.com:9092,kafka2.example.com:9092&#34;))
+ *                 .endpoints(Map.of("KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092"))
  *                 .build())
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SUBNET&#34;)
- *                     .uri(&#34;subnet:subnet-example1&#34;)
+ *                     .type("VPC_SUBNET")
+ *                     .uri("subnet:subnet-example1")
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SUBNET&#34;)
- *                     .uri(&#34;subnet:subnet-example2&#34;)
+ *                     .type("VPC_SUBNET")
+ *                     .uri("subnet:subnet-example2")
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VPC_SECURITY_GROUP&#34;)
- *                     .uri(&#34;security_group:sg-example&#34;)
+ *                     .type("VPC_SECURITY_GROUP")
+ *                     .uri("security_group:sg-example")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -216,20 +225,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .eventSourceArn(sqsQueueTest.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SQS with event filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -252,23 +263,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .eventSourceArn(sqsQueueTest.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
  *                 .filters(EventSourceMappingFilterCriteriaFilterArgs.builder()
  *                     .pattern(serializeJson(
  *                         jsonObject(
- *                             jsonProperty(&#34;body&#34;, jsonObject(
- *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
- *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
- *                                         &#34;&gt;&#34;, 
+ *                             jsonProperty("body", jsonObject(
+ *                                 jsonProperty("Temperature", jsonArray(jsonObject(
+ *                                     jsonProperty("numeric", jsonArray(
+ *                                         ">", 
  *                                         0, 
- *                                         &#34;&lt;=&#34;, 
+ *                                         "<=", 
  *                                         100
  *                                     ))
  *                                 ))),
- *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
+ *                                 jsonProperty("Location", jsonArray("New York"))
  *                             ))
  *                         )))
  *                     .build())
@@ -277,13 +288,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Amazon MQ (ActiveMQ)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -305,27 +318,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .batchSize(10)
  *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .queues(&#34;example&#34;)
+ *             .queues("example")
  *             .sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                 .type(&#34;BASIC_AUTH&#34;)
+ *                 .type("BASIC_AUTH")
  *                 .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Amazon MQ (RabbitMQ)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -347,26 +362,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping(&#34;example&#34;, EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
  *             .batchSize(1)
  *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
  *             .functionName(exampleAwsLambdaFunction.arn())
- *             .queues(&#34;example&#34;)
+ *             .queues("example")
  *             .sourceAccessConfigurations(            
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;VIRTUAL_HOST&#34;)
- *                     .uri(&#34;/example&#34;)
+ *                     .type("VIRTUAL_HOST")
+ *                     .uri("/example")
  *                     .build(),
  *                 EventSourceMappingSourceAccessConfigurationArgs.builder()
- *                     .type(&#34;BASIC_AUTH&#34;)
+ *                     .type("BASIC_AUTH")
  *                     .uri(exampleAwsSecretsmanagerSecretVersion.arn())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

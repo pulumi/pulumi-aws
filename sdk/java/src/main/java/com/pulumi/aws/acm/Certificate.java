@@ -65,7 +65,8 @@ import javax.annotation.Nullable;
  * ### Custom Domain Validation Options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -87,24 +88,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .domainName(&#34;testing.example.com&#34;)
- *             .validationMethod(&#34;EMAIL&#34;)
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *             .domainName("testing.example.com")
+ *             .validationMethod("EMAIL")
  *             .validationOptions(CertificateValidationOptionArgs.builder()
- *                 .domainName(&#34;testing.example.com&#34;)
- *                 .validationDomain(&#34;example.com&#34;)
+ *                 .domainName("testing.example.com")
+ *                 .validationDomain("example.com")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Existing Certificate Body Import
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -130,32 +133,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrivateKey(&#34;example&#34;, PrivateKeyArgs.builder()        
- *             .algorithm(&#34;RSA&#34;)
+ *         var example = new PrivateKey("example", PrivateKeyArgs.builder()        
+ *             .algorithm("RSA")
  *             .build());
  * 
- *         var exampleSelfSignedCert = new SelfSignedCert(&#34;exampleSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
- *             .keyAlgorithm(&#34;RSA&#34;)
+ *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()        
+ *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
- *                 .commonName(&#34;example.com&#34;)
- *                 .organization(&#34;ACME Examples, Inc&#34;)
+ *                 .commonName("example.com")
+ *                 .organization("ACME Examples, Inc")
  *                 .build())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
- *                 &#34;key_encipherment&#34;,
- *                 &#34;digital_signature&#34;,
- *                 &#34;server_auth&#34;)
+ *                 "key_encipherment",
+ *                 "digital_signature",
+ *                 "server_auth")
  *             .build());
  * 
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()        
  *             .privateKey(example.privateKeyPem())
  *             .certificateBody(exampleSelfSignedCert.certPem())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Referencing domain_validation_options With for_each Based Resources

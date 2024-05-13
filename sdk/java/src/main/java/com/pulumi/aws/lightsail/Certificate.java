@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Certificate(&#34;test&#34;, CertificateArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .domainName(&#34;testdomain.com&#34;)
- *             .subjectAlternativeNames(&#34;www.testdomain.com&#34;)
+ *         var test = new Certificate("test", CertificateArgs.builder()        
+ *             .name("test")
+ *             .domainName("testdomain.com")
+ *             .subjectAlternativeNames("www.testdomain.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

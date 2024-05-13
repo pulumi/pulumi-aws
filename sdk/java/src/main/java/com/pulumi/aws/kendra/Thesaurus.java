@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thesaurus(&#34;example&#34;, ThesaurusArgs.builder()        
+ *         var example = new Thesaurus("example", ThesaurusArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;Example&#34;)
+ *             .name("Example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .sourceS3Path(ThesaurusSourceS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Kendra Thesaurus&#34;))
+ *             .tags(Map.of("Name", "Example Kendra Thesaurus"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

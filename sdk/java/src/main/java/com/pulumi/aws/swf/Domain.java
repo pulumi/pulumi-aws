@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * To register a basic SWF domain:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Domain(&#34;foo&#34;, DomainArgs.builder()        
- *             .name(&#34;foo&#34;)
- *             .description(&#34;SWF Domain&#34;)
+ *         var foo = new Domain("foo", DomainArgs.builder()        
+ *             .name("foo")
+ *             .description("SWF Domain")
  *             .workflowExecutionRetentionPeriodInDays(30)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

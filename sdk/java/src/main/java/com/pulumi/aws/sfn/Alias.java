@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,30 +47,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sfnAlias = new Alias(&#34;sfnAlias&#34;, AliasArgs.builder()        
- *             .name(&#34;my_sfn_alias&#34;)
+ *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()        
+ *             .name("my_sfn_alias")
  *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
  *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
  *                 .weight(100)
  *                 .build())
  *             .build());
  * 
- *         var mySfnAlias = new Alias(&#34;mySfnAlias&#34;, AliasArgs.builder()        
- *             .name(&#34;my_sfn_alias&#34;)
+ *         var mySfnAlias = new Alias("mySfnAlias", AliasArgs.builder()        
+ *             .name("my_sfn_alias")
  *             .routingConfigurations(            
  *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn(&#34;arn:aws:states:us-east-1:12345:stateMachine:demo:3&#34;)
+ *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:3")
  *                     .weight(50)
  *                     .build(),
  *                 AliasRoutingConfigurationArgs.builder()
- *                     .stateMachineVersionArn(&#34;arn:aws:states:us-east-1:12345:stateMachine:demo:2&#34;)
+ *                     .stateMachineVersionArn("arn:aws:states:us-east-1:12345:stateMachine:demo:2")
  *                     .weight(50)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

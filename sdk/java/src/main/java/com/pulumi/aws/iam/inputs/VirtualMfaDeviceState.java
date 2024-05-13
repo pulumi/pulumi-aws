@@ -77,14 +77,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     @Import(name="qrCodePng")
     private @Nullable Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     public Optional<Output<String>> qrCodePng() {
@@ -276,7 +276,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
+         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
          * 
          * @return builder
          * 

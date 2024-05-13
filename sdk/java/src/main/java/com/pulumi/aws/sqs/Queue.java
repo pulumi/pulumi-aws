@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,29 +44,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;example-queue&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("example-queue")
  *             .delaySeconds(90)
  *             .maxMessageSize(2048)
  *             .messageRetentionSeconds(86400)
  *             .receiveWaitTimeSeconds(10)
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
- *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                     jsonProperty("deadLetterTargetArn", queueDeadletter.arn()),
+ *                     jsonProperty("maxReceiveCount", 4)
  *                 )))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
+ *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## FIFO queue
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,21 +89,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;example-queue.fifo&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("example-queue.fifo")
  *             .fifoQueue(true)
  *             .contentBasedDeduplication(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## High-throughput FIFO queue
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,22 +126,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;pulumi-example-queue.fifo&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("pulumi-example-queue.fifo")
  *             .fifoQueue(true)
- *             .deduplicationScope(&#34;messageGroup&#34;)
- *             .fifoThroughputLimit(&#34;perMessageGroupId&#34;)
+ *             .deduplicationScope("messageGroup")
+ *             .fifoThroughputLimit("perMessageGroupId")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Dead-letter queue
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -160,31 +167,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;pulumi-example-queue&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("pulumi-example-queue")
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;deadLetterTargetArn&#34;, queueDeadletter.arn()),
- *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
+ *                     jsonProperty("deadLetterTargetArn", queueDeadletter.arn()),
+ *                     jsonProperty("maxReceiveCount", 4)
  *                 )))
  *             .build());
  * 
- *         var exampleQueueDeadletter = new Queue(&#34;exampleQueueDeadletter&#34;, QueueArgs.builder()        
- *             .name(&#34;pulumi-example-deadletter-queue&#34;)
+ *         var exampleQueueDeadletter = new Queue("exampleQueueDeadletter", QueueArgs.builder()        
+ *             .name("pulumi-example-deadletter-queue")
  *             .build());
  * 
- *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy(&#34;exampleQueueRedriveAllowPolicy&#34;, RedriveAllowPolicyArgs.builder()        
+ *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()        
  *             .queueUrl(exampleQueueDeadletter.id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(exampleQueue.arn()))
+ *                     jsonProperty("redrivePermission", "byQueue"),
+ *                     jsonProperty("sourceQueueArns", jsonArray(exampleQueue.arn()))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Server-side encryption (SSE)
@@ -192,7 +200,8 @@ import javax.annotation.Nullable;
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -213,20 +222,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;pulumi-example-queue&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("pulumi-example-queue")
  *             .sqsManagedSseEnabled(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -247,15 +258,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .name(&#34;example-queue&#34;)
- *             .kmsMasterKeyId(&#34;alias/aws/sqs&#34;)
+ *         var queue = new Queue("queue", QueueArgs.builder()        
+ *             .name("example-queue")
+ *             .kmsMasterKeyId("alias/aws/sqs")
  *             .kmsDataKeyReusePeriodSeconds(300)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

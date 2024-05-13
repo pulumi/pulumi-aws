@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,59 +49,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;aurora-cluster-demo&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;,
- *                 &#34;us-west-2c&#34;)
- *             .databaseName(&#34;mydb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;bar&#34;)
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
+ *             .databaseName("mydb")
+ *             .masterUsername("foo")
+ *             .masterPassword("bar")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .build());
  * 
- *         var test1 = new ClusterInstance(&#34;test1&#34;, ClusterInstanceArgs.builder()        
+ *         var test1 = new ClusterInstance("test1", ClusterInstanceArgs.builder()        
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
- *             .identifier(&#34;test1&#34;)
- *             .instanceClass(&#34;db.t2.small&#34;)
+ *             .identifier("test1")
+ *             .instanceClass("db.t2.small")
  *             .engine(default_.engine())
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var test2 = new ClusterInstance(&#34;test2&#34;, ClusterInstanceArgs.builder()        
+ *         var test2 = new ClusterInstance("test2", ClusterInstanceArgs.builder()        
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
- *             .identifier(&#34;test2&#34;)
- *             .instanceClass(&#34;db.t2.small&#34;)
+ *             .identifier("test2")
+ *             .instanceClass("db.t2.small")
  *             .engine(default_.engine())
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var test3 = new ClusterInstance(&#34;test3&#34;, ClusterInstanceArgs.builder()        
+ *         var test3 = new ClusterInstance("test3", ClusterInstanceArgs.builder()        
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
- *             .identifier(&#34;test3&#34;)
- *             .instanceClass(&#34;db.t2.small&#34;)
+ *             .identifier("test3")
+ *             .instanceClass("db.t2.small")
  *             .engine(default_.engine())
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var eligible = new ClusterEndpoint(&#34;eligible&#34;, ClusterEndpointArgs.builder()        
+ *         var eligible = new ClusterEndpoint("eligible", ClusterEndpointArgs.builder()        
  *             .clusterIdentifier(default_.id())
- *             .clusterEndpointIdentifier(&#34;reader&#34;)
- *             .customEndpointType(&#34;READER&#34;)
+ *             .clusterEndpointIdentifier("reader")
+ *             .customEndpointType("READER")
  *             .excludedMembers(            
  *                 test1.id(),
  *                 test2.id())
  *             .build());
  * 
- *         var static_ = new ClusterEndpoint(&#34;static&#34;, ClusterEndpointArgs.builder()        
+ *         var static_ = new ClusterEndpoint("static", ClusterEndpointArgs.builder()        
  *             .clusterIdentifier(default_.id())
- *             .clusterEndpointIdentifier(&#34;static&#34;)
- *             .customEndpointType(&#34;READER&#34;)
+ *             .clusterEndpointIdentifier("static")
+ *             .customEndpointType("READER")
  *             .staticMembers(            
  *                 test1.id(),
  *                 test3.id())
@@ -108,7 +109,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

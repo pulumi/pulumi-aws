@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
- *             .name(&#34;example-event-data-store&#34;)
+ *         var example = new EventDataStore("example", EventDataStoreArgs.builder()        
+ *             .name("example-event-data-store")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Data Event Logging
@@ -72,7 +74,8 @@ import javax.annotation.Nullable;
  * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -97,35 +100,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var table = DynamodbFunctions.getTable(GetTableArgs.builder()
- *             .name(&#34;not-important-dynamodb-table&#34;)
+ *             .name("not-important-dynamodb-table")
  *             .build());
  * 
- *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
+ *         var example = new EventDataStore("example", EventDataStoreArgs.builder()        
  *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
- *                 .name(&#34;Log all DynamoDB PutEvent actions for a specific DynamoDB table&#34;)
+ *                 .name("Log all DynamoDB PutEvent actions for a specific DynamoDB table")
  *                 .fieldSelectors(                
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;eventCategory&#34;)
- *                         .equals(&#34;Data&#34;)
+ *                         .field("eventCategory")
+ *                         .equals("Data")
  *                         .build(),
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;resources.type&#34;)
- *                         .equals(&#34;AWS::DynamoDB::Table&#34;)
+ *                         .field("resources.type")
+ *                         .equals("AWS::DynamoDB::Table")
  *                         .build(),
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;eventName&#34;)
- *                         .equals(&#34;PutItem&#34;)
+ *                         .field("eventName")
+ *                         .equals("PutItem")
  *                         .build(),
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
- *                         .field(&#34;resources.ARN&#34;)
- *                         .equals(table.applyValue(getTableResult -&gt; getTableResult.arn()))
+ *                         .field("resources.ARN")
+ *                         .equals(table.applyValue(getTableResult -> getTableResult.arn()))
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

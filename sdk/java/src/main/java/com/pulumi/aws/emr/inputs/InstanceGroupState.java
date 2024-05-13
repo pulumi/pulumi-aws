@@ -68,7 +68,8 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -89,28 +90,29 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -121,7 +123,8 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,28 +145,29 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -377,7 +381,8 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -398,28 +403,29 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-         *             .configurationsJson(&#34;&#34;&#34;
+         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+         *             .configurationsJson("""
          * [
          * {
-         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-         * &#34;Configurations&#34;: [
+         * "Classification": "hadoop-env",
+         * "Configurations": [
          * {
-         * &#34;Classification&#34;: &#34;export&#34;,
-         * &#34;Properties&#34;: {
-         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * "Classification": "export",
+         * "Properties": {
+         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
          * }
          * }
          * ],
-         * &#34;Properties&#34;: {}
+         * "Properties": {}
          * }
          * ]
-         *             &#34;&#34;&#34;)
+         *             """)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -434,7 +440,8 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -455,28 +462,29 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var task = new InstanceGroup(&#34;task&#34;, InstanceGroupArgs.builder()        
-         *             .configurationsJson(&#34;&#34;&#34;
+         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+         *             .configurationsJson("""
          * [
          * {
-         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-         * &#34;Configurations&#34;: [
+         * "Classification": "hadoop-env",
+         * "Configurations": [
          * {
-         * &#34;Classification&#34;: &#34;export&#34;,
-         * &#34;Properties&#34;: {
-         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * "Classification": "export",
+         * "Properties": {
+         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
          * }
          * }
          * ],
-         * &#34;Properties&#34;: {}
+         * "Properties": {}
          * }
          * ]
-         *             &#34;&#34;&#34;)
+         *             """)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

@@ -32,7 +32,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -54,12 +55,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
-     *             .name(&#34;tfWAFRegionalIPSet&#34;)
+     *             .name("tfWAFRegionalIPSet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -72,7 +74,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -94,12 +97,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
-     *             .name(&#34;tfWAFRegionalIPSet&#34;)
+     *             .name("tfWAFRegionalIPSet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
-     *             .name(&#34;tfWAFRegionalIPSet&#34;)
+     *             .name("tfWAFRegionalIPSet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,12 +181,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
-     *             .name(&#34;tfWAFRegionalIPSet&#34;)
+     *             .name("tfWAFRegionalIPSet")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -192,7 +200,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -214,12 +223,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
-     *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
+     *             .name("tfWAFRegionalRateBasedRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -232,7 +242,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -254,12 +265,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
-     *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
+     *             .name("tfWAFRegionalRateBasedRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -272,7 +284,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -294,12 +307,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
-     *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
+     *             .name("tfWAFRegionalRateBasedRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -312,7 +326,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -334,12 +349,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
-     *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
+     *             .name("tfWAFRegionalRateBasedRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -352,7 +368,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -374,12 +391,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
-     *             .name(&#34;tfWAFRegionalRule&#34;)
+     *             .name("tfWAFRegionalRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -392,7 +410,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -414,12 +433,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
-     *             .name(&#34;tfWAFRegionalRule&#34;)
+     *             .name("tfWAFRegionalRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -432,7 +452,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -454,12 +475,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
-     *             .name(&#34;tfWAFRegionalRule&#34;)
+     *             .name("tfWAFRegionalRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -472,7 +494,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,12 +517,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
-     *             .name(&#34;tfWAFRegionalRule&#34;)
+     *             .name("tfWAFRegionalRule")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -512,7 +536,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -537,30 +562,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -573,7 +599,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -598,30 +625,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -634,7 +662,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -659,30 +688,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -695,7 +725,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -720,30 +751,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -756,7 +788,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -781,30 +814,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -817,7 +851,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -842,30 +877,31 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .name(&#34;F5 Bot Detection Signatures For AWS WAF&#34;)
+     *             .name("F5 Bot Detection Signatures For AWS WAF")
      *             .build());
      * 
      *         final var byMetricName = WafregionalFunctions.getSubscribedRuleGroup(GetSubscribedRuleGroupArgs.builder()
-     *             .metricName(&#34;F5BotDetectionSignatures&#34;)
+     *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl(&#34;acl&#34;, WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
-     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build(),
      *                 WebAclRuleArgs.builder()
      *                     .priority(2)
-     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -&gt; getSubscribedRuleGroupResult.id()))
-     *                     .type(&#34;GROUP&#34;)
+     *                     .ruleId(byMetricName.applyValue(getSubscribedRuleGroupResult -> getSubscribedRuleGroupResult.id()))
+     *                     .type("GROUP")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -878,7 +914,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -900,12 +937,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;tfWAFRegionalWebACL&#34;)
+     *             .name("tfWAFRegionalWebACL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -918,7 +956,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -940,12 +979,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;tfWAFRegionalWebACL&#34;)
+     *             .name("tfWAFRegionalWebACL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -958,7 +998,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -980,12 +1021,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;tfWAFRegionalWebACL&#34;)
+     *             .name("tfWAFRegionalWebACL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -998,7 +1040,8 @@ public final class WafregionalFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1020,12 +1063,13 @@ public final class WafregionalFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
-     *             .name(&#34;tfWAFRegionalWebACL&#34;)
+     *             .name("tfWAFRegionalWebACL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .description(&#34;example&#34;)
- *             .languageCode(&#34;en&#34;)
- *             .type(&#34;CUSTOM&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .name("example")
+ *             .description("example")
+ *             .languageCode("en")
+ *             .type("CUSTOM")
+ *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### S3 Connector
@@ -65,7 +67,8 @@ import javax.annotation.Nullable;
  * ### With Schedule
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,12 +91,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;S3&#34;)
+ *             .name("example")
+ *             .type("S3")
  *             .roleArn(exampleAwsIamRole.arn())
- *             .schedule(&#34;cron(9 10 1 * ? *)&#34;)
+ *             .schedule("cron(9 10 1 * ? *)")
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
@@ -103,13 +106,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Access Control List
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -133,16 +138,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;S3&#34;)
+ *             .name("example")
+ *             .type("S3")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
- *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, exampleAwsS3Bucket.id()))
+ *                         .keyPath(String.format("s3://%s/path-1", exampleAwsS3Bucket.id()))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -150,13 +155,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Documents Metadata Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -180,19 +187,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;S3&#34;)
+ *             .name("example")
+ *             .type("S3")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
- *                     .exclusionPatterns(&#34;example&#34;)
- *                     .inclusionPatterns(&#34;hello&#34;)
- *                     .inclusionPrefixes(&#34;world&#34;)
+ *                     .exclusionPatterns("example")
+ *                     .inclusionPatterns("hello")
+ *                     .inclusionPrefixes("world")
  *                     .documentsMetadataConfiguration(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.builder()
- *                         .s3Prefix(&#34;example&#34;)
+ *                         .s3Prefix("example")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -200,7 +207,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Web Crawler Connector
@@ -208,7 +216,8 @@ import javax.annotation.Nullable;
  * ### With Seed URLs
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -233,16 +242,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -251,13 +260,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Site Maps
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -282,16 +293,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .siteMapsConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs.builder()
- *                             .siteMaps(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .siteMaps("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -300,13 +311,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Web Crawler Mode
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -331,17 +344,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .webCrawlerMode(&#34;SUBDOMAINS&#34;)
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .webCrawlerMode("SUBDOMAINS")
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -350,13 +363,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Authentication Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -383,23 +398,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .authenticationConfiguration(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.builder()
  *                         .basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs.builder()
  *                             .credentials(exampleAwsSecretsmanagerSecret.arn())
- *                             .host(&#34;a.example.com&#34;)
- *                             .port(&#34;443&#34;)
+ *                             .host("a.example.com")
+ *                             .port("443")
  *                             .build())
  *                         .build())
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -410,13 +425,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Crawl Depth
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -441,17 +458,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .crawlDepth(3)
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -460,13 +477,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Max Links Per Page
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -491,17 +510,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .maxLinksPerPage(100)
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -510,13 +529,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Max Urls Per Minute Crawl Rate
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -541,17 +562,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .maxUrlsPerMinuteCrawlRate(300)
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -560,13 +581,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Proxy Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -593,21 +616,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
  *                     .proxyConfiguration(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs.builder()
  *                         .credentials(exampleAwsSecretsmanagerSecret.arn())
- *                         .host(&#34;a.example.com&#34;)
- *                         .port(&#34;443&#34;)
+ *                         .host("a.example.com")
+ *                         .port("443")
  *                         .build())
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -618,13 +641,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With URL Exclusion and Inclusion Patterns
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -649,18 +674,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()        
  *             .indexId(exampleAwsKendraIndex.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;WEBCRAWLER&#34;)
+ *             .name("example")
+ *             .type("WEBCRAWLER")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(DataSourceConfigurationArgs.builder()
  *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urlExclusionPatterns(&#34;example&#34;)
- *                     .urlInclusionPatterns(&#34;hello&#34;)
+ *                     .urlExclusionPatterns("example")
+ *                     .urlInclusionPatterns("hello")
  *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
  *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
+ *                             .seedUrls("REPLACE_WITH_YOUR_URL")
  *                             .build())
  *                         .build())
  *                     .build())
@@ -669,7 +694,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

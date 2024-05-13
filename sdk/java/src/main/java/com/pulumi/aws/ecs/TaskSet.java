@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,20 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
+ *         var example = new TaskSet("example", TaskSetArgs.builder()        
  *             .service(exampleAwsEcsService.id())
  *             .cluster(exampleAwsEcsCluster.id())
  *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
  *             .loadBalancers(TaskSetLoadBalancerArgs.builder()
  *                 .targetGroupArn(exampleAwsLbTargetGroup.arn())
- *                 .containerName(&#34;mongo&#34;)
+ *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Ignoring Changes to Scale
@@ -73,7 +75,8 @@ import javax.annotation.Nullable;
  * You can utilize the generic resource lifecycle configuration block with `ignore_changes` to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TaskSet(&#34;example&#34;, TaskSetArgs.builder()        
+ *         var example = new TaskSet("example", TaskSetArgs.builder()        
  *             .scale(TaskSetScaleArgs.builder()
  *                 .value(50)
  *                 .build())
@@ -103,7 +106,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

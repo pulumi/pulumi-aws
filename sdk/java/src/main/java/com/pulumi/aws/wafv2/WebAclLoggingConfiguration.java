@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### With Redacted Fields
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,25 +51,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
+ *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
  *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
- *                     .name(&#34;user-agent&#34;)
+ *                     .name("user-agent")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Logging Filter
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,42 +93,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
+ *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
- *                 .defaultBehavior(&#34;KEEP&#34;)
+ *                 .defaultBehavior("KEEP")
  *                 .filters(                
  *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior(&#34;DROP&#34;)
+ *                         .behavior("DROP")
  *                         .conditions(                        
  *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
  *                                 .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                     .action(&#34;COUNT&#34;)
+ *                                     .action("COUNT")
  *                                     .build())
  *                                 .build(),
  *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
  *                                 .labelNameCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.builder()
- *                                     .labelName(&#34;awswaf:111122223333:rulegroup:testRules:LabelNameZ&#34;)
+ *                                     .labelName("awswaf:111122223333:rulegroup:testRules:LabelNameZ")
  *                                     .build())
  *                                 .build())
- *                         .requirement(&#34;MEETS_ALL&#34;)
+ *                         .requirement("MEETS_ALL")
  *                         .build(),
  *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
- *                         .behavior(&#34;KEEP&#34;)
+ *                         .behavior("KEEP")
  *                         .conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
  *                             .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
- *                                 .action(&#34;ALLOW&#34;)
+ *                                 .action("ALLOW")
  *                                 .build())
  *                             .build())
- *                         .requirement(&#34;MEETS_ANY&#34;)
+ *                         .requirement("MEETS_ANY")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

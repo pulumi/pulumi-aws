@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ### Using launch specifications
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,46 +57,48 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Request a Spot fleet
- *         var cheapCompute = new SpotFleetRequest(&#34;cheapCompute&#34;, SpotFleetRequestArgs.builder()        
- *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .spotPrice(&#34;0.03&#34;)
- *             .allocationStrategy(&#34;diversified&#34;)
+ *         var cheapCompute = new SpotFleetRequest("cheapCompute", SpotFleetRequestArgs.builder()        
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.03")
+ *             .allocationStrategy("diversified")
  *             .targetCapacity(6)
- *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchSpecifications(            
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .instanceType(&#34;m4.10xlarge&#34;)
- *                     .ami(&#34;ami-1234&#34;)
- *                     .spotPrice(&#34;2.793&#34;)
- *                     .placementTenancy(&#34;dedicated&#34;)
+ *                     .instanceType("m4.10xlarge")
+ *                     .ami("ami-1234")
+ *                     .spotPrice("2.793")
+ *                     .placementTenancy("dedicated")
  *                     .iamInstanceProfileArn(example.arn())
  *                     .build(),
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .instanceType(&#34;m4.4xlarge&#34;)
- *                     .ami(&#34;ami-5678&#34;)
- *                     .keyName(&#34;my-key&#34;)
- *                     .spotPrice(&#34;1.117&#34;)
+ *                     .instanceType("m4.4xlarge")
+ *                     .ami("ami-5678")
+ *                     .keyName("my-key")
+ *                     .spotPrice("1.117")
  *                     .iamInstanceProfileArn(example.arn())
- *                     .availabilityZone(&#34;us-west-1a&#34;)
- *                     .subnetId(&#34;subnet-1234&#34;)
+ *                     .availabilityZone("us-west-1a")
+ *                     .subnetId("subnet-1234")
  *                     .weightedCapacity(35)
  *                     .rootBlockDevices(SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs.builder()
- *                         .volumeSize(&#34;300&#34;)
- *                         .volumeType(&#34;gp2&#34;)
+ *                         .volumeSize("300")
+ *                         .volumeType("gp2")
  *                         .build())
- *                     .tags(Map.of(&#34;Name&#34;, &#34;spot-fleet-example&#34;))
+ *                     .tags(Map.of("Name", "spot-fleet-example"))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using launch templates
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,18 +124,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
- *             .name(&#34;launch-template&#34;)
- *             .imageId(&#34;ami-516b9131&#34;)
- *             .instanceType(&#34;m1.small&#34;)
- *             .keyName(&#34;some-key&#34;)
+ *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()        
+ *             .name("launch-template")
+ *             .imageId("ami-516b9131")
+ *             .instanceType("m1.small")
+ *             .keyName("some-key")
  *             .build());
  * 
- *         var fooSpotFleetRequest = new SpotFleetRequest(&#34;fooSpotFleetRequest&#34;, SpotFleetRequestArgs.builder()        
- *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .spotPrice(&#34;0.005&#34;)
+ *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()        
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
  *             .targetCapacity(2)
- *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .id(foo.id())
@@ -145,7 +148,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
@@ -154,7 +158,8 @@ import javax.annotation.Nullable;
  * ### Using multiple launch specifications
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -176,29 +181,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SpotFleetRequest(&#34;foo&#34;, SpotFleetRequestArgs.builder()        
- *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .spotPrice(&#34;0.005&#34;)
+ *         var foo = new SpotFleetRequest("foo", SpotFleetRequestArgs.builder()        
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
  *             .targetCapacity(2)
- *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchSpecifications(            
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .instanceType(&#34;m1.small&#34;)
- *                     .ami(&#34;ami-d06a90b0&#34;)
- *                     .keyName(&#34;my-key&#34;)
- *                     .availabilityZone(&#34;us-west-2a&#34;)
+ *                     .instanceType("m1.small")
+ *                     .ami("ami-d06a90b0")
+ *                     .keyName("my-key")
+ *                     .availabilityZone("us-west-2a")
  *                     .build(),
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .instanceType(&#34;m5.large&#34;)
- *                     .ami(&#34;ami-d06a90b0&#34;)
- *                     .keyName(&#34;my-key&#34;)
- *                     .availabilityZone(&#34;us-west-2a&#34;)
+ *                     .instanceType("m5.large")
+ *                     .ami("ami-d06a90b0")
+ *                     .keyName("my-key")
+ *                     .availabilityZone("us-west-2a")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
@@ -209,7 +215,8 @@ import javax.annotation.Nullable;
  * ### Using multiple launch configurations
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -239,23 +246,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
- *                 .name(&#34;vpc-id&#34;)
+ *                 .name("vpc-id")
  *                 .values(vpcId)
  *                 .build())
  *             .build());
  * 
- *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
- *             .name(&#34;launch-template&#34;)
- *             .imageId(&#34;ami-516b9131&#34;)
- *             .instanceType(&#34;m1.small&#34;)
- *             .keyName(&#34;some-key&#34;)
+ *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()        
+ *             .name("launch-template")
+ *             .imageId("ami-516b9131")
+ *             .instanceType("m1.small")
+ *             .keyName("some-key")
  *             .build());
  * 
- *         var fooSpotFleetRequest = new SpotFleetRequest(&#34;fooSpotFleetRequest&#34;, SpotFleetRequestArgs.builder()        
- *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .spotPrice(&#34;0.005&#34;)
+ *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()        
+ *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
+ *             .spotPrice("0.005")
  *             .targetCapacity(2)
- *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
+ *             .validUntil("2019-11-04T20:44:20Z")
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .id(foo.id())
@@ -263,13 +270,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .overrides(                
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]))
+ *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[0]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
+ *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[1]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[2]))
+ *                         .subnetId(example.applyValue(getSubnetsResult -> getSubnetsResult.ids()[2]))
  *                         .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -278,7 +285,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

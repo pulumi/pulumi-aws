@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,22 +45,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb(&#34;test&#34;, LbArgs.builder()        
- *             .name(&#34;test-load-balancer&#34;)
- *             .healthCheckPath(&#34;/&#34;)
- *             .instancePort(&#34;80&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *         var test = new Lb("test", LbArgs.builder()        
+ *             .name("test-load-balancer")
+ *             .healthCheckPath("/")
+ *             .instancePort("80")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbCertificate = new LbCertificate(&#34;testLbCertificate&#34;, LbCertificateArgs.builder()        
- *             .name(&#34;test-load-balancer-certificate&#34;)
+ *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()        
+ *             .name("test-load-balancer-certificate")
  *             .lbName(test.id())
- *             .domainName(&#34;test.com&#34;)
+ *             .domainName("test.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

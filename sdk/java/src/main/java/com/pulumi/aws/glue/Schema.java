@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
- *             .schemaName(&#34;example&#34;)
+ *         var example = new Schema("example", SchemaArgs.builder()        
+ *             .schemaName("example")
  *             .registryArn(test.arn())
- *             .dataFormat(&#34;AVRO&#34;)
- *             .compatibility(&#34;NONE&#34;)
- *             .schemaDefinition(&#34;{\&#34;type\&#34;: \&#34;record\&#34;, \&#34;name\&#34;: \&#34;r1\&#34;, \&#34;fields\&#34;: [ {\&#34;name\&#34;: \&#34;f1\&#34;, \&#34;type\&#34;: \&#34;int\&#34;}, {\&#34;name\&#34;: \&#34;f2\&#34;, \&#34;type\&#34;: \&#34;string\&#34;} ]}&#34;)
+ *             .dataFormat("AVRO")
+ *             .compatibility("NONE")
+ *             .schemaDefinition("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

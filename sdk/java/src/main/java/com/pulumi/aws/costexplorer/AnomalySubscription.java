@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,32 +53,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
- *             .name(&#34;AWSServiceMonitor&#34;)
- *             .monitorType(&#34;DIMENSIONAL&#34;)
- *             .monitorDimension(&#34;SERVICE&#34;)
+ *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()        
+ *             .name("AWSServiceMonitor")
+ *             .monitorType("DIMENSIONAL")
+ *             .monitorDimension("SERVICE")
  *             .build());
  * 
- *         var testAnomalySubscription = new AnomalySubscription(&#34;testAnomalySubscription&#34;, AnomalySubscriptionArgs.builder()        
- *             .name(&#34;DAILYSUBSCRIPTION&#34;)
- *             .frequency(&#34;DAILY&#34;)
+ *         var testAnomalySubscription = new AnomalySubscription("testAnomalySubscription", AnomalySubscriptionArgs.builder()        
+ *             .name("DAILYSUBSCRIPTION")
+ *             .frequency("DAILY")
  *             .monitorArnLists(test.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
+ *                 .type("EMAIL")
+ *                 .address("abc{@literal @}example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
- *                     .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
- *                     .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                     .values(&#34;100&#34;)
+ *                     .key("ANOMALY_TOTAL_IMPACT_ABSOLUTE")
+ *                     .matchOptions("GREATER_THAN_OR_EQUAL")
+ *                     .values("100")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Threshold Expression Example
@@ -85,7 +87,8 @@ import javax.annotation.Nullable;
  * ### Using a Percentage Threshold
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -109,32 +112,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalySubscription(&#34;test&#34;, AnomalySubscriptionArgs.builder()        
- *             .name(&#34;AWSServiceMonitor&#34;)
- *             .frequency(&#34;DAILY&#34;)
+ *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()        
+ *             .name("AWSServiceMonitor")
+ *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
+ *                 .type("EMAIL")
+ *                 .address("abc{@literal @}example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
- *                     .key(&#34;ANOMALY_TOTAL_IMPACT_PERCENTAGE&#34;)
- *                     .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                     .values(&#34;100&#34;)
+ *                     .key("ANOMALY_TOTAL_IMPACT_PERCENTAGE")
+ *                     .matchOptions("GREATER_THAN_OR_EQUAL")
+ *                     .values("100")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Using an `and` Expression
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -157,28 +162,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalySubscription(&#34;test&#34;, AnomalySubscriptionArgs.builder()        
- *             .name(&#34;AWSServiceMonitor&#34;)
- *             .frequency(&#34;DAILY&#34;)
+ *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()        
+ *             .name("AWSServiceMonitor")
+ *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;EMAIL&#34;)
- *                 .address(&#34;abc@example.com&#34;)
+ *                 .type("EMAIL")
+ *                 .address("abc{@literal @}example.com")
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .ands(                
  *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
  *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
- *                             .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
- *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                             .values(&#34;100&#34;)
+ *                             .key("ANOMALY_TOTAL_IMPACT_ABSOLUTE")
+ *                             .matchOptions("GREATER_THAN_OR_EQUAL")
+ *                             .values("100")
  *                             .build())
  *                         .build(),
  *                     AnomalySubscriptionThresholdExpressionAndArgs.builder()
  *                         .dimension(AnomalySubscriptionThresholdExpressionAndDimensionArgs.builder()
- *                             .key(&#34;ANOMALY_TOTAL_IMPACT_PERCENTAGE&#34;)
- *                             .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
- *                             .values(&#34;50&#34;)
+ *                             .key("ANOMALY_TOTAL_IMPACT_PERCENTAGE")
+ *                             .matchOptions("GREATER_THAN_OR_EQUAL")
+ *                             .values("50")
  *                             .build())
  *                         .build())
  *                 .build())
@@ -186,13 +191,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### SNS Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -223,66 +230,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var costAnomalyUpdates = new Topic(&#34;costAnomalyUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;CostAnomalyUpdates&#34;)
+ *         var costAnomalyUpdates = new Topic("costAnomalyUpdates", TopicArgs.builder()        
+ *             .name("CostAnomalyUpdates")
  *             .build());
  * 
  *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
+ *             .policyId("__default_policy_ID")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;AWSAnomalyDetectionSNSPublishingPermissions&#34;)
- *                     .actions(&#34;SNS:Publish&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("AWSAnomalyDetectionSNSPublishingPermissions")
+ *                     .actions("SNS:Publish")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;costalerts.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("costalerts.amazonaws.com")
  *                         .build())
  *                     .resources(costAnomalyUpdates.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;__default_statement_ID&#34;)
+ *                     .sid("__default_statement_ID")
  *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:SetTopicAttributes&#34;,
- *                         &#34;SNS:RemovePermission&#34;,
- *                         &#34;SNS:Receive&#34;,
- *                         &#34;SNS:Publish&#34;,
- *                         &#34;SNS:ListSubscriptionsByTopic&#34;,
- *                         &#34;SNS:GetTopicAttributes&#34;,
- *                         &#34;SNS:DeleteTopic&#34;,
- *                         &#34;SNS:AddPermission&#34;)
+ *                         "SNS:Subscribe",
+ *                         "SNS:SetTopicAttributes",
+ *                         "SNS:RemovePermission",
+ *                         "SNS:Receive",
+ *                         "SNS:Publish",
+ *                         "SNS:ListSubscriptionsByTopic",
+ *                         "SNS:GetTopicAttributes",
+ *                         "SNS:DeleteTopic",
+ *                         "SNS:AddPermission")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;AWS:SourceOwner&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("AWS:SourceOwner")
  *                         .values(accountId)
  *                         .build())
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
+ *                         .type("AWS")
+ *                         .identifiers("*")
  *                         .build())
  *                     .resources(costAnomalyUpdates.arn())
  *                     .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
  *             .arn(costAnomalyUpdates.arn())
- *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var anomalyMonitor = new AnomalyMonitor(&#34;anomalyMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .name(&#34;AWSServiceMonitor&#34;)
- *             .monitorType(&#34;DIMENSIONAL&#34;)
- *             .monitorDimension(&#34;SERVICE&#34;)
+ *         var anomalyMonitor = new AnomalyMonitor("anomalyMonitor", AnomalyMonitorArgs.builder()        
+ *             .name("AWSServiceMonitor")
+ *             .monitorType("DIMENSIONAL")
+ *             .monitorDimension("SERVICE")
  *             .build());
  * 
- *         var realtimeSubscription = new AnomalySubscription(&#34;realtimeSubscription&#34;, AnomalySubscriptionArgs.builder()        
- *             .name(&#34;RealtimeAnomalySubscription&#34;)
- *             .frequency(&#34;IMMEDIATE&#34;)
+ *         var realtimeSubscription = new AnomalySubscription("realtimeSubscription", AnomalySubscriptionArgs.builder()        
+ *             .name("RealtimeAnomalySubscription")
+ *             .frequency("IMMEDIATE")
  *             .monitorArnLists(anomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
- *                 .type(&#34;SNS&#34;)
+ *                 .type("SNS")
  *                 .address(costAnomalyUpdates.arn())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -291,7 +298,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

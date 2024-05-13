@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,19 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBot(&#34;example&#34;, V2modelsBotArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()        
+ *             .name("example")
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
- *                 .childDirected(&#34;boolean&#34;)
+ *                 .childDirected("boolean")
  *                 .build())
  *             .idleSessionTtlInSeconds(10)
- *             .roleArn(&#34;bot_example_arn&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .roleArn("bot_example_arn")
+ *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

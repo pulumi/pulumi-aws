@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ### Job definition of type container
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,58 +52,60 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .name(&#34;my_test_batch_job_definition&#34;)
- *             .type(&#34;container&#34;)
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *             .name("my_test_batch_job_definition")
+ *             .type("container")
  *             .containerProperties(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;command&#34;, jsonArray(
- *                         &#34;ls&#34;, 
- *                         &#34;-la&#34;
+ *                     jsonProperty("command", jsonArray(
+ *                         "ls", 
+ *                         "-la"
  *                     )),
- *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
- *                     jsonProperty(&#34;resourceRequirements&#34;, jsonArray(
+ *                     jsonProperty("image", "busybox"),
+ *                     jsonProperty("resourceRequirements", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;VCPU&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;0.25&#34;)
+ *                             jsonProperty("type", "VCPU"),
+ *                             jsonProperty("value", "0.25")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;MEMORY&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;512&#34;)
+ *                             jsonProperty("type", "MEMORY"),
+ *                             jsonProperty("value", "512")
  *                         )
  *                     )),
- *                     jsonProperty(&#34;volumes&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;host&#34;, jsonObject(
- *                             jsonProperty(&#34;sourcePath&#34;, &#34;/tmp&#34;)
+ *                     jsonProperty("volumes", jsonArray(jsonObject(
+ *                         jsonProperty("host", jsonObject(
+ *                             jsonProperty("sourcePath", "/tmp")
  *                         )),
- *                         jsonProperty(&#34;name&#34;, &#34;tmp&#34;)
+ *                         jsonProperty("name", "tmp")
  *                     ))),
- *                     jsonProperty(&#34;environment&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;name&#34;, &#34;VARNAME&#34;),
- *                         jsonProperty(&#34;value&#34;, &#34;VARVAL&#34;)
+ *                     jsonProperty("environment", jsonArray(jsonObject(
+ *                         jsonProperty("name", "VARNAME"),
+ *                         jsonProperty("value", "VARVAL")
  *                     ))),
- *                     jsonProperty(&#34;mountPoints&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;sourceVolume&#34;, &#34;tmp&#34;),
- *                         jsonProperty(&#34;containerPath&#34;, &#34;/tmp&#34;),
- *                         jsonProperty(&#34;readOnly&#34;, false)
+ *                     jsonProperty("mountPoints", jsonArray(jsonObject(
+ *                         jsonProperty("sourceVolume", "tmp"),
+ *                         jsonProperty("containerPath", "/tmp"),
+ *                         jsonProperty("readOnly", false)
  *                     ))),
- *                     jsonProperty(&#34;ulimits&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;hardLimit&#34;, 1024),
- *                         jsonProperty(&#34;name&#34;, &#34;nofile&#34;),
- *                         jsonProperty(&#34;softLimit&#34;, 1024)
+ *                     jsonProperty("ulimits", jsonArray(jsonObject(
+ *                         jsonProperty("hardLimit", 1024),
+ *                         jsonProperty("name", "nofile"),
+ *                         jsonProperty("softLimit", 1024)
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Job definition of type multinode
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -124,51 +127,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .name(&#34;tf_test_batch_job_definition_multinode&#34;)
- *             .type(&#34;multinode&#34;)
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *             .name("tf_test_batch_job_definition_multinode")
+ *             .type("multinode")
  *             .nodeProperties(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;mainNode&#34;, 0),
- *                     jsonProperty(&#34;nodeRangeProperties&#34;, jsonArray(
+ *                     jsonProperty("mainNode", 0),
+ *                     jsonProperty("nodeRangeProperties", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;container&#34;, jsonObject(
- *                                 jsonProperty(&#34;command&#34;, jsonArray(
- *                                     &#34;ls&#34;, 
- *                                     &#34;-la&#34;
+ *                             jsonProperty("container", jsonObject(
+ *                                 jsonProperty("command", jsonArray(
+ *                                     "ls", 
+ *                                     "-la"
  *                                 )),
- *                                 jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
- *                                 jsonProperty(&#34;memory&#34;, 128),
- *                                 jsonProperty(&#34;vcpus&#34;, 1)
+ *                                 jsonProperty("image", "busybox"),
+ *                                 jsonProperty("memory", 128),
+ *                                 jsonProperty("vcpus", 1)
  *                             )),
- *                             jsonProperty(&#34;targetNodes&#34;, &#34;0:&#34;)
+ *                             jsonProperty("targetNodes", "0:")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;container&#34;, jsonObject(
- *                                 jsonProperty(&#34;command&#34;, jsonArray(
- *                                     &#34;echo&#34;, 
- *                                     &#34;test&#34;
+ *                             jsonProperty("container", jsonObject(
+ *                                 jsonProperty("command", jsonArray(
+ *                                     "echo", 
+ *                                     "test"
  *                                 )),
- *                                 jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
- *                                 jsonProperty(&#34;memory&#34;, 128),
- *                                 jsonProperty(&#34;vcpus&#34;, 1)
+ *                                 jsonProperty("image", "busybox"),
+ *                                 jsonProperty("memory", 128),
+ *                                 jsonProperty("vcpus", 1)
  *                             )),
- *                             jsonProperty(&#34;targetNodes&#34;, &#34;1:&#34;)
+ *                             jsonProperty("targetNodes", "1:")
  *                         )
  *                     )),
- *                     jsonProperty(&#34;numNodes&#34;, 2)
+ *                     jsonProperty("numNodes", 2)
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Job Definitionn of type EKS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -194,26 +199,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .name(&#34; tf_test_batch_job_definition_eks&#34;)
- *             .type(&#34;container&#34;)
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *             .name(" tf_test_batch_job_definition_eks")
+ *             .type("container")
  *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
  *                 .podProperties(JobDefinitionEksPropertiesPodPropertiesArgs.builder()
  *                     .hostNetwork(true)
  *                     .containers(JobDefinitionEksPropertiesPodPropertiesContainersArgs.builder()
- *                         .image(&#34;public.ecr.aws/amazonlinux/amazonlinux:1&#34;)
+ *                         .image("public.ecr.aws/amazonlinux/amazonlinux:1")
  *                         .commands(                        
- *                             &#34;sleep&#34;,
- *                             &#34;60&#34;)
+ *                             "sleep",
+ *                             "60")
  *                         .resources(JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.builder()
  *                             .limits(Map.ofEntries(
- *                                 Map.entry(&#34;cpu&#34;, &#34;1&#34;),
- *                                 Map.entry(&#34;memory&#34;, &#34;1024Mi&#34;)
+ *                                 Map.entry("cpu", "1"),
+ *                                 Map.entry("memory", "1024Mi")
  *                             ))
  *                             .build())
  *                         .build())
  *                     .metadata(JobDefinitionEksPropertiesPodPropertiesMetadataArgs.builder()
- *                         .labels(Map.of(&#34;environment&#34;, &#34;test&#34;))
+ *                         .labels(Map.of("environment", "test"))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -221,13 +226,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Fargate Platform Capability
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -257,56 +264,57 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ecs-tasks.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("ecs-tasks.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
- *             .name(&#34;my_test_batch_exec_role&#34;)
- *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var ecsTaskExecutionRole = new Role("ecsTaskExecutionRole", RoleArgs.builder()        
+ *             .name("my_test_batch_exec_role")
+ *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment(&#34;ecsTaskExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment("ecsTaskExecutionRolePolicy", RolePolicyAttachmentArgs.builder()        
  *             .role(ecsTaskExecutionRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
  *             .build());
  * 
- *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
- *             .name(&#34;my_test_batch_job_definition&#34;)
- *             .type(&#34;container&#34;)
- *             .platformCapabilities(&#34;FARGATE&#34;)
- *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; serializeJson(
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *             .name("my_test_batch_job_definition")
+ *             .type("container")
+ *             .platformCapabilities("FARGATE")
+ *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;command&#34;, jsonArray(
- *                         &#34;echo&#34;, 
- *                         &#34;test&#34;
+ *                     jsonProperty("command", jsonArray(
+ *                         "echo", 
+ *                         "test"
  *                     )),
- *                     jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
- *                     jsonProperty(&#34;jobRoleArn&#34;, &#34;arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly&#34;),
- *                     jsonProperty(&#34;fargatePlatformConfiguration&#34;, jsonObject(
- *                         jsonProperty(&#34;platformVersion&#34;, &#34;LATEST&#34;)
+ *                     jsonProperty("image", "busybox"),
+ *                     jsonProperty("jobRoleArn", "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly"),
+ *                     jsonProperty("fargatePlatformConfiguration", jsonObject(
+ *                         jsonProperty("platformVersion", "LATEST")
  *                     )),
- *                     jsonProperty(&#34;resourceRequirements&#34;, jsonArray(
+ *                     jsonProperty("resourceRequirements", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;VCPU&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;0.25&#34;)
+ *                             jsonProperty("type", "VCPU"),
+ *                             jsonProperty("value", "0.25")
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;type&#34;, &#34;MEMORY&#34;),
- *                             jsonProperty(&#34;value&#34;, &#34;512&#34;)
+ *                             jsonProperty("type", "MEMORY"),
+ *                             jsonProperty("value", "512")
  *                         )
  *                     )),
- *                     jsonProperty(&#34;executionRoleArn&#34;, arn)
+ *                     jsonProperty("executionRoleArn", arn)
  *                 ))))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

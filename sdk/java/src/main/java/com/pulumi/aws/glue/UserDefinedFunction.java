@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,26 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;my_database&#34;)
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *             .name("my_database")
  *             .build());
  * 
- *         var exampleUserDefinedFunction = new UserDefinedFunction(&#34;exampleUserDefinedFunction&#34;, UserDefinedFunctionArgs.builder()        
- *             .name(&#34;my_func&#34;)
+ *         var exampleUserDefinedFunction = new UserDefinedFunction("exampleUserDefinedFunction", UserDefinedFunctionArgs.builder()        
+ *             .name("my_func")
  *             .catalogId(example.catalogId())
  *             .databaseName(example.name())
- *             .className(&#34;class&#34;)
- *             .ownerName(&#34;owner&#34;)
- *             .ownerType(&#34;GROUP&#34;)
+ *             .className("class")
+ *             .ownerName("owner")
+ *             .ownerType("GROUP")
  *             .resourceUris(UserDefinedFunctionResourceUriArgs.builder()
- *                 .resourceType(&#34;ARCHIVE&#34;)
- *                 .uri(&#34;uri&#34;)
+ *                 .resourceType("ARCHIVE")
+ *                 .uri("uri")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

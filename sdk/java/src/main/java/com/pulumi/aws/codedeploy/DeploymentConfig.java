@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Server Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,48 +53,50 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
- *             .deploymentConfigName(&#34;test-deployment-config&#34;)
+ *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()        
+ *             .deploymentConfigName("test-deployment-config")
  *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
- *                 .type(&#34;HOST_COUNT&#34;)
+ *                 .type("HOST_COUNT")
  *                 .value(2)
  *                 .build())
  *             .build());
  * 
- *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()        
  *             .appName(fooApp.name())
- *             .deploymentGroupName(&#34;bar&#34;)
+ *             .deploymentGroupName("bar")
  *             .serviceRoleArn(fooRole.arn())
  *             .deploymentConfigName(foo.id())
  *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
- *                 .key(&#34;filterkey&#34;)
- *                 .type(&#34;KEY_AND_VALUE&#34;)
- *                 .value(&#34;filtervalue&#34;)
+ *                 .key("filterkey")
+ *                 .type("KEY_AND_VALUE")
+ *                 .value("filtervalue")
  *                 .build())
  *             .triggerConfigurations(DeploymentGroupTriggerConfigurationArgs.builder()
- *                 .triggerEvents(&#34;DeploymentFailure&#34;)
- *                 .triggerName(&#34;foo-trigger&#34;)
- *                 .triggerTargetArn(&#34;foo-topic-arn&#34;)
+ *                 .triggerEvents("DeploymentFailure")
+ *                 .triggerName("foo-trigger")
+ *                 .triggerTargetArn("foo-topic-arn")
  *                 .build())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_FAILURE&#34;)
+ *                 .events("DEPLOYMENT_FAILURE")
  *                 .build())
  *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
+ *                 .alarms("my-alarm-name")
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -120,11 +123,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig(&#34;foo&#34;, DeploymentConfigArgs.builder()        
- *             .deploymentConfigName(&#34;test-deployment-config&#34;)
- *             .computePlatform(&#34;Lambda&#34;)
+ *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()        
+ *             .deploymentConfigName("test-deployment-config")
+ *             .computePlatform("Lambda")
  *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
- *                 .type(&#34;TimeBasedLinear&#34;)
+ *                 .type("TimeBasedLinear")
  *                 .timeBasedLinear(DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.builder()
  *                     .interval(10)
  *                     .percentage(10)
@@ -132,24 +135,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooDeploymentGroup = new DeploymentGroup(&#34;fooDeploymentGroup&#34;, DeploymentGroupArgs.builder()        
+ *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()        
  *             .appName(fooApp.name())
- *             .deploymentGroupName(&#34;bar&#34;)
+ *             .deploymentGroupName("bar")
  *             .serviceRoleArn(fooRole.arn())
  *             .deploymentConfigName(foo.id())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
- *                 .events(&#34;DEPLOYMENT_STOP_ON_ALARM&#34;)
+ *                 .events("DEPLOYMENT_STOP_ON_ALARM")
  *                 .build())
  *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms(&#34;my-alarm-name&#34;)
+ *                 .alarms("my-alarm-name")
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

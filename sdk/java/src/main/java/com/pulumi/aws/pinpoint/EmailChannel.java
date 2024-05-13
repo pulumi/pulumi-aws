@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,52 +53,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
+ *         var app = new App("app");
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;pinpoint.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("pinpoint.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var role = new Role("role", RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var email = new EmailChannel(&#34;email&#34;, EmailChannelArgs.builder()        
+ *         var email = new EmailChannel("email", EmailChannelArgs.builder()        
  *             .applicationId(app.applicationId())
- *             .fromAddress(&#34;user@example.com&#34;)
+ *             .fromAddress("user{@literal @}example.com")
  *             .roleArn(role.arn())
  *             .build());
  * 
- *         var identity = new DomainIdentity(&#34;identity&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var identity = new DomainIdentity("identity", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
  *         final var rolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;mobileanalytics:PutEvents&#34;,
- *                     &#34;mobileanalytics:PutItems&#34;)
- *                 .resources(&#34;*&#34;)
+ *                     "mobileanalytics:PutEvents",
+ *                     "mobileanalytics:PutItems")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var rolePolicyRolePolicy = new RolePolicy(&#34;rolePolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;role_policy&#34;)
+ *         var rolePolicyRolePolicy = new RolePolicy("rolePolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("role_policy")
  *             .role(role.id())
- *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(rolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -154,14 +156,14 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
     @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
     /**
-     * @return The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * @return The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
     public Output<String> fromAddress() {

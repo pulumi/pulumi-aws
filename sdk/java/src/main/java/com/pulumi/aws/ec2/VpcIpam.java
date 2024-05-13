@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,17 +54,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var main = new VpcIpam(&#34;main&#34;, VpcIpamArgs.builder()        
- *             .description(&#34;My IPAM&#34;)
+ *         var main = new VpcIpam("main", VpcIpamArgs.builder()        
+ *             .description("My IPAM")
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
- *             .tags(Map.of(&#34;Test&#34;, &#34;Main&#34;))
+ *             .tags(Map.of("Test", "Main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Shared with multiple operating_regions:

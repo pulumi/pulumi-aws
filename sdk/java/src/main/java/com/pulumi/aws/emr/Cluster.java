@@ -36,7 +36,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -61,18 +62,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
- *             .name(&#34;emr-test-arn&#34;)
- *             .releaseLabel(&#34;emr-4.6.0&#34;)
- *             .applications(&#34;Spark&#34;)
- *             .additionalInfo(&#34;&#34;&#34;
+ *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+ *             .name("emr-test-arn")
+ *             .releaseLabel("emr-4.6.0")
+ *             .applications("Spark")
+ *             .additionalInfo("""
  * {
- *   &#34;instanceAwsClientConfiguration&#34;: {
- *     &#34;proxyPort&#34;: 8099,
- *     &#34;proxyHost&#34;: &#34;myproxy.example.com&#34;
+ *   "instanceAwsClientConfiguration": {
+ *     "proxyPort": 8099,
+ *     "proxyHost": "myproxy.example.com"
  *   }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .terminationProtection(false)
  *             .keepJobFlowAliveWhenNoSteps(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
@@ -82,97 +83,98 @@ import javax.annotation.Nullable;
  *                 .instanceProfile(emrProfile.arn())
  *                 .build())
  *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
+ *                 .instanceType("m4.large")
  *                 .build())
  *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
+ *                 .instanceType("c4.large")
  *                 .instanceCount(1)
  *                 .ebsConfigs(ClusterCoreInstanceGroupEbsConfigArgs.builder()
- *                     .size(&#34;40&#34;)
- *                     .type(&#34;gp2&#34;)
+ *                     .size("40")
+ *                     .type("gp2")
  *                     .volumesPerInstance(1)
  *                     .build())
- *                 .bidPrice(&#34;0.30&#34;)
- *                 .autoscalingPolicy(&#34;&#34;&#34;
+ *                 .bidPrice("0.30")
+ *                 .autoscalingPolicy("""
  * {
- * &#34;Constraints&#34;: {
- *   &#34;MinCapacity&#34;: 1,
- *   &#34;MaxCapacity&#34;: 2
+ * "Constraints": {
+ *   "MinCapacity": 1,
+ *   "MaxCapacity": 2
  * },
- * &#34;Rules&#34;: [
+ * "Rules": [
  *   {
- *     &#34;Name&#34;: &#34;ScaleOutMemoryPercentage&#34;,
- *     &#34;Description&#34;: &#34;Scale out if YARNMemoryAvailablePercentage is less than 15&#34;,
- *     &#34;Action&#34;: {
- *       &#34;SimpleScalingPolicyConfiguration&#34;: {
- *         &#34;AdjustmentType&#34;: &#34;CHANGE_IN_CAPACITY&#34;,
- *         &#34;ScalingAdjustment&#34;: 1,
- *         &#34;CoolDown&#34;: 300
+ *     "Name": "ScaleOutMemoryPercentage",
+ *     "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+ *     "Action": {
+ *       "SimpleScalingPolicyConfiguration": {
+ *         "AdjustmentType": "CHANGE_IN_CAPACITY",
+ *         "ScalingAdjustment": 1,
+ *         "CoolDown": 300
  *       }
  *     },
- *     &#34;Trigger&#34;: {
- *       &#34;CloudWatchAlarmDefinition&#34;: {
- *         &#34;ComparisonOperator&#34;: &#34;LESS_THAN&#34;,
- *         &#34;EvaluationPeriods&#34;: 1,
- *         &#34;MetricName&#34;: &#34;YARNMemoryAvailablePercentage&#34;,
- *         &#34;Namespace&#34;: &#34;AWS/ElasticMapReduce&#34;,
- *         &#34;Period&#34;: 300,
- *         &#34;Statistic&#34;: &#34;AVERAGE&#34;,
- *         &#34;Threshold&#34;: 15.0,
- *         &#34;Unit&#34;: &#34;PERCENT&#34;
+ *     "Trigger": {
+ *       "CloudWatchAlarmDefinition": {
+ *         "ComparisonOperator": "LESS_THAN",
+ *         "EvaluationPeriods": 1,
+ *         "MetricName": "YARNMemoryAvailablePercentage",
+ *         "Namespace": "AWS/ElasticMapReduce",
+ *         "Period": 300,
+ *         "Statistic": "AVERAGE",
+ *         "Threshold": 15.0,
+ *         "Unit": "PERCENT"
  *       }
  *     }
  *   }
  * ]
  * }
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .ebsRootVolumeSize(100)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;role&#34;, &#34;rolename&#34;),
- *                 Map.entry(&#34;env&#34;, &#34;env&#34;)
+ *                 Map.entry("role", "rolename"),
+ *                 Map.entry("env", "env")
  *             ))
  *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
- *                 .path(&#34;s3://elasticmapreduce/bootstrap-actions/run-if&#34;)
- *                 .name(&#34;runif&#34;)
+ *                 .path("s3://elasticmapreduce/bootstrap-actions/run-if")
+ *                 .name("runif")
  *                 .args(                
- *                     &#34;instance.isMaster=true&#34;,
- *                     &#34;echo running on master node&#34;)
+ *                     "instance.isMaster=true",
+ *                     "echo running on master node")
  *                 .build())
- *             .configurationsJson(&#34;&#34;&#34;
+ *             .configurationsJson("""
  *   [
  *     {
- *       &#34;Classification&#34;: &#34;hadoop-env&#34;,
- *       &#34;Configurations&#34;: [
+ *       "Classification": "hadoop-env",
+ *       "Configurations": [
  *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
  *           }
  *         }
  *       ],
- *       &#34;Properties&#34;: {}
+ *       "Properties": {}
  *     },
  *     {
- *       &#34;Classification&#34;: &#34;spark-env&#34;,
- *       &#34;Configurations&#34;: [
+ *       "Classification": "spark-env",
+ *       "Configurations": [
  *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+ *           "Classification": "export",
+ *           "Properties": {
+ *             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
  *           }
  *         }
  *       ],
- *       &#34;Properties&#34;: {}
+ *       "Properties": {}
  *     }
  *   ]
- *             &#34;&#34;&#34;)
+ *             """)
  *             .serviceRole(iamEmrServiceRole.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
@@ -182,7 +184,8 @@ import javax.annotation.Nullable;
  * ### Instance Fleet
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -210,10 +213,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()        
  *             .masterInstanceFleet(ClusterMasterInstanceFleetArgs.builder()
  *                 .instanceTypeConfigs(ClusterMasterInstanceFleetInstanceTypeConfigArgs.builder()
- *                     .instanceType(&#34;m4.xlarge&#34;)
+ *                     .instanceType("m4.xlarge")
  *                     .build())
  *                 .targetOnDemandCapacity(1)
  *                 .build())
@@ -223,85 +226,86 @@ import javax.annotation.Nullable;
  *                         .bidPriceAsPercentageOfOnDemandPrice(80)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
- *                             .type(&#34;gp2&#34;)
+ *                             .type("gp2")
  *                             .volumesPerInstance(1)
  *                             .build())
- *                         .instanceType(&#34;m3.xlarge&#34;)
+ *                         .instanceType("m3.xlarge")
  *                         .weightedCapacity(1)
  *                         .build(),
  *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
  *                         .bidPriceAsPercentageOfOnDemandPrice(100)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
- *                             .type(&#34;gp2&#34;)
+ *                             .type("gp2")
  *                             .volumesPerInstance(1)
  *                             .build())
- *                         .instanceType(&#34;m4.xlarge&#34;)
+ *                         .instanceType("m4.xlarge")
  *                         .weightedCapacity(1)
  *                         .build(),
  *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
  *                         .bidPriceAsPercentageOfOnDemandPrice(100)
  *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                             .size(100)
- *                             .type(&#34;gp2&#34;)
+ *                             .type("gp2")
  *                             .volumesPerInstance(1)
  *                             .build())
- *                         .instanceType(&#34;m4.2xlarge&#34;)
+ *                         .instanceType("m4.2xlarge")
  *                         .weightedCapacity(2)
  *                         .build())
  *                 .launchSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsArgs.builder()
  *                     .spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                         .allocationStrategy(&#34;capacity-optimized&#34;)
+ *                         .allocationStrategy("capacity-optimized")
  *                         .blockDurationMinutes(0)
- *                         .timeoutAction(&#34;SWITCH_TO_ON_DEMAND&#34;)
+ *                         .timeoutAction("SWITCH_TO_ON_DEMAND")
  *                         .timeoutDurationMinutes(10)
  *                         .build())
  *                     .build())
- *                 .name(&#34;core fleet&#34;)
+ *                 .name("core fleet")
  *                 .targetOnDemandCapacity(2)
  *                 .targetSpotCapacity(2)
  *                 .build())
  *             .build());
  * 
- *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
+ *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()        
  *             .clusterId(example.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
- *                         .type(&#34;gp2&#34;)
+ *                         .type("gp2")
  *                         .volumesPerInstance(1)
  *                         .build())
- *                     .instanceType(&#34;m4.xlarge&#34;)
+ *                     .instanceType("m4.xlarge")
  *                     .weightedCapacity(1)
  *                     .build(),
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
  *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
  *                         .size(100)
- *                         .type(&#34;gp2&#34;)
+ *                         .type("gp2")
  *                         .volumesPerInstance(1)
  *                         .build())
- *                     .instanceType(&#34;m4.2xlarge&#34;)
+ *                     .instanceType("m4.2xlarge")
  *                     .weightedCapacity(2)
  *                     .build())
  *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
  *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy(&#34;capacity-optimized&#34;)
+ *                     .allocationStrategy("capacity-optimized")
  *                     .blockDurationMinutes(0)
- *                     .timeoutAction(&#34;TERMINATE_CLUSTER&#34;)
+ *                     .timeoutAction("TERMINATE_CLUSTER")
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
- *             .name(&#34;task fleet&#34;)
+ *             .name("task fleet")
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Enable Debug Logging
@@ -309,7 +313,8 @@ import javax.annotation.Nullable;
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -332,20 +337,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()        
  *             .steps(ClusterStepArgs.builder()
- *                 .actionOnFailure(&#34;TERMINATE_CLUSTER&#34;)
- *                 .name(&#34;Setup Hadoop Debugging&#34;)
+ *                 .actionOnFailure("TERMINATE_CLUSTER")
+ *                 .name("Setup Hadoop Debugging")
  *                 .hadoopJarStep(ClusterStepHadoopJarStepArgs.builder()
- *                     .jar(&#34;command-runner.jar&#34;)
- *                     .args(&#34;state-pusher-script&#34;)
+ *                     .jar("command-runner.jar")
+ *                     .args("state-pusher-script")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multiple Node Master Instance Group
@@ -353,7 +359,8 @@ import javax.annotation.Nullable;
  * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -382,12 +389,12 @@ import javax.annotation.Nullable;
  *         // This configuration is for illustrative purposes and highlights
  *         // only relevant configurations for working with this functionality.
  *         // Map public IP on launch must be enabled for public (Internet accessible) subnets
- *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
+ *         var example = new Subnet("example", SubnetArgs.builder()        
  *             .mapPublicIpOnLaunch(true)
  *             .build());
  * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .releaseLabel(&#34;emr-5.24.1&#34;)
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .releaseLabel("emr-5.24.1")
  *             .terminationProtection(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
  *                 .subnetId(example.id())
@@ -400,7 +407,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -525,7 +533,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -546,28 +555,29 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -580,7 +590,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -601,28 +612,29 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

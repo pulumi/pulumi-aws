@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,16 +48,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InputSecurityGroup(&#34;example&#34;, InputSecurityGroupArgs.builder()        
+ *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()        
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
- *                 .cidr(&#34;10.0.0.8/32&#34;)
+ *                 .cidr("10.0.0.8/32")
  *                 .build())
- *             .tags(Map.of(&#34;ENVIRONMENT&#34;, &#34;prod&#34;))
+ *             .tags(Map.of("ENVIRONMENT", "prod"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

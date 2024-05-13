@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Account Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,31 +52,33 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;DevAccountAccess&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;events:PutEvents&#34;)
- *                 .resources(&#34;arn:aws:events:eu-west-1:123456789012:event-bus/default&#34;)
+ *                 .sid("DevAccountAccess")
+ *                 .effect("Allow")
+ *                 .actions("events:PutEvents")
+ *                 .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("123456789012")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Access
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,42 +103,44 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;OrganizationAccess&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("OrganizationAccess")
+ *                 .effect("Allow")
  *                 .actions(                
- *                     &#34;events:DescribeRule&#34;,
- *                     &#34;events:ListRules&#34;,
- *                     &#34;events:ListTargetsByRule&#34;,
- *                     &#34;events:ListTagsForResource&#34;)
+ *                     "events:DescribeRule",
+ *                     "events:ListRules",
+ *                     "events:ListTargetsByRule",
+ *                     "events:ListTagsForResource")
  *                 .resources(                
- *                     &#34;arn:aws:events:eu-west-1:123456789012:rule/*&#34;,
- *                     &#34;arn:aws:events:eu-west-1:123456789012:event-bus/default&#34;)
+ *                     "arn:aws:events:eu-west-1:123456789012:rule/*",
+ *                     "arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;StringEquals&#34;)
- *                     .variable(&#34;aws:PrincipalOrgID&#34;)
+ *                     .test("StringEquals")
+ *                     .variable("aws:PrincipalOrgID")
  *                     .values(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multiple Statements
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -161,46 +166,47 @@ import javax.annotation.Nullable;
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;DevAccountAccess&#34;)
- *                     .effect(&#34;Allow&#34;)
- *                     .actions(&#34;events:PutEvents&#34;)
- *                     .resources(&#34;arn:aws:events:eu-west-1:123456789012:event-bus/default&#34;)
+ *                     .sid("DevAccountAccess")
+ *                     .effect("Allow")
+ *                     .actions("events:PutEvents")
+ *                     .resources("arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;123456789012&#34;)
+ *                         .type("AWS")
+ *                         .identifiers("123456789012")
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;OrganizationAccess&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("OrganizationAccess")
+ *                     .effect("Allow")
  *                     .actions(                    
- *                         &#34;events:DescribeRule&#34;,
- *                         &#34;events:ListRules&#34;,
- *                         &#34;events:ListTargetsByRule&#34;,
- *                         &#34;events:ListTagsForResource&#34;)
+ *                         "events:DescribeRule",
+ *                         "events:ListRules",
+ *                         "events:ListTargetsByRule",
+ *                         "events:ListTagsForResource")
  *                     .resources(                    
- *                         &#34;arn:aws:events:eu-west-1:123456789012:rule/*&#34;,
- *                         &#34;arn:aws:events:eu-west-1:123456789012:event-bus/default&#34;)
+ *                         "arn:aws:events:eu-west-1:123456789012:rule/*",
+ *                         "arn:aws:events:eu-west-1:123456789012:event-bus/default")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
+ *                         .type("AWS")
+ *                         .identifiers("*")
  *                         .build())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;aws:PrincipalOrgID&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("aws:PrincipalOrgID")
  *                         .values(example.id())
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

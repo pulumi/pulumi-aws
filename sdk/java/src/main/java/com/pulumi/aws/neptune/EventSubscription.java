@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,51 +49,52 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster(&#34;default&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;neptune-cluster-demo&#34;)
- *             .engine(&#34;neptune&#34;)
+ *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *             .clusterIdentifier("neptune-cluster-demo")
+ *             .engine("neptune")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .skipFinalSnapshot(true)
- *             .iamDatabaseAuthenticationEnabled(&#34;true&#34;)
- *             .applyImmediately(&#34;true&#34;)
+ *             .iamDatabaseAuthenticationEnabled("true")
+ *             .applyImmediately("true")
  *             .build());
  * 
- *         var example = new ClusterInstance(&#34;example&#34;, ClusterInstanceArgs.builder()        
+ *         var example = new ClusterInstance("example", ClusterInstanceArgs.builder()        
  *             .clusterIdentifier(default_.id())
- *             .engine(&#34;neptune&#34;)
- *             .instanceClass(&#34;db.r4.large&#34;)
- *             .applyImmediately(&#34;true&#34;)
+ *             .engine("neptune")
+ *             .instanceClass("db.r4.large")
+ *             .applyImmediately("true")
  *             .build());
  * 
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;neptune-events&#34;)
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *             .name("neptune-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
- *             .name(&#34;neptune-event-sub&#34;)
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *             .name("neptune-event-sub")
  *             .snsTopicArn(defaultTopic.arn())
- *             .sourceType(&#34;db-instance&#34;)
+ *             .sourceType("db-instance")
  *             .sourceIds(example.id())
  *             .eventCategories(            
- *                 &#34;maintenance&#34;,
- *                 &#34;availability&#34;,
- *                 &#34;creation&#34;,
- *                 &#34;backup&#34;,
- *                 &#34;restoration&#34;,
- *                 &#34;recovery&#34;,
- *                 &#34;deletion&#34;,
- *                 &#34;failover&#34;,
- *                 &#34;failure&#34;,
- *                 &#34;notification&#34;,
- *                 &#34;configuration change&#34;,
- *                 &#34;read replica&#34;)
- *             .tags(Map.of(&#34;env&#34;, &#34;test&#34;))
+ *                 "maintenance",
+ *                 "availability",
+ *                 "creation",
+ *                 "backup",
+ *                 "restoration",
+ *                 "recovery",
+ *                 "deletion",
+ *                 "failover",
+ *                 "failure",
+ *                 "notification",
+ *                 "configuration change",
+ *                 "read replica")
+ *             .tags(Map.of("env", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

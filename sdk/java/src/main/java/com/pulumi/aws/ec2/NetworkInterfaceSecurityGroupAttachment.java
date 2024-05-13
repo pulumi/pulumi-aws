@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * named `sg_attachment`:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -64,30 +65,31 @@ import javax.annotation.Nullable;
  *         final var ami = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-hvm-*&#34;)
+ *                 .name("name")
+ *                 .values("amzn-ami-hvm-*")
  *                 .build())
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .build());
  * 
- *         var instance = new Instance(&#34;instance&#34;, InstanceArgs.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
- *             .ami(ami.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .tags(Map.of(&#34;type&#34;, &#34;test-instance&#34;))
+ *         var instance = new Instance("instance", InstanceArgs.builder()        
+ *             .instanceType("t2.micro")
+ *             .ami(ami.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .tags(Map.of("type", "test-instance"))
  *             .build());
  * 
- *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
- *             .tags(Map.of(&#34;type&#34;, &#34;test-security-group&#34;))
+ *         var sg = new SecurityGroup("sg", SecurityGroupArgs.builder()        
+ *             .tags(Map.of("type", "test-security-group"))
  *             .build());
  * 
- *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment(&#34;sgAttachment&#34;, NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
+ *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment("sgAttachment", NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
  *             .securityGroupId(sg.id())
  *             .networkInterfaceId(instance.primaryNetworkInterfaceId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
@@ -95,7 +97,8 @@ import javax.annotation.Nullable;
  * `sg_attachment` then attaches to the output instance&#39;s `network_interface_id`:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,21 +124,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
- *             .instanceId(&#34;i-1234567890abcdef0&#34;)
+ *             .instanceId("i-1234567890abcdef0")
  *             .build());
  * 
- *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
- *             .tags(Map.of(&#34;type&#34;, &#34;test-security-group&#34;))
+ *         var sg = new SecurityGroup("sg", SecurityGroupArgs.builder()        
+ *             .tags(Map.of("type", "test-security-group"))
  *             .build());
  * 
- *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment(&#34;sgAttachment&#34;, NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
+ *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment("sgAttachment", NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
  *             .securityGroupId(sg.id())
- *             .networkInterfaceId(instance.applyValue(getInstanceResult -&gt; getInstanceResult.networkInterfaceId()))
+ *             .networkInterfaceId(instance.applyValue(getInstanceResult -> getInstanceResult.networkInterfaceId()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

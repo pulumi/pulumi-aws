@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### RDS Custom for Oracle Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,36 +47,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;KMS symmetric key for RDS Custom for Oracle&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("KMS symmetric key for RDS Custom for Oracle")
  *             .build());
  * 
- *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion(&#34;exampleCustomDbEngineVersion&#34;, CustomDbEngineVersionArgs.builder()        
- *             .databaseInstallationFilesS3BucketName(&#34;DOC-EXAMPLE-BUCKET&#34;)
- *             .databaseInstallationFilesS3Prefix(&#34;1915_GI/&#34;)
- *             .engine(&#34;custom-oracle-ee-cdb&#34;)
- *             .engineVersion(&#34;19.cdb_cev1&#34;)
+ *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()        
+ *             .databaseInstallationFilesS3BucketName("DOC-EXAMPLE-BUCKET")
+ *             .databaseInstallationFilesS3Prefix("1915_GI/")
+ *             .engine("custom-oracle-ee-cdb")
+ *             .engineVersion("19.cdb_cev1")
  *             .kmsKeyId(example.arn())
- *             .manifest(&#34;&#34;&#34;
+ *             .manifest("""
  *   {
- * 	&#34;databaseInstallationFileNames&#34;:[&#34;V982063-01.zip&#34;]
+ * 	"databaseInstallationFileNames":["V982063-01.zip"]
  *   }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
+ *                 Map.entry("Name", "example"),
+ *                 Map.entry("Key", "value")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Custom for Oracle External Manifest Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,35 +101,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;KMS symmetric key for RDS Custom for Oracle&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("KMS symmetric key for RDS Custom for Oracle")
  *             .build());
  * 
- *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion(&#34;exampleCustomDbEngineVersion&#34;, CustomDbEngineVersionArgs.builder()        
- *             .databaseInstallationFilesS3BucketName(&#34;DOC-EXAMPLE-BUCKET&#34;)
- *             .databaseInstallationFilesS3Prefix(&#34;1915_GI/&#34;)
- *             .engine(&#34;custom-oracle-ee-cdb&#34;)
- *             .engineVersion(&#34;19.cdb_cev1&#34;)
+ *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()        
+ *             .databaseInstallationFilesS3BucketName("DOC-EXAMPLE-BUCKET")
+ *             .databaseInstallationFilesS3Prefix("1915_GI/")
+ *             .engine("custom-oracle-ee-cdb")
+ *             .engineVersion("19.cdb_cev1")
  *             .kmsKeyId(example.arn())
- *             .filename(&#34;manifest_1915_GI.json&#34;)
+ *             .filename("manifest_1915_GI.json")
  *             .manifestHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
  *                 .input(json)
  *                 .build()).result())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
+ *                 Map.entry("Name", "example"),
+ *                 Map.entry("Key", "value")
  *             ))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Custom for SQL Server Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -148,21 +153,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // CEV creation requires an AMI owned by the operator
- *         var test = new CustomDbEngineVersion(&#34;test&#34;, CustomDbEngineVersionArgs.builder()        
- *             .engine(&#34;custom-sqlserver-se&#34;)
- *             .engineVersion(&#34;15.00.4249.2.cev-1&#34;)
- *             .sourceImageId(&#34;ami-0aa12345678a12ab1&#34;)
+ *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()        
+ *             .engine("custom-sqlserver-se")
+ *             .engineVersion("15.00.4249.2.cev-1")
+ *             .sourceImageId("ami-0aa12345678a12ab1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### RDS Custom for SQL Server Usage with AMI from another region
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -185,23 +192,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiCopy(&#34;example&#34;, AmiCopyArgs.builder()        
- *             .name(&#34;sqlserver-se-2019-15.00.4249.2&#34;)
- *             .description(&#34;A copy of ami-xxxxxxxx&#34;)
- *             .sourceAmiId(&#34;ami-xxxxxxxx&#34;)
- *             .sourceAmiRegion(&#34;us-east-1&#34;)
+ *         var example = new AmiCopy("example", AmiCopyArgs.builder()        
+ *             .name("sqlserver-se-2019-15.00.4249.2")
+ *             .description("A copy of ami-xxxxxxxx")
+ *             .sourceAmiId("ami-xxxxxxxx")
+ *             .sourceAmiRegion("us-east-1")
  *             .build());
  * 
  *         // CEV creation requires an AMI owned by the operator
- *         var test = new CustomDbEngineVersion(&#34;test&#34;, CustomDbEngineVersionArgs.builder()        
- *             .engine(&#34;custom-sqlserver-se&#34;)
- *             .engineVersion(&#34;15.00.4249.2.cev-1&#34;)
+ *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()        
+ *             .engine("custom-sqlserver-se")
+ *             .engineVersion("15.00.4249.2.cev-1")
  *             .sourceImageId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

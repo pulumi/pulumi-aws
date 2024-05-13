@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,61 +59,61 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Channel(&#34;example&#34;, ChannelArgs.builder()        
- *             .name(&#34;example-channel&#34;)
- *             .channelClass(&#34;STANDARD&#34;)
+ *         var example = new Channel("example", ChannelArgs.builder()        
+ *             .name("example-channel")
+ *             .channelClass("STANDARD")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .inputSpecification(ChannelInputSpecificationArgs.builder()
- *                 .codec(&#34;AVC&#34;)
- *                 .inputResolution(&#34;HD&#34;)
- *                 .maximumBitrate(&#34;MAX_20_MBPS&#34;)
+ *                 .codec("AVC")
+ *                 .inputResolution("HD")
+ *                 .maximumBitrate("MAX_20_MBPS")
  *                 .build())
  *             .inputAttachments(ChannelInputAttachmentArgs.builder()
- *                 .inputAttachmentName(&#34;example-input&#34;)
+ *                 .inputAttachmentName("example-input")
  *                 .inputId(exampleAwsMedialiveInput.id())
  *                 .build())
  *             .destinations(ChannelDestinationArgs.builder()
- *                 .id(&#34;destination&#34;)
+ *                 .id("destination")
  *                 .settings(                
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test1&#34;, main.id()))
+ *                         .url(String.format("s3://%s/test1", main.id()))
  *                         .build(),
  *                     ChannelDestinationSettingArgs.builder()
- *                         .url(String.format(&#34;s3://%s/test2&#34;, main2.id()))
+ *                         .url(String.format("s3://%s/test2", main2.id()))
  *                         .build())
  *                 .build())
  *             .encoderSettings(ChannelEncoderSettingsArgs.builder()
  *                 .timecodeConfig(ChannelEncoderSettingsTimecodeConfigArgs.builder()
- *                     .source(&#34;EMBEDDED&#34;)
+ *                     .source("EMBEDDED")
  *                     .build())
  *                 .audioDescriptions(ChannelEncoderSettingsAudioDescriptionArgs.builder()
- *                     .audioSelectorName(&#34;example audio selector&#34;)
- *                     .name(&#34;audio-selector&#34;)
+ *                     .audioSelectorName("example audio selector")
+ *                     .name("audio-selector")
  *                     .build())
  *                 .videoDescriptions(ChannelEncoderSettingsVideoDescriptionArgs.builder()
- *                     .name(&#34;example-video&#34;)
+ *                     .name("example-video")
  *                     .build())
  *                 .outputGroups(ChannelEncoderSettingsOutputGroupArgs.builder()
  *                     .outputGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs.builder()
  *                         .archiveGroupSettings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.builder()
  *                             .destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs.builder()
- *                                 .destinationRefId(&#34;destination&#34;)
+ *                                 .destinationRefId("destination")
  *                                 .build())
  *                             .build())
  *                         .build())
  *                     .outputs(ChannelEncoderSettingsOutputGroupOutputArgs.builder()
- *                         .outputName(&#34;example-name&#34;)
- *                         .videoDescriptionName(&#34;example-video&#34;)
- *                         .audioDescriptionNames(&#34;audio-selector&#34;)
+ *                         .outputName("example-name")
+ *                         .videoDescriptionName("example-video")
+ *                         .audioDescriptionNames("audio-selector")
  *                         .outputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.builder()
  *                             .archiveOutputSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.builder()
- *                                 .nameModifier(&#34;_1&#34;)
- *                                 .extension(&#34;m2ts&#34;)
+ *                                 .nameModifier("_1")
+ *                                 .extension("m2ts")
  *                                 .containerSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs.builder()
  *                                     .m2tsSettings(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.builder()
- *                                         .audioBufferModel(&#34;ATSC&#34;)
- *                                         .bufferModel(&#34;MULTIPLEX&#34;)
- *                                         .rateMode(&#34;CBR&#34;)
+ *                                         .audioBufferModel("ATSC")
+ *                                         .bufferModel("MULTIPLEX")
+ *                                         .rateMode("CBR")
  *                                         .build())
  *                                     .build())
  *                                 .build())
@@ -124,7 +125,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

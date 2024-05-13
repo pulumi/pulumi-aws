@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,14 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SiteToSiteVpnAttachment(&#34;example&#34;, SiteToSiteVpnAttachmentArgs.builder()        
+ *         var example = new SiteToSiteVpnAttachment("example", SiteToSiteVpnAttachmentArgs.builder()        
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpnConnectionArn(exampleAwsVpnConnection.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

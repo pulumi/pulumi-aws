@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var example = new Volume("example", VolumeArgs.builder()        
+ *             .availabilityZone("us-west-2a")
  *             .size(40)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
+ *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume

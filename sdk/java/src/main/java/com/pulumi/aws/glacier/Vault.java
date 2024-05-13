@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,40 +51,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsSnsTopic = new Topic(&#34;awsSnsTopic&#34;, TopicArgs.builder()        
- *             .name(&#34;glacier-sns-topic&#34;)
+ *         var awsSnsTopic = new Topic("awsSnsTopic", TopicArgs.builder()        
+ *             .name("glacier-sns-topic")
  *             .build());
  * 
  *         final var myArchive = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;add-read-only-perm&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("add-read-only-perm")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
  *                 .actions(                
- *                     &#34;glacier:InitiateJob&#34;,
- *                     &#34;glacier:GetJobOutput&#34;)
- *                 .resources(&#34;arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive&#34;)
+ *                     "glacier:InitiateJob",
+ *                     "glacier:GetJobOutput")
+ *                 .resources("arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive")
  *                 .build())
  *             .build());
  * 
- *         var myArchiveVault = new Vault(&#34;myArchiveVault&#34;, VaultArgs.builder()        
- *             .name(&#34;MyArchive&#34;)
+ *         var myArchiveVault = new Vault("myArchiveVault", VaultArgs.builder()        
+ *             .name("MyArchive")
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())
  *                 .events(                
- *                     &#34;ArchiveRetrievalCompleted&#34;,
- *                     &#34;InventoryRetrievalCompleted&#34;)
+ *                     "ArchiveRetrievalCompleted",
+ *                     "InventoryRetrievalCompleted")
  *                 .build())
- *             .accessPolicy(myArchive.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .tags(Map.of(&#34;Test&#34;, &#34;MyArchive&#34;))
+ *             .accessPolicy(myArchive.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .tags(Map.of("Test", "MyArchive"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

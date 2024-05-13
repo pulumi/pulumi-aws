@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,21 +43,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignment(&#34;example&#34;, ApplicationAssignmentArgs.builder()        
+ *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()        
  *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
  *             .principalId(exampleAwsIdentitystoreUser.userId())
- *             .principalType(&#34;USER&#34;)
+ *             .principalType("USER")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Group Type
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,15 +80,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApplicationAssignment(&#34;example&#34;, ApplicationAssignmentArgs.builder()        
+ *         var example = new ApplicationAssignment("example", ApplicationAssignmentArgs.builder()        
  *             .applicationArn(exampleAwsSsoadminApplication.applicationArn())
  *             .principalId(exampleAwsIdentitystoreGroup.groupId())
- *             .principalType(&#34;GROUP&#34;)
+ *             .principalType("GROUP")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomRoutingEndpointGroup(&#34;example&#34;, CustomRoutingEndpointGroupArgs.builder()        
+ *         var example = new CustomRoutingEndpointGroup("example", CustomRoutingEndpointGroupArgs.builder()        
  *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.id())
  *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(8080)
- *                 .protocols(&#34;TCP&#34;)
+ *                 .protocols("TCP")
  *                 .build())
  *             .endpointConfigurations(CustomRoutingEndpointGroupEndpointConfigurationArgs.builder()
  *                 .endpointId(exampleAwsSubnet.id())
@@ -60,7 +61,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

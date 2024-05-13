@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,12 +51,12 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
- *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
+ *                         .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .build())
  *                 .build())
@@ -63,13 +64,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Multiple Region Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -98,17 +101,17 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(                    
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
- *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                             .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
+ *                             .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                             .build(),
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[1]))
- *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                             .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[1]))
+ *                             .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                             .build())
  *                     .build())
  *                 .build())
@@ -116,13 +119,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Repository Filter Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -151,16 +156,16 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
- *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .region(example.applyValue(getRegionsResult -> getRegionsResult.names()[0]))
+ *                         .registryId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.builder()
- *                         .filter(&#34;prod-microservice&#34;)
- *                         .filterType(&#34;PREFIX_MATCH&#34;)
+ *                         .filter("prod-microservice")
+ *                         .filterType("PREFIX_MATCH")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -168,7 +173,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

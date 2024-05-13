@@ -28,7 +28,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,12 +51,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
+     *             .serviceName("Amazon Virtual Private Cloud (Amazon VPC)")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,12 +95,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
+     *             .serviceName("Amazon Virtual Private Cloud (Amazon VPC)")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
+     *             .serviceName("Amazon Virtual Private Cloud (Amazon VPC)")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +160,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,12 +183,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;Amazon Virtual Private Cloud (Amazon VPC)&#34;)
+     *             .serviceName("Amazon Virtual Private Cloud (Amazon VPC)")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -196,7 +204,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,18 +227,19 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaCode("L-F678F1CE")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaName("VPCs per Region")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -244,7 +254,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -266,18 +277,19 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaCode("L-F678F1CE")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaName("VPCs per Region")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -292,7 +304,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -314,18 +327,19 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaCode("L-F678F1CE")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaName("VPCs per Region")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -340,7 +354,8 @@ public final class ServicequotasFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -362,18 +377,19 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var byQuotaCode = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaCode(&#34;L-F678F1CE&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaCode("L-F678F1CE")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *         final var byQuotaName = ServicequotasFunctions.getServiceQuota(GetServiceQuotaArgs.builder()
-     *             .quotaName(&#34;VPCs per Region&#34;)
-     *             .serviceCode(&#34;vpc&#34;)
+     *             .quotaName("VPCs per Region")
+     *             .serviceCode("vpc")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -388,7 +404,8 @@ public final class ServicequotasFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -410,12 +427,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
+     *             .region("us-east-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -430,7 +448,8 @@ public final class ServicequotasFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -452,12 +471,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
+     *             .region("us-east-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -472,7 +492,8 @@ public final class ServicequotasFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -494,12 +515,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
+     *             .region("us-east-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -514,7 +536,8 @@ public final class ServicequotasFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -536,12 +559,13 @@ public final class ServicequotasFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
-     *             .region(&#34;us-east-1&#34;)
+     *             .region("us-east-1")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

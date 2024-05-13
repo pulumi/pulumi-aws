@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubnetCidrReservation(&#34;example&#34;, SubnetCidrReservationArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.16/28&#34;)
- *             .reservationType(&#34;prefix&#34;)
+ *         var example = new SubnetCidrReservation("example", SubnetCidrReservationArgs.builder()        
+ *             .cidrBlock("10.0.0.16/28")
+ *             .reservationType("prefix")
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

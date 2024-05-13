@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,18 +42,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLambdafunctionLogfilter = new LogSubscriptionFilter(&#34;testLambdafunctionLogfilter&#34;, LogSubscriptionFilterArgs.builder()        
- *             .name(&#34;test_lambdafunction_logfilter&#34;)
+ *         var testLambdafunctionLogfilter = new LogSubscriptionFilter("testLambdafunctionLogfilter", LogSubscriptionFilterArgs.builder()        
+ *             .name("test_lambdafunction_logfilter")
  *             .roleArn(iamForLambda.arn())
- *             .logGroup(&#34;/aws/lambda/example_lambda_name&#34;)
- *             .filterPattern(&#34;logtype test&#34;)
+ *             .logGroup("/aws/lambda/example_lambda_name")
+ *             .filterPattern("logtype test")
  *             .destinationArn(testLogstream.arn())
- *             .distribution(&#34;Random&#34;)
+ *             .distribution("Random")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .description(&#34;Example Client VPN endpoint&#34;)
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *             .description("Example Client VPN endpoint")
  *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
- *             .clientCidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .clientCidrBlock("10.0.0.0/16")
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
- *                 .type(&#34;certificate-authentication&#34;)
+ *                 .type("certificate-authentication")
  *                 .rootCertificateChainArn(exampleAwsAcmCertificate.arn())
  *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
@@ -61,20 +62,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkAssociation = new NetworkAssociation(&#34;exampleNetworkAssociation&#34;, NetworkAssociationArgs.builder()        
+ *         var exampleNetworkAssociation = new NetworkAssociation("exampleNetworkAssociation", NetworkAssociationArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
- *         var example = new Route(&#34;example&#34;, RouteArgs.builder()        
+ *         var example = new Route("example", RouteArgs.builder()        
  *             .clientVpnEndpointId(exampleEndpoint.id())
- *             .destinationCidrBlock(&#34;0.0.0.0/0&#34;)
+ *             .destinationCidrBlock("0.0.0.0/0")
  *             .targetVpcSubnetId(exampleNetworkAssociation.subnetId())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Example with VPC attachment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
+ *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()        
  *             .attachmentId(vpc.id())
  *             .attachmentType(vpc.attachmentType())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with site-to-site VPN attachment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,14 +80,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter(&#34;test&#34;, AttachmentAccepterArgs.builder()        
+ *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()        
  *             .attachmentId(vpn.id())
  *             .attachmentType(vpn.attachmentType())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

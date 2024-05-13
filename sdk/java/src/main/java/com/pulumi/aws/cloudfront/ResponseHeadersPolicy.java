@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * The example below creates a CloudFront response headers policy.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,19 +56,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
- *             .name(&#34;example-policy&#34;)
- *             .comment(&#34;test comment&#34;)
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *             .name("example-policy")
+ *             .comment("test comment")
  *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
  *                 .accessControlAllowCredentials(true)
  *                 .accessControlAllowHeaders(ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs.builder()
- *                     .items(&#34;test&#34;)
+ *                     .items("test")
  *                     .build())
  *                 .accessControlAllowMethods(ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs.builder()
- *                     .items(&#34;GET&#34;)
+ *                     .items("GET")
  *                     .build())
  *                 .accessControlAllowOrigins(ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs.builder()
- *                     .items(&#34;test.example.comtest&#34;)
+ *                     .items("test.example.comtest")
  *                     .build())
  *                 .originOverride(true)
  *                 .build())
@@ -75,13 +76,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The example below creates a CloudFront response headers policy with a custom headers config.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -103,32 +106,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
- *             .name(&#34;example-headers-policy&#34;)
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(                
  *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header(&#34;X-Permitted-Cross-Domain-Policies&#34;)
+ *                         .header("X-Permitted-Cross-Domain-Policies")
  *                         .override(true)
- *                         .value(&#34;none&#34;)
+ *                         .value("none")
  *                         .build(),
  *                     ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                         .header(&#34;X-Test&#34;)
+ *                         .header("X-Test")
  *                         .override(true)
- *                         .value(&#34;none&#34;)
+ *                         .value("none")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -151,13 +156,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy(&#34;example&#34;, ResponseHeadersPolicyArgs.builder()        
- *             .name(&#34;example-headers-policy&#34;)
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()
- *                     .header(&#34;X-Permitted-Cross-Domain-Policies&#34;)
+ *                     .header("X-Permitted-Cross-Domain-Policies")
  *                     .override(true)
- *                     .value(&#34;none&#34;)
+ *                     .value("none")
  *                     .build())
  *                 .build())
  *             .serverTimingHeadersConfig(ResponseHeadersPolicyServerTimingHeadersConfigArgs.builder()
@@ -168,7 +173,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

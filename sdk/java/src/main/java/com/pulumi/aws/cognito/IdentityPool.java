@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,39 +49,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new SamlProvider(&#34;default&#34;, SamlProviderArgs.builder()        
- *             .name(&#34;my-saml-provider&#34;)
+ *         var default_ = new SamlProvider("default", SamlProviderArgs.builder()        
+ *             .name("my-saml-provider")
  *             .samlMetadataDocument(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;saml-metadata.xml&#34;)
+ *                 .input("saml-metadata.xml")
  *                 .build()).result())
  *             .build());
  * 
- *         var main = new IdentityPool(&#34;main&#34;, IdentityPoolArgs.builder()        
- *             .identityPoolName(&#34;identity pool&#34;)
+ *         var main = new IdentityPool("main", IdentityPoolArgs.builder()        
+ *             .identityPoolName("identity pool")
  *             .allowUnauthenticatedIdentities(false)
  *             .allowClassicFlow(false)
  *             .cognitoIdentityProviders(            
  *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;6lhlkkfbfb4q5kpp90urffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ&#34;)
+ *                     .clientId("6lhlkkfbfb4q5kpp90urffae")
+ *                     .providerName("cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ")
  *                     .serverSideTokenCheck(false)
  *                     .build(),
  *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;7kodkvfqfb4qfkp39eurffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu&#34;)
+ *                     .clientId("7kodkvfqfb4qfkp39eurffae")
+ *                     .providerName("cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu")
  *                     .serverSideTokenCheck(false)
  *                     .build())
  *             .supportedLoginProviders(Map.ofEntries(
- *                 Map.entry(&#34;graph.facebook.com&#34;, &#34;7346241598935552&#34;),
- *                 Map.entry(&#34;accounts.google.com&#34;, &#34;123456789012.apps.googleusercontent.com&#34;)
+ *                 Map.entry("graph.facebook.com", "7346241598935552"),
+ *                 Map.entry("accounts.google.com", "123456789012.apps.googleusercontent.com")
  *             ))
  *             .samlProviderArns(default_.arn())
- *             .openidConnectProviderArns(&#34;arn:aws:iam::123456789012:oidc-provider/id.example.com&#34;)
+ *             .openidConnectProviderArns("arn:aws:iam::123456789012:oidc-provider/id.example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

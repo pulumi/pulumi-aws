@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;mybucket&#34;)
+ *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *             .bucket("mybucket")
  *             .build());
  * 
- *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2(&#34;exampleBucketCorsConfigurationV2&#34;, BucketCorsConfigurationV2Args.builder()        
+ *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", BucketCorsConfigurationV2Args.builder()        
  *             .bucket(example.id())
  *             .corsRules(            
  *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
- *                     .allowedHeaders(&#34;*&#34;)
+ *                     .allowedHeaders("*")
  *                     .allowedMethods(                    
- *                         &#34;PUT&#34;,
- *                         &#34;POST&#34;)
- *                     .allowedOrigins(&#34;https://s3-website-test.domain.example&#34;)
- *                     .exposeHeaders(&#34;ETag&#34;)
+ *                         "PUT",
+ *                         "POST")
+ *                     .allowedOrigins("https://s3-website-test.domain.example")
+ *                     .exposeHeaders("ETag")
  *                     .maxAgeSeconds(3000)
  *                     .build(),
  *                 BucketCorsConfigurationV2CorsRuleArgs.builder()
- *                     .allowedMethods(&#34;GET&#34;)
- *                     .allowedOrigins(&#34;*&#34;)
+ *                     .allowedMethods("GET")
+ *                     .allowedOrigins("*")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

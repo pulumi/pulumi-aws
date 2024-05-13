@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourcesConfig(&#34;example&#34;, EventSourcesConfigArgs.builder()        
+ *         var example = new EventSourcesConfig("example", EventSourcesConfigArgs.builder()        
  *             .eventSources(EventSourcesConfigEventSourceArgs.builder()
  *                 .amazonCodeGuruProfilers(EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs.builder()
- *                     .status(&#34;ENABLED&#34;)
+ *                     .status("ENABLED")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

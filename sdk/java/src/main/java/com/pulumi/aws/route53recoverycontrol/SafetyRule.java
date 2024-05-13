@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
+ *         var example = new SafetyRule("example", SafetyRuleArgs.builder()        
  *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
- *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
- *             .name(&#34;daisyguttridge&#34;)
+ *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
+ *             .name("daisyguttridge")
  *             .waitPeriodMs(5000)
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
+ *                 .type("ATLEAST")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,22 +88,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
- *             .name(&#34;i_o&#34;)
- *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
+ *         var example = new SafetyRule("example", SafetyRuleArgs.builder()        
+ *             .name("i_o")
+ *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
  *             .waitPeriodMs(5000)
  *             .gatingControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .targetControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
  *                 .inverted(false)
  *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
+ *                 .type("ATLEAST")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

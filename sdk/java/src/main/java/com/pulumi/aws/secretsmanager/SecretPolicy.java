@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,31 +49,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;EnableAnotherAWSAccountToReadTheSecret&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("EnableAnotherAWSAccountToReadTheSecret")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;arn:aws:iam::123456789012:root&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("arn:aws:iam::123456789012:root")
  *                     .build())
- *                 .actions(&#34;secretsmanager:GetSecretValue&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .actions("secretsmanager:GetSecretValue")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
+ *         var exampleSecretPolicy = new SecretPolicy("exampleSecretPolicy", SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

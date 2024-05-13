@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceAssociation(&#34;example&#34;, ResourceAssociationArgs.builder()        
+ *         var example = new ResourceAssociation("example", ResourceAssociationArgs.builder()        
  *             .resourceArn(exampleAwsSubnet.arn())
  *             .resourceShareArn(exampleAwsRamResourceShare.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -42,7 +42,8 @@ import javax.annotation.Nullable;
  * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -70,16 +71,17 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
  *         final var currentGetSessionContext = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
- *             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+ *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
  *             .build());
  * 
- *         var test = new DataLakeSettings(&#34;test&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -&gt; getSessionContextResult.issuerArn()))
+ *         var test = new DataLakeSettings("test", DataLakeSettingsArgs.builder()        
+ *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -> getSessionContextResult.issuerArn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
@@ -98,7 +100,8 @@ import javax.annotation.Nullable;
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,34 +128,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;sadabate&#34;)
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *             .name("sadabate")
  *             .build());
  * 
- *         var exampleCatalogTable = new CatalogTable(&#34;exampleCatalogTable&#34;, CatalogTableArgs.builder()        
- *             .name(&#34;abelt&#34;)
+ *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()        
+ *             .name("abelt")
  *             .databaseName(test.name())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
  *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
- *                     .name(&#34;event&#34;)
- *                     .type(&#34;string&#34;)
+ *                     .name("event")
+ *                     .type("string")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var examplePermissions = new Permissions(&#34;examplePermissions&#34;, PermissionsArgs.builder()        
- *             .permissions(&#34;SELECT&#34;)
- *             .principal(&#34;arn:aws:iam:us-east-1:123456789012:user/SanHolo&#34;)
+ *         var examplePermissions = new Permissions("examplePermissions", PermissionsArgs.builder()        
+ *             .permissions("SELECT")
+ *             .principal("arn:aws:iam:us-east-1:123456789012:user/SanHolo")
  *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
  *                 .databaseName(exampleCatalogTable.databaseName())
  *                 .name(exampleCatalogTable.name())
- *                 .columnNames(&#34;event&#34;)
+ *                 .columnNames("event")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
@@ -174,7 +178,8 @@ import javax.annotation.Nullable;
  * ### Grant Permissions For A Lake Formation S3 Resource
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -196,9 +201,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
+ *         var example = new Permissions("example", PermissionsArgs.builder()        
  *             .principal(workflowRole.arn())
- *             .permissions(&#34;DATA_LOCATION_ACCESS&#34;)
+ *             .permissions("DATA_LOCATION_ACCESS")
  *             .dataLocation(PermissionsDataLocationArgs.builder()
  *                 .arn(exampleAwsLakeformationResource.arn())
  *                 .build())
@@ -206,13 +211,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Grant Permissions For A Glue Catalog Database
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -234,27 +241,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permissions(&#34;example&#34;, PermissionsArgs.builder()        
+ *         var example = new Permissions("example", PermissionsArgs.builder()        
  *             .principal(workflowRole.arn())
  *             .permissions(            
- *                 &#34;CREATE_TABLE&#34;,
- *                 &#34;ALTER&#34;,
- *                 &#34;DROP&#34;)
+ *                 "CREATE_TABLE",
+ *                 "ALTER",
+ *                 "DROP")
  *             .database(PermissionsDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
- *                 .catalogId(&#34;110376042874&#34;)
+ *                 .catalogId("110376042874")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Grant Permissions Using Tag-Based Access Control
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -276,31 +285,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Permissions(&#34;test&#34;, PermissionsArgs.builder()        
+ *         var test = new Permissions("test", PermissionsArgs.builder()        
  *             .principal(salesRole.arn())
  *             .permissions(            
- *                 &#34;CREATE_TABLE&#34;,
- *                 &#34;ALTER&#34;,
- *                 &#34;DROP&#34;)
+ *                 "CREATE_TABLE",
+ *                 "ALTER",
+ *                 "DROP")
  *             .lfTagPolicy(PermissionsLfTagPolicyArgs.builder()
- *                 .resourceType(&#34;DATABASE&#34;)
+ *                 .resourceType("DATABASE")
  *                 .expressions(                
  *                     PermissionsLfTagPolicyExpressionArgs.builder()
- *                         .key(&#34;Team&#34;)
- *                         .values(&#34;Sales&#34;)
+ *                         .key("Team")
+ *                         .values("Sales")
  *                         .build(),
  *                     PermissionsLfTagPolicyExpressionArgs.builder()
- *                         .key(&#34;Environment&#34;)
+ *                         .key("Environment")
  *                         .values(                        
- *                             &#34;Dev&#34;,
- *                             &#34;Production&#34;)
+ *                             "Dev",
+ *                             "Production")
  *                         .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,19 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Graph(&#34;example&#34;);
+ *         var example = new Graph("example");
  * 
- *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;AWS ACCOUNT ID&#34;)
- *             .emailAddress(&#34;EMAIL&#34;)
+ *         var exampleMember = new Member("exampleMember", MemberArgs.builder()        
+ *             .accountId("AWS ACCOUNT ID")
+ *             .emailAddress("EMAIL")
  *             .graphArn(example.id())
- *             .message(&#34;Message of the invitation&#34;)
+ *             .message("Message of the invitation")
  *             .disableEmailNotification(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,30 +44,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new Group(&#34;foobar&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-west-2a&#34;)
- *             .name(&#34;test-foobar5&#34;)
+ *         var foobar = new Group("foobar", GroupArgs.builder()        
+ *             .availabilityZones("us-west-2a")
+ *             .name("test-foobar5")
  *             .maxSize(1)
  *             .minSize(1)
  *             .healthCheckGracePeriod(300)
- *             .healthCheckType(&#34;ELB&#34;)
+ *             .healthCheckType("ELB")
  *             .forceDelete(true)
- *             .terminationPolicies(&#34;OldestInstance&#34;)
+ *             .terminationPolicies("OldestInstance")
  *             .build());
  * 
- *         var foobarSchedule = new Schedule(&#34;foobarSchedule&#34;, ScheduleArgs.builder()        
- *             .scheduledActionName(&#34;foobar&#34;)
+ *         var foobarSchedule = new Schedule("foobarSchedule", ScheduleArgs.builder()        
+ *             .scheduledActionName("foobar")
  *             .minSize(0)
  *             .maxSize(1)
  *             .desiredCapacity(0)
- *             .startTime(&#34;2016-12-11T18:00:00Z&#34;)
- *             .endTime(&#34;2016-12-12T06:00:00Z&#34;)
+ *             .startTime("2016-12-11T18:00:00Z")
+ *             .endTime("2016-12-12T06:00:00Z")
  *             .autoscalingGroupName(foobar.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

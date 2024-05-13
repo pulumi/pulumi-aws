@@ -147,7 +147,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -168,28 +169,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -202,7 +204,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -223,28 +226,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-     *             .configurationsJson(&#34;&#34;&#34;
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *             .configurationsJson("""
      * [
      * {
-     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-     * &#34;Configurations&#34;: [
+     * "Classification": "hadoop-env",
+     * "Configurations": [
      * {
-     * &#34;Classification&#34;: &#34;export&#34;,
-     * &#34;Properties&#34;: {
-     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
      * }
      * }
      * ],
-     * &#34;Properties&#34;: {}
+     * "Properties": {}
      * }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -894,7 +898,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -915,28 +920,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-         *             .configurationsJson(&#34;&#34;&#34;
+         *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+         *             .configurationsJson("""
          * [
          * {
-         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-         * &#34;Configurations&#34;: [
+         * "Classification": "hadoop-env",
+         * "Configurations": [
          * {
-         * &#34;Classification&#34;: &#34;export&#34;,
-         * &#34;Properties&#34;: {
-         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * "Classification": "export",
+         * "Properties": {
+         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
          * }
          * }
          * ],
-         * &#34;Properties&#34;: {}
+         * "Properties": {}
          * }
          * ]
-         *             &#34;&#34;&#34;)
+         *             """)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -953,7 +959,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
-         * ```java
+         * <pre>
+         * {@code
          * package generated_program;
          * 
          * import com.pulumi.Context;
@@ -974,28 +981,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
-         *             .configurationsJson(&#34;&#34;&#34;
+         *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+         *             .configurationsJson("""
          * [
          * {
-         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
-         * &#34;Configurations&#34;: [
+         * "Classification": "hadoop-env",
+         * "Configurations": [
          * {
-         * &#34;Classification&#34;: &#34;export&#34;,
-         * &#34;Properties&#34;: {
-         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * "Classification": "export",
+         * "Properties": {
+         * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
          * }
          * }
          * ],
-         * &#34;Properties&#34;: {}
+         * "Properties": {}
          * }
          * ]
-         *             &#34;&#34;&#34;)
+         *             """)
          *             .build());
          * 
          *     }
          * }
-         * ```
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ObservabilityConfiguration(&#34;example&#34;, ObservabilityConfigurationArgs.builder()        
- *             .observabilityConfigurationName(&#34;example&#34;)
+ *         var example = new ObservabilityConfiguration("example", ObservabilityConfigurationArgs.builder()        
+ *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
- *                 .vendor(&#34;AWSXRAY&#34;)
+ *                 .vendor("AWSXRAY")
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-observability-configuration&#34;))
+ *             .tags(Map.of("Name", "example-apprunner-observability-configuration"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Graph(&#34;primary&#34;);
+ *         var primary = new Graph("primary");
  * 
- *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;ACCOUNT ID&#34;)
- *             .emailAddress(&#34;EMAIL&#34;)
+ *         var primaryMember = new Member("primaryMember", MemberArgs.builder()        
+ *             .accountId("ACCOUNT ID")
+ *             .emailAddress("EMAIL")
  *             .graphArn(primary.id())
- *             .message(&#34;Message of the invite&#34;)
+ *             .message("Message of the invite")
  *             .build());
  * 
- *         var member = new InvitationAccepter(&#34;member&#34;, InvitationAccepterArgs.builder()        
+ *         var member = new InvitationAccepter("member", InvitationAccepterArgs.builder()        
  *             .graphArn(primary.graphArn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryMember)
@@ -61,7 +62,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

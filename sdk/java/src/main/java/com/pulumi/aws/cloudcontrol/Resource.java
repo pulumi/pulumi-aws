@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Resource(&#34;example&#34;, ResourceArgs.builder()        
- *             .typeName(&#34;AWS::ECS::Cluster&#34;)
+ *         var example = new Resource("example", ResourceArgs.builder()        
+ *             .typeName("AWS::ECS::Cluster")
  *             .desiredState(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;ClusterName&#34;, &#34;example&#34;),
- *                     jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
- *                         jsonProperty(&#34;Value&#34;, &#34;IT&#34;)
+ *                     jsonProperty("ClusterName", "example"),
+ *                     jsonProperty("Tags", jsonArray(jsonObject(
+ *                         jsonProperty("Key", "CostCenter"),
+ *                         jsonProperty("Value", "IT")
  *                     )))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

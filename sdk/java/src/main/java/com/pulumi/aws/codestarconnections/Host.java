@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,15 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Host(&#34;example&#34;, HostArgs.builder()        
- *             .name(&#34;example-host&#34;)
- *             .providerEndpoint(&#34;https://example.com&#34;)
- *             .providerType(&#34;GitHubEnterpriseServer&#34;)
+ *         var example = new Host("example", HostArgs.builder()        
+ *             .name("example-host")
+ *             .providerEndpoint("https://example.com")
+ *             .providerType("GitHubEnterpriseServer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

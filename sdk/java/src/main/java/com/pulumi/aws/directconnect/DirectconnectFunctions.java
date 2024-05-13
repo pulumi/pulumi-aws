@@ -31,7 +31,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -53,12 +54,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(&#34;tf-dx-connection&#34;)
+     *             .name("tf-dx-connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -71,7 +73,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -93,12 +96,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(&#34;tf-dx-connection&#34;)
+     *             .name("tf-dx-connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,12 +138,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(&#34;tf-dx-connection&#34;)
+     *             .name("tf-dx-connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -151,7 +157,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -173,12 +180,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
-     *             .name(&#34;tf-dx-connection&#34;)
+     *             .name("tf-dx-connection")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -191,7 +199,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -213,12 +222,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -231,7 +241,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -253,12 +264,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -271,7 +283,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -293,12 +306,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -311,7 +325,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -333,12 +348,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -354,7 +370,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -376,12 +393,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
-     *             .locationCode(&#34;CS32A-24FL&#34;)
+     *             .locationCode("CS32A-24FL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -397,7 +415,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -419,12 +438,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
-     *             .locationCode(&#34;CS32A-24FL&#34;)
+     *             .locationCode("CS32A-24FL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -440,7 +460,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -462,12 +483,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
-     *             .locationCode(&#34;CS32A-24FL&#34;)
+     *             .locationCode("CS32A-24FL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -483,7 +505,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -505,12 +528,13 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
-     *             .locationCode(&#34;CS32A-24FL&#34;)
+     *             .locationCode("CS32A-24FL")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -526,7 +550,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -550,7 +575,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -566,7 +592,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -590,7 +617,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -606,7 +634,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -630,7 +659,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -646,7 +676,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -670,7 +701,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -686,7 +718,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -710,7 +743,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -726,7 +760,8 @@ public final class DirectconnectFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -750,7 +785,8 @@ public final class DirectconnectFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -765,7 +801,8 @@ public final class DirectconnectFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -787,13 +824,14 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId("dxvif-abcde123")
+     *             .routerTypeIdentifier("CiscoSystemsInc-2900SeriesRouters-IOS124")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -808,7 +846,8 @@ public final class DirectconnectFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -830,13 +869,14 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId("dxvif-abcde123")
+     *             .routerTypeIdentifier("CiscoSystemsInc-2900SeriesRouters-IOS124")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -851,7 +891,8 @@ public final class DirectconnectFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -873,13 +914,14 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId("dxvif-abcde123")
+     *             .routerTypeIdentifier("CiscoSystemsInc-2900SeriesRouters-IOS124")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -894,7 +936,8 @@ public final class DirectconnectFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -916,13 +959,14 @@ public final class DirectconnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DirectconnectFunctions.getRouterConfiguration(GetRouterConfigurationArgs.builder()
-     *             .virtualInterfaceId(&#34;dxvif-abcde123&#34;)
-     *             .routerTypeIdentifier(&#34;CiscoSystemsInc-2900SeriesRouters-IOS124&#34;)
+     *             .virtualInterfaceId("dxvif-abcde123")
+     *             .routerTypeIdentifier("CiscoSystemsInc-2900SeriesRouters-IOS124")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

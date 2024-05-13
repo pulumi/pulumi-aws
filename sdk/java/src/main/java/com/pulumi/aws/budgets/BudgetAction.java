@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,53 +61,53 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;ec2:Describe*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("ec2:Describe*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;My example policy&#34;)
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *             .name("example")
+ *             .description("My example policy")
+ *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(String.format(&#34;budgets.%s&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
+ *                     .type("Service")
+ *                     .identifiers(String.format("budgets.%s", current.applyValue(getPartitionResult -> getPartitionResult.dnsSuffix())))
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBudget = new Budget(&#34;exampleBudget&#34;, BudgetArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .budgetType(&#34;USAGE&#34;)
- *             .limitAmount(&#34;10.0&#34;)
- *             .limitUnit(&#34;dollars&#34;)
- *             .timePeriodStart(&#34;2006-01-02_15:04&#34;)
- *             .timeUnit(&#34;MONTHLY&#34;)
+ *         var exampleBudget = new Budget("exampleBudget", BudgetArgs.builder()        
+ *             .name("example")
+ *             .budgetType("USAGE")
+ *             .limitAmount("10.0")
+ *             .limitUnit("dollars")
+ *             .timePeriodStart("2006-01-02_15:04")
+ *             .timeUnit("MONTHLY")
  *             .build());
  * 
- *         var exampleBudgetAction = new BudgetAction(&#34;exampleBudgetAction&#34;, BudgetActionArgs.builder()        
+ *         var exampleBudgetAction = new BudgetAction("exampleBudgetAction", BudgetActionArgs.builder()        
  *             .budgetName(exampleBudget.name())
- *             .actionType(&#34;APPLY_IAM_POLICY&#34;)
- *             .approvalModel(&#34;AUTOMATIC&#34;)
- *             .notificationType(&#34;ACTUAL&#34;)
+ *             .actionType("APPLY_IAM_POLICY")
+ *             .approvalModel("AUTOMATIC")
+ *             .notificationType("ACTUAL")
  *             .executionRoleArn(exampleRole.arn())
  *             .actionThreshold(BudgetActionActionThresholdArgs.builder()
- *                 .actionThresholdType(&#34;ABSOLUTE_VALUE&#34;)
+ *                 .actionThresholdType("ABSOLUTE_VALUE")
  *                 .actionThresholdValue(100)
  *                 .build())
  *             .definition(BudgetActionDefinitionArgs.builder()
@@ -116,14 +117,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .subscribers(BudgetActionSubscriberArgs.builder()
- *                 .address(&#34;example@example.example&#34;)
- *                 .subscriptionType(&#34;EMAIL&#34;)
+ *                 .address("example{@literal @}example.example")
+ *                 .subscriptionType("EMAIL")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

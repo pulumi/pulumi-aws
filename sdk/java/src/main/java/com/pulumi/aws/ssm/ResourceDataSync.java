@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,46 +49,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;tf-test-bucket-1234&#34;)
+ *         var hogeBucketV2 = new BucketV2("hogeBucketV2", BucketV2Args.builder()        
+ *             .bucket("tf-test-bucket-1234")
  *             .build());
  * 
  *         final var hoge = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;SSMBucketPermissionsCheck&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("SSMBucketPermissionsCheck")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;ssm.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("ssm.amazonaws.com")
  *                         .build())
- *                     .actions(&#34;s3:GetBucketAcl&#34;)
- *                     .resources(&#34;arn:aws:s3:::tf-test-bucket-1234&#34;)
+ *                     .actions("s3:GetBucketAcl")
+ *                     .resources("arn:aws:s3:::tf-test-bucket-1234")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid(&#34;SSMBucketDelivery&#34;)
- *                     .effect(&#34;Allow&#34;)
+ *                     .sid("SSMBucketDelivery")
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;ssm.amazonaws.com&#34;)
+ *                         .type("Service")
+ *                         .identifiers("ssm.amazonaws.com")
  *                         .build())
- *                     .actions(&#34;s3:PutObject&#34;)
- *                     .resources(&#34;arn:aws:s3:::tf-test-bucket-1234/*&#34;)
+ *                     .actions("s3:PutObject")
+ *                     .resources("arn:aws:s3:::tf-test-bucket-1234/*")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;s3:x-amz-acl&#34;)
- *                         .values(&#34;bucket-owner-full-control&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("s3:x-amz-acl")
+ *                         .values("bucket-owner-full-control")
  *                         .build())
  *                     .build())
  *             .build());
  * 
- *         var hogeBucketPolicy = new BucketPolicy(&#34;hogeBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()        
  *             .bucket(hogeBucketV2.id())
- *             .policy(hoge.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(hoge.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new ResourceDataSync(&#34;foo&#34;, ResourceDataSyncArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()        
+ *             .name("foo")
  *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
  *                 .bucketName(hogeBucketV2.bucket())
  *                 .region(hogeBucketV2.region())
@@ -96,7 +97,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

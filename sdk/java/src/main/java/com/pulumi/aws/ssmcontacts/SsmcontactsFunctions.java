@@ -28,7 +28,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,12 +51,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,12 +95,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -112,7 +116,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -134,12 +139,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -154,7 +160,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -176,12 +183,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContact(GetContactArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -196,7 +204,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -218,12 +227,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -238,7 +248,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -260,12 +271,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -280,7 +292,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,12 +315,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -322,7 +336,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -344,12 +359,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsmcontactsFunctions.getContactChannel(GetContactChannelArgs.builder()
-     *             .arn(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34;)
+     *             .arn("arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -364,7 +380,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -386,12 +403,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -406,7 +424,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,12 +447,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -448,7 +468,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -470,12 +491,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -490,7 +512,8 @@ public final class SsmcontactsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -512,12 +535,13 @@ public final class SsmcontactsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SsmcontactsFunctions.getPlan(GetPlanArgs.builder()
-     *             .contactId(&#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias&#34;)
+     *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

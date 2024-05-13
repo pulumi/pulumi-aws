@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,31 +51,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-vpc-nat*&#34;)
+ *                 .name("name")
+ *                 .values("amzn-ami-vpc-nat*")
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .ami(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *             .ami(example.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t2.micro")
  *             .build());
  * 
- *         var exampleLicenseConfiguration = new LicenseConfiguration(&#34;exampleLicenseConfiguration&#34;, LicenseConfigurationArgs.builder()        
- *             .name(&#34;Example&#34;)
- *             .licenseCountingType(&#34;Instance&#34;)
+ *         var exampleLicenseConfiguration = new LicenseConfiguration("exampleLicenseConfiguration", LicenseConfigurationArgs.builder()        
+ *             .name("Example")
+ *             .licenseCountingType("Instance")
  *             .build());
  * 
- *         var exampleAssociation = new Association(&#34;exampleAssociation&#34;, AssociationArgs.builder()        
+ *         var exampleAssociation = new Association("exampleAssociation", AssociationArgs.builder()        
  *             .licenseConfigurationArn(exampleLicenseConfiguration.arn())
  *             .resourceArn(exampleInstance.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

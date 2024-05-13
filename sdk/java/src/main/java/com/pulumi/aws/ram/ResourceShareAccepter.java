@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver&#39;s_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,26 +52,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var senderShare = new ResourceShare(&#34;senderShare&#34;, ResourceShareArgs.builder()        
- *             .name(&#34;tf-test-resource-share&#34;)
+ *         var senderShare = new ResourceShare("senderShare", ResourceShareArgs.builder()        
+ *             .name("tf-test-resource-share")
  *             .allowExternalPrincipals(true)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-resource-share&#34;))
+ *             .tags(Map.of("Name", "tf-test-resource-share"))
  *             .build());
  * 
  *         final var receiver = AwsFunctions.getCallerIdentity();
  * 
- *         var senderInvite = new PrincipalAssociation(&#34;senderInvite&#34;, PrincipalAssociationArgs.builder()        
- *             .principal(receiver.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *         var senderInvite = new PrincipalAssociation("senderInvite", PrincipalAssociationArgs.builder()        
+ *             .principal(receiver.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .resourceShareArn(senderShare.arn())
  *             .build());
  * 
- *         var receiverAccept = new ResourceShareAccepter(&#34;receiverAccept&#34;, ResourceShareAccepterArgs.builder()        
+ *         var receiverAccept = new ResourceShareAccepter("receiverAccept", ResourceShareAccepterArgs.builder()        
  *             .shareArn(senderInvite.resourceShareArn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

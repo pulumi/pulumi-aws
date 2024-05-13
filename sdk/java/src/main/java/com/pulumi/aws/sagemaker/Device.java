@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Device(&#34;example&#34;, DeviceArgs.builder()        
+ *         var example = new Device("example", DeviceArgs.builder()        
  *             .deviceFleetName(exampleAwsSagemakerDeviceFleet.deviceFleetName())
  *             .device(DeviceDeviceArgs.builder()
- *                 .deviceName(&#34;example&#34;)
+ *                 .deviceName("example")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

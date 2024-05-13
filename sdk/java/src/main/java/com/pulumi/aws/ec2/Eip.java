@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ### Single EIP associated with an instance
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,20 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new Eip(&#34;lb&#34;, EipArgs.builder()        
+ *         var lb = new Eip("lb", EipArgs.builder()        
  *             .instance(web.id())
- *             .domain(&#34;vpc&#34;)
+ *             .domain("vpc")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Multiple EIPs associated with a single network interface
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,34 +88,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var multi_ip = new NetworkInterface(&#34;multi-ip&#34;, NetworkInterfaceArgs.builder()        
+ *         var multi_ip = new NetworkInterface("multi-ip", NetworkInterfaceArgs.builder()        
  *             .subnetId(main.id())
  *             .privateIps(            
- *                 &#34;10.0.0.10&#34;,
- *                 &#34;10.0.0.11&#34;)
+ *                 "10.0.0.10",
+ *                 "10.0.0.11")
  *             .build());
  * 
- *         var one = new Eip(&#34;one&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var one = new Eip("one", EipArgs.builder()        
+ *             .domain("vpc")
  *             .networkInterface(multi_ip.id())
- *             .associateWithPrivateIp(&#34;10.0.0.10&#34;)
+ *             .associateWithPrivateIp("10.0.0.10")
  *             .build());
  * 
- *         var two = new Eip(&#34;two&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var two = new Eip("two", EipArgs.builder()        
+ *             .domain("vpc")
  *             .networkInterface(multi_ip.id())
- *             .associateWithPrivateIp(&#34;10.0.0.11&#34;)
+ *             .associateWithPrivateIp("10.0.0.11")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -142,47 +147,49 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Vpc(&#34;default&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var default_ = new Vpc("default", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+ *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
  *             .vpcId(default_.id())
  *             .build());
  * 
- *         var myTestSubnet = new Subnet(&#34;myTestSubnet&#34;, SubnetArgs.builder()        
+ *         var myTestSubnet = new Subnet("myTestSubnet", SubnetArgs.builder()        
  *             .vpcId(default_.id())
- *             .cidrBlock(&#34;10.0.0.0/24&#34;)
+ *             .cidrBlock("10.0.0.0/24")
  *             .mapPublicIpOnLaunch(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(gw)
  *                 .build());
  * 
- *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-5189a661&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
- *             .privateIp(&#34;10.0.0.12&#34;)
+ *         var foo = new Instance("foo", InstanceArgs.builder()        
+ *             .ami("ami-5189a661")
+ *             .instanceType("t2.micro")
+ *             .privateIp("10.0.0.12")
  *             .subnetId(myTestSubnet.id())
  *             .build());
  * 
- *         var bar = new Eip(&#34;bar&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
+ *         var bar = new Eip("bar", EipArgs.builder()        
+ *             .domain("vpc")
  *             .instance(foo.id())
- *             .associateWithPrivateIp(&#34;10.0.0.12&#34;)
+ *             .associateWithPrivateIp("10.0.0.12")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(gw)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Allocating EIP from the BYOIP pool
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -203,14 +210,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var byoip_ip = new Eip(&#34;byoip-ip&#34;, EipArgs.builder()        
- *             .domain(&#34;vpc&#34;)
- *             .publicIpv4Pool(&#34;ipv4pool-ec2-012345&#34;)
+ *         var byoip_ip = new Eip("byoip-ip", EipArgs.builder()        
+ *             .domain("vpc")
+ *             .publicIpv4Pool("ipv4pool-ec2-012345")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

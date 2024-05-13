@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,26 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .name(&#34;example-application-tf&#34;)
- *             .description(&#34;Example AppConfig Application&#34;)
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Application&#34;))
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example-application-tf")
+ *             .description("Example AppConfig Application")
+ *             .tags(Map.of("Type", "AppConfig Application"))
  *             .build());
  * 
- *         var example = new Environment(&#34;example&#34;, EnvironmentArgs.builder()        
- *             .name(&#34;example-environment-tf&#34;)
- *             .description(&#34;Example AppConfig Environment&#34;)
+ *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *             .name("example-environment-tf")
+ *             .description("Example AppConfig Environment")
  *             .applicationId(exampleApplication.id())
  *             .monitors(EnvironmentMonitorArgs.builder()
  *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .alarmRoleArn(exampleAwsIamRole.arn())
  *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Environment&#34;))
+ *             .tags(Map.of("Type", "AppConfig Environment"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

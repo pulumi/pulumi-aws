@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -60,37 +61,38 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;pods.eks.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("pods.eks.amazonaws.com")
  *                     .build())
  *                 .actions(                
- *                     &#34;sts:AssumeRole&#34;,
- *                     &#34;sts:TagSession&#34;)
+ *                     "sts:AssumeRole",
+ *                     "sts:TagSession")
  *                 .build())
  *             .build());
  * 
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .name(&#34;eks-pod-identity-example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var example = new Role("example", RoleArgs.builder()        
+ *             .name("eks-pod-identity-example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleS3 = new RolePolicyAttachment(&#34;exampleS3&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess&#34;)
+ *         var exampleS3 = new RolePolicyAttachment("exampleS3", RolePolicyAttachmentArgs.builder()        
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess")
  *             .role(example.name())
  *             .build());
  * 
- *         var examplePodIdentityAssociation = new PodIdentityAssociation(&#34;examplePodIdentityAssociation&#34;, PodIdentityAssociationArgs.builder()        
+ *         var examplePodIdentityAssociation = new PodIdentityAssociation("examplePodIdentityAssociation", PodIdentityAssociationArgs.builder()        
  *             .clusterName(exampleAwsEksCluster.name())
- *             .namespace(&#34;example&#34;)
- *             .serviceAccount(&#34;example-sa&#34;)
+ *             .namespace("example")
+ *             .serviceAccount("example-sa")
  *             .roleArn(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

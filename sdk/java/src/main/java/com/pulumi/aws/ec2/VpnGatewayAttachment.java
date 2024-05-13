@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,22 +50,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Vpc(&#34;network&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var network = new Vpc("network", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpn = new VpnGateway(&#34;vpn&#34;, VpnGatewayArgs.builder()        
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-vpn-gateway&#34;))
+ *         var vpn = new VpnGateway("vpn", VpnGatewayArgs.builder()        
+ *             .tags(Map.of("Name", "example-vpn-gateway"))
  *             .build());
  * 
- *         var vpnAttachment = new VpnGatewayAttachment(&#34;vpnAttachment&#34;, VpnGatewayAttachmentArgs.builder()        
+ *         var vpnAttachment = new VpnGatewayAttachment("vpnAttachment", VpnGatewayAttachmentArgs.builder()        
  *             .vpcId(network.id())
  *             .vpnGatewayId(vpn.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)

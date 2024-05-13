@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,28 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
- *             .name(&#34;test-group&#34;)
+ *         var test = new Group("test", GroupArgs.builder()        
+ *             .name("test-group")
  *             .resourceQuery(GroupResourceQueryArgs.builder()
- *                 .query(&#34;&#34;&#34;
+ *                 .query("""
  * {
- *   &#34;ResourceTypeFilters&#34;: [
- *     &#34;AWS::EC2::Instance&#34;
+ *   "ResourceTypeFilters": [
+ *     "AWS::EC2::Instance"
  *   ],
- *   &#34;TagFilters&#34;: [
+ *   "TagFilters": [
  *     {
- *       &#34;Key&#34;: &#34;Stage&#34;,
- *       &#34;Values&#34;: [&#34;Test&#34;]
+ *       "Key": "Stage",
+ *       "Values": ["Test"]
  *     }
  *   ]
  * }
- *                 &#34;&#34;&#34;)
+ *                 """)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

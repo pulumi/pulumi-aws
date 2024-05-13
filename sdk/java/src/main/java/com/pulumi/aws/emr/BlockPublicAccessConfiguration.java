@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,13 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration(&#34;example&#34;, BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
  *             .blockPublicSecurityGroupRules(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Default Configuration
@@ -59,7 +61,8 @@ import javax.annotation.Nullable;
  * By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration(&#34;example&#34;, BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
  *                 .minRange(22)
@@ -91,7 +94,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** If an `aws.emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
@@ -101,7 +105,8 @@ import javax.annotation.Nullable;
  * The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration(&#34;example&#34;, BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(            
  *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
@@ -138,7 +143,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Disabling Block Public Access
@@ -146,7 +152,8 @@ import javax.annotation.Nullable;
  * To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -167,13 +174,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration(&#34;example&#34;, BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
  *             .blockPublicSecurityGroupRules(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

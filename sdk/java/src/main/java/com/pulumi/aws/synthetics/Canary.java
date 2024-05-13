@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,21 +54,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some = new Canary(&#34;some&#34;, CanaryArgs.builder()        
- *             .name(&#34;some-canary&#34;)
- *             .artifactS3Location(&#34;s3://some-bucket/&#34;)
- *             .executionRoleArn(&#34;some-role&#34;)
- *             .handler(&#34;exports.handler&#34;)
- *             .zipFile(&#34;test-fixtures/lambdatest.zip&#34;)
- *             .runtimeVersion(&#34;syn-1.0&#34;)
+ *         var some = new Canary("some", CanaryArgs.builder()        
+ *             .name("some-canary")
+ *             .artifactS3Location("s3://some-bucket/")
+ *             .executionRoleArn("some-role")
+ *             .handler("exports.handler")
+ *             .zipFile("test-fixtures/lambdatest.zip")
+ *             .runtimeVersion("syn-1.0")
  *             .schedule(CanaryScheduleArgs.builder()
- *                 .expression(&#34;rate(0 minute)&#34;)
+ *                 .expression("rate(0 minute)")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

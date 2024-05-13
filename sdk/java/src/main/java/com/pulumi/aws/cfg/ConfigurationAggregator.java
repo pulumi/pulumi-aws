@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Account Based Aggregation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var account = new ConfigurationAggregator(&#34;account&#34;, ConfigurationAggregatorArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var account = new ConfigurationAggregator("account", ConfigurationAggregatorArgs.builder()        
+ *             .name("example")
  *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
- *                 .accountIds(&#34;123456789012&#34;)
- *                 .regions(&#34;us-west-2&#34;)
+ *                 .accountIds("123456789012")
+ *                 .regions("us-west-2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Organization Based Aggregation
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,27 +97,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;config.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("config.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var organizationRole = new Role(&#34;organizationRole&#34;, RoleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var organizationRole = new Role("organizationRole", RoleArgs.builder()        
+ *             .name("example")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var organizationRolePolicyAttachment = new RolePolicyAttachment("organizationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
  *             .role(organizationRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
  *             .build());
  * 
- *         var organization = new ConfigurationAggregator(&#34;organization&#34;, ConfigurationAggregatorArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var organization = new ConfigurationAggregator("organization", ConfigurationAggregatorArgs.builder()        
+ *             .name("example")
  *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
  *                 .allRegions(true)
  *                 .roleArn(organizationRole.arn())
@@ -125,7 +128,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

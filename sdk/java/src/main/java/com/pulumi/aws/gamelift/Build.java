@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,9 +45,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Build(&#34;test&#34;, BuildArgs.builder()        
- *             .name(&#34;example-build&#34;)
- *             .operatingSystem(&#34;WINDOWS_2012&#34;)
+ *         var test = new Build("test", BuildArgs.builder()        
+ *             .name("example-build")
+ *             .operatingSystem("WINDOWS_2012")
  *             .storageLocation(BuildStorageLocationArgs.builder()
  *                 .bucket(testAwsS3Bucket.id())
  *                 .key(testAwsS3Object.key())
@@ -56,7 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

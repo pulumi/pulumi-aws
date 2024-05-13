@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginAccessControl(&#34;example&#34;, OriginAccessControlArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .description(&#34;Example Policy&#34;)
- *             .originAccessControlOriginType(&#34;s3&#34;)
- *             .signingBehavior(&#34;always&#34;)
- *             .signingProtocol(&#34;sigv4&#34;)
+ *         var example = new OriginAccessControl("example", OriginAccessControlArgs.builder()        
+ *             .name("example")
+ *             .description("Example Policy")
+ *             .originAccessControlOriginType("s3")
+ *             .signingBehavior("always")
+ *             .signingProtocol("sigv4")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

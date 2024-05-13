@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,25 +45,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var cis = new StandardsSubscription(&#34;cis&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
+ *         var cis = new StandardsSubscription("cis", StandardsSubscriptionArgs.builder()        
+ *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var pci321 = new StandardsSubscription(&#34;pci321&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(String.format(&#34;arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()        
+ *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

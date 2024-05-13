@@ -17,7 +17,8 @@ public final class GetReceivedLicensesFilter {
      * For example, if filtering using `ProductSKU`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -40,14 +41,15 @@ public final class GetReceivedLicensesFilter {
      *     public static void stack(Context ctx) {
      *         final var selected = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;ProductSKU&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("ProductSKU")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -65,7 +67,8 @@ public final class GetReceivedLicensesFilter {
      * For example, if filtering using `ProductSKU`, use:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -88,14 +91,15 @@ public final class GetReceivedLicensesFilter {
      *     public static void stack(Context ctx) {
      *         final var selected = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
      *             .filters(GetReceivedLicensesFilterArgs.builder()
-     *                 .name(&#34;ProductSKU&#34;)
-     *                 .values(&#34;&#34;)
+     *                 .name("ProductSKU")
+     *                 .values("")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

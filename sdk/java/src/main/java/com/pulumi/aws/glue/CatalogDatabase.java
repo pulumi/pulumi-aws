@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;MyCatalogDatabase&#34;)
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *             .name("MyCatalogDatabase")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create Table Default Permissions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,19 +84,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase(&#34;example&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;MyCatalogDatabase&#34;)
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *             .name("MyCatalogDatabase")
  *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;SELECT&#34;)
+ *                 .permissions("SELECT")
  *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
- *                     .dataLakePrincipalIdentifier(&#34;IAM_ALLOWED_PRINCIPALS&#34;)
+ *                     .dataLakePrincipalIdentifier("IAM_ALLOWED_PRINCIPALS")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

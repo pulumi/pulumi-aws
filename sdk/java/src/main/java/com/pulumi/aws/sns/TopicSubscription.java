@@ -34,7 +34,8 @@ import javax.annotation.Nullable;
  * You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -55,21 +56,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
- *             .topic(&#34;arn:aws:sns:us-west-2:432981146916:user-updates-topic&#34;)
- *             .protocol(&#34;sqs&#34;)
- *             .endpoint(&#34;arn:aws:sqs:us-west-2:432981146916:queue-too&#34;)
+ *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()        
+ *             .topic("arn:aws:sns:us-west-2:432981146916:user-updates-topic")
+ *             .protocol("sqs")
+ *             .endpoint("arn:aws:sqs:us-west-2:432981146916:queue-too")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,29 +97,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;user-updates-topic&#34;)
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *             .name("user-updates-topic")
  *             .build());
  * 
- *         var userUpdatesQueue = new Queue(&#34;userUpdatesQueue&#34;, QueueArgs.builder()        
- *             .name(&#34;user-updates-queue&#34;)
+ *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()        
+ *             .name("user-updates-queue")
  *             .build());
  * 
- *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
+ *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()        
  *             .topic(userUpdates.arn())
- *             .protocol(&#34;sqs&#34;)
+ *             .protocol("sqs")
  *             .endpoint(userUpdatesQueue.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -144,92 +149,93 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var sns = config.get(&#34;sns&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         final var sqs = config.get(&#34;sqs&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         final var sns = config.get("sns").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         final var sqs = config.get("sqs").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
  *         final var sns-topic-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
+ *             .policyId("__default_policy_ID")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:SetTopicAttributes&#34;,
- *                         &#34;SNS:RemovePermission&#34;,
- *                         &#34;SNS:Publish&#34;,
- *                         &#34;SNS:ListSubscriptionsByTopic&#34;,
- *                         &#34;SNS:GetTopicAttributes&#34;,
- *                         &#34;SNS:DeleteTopic&#34;,
- *                         &#34;SNS:AddPermission&#34;)
+ *                         "SNS:Subscribe",
+ *                         "SNS:SetTopicAttributes",
+ *                         "SNS:RemovePermission",
+ *                         "SNS:Publish",
+ *                         "SNS:ListSubscriptionsByTopic",
+ *                         "SNS:GetTopicAttributes",
+ *                         "SNS:DeleteTopic",
+ *                         "SNS:AddPermission")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;AWS:SourceOwner&#34;)
+ *                         .test("StringEquals")
+ *                         .variable("AWS:SourceOwner")
  *                         .values(sns.account-id())
  *                         .build())
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
+ *                         .type("AWS")
+ *                         .identifiers("*")
  *                         .build())
- *                     .resources(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
- *                     .sid(&#34;__default_statement_ID&#34;)
+ *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
+ *                     .sid("__default_statement_ID")
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:Receive&#34;)
+ *                         "SNS:Subscribe",
+ *                         "SNS:Receive")
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringLike&#34;)
- *                         .variable(&#34;SNS:Endpoint&#34;)
- *                         .values(String.format(&#34;arn:aws:sqs:%s:%s:%s&#34;, sqs.region(),sqs.account-id(),sqs.name()))
+ *                         .test("StringLike")
+ *                         .variable("SNS:Endpoint")
+ *                         .values(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
  *                         .build())
- *                     .effect(&#34;Allow&#34;)
+ *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
+ *                         .type("AWS")
+ *                         .identifiers("*")
  *                         .build())
- *                     .resources(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
- *                     .sid(&#34;__console_sub_0&#34;)
+ *                     .resources(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
+ *                     .sid("__console_sub_0")
  *                     .build())
  *             .build());
  * 
  *         final var sqs-queue-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(String.format(&#34;arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy&#34;, sqs.region(),sqs.account-id(),sqs.name()))
+ *             .policyId(String.format("arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy", sqs.region(),sqs.account-id(),sqs.name()))
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;example-sns-topic&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("example-sns-topic")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;SQS:SendMessage&#34;)
- *                 .resources(String.format(&#34;arn:aws:sqs:%s:%s:%s&#34;, sqs.region(),sqs.account-id(),sqs.name()))
+ *                 .actions("SQS:SendMessage")
+ *                 .resources(String.format("arn:aws:sqs:%s:%s:%s", sqs.region(),sqs.account-id(),sqs.name()))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .values(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
+ *                     .test("ArnEquals")
+ *                     .variable("aws:SourceArn")
+ *                     .values(String.format("arn:aws:sns:%s:%s:%s", sns.region(),sns.account-id(),sns.name()))
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var sns_topic = new Topic(&#34;sns-topic&#34;, TopicArgs.builder()        
+ *         var sns_topic = new Topic("sns-topic", TopicArgs.builder()        
  *             .name(sns.name())
  *             .displayName(sns.display_name())
  *             .policy(sns_topic_policy.json())
  *             .build());
  * 
- *         var sqs_queue = new Queue(&#34;sqs-queue&#34;, QueueArgs.builder()        
+ *         var sqs_queue = new Queue("sqs-queue", QueueArgs.builder()        
  *             .name(sqs.name())
  *             .policy(sqs_queue_policy.json())
  *             .build());
  * 
- *         var sns_topicTopicSubscription = new TopicSubscription(&#34;sns-topicTopicSubscription&#34;, TopicSubscriptionArgs.builder()        
+ *         var sns_topicTopicSubscription = new TopicSubscription("sns-topicTopicSubscription", TopicSubscriptionArgs.builder()        
  *             .topic(sns_topic.arn())
- *             .protocol(&#34;sqs&#34;)
+ *             .protocol("sqs")
  *             .endpoint(sqs_queue.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

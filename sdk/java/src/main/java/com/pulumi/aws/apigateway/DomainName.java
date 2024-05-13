@@ -51,7 +51,8 @@ import javax.annotation.Nullable;
  * ### Edge Optimized (ACM Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -75,16 +76,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
+ *         var example = new DomainName("example", DomainNameArgs.builder()        
  *             .certificateArn(exampleAwsAcmCertificateValidation.certificateArn())
- *             .domainName(&#34;api.example.com&#34;)
+ *             .domainName("api.example.com")
  *             .build());
  * 
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
  *             .name(example.domainName())
- *             .type(&#34;A&#34;)
+ *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
@@ -95,13 +96,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Regional (ACM Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -126,19 +129,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;api.example.com&#34;)
+ *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *             .domainName("api.example.com")
  *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
- *                 .types(&#34;REGIONAL&#34;)
+ *                 .types("REGIONAL")
  *                 .build())
  *             .build());
  * 
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
  *             .name(example.domainName())
- *             .type(&#34;A&#34;)
+ *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .aliases(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(true)
@@ -149,7 +152,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

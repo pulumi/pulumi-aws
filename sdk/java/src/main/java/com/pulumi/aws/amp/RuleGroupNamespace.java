@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,23 +42,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demo = new Workspace(&#34;demo&#34;);
+ *         var demo = new Workspace("demo");
  * 
- *         var demoRuleGroupNamespace = new RuleGroupNamespace(&#34;demoRuleGroupNamespace&#34;, RuleGroupNamespaceArgs.builder()        
- *             .name(&#34;rules&#34;)
+ *         var demoRuleGroupNamespace = new RuleGroupNamespace("demoRuleGroupNamespace", RuleGroupNamespaceArgs.builder()        
+ *             .name("rules")
  *             .workspaceId(demo.id())
- *             .data(&#34;&#34;&#34;
+ *             .data("""
  * groups:
  *   - name: test
  *     rules:
  *     - record: metric:recording_rule
  *       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

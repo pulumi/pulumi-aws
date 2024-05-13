@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,39 +52,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var staging = new Distribution(&#34;staging&#34;, DistributionArgs.builder()        
+ *         var staging = new Distribution("staging", DistributionArgs.builder()        
  *             .enabled(true)
  *             .staging(true)
  *             .build());
  * 
- *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleWeight&#34;)
+ *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(&#34;0.01&#34;)
+ *                     .weight("0.01")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var production = new Distribution(&#34;production&#34;, DistributionArgs.builder()        
+ *         var production = new Distribution("production", DistributionArgs.builder()        
  *             .enabled(true)
  *             .continuousDeploymentPolicyId(example.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Single Weight Config with Session Stickiness
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -108,16 +111,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleWeight&#34;)
+ *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(&#34;0.01&#34;)
+ *                     .weight("0.01")
  *                     .sessionStickinessConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.builder()
  *                         .idleTtl(300)
  *                         .maximumTtl(600)
@@ -128,13 +131,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Single Header Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -158,24 +163,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy(&#34;example&#34;, ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type(&#34;SingleHeader&#34;)
+ *                 .type("SingleHeader")
  *                 .singleHeaderConfig(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs.builder()
- *                     .header(&#34;aws-cf-cd-example&#34;)
- *                     .value(&#34;example&#34;)
+ *                     .header("aws-cf-cd-example")
+ *                     .value("example")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

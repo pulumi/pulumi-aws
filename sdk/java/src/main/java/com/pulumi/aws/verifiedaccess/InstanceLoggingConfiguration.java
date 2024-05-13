@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### With CloudWatch Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
@@ -57,13 +58,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Kinesis Data Firehose Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -86,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
  *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
@@ -98,13 +101,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With S3 logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -127,12 +132,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
  *                     .enabled(true)
- *                     .prefix(&#34;example&#34;)
+ *                     .prefix("example")
  *                     .build())
  *                 .build())
  *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
@@ -140,13 +145,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With all three logging options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -171,7 +178,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
@@ -191,13 +198,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With `include_trust_context`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -219,7 +228,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .includeTrustContext(true)
  *                 .build())
@@ -228,13 +237,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With `log_version`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -256,16 +267,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration(&#34;example&#34;, InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
- *                 .logVersion(&#34;ocsf-1.0.0-rc.2&#34;)
+ *                 .logVersion("ocsf-1.0.0-rc.2")
  *                 .build())
  *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -59,20 +60,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
- *             .dataSetId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .importMode(&#34;SPICE&#34;)
+ *         var example = new DataSet("example", DataSetArgs.builder()        
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
+ *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
  *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
+ *                         .name("Column1")
+ *                         .type("STRING")
  *                         .build())
  *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
+ *                         .format("JSON")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -80,13 +81,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Column Level Permission Rules
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -111,38 +114,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
- *             .dataSetId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .importMode(&#34;SPICE&#34;)
+ *         var example = new DataSet("example", DataSetArgs.builder()        
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
+ *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
  *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
+ *                         .name("Column1")
+ *                         .type("STRING")
  *                         .build())
  *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
+ *                         .format("JSON")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .columnLevelPermissionRules(DataSetColumnLevelPermissionRuleArgs.builder()
- *                 .columnNames(&#34;Column1&#34;)
+ *                 .columnNames("Column1")
  *                 .principals(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Field Folders
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -167,39 +172,41 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
- *             .dataSetId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .importMode(&#34;SPICE&#34;)
+ *         var example = new DataSet("example", DataSetArgs.builder()        
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
+ *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
  *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
+ *                         .name("Column1")
+ *                         .type("STRING")
  *                         .build())
  *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
+ *                         .format("JSON")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .fieldFolders(DataSetFieldFolderArgs.builder()
- *                 .fieldFoldersId(&#34;example-id&#34;)
- *                 .columns(&#34;Column1&#34;)
- *                 .description(&#34;example description&#34;)
+ *                 .fieldFoldersId("example-id")
+ *                 .columns("Column1")
+ *                 .description("example description")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Permissions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -224,43 +231,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
- *             .dataSetId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .importMode(&#34;SPICE&#34;)
+ *         var example = new DataSet("example", DataSetArgs.builder()        
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
+ *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
  *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
+ *                         .name("Column1")
+ *                         .type("STRING")
  *                         .build())
  *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
+ *                         .format("JSON")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .permissions(DataSetPermissionArgs.builder()
  *                 .actions(                
- *                     &#34;quicksight:DescribeDataSet&#34;,
- *                     &#34;quicksight:DescribeDataSetPermissions&#34;,
- *                     &#34;quicksight:PassDataSet&#34;,
- *                     &#34;quicksight:DescribeIngestion&#34;,
- *                     &#34;quicksight:ListIngestions&#34;)
+ *                     "quicksight:DescribeDataSet",
+ *                     "quicksight:DescribeDataSetPermissions",
+ *                     "quicksight:PassDataSet",
+ *                     "quicksight:DescribeIngestion",
+ *                     "quicksight:ListIngestions")
  *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Row Level Permission Tag Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -285,37 +294,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet(&#34;example&#34;, DataSetArgs.builder()        
- *             .dataSetId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .importMode(&#34;SPICE&#34;)
+ *         var example = new DataSet("example", DataSetArgs.builder()        
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
  *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
- *                 .physicalTableMapId(&#34;example-id&#34;)
+ *                 .physicalTableMapId("example-id")
  *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
  *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
  *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
- *                         .name(&#34;Column1&#34;)
- *                         .type(&#34;STRING&#34;)
+ *                         .name("Column1")
+ *                         .type("STRING")
  *                         .build())
  *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
- *                         .format(&#34;JSON&#34;)
+ *                         .format("JSON")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .rowLevelPermissionTagConfiguration(DataSetRowLevelPermissionTagConfigurationArgs.builder()
- *                 .status(&#34;ENABLED&#34;)
+ *                 .status("ENABLED")
  *                 .tagRules(DataSetRowLevelPermissionTagConfigurationTagRuleArgs.builder()
- *                     .columnName(&#34;Column1&#34;)
- *                     .tagKey(&#34;tagkey&#34;)
- *                     .matchAllValue(&#34;*&#34;)
- *                     .tagMultiValueDelimiter(&#34;,&#34;)
+ *                     .columnName("Column1")
+ *                     .tagKey("tagkey")
+ *                     .matchAllValue("*")
+ *                     .tagMultiValueDelimiter(",")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

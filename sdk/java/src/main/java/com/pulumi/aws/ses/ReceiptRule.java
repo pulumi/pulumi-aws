@@ -29,7 +29,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,26 +54,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a header to the email and store it in S3
- *         var store = new ReceiptRule(&#34;store&#34;, ReceiptRuleArgs.builder()        
- *             .name(&#34;store&#34;)
- *             .ruleSetName(&#34;default-rule-set&#34;)
- *             .recipients(&#34;karen@example.com&#34;)
+ *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()        
+ *             .name("store")
+ *             .ruleSetName("default-rule-set")
+ *             .recipients("karen{@literal @}example.com")
  *             .enabled(true)
  *             .scanEnabled(true)
  *             .addHeaderActions(ReceiptRuleAddHeaderActionArgs.builder()
- *                 .headerName(&#34;Custom-Header&#34;)
- *                 .headerValue(&#34;Added by SES&#34;)
+ *                 .headerName("Custom-Header")
+ *                 .headerValue("Added by SES")
  *                 .position(1)
  *                 .build())
  *             .s3Actions(ReceiptRuleS3ActionArgs.builder()
- *                 .bucketName(&#34;emails&#34;)
+ *                 .bucketName("emails")
  *                 .position(2)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

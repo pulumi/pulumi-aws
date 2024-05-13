@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Network Interface Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,17 +55,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
- *             .applicationDomain(&#34;example.com&#34;)
- *             .attachmentType(&#34;vpc&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new Endpoint("example", EndpointArgs.builder()        
+ *             .applicationDomain("example.com")
+ *             .attachmentType("vpc")
+ *             .description("example")
  *             .domainCertificateArn(exampleAwsAcmCertificate.arn())
- *             .endpointDomainPrefix(&#34;example&#34;)
- *             .endpointType(&#34;network-interface&#34;)
+ *             .endpointDomainPrefix("example")
+ *             .endpointType("network-interface")
  *             .networkInterfaceOptions(EndpointNetworkInterfaceOptionsArgs.builder()
  *                 .networkInterfaceId(exampleAwsNetworkInterface.id())
  *                 .port(443)
- *                 .protocol(&#34;https&#34;)
+ *                 .protocol("https")
  *                 .build())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .verifiedAccessGroupId(exampleAwsVerifiedaccessGroup.id())
@@ -72,7 +73,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

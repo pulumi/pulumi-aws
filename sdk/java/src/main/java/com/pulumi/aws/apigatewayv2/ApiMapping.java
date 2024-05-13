@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApiMapping(&#34;example&#34;, ApiMappingArgs.builder()        
+ *         var example = new ApiMapping("example", ApiMappingArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .domainName(exampleAwsApigatewayv2DomainName.id())
  *             .stage(exampleAwsApigatewayv2Stage.id())
@@ -52,7 +53,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

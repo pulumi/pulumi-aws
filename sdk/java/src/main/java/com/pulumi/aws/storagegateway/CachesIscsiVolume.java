@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ### Create Empty Cached iSCSI Volume
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,22 +53,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
- *             .targetName(&#34;example&#34;)
+ *             .targetName("example")
  *             .volumeSizeInBytes(5368709120)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create Cached iSCSI Volume From Snapshot
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -88,23 +91,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .snapshotId(exampleAwsEbsSnapshot.id())
- *             .targetName(&#34;example&#34;)
+ *             .targetName("example")
  *             .volumeSizeInBytes(exampleAwsEbsSnapshot.volumeSize() * 1024 * 1024 * 1024)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create Cached iSCSI Volume From Source Volume
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,17 +130,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume(&#34;example&#34;, CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .sourceVolumeArn(existing.arn())
- *             .targetName(&#34;example&#34;)
+ *             .targetName("example")
  *             .volumeSizeInBytes(existing.volumeSizeInBytes())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

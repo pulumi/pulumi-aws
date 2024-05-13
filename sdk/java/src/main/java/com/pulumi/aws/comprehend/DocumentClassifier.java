@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,24 +51,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var documents = new BucketObjectv2(&#34;documents&#34;);
+ *         var documents = new BucketObjectv2("documents");
  * 
- *         var example = new DocumentClassifier(&#34;example&#34;, DocumentClassifierArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new DocumentClassifier("example", DocumentClassifierArgs.builder()        
+ *             .name("example")
  *             .dataAccessRoleArn(exampleAwsIamRole.arn())
- *             .languageCode(&#34;en&#34;)
+ *             .languageCode("en")
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
- *                 .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, test.bucket(),id)))
+ *                 .s3Uri(documents.id().applyValue(id -> String.format("s3://%s/%s", test.bucket(),id)))
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());
  * 
- *         var entities = new BucketObjectv2(&#34;entities&#34;);
+ *         var entities = new BucketObjectv2("entities");
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
+ *         var example = new Schema("example", SchemaArgs.builder()        
  *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.policyStoreId())
  *             .definition(SchemaDefinitionArgs.builder()
  *                 .value(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;Namespace&#34;, jsonObject(
- *                             jsonProperty(&#34;entityTypes&#34;, jsonObject(
+ *                         jsonProperty("Namespace", jsonObject(
+ *                             jsonProperty("entityTypes", jsonObject(
  * 
  *                             )),
- *                             jsonProperty(&#34;actions&#34;, jsonObject(
+ *                             jsonProperty("actions", jsonObject(
  * 
  *                             ))
  *                         ))
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

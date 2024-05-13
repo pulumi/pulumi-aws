@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactList(&#34;example&#34;, ContactListArgs.builder()        
- *             .contactListName(&#34;example&#34;)
+ *         var example = new ContactList("example", ContactListArgs.builder()        
+ *             .contactListName("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Extended Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,20 +83,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactList(&#34;example&#34;, ContactListArgs.builder()        
- *             .contactListName(&#34;example&#34;)
- *             .description(&#34;description&#34;)
+ *         var example = new ContactList("example", ContactListArgs.builder()        
+ *             .contactListName("example")
+ *             .description("description")
  *             .topics(ContactListTopicArgs.builder()
- *                 .defaultSubscriptionStatus(&#34;OPT_IN&#34;)
- *                 .description(&#34;topic description&#34;)
- *                 .displayName(&#34;Example Topic&#34;)
- *                 .topicName(&#34;example-topic&#34;)
+ *                 .defaultSubscriptionStatus("OPT_IN")
+ *                 .description("topic description")
+ *                 .displayName("Example Topic")
+ *                 .topicName("example-topic")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,12 +46,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
+     *             .jobId("9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,12 +88,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
+     *             .jobId("9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
+     *             .jobId("9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,12 +172,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var buildSigningJob = SignerFunctions.getSigningJob(GetSigningJobArgs.builder()
-     *             .jobId(&#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34;)
+     *             .jobId("9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,12 +214,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
+     *             .name("prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +233,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -245,12 +256,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
+     *             .name("prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -263,7 +275,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -285,12 +298,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
+     *             .name("prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -303,7 +317,8 @@ public final class SignerFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -325,12 +340,13 @@ public final class SignerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var productionSigningProfile = SignerFunctions.getSigningProfile(GetSigningProfileArgs.builder()
-     *             .name(&#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK&#34;)
+     *             .name("prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

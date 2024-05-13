@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,27 +46,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new ParameterGroup(&#34;bar&#34;, ParameterGroupArgs.builder()        
- *             .name(&#34;parameter-group-test&#34;)
- *             .family(&#34;redshift-1.0&#34;)
+ *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()        
+ *             .name("parameter-group-test")
+ *             .family("redshift-1.0")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;require_ssl&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("require_ssl")
+ *                     .value("true")
  *                     .build(),
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;query_group&#34;)
- *                     .value(&#34;example&#34;)
+ *                     .name("query_group")
+ *                     .value("example")
  *                     .build(),
  *                 ParameterGroupParameterArgs.builder()
- *                     .name(&#34;enable_user_activity_logging&#34;)
- *                     .value(&#34;true&#34;)
+ *                     .name("enable_user_activity_logging")
+ *                     .value("true")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

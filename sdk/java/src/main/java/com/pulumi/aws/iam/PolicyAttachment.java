@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,46 +51,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var user = new User(&#34;user&#34;, UserArgs.builder()        
- *             .name(&#34;test-user&#34;)
+ *         var user = new User("user", UserArgs.builder()        
+ *             .name("test-user")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;ec2.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("ec2.amazonaws.com")
  *                     .build())
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .name(&#34;test-role&#34;)
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var role = new Role("role", RoleArgs.builder()        
+ *             .name("test-role")
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
- *             .name(&#34;test-group&#34;)
+ *         var group = new Group("group", GroupArgs.builder()        
+ *             .name("test-group")
  *             .build());
  * 
  *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
- *                 .actions(&#34;ec2:Describe*&#34;)
- *                 .resources(&#34;*&#34;)
+ *                 .effect("Allow")
+ *                 .actions("ec2:Describe*")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var policyPolicy = new Policy(&#34;policyPolicy&#34;, PolicyArgs.builder()        
- *             .name(&#34;test-policy&#34;)
- *             .description(&#34;A test policy&#34;)
- *             .policy(policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()        
+ *             .name("test-policy")
+ *             .description("A test policy")
+ *             .policy(policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var test_attach = new PolicyAttachment(&#34;test-attach&#34;, PolicyAttachmentArgs.builder()        
- *             .name(&#34;test-attachment&#34;)
+ *         var test_attach = new PolicyAttachment("test-attach", PolicyAttachmentArgs.builder()        
+ *             .name("test-attachment")
  *             .users(user.name())
  *             .roles(role.name())
  *             .groups(group.name())
@@ -98,7 +99,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

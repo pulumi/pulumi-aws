@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,14 +52,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
+ *             .state("available")
  *             .build());
  * 
- *         var example = new Multiplex(&#34;example&#34;, MultiplexArgs.builder()        
- *             .name(&#34;example-multiplex-changed&#34;)
+ *         var example = new Multiplex("example", MultiplexArgs.builder()        
+ *             .name("example-multiplex-changed")
  *             .availabilityZones(            
- *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]),
- *                 available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *                 available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]),
+ *                 available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
  *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
  *                 .transportStreamBitrate(1000000)
  *                 .transportStreamId(1)
@@ -66,12 +67,13 @@ import javax.annotation.Nullable;
  *                 .maximumVideoBufferDelayMilliseconds(1000)
  *                 .build())
  *             .startMultiplex(true)
- *             .tags(Map.of(&#34;tag1&#34;, &#34;value1&#34;))
+ *             .tags(Map.of("tag1", "value1"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,30 +52,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-primary&#34;)
- *             .description(&#34;primary replication group&#34;)
- *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;5.0.6&#34;)
- *             .nodeType(&#34;cache.m5.large&#34;)
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-primary")
+ *             .description("primary replication group")
+ *             .engine("redis")
+ *             .engineVersion("5.0.6")
+ *             .nodeType("cache.m5.large")
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
- *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
  *             .build());
  * 
- *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-secondary&#34;)
- *             .description(&#34;secondary replication group&#34;)
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-secondary")
+ *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Managing Redis Engine Versions
@@ -92,7 +94,8 @@ import javax.annotation.Nullable;
  * The secondary replication group will be created with Redis 6.2.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -115,31 +118,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-primary&#34;)
- *             .description(&#34;primary replication group&#34;)
- *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;6.0&#34;)
- *             .nodeType(&#34;cache.m5.large&#34;)
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-primary")
+ *             .description("primary replication group")
+ *             .engine("redis")
+ *             .engineVersion("6.0")
+ *             .nodeType("cache.m5.large")
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
- *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
- *             .engineVersion(&#34;6.2&#34;)
+ *             .engineVersion("6.2")
  *             .build());
  * 
- *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupId(&#34;example-secondary&#34;)
- *             .description(&#34;secondary replication group&#34;)
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *             .replicationGroupId("example-secondary")
+ *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
  *             .numCacheClusters(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

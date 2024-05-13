@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,35 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Role(&#34;test&#34;, RoleArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .path(&#34;/&#34;)
+ *         var test = new Role("test", RoleArgs.builder()        
+ *             .name("test")
+ *             .path("/")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
- *                             &#34;sts:AssumeRole&#34;, 
- *                             &#34;sts:TagSession&#34;, 
- *                             &#34;sts:SetSourceIdentity&#34;
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sts:AssumeRole", 
+ *                             "sts:TagSession", 
+ *                             "sts:SetSourceIdentity"
  *                         )),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;rolesanywhere.amazonaws.com&#34;)
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "rolesanywhere.amazonaws.com")
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;)
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", "")
  *                     )))
  *                 )))
  *             .build());
  * 
- *         var testProfile = new Profile(&#34;testProfile&#34;, ProfileArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var testProfile = new Profile("testProfile", ProfileArgs.builder()        
+ *             .name("example")
  *             .roleArns(test.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

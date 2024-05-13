@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,18 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ElasticCluster(&#34;example&#34;, ElasticClusterArgs.builder()        
- *             .name(&#34;my-docdb-cluster&#34;)
- *             .adminUserName(&#34;foo&#34;)
- *             .adminUserPassword(&#34;mustbeeightchars&#34;)
- *             .authType(&#34;PLAIN_TEXT&#34;)
+ *         var example = new ElasticCluster("example", ElasticClusterArgs.builder()        
+ *             .name("my-docdb-cluster")
+ *             .adminUserName("foo")
+ *             .adminUserPassword("mustbeeightchars")
+ *             .authType("PLAIN_TEXT")
  *             .shardCapacity(2)
  *             .shardCount(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

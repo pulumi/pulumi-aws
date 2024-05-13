@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -65,26 +66,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleA = new Subnet(&#34;exampleA&#34;, SubnetArgs.builder()        
+ *         var exampleA = new Subnet("exampleA", SubnetArgs.builder()        
  *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1a&#34;)
- *             .cidrBlock(&#34;10.0.0.0/24&#34;)
+ *             .availabilityZone("us-east-1a")
+ *             .cidrBlock("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleB = new Subnet(&#34;exampleB&#34;, SubnetArgs.builder()        
+ *         var exampleB = new Subnet("exampleB", SubnetArgs.builder()        
  *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .cidrBlock(&#34;10.0.1.0/24&#34;)
+ *             .availabilityZone("us-east-1b")
+ *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleDirectory = new Directory(&#34;exampleDirectory&#34;, DirectoryArgs.builder()        
- *             .name(&#34;corp.example.com&#34;)
- *             .password(&#34;#S1ncerely&#34;)
- *             .size(&#34;Small&#34;)
+ *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()        
+ *             .name("corp.example.com")
+ *             .password("#S1ncerely")
+ *             .size("Small")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .subnetIds(                
@@ -95,47 +96,47 @@ import javax.annotation.Nullable;
  * 
  *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
+ *                     .type("Service")
+ *                     .identifiers("workspaces.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
- *             .name(&#34;workspaces_DefaultRole&#34;)
- *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var workspacesDefault = new Role("workspacesDefault", RoleArgs.builder()        
+ *             .name("workspaces_DefaultRole")
+ *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var workspacesDefaultServiceAccess = new RolePolicyAttachment("workspacesDefaultServiceAccess", RolePolicyAttachmentArgs.builder()        
  *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
  *             .build());
  * 
- *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultSelfServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment("workspacesDefaultSelfServiceAccess", RolePolicyAttachmentArgs.builder()        
  *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess&#34;)
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
  *             .build());
  * 
- *         var exampleC = new Subnet(&#34;exampleC&#34;, SubnetArgs.builder()        
+ *         var exampleC = new Subnet("exampleC", SubnetArgs.builder()        
  *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1c&#34;)
- *             .cidrBlock(&#34;10.0.2.0/24&#34;)
+ *             .availabilityZone("us-east-1c")
+ *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleD = new Subnet(&#34;exampleD&#34;, SubnetArgs.builder()        
+ *         var exampleD = new Subnet("exampleD", SubnetArgs.builder()        
  *             .vpcId(exampleVpc.id())
- *             .availabilityZone(&#34;us-east-1d&#34;)
- *             .cidrBlock(&#34;10.0.3.0/24&#34;)
+ *             .availabilityZone("us-east-1d")
+ *             .cidrBlock("10.0.3.0/24")
  *             .build());
  * 
- *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()        
  *             .directoryId(exampleDirectory.id())
  *             .subnetIds(            
  *                 exampleC.id(),
  *                 exampleD.id())
- *             .tags(Map.of(&#34;Example&#34;, true))
+ *             .tags(Map.of("Example", true))
  *             .selfServicePermissions(DirectorySelfServicePermissionsArgs.builder()
  *                 .changeComputeType(true)
  *                 .increaseVolumeSize(true)
@@ -144,18 +145,18 @@ import javax.annotation.Nullable;
  *                 .switchRunningMode(true)
  *                 .build())
  *             .workspaceAccessProperties(DirectoryWorkspaceAccessPropertiesArgs.builder()
- *                 .deviceTypeAndroid(&#34;ALLOW&#34;)
- *                 .deviceTypeChromeos(&#34;ALLOW&#34;)
- *                 .deviceTypeIos(&#34;ALLOW&#34;)
- *                 .deviceTypeLinux(&#34;DENY&#34;)
- *                 .deviceTypeOsx(&#34;ALLOW&#34;)
- *                 .deviceTypeWeb(&#34;DENY&#34;)
- *                 .deviceTypeWindows(&#34;DENY&#34;)
- *                 .deviceTypeZeroclient(&#34;DENY&#34;)
+ *                 .deviceTypeAndroid("ALLOW")
+ *                 .deviceTypeChromeos("ALLOW")
+ *                 .deviceTypeIos("ALLOW")
+ *                 .deviceTypeLinux("DENY")
+ *                 .deviceTypeOsx("ALLOW")
+ *                 .deviceTypeWeb("DENY")
+ *                 .deviceTypeWindows("DENY")
+ *                 .deviceTypeZeroclient("DENY")
  *                 .build())
  *             .workspaceCreationProperties(DirectoryWorkspaceCreationPropertiesArgs.builder()
  *                 .customSecurityGroupId(exampleAwsSecurityGroup.id())
- *                 .defaultOu(&#34;OU=AWS,DC=Workgroup,DC=Example,DC=com&#34;)
+ *                 .defaultOu("OU=AWS,DC=Workgroup,DC=Example,DC=com")
  *                 .enableInternetAccess(true)
  *                 .enableMaintenanceMode(true)
  *                 .userEnabledAsLocalAdministrator(true)
@@ -168,13 +169,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### IP Groups
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -197,18 +200,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleIpGroup = new IpGroup(&#34;exampleIpGroup&#34;, IpGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleIpGroup = new IpGroup("exampleIpGroup", IpGroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var example = new Directory(&#34;example&#34;, DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()        
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .ipGroupIds(exampleIpGroup.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

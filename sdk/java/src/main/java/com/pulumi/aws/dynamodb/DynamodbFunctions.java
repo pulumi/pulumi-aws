@@ -23,7 +23,8 @@ public final class DynamodbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,12 +46,13 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
+     *             .name("tableName")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class DynamodbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,12 +88,13 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
+     *             .name("tableName")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class DynamodbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
+     *             .name("tableName")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class DynamodbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,12 +172,13 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tableName = DynamodbFunctions.getTable(GetTableArgs.builder()
-     *             .name(&#34;tableName&#34;)
+     *             .name("tableName")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -185,7 +193,8 @@ public final class DynamodbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -208,18 +217,19 @@ public final class DynamodbFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
+     *             .expressionAttributeNames(Map.of("#P", "Percentile"))
+     *             .projectionExpression("#P")
+     *             .key("""
      * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
+     * 	"hashKey": {"S": "example"}
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -234,7 +244,8 @@ public final class DynamodbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -257,18 +268,19 @@ public final class DynamodbFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
+     *             .expressionAttributeNames(Map.of("#P", "Percentile"))
+     *             .projectionExpression("#P")
+     *             .key("""
      * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
+     * 	"hashKey": {"S": "example"}
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +295,8 @@ public final class DynamodbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -306,18 +319,19 @@ public final class DynamodbFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
+     *             .expressionAttributeNames(Map.of("#P", "Percentile"))
+     *             .projectionExpression("#P")
+     *             .key("""
      * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
+     * 	"hashKey": {"S": "example"}
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -332,7 +346,8 @@ public final class DynamodbFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -355,18 +370,19 @@ public final class DynamodbFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
      *             .tableName(example.name())
-     *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
-     *             .projectionExpression(&#34;#P&#34;)
-     *             .key(&#34;&#34;&#34;
+     *             .expressionAttributeNames(Map.of("#P", "Percentile"))
+     *             .projectionExpression("#P")
+     *             .key("""
      * {
-     * 	&#34;hashKey&#34;: {&#34;S&#34;: &#34;example&#34;}
+     * 	"hashKey": {"S": "example"}
      * }
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

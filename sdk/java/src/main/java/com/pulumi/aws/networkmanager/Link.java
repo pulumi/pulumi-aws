@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Link(&#34;example&#34;, LinkArgs.builder()        
+ *         var example = new Link("example", LinkArgs.builder()        
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .siteId(exampleAwsNetworkmanagerSite.id())
  *             .bandwidth(LinkBandwidthArgs.builder()
  *                 .uploadSpeed(10)
  *                 .downloadSpeed(50)
  *                 .build())
- *             .providerName(&#34;MegaCorp&#34;)
+ *             .providerName("MegaCorp")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

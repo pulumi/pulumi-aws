@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HostedTransitVirtualInterface(&#34;example&#34;, HostedTransitVirtualInterfaceArgs.builder()        
+ *         var example = new HostedTransitVirtualInterface("example", HostedTransitVirtualInterfaceArgs.builder()        
  *             .connectionId(exampleAwsDxConnection.id())
- *             .name(&#34;tf-transit-vif-example&#34;)
+ *             .name("tf-transit-vif-example")
  *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
+ *             .addressFamily("ipv4")
  *             .bgpAsn(65352)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

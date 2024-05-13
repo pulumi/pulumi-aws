@@ -24,7 +24,8 @@ public final class SagemakerFunctions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -46,13 +47,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
+     *             .repositoryName("sagemaker-scikit-learn")
+     *             .imageTag("2.2-1.0.11.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -69,7 +71,8 @@ public final class SagemakerFunctions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -91,13 +94,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
+     *             .repositoryName("sagemaker-scikit-learn")
+     *             .imageTag("2.2-1.0.11.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -114,7 +118,8 @@ public final class SagemakerFunctions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -136,13 +141,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
+     *             .repositoryName("sagemaker-scikit-learn")
+     *             .imageTag("2.2-1.0.11.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -159,7 +165,8 @@ public final class SagemakerFunctions {
      * Basic usage:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -181,13 +188,14 @@ public final class SagemakerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
-     *             .repositoryName(&#34;sagemaker-scikit-learn&#34;)
-     *             .imageTag(&#34;2.2-1.0.11.0&#34;)
+     *             .repositoryName("sagemaker-scikit-learn")
+     *             .imageTag("2.2-1.0.11.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

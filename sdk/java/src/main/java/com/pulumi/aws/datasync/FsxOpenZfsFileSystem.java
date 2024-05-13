@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FsxOpenZfsFileSystem(&#34;example&#34;, FsxOpenZfsFileSystemArgs.builder()        
+ *         var example = new FsxOpenZfsFileSystem("example", FsxOpenZfsFileSystemArgs.builder()        
  *             .fsxFilesystemArn(exampleAwsFsxOpenzfsFileSystem.arn())
  *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .protocol(FsxOpenZfsFileSystemProtocolArgs.builder()
  *                 .nfs(FsxOpenZfsFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs.builder()
- *                         .version(&#34;AUTOMATIC&#34;)
+ *                         .version("AUTOMATIC")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -61,7 +62,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

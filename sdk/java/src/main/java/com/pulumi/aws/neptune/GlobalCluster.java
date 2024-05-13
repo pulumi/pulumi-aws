@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### New Neptune Global Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,57 +54,59 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster(&#34;example&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;global-test&#34;)
- *             .engine(&#34;neptune&#34;)
- *             .engineVersion(&#34;1.2.0.0&#34;)
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("global-test")
+ *             .engine("neptune")
+ *             .engineVersion("1.2.0.0")
  *             .build());
  * 
- *         var primary = new Cluster(&#34;primary&#34;, ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-primary-cluster&#34;)
+ *             .clusterIdentifier("test-primary-cluster")
  *             .globalClusterIdentifier(example.id())
- *             .neptuneSubnetGroupName(&#34;default&#34;)
+ *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-primary-cluster-instance&#34;)
+ *             .identifier("test-primary-cluster-instance")
  *             .clusterIdentifier(primary.id())
- *             .instanceClass(&#34;db.r5.large&#34;)
- *             .neptuneSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r5.large")
+ *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster(&#34;secondary&#34;, ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
+ *             .clusterIdentifier("test-secondary-cluster")
  *             .globalClusterIdentifier(example.id())
- *             .neptuneSubnetGroupName(&#34;default&#34;)
+ *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
- *             .identifier(&#34;test-secondary-cluster-instance&#34;)
+ *             .identifier("test-secondary-cluster-instance")
  *             .clusterIdentifier(secondary.id())
- *             .instanceClass(&#34;db.r5.large&#34;)
- *             .neptuneSubnetGroupName(&#34;default&#34;)
+ *             .instanceClass("db.r5.large")
+ *             .neptuneSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### New Global Cluster From Existing DB Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -125,16 +128,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;);
+ *         var example = new Cluster("example");
  * 
- *         var exampleGlobalCluster = new GlobalCluster(&#34;exampleGlobalCluster&#34;, GlobalClusterArgs.builder()        
- *             .globalClusterIdentifier(&#34;example&#34;)
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
+ *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(example.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

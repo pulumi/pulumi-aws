@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,19 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleActionTarget = new ActionTarget(&#34;exampleActionTarget&#34;, ActionTargetArgs.builder()        
- *             .name(&#34;Send notification to chat&#34;)
- *             .identifier(&#34;SendToChat&#34;)
- *             .description(&#34;This is custom action sends selected findings to chat&#34;)
+ *         var exampleActionTarget = new ActionTarget("exampleActionTarget", ActionTargetArgs.builder()        
+ *             .name("Send notification to chat")
+ *             .identifier("SendToChat")
+ *             .description("This is custom action sends selected findings to chat")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,19 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;user-updates-topic&#34;)
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *             .name("user-updates-topic")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with Delivery Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -77,38 +80,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;user-updates-topic&#34;)
- *             .deliveryPolicy(&#34;&#34;&#34;
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *             .name("user-updates-topic")
+ *             .deliveryPolicy("""
  * {
- *   &#34;http&#34;: {
- *     &#34;defaultHealthyRetryPolicy&#34;: {
- *       &#34;minDelayTarget&#34;: 20,
- *       &#34;maxDelayTarget&#34;: 20,
- *       &#34;numRetries&#34;: 3,
- *       &#34;numMaxDelayRetries&#34;: 0,
- *       &#34;numNoDelayRetries&#34;: 0,
- *       &#34;numMinDelayRetries&#34;: 0,
- *       &#34;backoffFunction&#34;: &#34;linear&#34;
+ *   "http": {
+ *     "defaultHealthyRetryPolicy": {
+ *       "minDelayTarget": 20,
+ *       "maxDelayTarget": 20,
+ *       "numRetries": 3,
+ *       "numMaxDelayRetries": 0,
+ *       "numNoDelayRetries": 0,
+ *       "numMinDelayRetries": 0,
+ *       "backoffFunction": "linear"
  *     },
- *     &#34;disableSubscriptionOverrides&#34;: false,
- *     &#34;defaultThrottlePolicy&#34;: {
- *       &#34;maxReceivesPerSecond&#34;: 1
+ *     "disableSubscriptionOverrides": false,
+ *     "defaultThrottlePolicy": {
+ *       "maxReceivesPerSecond": 1
  *     }
  *   }
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with Server-side encryption (SSE)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -129,20 +134,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;user-updates-topic&#34;)
- *             .kmsMasterKeyId(&#34;alias/aws/sns&#34;)
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *             .name("user-updates-topic")
+ *             .kmsMasterKeyId("alias/aws/sns")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with First-In-First-Out (FIFO)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -163,15 +170,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;, TopicArgs.builder()        
- *             .name(&#34;user-updates-topic.fifo&#34;)
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *             .name("user-updates-topic.fifo")
  *             .fifoTopic(true)
  *             .contentBasedDeduplication(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Message Delivery Status Arguments

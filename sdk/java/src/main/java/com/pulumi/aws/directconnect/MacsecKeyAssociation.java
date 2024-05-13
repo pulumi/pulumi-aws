@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Create MACSec key with CKN and CAK
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,24 +52,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
- *             .name(&#34;tf-dx-connection&#34;)
+ *             .name("tf-dx-connection")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation(&#34;test&#34;, MacsecKeyAssociationArgs.builder()        
- *             .connectionId(example.applyValue(getConnectionResult -&gt; getConnectionResult.id()))
- *             .ckn(&#34;0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&#34;)
- *             .cak(&#34;abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789&#34;)
+ *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()        
+ *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
+ *             .ckn("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
+ *             .cak("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Create MACSec key with existing Secrets Manager secret
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,21 +97,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
- *             .name(&#34;tf-dx-connection&#34;)
+ *             .name("tf-dx-connection")
  *             .build());
  * 
  *         final var exampleGetSecret = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
- *             .name(&#34;directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&#34;)
+ *             .name("directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation(&#34;test&#34;, MacsecKeyAssociationArgs.builder()        
- *             .connectionId(example.applyValue(getConnectionResult -&gt; getConnectionResult.id()))
- *             .secretArn(exampleGetSecret.applyValue(getSecretResult -&gt; getSecretResult.arn()))
+ *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()        
+ *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
+ *             .secretArn(exampleGetSecret.applyValue(getSecretResult -> getSecretResult.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

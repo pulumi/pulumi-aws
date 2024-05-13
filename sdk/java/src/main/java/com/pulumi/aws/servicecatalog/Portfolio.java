@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var portfolio = new Portfolio(&#34;portfolio&#34;, PortfolioArgs.builder()        
- *             .name(&#34;My App Portfolio&#34;)
- *             .description(&#34;List of my organizations apps&#34;)
- *             .providerName(&#34;Brett&#34;)
+ *         var portfolio = new Portfolio("portfolio", PortfolioArgs.builder()        
+ *             .name("My App Portfolio")
+ *             .description("List of my organizations apps")
+ *             .providerName("Brett")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

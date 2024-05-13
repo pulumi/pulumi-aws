@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * The following example below creates a CloudFront public key.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
- *             .comment(&#34;test public key&#34;)
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *             .comment("test public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;public_key.pem&#34;)
+ *                 .input("public_key.pem")
  *                 .build()).result())
- *             .name(&#34;test_key&#34;)
+ *             .name("test_key")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

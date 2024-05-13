@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,27 +53,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var example = new Vpc("example", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
- *             .name(&#34;example.mydomain.local&#34;)
- *             .description(&#34;example&#34;)
+ *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()        
+ *             .name("example.mydomain.local")
+ *             .description("example")
  *             .vpc(example.id())
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(examplePrivateDnsNamespace.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
- *                     .type(&#34;A&#34;)
+ *                     .type("A")
  *                     .build())
- *                 .routingPolicy(&#34;MULTIVALUE&#34;)
+ *                 .routingPolicy("MULTIVALUE")
  *                 .build())
  *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
  *                 .failureThreshold(1)
@@ -81,11 +82,13 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -110,30 +113,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicDnsNamespace(&#34;example&#34;, PublicDnsNamespaceArgs.builder()        
- *             .name(&#34;example.mydomain.com&#34;)
- *             .description(&#34;example&#34;)
+ *         var example = new PublicDnsNamespace("example", PublicDnsNamespaceArgs.builder()        
+ *             .name("example.mydomain.com")
+ *             .description("example")
  *             .build());
  * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(example.id())
  *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
  *                     .ttl(10)
- *                     .type(&#34;A&#34;)
+ *                     .type("A")
  *                     .build())
  *                 .build())
  *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
  *                 .failureThreshold(10)
- *                 .resourcePath(&#34;path&#34;)
- *                 .type(&#34;HTTP&#34;)
+ *                 .resourcePath("path")
+ *                 .type("HTTP")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

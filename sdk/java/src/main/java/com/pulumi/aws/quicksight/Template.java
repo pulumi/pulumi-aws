@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### From Source Template
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,10 +51,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
- *             .templateId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .versionDescription(&#34;version&#34;)
+ *         var example = new Template("example", TemplateArgs.builder()        
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .sourceEntity(TemplateSourceEntityArgs.builder()
  *                 .sourceTemplate(TemplateSourceEntitySourceTemplateArgs.builder()
  *                     .arn(source.arn())
@@ -63,13 +64,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Definition
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,16 +93,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
- *             .templateId(&#34;example-id&#34;)
- *             .name(&#34;example-name&#34;)
- *             .versionDescription(&#34;version&#34;)
+ *         var example = new Template("example", TemplateArgs.builder()        
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

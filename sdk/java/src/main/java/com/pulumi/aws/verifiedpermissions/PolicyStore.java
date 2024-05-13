@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyStore(&#34;example&#34;, PolicyStoreArgs.builder()        
+ *         var example = new PolicyStore("example", PolicyStoreArgs.builder()        
  *             .validationSettings(PolicyStoreValidationSettingsArgs.builder()
- *                 .mode(&#34;STRICT&#34;)
+ *                 .mode("STRICT")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

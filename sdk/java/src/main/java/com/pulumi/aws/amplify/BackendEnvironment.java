@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,20 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new App("example", AppArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleBackendEnvironment = new BackendEnvironment(&#34;exampleBackendEnvironment&#34;, BackendEnvironmentArgs.builder()        
+ *         var exampleBackendEnvironment = new BackendEnvironment("exampleBackendEnvironment", BackendEnvironmentArgs.builder()        
  *             .appId(example.id())
- *             .environmentName(&#34;example&#34;)
- *             .deploymentArtifacts(&#34;app-example-deployment&#34;)
- *             .stackName(&#34;amplify-app-example&#34;)
+ *             .environmentName("example")
+ *             .deploymentArtifacts("app-example-deployment")
+ *             .stackName("amplify-app-example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

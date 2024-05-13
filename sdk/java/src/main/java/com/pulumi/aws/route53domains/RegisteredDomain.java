@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,21 +55,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RegisteredDomain(&#34;example&#34;, RegisteredDomainArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
+ *         var example = new RegisteredDomain("example", RegisteredDomainArgs.builder()        
+ *             .domainName("example.com")
  *             .nameServers(            
  *                 RegisteredDomainNameServerArgs.builder()
- *                     .name(&#34;ns-195.awsdns-24.com&#34;)
+ *                     .name("ns-195.awsdns-24.com")
  *                     .build(),
  *                 RegisteredDomainNameServerArgs.builder()
- *                     .name(&#34;ns-874.awsdns-45.net&#34;)
+ *                     .name("ns-874.awsdns-45.net")
  *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

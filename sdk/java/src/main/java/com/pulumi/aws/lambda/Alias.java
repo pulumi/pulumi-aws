@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLambdaAlias = new Alias(&#34;testLambdaAlias&#34;, AliasArgs.builder()        
- *             .name(&#34;my_alias&#34;)
- *             .description(&#34;a sample description&#34;)
+ *         var testLambdaAlias = new Alias("testLambdaAlias", AliasArgs.builder()        
+ *             .name("my_alias")
+ *             .description("a sample description")
  *             .functionName(lambdaFunctionTest.arn())
- *             .functionVersion(&#34;1&#34;)
+ *             .functionVersion("1")
  *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of(&#34;2&#34;, 0.5))
+ *                 .additionalVersionWeights(Map.of("2", 0.5))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

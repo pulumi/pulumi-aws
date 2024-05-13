@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,25 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
- *             .name(&#34;my_example_backup_plan&#34;)
+ *         var example = new Plan("example", PlanArgs.builder()        
+ *             .name("my_example_backup_plan")
  *             .rules(PlanRuleArgs.builder()
- *                 .ruleName(&#34;my_example_backup_rule&#34;)
+ *                 .ruleName("my_example_backup_rule")
  *                 .targetVaultName(test.name())
- *                 .schedule(&#34;cron(0 12 * * ? *)&#34;)
+ *                 .schedule("cron(0 12 * * ? *)")
  *                 .lifecycle(PlanRuleLifecycleArgs.builder()
  *                     .deleteAfter(14)
  *                     .build())
  *                 .build())
  *             .advancedBackupSettings(PlanAdvancedBackupSettingArgs.builder()
- *                 .backupOptions(Map.of(&#34;WindowsVSS&#34;, &#34;enabled&#34;))
- *                 .resourceType(&#34;EC2&#34;)
+ *                 .backupOptions(Map.of("WindowsVSS", "enabled"))
+ *                 .resourceType("EC2")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

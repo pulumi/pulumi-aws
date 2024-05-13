@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,18 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AwsLogSource(&#34;test&#34;, AwsLogSourceArgs.builder()        
+ *         var test = new AwsLogSource("test", AwsLogSourceArgs.builder()        
  *             .source(AwsLogSourceSourceArgs.builder()
- *                 .accounts(&#34;123456789012&#34;)
- *                 .regions(&#34;eu-west-1&#34;)
- *                 .sourceName(&#34;ROUTE53&#34;)
- *                 .sourceVersion(&#34;1.0&#34;)
+ *                 .accounts("123456789012")
+ *                 .regions("eu-west-1")
+ *                 .sourceName("ROUTE53")
+ *                 .sourceVersion("1.0")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

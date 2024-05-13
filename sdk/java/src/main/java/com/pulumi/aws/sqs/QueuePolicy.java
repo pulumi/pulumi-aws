@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,36 +46,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var q = new Queue(&#34;q&#34;, QueueArgs.builder()        
- *             .name(&#34;examplequeue&#34;)
+ *         var q = new Queue("q", QueueArgs.builder()        
+ *             .name("examplequeue")
  *             .build());
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;First&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("First")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
- *                 .actions(&#34;sqs:SendMessage&#34;)
+ *                 .actions("sqs:SendMessage")
  *                 .resources(q.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .variable(&#34;aws:SourceArn&#34;)
+ *                     .test("ArnEquals")
+ *                     .variable("aws:SourceArn")
  *                     .values(example.arn())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var testQueuePolicy = new QueuePolicy(&#34;testQueuePolicy&#34;, QueuePolicyArgs.builder()        
+ *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()        
  *             .queueUrl(q.id())
- *             .policy(test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(test -&gt; test.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

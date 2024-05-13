@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var xssMatchSet = new XssMatchSet(&#34;xssMatchSet&#34;, XssMatchSetArgs.builder()        
- *             .name(&#34;xss_match_set&#34;)
+ *         var xssMatchSet = new XssMatchSet("xssMatchSet", XssMatchSetArgs.builder()        
+ *             .name("xss_match_set")
  *             .xssMatchTuples(            
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation(&#34;NONE&#34;)
+ *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;URI&#34;)
+ *                         .type("URI")
  *                         .build())
  *                     .build(),
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation(&#34;NONE&#34;)
+ *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;QUERY_STRING&#34;)
+ *                         .type("QUERY_STRING")
  *                         .build())
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

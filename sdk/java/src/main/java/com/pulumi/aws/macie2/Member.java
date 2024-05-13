@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,13 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var example = new Account("example");
  * 
- *         var exampleMember = new Member(&#34;exampleMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;AWS ACCOUNT ID&#34;)
- *             .email(&#34;EMAIL&#34;)
+ *         var exampleMember = new Member("exampleMember", MemberArgs.builder()        
+ *             .accountId("AWS ACCOUNT ID")
+ *             .email("EMAIL")
  *             .invite(true)
- *             .invitationMessage(&#34;Message of the invitation&#34;)
+ *             .invitationMessage("Message of the invitation")
  *             .invitationDisableEmailNotification(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
@@ -59,7 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;KMS Key for Voice Profile Domain&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("KMS Key for Voice Profile Domain")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain(&#34;exampleSdkvoiceVoiceProfileDomain&#34;, SdkvoiceVoiceProfileDomainArgs.builder()        
- *             .name(&#34;ExampleVoiceProfileDomain&#34;)
+ *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", SdkvoiceVoiceProfileDomainArgs.builder()        
+ *             .name("ExampleVoiceProfileDomain")
  *             .serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs.builder()
  *                 .kmsKeyArn(example.arn())
  *                 .build())
- *             .description(&#34;My Voice Profile Domain&#34;)
- *             .tags(Map.of(&#34;key1&#34;, &#34;value1&#34;))
+ *             .description("My Voice Profile Domain")
+ *             .tags(Map.of("key1", "value1"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

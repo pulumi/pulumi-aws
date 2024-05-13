@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
- *             .alias(&#34;example&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
+ *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *             .alias("example")
+ *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### CloudWatch Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -80,25 +83,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
  *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
- *                 .logGroupArn(example.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .logGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### AWS KMS Customer Managed Keys (CMK)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -121,19 +126,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;example&#34;)
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *             .description("example")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
- *             .alias(&#34;example&#34;)
+ *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *             .alias("example")
  *             .kmsKeyArn(exampleKey.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

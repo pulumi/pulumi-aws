@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,25 +49,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key(&#34;example&#34;, KeyArgs.builder()        
- *             .description(&#34;Example KMS Key&#34;)
+ *         var example = new Key("example", KeyArgs.builder()        
+ *             .description("Example KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
  * 
- *         var exampleKxDatabase = new KxDatabase(&#34;exampleKxDatabase&#34;, KxDatabaseArgs.builder()        
+ *         var exampleKxDatabase = new KxDatabase("exampleKxDatabase", KxDatabaseArgs.builder()        
  *             .environmentId(exampleKxEnvironment.id())
- *             .name(&#34;my-tf-kx-database&#34;)
- *             .description(&#34;Example database description&#34;)
+ *             .name("my-tf-kx-database")
+ *             .description("Example database description")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

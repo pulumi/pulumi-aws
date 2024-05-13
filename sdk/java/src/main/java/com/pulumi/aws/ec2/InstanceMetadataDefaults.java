@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var enforce_imdsv2 = new InstanceMetadataDefaults(&#34;enforce-imdsv2&#34;, InstanceMetadataDefaultsArgs.builder()        
- *             .httpTokens(&#34;required&#34;)
+ *         var enforce_imdsv2 = new InstanceMetadataDefaults("enforce-imdsv2", InstanceMetadataDefaultsArgs.builder()        
+ *             .httpTokens("required")
  *             .httpPutResponseHopLimit(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

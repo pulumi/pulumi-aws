@@ -31,7 +31,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,36 +59,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
  *         final var peer = AwsFunctions.getCallerIdentity();
  * 
- *         // Requester&#39;s side of the connection.
- *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
+ *         // Requester's side of the connection.
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .peerRegion(&#34;us-west-2&#34;)
+ *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
+ *             .peerRegion("us-west-2")
  *             .autoAccept(false)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
+ *             .tags(Map.of("Side", "Requester"))
  *             .build());
  * 
- *         // Accepter&#39;s side of the connection.
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
+ *         // Accepter's side of the connection.
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()        
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
+ *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

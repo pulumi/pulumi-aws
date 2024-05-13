@@ -32,7 +32,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,21 +54,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StackSetInstance(&#34;example&#34;, StackSetInstanceArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
- *             .region(&#34;us-east-1&#34;)
+ *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()        
+ *             .accountId("123456789012")
+ *             .region("us-east-1")
  *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example IAM Setup in Target Account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,18 +97,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(aWSCloudFormationStackSetAdministrationRole.arn())
- *                     .type(&#34;AWS&#34;)
+ *                     .type("AWS")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetExecutionRole = new Role(&#34;aWSCloudFormationStackSetExecutionRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .name(&#34;AWSCloudFormationStackSetExecutionRole&#34;)
+ *         var aWSCloudFormationStackSetExecutionRole = new Role("aWSCloudFormationStackSetExecutionRole", RoleArgs.builder()        
+ *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .name("AWSCloudFormationStackSetExecutionRole")
  *             .build());
  * 
  *         // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
@@ -113,29 +116,31 @@ import javax.annotation.Nullable;
  *         final var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
- *                     &#34;cloudformation:*&#34;,
- *                     &#34;s3:*&#34;,
- *                     &#34;sns:*&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .resources(&#34;*&#34;)
+ *                     "cloudformation:*",
+ *                     "s3:*",
+ *                     "sns:*")
+ *                 .effect("Allow")
+ *                 .resources("*")
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy(&#34;aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .name(&#34;MinimumExecutionPolicy&#34;)
- *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", RolePolicyArgs.builder()        
+ *             .name("MinimumExecutionPolicy")
+ *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(aWSCloudFormationStackSetExecutionRole.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Deployment across Organizations account
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -157,17 +162,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StackSetInstance(&#34;example&#34;, StackSetInstanceArgs.builder()        
+ *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()        
  *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
  *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
  *                 .build())
- *             .region(&#34;us-east-1&#34;)
+ *             .region("us-east-1")
  *             .stackSetName(exampleAwsCloudformationStackSet.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

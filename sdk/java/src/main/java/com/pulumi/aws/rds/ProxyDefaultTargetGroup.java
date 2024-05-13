@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,41 +48,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Proxy(&#34;example&#34;, ProxyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Proxy("example", ProxyArgs.builder()        
+ *             .name("example")
  *             .debugLogging(false)
- *             .engineFamily(&#34;MYSQL&#34;)
+ *             .engineFamily("MYSQL")
  *             .idleClientTimeout(1800)
  *             .requireTls(true)
  *             .roleArn(exampleAwsIamRole.arn())
  *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
  *             .vpcSubnetIds(exampleAwsSubnet.id())
  *             .auths(ProxyAuthArgs.builder()
- *                 .authScheme(&#34;SECRETS&#34;)
- *                 .description(&#34;example&#34;)
- *                 .iamAuth(&#34;DISABLED&#34;)
+ *                 .authScheme("SECRETS")
+ *                 .description("example")
+ *                 .iamAuth("DISABLED")
  *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
  *                 .build())
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Name&#34;, &#34;example&#34;),
- *                 Map.entry(&#34;Key&#34;, &#34;value&#34;)
+ *                 Map.entry("Name", "example"),
+ *                 Map.entry("Key", "value")
  *             ))
  *             .build());
  * 
- *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup(&#34;exampleProxyDefaultTargetGroup&#34;, ProxyDefaultTargetGroupArgs.builder()        
+ *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()        
  *             .dbProxyName(example.name())
  *             .connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs.builder()
  *                 .connectionBorrowTimeout(120)
- *                 .initQuery(&#34;SET x=1, y=2&#34;)
+ *                 .initQuery("SET x=1, y=2")
  *                 .maxConnectionsPercent(100)
  *                 .maxIdleConnectionsPercent(50)
- *                 .sessionPinningFilters(&#34;EXCLUDE_VARIABLE_SETS&#34;)
+ *                 .sessionPinningFilters("EXCLUDE_VARIABLE_SETS")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -54,19 +55,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var docdb = new Cluster(&#34;docdb&#34;, ClusterArgs.builder()        
- *             .clusterIdentifier(&#34;my-docdb-cluster&#34;)
- *             .engine(&#34;docdb&#34;)
- *             .masterUsername(&#34;foo&#34;)
- *             .masterPassword(&#34;mustbeeightchars&#34;)
+ *         var docdb = new Cluster("docdb", ClusterArgs.builder()        
+ *             .clusterIdentifier("my-docdb-cluster")
+ *             .engine("docdb")
+ *             .masterUsername("foo")
+ *             .masterPassword("mustbeeightchars")
  *             .backupRetentionPeriod(5)
- *             .preferredBackupWindow(&#34;07:00-09:00&#34;)
+ *             .preferredBackupWindow("07:00-09:00")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

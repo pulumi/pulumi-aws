@@ -35,7 +35,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,17 +63,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new PlacementGroup(&#34;test&#34;, PlacementGroupArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .strategy(&#34;cluster&#34;)
+ *         var test = new PlacementGroup("test", PlacementGroupArgs.builder()        
+ *             .name("test")
+ *             .strategy("cluster")
  *             .build());
  * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .name(&#34;foobar3-test&#34;)
+ *         var bar = new Group("bar", GroupArgs.builder()        
+ *             .name("foobar3-test")
  *             .maxSize(5)
  *             .minSize(2)
  *             .healthCheckGracePeriod(300)
- *             .healthCheckType(&#34;ELB&#34;)
+ *             .healthCheckType("ELB")
  *             .desiredCapacity(4)
  *             .forceDelete(true)
  *             .placementGroup(test.id())
@@ -85,39 +86,41 @@ import javax.annotation.Nullable;
  *                 .maxHealthyPercentage(120)
  *                 .build())
  *             .initialLifecycleHooks(GroupInitialLifecycleHookArgs.builder()
- *                 .name(&#34;foobar&#34;)
- *                 .defaultResult(&#34;CONTINUE&#34;)
+ *                 .name("foobar")
+ *                 .defaultResult("CONTINUE")
  *                 .heartbeatTimeout(2000)
- *                 .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
+ *                 .lifecycleTransition("autoscaling:EC2_INSTANCE_LAUNCHING")
  *                 .notificationMetadata(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;foo&#34;, &#34;bar&#34;)
+ *                         jsonProperty("foo", "bar")
  *                     )))
- *                 .notificationTargetArn(&#34;arn:aws:sqs:us-east-1:444455556666:queue1*&#34;)
- *                 .roleArn(&#34;arn:aws:iam::123456789012:role/S3Access&#34;)
+ *                 .notificationTargetArn("arn:aws:sqs:us-east-1:444455556666:queue1*")
+ *                 .roleArn("arn:aws:iam::123456789012:role/S3Access")
  *                 .build())
  *             .tags(            
  *                 GroupTagArgs.builder()
- *                     .key(&#34;foo&#34;)
- *                     .value(&#34;bar&#34;)
+ *                     .key("foo")
+ *                     .value("bar")
  *                     .propagateAtLaunch(true)
  *                     .build(),
  *                 GroupTagArgs.builder()
- *                     .key(&#34;lorem&#34;)
- *                     .value(&#34;ipsum&#34;)
+ *                     .key("lorem")
+ *                     .value("ipsum")
  *                     .propagateAtLaunch(false)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Latest Version Of Launch Template
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -141,32 +144,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new LaunchTemplate(&#34;foobar&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;foobar&#34;)
- *             .imageId(&#34;ami-1a2b3c&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
+ *         var foobar = new LaunchTemplate("foobar", LaunchTemplateArgs.builder()        
+ *             .namePrefix("foobar")
+ *             .imageId("ami-1a2b3c")
+ *             .instanceType("t2.micro")
  *             .build());
  * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var bar = new Group("bar", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
  *             .launchTemplate(GroupLaunchTemplateArgs.builder()
  *                 .id(foobar.id())
- *                 .version(&#34;$Latest&#34;)
+ *                 .version("$Latest")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mixed Instances Policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -192,14 +197,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
- *             .instanceType(&#34;c5.large&#34;)
+ *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
@@ -210,12 +215,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
+ *                             .instanceType("c4.large")
+ *                             .weightedCapacity("3")
  *                             .build(),
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
+ *                             .instanceType("c3.large")
+ *                             .weightedCapacity("2")
  *                             .build())
  *                     .build())
  *                 .build())
@@ -223,13 +228,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -256,13 +263,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
- *             .instanceType(&#34;c5.large&#34;)
+ *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
  *             .capacityRebalance(true)
  *             .desiredCapacity(12)
  *             .maxSize(15)
@@ -274,7 +281,7 @@ import javax.annotation.Nullable;
  *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
  *                     .onDemandBaseCapacity(0)
  *                     .onDemandPercentageAboveBaseCapacity(25)
- *                     .spotAllocationStrategy(&#34;capacity-optimized&#34;)
+ *                     .spotAllocationStrategy("capacity-optimized")
  *                     .build())
  *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
  *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
@@ -282,12 +289,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
+ *                             .instanceType("c4.large")
+ *                             .weightedCapacity("3")
  *                             .build(),
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
+ *                             .instanceType("c3.large")
+ *                             .weightedCapacity("2")
  *                             .build())
  *                     .build())
  *                 .build())
@@ -295,7 +302,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
@@ -303,7 +311,8 @@ import javax.annotation.Nullable;
  * When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -329,19 +338,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
- *             .instanceType(&#34;c5.large&#34;)
+ *             .instanceType("c5.large")
  *             .build());
  * 
- *         var example2 = new LaunchTemplate(&#34;example2&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example2&#34;)
+ *         var example2 = new LaunchTemplate("example2", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example2")
  *             .imageId(example2AwsAmi.id())
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
@@ -352,15 +361,15 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .overrides(                    
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
+ *                             .instanceType("c4.large")
+ *                             .weightedCapacity("3")
  *                             .build(),
  *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c6g.large&#34;)
+ *                             .instanceType("c6g.large")
  *                             .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs.builder()
  *                                 .launchTemplateId(example2.id())
  *                                 .build())
- *                             .weightedCapacity(&#34;2&#34;)
+ *                             .weightedCapacity("2")
  *                             .build())
  *                     .build())
  *                 .build())
@@ -368,7 +377,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Mixed Instances Policy with Attribute-based Instance Type Selection
@@ -376,7 +386,8 @@ import javax.annotation.Nullable;
  * As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -402,14 +413,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
- *             .instanceType(&#34;c5.large&#34;)
+ *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
  *             .minSize(1)
@@ -434,13 +445,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Dynamic tagging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -463,22 +476,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var extraTags = config.get(&#34;extraTags&#34;).orElse(        
+ *         final var extraTags = config.get("extraTags").orElse(        
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *         var test = new Group("test", GroupArgs.builder()        
  *             .tags(            
  *                 GroupTagArgs.builder()
- *                     .key(&#34;explicit1&#34;)
- *                     .value(&#34;value1&#34;)
+ *                     .key("explicit1")
+ *                     .value("value1")
  *                     .propagateAtLaunch(true)
  *                     .build(),
  *                 GroupTagArgs.builder()
- *                     .key(&#34;explicit2&#34;)
- *                     .value(&#34;value2&#34;)
+ *                     .key("explicit2")
+ *                     .value("value2")
  *                     .propagateAtLaunch(true)
  *                     .build())
- *             .name(&#34;foobar3-test&#34;)
+ *             .name("foobar3-test")
  *             .maxSize(5)
  *             .minSize(2)
  *             .launchConfiguration(foobar.name())
@@ -489,13 +502,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Automatically refresh all instances after the group is updated
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -526,20 +541,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
+ *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-hvm-*-x86_64-gp2&#34;)
+ *                 .name("name")
+ *                 .values("amzn-ami-hvm-*-x86_64-gp2")
  *                 .build())
  *             .build());
  * 
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(example.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.nano&#34;)
+ *         var exampleLaunchTemplate = new LaunchTemplate("exampleLaunchTemplate", LaunchTemplateArgs.builder()        
+ *             .imageId(example.applyValue(getAmiResult -> getAmiResult.id()))
+ *             .instanceType("t3.nano")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(2)
  *             .minSize(1)
@@ -548,28 +563,30 @@ import javax.annotation.Nullable;
  *                 .version(exampleLaunchTemplate.latestVersion())
  *                 .build())
  *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;Key&#34;)
- *                 .value(&#34;Value&#34;)
+ *                 .key("Key")
+ *                 .value("Value")
  *                 .propagateAtLaunch(true)
  *                 .build())
  *             .instanceRefresh(GroupInstanceRefreshArgs.builder()
- *                 .strategy(&#34;Rolling&#34;)
+ *                 .strategy("Rolling")
  *                 .preferences(GroupInstanceRefreshPreferencesArgs.builder()
  *                     .minHealthyPercentage(50)
  *                     .build())
- *                 .triggers(&#34;tag&#34;)
+ *                 .triggers("tag")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Auto Scaling group with Warm Pool
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -594,19 +611,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate(&#34;example&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
- *             .instanceType(&#34;c5.large&#34;)
+ *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(5)
  *             .minSize(1)
  *             .warmPool(GroupWarmPoolArgs.builder()
- *                 .poolState(&#34;Hibernated&#34;)
+ *                 .poolState("Hibernated")
  *                 .minSize(1)
  *                 .maxGroupPreparedCapacity(10)
  *                 .instanceReusePolicy(GroupWarmPoolInstanceReusePolicyArgs.builder()
@@ -617,7 +634,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Auto Scaling group with Traffic Sources

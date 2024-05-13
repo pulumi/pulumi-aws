@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,22 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CodeRepository(&#34;example&#34;, CodeRepositoryArgs.builder()        
- *             .codeRepositoryName(&#34;example&#34;)
+ *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()        
+ *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
+ *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example with Secret
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -89,23 +92,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Secret(&#34;example&#34;, SecretArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Secret("example", SecretArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
  *             .secretId(example.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;username&#34;, &#34;example&#34;),
- *                     jsonProperty(&#34;password&#34;, &#34;example&#34;)
+ *                     jsonProperty("username", "example"),
+ *                     jsonProperty("password", "example")
  *                 )))
  *             .build());
  * 
- *         var exampleCodeRepository = new CodeRepository(&#34;exampleCodeRepository&#34;, CodeRepositoryArgs.builder()        
- *             .codeRepositoryName(&#34;example&#34;)
+ *         var exampleCodeRepository = new CodeRepository("exampleCodeRepository", CodeRepositoryArgs.builder()        
+ *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
- *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
+ *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .secretArn(example.arn())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
@@ -114,7 +117,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

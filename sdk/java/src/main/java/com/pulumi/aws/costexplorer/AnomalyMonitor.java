@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Dimensional Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,21 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceMonitor = new AnomalyMonitor(&#34;serviceMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .name(&#34;AWSServiceMonitor&#34;)
- *             .monitorType(&#34;DIMENSIONAL&#34;)
- *             .monitorDimension(&#34;SERVICE&#34;)
+ *         var serviceMonitor = new AnomalyMonitor("serviceMonitor", AnomalyMonitorArgs.builder()        
+ *             .name("AWSServiceMonitor")
+ *             .monitorType("DIMENSIONAL")
+ *             .monitorDimension("SERVICE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Custom Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,27 +85,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
- *             .name(&#34;AWSCustomAnomalyMonitor&#34;)
- *             .monitorType(&#34;CUSTOM&#34;)
+ *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()        
+ *             .name("AWSCustomAnomalyMonitor")
+ *             .monitorType("CUSTOM")
  *             .monitorSpecification(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;And&#34;, null),
- *                     jsonProperty(&#34;CostCategories&#34;, null),
- *                     jsonProperty(&#34;Dimensions&#34;, null),
- *                     jsonProperty(&#34;Not&#34;, null),
- *                     jsonProperty(&#34;Or&#34;, null),
- *                     jsonProperty(&#34;Tags&#34;, jsonObject(
- *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
- *                         jsonProperty(&#34;MatchOptions&#34;, null),
- *                         jsonProperty(&#34;Values&#34;, jsonArray(&#34;10000&#34;))
+ *                     jsonProperty("And", null),
+ *                     jsonProperty("CostCategories", null),
+ *                     jsonProperty("Dimensions", null),
+ *                     jsonProperty("Not", null),
+ *                     jsonProperty("Or", null),
+ *                     jsonProperty("Tags", jsonObject(
+ *                         jsonProperty("Key", "CostCenter"),
+ *                         jsonProperty("MatchOptions", null),
+ *                         jsonProperty("Values", jsonArray("10000"))
  *                     ))
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

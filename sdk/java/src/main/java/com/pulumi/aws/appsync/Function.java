@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .name(&#34;example&#34;)
- *             .schema(&#34;&#34;&#34;
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *             .authenticationType("API_KEY")
+ *             .name("example")
+ *             .schema("""
  * type Mutation {
  *   putPost(id: ID!, title: String!): Post
  * }
@@ -70,50 +71,52 @@ import javax.annotation.Nullable;
  *   query: Query
  *   mutation: Mutation
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
- *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
+ *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()        
  *             .apiId(example.id())
- *             .name(&#34;example&#34;)
- *             .type(&#34;HTTP&#34;)
+ *             .name("example")
+ *             .type("HTTP")
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
- *                 .endpoint(&#34;http://example.com&#34;)
+ *                 .endpoint("http://example.com")
  *                 .build())
  *             .build());
  * 
- *         var exampleFunction = new Function(&#34;exampleFunction&#34;, FunctionArgs.builder()        
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()        
  *             .apiId(example.id())
  *             .dataSource(exampleDataSource.name())
- *             .name(&#34;example&#34;)
- *             .requestMappingTemplate(&#34;&#34;&#34;
+ *             .name("example")
+ *             .requestMappingTemplate("""
  * {
- *     &#34;version&#34;: &#34;2018-05-29&#34;,
- *     &#34;method&#34;: &#34;GET&#34;,
- *     &#34;resourcePath&#34;: &#34;/&#34;,
- *     &#34;params&#34;:{
- *         &#34;headers&#34;: $utils.http.copyheaders($ctx.request.headers)
+ *     "version": "2018-05-29",
+ *     "method": "GET",
+ *     "resourcePath": "/",
+ *     "params":{
+ *         "headers": $utils.http.copyheaders($ctx.request.headers)
  *     }
  * }
- *             &#34;&#34;&#34;)
- *             .responseMappingTemplate(&#34;&#34;&#34;
+ *             """)
+ *             .responseMappingTemplate("""
  * #if($ctx.result.statusCode == 200)
  *     $ctx.result.body
  * #else
  *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
  * #end
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Code
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -135,22 +138,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
+ *         var example = new Function("example", FunctionArgs.builder()        
  *             .apiId(exampleAwsAppsyncGraphqlApi.id())
  *             .dataSource(exampleAwsAppsyncDatasource.name())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .code(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;some-code-dir&#34;)
+ *                 .input("some-code-dir")
  *                 .build()).result())
  *             .runtime(FunctionRuntimeArgs.builder()
- *                 .name(&#34;APPSYNC_JS&#34;)
- *                 .runtimeVersion(&#34;1.0.0&#34;)
+ *                 .name("APPSYNC_JS")
+ *                 .runtimeVersion("1.0.0")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

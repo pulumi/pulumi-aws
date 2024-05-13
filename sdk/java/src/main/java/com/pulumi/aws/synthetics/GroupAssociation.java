@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupAssociation(&#34;example&#34;, GroupAssociationArgs.builder()        
+ *         var example = new GroupAssociation("example", GroupAssociationArgs.builder()        
  *             .groupName(exampleAwsSyntheticsGroup.name())
  *             .canaryArn(exampleAwsSyntheticsCanary.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,28 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new DevEnvironment(&#34;test&#34;, DevEnvironmentArgs.builder()        
- *             .alias(&#34;devenv&#34;)
- *             .spaceName(&#34;myspace&#34;)
- *             .projectName(&#34;myproject&#34;)
- *             .instanceType(&#34;dev.standard1.small&#34;)
+ *         var test = new DevEnvironment("test", DevEnvironmentArgs.builder()        
+ *             .alias("devenv")
+ *             .spaceName("myspace")
+ *             .projectName("myproject")
+ *             .instanceType("dev.standard1.small")
  *             .persistentStorage(DevEnvironmentPersistentStorageArgs.builder()
  *                 .size(16)
  *                 .build())
  *             .ides(DevEnvironmentIdesArgs.builder()
- *                 .name(&#34;PyCharm&#34;)
- *                 .runtime(&#34;public.ecr.aws/jetbrains/py&#34;)
+ *                 .name("PyCharm")
+ *                 .runtime("public.ecr.aws/jetbrains/py")
  *                 .build())
  *             .inactivityTimeoutMinutes(40)
  *             .repositories(DevEnvironmentRepositoryArgs.builder()
- *                 .repositoryName(&#34;pulumi-provider-aws&#34;)
- *                 .branchName(&#34;main&#34;)
+ *                 .repositoryName("pulumi-provider-aws")
+ *                 .branchName("main")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Template(&#34;example&#34;, TemplateArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .quotaCode(&#34;L-2ACBD22F&#34;)
- *             .serviceCode(&#34;lambda&#34;)
- *             .value(&#34;80&#34;)
+ *         var example = new Template("example", TemplateArgs.builder()        
+ *             .region("us-east-1")
+ *             .quotaCode("L-2ACBD22F")
+ *             .serviceCode("lambda")
+ *             .value("80")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

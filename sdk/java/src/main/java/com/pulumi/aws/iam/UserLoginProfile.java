@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,21 +48,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User(&#34;example&#34;, UserArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .path(&#34;/&#34;)
+ *         var example = new User("example", UserArgs.builder()        
+ *             .name("example")
+ *             .path("/")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleUserLoginProfile = new UserLoginProfile(&#34;exampleUserLoginProfile&#34;, UserLoginProfileArgs.builder()        
+ *         var exampleUserLoginProfile = new UserLoginProfile("exampleUserLoginProfile", UserLoginProfileArgs.builder()        
  *             .user(example.name())
- *             .pgpKey(&#34;keybase:some_person_that_exists&#34;)
+ *             .pgpKey("keybase:some_person_that_exists")
  *             .build());
  * 
- *         ctx.export(&#34;password&#34;, exampleUserLoginProfile.encryptedPassword());
+ *         ctx.export("password", exampleUserLoginProfile.encryptedPassword());
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MonitoringSchedule(&#34;test&#34;, MonitoringScheduleArgs.builder()        
- *             .name(&#34;my-monitoring-schedule&#34;)
+ *         var test = new MonitoringSchedule("test", MonitoringScheduleArgs.builder()        
+ *             .name("my-monitoring-schedule")
  *             .monitoringScheduleConfig(MonitoringScheduleMonitoringScheduleConfigArgs.builder()
  *                 .monitoringJobDefinitionName(testAwsSagemakerDataQualityJobDefinition.name())
- *                 .monitoringType(&#34;DataQuality&#34;)
+ *                 .monitoringType("DataQuality")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

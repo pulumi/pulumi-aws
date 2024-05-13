@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,15 +48,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VpcIpamResourceDiscoveryAssociation(&#34;test&#34;, VpcIpamResourceDiscoveryAssociationArgs.builder()        
+ *         var test = new VpcIpamResourceDiscoveryAssociation("test", VpcIpamResourceDiscoveryAssociationArgs.builder()        
  *             .ipamId(testAwsVpcIpam.id())
  *             .ipamResourceDiscoveryId(testAwsVpcIpamResourceDiscovery.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
+ *             .tags(Map.of("Name", "test"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

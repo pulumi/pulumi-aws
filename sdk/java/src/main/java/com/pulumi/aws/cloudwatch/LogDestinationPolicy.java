@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,32 +47,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testDestination = new LogDestination(&#34;testDestination&#34;, LogDestinationArgs.builder()        
- *             .name(&#34;test_destination&#34;)
+ *         var testDestination = new LogDestination("testDestination", LogDestinationArgs.builder()        
+ *             .name("test_destination")
  *             .roleArn(iamForCloudwatch.arn())
  *             .targetArn(kinesisForCloudwatch.arn())
  *             .build());
  * 
  *         final var testDestinationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect(&#34;Allow&#34;)
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("123456789012")
  *                     .build())
- *                 .actions(&#34;logs:PutSubscriptionFilter&#34;)
+ *                 .actions("logs:PutSubscriptionFilter")
  *                 .resources(testDestination.arn())
  *                 .build())
  *             .build());
  * 
- *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy(&#34;testDestinationPolicyLogDestinationPolicy&#34;, LogDestinationPolicyArgs.builder()        
+ *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", LogDestinationPolicyArgs.builder()        
  *             .destinationName(testDestination.name())
- *             .accessPolicy(testDestinationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(testDestinationPolicy -&gt; testDestinationPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .accessPolicy(testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(testDestinationPolicy -> testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

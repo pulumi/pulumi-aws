@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel(&#34;example&#34;, NotificationChannelArgs.builder()        
+ *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()        
  *             .sns(NotificationChannelSnsArgs.builder()
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
@@ -53,13 +54,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Filters
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -82,19 +85,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel(&#34;example&#34;, NotificationChannelArgs.builder()        
+ *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()        
  *             .sns(NotificationChannelSnsArgs.builder()
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
  *             .filters(NotificationChannelFiltersArgs.builder()
- *                 .messageTypes(&#34;NEW_INSIGHT&#34;)
- *                 .severities(&#34;HIGH&#34;)
+ *                 .messageTypes("NEW_INSIGHT")
+ *                 .severities("HIGH")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

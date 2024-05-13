@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTargetGroup = new TargetGroup(&#34;testTargetGroup&#34;);
+ *         var testTargetGroup = new TargetGroup("testTargetGroup");
  * 
- *         var testInstance = new Instance(&#34;testInstance&#34;);
+ *         var testInstance = new Instance("testInstance");
  * 
- *         var test = new TargetGroupAttachment(&#34;test&#34;, TargetGroupAttachmentArgs.builder()        
+ *         var test = new TargetGroupAttachment("test", TargetGroupAttachmentArgs.builder()        
  *             .targetGroupArn(testTargetGroup.arn())
  *             .targetId(testInstance.id())
  *             .port(80)
@@ -62,13 +63,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Lambda Target
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -95,22 +98,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;test&#34;)
- *             .targetType(&#34;lambda&#34;)
+ *         var test = new TargetGroup("test", TargetGroupArgs.builder()        
+ *             .name("test")
+ *             .targetType("lambda")
  *             .build());
  * 
- *         var testFunction = new Function(&#34;testFunction&#34;);
+ *         var testFunction = new Function("testFunction");
  * 
- *         var withLb = new Permission(&#34;withLb&#34;, PermissionArgs.builder()        
- *             .statementId(&#34;AllowExecutionFromlb&#34;)
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var withLb = new Permission("withLb", PermissionArgs.builder()        
+ *             .statementId("AllowExecutionFromlb")
+ *             .action("lambda:InvokeFunction")
  *             .function(testFunction.name())
- *             .principal(&#34;elasticloadbalancing.amazonaws.com&#34;)
+ *             .principal("elasticloadbalancing.amazonaws.com")
  *             .sourceArn(test.arn())
  *             .build());
  * 
- *         var testTargetGroupAttachment = new TargetGroupAttachment(&#34;testTargetGroupAttachment&#34;, TargetGroupAttachmentArgs.builder()        
+ *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()        
  *             .targetGroupArn(test.arn())
  *             .targetId(testFunction.arn())
  *             .build(), CustomResourceOptions.builder()
@@ -119,7 +122,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Registering Multiple Targets

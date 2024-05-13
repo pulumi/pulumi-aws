@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,19 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
+ *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With description
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -81,20 +84,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
+ *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .description(&#34;example&#34;)
+ *             .description("example")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With tags
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -115,14 +120,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CoreNetwork(&#34;example&#34;, CoreNetworkArgs.builder()        
+ *         var example = new CoreNetwork("example", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
+ *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With VPC Attachment (Single Region)
@@ -137,7 +143,8 @@ import javax.annotation.Nullable;
  * If you require a custom ASN for the edge location, please use the `base_policy_document` argument to pass a specific ASN. For example:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -165,66 +172,68 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ *         var exampleGlobalNetwork = new GlobalNetwork("exampleGlobalNetwork");
  * 
  *         final var base = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                     .location(&#34;us-west-2&#34;)
- *                     .asn(&#34;65500&#34;)
+ *                     .location("us-west-2")
+ *                     .asn("65500")
  *                     .build())
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name(&#34;segment&#34;)
+ *                 .name("segment")
  *                 .build())
  *             .build());
  * 
- *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
+ *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleGlobalNetwork.id())
- *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json()))
+ *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json()))
  *             .createBasePolicy(true)
  *             .build());
  * 
- *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                     .location(&#34;us-west-2&#34;)
- *                     .asn(&#34;65500&#34;)
+ *                     .location("us-west-2")
+ *                     .asn("65500")
  *                     .build())
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name(&#34;segment&#34;)
+ *                 .name("segment")
  *                 .build())
  *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                 .action(&#34;create-route&#34;)
- *                 .segment(&#34;segment&#34;)
- *                 .destinationCidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .action("create-route")
+ *                 .segment("segment")
+ *                 .destinationCidrBlocks("0.0.0.0/0")
  *                 .destinations(exampleVpcAttachment.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
+ *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Option 2 - create_base_policy only
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -252,45 +261,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ *         var exampleGlobalNetwork = new GlobalNetwork("exampleGlobalNetwork");
  * 
- *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
+ *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleGlobalNetwork.id())
  *             .createBasePolicy(true)
  *             .build());
  * 
- *         var exampleVpcAttachment = new VpcAttachment(&#34;exampleVpcAttachment&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleAwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                     .location(&#34;us-west-2&#34;)
+ *                     .location("us-west-2")
  *                     .build())
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name(&#34;segment&#34;)
+ *                 .name("segment")
  *                 .build())
  *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                 .action(&#34;create-route&#34;)
- *                 .segment(&#34;segment&#34;)
- *                 .destinationCidrBlocks(&#34;0.0.0.0/0&#34;)
+ *                 .action("create-route")
+ *                 .segment("segment")
+ *                 .destinationCidrBlocks("0.0.0.0/0")
  *                 .destinations(exampleVpcAttachment.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
+ *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With VPC Attachment (Multi-Region)
@@ -303,7 +313,8 @@ import javax.annotation.Nullable;
  * ### Option 1 - using base_policy_document
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -331,93 +342,95 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ *         var exampleGlobalNetwork = new GlobalNetwork("exampleGlobalNetwork");
  * 
  *         final var base = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-west-2&#34;)
- *                         .asn(&#34;65500&#34;)
+ *                         .location("us-west-2")
+ *                         .asn("65500")
  *                         .build(),
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-east-1&#34;)
- *                         .asn(&#34;65501&#34;)
+ *                         .location("us-east-1")
+ *                         .asn("65501")
  *                         .build())
  *                 .build())
  *             .segments(GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                 .name(&#34;segment&#34;)
+ *                 .name("segment")
  *                 .build())
  *             .build());
  * 
- *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
+ *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleGlobalNetwork.id())
- *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json()))
+ *             .basePolicyDocument(base.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json()))
  *             .createBasePolicy(true)
  *             .build());
  * 
- *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleUsWest2 = new VpcAttachment("exampleUsWest2", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
- *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleUsEast1 = new VpcAttachment("exampleUsEast1", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleUsEast1AwsVpc.arn())
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-west-2&#34;)
- *                         .asn(&#34;65500&#34;)
+ *                         .location("us-west-2")
+ *                         .asn("65500")
  *                         .build(),
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-east-1&#34;)
- *                         .asn(&#34;65501&#34;)
+ *                         .location("us-east-1")
+ *                         .asn("65501")
  *                         .build())
  *                 .build())
  *             .segments(            
  *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name(&#34;segment&#34;)
+ *                     .name("segment")
  *                     .build(),
  *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name(&#34;segment2&#34;)
+ *                     .name("segment2")
  *                     .build())
  *             .segmentActions(            
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                     .action(&#34;create-route&#34;)
- *                     .segment(&#34;segment&#34;)
- *                     .destinationCidrBlocks(&#34;10.0.0.0/16&#34;)
+ *                     .action("create-route")
+ *                     .segment("segment")
+ *                     .destinationCidrBlocks("10.0.0.0/16")
  *                     .destinations(exampleUsWest2.id())
  *                     .build(),
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                     .action(&#34;create-route&#34;)
- *                     .segment(&#34;segment&#34;)
- *                     .destinationCidrBlocks(&#34;10.1.0.0/16&#34;)
+ *                     .action("create-route")
+ *                     .segment("segment")
+ *                     .destinationCidrBlocks("10.1.0.0/16")
  *                     .destinations(exampleUsEast1.id())
  *                     .build())
  *             .build());
  * 
- *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
+ *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Option 2 - using base_policy_regions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -445,69 +458,70 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;);
+ *         var exampleGlobalNetwork = new GlobalNetwork("exampleGlobalNetwork");
  * 
- *         var exampleCoreNetwork = new CoreNetwork(&#34;exampleCoreNetwork&#34;, CoreNetworkArgs.builder()        
+ *         var exampleCoreNetwork = new CoreNetwork("exampleCoreNetwork", CoreNetworkArgs.builder()        
  *             .globalNetworkId(exampleGlobalNetwork.id())
  *             .basePolicyRegions(            
- *                 &#34;us-west-2&#34;,
- *                 &#34;us-east-1&#34;)
+ *                 "us-west-2",
+ *                 "us-east-1")
  *             .createBasePolicy(true)
  *             .build());
  * 
- *         var exampleUsWest2 = new VpcAttachment(&#34;exampleUsWest2&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleUsWest2 = new VpcAttachment("exampleUsWest2", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleUsWest2AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleUsWest2AwsVpc.arn())
  *             .build());
  * 
- *         var exampleUsEast1 = new VpcAttachment(&#34;exampleUsEast1&#34;, VpcAttachmentArgs.builder()        
+ *         var exampleUsEast1 = new VpcAttachment("exampleUsEast1", VpcAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -&gt; element.arn()).collect(toList()))
+ *             .subnetArns(exampleUsEast1AwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .vpcArn(exampleUsEast1AwsVpc.arn())
  *             .build());
  * 
  *         final var example = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
  *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
- *                 .asnRanges(&#34;65022-65534&#34;)
+ *                 .asnRanges("65022-65534")
  *                 .edgeLocations(                
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-west-2&#34;)
+ *                         .location("us-west-2")
  *                         .build(),
  *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
- *                         .location(&#34;us-east-1&#34;)
+ *                         .location("us-east-1")
  *                         .build())
  *                 .build())
  *             .segments(            
  *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name(&#34;segment&#34;)
+ *                     .name("segment")
  *                     .build(),
  *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
- *                     .name(&#34;segment2&#34;)
+ *                     .name("segment2")
  *                     .build())
  *             .segmentActions(            
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                     .action(&#34;create-route&#34;)
- *                     .segment(&#34;segment&#34;)
- *                     .destinationCidrBlocks(&#34;10.0.0.0/16&#34;)
+ *                     .action("create-route")
+ *                     .segment("segment")
+ *                     .destinationCidrBlocks("10.0.0.0/16")
  *                     .destinations(exampleUsWest2.id())
  *                     .build(),
  *                 GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
- *                     .action(&#34;create-route&#34;)
- *                     .segment(&#34;segment&#34;)
- *                     .destinationCidrBlocks(&#34;10.1.0.0/16&#34;)
+ *                     .action("create-route")
+ *                     .segment("segment")
+ *                     .destinationCidrBlocks("10.1.0.0/16")
  *                     .destinations(exampleUsEast1.id())
  *                     .build())
  *             .build());
  * 
- *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment(&#34;exampleCoreNetworkPolicyAttachment&#34;, CoreNetworkPolicyAttachmentArgs.builder()        
+ *         var exampleCoreNetworkPolicyAttachment = new CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", CoreNetworkPolicyAttachmentArgs.builder()        
  *             .coreNetworkId(exampleCoreNetwork.id())
- *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getCoreNetworkPolicyDocumentResult -&gt; getCoreNetworkPolicyDocumentResult.json())))
+ *             .policyDocument(example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult).applyValue(example -> example.applyValue(getCoreNetworkPolicyDocumentResult -> getCoreNetworkPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

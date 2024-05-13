@@ -20,7 +20,8 @@ public final class RamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -42,19 +43,21 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .name("example")
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Search by filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -76,16 +79,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
-     *                 .name(&#34;NameOfTag&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("NameOfTag")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -98,7 +102,8 @@ public final class RamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -120,19 +125,21 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .name("example")
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Search by filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -154,16 +161,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
-     *                 .name(&#34;NameOfTag&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("NameOfTag")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -176,7 +184,8 @@ public final class RamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -198,19 +207,21 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .name("example")
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Search by filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -232,16 +243,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
-     *                 .name(&#34;NameOfTag&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("NameOfTag")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -254,7 +266,8 @@ public final class RamFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -276,19 +289,21 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .name(&#34;example&#34;)
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .name("example")
+     *             .resourceOwner("SELF")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Search by filters
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -310,16 +325,17 @@ public final class RamFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
-     *             .resourceOwner(&#34;SELF&#34;)
+     *             .resourceOwner("SELF")
      *             .filters(GetResourceShareFilterArgs.builder()
-     *                 .name(&#34;NameOfTag&#34;)
-     *                 .values(&#34;exampleNameTagValue&#34;)
+     *                 .name("NameOfTag")
+     *                 .values("exampleNameTagValue")
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

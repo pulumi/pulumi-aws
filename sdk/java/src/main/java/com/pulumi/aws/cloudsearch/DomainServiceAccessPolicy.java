@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,37 +47,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .name(&#34;example-domain&#34;)
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *             .name("example-domain")
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;search_only&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("search_only")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("*")
+ *                     .identifiers("*")
  *                     .build())
  *                 .actions(                
- *                     &#34;cloudsearch:search&#34;,
- *                     &#34;cloudsearch:document&#34;)
+ *                     "cloudsearch:search",
+ *                     "cloudsearch:document")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;IpAddress&#34;)
- *                     .variable(&#34;aws:SourceIp&#34;)
- *                     .values(&#34;192.0.2.0/32&#34;)
+ *                     .test("IpAddress")
+ *                     .variable("aws:SourceIp")
+ *                     .values("192.0.2.0/32")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy(&#34;exampleDomainServiceAccessPolicy&#34;, DomainServiceAccessPolicyArgs.builder()        
+ *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", DomainServiceAccessPolicyArgs.builder()        
  *             .domainName(exampleDomain.id())
- *             .accessPolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .accessPolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

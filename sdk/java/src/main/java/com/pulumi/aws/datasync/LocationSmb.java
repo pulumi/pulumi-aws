@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationSmb(&#34;example&#34;, LocationSmbArgs.builder()        
- *             .serverHostname(&#34;smb.example.com&#34;)
- *             .subdirectory(&#34;/exported/path&#34;)
- *             .user(&#34;Guest&#34;)
- *             .password(&#34;ANotGreatPassword&#34;)
+ *         var example = new LocationSmb("example", LocationSmbArgs.builder()        
+ *             .serverHostname("smb.example.com")
+ *             .subdirectory("/exported/path")
+ *             .user("Guest")
+ *             .password("ANotGreatPassword")
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,22 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permission(&#34;example&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
+ *         var example = new Permission("example", PermissionArgs.builder()        
+ *             .action("lambda:InvokeFunction")
  *             .function(exampleAwsLambdaFunction.arn())
- *             .principal(&#34;config.amazonaws.com&#34;)
- *             .statementId(&#34;AllowExecutionFromConfig&#34;)
+ *             .principal("config.amazonaws.com")
+ *             .statementId("AllowExecutionFromConfig")
  *             .build());
  * 
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
+ *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationCustomRule = new OrganizationCustomRule(&#34;exampleOrganizationCustomRule&#34;, OrganizationCustomRuleArgs.builder()        
+ *         var exampleOrganizationCustomRule = new OrganizationCustomRule("exampleOrganizationCustomRule", OrganizationCustomRuleArgs.builder()        
  *             .lambdaFunctionArn(exampleAwsLambdaFunction.arn())
- *             .name(&#34;example&#34;)
- *             .triggerTypes(&#34;ConfigurationItemChangeNotification&#34;)
+ *             .name("example")
+ *             .triggerTypes("ConfigurationItemChangeNotification")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     example,
@@ -75,7 +76,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

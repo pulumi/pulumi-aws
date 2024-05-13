@@ -23,7 +23,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -45,12 +46,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -63,7 +65,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -85,12 +88,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -103,7 +107,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -125,12 +130,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -143,7 +149,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -165,12 +172,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipeline(GetPipelineArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -183,7 +191,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -205,12 +214,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -223,7 +233,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -245,12 +256,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -263,7 +275,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -285,12 +298,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -303,7 +317,8 @@ public final class DatapipelineFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -325,12 +340,13 @@ public final class DatapipelineFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatapipelineFunctions.getPipelineDefinition(GetPipelineDefinitionArgs.builder()
-     *             .pipelineId(&#34;pipelineID&#34;)
+     *             .pipelineId("pipelineID")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

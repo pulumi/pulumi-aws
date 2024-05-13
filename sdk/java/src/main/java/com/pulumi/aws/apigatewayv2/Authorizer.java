@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ### Basic WebSocket API
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,23 +49,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
+ *         var example = new Authorizer("example", AuthorizerArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .authorizerType(&#34;REQUEST&#34;)
+ *             .authorizerType("REQUEST")
  *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
- *             .identitySources(&#34;route.request.header.Auth&#34;)
- *             .name(&#34;example-authorizer&#34;)
+ *             .identitySources("route.request.header.Auth")
+ *             .name("example-authorizer")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Basic HTTP API
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,18 +88,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
+ *         var example = new Authorizer("example", AuthorizerArgs.builder()        
  *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .authorizerType(&#34;REQUEST&#34;)
+ *             .authorizerType("REQUEST")
  *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
- *             .identitySources(&#34;$request.header.Authorization&#34;)
- *             .name(&#34;example-authorizer&#34;)
- *             .authorizerPayloadFormatVersion(&#34;2.0&#34;)
+ *             .identitySources("$request.header.Authorization")
+ *             .name("example-authorizer")
+ *             .authorizerPayloadFormatVersion("2.0")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

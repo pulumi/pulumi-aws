@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,27 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SchedulingPolicy(&#34;example&#34;, SchedulingPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()        
+ *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)
  *                 .shareDecaySeconds(3600)
  *                 .shareDistributions(                
  *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier(&#34;A1*&#34;)
+ *                         .shareIdentifier("A1*")
  *                         .weightFactor(0.1)
  *                         .build(),
  *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
- *                         .shareIdentifier(&#34;A2&#34;)
+ *                         .shareIdentifier("A2")
  *                         .weightFactor(0.2)
  *                         .build())
  *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;Example Batch Scheduling Policy&#34;))
+ *             .tags(Map.of("Name", "Example Batch Scheduling Policy"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

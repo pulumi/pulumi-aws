@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SubscriberNotification(&#34;test&#34;, SubscriberNotificationArgs.builder()        
+ *         var test = new SubscriberNotification("test", SubscriberNotificationArgs.builder()        
  *             .subscriberId(testAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .sqsNotificationConfiguration()
@@ -53,7 +54,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,38 +47,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem(&#34;fs&#34;, FileSystemArgs.builder()        
- *             .creationToken(&#34;my-product&#34;)
+ *         var fs = new FileSystem("fs", FileSystemArgs.builder()        
+ *             .creationToken("my-product")
  *             .build());
  * 
  *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;ExampleStatement01&#34;)
- *                 .effect(&#34;Allow&#34;)
+ *                 .sid("ExampleStatement01")
+ *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type("AWS")
+ *                     .identifiers("*")
  *                     .build())
  *                 .actions(                
- *                     &#34;elasticfilesystem:ClientMount&#34;,
- *                     &#34;elasticfilesystem:ClientWrite&#34;)
+ *                     "elasticfilesystem:ClientMount",
+ *                     "elasticfilesystem:ClientWrite")
  *                 .resources(fs.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;Bool&#34;)
- *                     .variable(&#34;aws:SecureTransport&#34;)
- *                     .values(&#34;true&#34;)
+ *                     .test("Bool")
+ *                     .variable("aws:SecureTransport")
+ *                     .values("true")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var policyFileSystemPolicy = new FileSystemPolicy(&#34;policyFileSystemPolicy&#34;, FileSystemPolicyArgs.builder()        
+ *         var policyFileSystemPolicy = new FileSystemPolicy("policyFileSystemPolicy", FileSystemPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
- *             .policy(policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policy -&gt; policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(policy -> policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,16 +51,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = S3Functions.getBucket(GetBucketArgs.builder()
- *             .bucket(&#34;an-example-bucket&#34;)
+ *             .bucket("an-example-bucket")
  *             .build());
  * 
- *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .arn(example.applyValue(getBucketResult -&gt; getBucketResult.arn()))
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
+ *             .arn(example.applyValue(getBucketResult -> getBucketResult.arn()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

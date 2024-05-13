@@ -35,7 +35,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -62,7 +63,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -75,7 +77,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,7 +105,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -142,7 +147,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -155,7 +161,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -182,7 +189,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -195,7 +203,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -222,7 +231,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -235,7 +245,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -262,7 +273,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -275,7 +287,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -302,7 +315,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -315,7 +329,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -342,7 +357,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -357,7 +373,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -379,12 +396,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
+     *             .clusterName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -399,7 +417,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -421,12 +440,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
+     *             .clusterName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -441,7 +461,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -463,12 +484,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
+     *             .clusterName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -483,7 +505,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -505,12 +528,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;example&#34;)
+     *             .clusterName("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -523,7 +547,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -545,12 +570,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -563,7 +589,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -585,12 +612,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -603,7 +631,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -625,12 +654,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -643,7 +673,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -665,12 +696,13 @@ public final class MskFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .name(&#34;example&#34;)
+     *             .name("example")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -683,7 +715,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,18 +739,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -730,7 +764,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -753,18 +788,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -777,7 +813,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -800,18 +837,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -824,7 +862,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -847,18 +886,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -871,7 +911,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -894,18 +935,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -918,7 +960,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -941,18 +984,19 @@ public final class MskFunctions {
      *     public static void stack(Context ctx) {
      *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
-     *                 &#34;2.4.1.1&#34;,
-     *                 &#34;2.4.1&#34;,
-     *                 &#34;2.2.1&#34;)
+     *                 "2.4.1.1",
+     *                 "2.4.1",
+     *                 "2.2.1")
      *             .build());
      * 
      *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
-     *             .version(&#34;2.8.0&#34;)
+     *             .version("2.8.0")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -965,7 +1009,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -992,7 +1037,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1005,7 +1051,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1032,7 +1079,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1045,7 +1093,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1072,7 +1121,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1085,7 +1135,8 @@ public final class MskFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1112,7 +1163,8 @@ public final class MskFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

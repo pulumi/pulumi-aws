@@ -33,7 +33,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -55,12 +56,13 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;ecs-mongo-production&#34;)
+     *             .clusterName("ecs-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -74,7 +76,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -96,12 +99,13 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;ecs-mongo-production&#34;)
+     *             .clusterName("ecs-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -137,12 +142,13 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;ecs-mongo-production&#34;)
+     *             .clusterName("ecs-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -156,7 +162,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -178,12 +185,13 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
-     *             .clusterName(&#34;ecs-mongo-production&#34;)
+     *             .clusterName("ecs-mongo-production")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -197,7 +205,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -220,12 +229,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(mongo.id())
-     *             .containerName(&#34;mongodb&#34;)
+     *             .containerName("mongodb")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -239,7 +249,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -262,12 +273,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(mongo.id())
-     *             .containerName(&#34;mongodb&#34;)
+     *             .containerName("mongodb")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -281,7 +293,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -304,12 +317,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(mongo.id())
-     *             .containerName(&#34;mongodb&#34;)
+     *             .containerName("mongodb")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -323,7 +337,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -346,12 +361,13 @@ public final class EcsFunctions {
      *     public static void stack(Context ctx) {
      *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(mongo.id())
-     *             .containerName(&#34;mongodb&#34;)
+     *             .containerName("mongodb")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -365,7 +381,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -387,13 +404,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;example&#34;)
+     *             .serviceName("example")
      *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -407,7 +425,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -429,13 +448,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;example&#34;)
+     *             .serviceName("example")
      *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -449,7 +469,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -471,13 +492,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;example&#34;)
+     *             .serviceName("example")
      *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -491,7 +513,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -513,13 +536,14 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
-     *             .serviceName(&#34;example&#34;)
+     *             .serviceName("example")
      *             .clusterArn(exampleAwsEcsCluster.arn())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -533,7 +557,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -560,24 +585,24 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
-     *             .family(&#34;mongodb&#34;)
-     *             .containerDefinitions(&#34;&#34;&#34;
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *             .family("mongodb")
+     *             .containerDefinitions("""
      * [
      *   {
-     *     &#34;cpu&#34;: 128,
-     *     &#34;environment&#34;: [{
-     *       &#34;name&#34;: &#34;SECRET&#34;,
-     *       &#34;value&#34;: &#34;KEY&#34;
+     *     "cpu": 128,
+     *     "environment": [{
+     *       "name": "SECRET",
+     *       "value": "KEY"
      *     }],
-     *     &#34;essential&#34;: true,
-     *     &#34;image&#34;: &#34;mongo:latest&#34;,
-     *     &#34;memory&#34;: 128,
-     *     &#34;memoryReservation&#34;: 64,
-     *     &#34;name&#34;: &#34;mongodb&#34;
+     *     "essential": true,
+     *     "image": "mongo:latest",
+     *     "memory": 128,
+     *     "memoryReservation": 64,
+     *     "name": "mongodb"
      *   }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *         // Simply specify the family to find the latest ACTIVE revision in that family.
@@ -585,20 +610,21 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
-     *             .name(&#34;foo&#34;)
+     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;mongo&#34;)
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -612,7 +638,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -639,24 +666,24 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
-     *             .family(&#34;mongodb&#34;)
-     *             .containerDefinitions(&#34;&#34;&#34;
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *             .family("mongodb")
+     *             .containerDefinitions("""
      * [
      *   {
-     *     &#34;cpu&#34;: 128,
-     *     &#34;environment&#34;: [{
-     *       &#34;name&#34;: &#34;SECRET&#34;,
-     *       &#34;value&#34;: &#34;KEY&#34;
+     *     "cpu": 128,
+     *     "environment": [{
+     *       "name": "SECRET",
+     *       "value": "KEY"
      *     }],
-     *     &#34;essential&#34;: true,
-     *     &#34;image&#34;: &#34;mongo:latest&#34;,
-     *     &#34;memory&#34;: 128,
-     *     &#34;memoryReservation&#34;: 64,
-     *     &#34;name&#34;: &#34;mongodb&#34;
+     *     "essential": true,
+     *     "image": "mongo:latest",
+     *     "memory": 128,
+     *     "memoryReservation": 64,
+     *     "name": "mongodb"
      *   }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *         // Simply specify the family to find the latest ACTIVE revision in that family.
@@ -664,20 +691,21 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
-     *             .name(&#34;foo&#34;)
+     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;mongo&#34;)
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -691,7 +719,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -718,24 +747,24 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
-     *             .family(&#34;mongodb&#34;)
-     *             .containerDefinitions(&#34;&#34;&#34;
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *             .family("mongodb")
+     *             .containerDefinitions("""
      * [
      *   {
-     *     &#34;cpu&#34;: 128,
-     *     &#34;environment&#34;: [{
-     *       &#34;name&#34;: &#34;SECRET&#34;,
-     *       &#34;value&#34;: &#34;KEY&#34;
+     *     "cpu": 128,
+     *     "environment": [{
+     *       "name": "SECRET",
+     *       "value": "KEY"
      *     }],
-     *     &#34;essential&#34;: true,
-     *     &#34;image&#34;: &#34;mongo:latest&#34;,
-     *     &#34;memory&#34;: 128,
-     *     &#34;memoryReservation&#34;: 64,
-     *     &#34;name&#34;: &#34;mongodb&#34;
+     *     "essential": true,
+     *     "image": "mongo:latest",
+     *     "memory": 128,
+     *     "memoryReservation": 64,
+     *     "name": "mongodb"
      *   }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *         // Simply specify the family to find the latest ACTIVE revision in that family.
@@ -743,20 +772,21 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
-     *             .name(&#34;foo&#34;)
+     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;mongo&#34;)
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -770,7 +800,8 @@ public final class EcsFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -797,24 +828,24 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition(&#34;mongoTaskDefinition&#34;, TaskDefinitionArgs.builder()        
-     *             .family(&#34;mongodb&#34;)
-     *             .containerDefinitions(&#34;&#34;&#34;
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *             .family("mongodb")
+     *             .containerDefinitions("""
      * [
      *   {
-     *     &#34;cpu&#34;: 128,
-     *     &#34;environment&#34;: [{
-     *       &#34;name&#34;: &#34;SECRET&#34;,
-     *       &#34;value&#34;: &#34;KEY&#34;
+     *     "cpu": 128,
+     *     "environment": [{
+     *       "name": "SECRET",
+     *       "value": "KEY"
      *     }],
-     *     &#34;essential&#34;: true,
-     *     &#34;image&#34;: &#34;mongo:latest&#34;,
-     *     &#34;memory&#34;: 128,
-     *     &#34;memoryReservation&#34;: 64,
-     *     &#34;name&#34;: &#34;mongodb&#34;
+     *     "essential": true,
+     *     "image": "mongo:latest",
+     *     "memory": 128,
+     *     "memoryReservation": 64,
+     *     "name": "mongodb"
      *   }
      * ]
-     *             &#34;&#34;&#34;)
+     *             """)
      *             .build());
      * 
      *         // Simply specify the family to find the latest ACTIVE revision in that family.
@@ -822,20 +853,21 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster(&#34;foo&#34;, ClusterArgs.builder()        
-     *             .name(&#34;foo&#34;)
+     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service(&#34;mongoService&#34;, ServiceArgs.builder()        
-     *             .name(&#34;mongo&#34;)
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
-     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult).applyValue(mongo -&gt; mongo.applyValue(getTaskDefinitionResult -&gt; getTaskDefinitionResult.arn())))
+     *             .taskDefinition(mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult).applyValue(mongo -> mongo.applyValue(getTaskDefinitionResult -> getTaskDefinitionResult.arn())))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -852,7 +884,8 @@ public final class EcsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -878,9 +911,9 @@ public final class EcsFunctions {
      *             .cluster(exampleAwsEcsCluster.id())
      *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
      *             .desiredCount(1)
-     *             .launchType(&#34;FARGATE&#34;)
+     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
-     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
@@ -888,7 +921,8 @@ public final class EcsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -905,7 +939,8 @@ public final class EcsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -931,9 +966,9 @@ public final class EcsFunctions {
      *             .cluster(exampleAwsEcsCluster.id())
      *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
      *             .desiredCount(1)
-     *             .launchType(&#34;FARGATE&#34;)
+     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
-     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
@@ -941,7 +976,8 @@ public final class EcsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -958,7 +994,8 @@ public final class EcsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -984,9 +1021,9 @@ public final class EcsFunctions {
      *             .cluster(exampleAwsEcsCluster.id())
      *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
      *             .desiredCount(1)
-     *             .launchType(&#34;FARGATE&#34;)
+     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
-     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
@@ -994,7 +1031,8 @@ public final class EcsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1011,7 +1049,8 @@ public final class EcsFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1037,9 +1076,9 @@ public final class EcsFunctions {
      *             .cluster(exampleAwsEcsCluster.id())
      *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
      *             .desiredCount(1)
-     *             .launchType(&#34;FARGATE&#34;)
+     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
-     *                 .subnets(exampleAwsSubnet.stream().map(element -&gt; element.id()).collect(toList()))
+     *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
@@ -1047,7 +1086,8 @@ public final class EcsFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

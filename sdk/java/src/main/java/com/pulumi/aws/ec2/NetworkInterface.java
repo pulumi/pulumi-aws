@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,9 +48,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new NetworkInterface(&#34;test&#34;, NetworkInterfaceArgs.builder()        
+ *         var test = new NetworkInterface("test", NetworkInterfaceArgs.builder()        
  *             .subnetId(publicA.id())
- *             .privateIps(&#34;10.0.0.50&#34;)
+ *             .privateIps("10.0.0.50")
  *             .securityGroups(web.id())
  *             .attachments(NetworkInterfaceAttachmentArgs.builder()
  *                 .instance(testAwsInstance.id())
@@ -59,7 +60,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Managing Multiple IPs on a Network Interface

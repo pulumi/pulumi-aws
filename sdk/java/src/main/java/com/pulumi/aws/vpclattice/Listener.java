@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### Fixed response action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .protocol(&#34;HTTPS&#34;)
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *             .name("example")
+ *             .protocol("HTTPS")
  *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
@@ -67,13 +68,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Forward action
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -100,23 +103,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example-target-group-1&#34;)
- *             .type(&#34;INSTANCE&#34;)
+ *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()        
+ *             .name("example-target-group-1")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *             .name("example")
+ *             .protocol("HTTP")
  *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
@@ -129,13 +132,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Forward action with weighted target groups
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -162,33 +167,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new Service("example", ServiceArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var example1 = new TargetGroup(&#34;example1&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example-target-group-1&#34;)
- *             .type(&#34;INSTANCE&#34;)
+ *         var example1 = new TargetGroup("example1", TargetGroupArgs.builder()        
+ *             .name("example-target-group-1")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(80)
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
- *         var example2 = new TargetGroup(&#34;example2&#34;, TargetGroupArgs.builder()        
- *             .name(&#34;example-target-group-2&#34;)
- *             .type(&#34;INSTANCE&#34;)
+ *         var example2 = new TargetGroup("example2", TargetGroupArgs.builder()        
+ *             .name("example-target-group-2")
+ *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .port(8080)
- *                 .protocol(&#34;HTTP&#34;)
+ *                 .protocol("HTTP")
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .protocol(&#34;HTTP&#34;)
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *             .name("example")
+ *             .protocol("HTTP")
  *             .serviceIdentifier(example.id())
  *             .defaultAction(ListenerDefaultActionArgs.builder()
  *                 .forwards(ListenerDefaultActionForwardArgs.builder()
@@ -207,7 +212,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

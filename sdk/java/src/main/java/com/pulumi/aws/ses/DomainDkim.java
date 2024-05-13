@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,28 +49,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *             .domain("example.com")
  *             .build());
  * 
- *         var exampleDomainDkim = new DomainDkim(&#34;exampleDomainDkim&#34;, DomainDkimArgs.builder()        
+ *         var exampleDomainDkim = new DomainDkim("exampleDomainDkim", DomainDkimArgs.builder()        
  *             .domain(example.domain())
  *             .build());
  * 
- *         for (var i = 0; i &lt; 3; i++) {
- *             new Record(&#34;exampleAmazonsesDkimRecord-&#34; + i, RecordArgs.builder()            
- *                 .zoneId(&#34;ABCDEFGHIJ123&#34;)
- *                 .name(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -&gt; String.format(&#34;%s._domainkey&#34;, dkimTokens[range.value()])))
- *                 .type(&#34;CNAME&#34;)
- *                 .ttl(&#34;600&#34;)
- *                 .records(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -&gt; String.format(&#34;%s.dkim.amazonses.com&#34;, dkimTokens[range.value()])))
+ *         for (var i = 0; i < 3; i++) {
+ *             new Record("exampleAmazonsesDkimRecord-" + i, RecordArgs.builder()            
+ *                 .zoneId("ABCDEFGHIJ123")
+ *                 .name(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -> String.format("%s._domainkey", dkimTokens[range.value()])))
+ *                 .type("CNAME")
+ *                 .ttl("600")
+ *                 .records(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -> String.format("%s.dkim.amazonses.com", dkimTokens[range.value()])))
  *                 .build());
  * 
  *         
  * }
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

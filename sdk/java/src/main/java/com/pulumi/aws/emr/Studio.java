@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Studio(&#34;example&#34;, StudioArgs.builder()        
- *             .authMode(&#34;SSO&#34;)
- *             .defaultS3Location(String.format(&#34;s3://%s/test&#34;, test.bucket()))
+ *         var example = new Studio("example", StudioArgs.builder()        
+ *             .authMode("SSO")
+ *             .defaultS3Location(String.format("s3://%s/test", test.bucket()))
  *             .engineSecurityGroupId(testAwsSecurityGroup.id())
- *             .name(&#34;example&#34;)
+ *             .name("example")
  *             .serviceRole(testAwsIamRole.arn())
  *             .subnetIds(testAwsSubnet.id())
  *             .userRole(testAwsIamRole.arn())
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

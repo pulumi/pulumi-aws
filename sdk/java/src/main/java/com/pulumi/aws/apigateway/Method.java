@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,33 +49,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .name(&#34;MyDemoAPI&#34;)
- *             .description(&#34;This is my API for demonstration purposes&#34;)
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *             .name("MyDemoAPI")
+ *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource(&#34;myDemoResource&#34;, ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
- *             .pathPart(&#34;mydemoresource&#34;)
+ *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method(&#34;myDemoMethod&#34;, MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
- *             .httpMethod(&#34;GET&#34;)
- *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod("GET")
+ *             .authorization("NONE")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Usage with Cognito User Pool Authorizer
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -104,40 +107,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var cognitoUserPoolName = config.get(&#34;cognitoUserPoolName&#34;);
+ *         final var cognitoUserPoolName = config.get("cognitoUserPoolName");
  *         final var this = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
  *             .name(cognitoUserPoolName)
  *             .build());
  * 
- *         var thisRestApi = new RestApi(&#34;thisRestApi&#34;, RestApiArgs.builder()        
- *             .name(&#34;with-authorizer&#34;)
+ *         var thisRestApi = new RestApi("thisRestApi", RestApiArgs.builder()        
+ *             .name("with-authorizer")
  *             .build());
  * 
- *         var thisResource = new Resource(&#34;thisResource&#34;, ResourceArgs.builder()        
+ *         var thisResource = new Resource("thisResource", ResourceArgs.builder()        
  *             .restApi(thisRestApi.id())
  *             .parentId(thisRestApi.rootResourceId())
- *             .pathPart(&#34;{proxy+}&#34;)
+ *             .pathPart("{proxy+}")
  *             .build());
  * 
- *         var thisAuthorizer = new Authorizer(&#34;thisAuthorizer&#34;, AuthorizerArgs.builder()        
- *             .name(&#34;CognitoUserPoolAuthorizer&#34;)
- *             .type(&#34;COGNITO_USER_POOLS&#34;)
+ *         var thisAuthorizer = new Authorizer("thisAuthorizer", AuthorizerArgs.builder()        
+ *             .name("CognitoUserPoolAuthorizer")
+ *             .type("COGNITO_USER_POOLS")
  *             .restApi(thisRestApi.id())
  *             .providerArns(this_.arns())
  *             .build());
  * 
- *         var any = new Method(&#34;any&#34;, MethodArgs.builder()        
+ *         var any = new Method("any", MethodArgs.builder()        
  *             .restApi(thisRestApi.id())
  *             .resourceId(thisResource.id())
- *             .httpMethod(&#34;ANY&#34;)
- *             .authorization(&#34;COGNITO_USER_POOLS&#34;)
+ *             .httpMethod("ANY")
+ *             .authorization("COGNITO_USER_POOLS")
  *             .authorizerId(thisAuthorizer.id())
- *             .requestParameters(Map.of(&#34;method.request.path.proxy&#34;, true))
+ *             .requestParameters(Map.of("method.request.path.proxy", true))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

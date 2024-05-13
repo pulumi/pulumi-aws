@@ -45,7 +45,8 @@ import javax.annotation.Nullable;
  * parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -67,17 +68,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
- *                 .status(&#34;Enabled&#34;)
+ *                 .id("rule-1")
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying an empty filter
@@ -85,7 +87,8 @@ import javax.annotation.Nullable;
  * The Lifecycle rule applies to all objects in the bucket.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -108,18 +111,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter using key prefixes
@@ -127,7 +131,8 @@ import javax.annotation.Nullable;
  * The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -150,26 +155,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .prefix(&#34;logs/&#34;)
+ *                     .prefix("logs/")
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -192,28 +199,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;rule-1&#34;)
+ *                     .id("rule-1")
  *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
+ *                         .prefix("logs/")
  *                         .build())
- *                     .status(&#34;Enabled&#34;)
+ *                     .status("Enabled")
  *                     .build(),
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;rule-2&#34;)
+ *                     .id("rule-2")
  *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;tmp/&#34;)
+ *                         .prefix("tmp/")
  *                         .build())
- *                     .status(&#34;Enabled&#34;)
+ *                     .status("Enabled")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter based on an object tag
@@ -221,7 +229,8 @@ import javax.annotation.Nullable;
  * The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -245,23 +254,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                     .tag(BucketLifecycleConfigurationV2RuleFilterTagArgs.builder()
- *                         .key(&#34;Name&#34;)
- *                         .value(&#34;Staging&#34;)
+ *                         .key("Name")
+ *                         .value("Staging")
  *                         .build())
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter based on multiple tags
@@ -269,7 +279,8 @@ import javax.annotation.Nullable;
  * The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with two tags (with the specific tag keys and values). Notice `tags` is wrapped in the `and` configuration block.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -293,25 +304,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
  *                         .tags(Map.ofEntries(
- *                             Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                             Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
+ *                             Map.entry("Key1", "Value1"),
+ *                             Map.entry("Key2", "Value2")
  *                         ))
  *                         .build())
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter based on both prefix and one or more tags
@@ -319,7 +331,8 @@ import javax.annotation.Nullable;
  * The Lifecycle rule directs Amazon S3 to perform lifecycle actions on objects with the specified prefix and two tags (with the specific tag keys and values). Notice both `prefix` and `tags` are wrapped in the `and` configuration block.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -343,26 +356,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
+ *                         .prefix("logs/")
  *                         .tags(Map.ofEntries(
- *                             Map.entry(&#34;Key1&#34;, &#34;Value1&#34;),
- *                             Map.entry(&#34;Key2&#34;, &#34;Value2&#34;)
+ *                             Map.entry("Key1", "Value1"),
+ *                             Map.entry("Key2", "Value2")
  *                         ))
  *                         .build())
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter based on object size
@@ -370,7 +384,8 @@ import javax.annotation.Nullable;
  * Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -393,20 +408,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                     .objectSizeGreaterThan(500)
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Specifying a filter based on object size range and prefix
@@ -414,7 +430,8 @@ import javax.annotation.Nullable;
  * The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -438,30 +455,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2(&#34;example&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;rule-1&#34;)
+ *                 .id("rule-1")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                     .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                         .prefix(&#34;logs/&#34;)
+ *                         .prefix("logs/")
  *                         .objectSizeGreaterThan(500)
  *                         .objectSizeLessThan(64000)
  *                         .build())
  *                     .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Creating a Lifecycle Configuration for a bucket with versioning
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -495,77 +514,77 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-bucket&#34;)
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *             .bucket("my-bucket")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2(&#34;bucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
  *             .bucket(bucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var bucket_config = new BucketLifecycleConfigurationV2(&#34;bucket-config&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var bucket_config = new BucketLifecycleConfigurationV2("bucket-config", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;log&#34;)
+ *                     .id("log")
  *                     .expiration(BucketLifecycleConfigurationV2RuleExpirationArgs.builder()
  *                         .days(90)
  *                         .build())
  *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
  *                         .and(BucketLifecycleConfigurationV2RuleFilterAndArgs.builder()
- *                             .prefix(&#34;log/&#34;)
+ *                             .prefix("log/")
  *                             .tags(Map.ofEntries(
- *                                 Map.entry(&#34;rule&#34;, &#34;log&#34;),
- *                                 Map.entry(&#34;autoclean&#34;, &#34;true&#34;)
+ *                                 Map.entry("rule", "log"),
+ *                                 Map.entry("autoclean", "true")
  *                             ))
  *                             .build())
  *                         .build())
- *                     .status(&#34;Enabled&#34;)
+ *                     .status("Enabled")
  *                     .transitions(                    
  *                         BucketLifecycleConfigurationV2RuleTransitionArgs.builder()
  *                             .days(30)
- *                             .storageClass(&#34;STANDARD_IA&#34;)
+ *                             .storageClass("STANDARD_IA")
  *                             .build(),
  *                         BucketLifecycleConfigurationV2RuleTransitionArgs.builder()
  *                             .days(60)
- *                             .storageClass(&#34;GLACIER&#34;)
+ *                             .storageClass("GLACIER")
  *                             .build())
  *                     .build(),
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
- *                     .id(&#34;tmp&#34;)
+ *                     .id("tmp")
  *                     .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                         .prefix(&#34;tmp/&#34;)
+ *                         .prefix("tmp/")
  *                         .build())
  *                     .expiration(BucketLifecycleConfigurationV2RuleExpirationArgs.builder()
- *                         .date(&#34;2023-01-13T00:00:00Z&#34;)
+ *                         .date("2023-01-13T00:00:00Z")
  *                         .build())
- *                     .status(&#34;Enabled&#34;)
+ *                     .status("Enabled")
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new BucketV2(&#34;versioningBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;my-versioning-bucket&#34;)
+ *         var versioningBucket = new BucketV2("versioningBucket", BucketV2Args.builder()        
+ *             .bucket("my-versioning-bucket")
  *             .build());
  * 
- *         var versioningBucketAcl = new BucketAclV2(&#34;versioningBucketAcl&#34;, BucketAclV2Args.builder()        
+ *         var versioningBucketAcl = new BucketAclV2("versioningBucketAcl", BucketAclV2Args.builder()        
  *             .bucket(versioningBucket.id())
- *             .acl(&#34;private&#34;)
+ *             .acl("private")
  *             .build());
  * 
- *         var versioning = new BucketVersioningV2(&#34;versioning&#34;, BucketVersioningV2Args.builder()        
+ *         var versioning = new BucketVersioningV2("versioning", BucketVersioningV2Args.builder()        
  *             .bucket(versioningBucket.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var versioning_bucket_config = new BucketLifecycleConfigurationV2(&#34;versioning-bucket-config&#34;, BucketLifecycleConfigurationV2Args.builder()        
+ *         var versioning_bucket_config = new BucketLifecycleConfigurationV2("versioning-bucket-config", BucketLifecycleConfigurationV2Args.builder()        
  *             .bucket(versioningBucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id(&#34;config&#34;)
+ *                 .id("config")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .prefix(&#34;config/&#34;)
+ *                     .prefix("config/")
  *                     .build())
  *                 .noncurrentVersionExpiration(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs.builder()
  *                     .noncurrentDays(90)
@@ -573,13 +592,13 @@ import javax.annotation.Nullable;
  *                 .noncurrentVersionTransitions(                
  *                     BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.builder()
  *                         .noncurrentDays(30)
- *                         .storageClass(&#34;STANDARD_IA&#34;)
+ *                         .storageClass("STANDARD_IA")
  *                         .build(),
  *                     BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.builder()
  *                         .noncurrentDays(60)
- *                         .storageClass(&#34;GLACIER&#34;)
+ *                         .storageClass("GLACIER")
  *                         .build())
- *                 .status(&#34;Enabled&#34;)
+ *                 .status("Enabled")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(versioning)
@@ -587,7 +606,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

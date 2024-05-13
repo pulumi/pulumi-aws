@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,34 +43,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .domainName(&#34;tf-test&#34;)
- *             .elasticsearchVersion(&#34;2.3&#34;)
+ *         var example = new Domain("example", DomainArgs.builder()        
+ *             .domainName("tf-test")
+ *             .elasticsearchVersion("2.3")
  *             .build());
  * 
- *         var main = new DomainPolicy(&#34;main&#34;, DomainPolicyArgs.builder()        
+ *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()        
  *             .domainName(example.domainName())
- *             .accessPolicies(example.arn().applyValue(arn -&gt; &#34;&#34;&#34;
+ *             .accessPolicies(example.arn().applyValue(arn -> """
  * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
+ *     "Version": "2012-10-17",
+ *     "Statement": [
  *         {
- *             &#34;Action&#34;: &#34;es:*&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Condition&#34;: {
- *                 &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: &#34;127.0.0.1/32&#34;}
+ *             "Action": "es:*",
+ *             "Principal": "*",
+ *             "Effect": "Allow",
+ *             "Condition": {
+ *                 "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
  *             },
- *             &#34;Resource&#34;: &#34;%s/*&#34;
+ *             "Resource": "%s/*"
  *         }
  *     ]
  * }
- * &#34;, arn)))
+ * ", arn)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

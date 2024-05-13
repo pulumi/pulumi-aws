@@ -25,7 +25,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -50,12 +51,13 @@ public final class BedrockfoundationFunctions {
      *         final var test = BedrockfoundationFunctions.getModels();
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -95,12 +98,13 @@ public final class BedrockfoundationFunctions {
      *         final var test = BedrockfoundationFunctions.getModels();
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -115,7 +119,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -140,12 +145,13 @@ public final class BedrockfoundationFunctions {
      *         final var test = BedrockfoundationFunctions.getModels();
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -160,7 +166,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -185,12 +192,13 @@ public final class BedrockfoundationFunctions {
      *         final var test = BedrockfoundationFunctions.getModels();
      * 
      *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *             .modelId(test.applyValue(getModelsResult -> getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -205,7 +213,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -230,13 +239,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,12 +269,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -278,7 +290,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -303,13 +316,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -331,12 +346,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -351,7 +367,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -376,13 +393,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -404,12 +423,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -424,7 +444,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -449,13 +470,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -477,12 +500,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -497,7 +521,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -522,13 +547,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -550,12 +577,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -570,7 +598,8 @@ public final class BedrockfoundationFunctions {
      * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -595,13 +624,15 @@ public final class BedrockfoundationFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ### Filter by Inference Type
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -623,12 +654,13 @@ public final class BedrockfoundationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = BedrockfoundationFunctions.getModels(GetModelsArgs.builder()
-     *             .byInferenceType(&#34;ON_DEMAND&#34;)
+     *             .byInferenceType("ON_DEMAND")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

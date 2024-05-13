@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterEndpoint(&#34;example&#34;, ClusterEndpointArgs.builder()        
+ *         var example = new ClusterEndpoint("example", ClusterEndpointArgs.builder()        
  *             .clusterIdentifier(test.clusterIdentifier())
- *             .clusterEndpointIdentifier(&#34;example&#34;)
- *             .endpointType(&#34;READER&#34;)
+ *             .clusterEndpointIdentifier("example")
+ *             .endpointType("READER")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

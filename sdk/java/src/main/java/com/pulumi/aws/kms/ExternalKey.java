@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExternalKey(&#34;example&#34;, ExternalKeyArgs.builder()        
- *             .description(&#34;KMS EXTERNAL for AMI encryption&#34;)
+ *         var example = new ExternalKey("example", ExternalKeyArgs.builder()        
+ *             .description("KMS EXTERNAL for AMI encryption")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

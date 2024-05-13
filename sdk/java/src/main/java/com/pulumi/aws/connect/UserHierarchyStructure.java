@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
  *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
+ *                     .name("levelone")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Five Levels
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -90,30 +93,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *         var example = new UserHierarchyStructure("example", UserHierarchyStructureArgs.builder()        
+ *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
  *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
+ *                     .name("levelone")
  *                     .build())
  *                 .levelTwo(UserHierarchyStructureHierarchyStructureLevelTwoArgs.builder()
- *                     .name(&#34;leveltwo&#34;)
+ *                     .name("leveltwo")
  *                     .build())
  *                 .levelThree(UserHierarchyStructureHierarchyStructureLevelThreeArgs.builder()
- *                     .name(&#34;levelthree&#34;)
+ *                     .name("levelthree")
  *                     .build())
  *                 .levelFour(UserHierarchyStructureHierarchyStructureLevelFourArgs.builder()
- *                     .name(&#34;levelfour&#34;)
+ *                     .name("levelfour")
  *                     .build())
  *                 .levelFive(UserHierarchyStructureHierarchyStructureLevelFiveArgs.builder()
- *                     .name(&#34;levelfive&#34;)
+ *                     .name("levelfive")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

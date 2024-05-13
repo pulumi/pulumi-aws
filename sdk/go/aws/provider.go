@@ -21,7 +21,7 @@ type Provider struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	// variable. (Setting `caBundle` in the shared config file is not supported.)
 	CustomCaBundle pulumi.StringPtrOutput `pulumi:"customCaBundle"`
 	// Address of the EC2 metadata service endpoint to use. Can also be configured using the
 	// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
@@ -30,13 +30,13 @@ type Provider struct {
 	// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
 	Ec2MetadataServiceEndpointMode pulumi.StringPtrOutput `pulumi:"ec2MetadataServiceEndpointMode"`
 	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-	// `http_proxy` environment variables.
+	// `httpProxy` environment variables.
 	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
 	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-	// `https_proxy` environment variables.
+	// `httpsProxy` environment variables.
 	HttpsProxy pulumi.StringPtrOutput `pulumi:"httpsProxy"`
 	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-	// `no_proxy` environment variables.
+	// `noProxy` environment variables.
 	NoProxy pulumi.StringPtrOutput `pulumi:"noProxy"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
@@ -47,7 +47,7 @@ type Provider struct {
 	RetryMode pulumi.StringPtrOutput `pulumi:"retryMode"`
 	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
 	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 	S3UsEast1RegionalEndpoint pulumi.StringPtrOutput `pulumi:"s3UsEast1RegionalEndpoint"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
@@ -109,7 +109,7 @@ type providerArgs struct {
 	AssumeRole                *ProviderAssumeRole                `pulumi:"assumeRole"`
 	AssumeRoleWithWebIdentity *ProviderAssumeRoleWithWebIdentity `pulumi:"assumeRoleWithWebIdentity"`
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	// variable. (Setting `caBundle` in the shared config file is not supported.)
 	CustomCaBundle *string `pulumi:"customCaBundle"`
 	// Configuration block with settings to default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
@@ -122,10 +122,10 @@ type providerArgs struct {
 	Endpoints                      []ProviderEndpoint `pulumi:"endpoints"`
 	ForbiddenAccountIds            []string           `pulumi:"forbiddenAccountIds"`
 	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-	// `http_proxy` environment variables.
+	// `httpProxy` environment variables.
 	HttpProxy *string `pulumi:"httpProxy"`
 	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-	// `https_proxy` environment variables.
+	// `httpsProxy` environment variables.
 	HttpsProxy *string `pulumi:"httpsProxy"`
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags *ProviderIgnoreTags `pulumi:"ignoreTags"`
@@ -134,7 +134,7 @@ type providerArgs struct {
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries *int `pulumi:"maxRetries"`
 	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-	// `no_proxy` environment variables.
+	// `noProxy` environment variables.
 	NoProxy *string `pulumi:"noProxy"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile *string `pulumi:"profile"`
@@ -145,7 +145,7 @@ type providerArgs struct {
 	RetryMode *string `pulumi:"retryMode"`
 	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
 	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 	S3UsEast1RegionalEndpoint *string `pulumi:"s3UsEast1RegionalEndpoint"`
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
@@ -187,7 +187,7 @@ type ProviderArgs struct {
 	AssumeRole                ProviderAssumeRolePtrInput
 	AssumeRoleWithWebIdentity ProviderAssumeRoleWithWebIdentityPtrInput
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+	// variable. (Setting `caBundle` in the shared config file is not supported.)
 	CustomCaBundle pulumi.StringPtrInput
 	// Configuration block with settings to default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
@@ -200,10 +200,10 @@ type ProviderArgs struct {
 	Endpoints                      ProviderEndpointArrayInput
 	ForbiddenAccountIds            pulumi.StringArrayInput
 	// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-	// `http_proxy` environment variables.
+	// `httpProxy` environment variables.
 	HttpProxy pulumi.StringPtrInput
 	// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-	// `https_proxy` environment variables.
+	// `httpsProxy` environment variables.
 	HttpsProxy pulumi.StringPtrInput
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags ProviderIgnoreTagsPtrInput
@@ -212,7 +212,7 @@ type ProviderArgs struct {
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries pulumi.IntPtrInput
 	// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-	// `no_proxy` environment variables.
+	// `noProxy` environment variables.
 	NoProxy pulumi.StringPtrInput
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type ProviderArgs struct {
 	RetryMode pulumi.StringPtrInput
 	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
 	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 	S3UsEast1RegionalEndpoint pulumi.StringPtrInput
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
@@ -300,7 +300,7 @@ func (o ProviderOutput) AccessKey() pulumi.StringPtrOutput {
 }
 
 // File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
-// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+// variable. (Setting `caBundle` in the shared config file is not supported.)
 func (o ProviderOutput) CustomCaBundle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CustomCaBundle }).(pulumi.StringPtrOutput)
 }
@@ -318,19 +318,19 @@ func (o ProviderOutput) Ec2MetadataServiceEndpointMode() pulumi.StringPtrOutput 
 }
 
 // URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
-// `http_proxy` environment variables.
+// `httpProxy` environment variables.
 func (o ProviderOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
 // URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
-// `https_proxy` environment variables.
+// `httpsProxy` environment variables.
 func (o ProviderOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
 
 // Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
-// `no_proxy` environment variables.
+// `noProxy` environment variables.
 func (o ProviderOutput) NoProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.NoProxy }).(pulumi.StringPtrOutput)
 }
@@ -353,7 +353,7 @@ func (o ProviderOutput) RetryMode() pulumi.StringPtrOutput {
 
 // Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
 // values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
-// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+// variable or the `s3UsEast1RegionalEndpoint` shared config file parameter
 func (o ProviderOutput) S3UsEast1RegionalEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.S3UsEast1RegionalEndpoint }).(pulumi.StringPtrOutput)
 }

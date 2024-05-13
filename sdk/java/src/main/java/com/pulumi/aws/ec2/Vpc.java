@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * Basic usage:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with tags:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -79,21 +82,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .instanceTenancy(&#34;default&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;main&#34;))
+ *         var main = new Vpc("main", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
+ *             .instanceTenancy("default")
+ *             .tags(Map.of("Name", "main"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * VPC with CIDR from AWS IPAM:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -126,24 +131,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var test = new VpcIpam(&#34;test&#34;, VpcIpamArgs.builder()        
+ *         var test = new VpcIpam("test", VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var testVpcIpamPool = new VpcIpamPool(&#34;testVpcIpamPool&#34;, VpcIpamPoolArgs.builder()        
- *             .addressFamily(&#34;ipv4&#34;)
+ *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *             .addressFamily("ipv4")
  *             .ipamScopeId(test.privateDefaultScopeId())
- *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
+ *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .build());
  * 
- *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;testVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
+ *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(testVpcIpamPool.id())
- *             .cidr(&#34;172.20.0.0/16&#34;)
+ *             .cidr("172.20.0.0/16")
  *             .build());
  * 
- *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
  *             .ipv4IpamPoolId(testVpcIpamPool.id())
  *             .ipv4NetmaskLength(28)
  *             .build(), CustomResourceOptions.builder()
@@ -152,7 +157,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

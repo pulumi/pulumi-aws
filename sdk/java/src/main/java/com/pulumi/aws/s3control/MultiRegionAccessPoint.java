@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ### Multiple AWS Buckets in Different Regions
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooBucket = new BucketV2(&#34;fooBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-bucket-foo&#34;)
+ *         var fooBucket = new BucketV2("fooBucket", BucketV2Args.builder()        
+ *             .bucket("example-bucket-foo")
  *             .build());
  * 
- *         var barBucket = new BucketV2(&#34;barBucket&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example-bucket-bar&#34;)
+ *         var barBucket = new BucketV2("barBucket", BucketV2Args.builder()        
+ *             .bucket("example-bucket-bar")
  *             .build());
  * 
- *         var example = new MultiRegionAccessPoint(&#34;example&#34;, MultiRegionAccessPointArgs.builder()        
+ *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()        
  *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name(&#34;example&#34;)
+ *                 .name("example")
  *                 .regions(                
  *                     MultiRegionAccessPointDetailsRegionArgs.builder()
  *                         .bucket(fooBucket.id())
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

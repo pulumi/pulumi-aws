@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
- *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
+ *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()        
+ *             .cidrBlock("10.1.1.0/24")
+ *             .availabilityZone("us-west-2a")
  *             .vpcId(foo.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-1&#34;))
+ *             .tags(Map.of("Name", "tf-dbsubnet-test-1"))
  *             .build());
  * 
- *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
- *             .cidrBlock(&#34;10.1.2.0/24&#34;)
- *             .availabilityZone(&#34;us-west-2b&#34;)
+ *         var bar = new Subnet("bar", SubnetArgs.builder()        
+ *             .cidrBlock("10.1.2.0/24")
+ *             .availabilityZone("us-west-2b")
  *             .vpcId(foo.id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-dbsubnet-test-2&#34;))
+ *             .tags(Map.of("Name", "tf-dbsubnet-test-2"))
  *             .build());
  * 
- *         var fooSubnetGroup = new SubnetGroup(&#34;fooSubnetGroup&#34;, SubnetGroupArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var fooSubnetGroup = new SubnetGroup("fooSubnetGroup", SubnetGroupArgs.builder()        
+ *             .name("foo")
  *             .subnetIds(            
  *                 fooSubnet.id(),
  *                 bar.id())
- *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

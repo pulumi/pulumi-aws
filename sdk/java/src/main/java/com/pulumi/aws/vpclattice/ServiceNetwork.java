@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceNetwork(&#34;example&#34;, ServiceNetworkArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .authType(&#34;AWS_IAM&#34;)
+ *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()        
+ *             .name("example")
+ *             .authType("AWS_IAM")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

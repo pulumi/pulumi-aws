@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,40 +48,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
- *             .name(&#34;example&#34;)
+ *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *             .name("example")
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
- *             .bucket(&#34;example&#34;)
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *             .bucket("example")
  *             .build());
  * 
- *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
+ *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
  *             .logGroupName(example.name())
- *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -&gt; serializeJson(
+ *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -> serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Name&#34;, &#34;Example&#34;),
- *                     jsonProperty(&#34;Version&#34;, &#34;2021-06-01&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(
+ *                     jsonProperty("Name", "Example"),
+ *                     jsonProperty("Version", "2021-06-01"),
+ *                     jsonProperty("Statement", jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Audit&#34;),
- *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;Operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;Audit&#34;, jsonObject(
- *                                     jsonProperty(&#34;FindingsDestination&#34;, jsonObject(
- *                                         jsonProperty(&#34;S3&#34;, jsonObject(
- *                                             jsonProperty(&#34;Bucket&#34;, bucket)
+ *                             jsonProperty("Sid", "Audit"),
+ *                             jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
+ *                             jsonProperty("Operation", jsonObject(
+ *                                 jsonProperty("Audit", jsonObject(
+ *                                     jsonProperty("FindingsDestination", jsonObject(
+ *                                         jsonProperty("S3", jsonObject(
+ *                                             jsonProperty("Bucket", bucket)
  *                                         ))
  *                                     ))
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Redact&#34;),
- *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;Operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;Deidentify&#34;, jsonObject(
- *                                     jsonProperty(&#34;MaskConfig&#34;, jsonObject(
+ *                             jsonProperty("Sid", "Redact"),
+ *                             jsonProperty("DataIdentifier", jsonArray("arn:aws:dataprotection::aws:data-identifier/EmailAddress")),
+ *                             jsonProperty("Operation", jsonObject(
+ *                                 jsonProperty("Deidentify", jsonObject(
+ *                                     jsonProperty("MaskConfig", jsonObject(
  * 
  *                                     ))
  *                                 ))
@@ -92,7 +93,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
