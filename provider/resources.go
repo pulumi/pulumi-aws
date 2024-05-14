@@ -108,7 +108,7 @@ const (
 	dataexchangeMod             = "DataExchange"             // Data exchange
 	datapipelineMod             = "DataPipeline"             // Data Pipeline
 	datasyncMod                 = "DataSync"                 // DataSync
-	datazoneMod				    = "DataZone"                 // DataZone
+	datazoneMod                 = "DataZone"                 // DataZone
 	daxMod                      = "Dax"                      // DynamoDB Accelerator
 	devopsGuruMod               = "DevOpsGuru"               // DevOps Guru
 	dlmMod                      = "Dlm"                      // Data Lifecycle Manager
