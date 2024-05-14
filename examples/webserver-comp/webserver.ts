@@ -2,7 +2,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { getLinuxAMI } from "./linuxAmi";
 
 const config = new pulumi.Config("aws");
 const region = <aws.Region>config.require("envRegion");
@@ -29,6 +28,15 @@ let group = new aws.ec2.SecurityGroup("web-secgrp-comp", {
     ],
 }, providerOpts);
 
+const ami = aws.ec2.getAmiOutput({
+    owners: ["amazon"],
+    mostRecent: true,
+    filters: [{
+        name: "name",
+        values: ["al2023-ami-2023.*-kernel-*-x86_64"],
+    }],
+}, providerOpts);
+
 export class Server {
     public readonly instance: aws.ec2.Instance;
 
@@ -36,7 +44,7 @@ export class Server {
         this.instance = new aws.ec2.Instance("web-server-" + name, {
             instanceType: size,
             vpcSecurityGroupIds: [ group.id ],
-            ami: getLinuxAMI(size, region),
+            ami: ami.id,
             subnetId: subnet.id,
         }, providerOpts);
     }
@@ -53,4 +61,3 @@ export class Nano extends Server {
         super(name, aws.ec2.InstanceType.T2_Nano);
     }
 }
-
