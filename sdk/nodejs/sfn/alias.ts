@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
-    public readonly routingConfigurations!: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
+    public readonly routingConfigurations!: pulumi.Output<outputs.AliasRoutingConfiguration[]>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -154,7 +153,7 @@ export interface AliasState {
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
-    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
+    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.AliasRoutingConfiguration>[]>;
 }
 
 /**
@@ -172,5 +171,5 @@ export interface AliasArgs {
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
-    routingConfigurations: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
+    routingConfigurations: pulumi.Input<pulumi.Input<inputs.AliasRoutingConfiguration>[]>;
 }

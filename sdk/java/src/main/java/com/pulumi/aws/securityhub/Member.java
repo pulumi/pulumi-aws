@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleMember = new Member("exampleMember", MemberArgs.builder()        
+ *         var exampleMember = new Member("exampleMember", MemberArgs.builder()
  *             .accountId("123456789012")
  *             .email("example{@literal @}example.com")
  *             .invite(true)

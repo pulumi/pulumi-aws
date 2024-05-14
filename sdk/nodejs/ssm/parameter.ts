@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -268,7 +268,7 @@ export interface ParameterState {
      *
      * The following arguments are optional:
      */
-    type?: pulumi.Input<string | enums.ssm.ParameterType>;
+    type?: pulumi.Input<string | enums.ParameterType>;
     /**
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
      *
@@ -332,7 +332,7 @@ export interface ParameterArgs {
      *
      * The following arguments are optional:
      */
-    type: pulumi.Input<string | enums.ssm.ParameterType>;
+    type: pulumi.Input<string | enums.ParameterType>;
     /**
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
      *

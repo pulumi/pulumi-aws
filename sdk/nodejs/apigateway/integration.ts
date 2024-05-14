@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
@@ -277,7 +276,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * TLS configuration. See below.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.apigateway.IntegrationTlsConfig | undefined>;
+    public readonly tlsConfig!: pulumi.Output<outputs.IntegrationTlsConfig | undefined>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
@@ -425,7 +424,7 @@ export interface IntegrationState {
     /**
      * TLS configuration. See below.
      */
-    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.IntegrationTlsConfig>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */
@@ -507,7 +506,7 @@ export interface IntegrationArgs {
     /**
      * TLS configuration. See below.
      */
-    tlsConfig?: pulumi.Input<inputs.apigateway.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.IntegrationTlsConfig>;
     /**
      * Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connectionType` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      */

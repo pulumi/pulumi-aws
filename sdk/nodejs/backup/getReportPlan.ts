@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,11 +71,11 @@ export interface GetReportPlanResult {
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    readonly reportDeliveryChannels: outputs.backup.GetReportPlanReportDeliveryChannel[];
+    readonly reportDeliveryChannels: outputs.GetReportPlanReportDeliveryChannel[];
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    readonly reportSettings: outputs.backup.GetReportPlanReportSetting[];
+    readonly reportSettings: outputs.GetReportPlanReportSetting[];
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */

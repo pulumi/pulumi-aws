@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var my_instance = new Instance("my-instance", InstanceArgs.builder()        
+ *         var my_instance = new Instance("my-instance", InstanceArgs.builder()
  *             .stackId(main.id())
  *             .layerIds(my_layer.id())
  *             .instanceType("t2.micro")

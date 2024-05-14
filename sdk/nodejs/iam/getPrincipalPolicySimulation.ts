@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -138,7 +138,7 @@ export interface GetPrincipalPolicySimulationArgs {
      *
      * IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
      */
-    contexts?: inputs.iam.GetPrincipalPolicySimulationContext[];
+    contexts?: inputs.GetPrincipalPolicySimulationContext[];
     /**
      * A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
      */
@@ -186,7 +186,7 @@ export interface GetPrincipalPolicySimulationResult {
      */
     readonly allAllowed: boolean;
     readonly callerArn?: string;
-    readonly contexts?: outputs.iam.GetPrincipalPolicySimulationContext[];
+    readonly contexts?: inputs.GetPrincipalPolicySimulationContext[];
     readonly id: string;
     readonly permissionsBoundaryPoliciesJsons?: string[];
     readonly policySourceArn: string;
@@ -197,7 +197,7 @@ export interface GetPrincipalPolicySimulationResult {
     /**
      * A set of result objects, one for each of the simulated requests, with the following nested attributes:
      */
-    readonly results: outputs.iam.GetPrincipalPolicySimulationResult[];
+    readonly results: outputs.GetPrincipalPolicySimulationResult[];
 }
 /**
  * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
@@ -317,7 +317,7 @@ export interface GetPrincipalPolicySimulationOutputArgs {
      *
      * IAM uses context keys for both custom conditions and for interpolating dynamic request-specific values into policy values. If you use policies that include those features then you will need to provide suitable example values for those keys to achieve a realistic simulation.
      */
-    contexts?: pulumi.Input<pulumi.Input<inputs.iam.GetPrincipalPolicySimulationContextArgs>[]>;
+    contexts?: pulumi.Input<pulumi.Input<inputs.GetPrincipalPolicySimulationContextArgs>[]>;
     /**
      * A set of [permissions boundary policy documents](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to include in the simulation.
      */

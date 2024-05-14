@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,14 +39,14 @@ export interface GetReleaseLabelsArgs {
     /**
      * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
      */
-    filters?: inputs.emr.GetReleaseLabelsFilters;
+    filters?: inputs.GetReleaseLabelsFilters;
 }
 
 /**
  * A collection of values returned by getReleaseLabels.
  */
 export interface GetReleaseLabelsResult {
-    readonly filters?: outputs.emr.GetReleaseLabelsFilters;
+    readonly filters?: inputs.GetReleaseLabelsFilters;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -85,5 +84,5 @@ export interface GetReleaseLabelsOutputArgs {
     /**
      * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
      */
-    filters?: pulumi.Input<inputs.emr.GetReleaseLabelsFiltersArgs>;
+    filters?: pulumi.Input<inputs.GetReleaseLabelsFiltersArgs>;
 }

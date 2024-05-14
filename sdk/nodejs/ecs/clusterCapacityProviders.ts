@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class ClusterCapacityProviders extends pulumi.CustomResource {
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy[] | undefined>;
+    public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy[] | undefined>;
 
     /**
      * Create a ClusterCapacityProviders resource with the given unique name, arguments, and options.
@@ -124,7 +123,7 @@ export interface ClusterCapacityProvidersState {
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
 }
 
 /**
@@ -142,5 +141,5 @@ export interface ClusterCapacityProvidersArgs {
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      */
-    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>[]>;
 }

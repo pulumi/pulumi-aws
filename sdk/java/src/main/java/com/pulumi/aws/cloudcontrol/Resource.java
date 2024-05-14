@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Resource("example", ResourceArgs.builder()        
+ *         var example = new Resource("example", ResourceArgs.builder()
  *             .typeName("AWS::ECS::Cluster")
  *             .desiredState(serializeJson(
  *                 jsonObject(

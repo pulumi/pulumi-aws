@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationSmbMountOptions | undefined>;
+    public readonly mountOptions!: pulumi.Output<outputs.LocationSmbMountOptions | undefined>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
@@ -186,7 +185,7 @@ export interface LocationSmbState {
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.LocationSmbMountOptions>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
@@ -231,7 +230,7 @@ export interface LocationSmbArgs {
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.LocationSmbMountOptions>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */

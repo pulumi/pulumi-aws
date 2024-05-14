@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -28,7 +28,7 @@ export interface GetRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetRouteTablesFilter[];
+    filters?: inputs.GetRouteTablesFilter[];
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
@@ -47,7 +47,7 @@ export interface GetRouteTablesArgs {
  * A collection of values returned by getRouteTables.
  */
 export interface GetRouteTablesResult {
-    readonly filters?: outputs.ec2.GetRouteTablesFilter[];
+    readonly filters?: inputs.GetRouteTablesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -73,7 +73,7 @@ export interface GetRouteTablesOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTablesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetRouteTablesFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.

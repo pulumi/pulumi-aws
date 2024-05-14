@@ -16,6 +16,15 @@ export const TrustAnchor: typeof import("./trustAnchor").TrustAnchor = null as a
 utilities.lazyLoad(exports, ["TrustAnchor"], () => require("./trustAnchor"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

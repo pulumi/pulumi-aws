@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.PlaceIndexDataSourceConfiguration>;
     /**
      * The optional description for the place index resource.
      */
@@ -159,7 +158,7 @@ export interface PlaceIndexState {
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration>;
+    dataSourceConfiguration?: pulumi.Input<inputs.PlaceIndexDataSourceConfiguration>;
     /**
      * The optional description for the place index resource.
      */
@@ -201,7 +200,7 @@ export interface PlaceIndexArgs {
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfiguration>;
+    dataSourceConfiguration?: pulumi.Input<inputs.PlaceIndexDataSourceConfiguration>;
     /**
      * The optional description for the place index resource.
      */

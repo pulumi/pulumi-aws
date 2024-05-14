@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +61,7 @@ export class SdkvoiceGlobalSettings extends pulumi.CustomResource {
     /**
      * The Voice Connector settings. See voice_connector.
      */
-    public readonly voiceConnector!: pulumi.Output<outputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
+    public readonly voiceConnector!: pulumi.Output<outputs.SdkvoiceGlobalSettingsVoiceConnector>;
 
     /**
      * Create a SdkvoiceGlobalSettings resource with the given unique name, arguments, and options.
@@ -97,7 +96,7 @@ export interface SdkvoiceGlobalSettingsState {
     /**
      * The Voice Connector settings. See voice_connector.
      */
-    voiceConnector?: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
+    voiceConnector?: pulumi.Input<inputs.SdkvoiceGlobalSettingsVoiceConnector>;
 }
 
 /**
@@ -107,5 +106,5 @@ export interface SdkvoiceGlobalSettingsArgs {
     /**
      * The Voice Connector settings. See voice_connector.
      */
-    voiceConnector: pulumi.Input<inputs.chime.SdkvoiceGlobalSettingsVoiceConnector>;
+    voiceConnector: pulumi.Input<inputs.SdkvoiceGlobalSettingsVoiceConnector>;
 }

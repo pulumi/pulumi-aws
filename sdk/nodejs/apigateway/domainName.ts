@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -167,11 +166,11 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Configuration block defining API endpoint information including type. See below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.DomainNameEndpointConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      */
-    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
@@ -324,11 +323,11 @@ export interface DomainNameState {
     /**
      * Configuration block defining API endpoint information including type. See below.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.DomainNameEndpointConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.DomainNameMutualTlsAuthentication>;
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
@@ -400,11 +399,11 @@ export interface DomainNameArgs {
     /**
      * Configuration block defining API endpoint information including type. See below.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.DomainNameEndpointConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.DomainNameMutualTlsAuthentication>;
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -172,11 +171,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    public readonly runtime!: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
+    public readonly runtime!: pulumi.Output<outputs.FunctionRuntime | undefined>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    public readonly syncConfig!: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
+    public readonly syncConfig!: pulumi.Output<outputs.FunctionSyncConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -282,11 +281,11 @@ export interface FunctionState {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
+    runtime?: pulumi.Input<inputs.FunctionRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
+    syncConfig?: pulumi.Input<inputs.FunctionSyncConfig>;
 }
 
 /**
@@ -332,9 +331,9 @@ export interface FunctionArgs {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
+    runtime?: pulumi.Input<inputs.FunctionRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
+    syncConfig?: pulumi.Input<inputs.FunctionSyncConfig>;
 }

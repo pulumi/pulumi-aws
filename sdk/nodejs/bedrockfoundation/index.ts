@@ -14,3 +14,12 @@ export const getModels: typeof import("./getModels").getModels = null as any;
 export const getModelsOutput: typeof import("./getModels").getModelsOutput = null as any;
 utilities.lazyLoad(exports, ["getModels","getModelsOutput"], () => require("./getModels"));
 
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};

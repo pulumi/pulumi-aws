@@ -151,6 +151,15 @@ export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
 utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

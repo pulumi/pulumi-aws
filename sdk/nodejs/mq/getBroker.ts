@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,9 +61,9 @@ export interface GetBrokerResult {
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
-    readonly configuration: outputs.mq.GetBrokerConfiguration;
+    readonly configuration: outputs.GetBrokerConfiguration;
     readonly deploymentMode: string;
-    readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
+    readonly encryptionOptions: outputs.GetBrokerEncryptionOption[];
     readonly engineType: string;
     readonly engineVersion: string;
     readonly hostInstanceType: string;
@@ -72,16 +71,16 @@ export interface GetBrokerResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly instances: outputs.mq.GetBrokerInstance[];
-    readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
-    readonly logs: outputs.mq.GetBrokerLogs;
-    readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
+    readonly instances: outputs.GetBrokerInstance[];
+    readonly ldapServerMetadatas: outputs.GetBrokerLdapServerMetadata[];
+    readonly logs: outputs.GetBrokerLogs;
+    readonly maintenanceWindowStartTime: outputs.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly storageType: string;
     readonly subnetIds: string[];
     readonly tags: {[key: string]: string};
-    readonly users: outputs.mq.GetBrokerUser[];
+    readonly users: outputs.GetBrokerUser[];
 }
 /**
  * Provides information about a MQ Broker.

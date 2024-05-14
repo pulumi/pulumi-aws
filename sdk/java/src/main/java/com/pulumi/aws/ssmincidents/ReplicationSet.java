@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()
  *             .regions(ReplicationSetRegionArgs.builder()
  *                 .name("us-west-2")
  *                 .build())
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()
  *             .regions(            
  *                 ReplicationSetRegionArgs.builder()
  *                     .name("us-west-2")
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()
  *             .regions(ReplicationSetRegionArgs.builder()
  *                 .name("us-west-2")
  *                 .build())
@@ -177,7 +177,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleKey = new Key("exampleKey");
  * 
- *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()        
+ *         var replicationSetName = new ReplicationSet("replicationSetName", ReplicationSetArgs.builder()
  *             .regions(ReplicationSetRegionArgs.builder()
  *                 .name("us-west-2")
  *                 .kmsKeyArn(exampleKey.arn())

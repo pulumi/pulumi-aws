@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly accounts!: pulumi.Output<outputs.organizations.OrganizationAccount[]>;
+    public /*out*/ readonly accounts!: pulumi.Output<outputs.OrganizationAccount[]>;
     /**
      * ARN of the root
      */
@@ -104,11 +103,11 @@ export class Organization extends pulumi.CustomResource {
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
+    public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.OrganizationNonMasterAccount[]>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    public /*out*/ readonly roots!: pulumi.Output<outputs.organizations.OrganizationRoot[]>;
+    public /*out*/ readonly roots!: pulumi.Output<outputs.OrganizationRoot[]>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -160,7 +159,7 @@ export interface OrganizationState {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[]>;
+    accounts?: pulumi.Input<pulumi.Input<inputs.OrganizationAccount>[]>;
     /**
      * ARN of the root
      */
@@ -196,11 +195,11 @@ export interface OrganizationState {
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[]>;
+    nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.OrganizationNonMasterAccount>[]>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[]>;
+    roots?: pulumi.Input<pulumi.Input<inputs.OrganizationRoot>[]>;
 }
 
 /**

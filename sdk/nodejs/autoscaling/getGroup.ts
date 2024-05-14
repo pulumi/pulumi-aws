@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +79,7 @@ export interface GetGroupResult {
     /**
      * Instance maintenance policy for the group.
      */
-    readonly instanceMaintenancePolicies: outputs.autoscaling.GetGroupInstanceMaintenancePolicy[];
+    readonly instanceMaintenancePolicies: outputs.GetGroupInstanceMaintenancePolicy[];
     /**
      * The name of the associated launch configuration.
      */
@@ -87,7 +87,7 @@ export interface GetGroupResult {
     /**
      * List of launch templates along with the overrides.
      */
-    readonly launchTemplates: outputs.autoscaling.GetGroupLaunchTemplate[];
+    readonly launchTemplates: outputs.GetGroupLaunchTemplate[];
     /**
      * One or more load balancers associated with the group.
      */
@@ -107,7 +107,7 @@ export interface GetGroupResult {
     /**
      * List of mixed instances policy objects for the group.
      */
-    readonly mixedInstancesPolicies: outputs.autoscaling.GetGroupMixedInstancesPolicy[];
+    readonly mixedInstancesPolicies: outputs.GetGroupMixedInstancesPolicy[];
     /**
      * Name of the Auto Scaling Group.
      */
@@ -136,7 +136,7 @@ export interface GetGroupResult {
     /**
      * List of tags for the group.
      */
-    readonly tags: outputs.autoscaling.GetGroupTag[];
+    readonly tags: outputs.GetGroupTag[];
     /**
      * ARNs of the target groups for your load balancer.
      */
@@ -148,7 +148,7 @@ export interface GetGroupResult {
     /**
      * Traffic sources.
      */
-    readonly trafficSources: outputs.autoscaling.GetGroupTrafficSource[];
+    readonly trafficSources: outputs.GetGroupTrafficSource[];
     /**
      * VPC ID for the group.
      */
@@ -160,7 +160,7 @@ export interface GetGroupResult {
     /**
      * List of warm pool configuration objects.
      */
-    readonly warmPools: outputs.autoscaling.GetGroupWarmPool[];
+    readonly warmPools: outputs.GetGroupWarmPool[];
 }
 /**
  * Use this data source to get information on an existing autoscaling group.

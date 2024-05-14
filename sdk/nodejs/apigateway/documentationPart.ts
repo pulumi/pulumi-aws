@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class DocumentationPart extends pulumi.CustomResource {
     /**
      * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    public readonly location!: pulumi.Output<outputs.apigateway.DocumentationPartLocation>;
+    public readonly location!: pulumi.Output<outputs.DocumentationPartLocation>;
     /**
      * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
@@ -130,7 +129,7 @@ export interface DocumentationPartState {
     /**
      * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    location?: pulumi.Input<inputs.apigateway.DocumentationPartLocation>;
+    location?: pulumi.Input<inputs.DocumentationPartLocation>;
     /**
      * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */
@@ -148,7 +147,7 @@ export interface DocumentationPartArgs {
     /**
      * Location of the targeted API entity of the to-be-created documentation part. See below.
      */
-    location: pulumi.Input<inputs.apigateway.DocumentationPartLocation>;
+    location: pulumi.Input<inputs.DocumentationPartLocation>;
     /**
      * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
      */

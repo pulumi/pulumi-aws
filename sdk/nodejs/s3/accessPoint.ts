@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -143,11 +143,11 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
+    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -253,11 +253,11 @@ export interface AccessPointState {
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.AccessPointPublicAccessBlockConfiguration>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.AccessPointVpcConfiguration>;
 }
 
 /**
@@ -289,9 +289,9 @@ export interface AccessPointArgs {
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.AccessPointPublicAccessBlockConfiguration>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.AccessPointVpcConfiguration>;
 }

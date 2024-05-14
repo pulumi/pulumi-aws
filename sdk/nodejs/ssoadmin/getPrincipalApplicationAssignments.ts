@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -30,7 +29,7 @@ export interface GetPrincipalApplicationAssignmentsArgs {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    applicationAssignments?: inputs.ssoadmin.GetPrincipalApplicationAssignmentsApplicationAssignment[];
+    applicationAssignments?: inputs.GetPrincipalApplicationAssignmentsApplicationAssignment[];
     /**
      * ARN of the instance of IAM Identity Center.
      */
@@ -52,7 +51,7 @@ export interface GetPrincipalApplicationAssignmentsResult {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    readonly applicationAssignments?: outputs.ssoadmin.GetPrincipalApplicationAssignmentsApplicationAssignment[];
+    readonly applicationAssignments?: inputs.GetPrincipalApplicationAssignmentsApplicationAssignment[];
     readonly id: string;
     readonly instanceArn: string;
     /**
@@ -80,7 +79,7 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>[]>;
+    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.GetPrincipalApplicationAssignmentsApplicationAssignmentArgs>[]>;
     /**
      * ARN of the instance of IAM Identity Center.
      */

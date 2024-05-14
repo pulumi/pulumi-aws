@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,11 +67,11 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    public readonly dashboardAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    public readonly dashboardAttributes!: pulumi.Output<outputs.AccountVdmAttributesDashboardAttributes>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    public readonly guardianAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    public readonly guardianAttributes!: pulumi.Output<outputs.AccountVdmAttributesGuardianAttributes>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
@@ -117,11 +116,11 @@ export interface AccountVdmAttributesState {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    dashboardAttributes?: pulumi.Input<inputs.AccountVdmAttributesDashboardAttributes>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    guardianAttributes?: pulumi.Input<inputs.AccountVdmAttributesGuardianAttributes>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
@@ -137,11 +136,11 @@ export interface AccountVdmAttributesArgs {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    dashboardAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesDashboardAttributes>;
+    dashboardAttributes?: pulumi.Input<inputs.AccountVdmAttributesDashboardAttributes>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    guardianAttributes?: pulumi.Input<inputs.AccountVdmAttributesGuardianAttributes>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *

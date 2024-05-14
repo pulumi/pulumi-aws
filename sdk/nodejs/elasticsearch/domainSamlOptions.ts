@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -91,7 +90,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
-    public readonly samlOptions!: pulumi.Output<outputs.elasticsearch.DomainSamlOptionsSamlOptions | undefined>;
+    public readonly samlOptions!: pulumi.Output<outputs.DomainSamlOptionsSamlOptions | undefined>;
 
     /**
      * Create a DomainSamlOptions resource with the given unique name, arguments, and options.
@@ -134,7 +133,7 @@ export interface DomainSamlOptionsState {
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
-    samlOptions?: pulumi.Input<inputs.elasticsearch.DomainSamlOptionsSamlOptions>;
+    samlOptions?: pulumi.Input<inputs.DomainSamlOptionsSamlOptions>;
 }
 
 /**
@@ -150,5 +149,5 @@ export interface DomainSamlOptionsArgs {
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      */
-    samlOptions?: pulumi.Input<inputs.elasticsearch.DomainSamlOptionsSamlOptions>;
+    samlOptions?: pulumi.Input<inputs.DomainSamlOptionsSamlOptions>;
 }

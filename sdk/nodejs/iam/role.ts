@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "./index";
@@ -241,7 +241,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      */
-    public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
+    public readonly inlinePolicies!: pulumi.Output<outputs.RoleInlinePolicy[]>;
     public readonly managedPolicyArns!: pulumi.Output<string[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -363,7 +363,7 @@ export interface RoleState {
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      */
-    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.RoleInlinePolicy>[]>;
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -424,7 +424,7 @@ export interface RoleArgs {
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
      */
-    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.RoleInlinePolicy>[]>;
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.

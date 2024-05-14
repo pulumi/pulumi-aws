@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -189,7 +188,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStore[]>;
+    public readonly artifactStores!: pulumi.Output<outputs.PipelineArtifactStore[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      *
@@ -211,7 +210,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A stage block. Stages are documented below.
      */
-    public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStage[]>;
+    public readonly stages!: pulumi.Output<outputs.PipelineStage[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -225,11 +224,11 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTrigger[] | undefined>;
+    public readonly triggers!: pulumi.Output<outputs.PipelineTrigger[] | undefined>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
-    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariable[] | undefined>;
+    public readonly variables!: pulumi.Output<outputs.PipelineVariable[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -294,7 +293,7 @@ export interface PipelineState {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    artifactStores?: pulumi.Input<pulumi.Input<inputs.PipelineArtifactStore>[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      *
@@ -316,7 +315,7 @@ export interface PipelineState {
     /**
      * A stage block. Stages are documented below.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.PipelineStage>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -330,11 +329,11 @@ export interface PipelineState {
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.PipelineTrigger>[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.PipelineVariable>[]>;
 }
 
 /**
@@ -344,7 +343,7 @@ export interface PipelineArgs {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    artifactStores: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStore>[]>;
+    artifactStores: pulumi.Input<pulumi.Input<inputs.PipelineArtifactStore>[]>;
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      *
@@ -366,7 +365,7 @@ export interface PipelineArgs {
     /**
      * A stage block. Stages are documented below.
      */
-    stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    stages: pulumi.Input<pulumi.Input<inputs.PipelineStage>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -374,9 +373,9 @@ export interface PipelineArgs {
     /**
      * A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
      */
-    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTrigger>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.PipelineTrigger>[]>;
     /**
      * A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
      */
-    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.PipelineVariable>[]>;
 }

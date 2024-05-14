@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetSecurityGroupArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetSecurityGroupFilter[];
+    filters?: inputs.GetSecurityGroupFilter[];
     /**
      * Id of the specific security group to retrieve.
      */
@@ -90,7 +90,7 @@ export interface GetSecurityGroupResult {
      * Description of the security group.
      */
     readonly description: string;
-    readonly filters?: outputs.ec2.GetSecurityGroupFilter[];
+    readonly filters?: inputs.GetSecurityGroupFilter[];
     readonly id: string;
     readonly name: string;
     readonly tags: {[key: string]: string};
@@ -134,7 +134,7 @@ export interface GetSecurityGroupOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSecurityGroupFilterArgs>[]>;
     /**
      * Id of the specific security group to retrieve.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
@@ -135,7 +134,7 @@ export class MethodSettings extends pulumi.CustomResource {
     /**
      * Settings block, see below.
      */
-    public readonly settings!: pulumi.Output<outputs.apigateway.MethodSettingsSettings>;
+    public readonly settings!: pulumi.Output<outputs.MethodSettingsSettings>;
     /**
      * Name of the stage
      */
@@ -197,7 +196,7 @@ export interface MethodSettingsState {
     /**
      * Settings block, see below.
      */
-    settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
+    settings?: pulumi.Input<inputs.MethodSettingsSettings>;
     /**
      * Name of the stage
      */
@@ -219,7 +218,7 @@ export interface MethodSettingsArgs {
     /**
      * Settings block, see below.
      */
-    settings: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
+    settings: pulumi.Input<inputs.MethodSettingsSettings>;
     /**
      * Name of the stage
      */

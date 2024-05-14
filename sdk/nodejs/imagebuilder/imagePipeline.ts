@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,11 +104,11 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ImagePipelineImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.ImagePipelineImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
@@ -127,7 +126,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * Configuration block with schedule settings. Detailed below.
      */
-    public readonly schedule!: pulumi.Output<outputs.imagebuilder.ImagePipelineSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.ImagePipelineSchedule | undefined>;
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      */
@@ -252,11 +251,11 @@ export interface ImagePipelineState {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ImagePipelineImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.ImagePipelineImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
@@ -274,7 +273,7 @@ export interface ImagePipelineState {
     /**
      * Configuration block with schedule settings. Detailed below.
      */
-    schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineSchedule>;
+    schedule?: pulumi.Input<inputs.ImagePipelineSchedule>;
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      */
@@ -318,11 +317,11 @@ export interface ImagePipelineArgs {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ImagePipelineImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.ImagePipelineImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
@@ -336,7 +335,7 @@ export interface ImagePipelineArgs {
     /**
      * Configuration block with schedule settings. Detailed below.
      */
-    schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineSchedule>;
+    schedule?: pulumi.Input<inputs.ImagePipelineSchedule>;
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      */

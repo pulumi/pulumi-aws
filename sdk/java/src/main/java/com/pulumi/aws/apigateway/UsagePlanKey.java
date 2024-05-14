@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RestApi("test", RestApiArgs.builder()        
+ *         var test = new RestApi("test", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .build());
  * 
  *         // ...
- *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()        
+ *         var myusageplan = new UsagePlan("myusageplan", UsagePlanArgs.builder()
  *             .name("my_usage_plan")
  *             .apiStages(UsagePlanApiStageArgs.builder()
  *                 .apiId(test.id())
@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mykey = new ApiKey("mykey", ApiKeyArgs.builder()        
+ *         var mykey = new ApiKey("mykey", ApiKeyArgs.builder()
  *             .name("my_key")
  *             .build());
  * 
- *         var main = new UsagePlanKey("main", UsagePlanKeyArgs.builder()        
+ *         var main = new UsagePlanKey("main", UsagePlanKeyArgs.builder()
  *             .keyId(mykey.id())
  *             .keyType("API_KEY")
  *             .usagePlanId(myusageplan.id())

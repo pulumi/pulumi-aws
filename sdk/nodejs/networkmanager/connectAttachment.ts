@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -130,7 +129,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
+    public readonly options!: pulumi.Output<outputs.ConnectAttachmentOptions>;
     /**
      * The ID of the attachment account owner.
      */
@@ -259,7 +258,7 @@ export interface ConnectAttachmentState {
      *
      * The following arguments are optional:
      */
-    options?: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
+    options?: pulumi.Input<inputs.ConnectAttachmentOptions>;
     /**
      * The ID of the attachment account owner.
      */
@@ -309,7 +308,7 @@ export interface ConnectAttachmentArgs {
      *
      * The following arguments are optional:
      */
-    options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptions>;
+    options: pulumi.Input<inputs.ConnectAttachmentOptions>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export interface GetLocalGatewayRouteTablesArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
+    filters?: inputs.GetLocalGatewayRouteTablesFilter[];
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
@@ -58,7 +58,7 @@ export interface GetLocalGatewayRouteTablesArgs {
  * A collection of values returned by getLocalGatewayRouteTables.
  */
 export interface GetLocalGatewayRouteTablesResult {
-    readonly filters?: outputs.ec2.GetLocalGatewayRouteTablesFilter[];
+    readonly filters?: inputs.GetLocalGatewayRouteTablesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -102,7 +102,7 @@ export interface GetLocalGatewayRouteTablesOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTablesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetLocalGatewayRouteTablesFilterArgs>[]>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.

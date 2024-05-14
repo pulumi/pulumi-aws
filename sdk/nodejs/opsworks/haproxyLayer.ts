@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class HaproxyLayer extends pulumi.CustomResource {
      * Whether to enable auto-healing for the layer.
      */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
-    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.HaproxyLayerCloudwatchConfiguration | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.HaproxyLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -91,7 +90,7 @@ export class HaproxyLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.HaproxyLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.HaproxyLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -112,7 +111,7 @@ export class HaproxyLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.HaproxyLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.HaproxyLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -269,7 +268,7 @@ export interface HaproxyLayerState {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.HaproxyLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.HaproxyLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -294,7 +293,7 @@ export interface HaproxyLayerState {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.HaproxyLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -315,7 +314,7 @@ export interface HaproxyLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.HaproxyLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.HaproxyLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -380,7 +379,7 @@ export interface HaproxyLayerArgs {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.HaproxyLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.HaproxyLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -405,7 +404,7 @@ export interface HaproxyLayerArgs {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.HaproxyLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -426,7 +425,7 @@ export interface HaproxyLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.HaproxyLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.HaproxyLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

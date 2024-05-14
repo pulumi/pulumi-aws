@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +80,7 @@ export interface GetEngineVersionArgs {
     /**
      * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      */
-    filters?: inputs.rds.GetEngineVersionFilter[];
+    filters?: inputs.GetEngineVersionFilter[];
     /**
      * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
      */
@@ -134,7 +134,7 @@ export interface GetEngineVersionResult {
      * Set of log types that the engine version has available for export to CloudWatch Logs.
      */
     readonly exportableLogTypes: string[];
-    readonly filters?: outputs.rds.GetEngineVersionFilter[];
+    readonly filters?: inputs.GetEngineVersionFilter[];
     readonly hasMajorTarget?: boolean;
     readonly hasMinorTarget?: boolean;
     /**
@@ -263,7 +263,7 @@ export interface GetEngineVersionOutputArgs {
     /**
      * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetEngineVersionFilterArgs>[]>;
     /**
      * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
      */

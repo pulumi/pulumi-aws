@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,11 +115,11 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Audio parameters object (documented below).
      */
-    public readonly audio!: pulumi.Output<outputs.elastictranscoder.PresetAudio | undefined>;
+    public readonly audio!: pulumi.Output<outputs.PresetAudio | undefined>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
+    public readonly audioCodecOptions!: pulumi.Output<outputs.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
@@ -136,12 +135,12 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Thumbnail parameters object (documented below)
      */
-    public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
+    public readonly thumbnails!: pulumi.Output<outputs.PresetThumbnails | undefined>;
     public readonly type!: pulumi.Output<string>;
     /**
      * Video parameters object (documented below)
      */
-    public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
+    public readonly video!: pulumi.Output<outputs.PresetVideo | undefined>;
     /**
      * Codec options for the video parameters
      */
@@ -149,7 +148,7 @@ export class Preset extends pulumi.CustomResource {
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    public readonly videoWatermarks!: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
+    public readonly videoWatermarks!: pulumi.Output<outputs.PresetVideoWatermark[] | undefined>;
 
     /**
      * Create a Preset resource with the given unique name, arguments, and options.
@@ -208,11 +207,11 @@ export interface PresetState {
     /**
      * Audio parameters object (documented below).
      */
-    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.PresetAudio>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
@@ -228,12 +227,12 @@ export interface PresetState {
     /**
      * Thumbnail parameters object (documented below)
      */
-    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
+    thumbnails?: pulumi.Input<inputs.PresetThumbnails>;
     type?: pulumi.Input<string>;
     /**
      * Video parameters object (documented below)
      */
-    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.PresetVideo>;
     /**
      * Codec options for the video parameters
      */
@@ -241,7 +240,7 @@ export interface PresetState {
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.PresetVideoWatermark>[]>;
 }
 
 /**
@@ -251,11 +250,11 @@ export interface PresetArgs {
     /**
      * Audio parameters object (documented below).
      */
-    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.PresetAudio>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
@@ -271,12 +270,12 @@ export interface PresetArgs {
     /**
      * Thumbnail parameters object (documented below)
      */
-    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
+    thumbnails?: pulumi.Input<inputs.PresetThumbnails>;
     type?: pulumi.Input<string>;
     /**
      * Video parameters object (documented below)
      */
-    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.PresetVideo>;
     /**
      * Codec options for the video parameters
      */
@@ -284,5 +283,5 @@ export interface PresetArgs {
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.PresetVideoWatermark>[]>;
 }

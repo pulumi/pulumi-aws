@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -167,7 +166,7 @@ export class Insight extends pulumi.CustomResource {
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    public readonly filters!: pulumi.Output<outputs.securityhub.InsightFilters>;
+    public readonly filters!: pulumi.Output<outputs.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
@@ -223,7 +222,7 @@ export interface InsightState {
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    filters?: pulumi.Input<inputs.securityhub.InsightFilters>;
+    filters?: pulumi.Input<inputs.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
@@ -241,7 +240,7 @@ export interface InsightArgs {
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    filters: pulumi.Input<inputs.securityhub.InsightFilters>;
+    filters: pulumi.Input<inputs.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */

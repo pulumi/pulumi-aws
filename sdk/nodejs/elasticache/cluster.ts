@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -168,7 +167,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      */
-    public /*out*/ readonly cacheNodes!: pulumi.Output<outputs.elasticache.ClusterCacheNode[]>;
+    public /*out*/ readonly cacheNodes!: pulumi.Output<outputs.ClusterCacheNode[]>;
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
@@ -211,7 +210,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
-    public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ClusterLogDeliveryConfiguration[] | undefined>;
+    public readonly logDeliveryConfigurations!: pulumi.Output<outputs.ClusterLogDeliveryConfiguration[] | undefined>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -419,7 +418,7 @@ export interface ClusterState {
     /**
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      */
-    cacheNodes?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterCacheNode>[]>;
+    cacheNodes?: pulumi.Input<pulumi.Input<inputs.ClusterCacheNode>[]>;
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
@@ -462,7 +461,7 @@ export interface ClusterState {
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
-    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterLogDeliveryConfiguration>[]>;
+    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.ClusterLogDeliveryConfiguration>[]>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -603,7 +602,7 @@ export interface ClusterArgs {
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      */
-    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterLogDeliveryConfiguration>[]>;
+    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.ClusterLogDeliveryConfiguration>[]>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +72,7 @@ export class Script extends pulumi.CustomResource {
     /**
      * Information indicating where your game script files are stored. See below.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptStorageLocation>;
+    public readonly storageLocation!: pulumi.Output<outputs.ScriptStorageLocation>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -143,7 +142,7 @@ export interface ScriptState {
     /**
      * Information indicating where your game script files are stored. See below.
      */
-    storageLocation?: pulumi.Input<inputs.gamelift.ScriptStorageLocation>;
+    storageLocation?: pulumi.Input<inputs.ScriptStorageLocation>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -175,7 +174,7 @@ export interface ScriptArgs {
     /**
      * Information indicating where your game script files are stored. See below.
      */
-    storageLocation?: pulumi.Input<inputs.gamelift.ScriptStorageLocation>;
+    storageLocation?: pulumi.Input<inputs.ScriptStorageLocation>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
      * The Amazon Resource Name of the scheduling policy.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly fairSharePolicy!: pulumi.Output<outputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
+    public readonly fairSharePolicy!: pulumi.Output<outputs.SchedulingPolicyFairSharePolicy | undefined>;
     /**
      * Specifies the name of the scheduling policy.
      */
@@ -133,7 +132,7 @@ export interface SchedulingPolicyState {
      * The Amazon Resource Name of the scheduling policy.
      */
     arn?: pulumi.Input<string>;
-    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy>;
+    fairSharePolicy?: pulumi.Input<inputs.SchedulingPolicyFairSharePolicy>;
     /**
      * Specifies the name of the scheduling policy.
      */
@@ -154,7 +153,7 @@ export interface SchedulingPolicyState {
  * The set of arguments for constructing a SchedulingPolicy resource.
  */
 export interface SchedulingPolicyArgs {
-    fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy>;
+    fairSharePolicy?: pulumi.Input<inputs.SchedulingPolicyFairSharePolicy>;
     /**
      * Specifies the name of the scheduling policy.
      */

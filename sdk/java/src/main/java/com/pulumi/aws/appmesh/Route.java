@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()
  *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()
  *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()
  *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())
@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb = new Route("serviceb", RouteArgs.builder()        
+ *         var serviceb = new Route("serviceb", RouteArgs.builder()
  *             .name("serviceB-route")
  *             .meshName(simple.id())
  *             .virtualRouterName(servicebAwsAppmeshVirtualRouter.name())

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +62,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      */
-    public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
+    public /*out*/ readonly certificateValidationRecords!: pulumi.Output<outputs.CustomDomainAssociationCertificateValidationRecord[]>;
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
@@ -131,7 +130,7 @@ export interface CustomDomainAssociationState {
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      */
-    certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[]>;
+    certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.CustomDomainAssociationCertificateValidationRecord>[]>;
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */

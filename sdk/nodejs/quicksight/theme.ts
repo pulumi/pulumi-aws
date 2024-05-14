@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +98,7 @@ export class Theme extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.ThemeConfiguration | undefined>;
     /**
      * The time that the theme was created.
      */
@@ -115,7 +114,7 @@ export class Theme extends pulumi.CustomResource {
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.ThemePermission[] | undefined>;
     /**
      * The theme creation status.
      */
@@ -219,7 +218,7 @@ export interface ThemeState {
      *
      * The following arguments are optional:
      */
-    configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
+    configuration?: pulumi.Input<inputs.ThemeConfiguration>;
     /**
      * The time that the theme was created.
      */
@@ -235,7 +234,7 @@ export interface ThemeState {
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.ThemePermission>[]>;
     /**
      * The theme creation status.
      */
@@ -281,7 +280,7 @@ export interface ThemeArgs {
      *
      * The following arguments are optional:
      */
-    configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration>;
+    configuration?: pulumi.Input<inputs.ThemeConfiguration>;
     /**
      * Display name of the theme.
      */
@@ -289,7 +288,7 @@ export interface ThemeArgs {
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.ThemePermission>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

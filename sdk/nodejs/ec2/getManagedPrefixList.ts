@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +58,7 @@ export interface GetManagedPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetManagedPrefixListFilter[];
+    filters?: inputs.GetManagedPrefixListFilter[];
     /**
      * ID of the prefix list to select.
      */
@@ -88,8 +88,8 @@ export interface GetManagedPrefixListResult {
     /**
      * Set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
      */
-    readonly entries: outputs.ec2.GetManagedPrefixListEntry[];
-    readonly filters?: outputs.ec2.GetManagedPrefixListFilter[];
+    readonly entries: outputs.GetManagedPrefixListEntry[];
+    readonly filters?: inputs.GetManagedPrefixListFilter[];
     /**
      * ID of the selected prefix list.
      */
@@ -155,7 +155,7 @@ export interface GetManagedPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetManagedPrefixListFilterArgs>[]>;
     /**
      * ID of the prefix list to select.
      */

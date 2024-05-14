@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      */
-    public readonly containers!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionContainer[]>;
+    public readonly containers!: pulumi.Output<outputs.ContainerServiceDeploymentVersionContainer[]>;
     /**
      * The timestamp when the deployment was created.
      */
@@ -97,7 +96,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      */
-    public readonly publicEndpoint!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
+    public readonly publicEndpoint!: pulumi.Output<outputs.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
     /**
      * The name for the container service.
      */
@@ -157,7 +156,7 @@ export interface ContainerServiceDeploymentVersionState {
     /**
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      */
-    containers?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.ContainerServiceDeploymentVersionContainer>[]>;
     /**
      * The timestamp when the deployment was created.
      */
@@ -165,7 +164,7 @@ export interface ContainerServiceDeploymentVersionState {
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      */
-    publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
+    publicEndpoint?: pulumi.Input<inputs.ContainerServiceDeploymentVersionPublicEndpoint>;
     /**
      * The name for the container service.
      */
@@ -187,11 +186,11 @@ export interface ContainerServiceDeploymentVersionArgs {
     /**
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      */
-    containers: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionContainer>[]>;
+    containers: pulumi.Input<pulumi.Input<inputs.ContainerServiceDeploymentVersionContainer>[]>;
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      */
-    publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
+    publicEndpoint?: pulumi.Input<inputs.ContainerServiceDeploymentVersionPublicEndpoint>;
     /**
      * The name for the container service.
      */

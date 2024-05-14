@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -151,7 +150,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    public readonly certificateAuthorityConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    public readonly certificateAuthorityConfiguration!: pulumi.Output<outputs.CertificateAuthorityCertificateAuthorityConfiguration>;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
@@ -183,7 +182,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
+    public readonly revocationConfiguration!: pulumi.Output<outputs.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
@@ -278,7 +277,7 @@ export interface CertificateAuthorityState {
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    certificateAuthorityConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    certificateAuthorityConfiguration?: pulumi.Input<inputs.CertificateAuthorityCertificateAuthorityConfiguration>;
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      */
@@ -310,7 +309,7 @@ export interface CertificateAuthorityState {
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    revocationConfiguration?: pulumi.Input<inputs.CertificateAuthorityRevocationConfiguration>;
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
@@ -342,7 +341,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      */
-    certificateAuthorityConfiguration: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
+    certificateAuthorityConfiguration: pulumi.Input<inputs.CertificateAuthorityCertificateAuthorityConfiguration>;
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      */
@@ -358,7 +357,7 @@ export interface CertificateAuthorityArgs {
     /**
      * Nested argument containing revocation configuration. Defined below.
      */
-    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
+    revocationConfiguration?: pulumi.Input<inputs.CertificateAuthorityRevocationConfiguration>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

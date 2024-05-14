@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Object containing destination configuration for where recorded video will be stored.
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    public readonly destinationConfiguration!: pulumi.Output<outputs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration name.
      */
@@ -97,7 +96,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      */
-    public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration>;
+    public readonly thumbnailConfiguration!: pulumi.Output<outputs.RecordingConfigurationThumbnailConfiguration>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -150,7 +149,7 @@ export interface RecordingConfigurationState {
     /**
      * Object containing destination configuration for where recorded video will be stored.
      */
-    destinationConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration name.
      */
@@ -176,7 +175,7 @@ export interface RecordingConfigurationState {
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      */
-    thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfiguration>;
+    thumbnailConfiguration?: pulumi.Input<inputs.RecordingConfigurationThumbnailConfiguration>;
 }
 
 /**
@@ -186,7 +185,7 @@ export interface RecordingConfigurationArgs {
     /**
      * Object containing destination configuration for where recorded video will be stored.
      */
-    destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfiguration>;
+    destinationConfiguration: pulumi.Input<inputs.RecordingConfigurationDestinationConfiguration>;
     /**
      * Recording Configuration name.
      */
@@ -202,5 +201,5 @@ export interface RecordingConfigurationArgs {
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      */
-    thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfiguration>;
+    thumbnailConfiguration?: pulumi.Input<inputs.RecordingConfigurationThumbnailConfiguration>;
 }

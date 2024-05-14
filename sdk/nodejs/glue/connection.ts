@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -118,7 +117,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    public readonly physicalConnectionRequirements!: pulumi.Output<outputs.glue.ConnectionPhysicalConnectionRequirements | undefined>;
+    public readonly physicalConnectionRequirements!: pulumi.Output<outputs.ConnectionPhysicalConnectionRequirements | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -208,7 +207,7 @@ export interface ConnectionState {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.ConnectionPhysicalConnectionRequirements>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -252,7 +251,7 @@ export interface ConnectionArgs {
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.ConnectionPhysicalConnectionRequirements>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

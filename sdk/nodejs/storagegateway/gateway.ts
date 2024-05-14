@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -192,7 +191,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      */
-    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.storagegateway.GatewayGatewayNetworkInterface[]>;
+    public /*out*/ readonly gatewayNetworkInterfaces!: pulumi.Output<outputs.GatewayGatewayNetworkInterface[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
@@ -212,7 +211,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
      */
-    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
+    public readonly maintenanceStartTime!: pulumi.Output<outputs.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
@@ -220,7 +219,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
+    public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.GatewaySmbActiveDirectorySettings | undefined>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */
@@ -372,7 +371,7 @@ export interface GatewayState {
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      */
-    gatewayNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.storagegateway.GatewayGatewayNetworkInterface>[]>;
+    gatewayNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.GatewayGatewayNetworkInterface>[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
@@ -392,7 +391,7 @@ export interface GatewayState {
     /**
      * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
      */
-    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
+    maintenanceStartTime?: pulumi.Input<inputs.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
@@ -400,7 +399,7 @@ export interface GatewayState {
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
+    smbActiveDirectorySettings?: pulumi.Input<inputs.GatewaySmbActiveDirectorySettings>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */
@@ -472,7 +471,7 @@ export interface GatewayArgs {
     /**
      * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
      */
-    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
+    maintenanceStartTime?: pulumi.Input<inputs.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
@@ -480,7 +479,7 @@ export interface GatewayArgs {
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
+    smbActiveDirectorySettings?: pulumi.Input<inputs.GatewaySmbActiveDirectorySettings>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */

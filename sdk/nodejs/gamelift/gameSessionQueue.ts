@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
+    public readonly playerLatencyPolicies!: pulumi.Output<outputs.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -177,7 +176,7 @@ export interface GameSessionQueueState {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -217,7 +216,7 @@ export interface GameSessionQueueArgs {
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

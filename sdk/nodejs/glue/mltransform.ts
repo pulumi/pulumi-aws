@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -152,7 +151,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    public readonly inputRecordTables!: pulumi.Output<outputs.glue.MLTransformInputRecordTable[]>;
+    public readonly inputRecordTables!: pulumi.Output<outputs.MLTransformInputRecordTable[]>;
     /**
      * The number of labels available for this transform.
      */
@@ -176,7 +175,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.glue.MLTransformParameters>;
+    public readonly parameters!: pulumi.Output<outputs.MLTransformParameters>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
@@ -184,7 +183,7 @@ export class MLTransform extends pulumi.CustomResource {
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    public /*out*/ readonly schemas!: pulumi.Output<outputs.glue.MLTransformSchema[]>;
+    public /*out*/ readonly schemas!: pulumi.Output<outputs.MLTransformSchema[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -285,7 +284,7 @@ export interface MLTransformState {
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    inputRecordTables?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
+    inputRecordTables?: pulumi.Input<pulumi.Input<inputs.MLTransformInputRecordTable>[]>;
     /**
      * The number of labels available for this transform.
      */
@@ -309,7 +308,7 @@ export interface MLTransformState {
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    parameters?: pulumi.Input<inputs.glue.MLTransformParameters>;
+    parameters?: pulumi.Input<inputs.MLTransformParameters>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
@@ -317,7 +316,7 @@ export interface MLTransformState {
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[]>;
+    schemas?: pulumi.Input<pulumi.Input<inputs.MLTransformSchema>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -353,7 +352,7 @@ export interface MLTransformArgs {
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    inputRecordTables: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
+    inputRecordTables: pulumi.Input<pulumi.Input<inputs.MLTransformInputRecordTable>[]>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
@@ -373,7 +372,7 @@ export interface MLTransformArgs {
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    parameters: pulumi.Input<inputs.glue.MLTransformParameters>;
+    parameters: pulumi.Input<inputs.MLTransformParameters>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */

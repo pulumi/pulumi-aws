@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -105,7 +105,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketCorsConfigurationV2 resource instead
      */
-    public readonly corsRules!: pulumi.Output<outputs.s3.BucketV2CorsRule[]>;
+    public readonly corsRules!: pulumi.Output<outputs.BucketV2CorsRule[]>;
     /**
      * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
@@ -115,7 +115,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketAclV2 resource instead
      */
-    public readonly grants!: pulumi.Output<outputs.s3.BucketV2Grant[]>;
+    public readonly grants!: pulumi.Output<outputs.BucketV2Grant[]>;
     /**
      * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
@@ -126,14 +126,14 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      */
-    public readonly lifecycleRules!: pulumi.Output<outputs.s3.BucketV2LifecycleRule[]>;
+    public readonly lifecycleRules!: pulumi.Output<outputs.BucketV2LifecycleRule[]>;
     /**
      * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      *
      * @deprecated Use the aws.s3.BucketLoggingV2 resource instead
      */
-    public readonly loggings!: pulumi.Output<outputs.s3.BucketV2Logging[]>;
+    public readonly loggings!: pulumi.Output<outputs.BucketV2Logging[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -141,7 +141,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      */
-    public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketV2ObjectLockConfiguration>;
+    public readonly objectLockConfiguration!: pulumi.Output<outputs.BucketV2ObjectLockConfiguration>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      */
@@ -164,7 +164,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketReplicationConfig resource instead
      */
-    public readonly replicationConfigurations!: pulumi.Output<outputs.s3.BucketV2ReplicationConfiguration[]>;
+    public readonly replicationConfigurations!: pulumi.Output<outputs.BucketV2ReplicationConfiguration[]>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -182,7 +182,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      */
-    public readonly serverSideEncryptionConfigurations!: pulumi.Output<outputs.s3.BucketV2ServerSideEncryptionConfiguration[]>;
+    public readonly serverSideEncryptionConfigurations!: pulumi.Output<outputs.BucketV2ServerSideEncryptionConfiguration[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -200,7 +200,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketVersioningV2 resource instead
      */
-    public readonly versionings!: pulumi.Output<outputs.s3.BucketV2Versioning[]>;
+    public readonly versionings!: pulumi.Output<outputs.BucketV2Versioning[]>;
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
@@ -219,7 +219,7 @@ export class BucketV2 extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      */
-    public readonly websites!: pulumi.Output<outputs.s3.BucketV2Website[]>;
+    public readonly websites!: pulumi.Output<outputs.BucketV2Website[]>;
 
     /**
      * Create a BucketV2 resource with the given unique name, arguments, and options.
@@ -338,7 +338,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketCorsConfigurationV2 resource instead
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2CorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.BucketV2CorsRule>[]>;
     /**
      * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
@@ -348,7 +348,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketAclV2 resource instead
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Grant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.BucketV2Grant>[]>;
     /**
      * [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
@@ -359,14 +359,14 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      */
-    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.BucketV2LifecycleRule>[]>;
     /**
      * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      *
      * @deprecated Use the aws.s3.BucketLoggingV2 resource instead
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Logging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.BucketV2Logging>[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -374,7 +374,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      */
-    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketV2ObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.BucketV2ObjectLockConfiguration>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      */
@@ -397,7 +397,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketReplicationConfig resource instead
      */
-    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfiguration>[]>;
+    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.BucketV2ReplicationConfiguration>[]>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -415,7 +415,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      */
-    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfiguration>[]>;
+    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.BucketV2ServerSideEncryptionConfiguration>[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -433,7 +433,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketVersioningV2 resource instead
      */
-    versionings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Versioning>[]>;
+    versionings?: pulumi.Input<pulumi.Input<inputs.BucketV2Versioning>[]>;
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
@@ -452,7 +452,7 @@ export interface BucketV2State {
      *
      * @deprecated Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      */
-    websites?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Website>[]>;
+    websites?: pulumi.Input<pulumi.Input<inputs.BucketV2Website>[]>;
 }
 
 /**
@@ -485,7 +485,7 @@ export interface BucketV2Args {
      *
      * @deprecated Use the aws.s3.BucketCorsConfigurationV2 resource instead
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2CorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.BucketV2CorsRule>[]>;
     /**
      * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      */
@@ -495,21 +495,21 @@ export interface BucketV2Args {
      *
      * @deprecated Use the aws.s3.BucketAclV2 resource instead
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Grant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.BucketV2Grant>[]>;
     /**
      * Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      *
      * @deprecated Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      */
-    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.BucketV2LifecycleRule>[]>;
     /**
      * Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      *
      * @deprecated Use the aws.s3.BucketLoggingV2 resource instead
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Logging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.BucketV2Logging>[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
      * The provider wil only perform drift detection if a configuration value is provided.
@@ -517,7 +517,7 @@ export interface BucketV2Args {
      *
      * @deprecated Use the top-level parameter objectLockEnabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      */
-    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketV2ObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.BucketV2ObjectLockConfiguration>;
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      */
@@ -536,7 +536,7 @@ export interface BucketV2Args {
      *
      * @deprecated Use the aws.s3.BucketReplicationConfig resource instead
      */
-    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfiguration>[]>;
+    replicationConfigurations?: pulumi.Input<pulumi.Input<inputs.BucketV2ReplicationConfiguration>[]>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
@@ -554,7 +554,7 @@ export interface BucketV2Args {
      *
      * @deprecated Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      */
-    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfiguration>[]>;
+    serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.BucketV2ServerSideEncryptionConfiguration>[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -566,12 +566,12 @@ export interface BucketV2Args {
      *
      * @deprecated Use the aws.s3.BucketVersioningV2 resource instead
      */
-    versionings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Versioning>[]>;
+    versionings?: pulumi.Input<pulumi.Input<inputs.BucketV2Versioning>[]>;
     /**
      * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
      * @deprecated Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      */
-    websites?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Website>[]>;
+    websites?: pulumi.Input<pulumi.Input<inputs.BucketV2Website>[]>;
 }

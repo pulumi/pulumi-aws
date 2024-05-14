@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +41,7 @@ export interface GetImageRecipesArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.imagebuilder.GetImageRecipesFilter[];
+    filters?: inputs.GetImageRecipesFilter[];
     /**
      * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
@@ -57,7 +56,7 @@ export interface GetImageRecipesResult {
      * Set of ARNs of the matched Image Builder Image Recipes.
      */
     readonly arns: string[];
-    readonly filters?: outputs.imagebuilder.GetImageRecipesFilter[];
+    readonly filters?: inputs.GetImageRecipesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -97,7 +96,7 @@ export interface GetImageRecipesOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImageRecipesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetImageRecipesFilterArgs>[]>;
     /**
      * Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */

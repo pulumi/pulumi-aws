@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -195,11 +194,11 @@ export class Distribution extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly cacheBehaviorSettings!: pulumi.Output<outputs.lightsail.DistributionCacheBehaviorSettings | undefined>;
+    public readonly cacheBehaviorSettings!: pulumi.Output<outputs.DistributionCacheBehaviorSettings | undefined>;
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      */
-    public readonly cacheBehaviors!: pulumi.Output<outputs.lightsail.DistributionCacheBehavior[] | undefined>;
+    public readonly cacheBehaviors!: pulumi.Output<outputs.DistributionCacheBehavior[] | undefined>;
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      */
@@ -211,7 +210,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      */
-    public readonly defaultCacheBehavior!: pulumi.Output<outputs.lightsail.DistributionDefaultCacheBehavior>;
+    public readonly defaultCacheBehavior!: pulumi.Output<outputs.DistributionDefaultCacheBehavior>;
     /**
      * The domain name of the distribution.
      */
@@ -227,7 +226,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      */
-    public /*out*/ readonly locations!: pulumi.Output<outputs.lightsail.DistributionLocation[]>;
+    public /*out*/ readonly locations!: pulumi.Output<outputs.DistributionLocation[]>;
     /**
      * Name of the distribution.
      */
@@ -235,7 +234,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      */
-    public readonly origin!: pulumi.Output<outputs.lightsail.DistributionOrigin>;
+    public readonly origin!: pulumi.Output<outputs.DistributionOrigin>;
     /**
      * The public DNS of the origin.
      */
@@ -357,11 +356,11 @@ export interface DistributionState {
      *
      * The following arguments are optional:
      */
-    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
+    cacheBehaviorSettings?: pulumi.Input<inputs.DistributionCacheBehaviorSettings>;
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.DistributionCacheBehavior>[]>;
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      */
@@ -373,7 +372,7 @@ export interface DistributionState {
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      */
-    defaultCacheBehavior?: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior>;
+    defaultCacheBehavior?: pulumi.Input<inputs.DistributionDefaultCacheBehavior>;
     /**
      * The domain name of the distribution.
      */
@@ -389,7 +388,7 @@ export interface DistributionState {
     /**
      * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      */
-    locations?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionLocation>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.DistributionLocation>[]>;
     /**
      * Name of the distribution.
      */
@@ -397,7 +396,7 @@ export interface DistributionState {
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      */
-    origin?: pulumi.Input<inputs.lightsail.DistributionOrigin>;
+    origin?: pulumi.Input<inputs.DistributionOrigin>;
     /**
      * The public DNS of the origin.
      */
@@ -442,11 +441,11 @@ export interface DistributionArgs {
      *
      * The following arguments are optional:
      */
-    cacheBehaviorSettings?: pulumi.Input<inputs.lightsail.DistributionCacheBehaviorSettings>;
+    cacheBehaviorSettings?: pulumi.Input<inputs.DistributionCacheBehaviorSettings>;
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      */
-    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.lightsail.DistributionCacheBehavior>[]>;
+    cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.DistributionCacheBehavior>[]>;
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      */
@@ -454,7 +453,7 @@ export interface DistributionArgs {
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      */
-    defaultCacheBehavior: pulumi.Input<inputs.lightsail.DistributionDefaultCacheBehavior>;
+    defaultCacheBehavior: pulumi.Input<inputs.DistributionDefaultCacheBehavior>;
     /**
      * The IP address type of the distribution. Default: `dualstack`.
      */
@@ -470,7 +469,7 @@ export interface DistributionArgs {
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      */
-    origin: pulumi.Input<inputs.lightsail.DistributionOrigin>;
+    origin: pulumi.Input<inputs.DistributionOrigin>;
     /**
      * Map of tags for the Lightsail Distribution. If
      * configured with a provider

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
+    public readonly cacheAttributes!: pulumi.Output<outputs.NfsFileShareCacheAttributes | undefined>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -115,7 +114,7 @@ export class NfsFileShare extends pulumi.CustomResource {
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    public readonly nfsFileShareDefaults!: pulumi.Output<outputs.storagegateway.NfsFileShareNfsFileShareDefaults | undefined>;
+    public readonly nfsFileShareDefaults!: pulumi.Output<outputs.NfsFileShareNfsFileShareDefaults | undefined>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
@@ -259,7 +258,7 @@ export interface NfsFileShareState {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.NfsFileShareCacheAttributes>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -299,7 +298,7 @@ export interface NfsFileShareState {
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
+    nfsFileShareDefaults?: pulumi.Input<inputs.NfsFileShareNfsFileShareDefaults>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
@@ -359,7 +358,7 @@ export interface NfsFileShareArgs {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.NfsFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.NfsFileShareCacheAttributes>;
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
      */
@@ -395,7 +394,7 @@ export interface NfsFileShareArgs {
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      */
-    nfsFileShareDefaults?: pulumi.Input<inputs.storagegateway.NfsFileShareNfsFileShareDefaults>;
+    nfsFileShareDefaults?: pulumi.Input<inputs.NfsFileShareNfsFileShareDefaults>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */

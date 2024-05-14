@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -110,7 +109,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for execution controls. See below.
      */
-    public readonly executionControls!: pulumi.Output<outputs.cfg.RemediationConfigurationExecutionControls | undefined>;
+    public readonly executionControls!: pulumi.Output<outputs.RemediationConfigurationExecutionControls | undefined>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
@@ -118,7 +117,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    public readonly parameters!: pulumi.Output<outputs.cfg.RemediationConfigurationParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.RemediationConfigurationParameter[] | undefined>;
     /**
      * Type of resource.
      */
@@ -213,7 +212,7 @@ export interface RemediationConfigurationState {
     /**
      * Configuration block for execution controls. See below.
      */
-    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    executionControls?: pulumi.Input<inputs.RemediationConfigurationExecutionControls>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
@@ -221,7 +220,7 @@ export interface RemediationConfigurationState {
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.RemediationConfigurationParameter>[]>;
     /**
      * Type of resource.
      */
@@ -261,7 +260,7 @@ export interface RemediationConfigurationArgs {
     /**
      * Configuration block for execution controls. See below.
      */
-    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    executionControls?: pulumi.Input<inputs.RemediationConfigurationExecutionControls>;
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      */
@@ -269,7 +268,7 @@ export interface RemediationConfigurationArgs {
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.RemediationConfigurationParameter>[]>;
     /**
      * Type of resource.
      */

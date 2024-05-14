@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var test = new FindingsFilter("test", FindingsFilterArgs.builder()        
+ *         var test = new FindingsFilter("test", FindingsFilterArgs.builder()
  *             .name("NAME OF THE FINDINGS FILTER")
  *             .description("DESCRIPTION")
  *             .position(1)

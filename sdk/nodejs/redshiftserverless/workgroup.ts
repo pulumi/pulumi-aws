@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,11 +68,11 @@ export class Workgroup extends pulumi.CustomResource {
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      */
-    public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
+    public readonly configParameters!: pulumi.Output<outputs.WorkgroupConfigParameter[]>;
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.WorkgroupEndpoint[]>;
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
@@ -195,11 +194,11 @@ export interface WorkgroupState {
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      */
-    configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameter>[]>;
+    configParameters?: pulumi.Input<pulumi.Input<inputs.WorkgroupConfigParameter>[]>;
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.WorkgroupEndpoint>[]>;
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
@@ -261,7 +260,7 @@ export interface WorkgroupArgs {
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      */
-    configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameter>[]>;
+    configParameters?: pulumi.Input<pulumi.Input<inputs.WorkgroupConfigParameter>[]>;
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */

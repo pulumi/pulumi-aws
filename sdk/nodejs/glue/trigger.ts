@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -149,7 +148,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * List of actions initiated by this trigger when it fires. See Actions Below.
      */
-    public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
+    public readonly actions!: pulumi.Output<outputs.TriggerAction[]>;
     /**
      * Amazon Resource Name (ARN) of Glue Trigger
      */
@@ -165,7 +164,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
      */
-    public readonly eventBatchingConditions!: pulumi.Output<outputs.glue.TriggerEventBatchingCondition[] | undefined>;
+    public readonly eventBatchingConditions!: pulumi.Output<outputs.TriggerEventBatchingCondition[] | undefined>;
     /**
      * The name of the trigger.
      */
@@ -173,7 +172,7 @@ export class Trigger extends pulumi.CustomResource {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
-    public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
+    public readonly predicate!: pulumi.Output<outputs.TriggerPredicate | undefined>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
@@ -267,7 +266,7 @@ export interface TriggerState {
     /**
      * List of actions initiated by this trigger when it fires. See Actions Below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.TriggerAction>[]>;
     /**
      * Amazon Resource Name (ARN) of Glue Trigger
      */
@@ -283,7 +282,7 @@ export interface TriggerState {
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
      */
-    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[]>;
+    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.TriggerEventBatchingCondition>[]>;
     /**
      * The name of the trigger.
      */
@@ -291,7 +290,7 @@ export interface TriggerState {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
-    predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
+    predicate?: pulumi.Input<inputs.TriggerPredicate>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */
@@ -331,7 +330,7 @@ export interface TriggerArgs {
     /**
      * List of actions initiated by this trigger when it fires. See Actions Below.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.glue.TriggerAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.TriggerAction>[]>;
     /**
      * A description of the new trigger.
      */
@@ -343,7 +342,7 @@ export interface TriggerArgs {
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
      */
-    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.glue.TriggerEventBatchingCondition>[]>;
+    eventBatchingConditions?: pulumi.Input<pulumi.Input<inputs.TriggerEventBatchingCondition>[]>;
     /**
      * The name of the trigger.
      */
@@ -351,7 +350,7 @@ export interface TriggerArgs {
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      */
-    predicate?: pulumi.Input<inputs.glue.TriggerPredicate>;
+    predicate?: pulumi.Input<inputs.TriggerPredicate>;
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      */

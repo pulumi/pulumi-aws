@@ -41,6 +41,15 @@ export const StateMachine: typeof import("./stateMachine").StateMachine = null a
 utilities.lazyLoad(exports, ["StateMachine"], () => require("./stateMachine"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

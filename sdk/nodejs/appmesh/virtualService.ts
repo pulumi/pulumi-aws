@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -117,7 +116,7 @@ export class VirtualService extends pulumi.CustomResource {
     /**
      * Virtual service specification to apply.
      */
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
+    public readonly spec!: pulumi.Output<outputs.VirtualServiceSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -211,7 +210,7 @@ export interface VirtualServiceState {
     /**
      * Virtual service specification to apply.
      */
-    spec?: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
+    spec?: pulumi.Input<inputs.VirtualServiceSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -243,7 +242,7 @@ export interface VirtualServiceArgs {
     /**
      * Virtual service specification to apply.
      */
-    spec: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
+    spec: pulumi.Input<inputs.VirtualServiceSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

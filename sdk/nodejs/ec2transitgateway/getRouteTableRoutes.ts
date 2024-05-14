@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +40,7 @@ export interface GetRouteTableRoutesArgs {
     /**
      * Custom filter block as described below.
      */
-    filters: inputs.ec2transitgateway.GetRouteTableRoutesFilter[];
+    filters: inputs.GetRouteTableRoutesFilter[];
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *
@@ -55,7 +54,7 @@ export interface GetRouteTableRoutesArgs {
  * A collection of values returned by getRouteTableRoutes.
  */
 export interface GetRouteTableRoutesResult {
-    readonly filters: outputs.ec2transitgateway.GetRouteTableRoutesFilter[];
+    readonly filters: inputs.GetRouteTableRoutesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -63,7 +62,7 @@ export interface GetRouteTableRoutesResult {
     /**
      * List of Transit Gateway Routes.
      */
-    readonly routes: outputs.ec2transitgateway.GetRouteTableRoutesRoute[];
+    readonly routes: outputs.GetRouteTableRoutesRoute[];
     readonly transitGatewayRouteTableId: string;
 }
 /**
@@ -95,7 +94,7 @@ export interface GetRouteTableRoutesOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableRoutesFilterArgs>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.GetRouteTableRoutesFilterArgs>[]>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *

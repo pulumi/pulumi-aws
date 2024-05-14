@@ -2,315 +2,2113 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
-import * as utilities from "../utilities";
+import * as inputs from "./input";
+import * as outputs from "./output";
 
-/**
- * Resource for managing an AWS MediaLive Input.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.medialive.InputSecurityGroup("example", {
- *     whitelistRules: [{
- *         cidr: "10.0.0.8/32",
- *     }],
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- * });
- * const exampleInput = new aws.medialive.Input("example", {
- *     name: "example-input",
- *     inputSecurityGroups: [example.id],
- *     type: "UDP_PUSH",
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Using `pulumi import`, import MediaLive Input using the `id`. For example:
- *
- * ```sh
- * $ pulumi import aws:medialive/input:Input example 12345678
- * ```
- */
-export class Input extends pulumi.CustomResource {
+export interface ChannelCdiInputSpecification {
     /**
-     * Get an existing Input resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param state Any extra arguments used during the lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
+     * Maximum CDI input resolution.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: InputState, opts?: pulumi.CustomResourceOptions): Input {
-        return new Input(name, <any>state, { ...opts, id: id });
-    }
-
-    /** @internal */
-    public static readonly __pulumiType = 'aws:medialive/input:Input';
-
-    /**
-     * Returns true if the given object is an instance of Input.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
-     */
-    public static isInstance(obj: any): obj is Input {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === Input.__pulumiType;
-    }
-
-    /**
-     * ARN of the Input.
-     */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Channels attached to Input.
-     */
-    public /*out*/ readonly attachedChannels!: pulumi.Output<string[]>;
-    /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
-     */
-    public readonly destinations!: pulumi.Output<outputs.medialive.InputDestination[] | undefined>;
-    /**
-     * The input class.
-     */
-    public /*out*/ readonly inputClass!: pulumi.Output<string>;
-    /**
-     * Settings for the devices. See Input Devices for more details.
-     */
-    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputInputDevice[]>;
-    /**
-     * A list of IDs for all Inputs which are partners of this one.
-     */
-    public /*out*/ readonly inputPartnerIds!: pulumi.Output<string[]>;
-    /**
-     * List of input security groups.
-     */
-    public readonly inputSecurityGroups!: pulumi.Output<string[] | undefined>;
-    /**
-     * Source type of the input.
-     */
-    public /*out*/ readonly inputSourceType!: pulumi.Output<string>;
-    /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
-     */
-    public readonly mediaConnectFlows!: pulumi.Output<outputs.medialive.InputMediaConnectFlow[]>;
-    /**
-     * Name of the input.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * The ARN of the role this input assumes during and after creation.
-     */
-    public readonly roleArn!: pulumi.Output<string>;
-    /**
-     * The source URLs for a PULL-type input. See Sources for more details.
-     */
-    public readonly sources!: pulumi.Output<outputs.medialive.InputSource[]>;
-    /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
-     *
-     * The following arguments are optional:
-     */
-    public readonly type!: pulumi.Output<string>;
-    /**
-     * Settings for a private VPC Input. See VPC for more details.
-     */
-    public readonly vpc!: pulumi.Output<outputs.medialive.InputVpc | undefined>;
-
-    /**
-     * Create a Input resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args: InputArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: InputArgs | InputState, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (opts.id) {
-            const state = argsOrState as InputState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["attachedChannels"] = state ? state.attachedChannels : undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["inputClass"] = state ? state.inputClass : undefined;
-            resourceInputs["inputDevices"] = state ? state.inputDevices : undefined;
-            resourceInputs["inputPartnerIds"] = state ? state.inputPartnerIds : undefined;
-            resourceInputs["inputSecurityGroups"] = state ? state.inputSecurityGroups : undefined;
-            resourceInputs["inputSourceType"] = state ? state.inputSourceType : undefined;
-            resourceInputs["mediaConnectFlows"] = state ? state.mediaConnectFlows : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vpc"] = state ? state.vpc : undefined;
-        } else {
-            const args = argsOrState as InputArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["inputDevices"] = args ? args.inputDevices : undefined;
-            resourceInputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
-            resourceInputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpc"] = args ? args.vpc : undefined;
-            resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["attachedChannels"] = undefined /*out*/;
-            resourceInputs["inputClass"] = undefined /*out*/;
-            resourceInputs["inputPartnerIds"] = undefined /*out*/;
-            resourceInputs["inputSourceType"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Input.__pulumiType, name, resourceInputs, opts);
-    }
+    resolution: pulumi.Input<string>;
 }
-
-/**
- * Input properties used for looking up and filtering Input resources.
- */
-export interface InputState {
+export interface ChannelDestination {
     /**
-     * ARN of the Input.
+     * User-specified id. Ths is used in an output group or an output.
      */
-    arn?: pulumi.Input<string>;
+    id: pulumi.Input<string>;
     /**
-     * Channels attached to Input.
+     * Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
      */
-    attachedChannels?: pulumi.Input<pulumi.Input<string>[]>;
+    mediaPackageSettings?: pulumi.Input<pulumi.Input<inputs.ChannelDestinationMediaPackageSetting>[]>;
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
+    multiplexSettings?: pulumi.Input<inputs.ChannelDestinationMultiplexSettings>;
     /**
-     * The input class.
+     * Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
      */
-    inputClass?: pulumi.Input<string>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ChannelDestinationSetting>[]>;
+}
+export interface ChannelDestinationMediaPackageSetting {
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * ID of the channel in MediaPackage that is the destination for this output group.
      */
-    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
+    channelId: pulumi.Input<string>;
+}
+export interface ChannelDestinationMultiplexSettings {
     /**
-     * A list of IDs for all Inputs which are partners of this one.
+     * The ID of the Multiplex that the encoder is providing output to.
      */
-    inputPartnerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    multiplexId: pulumi.Input<string>;
     /**
-     * List of input security groups.
+     * The program name of the Multiplex program that the encoder is providing output to.
      */
-    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    programName: pulumi.Input<string>;
+}
+export interface ChannelDestinationSetting {
     /**
-     * Source type of the input.
+     * Key used to extract the password from EC2 Parameter store.
      */
-    inputSourceType?: pulumi.Input<string>;
+    passwordParam?: pulumi.Input<string>;
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * Stream name RTMP destinations (URLs of type rtmp://)
      */
-    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
+    streamName?: pulumi.Input<string>;
     /**
-     * Name of the input.
+     * A URL specifying a destination.
+     */
+    url?: pulumi.Input<string>;
+    /**
+     * Username for destination.
+     */
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettings {
+    /**
+     * Audio descriptions for the channel. See Audio Descriptions for more details.
+     */
+    audioDescriptions?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsAudioDescription>[]>;
+    /**
+     * Settings for ad avail blanking. See Avail Blanking for more details.
+     */
+    availBlanking?: pulumi.Input<inputs.ChannelEncoderSettingsAvailBlanking>;
+    /**
+     * Caption Descriptions. See Caption Descriptions for more details.
+     */
+    captionDescriptions?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescription>[]>;
+    /**
+     * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     */
+    globalConfiguration?: pulumi.Input<inputs.ChannelEncoderSettingsGlobalConfiguration>;
+    /**
+     * Settings for motion graphics. See Motion Graphics Configuration for more details.
+     */
+    motionGraphicsConfiguration?: pulumi.Input<inputs.ChannelEncoderSettingsMotionGraphicsConfiguration>;
+    /**
+     * Nielsen configuration settings. See Nielsen Configuration for more details.
+     */
+    nielsenConfiguration?: pulumi.Input<inputs.ChannelEncoderSettingsNielsenConfiguration>;
+    /**
+     * Output groups for the channel. See Output Groups for more details.
+     */
+    outputGroups: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroup>[]>;
+    /**
+     * Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+     */
+    timecodeConfig: pulumi.Input<inputs.ChannelEncoderSettingsTimecodeConfig>;
+    /**
+     * Video Descriptions. See Video Descriptions for more details.
+     */
+    videoDescriptions?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsVideoDescription>[]>;
+}
+export interface ChannelEncoderSettingsAudioDescription {
+    /**
+     * Advanced audio normalization settings. See Audio Normalization Settings for more details.
+     */
+    audioNormalizationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings>;
+    /**
+     * The name of the audio selector used as the source for this AudioDescription.
+     */
+    audioSelectorName: pulumi.Input<string>;
+    /**
+     * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+     */
+    audioType?: pulumi.Input<string>;
+    /**
+     * Determined how audio type is determined.
+     */
+    audioTypeControl?: pulumi.Input<string>;
+    /**
+     * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+     */
+    audioWatermarkSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings>;
+    /**
+     * Audio codec settings. See Audio Codec Settings for more details.
+     */
+    codecSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettings>;
+    languageCode?: pulumi.Input<string>;
+    languageCodeControl?: pulumi.Input<string>;
+    /**
+     * The name of this audio description.
+     */
+    name: pulumi.Input<string>;
+    remixSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionRemixSettings>;
+    streamName?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings {
+    /**
+     * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+     */
+    algorithm?: pulumi.Input<string>;
+    /**
+     * Algorithm control for the audio description.
+     */
+    algorithmControl?: pulumi.Input<string>;
+    /**
+     * Target LKFS (loudness) to adjust volume to.
+     */
+    targetLkfs?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings {
+    nielsenWatermarksSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
+    nielsenCbetSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings>;
+    nielsenDistributionType?: pulumi.Input<string>;
+    nielsenNaesIiNwSettings?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>[]>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
+    cbetCheckDigitString: pulumi.Input<string>;
+    /**
+     * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+     */
+    cbetStepaside: pulumi.Input<string>;
+    /**
+     * CBET source ID to use in the watermark.
+     */
+    csid: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting {
+    checkDigitString: pulumi.Input<string>;
+    /**
+     * The Nielsen Source ID to include in the watermark.
+     */
+    sid: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettings {
+    aacSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings>;
+    ac3Settings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings>;
+    eac3AtmosSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings>;
+    eac3Settings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings>;
+    mp2Settings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings>;
+    passThroughSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings>;
+    wavSettings?: pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings {
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate?: pulumi.Input<number>;
+    /**
+     * Mono, Stereo, or 5.1 channel layout.
+     */
+    codingMode?: pulumi.Input<string>;
+    /**
+     * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+     */
+    inputType?: pulumi.Input<string>;
+    /**
+     * AAC profile.
+     */
+    profile?: pulumi.Input<string>;
+    /**
+     * The rate control mode.
+     */
+    rateControlMode?: pulumi.Input<string>;
+    /**
+     * Sets LATM/LOAS AAC output for raw containers.
+     */
+    rawFormat?: pulumi.Input<string>;
+    /**
+     * Sample rate in Hz.
+     */
+    sampleRate?: pulumi.Input<number>;
+    /**
+     * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+     */
+    spec?: pulumi.Input<string>;
+    /**
+     * VBR Quality Level - Only used if rateControlMode is VBR.
+     */
+    vbrQuality?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate?: pulumi.Input<number>;
+    /**
+     * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     */
+    bitstreamMode?: pulumi.Input<string>;
+    /**
+     * Dolby Digital coding mode.
+     */
+    codingMode?: pulumi.Input<string>;
+    /**
+     * Sets the dialnorm of the output.
+     */
+    dialnorm?: pulumi.Input<number>;
+    /**
+     * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+     */
+    drcProfile?: pulumi.Input<string>;
+    /**
+     * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+     */
+    lfeFilter?: pulumi.Input<string>;
+    /**
+     * Metadata control.
+     */
+    metadataControl?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate?: pulumi.Input<number>;
+    /**
+     * Dolby Digital Plus with Dolby Atmos coding mode.
+     */
+    codingMode?: pulumi.Input<string>;
+    /**
+     * Sets the dialnorm for the output.
+     */
+    dialnorm?: pulumi.Input<number>;
+    /**
+     * Sets the Dolby dynamic range compression profile.
+     */
+    drcLine?: pulumi.Input<string>;
+    /**
+     * Sets the profile for heavy Dolby dynamic range compression.
+     */
+    drcRf?: pulumi.Input<string>;
+    /**
+     * Height dimensional trim.
+     */
+    heightTrim?: pulumi.Input<number>;
+    /**
+     * Surround dimensional trim.
+     */
+    surroundTrim?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
+    /**
+     * Sets the attenuation control.
+     */
+    attenuationControl?: pulumi.Input<string>;
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate?: pulumi.Input<number>;
+    /**
+     * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+     */
+    bitstreamMode?: pulumi.Input<string>;
+    /**
+     * Dolby Digital Plus coding mode.
+     */
+    codingMode?: pulumi.Input<string>;
+    dcFilter?: pulumi.Input<string>;
+    dialnorm?: pulumi.Input<number>;
+    drcLine?: pulumi.Input<string>;
+    drcRf?: pulumi.Input<string>;
+    lfeControl?: pulumi.Input<string>;
+    lfeFilter?: pulumi.Input<string>;
+    loRoCenterMixLevel?: pulumi.Input<number>;
+    loRoSurroundMixLevel?: pulumi.Input<number>;
+    ltRtCenterMixLevel?: pulumi.Input<number>;
+    ltRtSurroundMixLevel?: pulumi.Input<number>;
+    metadataControl?: pulumi.Input<string>;
+    passthroughControl?: pulumi.Input<string>;
+    phaseControl?: pulumi.Input<string>;
+    stereoDownmix?: pulumi.Input<string>;
+    surroundExMode?: pulumi.Input<string>;
+    surroundMode?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
+    bitrate?: pulumi.Input<number>;
+    codingMode?: pulumi.Input<string>;
+    sampleRate?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings {
+}
+export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
+    bitDepth?: pulumi.Input<number>;
+    codingMode?: pulumi.Input<string>;
+    sampleRate?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionRemixSettings {
+    channelMappings: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>[]>;
+    channelsIn?: pulumi.Input<number>;
+    channelsOut?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping {
+    inputChannelLevels: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>[]>;
+    outputChannel: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel {
+    gain: pulumi.Input<number>;
+    inputChannel: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsAvailBlanking {
+    /**
+     * Blanking image to be used. See Avail Blanking Image for more details.
+     */
+    availBlankingImage?: pulumi.Input<inputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage>;
+    /**
+     * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+     */
+    state?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsAvailBlankingAvailBlankingImage {
+    /**
+     * Key used to extract the password from EC2 Parameter store.
+     */
+    passwordParam?: pulumi.Input<string>;
+    /**
+     * Path to a file accessible to the live stream.
+     */
+    uri: pulumi.Input<string>;
+    /**
+     * . Username to be used.
+     */
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescription {
+    /**
+     * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+     */
+    accessibility?: pulumi.Input<string>;
+    /**
+     * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+     */
+    captionSelectorName: pulumi.Input<string>;
+    /**
+     * Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+     */
+    destinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings>;
+    /**
+     * ISO 639-2 three-digit code.
+     */
+    languageCode?: pulumi.Input<string>;
+    /**
+     * Human readable information to indicate captions available for players (eg. English, or Spanish).
+     */
+    languageDescription?: pulumi.Input<string>;
+    /**
+     * Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+     */
+    name: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
+    /**
+     * ARIB Destination Settings.
+     */
+    aribDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings>;
+    /**
+     * Burn In Destination Settings. See Burn In Destination Settings for more details.
+     */
+    burnInDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings>;
+    /**
+     * DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+     */
+    dvbSubDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings>;
+    /**
+     * EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+     */
+    ebuTtDDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings>;
+    /**
+     * Embedded Destination Settings.
+     */
+    embeddedDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings>;
+    /**
+     * Embedded Plus SCTE20 Destination Settings.
+     */
+    embeddedPlusScte20DestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings>;
+    /**
+     * RTMP Caption Info Destination Settings.
+     */
+    rtmpCaptionInfoDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings>;
+    /**
+     * SCTE20 Plus Embedded Destination Settings.
+     */
+    scte20PlusEmbeddedDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings>;
+    /**
+     * SCTE27 Destination Settings.
+     */
+    scte27DestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings>;
+    /**
+     * SMPTE TT Destination Settings.
+     */
+    smpteTtDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings>;
+    /**
+     * Teletext Destination Settings.
+     */
+    teletextDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings>;
+    /**
+     * TTML Destination Settings. See TTML Destination Settings for more details.
+     */
+    ttmlDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings>;
+    /**
+     * WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+     */
+    webvttDestinationSettings?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+    /**
+     * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+     */
+    alignment?: pulumi.Input<string>;
+    /**
+     * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+     */
+    backgroundColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     */
+    backgroundOpacity?: pulumi.Input<number>;
+    /**
+     * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+     */
+    font?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont>;
+    /**
+     * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    fontColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+     */
+    fontOpacity?: pulumi.Input<number>;
+    /**
+     * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+     */
+    fontResolution?: pulumi.Input<number>;
+    /**
+     * When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+     */
+    fontSize?: pulumi.Input<string>;
+    /**
+     * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    outlineColor: pulumi.Input<string>;
+    /**
+     * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    outlineSize?: pulumi.Input<number>;
+    /**
+     * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     */
+    shadowOpacity?: pulumi.Input<number>;
+    /**
+     * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowXOffset?: pulumi.Input<number>;
+    /**
+     * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowYOffset?: pulumi.Input<number>;
+    /**
+     * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+     */
+    teletextGridControl: pulumi.Input<string>;
+    /**
+     * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+     */
+    xPosition?: pulumi.Input<number>;
+    /**
+     * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+     */
+    yPosition?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+    /**
+     * Key used to extract the password from EC2 Parameter store.
+     */
+    passwordParam?: pulumi.Input<string>;
+    /**
+     * Path to a file accessible to the live stream.
+     */
+    uri: pulumi.Input<string>;
+    /**
+     * Username to be used.
+     */
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+    /**
+     * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    alignment?: pulumi.Input<string>;
+    /**
+     * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+     */
+    backgroundColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     */
+    backgroundOpacity?: pulumi.Input<number>;
+    /**
+     * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+     */
+    font?: pulumi.Input<inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont>;
+    /**
+     * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    fontColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+     */
+    fontOpacity?: pulumi.Input<number>;
+    /**
+     * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+     */
+    fontResolution?: pulumi.Input<number>;
+    /**
+     * When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+     */
+    fontSize?: pulumi.Input<string>;
+    /**
+     * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    outlineColor?: pulumi.Input<string>;
+    /**
+     * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    outlineSize?: pulumi.Input<number>;
+    /**
+     * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowColor?: pulumi.Input<string>;
+    /**
+     * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+     */
+    shadowOpacity?: pulumi.Input<number>;
+    /**
+     * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowXOffset?: pulumi.Input<number>;
+    /**
+     * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+     */
+    shadowYOffset?: pulumi.Input<number>;
+    /**
+     * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+     */
+    teletextGridControl?: pulumi.Input<string>;
+    /**
+     * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    xPosition?: pulumi.Input<number>;
+    /**
+     * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+     */
+    yPosition?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+    /**
+     * Key used to extract the password from EC2 Parameter store.
+     */
+    passwordParam?: pulumi.Input<string>;
+    /**
+     * Path to a file accessible to the live stream.
+     */
+    uri: pulumi.Input<string>;
+    /**
+     * Username to be used.
+     */
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+    /**
+     * Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+     */
+    copyrightHolder?: pulumi.Input<string>;
+    /**
+     * Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+     */
+    fillLineGap?: pulumi.Input<string>;
+    /**
+     * Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+     */
+    fontFamily?: pulumi.Input<string>;
+    /**
+     * Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+     */
+    styleControl?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+    /**
+     * This field is not currently supported and will not affect the output styling. Leave the default value.
+     */
+    styleControl: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+    /**
+     * Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+     */
+    styleControl: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsGlobalConfiguration {
+    /**
+     * Value to set the initial audio gain for the Live Event.
+     */
+    initialAudioGain?: pulumi.Input<number>;
+    /**
+     * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+     */
+    inputEndAction?: pulumi.Input<string>;
+    /**
+     * Settings for system actions when input is lost. See Input Loss Behavior for more details.
+     */
+    inputLossBehavior?: pulumi.Input<inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior>;
+    /**
+     * Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+     */
+    outputLockingMode?: pulumi.Input<string>;
+    /**
+     * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+     */
+    outputTimingSource?: pulumi.Input<string>;
+    /**
+     * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+     */
+    supportLowFramerateInputs?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+    blackFrameMsec?: pulumi.Input<number>;
+    inputLossImageColor?: pulumi.Input<string>;
+    inputLossImageSlate?: pulumi.Input<inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate>;
+    inputLossImageType?: pulumi.Input<string>;
+    repeatFrameMsec?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+    passwordParam?: pulumi.Input<string>;
+    uri: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsMotionGraphicsConfiguration {
+    /**
+     * Motion Graphics Insertion.
+     */
+    motionGraphicsInsertion?: pulumi.Input<string>;
+    /**
+     * Motion Graphics Settings. See Motion Graphics Settings for more details.
+     */
+    motionGraphicsSettings: pulumi.Input<inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings>;
+}
+export interface ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+    /**
+     * Html Motion Graphics Settings.
+     */
+    htmlMotionGraphicsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings>;
+}
+export interface ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+}
+export interface ChannelEncoderSettingsNielsenConfiguration {
+    /**
+     * Enter the Distributor ID assigned to your organization by Nielsen.
+     */
+    distributorId?: pulumi.Input<string>;
+    /**
+     * Enables Nielsen PCM to ID3 tagging.
+     */
+    nielsenPcmToId3Tagging?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroup {
+    /**
+     * Custom output group name defined by the user.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * Settings associated with the output group. See Output Group Settings for more details.
      */
-    roleArn?: pulumi.Input<string>;
+    outputGroupSettings: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings>;
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * List of outputs. See Outputs for more details.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
-    /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
-     *
-     * The following arguments are optional:
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Settings for a private VPC Input. See VPC for more details.
-     */
-    vpc?: pulumi.Input<inputs.medialive.InputVpc>;
+    outputs: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutput>[]>;
 }
-
-/**
- * The set of arguments for constructing a Input resource.
- */
-export interface InputArgs {
+export interface ChannelEncoderSettingsOutputGroupOutput {
     /**
-     * Destination settings for PUSH type inputs. See Destinations for more details.
+     * The names of the audio descriptions used as audio sources for the output.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestination>[]>;
+    audioDescriptionNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Settings for the devices. See Input Devices for more details.
+     * The names of the caption descriptions used as caption sources for the output.
      */
-    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDevice>[]>;
+    captionDescriptionNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of input security groups.
+     * The name used to identify an output.
      */
-    inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    outputName?: pulumi.Input<string>;
     /**
-     * A list of the MediaConnect Flows. See Media Connect Flows for more details.
+     * Settings for output. See Output Settings for more details.
      */
-    mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlow>[]>;
+    outputSettings: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings>;
     /**
-     * Name of the input.
+     * The name of the video description used as video source for the output.
      */
-    name?: pulumi.Input<string>;
+    videoDescriptionName?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettings {
     /**
-     * The ARN of the role this input assumes during and after creation.
+     * Archive group settings. See Archive Group Settings for more details.
      */
-    roleArn?: pulumi.Input<string>;
+    archiveGroupSettings?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>[]>;
+    frameCaptureGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings>;
+    hlsGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings>;
     /**
-     * The source URLs for a PULL-type input. See Sources for more details.
+     * Media package group settings. See Media Package Group Settings for more details.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSource>[]>;
+    mediaPackageGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings>;
+    msSmoothGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings>;
+    multiplexGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings>;
     /**
-     * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * RTMP group settings. See RTMP Group Settings for more details.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    rtmpGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings>;
+    udpGroupSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting {
     /**
-     * The different types of inputs that AWS Elemental MediaLive supports.
+     * Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+     */
+    archiveCdnSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings>;
+    /**
+     * A director and base filename where archive files should be written. See Destination for more details.
+     */
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination>;
+    /**
+     * Number of seconds to write to archive file before closing and starting a new one.
+     */
+    rolloverInterval?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings {
+    /**
+     * Archive S3 Settings. See Archive S3 Settings for more details.
+     */
+    archiveS3Settings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings {
+    /**
+     * Specify the canned ACL to apply to each S3 request.
+     */
+    cannedAcl?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination>;
+    frameCaptureCdnSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
+    frameCaptureS3Settings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings {
+    cannedAcl?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
+    adMarkers?: pulumi.Input<pulumi.Input<string>[]>;
+    baseUrlContent?: pulumi.Input<string>;
+    baseUrlContent1?: pulumi.Input<string>;
+    baseUrlManifest?: pulumi.Input<string>;
+    baseUrlManifest1?: pulumi.Input<string>;
+    captionLanguageMappings?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping>[]>;
+    captionLanguageSetting?: pulumi.Input<string>;
+    clientCache?: pulumi.Input<string>;
+    codecSpecification?: pulumi.Input<string>;
+    constantIv?: pulumi.Input<string>;
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination>;
+    directoryStructure?: pulumi.Input<string>;
+    discontinuityTags?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string>;
+    hlsCdnSettings?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting>[]>;
+    hlsId3SegmentTagging?: pulumi.Input<string>;
+    iframeOnlyPlaylists?: pulumi.Input<string>;
+    incompleteSegmentBehavior?: pulumi.Input<string>;
+    indexNSegments?: pulumi.Input<number>;
+    inputLossAction?: pulumi.Input<string>;
+    ivInManifest?: pulumi.Input<string>;
+    ivSource?: pulumi.Input<string>;
+    keepSegments?: pulumi.Input<number>;
+    keyFormat?: pulumi.Input<string>;
+    keyFormatVersions?: pulumi.Input<string>;
+    keyProviderSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings>;
+    manifestCompression?: pulumi.Input<string>;
+    manifestDurationFormat?: pulumi.Input<string>;
+    minSegmentLength?: pulumi.Input<number>;
+    mode?: pulumi.Input<string>;
+    outputSelection?: pulumi.Input<string>;
+    programDateTime?: pulumi.Input<string>;
+    programDateTimeClock?: pulumi.Input<string>;
+    programDateTimePeriod?: pulumi.Input<number>;
+    redundantManifest?: pulumi.Input<string>;
+    segmentLength?: pulumi.Input<number>;
+    segmentsPerSubdirectory?: pulumi.Input<number>;
+    streamInfResolution?: pulumi.Input<string>;
+    timedMetadataId3Frame?: pulumi.Input<string>;
+    timedMetadataId3Period?: pulumi.Input<number>;
+    timestampDeltaMilliseconds?: pulumi.Input<number>;
+    tsFileMode?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
+    captionChannel: pulumi.Input<number>;
+    languageCode: pulumi.Input<string>;
+    languageDescription: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting {
+    hlsAkamaiSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings>;
+    hlsBasicPutSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings>;
+    hlsMediaStoreSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings>;
+    hlsS3Settings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings>;
+    hlsWebdavSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
+    connectionRetryInterval?: pulumi.Input<number>;
+    filecacheDuration?: pulumi.Input<number>;
+    httpTransferMode?: pulumi.Input<string>;
+    numRetries?: pulumi.Input<number>;
+    restartDelay?: pulumi.Input<number>;
+    salt?: pulumi.Input<string>;
+    token?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
+    connectionRetryInterval?: pulumi.Input<number>;
+    filecacheDuration?: pulumi.Input<number>;
+    numRetries?: pulumi.Input<number>;
+    restartDelay?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings {
+    connectionRetryInterval?: pulumi.Input<number>;
+    filecacheDuration?: pulumi.Input<number>;
+    mediaStoreStorageClass?: pulumi.Input<string>;
+    numRetries?: pulumi.Input<number>;
+    restartDelay?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings {
+    cannedAcl?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings {
+    connectionRetryInterval?: pulumi.Input<number>;
+    filecacheDuration?: pulumi.Input<number>;
+    httpTransferMode?: pulumi.Input<string>;
+    numRetries?: pulumi.Input<number>;
+    restartDelay?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings {
+    staticKeySettings?: pulumi.Input<pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>[]>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting {
+    keyProviderServer?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer>;
+    staticKeyValue: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer {
+    passwordParam?: pulumi.Input<string>;
+    uri: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings {
+    /**
+     * A director and base filename where archive files should be written. See Destination for more details.
+     */
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
+    acquisitionPointId?: pulumi.Input<string>;
+    audioOnlyTimecodeControl?: pulumi.Input<string>;
+    certificateMode?: pulumi.Input<string>;
+    connectionRetryInterval?: pulumi.Input<number>;
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination>;
+    eventId?: pulumi.Input<string>;
+    eventIdMode?: pulumi.Input<string>;
+    eventStopBehavior?: pulumi.Input<string>;
+    filecacheDuration?: pulumi.Input<number>;
+    fragmentLength?: pulumi.Input<number>;
+    inputLossAction?: pulumi.Input<string>;
+    numRetries?: pulumi.Input<number>;
+    restartDelay?: pulumi.Input<number>;
+    segmentationMode?: pulumi.Input<string>;
+    sendDelayMs?: pulumi.Input<number>;
+    sparseTrackType?: pulumi.Input<string>;
+    streamManifestBehavior?: pulumi.Input<string>;
+    timestampOffset?: pulumi.Input<string>;
+    timestampOffsetMode?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings {
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings {
+    /**
+     * The ad marker type for this output group.
+     */
+    adMarkers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Authentication scheme to use when connecting with CDN.
+     */
+    authenticationScheme?: pulumi.Input<string>;
+    /**
+     * Controls behavior when content cache fills up.
+     */
+    cacheFullBehavior?: pulumi.Input<string>;
+    /**
+     * Cache length in seconds, is used to calculate buffer size.
+     */
+    cacheLength?: pulumi.Input<number>;
+    /**
+     * Controls the types of data that passes to onCaptionInfo outputs.
+     */
+    captionData?: pulumi.Input<string>;
+    /**
+     * Controls the behavior of the RTMP group if input becomes unavailable.
+     */
+    inputLossAction?: pulumi.Input<string>;
+    /**
+     * Number of seconds to wait until a restart is initiated.
+     */
+    restartDelay?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings {
+    /**
+     * Specifies behavior of last resort when input video os lost.
+     */
+    inputLossAction?: pulumi.Input<string>;
+    /**
+     * Indicates ID3 frame that has the timecode.
+     */
+    timedMetadataId3Frame?: pulumi.Input<string>;
+    timedMetadataId3Period?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettings {
+    /**
+     * Archive output settings. See Archive Output Settings for more details.
+     */
+    archiveOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings>;
+    frameCaptureOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings>;
+    hlsOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings>;
+    /**
+     * Media package output settings. This can be set as an empty block.
+     */
+    mediaPackageOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings>;
+    msSmoothOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings>;
+    /**
+     * Multiplex output settings. See Multiplex Output Settings for more details.
+     */
+    multiplexOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings>;
+    /**
+     * RTMP output settings. See RTMP Output Settings for more details.
+     */
+    rtmpOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings>;
+    /**
+     * UDP output settings. See UDP Output Settings for more details.
+     */
+    udpOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings {
+    /**
+     * Settings specific to the container type of the file. See Container Settings for more details.
+     */
+    containerSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings>;
+    /**
+     * Output file extension.
+     */
+    extension?: pulumi.Input<string>;
+    /**
+     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+     */
+    nameModifier?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings {
+    /**
+     * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+     */
+    m2tsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings>;
+    /**
+     * Raw Settings. This can be set as an empty block.
+     */
+    rawSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
+    absentInputAudioBehavior?: pulumi.Input<string>;
+    arib?: pulumi.Input<string>;
+    aribCaptionsPid?: pulumi.Input<string>;
+    aribCaptionsPidControl?: pulumi.Input<string>;
+    audioBufferModel?: pulumi.Input<string>;
+    audioFramesPerPes?: pulumi.Input<number>;
+    audioPids?: pulumi.Input<string>;
+    audioStreamType?: pulumi.Input<string>;
+    bitrate?: pulumi.Input<number>;
+    bufferModel?: pulumi.Input<string>;
+    ccDescriptor?: pulumi.Input<string>;
+    dvbNitSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings>;
+    dvbSdtSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings>;
+    dvbSubPids?: pulumi.Input<string>;
+    dvbTdtSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings>;
+    dvbTeletextPid?: pulumi.Input<string>;
+    ebif?: pulumi.Input<string>;
+    ebpAudioInterval?: pulumi.Input<string>;
+    ebpLookaheadMs?: pulumi.Input<number>;
+    ebpPlacement?: pulumi.Input<string>;
+    ecmPid?: pulumi.Input<string>;
+    esRateInPes?: pulumi.Input<string>;
+    etvPlatformPid?: pulumi.Input<string>;
+    etvSignalPid?: pulumi.Input<string>;
+    fragmentTime?: pulumi.Input<number>;
+    klv?: pulumi.Input<string>;
+    klvDataPids?: pulumi.Input<string>;
+    nielsenId3Behavior?: pulumi.Input<string>;
+    nullPacketBitrate?: pulumi.Input<number>;
+    patInterval?: pulumi.Input<number>;
+    pcrControl?: pulumi.Input<string>;
+    pcrPeriod?: pulumi.Input<number>;
+    pcrPid?: pulumi.Input<string>;
+    pmtInterval?: pulumi.Input<number>;
+    pmtPid?: pulumi.Input<string>;
+    programNum?: pulumi.Input<number>;
+    rateMode?: pulumi.Input<string>;
+    scte27Pids?: pulumi.Input<string>;
+    scte35Control?: pulumi.Input<string>;
+    scte35Pid?: pulumi.Input<string>;
+    segmentationMarkers?: pulumi.Input<string>;
+    segmentationStyle?: pulumi.Input<string>;
+    segmentationTime?: pulumi.Input<number>;
+    timedMetadataBehavior?: pulumi.Input<string>;
+    timedMetadataPid?: pulumi.Input<string>;
+    transportStreamId?: pulumi.Input<number>;
+    videoPid?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
+    networkId: pulumi.Input<number>;
+    networkName: pulumi.Input<string>;
+    repInterval?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings {
+    outputSdt?: pulumi.Input<string>;
+    repInterval?: pulumi.Input<number>;
+    serviceName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
+    repInterval?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings {
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings {
+    nameModifier?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
+    h265PackagingType?: pulumi.Input<string>;
+    hlsSettings: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings>;
+    nameModifier?: pulumi.Input<string>;
+    segmentModifier?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings {
+    audioOnlyHlsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings>;
+    fmp4HlsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings>;
+    frameCaptureHlsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings>;
+    standardHlsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings {
+    audioGroupId?: pulumi.Input<string>;
+    audioOnlyImage?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage>;
+    audioTrackType?: pulumi.Input<string>;
+    segmentType?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage {
+    passwordParam?: pulumi.Input<string>;
+    uri: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings {
+    audioRenditionSets?: pulumi.Input<string>;
+    nielsenId3Behavior?: pulumi.Input<string>;
+    timedMetadataBehavior?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings {
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings {
+    audioRenditionSets?: pulumi.Input<string>;
+    m3u8Settings: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings {
+    audioFramesPerPes?: pulumi.Input<number>;
+    audioPids?: pulumi.Input<string>;
+    ecmPid?: pulumi.Input<string>;
+    nielsenId3Behavior?: pulumi.Input<string>;
+    patInterval?: pulumi.Input<number>;
+    pcrControl?: pulumi.Input<string>;
+    pcrPeriod?: pulumi.Input<number>;
+    pcrPid?: pulumi.Input<string>;
+    pmtInterval?: pulumi.Input<number>;
+    pmtPid?: pulumi.Input<string>;
+    programNum?: pulumi.Input<number>;
+    scte35Behavior?: pulumi.Input<string>;
+    scte35Pid?: pulumi.Input<string>;
+    timedMetadataBehavior?: pulumi.Input<string>;
+    timedMetadataPid?: pulumi.Input<string>;
+    transportStreamId?: pulumi.Input<number>;
+    videoPid?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings {
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
+    h265PackagingType?: pulumi.Input<string>;
+    nameModifier?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings {
+    /**
+     * Destination is a multiplex. See Destination for more details.
+     */
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
+    /**
+     * Setting to allow self signed or verified RTMP certificates.
+     */
+    certificateMode?: pulumi.Input<string>;
+    /**
+     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     */
+    connectionRetryInterval?: pulumi.Input<number>;
+    /**
+     * The RTMP endpoint excluding the stream name. See Destination for more details.
+     */
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination>;
+    /**
+     * Number of retry attempts.
+     */
+    numRetries?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings {
+    /**
+     * UDP output buffering in milliseconds.
+     */
+    bufferMsec?: pulumi.Input<number>;
+    /**
+     * UDP container settings. See Container Settings for more details.
+     */
+    containerSettings: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings>;
+    /**
+     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     */
+    destination: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination>;
+    fecOutputSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings {
+    /**
+     * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+     */
+    m2tsSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
+    absentInputAudioBehavior?: pulumi.Input<string>;
+    arib?: pulumi.Input<string>;
+    aribCaptionsPid?: pulumi.Input<string>;
+    aribCaptionsPidControl?: pulumi.Input<string>;
+    audioBufferModel?: pulumi.Input<string>;
+    audioFramesPerPes?: pulumi.Input<number>;
+    audioPids?: pulumi.Input<string>;
+    audioStreamType?: pulumi.Input<string>;
+    bitrate?: pulumi.Input<number>;
+    bufferModel?: pulumi.Input<string>;
+    ccDescriptor?: pulumi.Input<string>;
+    dvbNitSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings>;
+    dvbSdtSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings>;
+    dvbSubPids?: pulumi.Input<string>;
+    dvbTdtSettings?: pulumi.Input<inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings>;
+    dvbTeletextPid?: pulumi.Input<string>;
+    ebif?: pulumi.Input<string>;
+    ebpAudioInterval?: pulumi.Input<string>;
+    ebpLookaheadMs?: pulumi.Input<number>;
+    ebpPlacement?: pulumi.Input<string>;
+    ecmPid?: pulumi.Input<string>;
+    esRateInPes?: pulumi.Input<string>;
+    etvPlatformPid?: pulumi.Input<string>;
+    etvSignalPid?: pulumi.Input<string>;
+    fragmentTime?: pulumi.Input<number>;
+    klv?: pulumi.Input<string>;
+    klvDataPids?: pulumi.Input<string>;
+    nielsenId3Behavior?: pulumi.Input<string>;
+    nullPacketBitrate?: pulumi.Input<number>;
+    patInterval?: pulumi.Input<number>;
+    pcrControl?: pulumi.Input<string>;
+    pcrPeriod?: pulumi.Input<number>;
+    pcrPid?: pulumi.Input<string>;
+    pmtInterval?: pulumi.Input<number>;
+    pmtPid?: pulumi.Input<string>;
+    programNum?: pulumi.Input<number>;
+    rateMode?: pulumi.Input<string>;
+    scte27Pids?: pulumi.Input<string>;
+    scte35Control?: pulumi.Input<string>;
+    scte35Pid?: pulumi.Input<string>;
+    segmentationMarkers?: pulumi.Input<string>;
+    segmentationStyle?: pulumi.Input<string>;
+    segmentationTime?: pulumi.Input<number>;
+    timedMetadataBehavior?: pulumi.Input<string>;
+    timedMetadataPid?: pulumi.Input<string>;
+    transportStreamId?: pulumi.Input<number>;
+    videoPid?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
+    networkId: pulumi.Input<number>;
+    networkName: pulumi.Input<string>;
+    repInterval?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings {
+    outputSdt?: pulumi.Input<string>;
+    repInterval?: pulumi.Input<number>;
+    serviceName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
+    repInterval?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination {
+    /**
+     * Reference ID for the destination.
+     */
+    destinationRefId: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings {
+    /**
+     * The height of the FEC protection matrix.
+     */
+    columnDepth?: pulumi.Input<number>;
+    /**
+     * Enables column only or column and row based FEC.
+     */
+    includeFec?: pulumi.Input<string>;
+    /**
+     * The width of the FEC protection matrix.
+     */
+    rowLength?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsTimecodeConfig {
+    /**
+     * The source for the timecode that will be associated with the events outputs.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+     */
+    syncThreshold?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsVideoDescription {
+    /**
+     * The video codec settings. See Video Codec Settings for more details.
+     */
+    codecSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettings>;
+    /**
+     * Output video height in pixels.
+     */
+    height?: pulumi.Input<number>;
+    /**
+     * The name of the video description.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Indicate how to respond to the AFD values that might be in the input video.
+     */
+    respondToAfd?: pulumi.Input<string>;
+    /**
+     * Behavior on how to scale.
+     */
+    scalingBehavior?: pulumi.Input<string>;
+    /**
+     * Changes the strength of the anti-alias filter used for scaling.
+     */
+    sharpness?: pulumi.Input<number>;
+    /**
+     * Output video width in pixels.
+     */
+    width?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettings {
+    frameCaptureSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings>;
+    h264Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings>;
+    h265Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings {
+    /**
+     * The frequency at which to capture frames for inclusion in the output.
+     */
+    captureInterval?: pulumi.Input<number>;
+    /**
+     * Unit for the frame capture interval.
+     */
+    captureIntervalUnits?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings {
+    /**
+     * Enables or disables adaptive quantization.
+     */
+    adaptiveQuantization?: pulumi.Input<string>;
+    /**
+     * Indicates that AFD values will be written into the output stream.
+     */
+    afdSignaling?: pulumi.Input<string>;
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate?: pulumi.Input<number>;
+    bufFillPct?: pulumi.Input<number>;
+    /**
+     * Size of buffer in bits.
+     */
+    bufSize?: pulumi.Input<number>;
+    /**
+     * Includes color space metadata in the output.
+     */
+    colorMetadata?: pulumi.Input<string>;
+    /**
+     * Entropy encoding mode.
+     */
+    entropyEncoding?: pulumi.Input<string>;
+    /**
+     * Filters to apply to an encode. See H264 Filter Settings for more details.
+     */
+    filterSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings>;
+    /**
+     * Four bit AFD value to write on all frames of video in the output stream.
+     */
+    fixedAfd?: pulumi.Input<string>;
+    flickerAq?: pulumi.Input<string>;
+    /**
+     * Controls whether coding is performed on a field basis or on a frame basis.
+     */
+    forceFieldPictures?: pulumi.Input<string>;
+    /**
+     * Indicates how the output video frame rate is specified.
+     */
+    framerateControl?: pulumi.Input<string>;
+    /**
+     * Framerate denominator.
+     */
+    framerateDenominator?: pulumi.Input<number>;
+    /**
+     * Framerate numerator.
+     */
+    framerateNumerator?: pulumi.Input<number>;
+    /**
+     * GOP-B reference.
+     */
+    gopBReference?: pulumi.Input<string>;
+    /**
+     * Frequency of closed GOPs.
+     */
+    gopClosedCadence?: pulumi.Input<number>;
+    /**
+     * Number of B-frames between reference frames.
+     */
+    gopNumBFrames?: pulumi.Input<number>;
+    /**
+     * GOP size in units of either frames of seconds per `gopSizeUnits`.
+     */
+    gopSize?: pulumi.Input<number>;
+    /**
+     * Indicates if the `gopSize` is specified in frames or seconds.
+     */
+    gopSizeUnits?: pulumi.Input<string>;
+    /**
+     * H264 level.
+     */
+    level?: pulumi.Input<string>;
+    /**
+     * Amount of lookahead.
+     */
+    lookAheadRateControl?: pulumi.Input<string>;
+    /**
+     * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     */
+    maxBitrate?: pulumi.Input<number>;
+    minIInterval?: pulumi.Input<number>;
+    /**
+     * Number of reference frames to use.
+     */
+    numRefFrames?: pulumi.Input<number>;
+    /**
+     * Indicates how the output pixel aspect ratio is specified.
+     */
+    parControl?: pulumi.Input<string>;
+    /**
+     * Pixel Aspect Ratio denominator.
+     */
+    parDenominator?: pulumi.Input<number>;
+    /**
+     * Pixel Aspect Ratio numerator.
+     */
+    parNumerator?: pulumi.Input<number>;
+    /**
+     * H264 profile.
+     */
+    profile?: pulumi.Input<string>;
+    /**
+     * Quality level.
+     */
+    qualityLevel?: pulumi.Input<string>;
+    /**
+     * Controls the target quality for the video encode.
+     */
+    qvbrQualityLevel?: pulumi.Input<number>;
+    /**
+     * Rate control mode.
+     */
+    rateControlMode?: pulumi.Input<string>;
+    /**
+     * Sets the scan type of the output.
+     */
+    scanType?: pulumi.Input<string>;
+    /**
+     * Scene change detection.
+     */
+    sceneChangeDetect?: pulumi.Input<string>;
+    /**
+     * Number of slices per picture.
+     */
+    slices?: pulumi.Input<number>;
+    /**
+     * Softness.
+     */
+    softness?: pulumi.Input<number>;
+    /**
+     * Makes adjustments within each frame based on spatial variation of content complexity.
+     */
+    spatialAq?: pulumi.Input<string>;
+    /**
+     * Subgop length.
+     */
+    subgopLength?: pulumi.Input<string>;
+    /**
+     * Produces a bitstream compliant with SMPTE RP-2027.
+     */
+    syntax?: pulumi.Input<string>;
+    /**
+     * Makes adjustments within each frame based on temporal variation of content complexity.
+     */
+    temporalAq?: pulumi.Input<string>;
+    /**
+     * Determines how timecodes should be inserted into the video elementary stream.
+     */
+    timecodeInsertion?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
+    temporalFilterSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings {
+    /**
+     * Post filter sharpening.
+     */
+    postFilterSharpening?: pulumi.Input<string>;
+    /**
+     * Filter strength.
+     */
+    strength?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+    /**
+     * Enables or disables adaptive quantization.
+     */
+    adaptiveQuantization?: pulumi.Input<string>;
+    /**
+     * Indicates that AFD values will be written into the output stream.
+     */
+    afdSignaling?: pulumi.Input<string>;
+    /**
+     * Whether or not EML should insert an Alternative Transfer Function SEI message.
+     */
+    alternativeTransferFunction?: pulumi.Input<string>;
+    /**
+     * Average bitrate in bits/second.
+     */
+    bitrate: pulumi.Input<number>;
+    /**
+     * Size of buffer in bits.
+     */
+    bufSize?: pulumi.Input<number>;
+    /**
+     * Includes color space metadata in the output.
+     */
+    colorMetadata?: pulumi.Input<string>;
+    /**
+     * Define the color metadata for the output. H265 Color Space Settings for more details.
+     */
+    colorSpaceSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings>;
+    /**
+     * Filters to apply to an encode. See H265 Filter Settings for more details.
+     */
+    filterSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings>;
+    /**
+     * Four bit AFD value to write on all frames of video in the output stream.
+     */
+    fixedAfd?: pulumi.Input<string>;
+    flickerAq?: pulumi.Input<string>;
+    /**
+     * Framerate denominator.
+     */
+    framerateDenominator: pulumi.Input<number>;
+    /**
+     * Framerate numerator.
+     */
+    framerateNumerator: pulumi.Input<number>;
+    /**
+     * Frequency of closed GOPs.
+     */
+    gopClosedCadence?: pulumi.Input<number>;
+    /**
+     * GOP size in units of either frames of seconds per `gopSizeUnits`.
+     */
+    gopSize?: pulumi.Input<number>;
+    /**
+     * Indicates if the `gopSize` is specified in frames or seconds.
+     */
+    gopSizeUnits?: pulumi.Input<string>;
+    /**
+     * H265 level.
+     */
+    level?: pulumi.Input<string>;
+    /**
+     * Amount of lookahead.
+     */
+    lookAheadRateControl?: pulumi.Input<string>;
+    /**
+     * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+     */
+    maxBitrate?: pulumi.Input<number>;
+    minIInterval?: pulumi.Input<number>;
+    /**
+     * Pixel Aspect Ratio denominator.
+     */
+    parDenominator?: pulumi.Input<number>;
+    /**
+     * Pixel Aspect Ratio numerator.
+     */
+    parNumerator?: pulumi.Input<number>;
+    /**
+     * H265 profile.
+     */
+    profile?: pulumi.Input<string>;
+    /**
+     * Controls the target quality for the video encode.
+     */
+    qvbrQualityLevel?: pulumi.Input<number>;
+    /**
+     * Rate control mode.
+     */
+    rateControlMode?: pulumi.Input<string>;
+    /**
+     * Sets the scan type of the output.
+     */
+    scanType?: pulumi.Input<string>;
+    /**
+     * Scene change detection.
+     */
+    sceneChangeDetect?: pulumi.Input<string>;
+    /**
+     * Number of slices per picture.
+     */
+    slices?: pulumi.Input<number>;
+    /**
+     * Set the H265 tier in the output.
+     */
+    tier?: pulumi.Input<string>;
+    /**
+     * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+     */
+    timecodeBurninSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings>;
+    /**
+     * Determines how timecodes should be inserted into the video elementary stream.
+     */
+    timecodeInsertion?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+    colorSpacePassthroughSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings>;
+    dolbyVision81Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings>;
+    hdr10Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings>;
+    rec601Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings>;
+    rec709Settings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+    maxCll?: pulumi.Input<number>;
+    maxFall?: pulumi.Input<number>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+    temporalFilterSettings?: pulumi.Input<inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+    /**
+     * Post filter sharpening.
+     */
+    postFilterSharpening?: pulumi.Input<string>;
+    /**
+     * Filter strength.
+     */
+    strength?: pulumi.Input<string>;
+}
+export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+    prefix?: pulumi.Input<string>;
+    timecodeBurninFontSize?: pulumi.Input<string>;
+    timecodeBurninPosition?: pulumi.Input<string>;
+}
+export interface ChannelInputAttachment {
+    /**
+     * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     */
+    automaticInputFailoverSettings?: pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettings>;
+    /**
+     * User-specified name for the attachment.
+     */
+    inputAttachmentName: pulumi.Input<string>;
+    /**
+     * The ID of the input.
+     */
+    inputId: pulumi.Input<string>;
+    /**
+     * Settings of an input. See Input Settings for more details.
+     */
+    inputSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettings>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettings {
+    /**
+     * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     */
+    errorClearTimeMsec?: pulumi.Input<number>;
+    /**
+     * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
+     */
+    failoverConditions?: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition>[]>;
+    /**
+     * Input preference when deciding which input to make active when a previously failed input has recovered.
+     */
+    inputPreference?: pulumi.Input<string>;
+    /**
+     * The input ID of the secondary input in the automatic input failover pair.
+     */
+    secondaryInputId: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
+    failoverConditionSettings?: pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
+    /**
+     * MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+     */
+    audioSilenceSettings?: pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings>;
+    /**
+     * MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+     */
+    inputLossSettings?: pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings>;
+    /**
+     * MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+     */
+    videoBlackSettings?: pulumi.Input<inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
+    audioSelectorName: pulumi.Input<string>;
+    audioSilenceThresholdMsec?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+    inputLossThresholdMsec?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
+    blackDetectThreshold?: pulumi.Input<number>;
+    videoBlackThresholdMsec?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettings {
+    audioSelectors?: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelector>[]>;
+    captionSelectors?: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelector>[]>;
+    /**
+     * Enable or disable the deblock filter when filtering.
+     */
+    deblockFilter?: pulumi.Input<string>;
+    /**
+     * Enable or disable the denoise filter when filtering.
+     */
+    denoiseFilter?: pulumi.Input<string>;
+    /**
+     * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+     */
+    filterStrength?: pulumi.Input<number>;
+    /**
+     * Turns on the filter for the input.
+     */
+    inputFilter?: pulumi.Input<string>;
+    /**
+     * Input settings. See Network Input Settings for more details.
+     */
+    networkInputSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsNetworkInputSettings>;
+    /**
+     * PID from which to read SCTE-35 messages.
+     */
+    scte35Pid?: pulumi.Input<number>;
+    /**
+     * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+     */
+    smpte2038DataPreference?: pulumi.Input<string>;
+    /**
+     * Loop input if it is a file.
+     */
+    sourceEndBehavior?: pulumi.Input<string>;
+    videoSelector?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsVideoSelector>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelector {
+    /**
+     * Name of the Channel.
      *
      * The following arguments are optional:
      */
-    type: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    selectorSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
+    audioHlsRenditionSelection?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection>;
+    audioLanguageSelection?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection>;
+    audioPidSelection?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection>;
+    audioTrackSelection?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
     /**
-     * Settings for a private VPC Input. See VPC for more details.
+     * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      */
-    vpc?: pulumi.Input<inputs.medialive.InputVpc>;
+    groupId: pulumi.Input<string>;
+    /**
+     * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     */
+    name: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
+    /**
+     * Selects a specific three-letter language code from within an audio source.
+     */
+    languageCode: pulumi.Input<string>;
+    /**
+     * When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+     */
+    languageSelectionPolicy?: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
+    /**
+     * Selects a specific PID from within a source.
+     */
+    pid: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
+    /**
+     * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     */
+    dolbyEDecode?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode>;
+    /**
+     * Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     */
+    tracks: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack>[]>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+    /**
+     * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+     */
+    programSelection: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
+    track: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelector {
+    languageCode?: pulumi.Input<string>;
+    /**
+     * Name of the Channel.
+     *
+     * The following arguments are optional:
+     */
+    name: pulumi.Input<string>;
+    selectorSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+    ancillarySourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings>;
+    aribSourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings>;
+    dvbSubSourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings>;
+    embeddedSourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings>;
+    scte20SourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings>;
+    scte27SourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings>;
+    teletextSourceSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
+    /**
+     * Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+     */
+    sourceAncillaryChannelNumber?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
+    /**
+     * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+     */
+    ocrLanguage?: pulumi.Input<string>;
+    /**
+     * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+     */
+    pid?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
+    /**
+     * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     */
+    convert608To708?: pulumi.Input<string>;
+    /**
+     * Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     */
+    scte20Detection?: pulumi.Input<string>;
+    /**
+     * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     */
+    source608ChannelNumber?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
+    convert608To708?: pulumi.Input<string>;
+    source608ChannelNumber?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
+    ocrLanguage?: pulumi.Input<string>;
+    pid?: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
+    /**
+     * Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+     */
+    outputRectangle?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle>;
+    /**
+     * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+     */
+    pageNumber?: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
+    height: pulumi.Input<number>;
+    leftOffset: pulumi.Input<number>;
+    topOffset: pulumi.Input<number>;
+    width: pulumi.Input<number>;
+}
+export interface ChannelInputAttachmentInputSettingsNetworkInputSettings {
+    /**
+     * Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+     */
+    hlsInputSettings?: pulumi.Input<inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings>;
+    /**
+     * Check HTTPS server certificates.
+     */
+    serverValidation?: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings {
+    /**
+     * The bitrate is specified in bits per second, as in an HLS manifest.
+     */
+    bandwidth?: pulumi.Input<number>;
+    /**
+     * Buffer segments.
+     */
+    bufferSegments?: pulumi.Input<number>;
+    /**
+     * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+     */
+    retries?: pulumi.Input<number>;
+    /**
+     * The number of seconds between retries when an attempt to read a manifest or segment fails.
+     */
+    retryInterval?: pulumi.Input<number>;
+    scte35Source?: pulumi.Input<string>;
+}
+export interface ChannelInputAttachmentInputSettingsVideoSelector {
+    colorSpace?: pulumi.Input<string>;
+    colorSpaceUsage?: pulumi.Input<string>;
+}
+export interface ChannelInputSpecification {
+    codec: pulumi.Input<string>;
+    inputResolution: pulumi.Input<string>;
+    maximumBitrate: pulumi.Input<string>;
+}
+export interface ChannelMaintenance {
+    /**
+     * The day of the week to use for maintenance.
+     */
+    maintenanceDay: pulumi.Input<string>;
+    /**
+     * The hour maintenance will start.
+     */
+    maintenanceStartTime: pulumi.Input<string>;
+}
+export interface ChannelVpc {
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+     */
+    publicAddressAllocationIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+     */
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+}
+export interface InputDestination {
+    /**
+     * A unique name for the location the RTMP stream is being pushed to.
+     */
+    streamName: pulumi.Input<string>;
+}
+export interface InputInputDevice {
+    /**
+     * The unique ID for the device.
+     */
+    id: pulumi.Input<string>;
+}
+export interface InputMediaConnectFlow {
+    /**
+     * The ARN of the MediaConnect Flow
+     */
+    flowArn: pulumi.Input<string>;
+}
+export interface InputSecurityGroupWhitelistRule {
+    /**
+     * The IPv4 CIDR that's whitelisted.
+     */
+    cidr: pulumi.Input<string>;
+}
+export interface InputSource {
+    /**
+     * The key used to extract the password from EC2 Parameter store.
+     */
+    passwordParam: pulumi.Input<string>;
+    /**
+     * The URL where the stream is pulled from.
+     */
+    url: pulumi.Input<string>;
+    /**
+     * The username for the input source.
+     */
+    username: pulumi.Input<string>;
+}
+export interface InputVpc {
+    /**
+     * A list of up to 5 EC2 VPC security group IDs to attach to the Input.
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of 2 VPC subnet IDs from the same VPC.
+     */
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+}
+export interface MultiplexMultiplexSettings {
+    /**
+     * Maximum video buffer delay.
+     */
+    maximumVideoBufferDelayMilliseconds?: pulumi.Input<number>;
+    /**
+     * Transport stream bit rate.
+     */
+    transportStreamBitrate: pulumi.Input<number>;
+    /**
+     * Unique ID for each multiplex.
+     */
+    transportStreamId: pulumi.Input<number>;
+    /**
+     * Transport stream reserved bit rate.
+     */
+    transportStreamReservedBitrate?: pulumi.Input<number>;
+}
+export interface MultiplexProgramMultiplexProgramSettings {
+    preferredChannelPipeline: pulumi.Input<string>;
+    programNumber: pulumi.Input<number>;
+    serviceDescriptor?: pulumi.Input<inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor>;
+    videoSettings?: pulumi.Input<inputs.MultiplexProgramMultiplexProgramSettingsVideoSettings>;
+}
+export interface MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+    /**
+     * Unique provider name.
+     */
+    providerName: pulumi.Input<string>;
+    /**
+     * Unique service name.
+     */
+    serviceName: pulumi.Input<string>;
+}
+export interface MultiplexProgramMultiplexProgramSettingsVideoSettings {
+    /**
+     * Constant bitrate value.
+     */
+    constantBitrate?: pulumi.Input<number>;
+    /**
+     * Statmux settings. See Statmux Settings for more details.
+     */
+    statmuxSettings?: pulumi.Input<inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings>;
+}
+export interface MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+    /**
+     * Maximum bitrate.
+     */
+    maximumBitrate?: pulumi.Input<number>;
+    /**
+     * Minimum bitrate.
+     */
+    minimumBitrate?: pulumi.Input<number>;
+    /**
+     * Priority value.
+     */
+    priority?: pulumi.Input<number>;
 }

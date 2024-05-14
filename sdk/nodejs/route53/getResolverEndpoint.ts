@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +56,7 @@ export interface GetResolverEndpointArgs {
      *
      * In addition to all arguments above, the following attributes are exported:
      */
-    filters?: inputs.route53.GetResolverEndpointFilter[];
+    filters?: inputs.GetResolverEndpointFilter[];
     /**
      * ID of the Route53 Resolver Endpoint.
      */
@@ -69,7 +69,7 @@ export interface GetResolverEndpointArgs {
 export interface GetResolverEndpointResult {
     readonly arn: string;
     readonly direction: string;
-    readonly filters?: outputs.route53.GetResolverEndpointFilter[];
+    readonly filters?: inputs.GetResolverEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -125,7 +125,7 @@ export interface GetResolverEndpointOutputArgs {
      *
      * In addition to all arguments above, the following attributes are exported:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetResolverEndpointFilterArgs>[]>;
     /**
      * ID of the Route53 Resolver Endpoint.
      */

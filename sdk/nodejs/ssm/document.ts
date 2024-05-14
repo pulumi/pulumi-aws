@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -112,7 +112,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
-    public readonly attachmentsSources!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
+    public readonly attachmentsSources!: pulumi.Output<outputs.DocumentAttachmentsSource[] | undefined>;
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
@@ -164,7 +164,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[]>;
+    public /*out*/ readonly parameters!: pulumi.Output<outputs.DocumentParameter[]>;
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      */
@@ -284,7 +284,7 @@ export interface DocumentState {
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
-    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.DocumentAttachmentsSource>[]>;
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
@@ -336,7 +336,7 @@ export interface DocumentState {
     /**
      * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.DocumentParameter>[]>;
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      */
@@ -380,7 +380,7 @@ export interface DocumentArgs {
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
-    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.DocumentAttachmentsSource>[]>;
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */

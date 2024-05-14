@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,11 +108,11 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    public readonly bufferOptions!: pulumi.Output<outputs.opensearchingest.PipelineBufferOptions | undefined>;
+    public readonly bufferOptions!: pulumi.Output<outputs.PipelineBufferOptions | undefined>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchingest.PipelineEncryptionAtRestOptions | undefined>;
+    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      */
@@ -121,7 +120,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    public readonly logPublishingOptions!: pulumi.Output<outputs.opensearchingest.PipelineLogPublishingOptions | undefined>;
+    public readonly logPublishingOptions!: pulumi.Output<outputs.PipelineLogPublishingOptions | undefined>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
@@ -152,11 +151,11 @@ export class Pipeline extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.opensearchingest.PipelineTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.PipelineTimeouts | undefined>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.opensearchingest.PipelineVpcOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.PipelineVpcOptions | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -224,11 +223,11 @@ export interface PipelineState {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions>;
+    bufferOptions?: pulumi.Input<inputs.PipelineBufferOptions>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.PipelineEncryptionAtRestOptions>;
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      */
@@ -236,7 +235,7 @@ export interface PipelineState {
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions>;
+    logPublishingOptions?: pulumi.Input<inputs.PipelineLogPublishingOptions>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
@@ -267,11 +266,11 @@ export interface PipelineState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts>;
+    timeouts?: pulumi.Input<inputs.PipelineTimeouts>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.PipelineVpcOptions>;
 }
 
 /**
@@ -281,15 +280,15 @@ export interface PipelineArgs {
     /**
      * Key-value pairs to configure persistent buffering for the pipeline. See `bufferOptions` below.
      */
-    bufferOptions?: pulumi.Input<inputs.opensearchingest.PipelineBufferOptions>;
+    bufferOptions?: pulumi.Input<inputs.PipelineBufferOptions>;
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryptionAtRestOptions` below.
      */
-    encryptionAtRestOptions?: pulumi.Input<inputs.opensearchingest.PipelineEncryptionAtRestOptions>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.PipelineEncryptionAtRestOptions>;
     /**
      * Key-value pairs to configure log publishing. See `logPublishingOptions` below.
      */
-    logPublishingOptions?: pulumi.Input<inputs.opensearchingest.PipelineLogPublishingOptions>;
+    logPublishingOptions?: pulumi.Input<inputs.PipelineLogPublishingOptions>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      */
@@ -312,9 +311,9 @@ export interface PipelineArgs {
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts>;
+    timeouts?: pulumi.Input<inputs.PipelineTimeouts>;
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpcOptions` below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearchingest.PipelineVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.PipelineVpcOptions>;
 }

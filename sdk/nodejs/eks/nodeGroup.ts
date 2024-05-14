@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -179,7 +178,7 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.eks.NodeGroupLaunchTemplate | undefined>;
+    public readonly launchTemplate!: pulumi.Output<outputs.NodeGroupLaunchTemplate | undefined>;
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
@@ -199,15 +198,15 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
-    public readonly remoteAccess!: pulumi.Output<outputs.eks.NodeGroupRemoteAccess | undefined>;
+    public readonly remoteAccess!: pulumi.Output<outputs.NodeGroupRemoteAccess | undefined>;
     /**
      * List of objects containing information about underlying resources.
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.eks.NodeGroupResource[]>;
+    public /*out*/ readonly resources!: pulumi.Output<outputs.NodeGroupResource[]>;
     /**
      * Configuration block with scaling settings. See `scalingConfig` below for details.
      */
-    public readonly scalingConfig!: pulumi.Output<outputs.eks.NodeGroupScalingConfig>;
+    public readonly scalingConfig!: pulumi.Output<outputs.NodeGroupScalingConfig>;
     /**
      * Status of the EKS Node Group.
      */
@@ -231,11 +230,11 @@ export class NodeGroup extends pulumi.CustomResource {
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      */
-    public readonly taints!: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
+    public readonly taints!: pulumi.Output<outputs.NodeGroupTaint[] | undefined>;
     /**
      * Configuration block with update settings. See `updateConfig` below for details.
      */
-    public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
+    public readonly updateConfig!: pulumi.Output<outputs.NodeGroupUpdateConfig>;
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
@@ -359,7 +358,7 @@ export interface NodeGroupState {
     /**
      * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
-    launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
@@ -379,15 +378,15 @@ export interface NodeGroupState {
     /**
      * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
-    remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
+    remoteAccess?: pulumi.Input<inputs.NodeGroupRemoteAccess>;
     /**
      * List of objects containing information about underlying resources.
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupResource>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.NodeGroupResource>[]>;
     /**
      * Configuration block with scaling settings. See `scalingConfig` below for details.
      */
-    scalingConfig?: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
+    scalingConfig?: pulumi.Input<inputs.NodeGroupScalingConfig>;
     /**
      * Status of the EKS Node Group.
      */
@@ -411,11 +410,11 @@ export interface NodeGroupState {
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      */
-    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
+    taints?: pulumi.Input<pulumi.Input<inputs.NodeGroupTaint>[]>;
     /**
      * Configuration block with update settings. See `updateConfig` below for details.
      */
-    updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
+    updateConfig?: pulumi.Input<inputs.NodeGroupUpdateConfig>;
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
@@ -457,7 +456,7 @@ export interface NodeGroupArgs {
     /**
      * Configuration block with Launch Template settings. See `launchTemplate` below for details. Conflicts with `remoteAccess`.
      */
-    launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      */
@@ -477,11 +476,11 @@ export interface NodeGroupArgs {
     /**
      * Configuration block with remote access settings. See `remoteAccess` below for details. Conflicts with `launchTemplate`.
      */
-    remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
+    remoteAccess?: pulumi.Input<inputs.NodeGroupRemoteAccess>;
     /**
      * Configuration block with scaling settings. See `scalingConfig` below for details.
      */
-    scalingConfig: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
+    scalingConfig: pulumi.Input<inputs.NodeGroupScalingConfig>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group.
      *
@@ -495,11 +494,11 @@ export interface NodeGroupArgs {
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      */
-    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
+    taints?: pulumi.Input<pulumi.Input<inputs.NodeGroupTaint>[]>;
     /**
      * Configuration block with update settings. See `updateConfig` below for details.
      */
-    updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
+    updateConfig?: pulumi.Input<inputs.NodeGroupUpdateConfig>;
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The device to register with SageMaker Edge Manager. See Device details below.
      */
-    public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice>;
+    public readonly device!: pulumi.Output<outputs.DeviceDevice>;
     /**
      * The name of the Device Fleet.
      */
@@ -123,7 +122,7 @@ export interface DeviceState {
     /**
      * The device to register with SageMaker Edge Manager. See Device details below.
      */
-    device?: pulumi.Input<inputs.sagemaker.DeviceDevice>;
+    device?: pulumi.Input<inputs.DeviceDevice>;
     /**
      * The name of the Device Fleet.
      */
@@ -137,7 +136,7 @@ export interface DeviceArgs {
     /**
      * The device to register with SageMaker Edge Manager. See Device details below.
      */
-    device: pulumi.Input<inputs.sagemaker.DeviceDevice>;
+    device: pulumi.Input<inputs.DeviceDevice>;
     /**
      * The name of the Device Fleet.
      */

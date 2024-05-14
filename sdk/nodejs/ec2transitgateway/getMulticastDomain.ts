@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetMulticastDomainArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetMulticastDomainFilter[];
+    filters?: inputs.GetMulticastDomainFilter[];
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      */
@@ -77,12 +76,12 @@ export interface GetMulticastDomainResult {
     /**
      * EC2 Transit Gateway Multicast Domain Associations
      */
-    readonly associations: outputs.ec2transitgateway.GetMulticastDomainAssociation[];
+    readonly associations: outputs.GetMulticastDomainAssociation[];
     /**
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain.
      */
     readonly autoAcceptSharedAssociations: string;
-    readonly filters?: outputs.ec2transitgateway.GetMulticastDomainFilter[];
+    readonly filters?: inputs.GetMulticastDomainFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -94,7 +93,7 @@ export interface GetMulticastDomainResult {
     /**
      * EC2 Multicast Domain Group Members
      */
-    readonly members: outputs.ec2transitgateway.GetMulticastDomainMember[];
+    readonly members: outputs.GetMulticastDomainMember[];
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      */
@@ -102,7 +101,7 @@ export interface GetMulticastDomainResult {
     /**
      * EC2 Multicast Domain Group Sources
      */
-    readonly sources: outputs.ec2transitgateway.GetMulticastDomainSource[];
+    readonly sources: outputs.GetMulticastDomainSource[];
     readonly state: string;
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain.
@@ -163,7 +162,7 @@ export interface GetMulticastDomainOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetMulticastDomainFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetMulticastDomainFilterArgs>[]>;
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      */

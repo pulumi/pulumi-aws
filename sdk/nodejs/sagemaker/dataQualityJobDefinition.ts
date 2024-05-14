@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,23 +88,23 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
-    public readonly dataQualityAppSpecification!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    public readonly dataQualityAppSpecification!: pulumi.Output<outputs.DataQualityJobDefinitionDataQualityAppSpecification>;
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    public readonly dataQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
+    public readonly dataQualityBaselineConfig!: pulumi.Output<outputs.DataQualityJobDefinitionDataQualityBaselineConfig | undefined>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
-    public readonly dataQualityJobInput!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    public readonly dataQualityJobInput!: pulumi.Output<outputs.DataQualityJobDefinitionDataQualityJobInput>;
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      */
-    public readonly dataQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
+    public readonly dataQualityJobOutputConfig!: pulumi.Output<outputs.DataQualityJobDefinitionDataQualityJobOutputConfig>;
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      */
-    public readonly jobResources!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionJobResources>;
+    public readonly jobResources!: pulumi.Output<outputs.DataQualityJobDefinitionJobResources>;
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
@@ -113,7 +112,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionNetworkConfig | undefined>;
+    public readonly networkConfig!: pulumi.Output<outputs.DataQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
@@ -121,7 +120,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    public readonly stoppingCondition!: pulumi.Output<outputs.DataQualityJobDefinitionStoppingCondition>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -204,23 +203,23 @@ export interface DataQualityJobDefinitionState {
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
-    dataQualityAppSpecification?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    dataQualityAppSpecification?: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityAppSpecification>;
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig>;
+    dataQualityBaselineConfig?: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityBaselineConfig>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
-    dataQualityJobInput?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    dataQualityJobInput?: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityJobInput>;
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      */
-    dataQualityJobOutputConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
+    dataQualityJobOutputConfig?: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityJobOutputConfig>;
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      */
-    jobResources?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionJobResources>;
+    jobResources?: pulumi.Input<inputs.DataQualityJobDefinitionJobResources>;
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
@@ -228,7 +227,7 @@ export interface DataQualityJobDefinitionState {
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    networkConfig?: pulumi.Input<inputs.DataQualityJobDefinitionNetworkConfig>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
@@ -236,7 +235,7 @@ export interface DataQualityJobDefinitionState {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    stoppingCondition?: pulumi.Input<inputs.DataQualityJobDefinitionStoppingCondition>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -256,23 +255,23 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * Specifies the container that runs the monitoring job. Fields are documented below.
      */
-    dataQualityAppSpecification: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityAppSpecification>;
+    dataQualityAppSpecification: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityAppSpecification>;
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      */
-    dataQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityBaselineConfig>;
+    dataQualityBaselineConfig?: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityBaselineConfig>;
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      */
-    dataQualityJobInput: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobInput>;
+    dataQualityJobInput: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityJobInput>;
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      */
-    dataQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfig>;
+    dataQualityJobOutputConfig: pulumi.Input<inputs.DataQualityJobDefinitionDataQualityJobOutputConfig>;
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      */
-    jobResources: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionJobResources>;
+    jobResources: pulumi.Input<inputs.DataQualityJobDefinitionJobResources>;
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      */
@@ -280,7 +279,7 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      */
-    networkConfig?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionNetworkConfig>;
+    networkConfig?: pulumi.Input<inputs.DataQualityJobDefinitionNetworkConfig>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
      */
@@ -288,7 +287,7 @@ export interface DataQualityJobDefinitionArgs {
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      */
-    stoppingCondition?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionStoppingCondition>;
+    stoppingCondition?: pulumi.Input<inputs.DataQualityJobDefinitionStoppingCondition>;
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

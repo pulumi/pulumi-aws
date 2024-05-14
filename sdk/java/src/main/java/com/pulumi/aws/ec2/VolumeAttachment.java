@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new Instance("web", InstanceArgs.builder()        
+ *         var web = new Instance("web", InstanceArgs.builder()
  *             .ami("ami-21f78e11")
  *             .availabilityZone("us-west-2a")
  *             .instanceType("t2.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var example = new Volume("example", VolumeArgs.builder()        
+ *         var example = new Volume("example", VolumeArgs.builder()
  *             .availabilityZone("us-west-2a")
  *             .size(1)
  *             .build());
  * 
- *         var ebsAtt = new VolumeAttachment("ebsAtt", VolumeAttachmentArgs.builder()        
+ *         var ebsAtt = new VolumeAttachment("ebsAtt", VolumeAttachmentArgs.builder()
  *             .deviceName("/dev/sdh")
  *             .volumeId(example.id())
  *             .instanceId(web.id())

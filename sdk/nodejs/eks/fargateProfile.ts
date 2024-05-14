@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +106,7 @@ export class FargateProfile extends pulumi.CustomResource {
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
-    public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
+    public readonly selectors!: pulumi.Output<outputs.FargateProfileSelector[]>;
     /**
      * Status of the EKS Fargate Profile.
      */
@@ -200,7 +199,7 @@ export interface FargateProfileState {
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
-    selectors?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
+    selectors?: pulumi.Input<pulumi.Input<inputs.FargateProfileSelector>[]>;
     /**
      * Status of the EKS Fargate Profile.
      */
@@ -242,7 +241,7 @@ export interface FargateProfileArgs {
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
-    selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.FargateProfileSelector>[]>;
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      *

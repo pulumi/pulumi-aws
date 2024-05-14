@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +47,7 @@ export interface GetAccessKeysResult {
     /**
      * List of the IAM access keys associated with the specified user. See below.
      */
-    readonly accessKeys: outputs.iam.GetAccessKeysAccessKey[];
+    readonly accessKeys: outputs.GetAccessKeysAccessKey[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

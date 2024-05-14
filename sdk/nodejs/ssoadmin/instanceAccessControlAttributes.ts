@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
     /**
      * See AccessControlAttribute for more details.
      */
-    public readonly attributes!: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
+    public readonly attributes!: pulumi.Output<outputs.InstanceAccessControlAttributesAttribute[]>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
@@ -99,7 +98,7 @@ export interface InstanceAccessControlAttributesState {
     /**
      * See AccessControlAttribute for more details.
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.InstanceAccessControlAttributesAttribute>[]>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
@@ -115,7 +114,7 @@ export interface InstanceAccessControlAttributesArgs {
     /**
      * See AccessControlAttribute for more details.
      */
-    attributes: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
+    attributes: pulumi.Input<pulumi.Input<inputs.InstanceAccessControlAttributesAttribute>[]>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */

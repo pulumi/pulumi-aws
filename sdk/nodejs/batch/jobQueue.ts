@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -113,7 +112,7 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    public readonly computeEnvironmentOrders!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
+    public readonly computeEnvironmentOrders!: pulumi.Output<outputs.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
@@ -147,7 +146,7 @@ export class JobQueue extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.JobQueueTimeouts | undefined>;
 
     /**
      * Create a JobQueue resource with the given unique name, arguments, and options.
@@ -207,7 +206,7 @@ export interface JobQueueState {
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
+    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.JobQueueComputeEnvironmentOrder>[]>;
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
@@ -241,7 +240,7 @@ export interface JobQueueState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
+    timeouts?: pulumi.Input<inputs.JobQueueTimeouts>;
 }
 
 /**
@@ -251,7 +250,7 @@ export interface JobQueueArgs {
     /**
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      */
-    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
+    computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.JobQueueComputeEnvironmentOrder>[]>;
     /**
      * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
      *
@@ -279,5 +278,5 @@ export interface JobQueueArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
+    timeouts?: pulumi.Input<inputs.JobQueueTimeouts>;
 }

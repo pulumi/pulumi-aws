@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export interface GetUserPoolClientResult {
     /**
      * (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
-    readonly analyticsConfigurations: outputs.cognito.GetUserPoolClientAnalyticsConfiguration[];
+    readonly analyticsConfigurations: outputs.GetUserPoolClientAnalyticsConfiguration[];
     /**
      * (Optional) List of allowed callback URLs for the identity providers.
      */
@@ -127,7 +126,7 @@ export interface GetUserPoolClientResult {
     /**
      * (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
      */
-    readonly tokenValidityUnits: outputs.cognito.GetUserPoolClientTokenValidityUnit[];
+    readonly tokenValidityUnits: outputs.GetUserPoolClientTokenValidityUnit[];
     readonly userPoolId: string;
     /**
      * (Optional) List of user pool attributes the application client can write to.

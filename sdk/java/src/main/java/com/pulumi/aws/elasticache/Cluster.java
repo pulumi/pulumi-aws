@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .engine("memcached")
  *             .nodeType("cache.m4.large")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .engine("redis")
  *             .nodeType("cache.m4.large")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replica = new Cluster("replica", ClusterArgs.builder()        
+ *         var replica = new Cluster("replica", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .replicationGroupId(example.id())
  *             .build());
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Cluster("test", ClusterArgs.builder()        
+ *         var test = new Cluster("test", ClusterArgs.builder()
  *             .clusterId("mycluster")
  *             .engine("redis")
  *             .nodeType("cache.t3.micro")

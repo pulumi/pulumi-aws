@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +97,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[]>;
+    public readonly entries!: pulumi.Output<outputs.ManagedPrefixListEntry[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
@@ -185,7 +185,7 @@ export interface ManagedPrefixListState {
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ManagedPrefixListEntry>[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
@@ -225,7 +225,7 @@ export interface ManagedPrefixListArgs {
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ManagedPrefixListEntry>[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */

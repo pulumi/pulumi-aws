@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +81,7 @@ export class Proxy extends pulumi.CustomResource {
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    public readonly auths!: pulumi.Output<outputs.rds.ProxyAuth[]>;
+    public readonly auths!: pulumi.Output<outputs.ProxyAuth[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
@@ -199,7 +199,7 @@ export interface ProxyState {
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    auths?: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
+    auths?: pulumi.Input<pulumi.Input<inputs.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
@@ -255,7 +255,7 @@ export interface ProxyArgs {
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    auths: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
+    auths: pulumi.Input<pulumi.Input<inputs.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */

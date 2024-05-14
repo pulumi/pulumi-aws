@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -118,7 +117,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * CloudWatch destination for the events
      */
-    public readonly cloudwatchDestinations!: pulumi.Output<outputs.ses.EventDestinationCloudwatchDestination[] | undefined>;
+    public readonly cloudwatchDestinations!: pulumi.Output<outputs.EventDestinationCloudwatchDestination[] | undefined>;
     /**
      * The name of the configuration set
      */
@@ -130,7 +129,7 @@ export class EventDestination extends pulumi.CustomResource {
     /**
      * Send the events to a kinesis firehose destination
      */
-    public readonly kinesisDestination!: pulumi.Output<outputs.ses.EventDestinationKinesisDestination | undefined>;
+    public readonly kinesisDestination!: pulumi.Output<outputs.EventDestinationKinesisDestination | undefined>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -144,7 +143,7 @@ export class EventDestination extends pulumi.CustomResource {
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    public readonly snsDestination!: pulumi.Output<outputs.ses.EventDestinationSnsDestination | undefined>;
+    public readonly snsDestination!: pulumi.Output<outputs.EventDestinationSnsDestination | undefined>;
 
     /**
      * Create a EventDestination resource with the given unique name, arguments, and options.
@@ -200,7 +199,7 @@ export interface EventDestinationState {
     /**
      * CloudWatch destination for the events
      */
-    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
@@ -212,7 +211,7 @@ export interface EventDestinationState {
     /**
      * Send the events to a kinesis firehose destination
      */
-    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -226,7 +225,7 @@ export interface EventDestinationState {
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.EventDestinationSnsDestination>;
 }
 
 /**
@@ -236,7 +235,7 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
@@ -248,7 +247,7 @@ export interface EventDestinationArgs {
     /**
      * Send the events to a kinesis firehose destination
      */
-    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
@@ -262,5 +261,5 @@ export interface EventDestinationArgs {
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
-    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.EventDestinationSnsDestination>;
 }

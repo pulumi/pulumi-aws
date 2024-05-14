@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +89,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.ProvisionedModelThroughputTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ProvisionedModelThroughputTimeouts | undefined>;
 
     /**
      * Create a ProvisionedModelThroughput resource with the given unique name, arguments, and options.
@@ -172,7 +171,7 @@ export interface ProvisionedModelThroughputState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.ProvisionedModelThroughputTimeouts>;
+    timeouts?: pulumi.Input<inputs.ProvisionedModelThroughputTimeouts>;
 }
 
 /**
@@ -199,5 +198,5 @@ export interface ProvisionedModelThroughputArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.ProvisionedModelThroughputTimeouts>;
+    timeouts?: pulumi.Input<inputs.ProvisionedModelThroughputTimeouts>;
 }

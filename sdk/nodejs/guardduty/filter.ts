@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -103,7 +102,7 @@ export class Filter extends pulumi.CustomResource {
     /**
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
+    public readonly findingCriteria!: pulumi.Output<outputs.FilterFindingCriteria>;
     /**
      * The name of your filter.
      */
@@ -197,7 +196,7 @@ export interface FilterState {
     /**
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
-    findingCriteria?: pulumi.Input<inputs.guardduty.FilterFindingCriteria>;
+    findingCriteria?: pulumi.Input<inputs.FilterFindingCriteria>;
     /**
      * The name of your filter.
      */
@@ -237,7 +236,7 @@ export interface FilterArgs {
     /**
      * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
      */
-    findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteria>;
+    findingCriteria: pulumi.Input<inputs.FilterFindingCriteria>;
     /**
      * The name of your filter.
      */

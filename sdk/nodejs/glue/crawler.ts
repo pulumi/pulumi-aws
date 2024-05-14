@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -177,7 +176,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      */
-    public readonly catalogTargets!: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
+    public readonly catalogTargets!: pulumi.Output<outputs.CrawlerCatalogTarget[] | undefined>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -193,7 +192,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      */
-    public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
+    public readonly deltaTargets!: pulumi.Output<outputs.CrawlerDeltaTarget[] | undefined>;
     /**
      * Description of the crawler.
      */
@@ -201,31 +200,31 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
+    public readonly dynamodbTargets!: pulumi.Output<outputs.CrawlerDynamodbTarget[] | undefined>;
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      */
-    public readonly hudiTargets!: pulumi.Output<outputs.glue.CrawlerHudiTarget[] | undefined>;
+    public readonly hudiTargets!: pulumi.Output<outputs.CrawlerHudiTarget[] | undefined>;
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      */
-    public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
+    public readonly icebergTargets!: pulumi.Output<outputs.CrawlerIcebergTarget[] | undefined>;
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      */
-    public readonly jdbcTargets!: pulumi.Output<outputs.glue.CrawlerJdbcTarget[] | undefined>;
+    public readonly jdbcTargets!: pulumi.Output<outputs.CrawlerJdbcTarget[] | undefined>;
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      */
-    public readonly lakeFormationConfiguration!: pulumi.Output<outputs.glue.CrawlerLakeFormationConfiguration | undefined>;
+    public readonly lakeFormationConfiguration!: pulumi.Output<outputs.CrawlerLakeFormationConfiguration | undefined>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    public readonly lineageConfiguration!: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
+    public readonly lineageConfiguration!: pulumi.Output<outputs.CrawlerLineageConfiguration | undefined>;
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      */
-    public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
+    public readonly mongodbTargets!: pulumi.Output<outputs.CrawlerMongodbTarget[] | undefined>;
     /**
      * Name of the crawler.
      */
@@ -233,7 +232,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
+    public readonly recrawlPolicy!: pulumi.Output<outputs.CrawlerRecrawlPolicy | undefined>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
@@ -241,7 +240,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      */
-    public readonly s3Targets!: pulumi.Output<outputs.glue.CrawlerS3Target[] | undefined>;
+    public readonly s3Targets!: pulumi.Output<outputs.CrawlerS3Target[] | undefined>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -249,7 +248,7 @@ export class Crawler extends pulumi.CustomResource {
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    public readonly schemaChangePolicy!: pulumi.Output<outputs.glue.CrawlerSchemaChangePolicy | undefined>;
+    public readonly schemaChangePolicy!: pulumi.Output<outputs.CrawlerSchemaChangePolicy | undefined>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
@@ -355,7 +354,7 @@ export interface CrawlerState {
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      */
-    catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
+    catalogTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -371,7 +370,7 @@ export interface CrawlerState {
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      */
-    deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
+    deltaTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
      */
@@ -379,31 +378,31 @@ export interface CrawlerState {
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      */
-    hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
+    hudiTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerHudiTarget>[]>;
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      */
-    icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
+    icebergTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerIcebergTarget>[]>;
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      */
-    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerJdbcTarget>[]>;
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      */
-    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfiguration>;
+    lakeFormationConfiguration?: pulumi.Input<inputs.CrawlerLakeFormationConfiguration>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    lineageConfiguration?: pulumi.Input<inputs.CrawlerLineageConfiguration>;
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      */
-    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
+    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -411,7 +410,7 @@ export interface CrawlerState {
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    recrawlPolicy?: pulumi.Input<inputs.CrawlerRecrawlPolicy>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
@@ -419,7 +418,7 @@ export interface CrawlerState {
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      */
-    s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
+    s3Targets?: pulumi.Input<pulumi.Input<inputs.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -427,7 +426,7 @@ export interface CrawlerState {
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
+    schemaChangePolicy?: pulumi.Input<inputs.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
@@ -455,7 +454,7 @@ export interface CrawlerArgs {
     /**
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      */
-    catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
+    catalogTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
@@ -471,7 +470,7 @@ export interface CrawlerArgs {
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      */
-    deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
+    deltaTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
      */
@@ -479,31 +478,31 @@ export interface CrawlerArgs {
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      */
-    hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
+    hudiTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerHudiTarget>[]>;
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      */
-    icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
+    icebergTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerIcebergTarget>[]>;
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      */
-    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerJdbcTarget>[]>;
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      */
-    lakeFormationConfiguration?: pulumi.Input<inputs.glue.CrawlerLakeFormationConfiguration>;
+    lakeFormationConfiguration?: pulumi.Input<inputs.CrawlerLakeFormationConfiguration>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    lineageConfiguration?: pulumi.Input<inputs.CrawlerLineageConfiguration>;
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      */
-    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
+    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
@@ -511,7 +510,7 @@ export interface CrawlerArgs {
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    recrawlPolicy?: pulumi.Input<inputs.CrawlerRecrawlPolicy>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
@@ -519,7 +518,7 @@ export interface CrawlerArgs {
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      */
-    s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
+    s3Targets?: pulumi.Input<pulumi.Input<inputs.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
@@ -527,7 +526,7 @@ export interface CrawlerArgs {
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
+    schemaChangePolicy?: pulumi.Input<inputs.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -28,13 +27,13 @@ export interface GetUserArgs {
     /**
      * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
+    alternateIdentifier?: inputs.GetUserAlternateIdentifier;
     /**
      * Configuration block for filtering by a unique attribute of the user. Detailed below.
      *
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    filter?: inputs.identitystore.GetUserFilter;
+    filter?: inputs.GetUserFilter;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -56,8 +55,8 @@ export interface GetUserResult {
     /**
      * List of details about the user's address.
      */
-    readonly addresses: outputs.identitystore.GetUserAddress[];
-    readonly alternateIdentifier?: outputs.identitystore.GetUserAlternateIdentifier;
+    readonly addresses: outputs.GetUserAddress[];
+    readonly alternateIdentifier?: inputs.GetUserAlternateIdentifier;
     /**
      * The name that is typically displayed when the user is referenced.
      */
@@ -65,15 +64,15 @@ export interface GetUserResult {
     /**
      * List of details about the user's email.
      */
-    readonly emails: outputs.identitystore.GetUserEmail[];
+    readonly emails: outputs.GetUserEmail[];
     /**
      * List of identifiers issued to this resource by an external identity provider.
      */
-    readonly externalIds: outputs.identitystore.GetUserExternalId[];
+    readonly externalIds: outputs.GetUserExternalId[];
     /**
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    readonly filter?: outputs.identitystore.GetUserFilter;
+    readonly filter?: inputs.GetUserFilter;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -86,7 +85,7 @@ export interface GetUserResult {
     /**
      * Details about the user's full name.
      */
-    readonly names: outputs.identitystore.GetUserName[];
+    readonly names: outputs.GetUserName[];
     /**
      * An alternate name for the user.
      */
@@ -94,7 +93,7 @@ export interface GetUserResult {
     /**
      * List of details about the user's phone number.
      */
-    readonly phoneNumbers: outputs.identitystore.GetUserPhoneNumber[];
+    readonly phoneNumbers: outputs.GetUserPhoneNumber[];
     /**
      * The preferred language of the user.
      */
@@ -135,13 +134,13 @@ export interface GetUserOutputArgs {
     /**
      * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
+    alternateIdentifier?: pulumi.Input<inputs.GetUserAlternateIdentifierArgs>;
     /**
      * Configuration block for filtering by a unique attribute of the user. Detailed below.
      *
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
+    filter?: pulumi.Input<inputs.GetUserFilterArgs>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *

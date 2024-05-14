@@ -11,6 +11,15 @@ export const InvocationLoggingConfiguration: typeof import("./invocationLoggingC
 utilities.lazyLoad(exports, ["InvocationLoggingConfiguration"], () => require("./invocationLoggingConfiguration"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

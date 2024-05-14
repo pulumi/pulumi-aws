@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +63,7 @@ export interface GetVpcPeeringConnectionArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcPeeringConnectionFilter[];
+    filters?: inputs.GetVpcPeeringConnectionFilter[];
     /**
      * ID of the specific VPC Peering Connection to retrieve.
      */
@@ -126,23 +126,23 @@ export interface GetVpcPeeringConnectionResult {
     /**
      * List of objects with IPv4 CIDR blocks of the requester VPC.
      */
-    readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
-    readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
+    readonly cidrBlockSets: outputs.GetVpcPeeringConnectionCidrBlockSet[];
+    readonly filters?: inputs.GetVpcPeeringConnectionFilter[];
     readonly id: string;
     /**
      * List of objects with IPv6 CIDR blocks of the requester VPC.
      */
-    readonly ipv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionIpv6CidrBlockSet[];
+    readonly ipv6CidrBlockSets: outputs.GetVpcPeeringConnectionIpv6CidrBlockSet[];
     readonly ownerId: string;
     readonly peerCidrBlock: string;
     /**
      * List of objects with IPv4 CIDR blocks of the accepter VPC.
      */
-    readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
+    readonly peerCidrBlockSets: outputs.GetVpcPeeringConnectionPeerCidrBlockSet[];
     /**
      * List of objects with IPv6 CIDR blocks of the accepter VPC.
      */
-    readonly peerIpv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
+    readonly peerIpv6CidrBlockSets: outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
     readonly peerOwnerId: string;
     readonly peerRegion: string;
     readonly peerVpcId: string;
@@ -196,7 +196,7 @@ export interface GetVpcPeeringConnectionOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcPeeringConnectionFilterArgs>[]>;
     /**
      * ID of the specific VPC Peering Connection to retrieve.
      */

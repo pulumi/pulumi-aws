@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -174,7 +174,7 @@ export class ContactsRotation extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly recurrence!: pulumi.Output<outputs.ssm.ContactsRotationRecurrence | undefined>;
+    public readonly recurrence!: pulumi.Output<outputs.ContactsRotationRecurrence | undefined>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
@@ -258,7 +258,7 @@ export interface ContactsRotationState {
      *
      * The following arguments are optional:
      */
-    recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    recurrence?: pulumi.Input<inputs.ContactsRotationRecurrence>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
@@ -296,7 +296,7 @@ export interface ContactsRotationArgs {
      *
      * The following arguments are optional:
      */
-    recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    recurrence?: pulumi.Input<inputs.ContactsRotationRecurrence>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */

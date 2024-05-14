@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +105,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    public readonly organizationConfiguration!: pulumi.Output<outputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    public readonly organizationConfiguration!: pulumi.Output<outputs.OrganizationConfigurationOrganizationConfiguration>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -153,7 +152,7 @@ export interface OrganizationConfigurationState {
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    organizationConfiguration?: pulumi.Input<inputs.OrganizationConfigurationOrganizationConfiguration>;
 }
 
 /**
@@ -171,5 +170,5 @@ export interface OrganizationConfigurationArgs {
     /**
      * Provides information about the way an organization is configured in Security Hub.
      */
-    organizationConfiguration?: pulumi.Input<inputs.securityhub.OrganizationConfigurationOrganizationConfiguration>;
+    organizationConfiguration?: pulumi.Input<inputs.OrganizationConfigurationOrganizationConfiguration>;
 }

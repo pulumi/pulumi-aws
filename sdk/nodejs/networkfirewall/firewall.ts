@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.FirewallEncryptionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
@@ -93,7 +92,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * Nested list of information about the current status of the firewall.
      */
-    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.networkfirewall.FirewallFirewallStatus[]>;
+    public /*out*/ readonly firewallStatuses!: pulumi.Output<outputs.FirewallFirewallStatus[]>;
     /**
      * A friendly name of the firewall.
      */
@@ -105,7 +104,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<outputs.FirewallSubnetMapping[]>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -202,7 +201,7 @@ export interface FirewallState {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.FirewallEncryptionConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
@@ -214,7 +213,7 @@ export interface FirewallState {
     /**
      * Nested list of information about the current status of the firewall.
      */
-    firewallStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatus>[]>;
+    firewallStatuses?: pulumi.Input<pulumi.Input<inputs.FirewallFirewallStatus>[]>;
     /**
      * A friendly name of the firewall.
      */
@@ -226,7 +225,7 @@ export interface FirewallState {
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.FirewallSubnetMapping>[]>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -262,7 +261,7 @@ export interface FirewallArgs {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.FirewallEncryptionConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
@@ -282,7 +281,7 @@ export interface FirewallArgs {
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
+    subnetMappings: pulumi.Input<pulumi.Input<inputs.FirewallSubnetMapping>[]>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

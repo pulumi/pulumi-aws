@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      */
-    public readonly components!: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponent[]>;
+    public readonly components!: pulumi.Output<outputs.ContainerRecipeComponent[]>;
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      */
@@ -116,7 +115,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
-    public readonly instanceConfiguration!: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
+    public readonly instanceConfiguration!: pulumi.Output<outputs.ContainerRecipeInstanceConfiguration | undefined>;
     /**
      * The KMS key used to encrypt the container image.
      */
@@ -154,7 +153,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * The destination repository for the container image. Detailed below.
      */
-    public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetRepository>;
+    public readonly targetRepository!: pulumi.Output<outputs.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
      *
@@ -253,7 +252,7 @@ export interface ContainerRecipeState {
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponent>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.ContainerRecipeComponent>[]>;
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      */
@@ -281,7 +280,7 @@ export interface ContainerRecipeState {
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
-    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.ContainerRecipeInstanceConfiguration>;
     /**
      * The KMS key used to encrypt the container image.
      */
@@ -319,7 +318,7 @@ export interface ContainerRecipeState {
     /**
      * The destination repository for the container image. Detailed below.
      */
-    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
+    targetRepository?: pulumi.Input<inputs.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
      *
@@ -339,7 +338,7 @@ export interface ContainerRecipeArgs {
     /**
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      */
-    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponent>[]>;
+    components: pulumi.Input<pulumi.Input<inputs.ContainerRecipeComponent>[]>;
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      */
@@ -359,7 +358,7 @@ export interface ContainerRecipeArgs {
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      */
-    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.ContainerRecipeInstanceConfiguration>;
     /**
      * The KMS key used to encrypt the container image.
      */
@@ -383,7 +382,7 @@ export interface ContainerRecipeArgs {
     /**
      * The destination repository for the container image. Detailed below.
      */
-    targetRepository: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
+    targetRepository: pulumi.Input<inputs.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
      *

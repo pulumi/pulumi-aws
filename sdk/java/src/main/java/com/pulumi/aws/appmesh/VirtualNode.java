@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
  *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
@@ -119,11 +119,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()        
+ *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()
  *             .name("example-ns")
  *             .build());
  * 
- *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
  *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
  *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()        
+ *         var serviceb1 = new VirtualNode("serviceb1", VirtualNodeArgs.builder()
  *             .name("serviceBv1")
  *             .meshName(simple.id())
  *             .spec(VirtualNodeSpecArgs.builder()

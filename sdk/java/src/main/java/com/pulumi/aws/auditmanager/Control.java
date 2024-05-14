@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Control("example", ControlArgs.builder()        
+ *         var example = new Control("example", ControlArgs.builder()
  *             .name("example")
  *             .controlMappingSources(ControlControlMappingSourceArgs.builder()
  *                 .sourceName("example")

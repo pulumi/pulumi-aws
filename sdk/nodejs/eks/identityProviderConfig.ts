@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +72,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */
-    public readonly oidc!: pulumi.Output<outputs.eks.IdentityProviderConfigOidc>;
+    public readonly oidc!: pulumi.Output<outputs.IdentityProviderConfigOidc>;
     /**
      * Status of the EKS Identity Provider Configuration.
      */
@@ -143,7 +142,7 @@ export interface IdentityProviderConfigState {
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */
-    oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
+    oidc?: pulumi.Input<inputs.IdentityProviderConfigOidc>;
     /**
      * Status of the EKS Identity Provider Configuration.
      */
@@ -171,7 +170,7 @@ export interface IdentityProviderConfigArgs {
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      */
-    oidc: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
+    oidc: pulumi.Input<inputs.IdentityProviderConfigOidc>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

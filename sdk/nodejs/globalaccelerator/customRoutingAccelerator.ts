@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    public readonly attributes!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorAttributes | undefined>;
+    public readonly attributes!: pulumi.Output<outputs.CustomRoutingAcceleratorAttributes | undefined>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
@@ -94,7 +93,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     /**
      * IP address set associated with the accelerator.
      */
-    public /*out*/ readonly ipSets!: pulumi.Output<outputs.globalaccelerator.CustomRoutingAcceleratorIpSet[]>;
+    public /*out*/ readonly ipSets!: pulumi.Output<outputs.CustomRoutingAcceleratorIpSet[]>;
     /**
      * The name of a custom routing accelerator.
      */
@@ -158,7 +157,7 @@ export interface CustomRoutingAcceleratorState {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    attributes?: pulumi.Input<inputs.globalaccelerator.CustomRoutingAcceleratorAttributes>;
+    attributes?: pulumi.Input<inputs.CustomRoutingAcceleratorAttributes>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      */
@@ -184,7 +183,7 @@ export interface CustomRoutingAcceleratorState {
     /**
      * IP address set associated with the accelerator.
      */
-    ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingAcceleratorIpSet>[]>;
+    ipSets?: pulumi.Input<pulumi.Input<inputs.CustomRoutingAcceleratorIpSet>[]>;
     /**
      * The name of a custom routing accelerator.
      */
@@ -208,7 +207,7 @@ export interface CustomRoutingAcceleratorArgs {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    attributes?: pulumi.Input<inputs.globalaccelerator.CustomRoutingAcceleratorAttributes>;
+    attributes?: pulumi.Input<inputs.CustomRoutingAcceleratorAttributes>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */

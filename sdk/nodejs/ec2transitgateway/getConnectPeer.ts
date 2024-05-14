@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetConnectPeerArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetConnectPeerFilter[];
+    filters?: inputs.GetConnectPeerFilter[];
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */
@@ -86,7 +85,7 @@ export interface GetConnectPeerResult {
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      */
     readonly bgpTransitGatewayAddresses: string[];
-    readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
+    readonly filters?: inputs.GetConnectPeerFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -154,7 +153,7 @@ export interface GetConnectPeerOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectPeerFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetConnectPeerFilterArgs>[]>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */

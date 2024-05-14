@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      */
-    public readonly computeCapacity!: pulumi.Output<outputs.appstream.FleetComputeCapacity>;
+    public readonly computeCapacity!: pulumi.Output<outputs.FleetComputeCapacity>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      */
@@ -101,7 +100,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.FleetDomainJoinInfo>;
+    public readonly domainJoinInfo!: pulumi.Output<outputs.FleetDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the fleet.
      */
@@ -163,7 +162,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.FleetVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.FleetVpcConfig>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -247,7 +246,7 @@ export interface FleetState {
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      */
-    computeCapacity?: pulumi.Input<inputs.appstream.FleetComputeCapacity>;
+    computeCapacity?: pulumi.Input<inputs.FleetComputeCapacity>;
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      */
@@ -267,7 +266,7 @@ export interface FleetState {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.FleetDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.FleetDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the fleet.
      */
@@ -329,7 +328,7 @@ export interface FleetState {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.FleetVpcConfig>;
 }
 
 /**
@@ -339,7 +338,7 @@ export interface FleetArgs {
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      */
-    computeCapacity: pulumi.Input<inputs.appstream.FleetComputeCapacity>;
+    computeCapacity: pulumi.Input<inputs.FleetComputeCapacity>;
     /**
      * Description to display.
      */
@@ -355,7 +354,7 @@ export interface FleetArgs {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.FleetDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.FleetDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the fleet.
      */
@@ -409,5 +408,5 @@ export interface FleetArgs {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.FleetVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.FleetVpcConfig>;
 }

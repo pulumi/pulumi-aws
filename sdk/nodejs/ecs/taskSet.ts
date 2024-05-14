@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      */
-    public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategy[] | undefined>;
+    public readonly capacityProviderStrategies!: pulumi.Output<outputs.TaskSetCapacityProviderStrategy[] | undefined>;
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      */
@@ -106,11 +105,11 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
+    public readonly loadBalancers!: pulumi.Output<outputs.TaskSetLoadBalancer[] | undefined>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.TaskSetNetworkConfiguration | undefined>;
     /**
      * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -118,7 +117,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
-    public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale>;
+    public readonly scale!: pulumi.Output<outputs.TaskSetScale>;
     /**
      * The short name or ARN of the ECS service.
      */
@@ -126,7 +125,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistries | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.TaskSetServiceRegistries | undefined>;
     /**
      * The stability status. This indicates whether the task set has reached a steady state.
      */
@@ -245,7 +244,7 @@ export interface TaskSetState {
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategy>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.TaskSetCapacityProviderStrategy>[]>;
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      */
@@ -265,11 +264,11 @@ export interface TaskSetState {
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancer>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.TaskSetLoadBalancer>[]>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.TaskSetNetworkConfiguration>;
     /**
      * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -277,7 +276,7 @@ export interface TaskSetState {
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
-    scale?: pulumi.Input<inputs.ecs.TaskSetScale>;
+    scale?: pulumi.Input<inputs.TaskSetScale>;
     /**
      * The short name or ARN of the ECS service.
      */
@@ -285,7 +284,7 @@ export interface TaskSetState {
     /**
      * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
-    serviceRegistries?: pulumi.Input<inputs.ecs.TaskSetServiceRegistries>;
+    serviceRegistries?: pulumi.Input<inputs.TaskSetServiceRegistries>;
     /**
      * The stability status. This indicates whether the task set has reached a steady state.
      */
@@ -331,7 +330,7 @@ export interface TaskSetArgs {
     /**
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategy>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.TaskSetCapacityProviderStrategy>[]>;
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      */
@@ -351,11 +350,11 @@ export interface TaskSetArgs {
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancer>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.TaskSetLoadBalancer>[]>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.TaskSetNetworkConfiguration>;
     /**
      * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -363,7 +362,7 @@ export interface TaskSetArgs {
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
-    scale?: pulumi.Input<inputs.ecs.TaskSetScale>;
+    scale?: pulumi.Input<inputs.TaskSetScale>;
     /**
      * The short name or ARN of the ECS service.
      */
@@ -371,7 +370,7 @@ export interface TaskSetArgs {
     /**
      * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      */
-    serviceRegistries?: pulumi.Input<inputs.ecs.TaskSetServiceRegistries>;
+    serviceRegistries?: pulumi.Input<inputs.TaskSetServiceRegistries>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */

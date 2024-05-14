@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +92,7 @@ export class Access extends pulumi.CustomResource {
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
-    public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.AccessHomeDirectoryMapping[] | undefined>;
+    public readonly homeDirectoryMappings!: pulumi.Output<outputs.AccessHomeDirectoryMapping[] | undefined>;
     /**
      * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
      */
@@ -105,7 +104,7 @@ export class Access extends pulumi.CustomResource {
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
-    public readonly posixProfile!: pulumi.Output<outputs.transfer.AccessPosixProfile | undefined>;
+    public readonly posixProfile!: pulumi.Output<outputs.AccessPosixProfile | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
@@ -173,7 +172,7 @@ export interface AccessState {
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
-    homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.AccessHomeDirectoryMapping>[]>;
+    homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.AccessHomeDirectoryMapping>[]>;
     /**
      * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
      */
@@ -185,7 +184,7 @@ export interface AccessState {
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
-    posixProfile?: pulumi.Input<inputs.transfer.AccessPosixProfile>;
+    posixProfile?: pulumi.Input<inputs.AccessPosixProfile>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
@@ -211,7 +210,7 @@ export interface AccessArgs {
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
-    homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.AccessHomeDirectoryMapping>[]>;
+    homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.AccessHomeDirectoryMapping>[]>;
     /**
      * The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
      */
@@ -223,7 +222,7 @@ export interface AccessArgs {
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
      */
-    posixProfile?: pulumi.Input<inputs.transfer.AccessPosixProfile>;
+    posixProfile?: pulumi.Input<inputs.AccessPosixProfile>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */

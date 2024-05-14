@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * An object that specifies backup options for each resource type.
      */
-    public readonly advancedBackupSettings!: pulumi.Output<outputs.backup.PlanAdvancedBackupSetting[] | undefined>;
+    public readonly advancedBackupSettings!: pulumi.Output<outputs.PlanAdvancedBackupSetting[] | undefined>;
     /**
      * The ARN of the backup plan.
      */
@@ -86,7 +85,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    public readonly rules!: pulumi.Output<outputs.backup.PlanRule[]>;
+    public readonly rules!: pulumi.Output<outputs.PlanRule[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -147,7 +146,7 @@ export interface PlanState {
     /**
      * An object that specifies backup options for each resource type.
      */
-    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.PlanAdvancedBackupSetting>[]>;
     /**
      * The ARN of the backup plan.
      */
@@ -159,7 +158,7 @@ export interface PlanState {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -183,7 +182,7 @@ export interface PlanArgs {
     /**
      * An object that specifies backup options for each resource type.
      */
-    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.PlanAdvancedBackupSetting>[]>;
     /**
      * The display name of a backup plan.
      */
@@ -191,7 +190,7 @@ export interface PlanArgs {
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,15 +77,15 @@ export class CustomActionType extends pulumi.CustomResource {
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
-    public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
+    public readonly configurationProperties!: pulumi.Output<outputs.CustomActionTypeConfigurationProperty[] | undefined>;
+    public readonly inputArtifactDetails!: pulumi.Output<outputs.CustomActionTypeInputArtifactDetails>;
+    public readonly outputArtifactDetails!: pulumi.Output<outputs.CustomActionTypeOutputArtifactDetails>;
     /**
      * The creator of the action being called.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     public readonly providerName!: pulumi.Output<string>;
-    public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
+    public readonly settings!: pulumi.Output<outputs.CustomActionTypeSettings | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -169,15 +168,15 @@ export interface CustomActionTypeState {
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
+    configurationProperties?: pulumi.Input<pulumi.Input<inputs.CustomActionTypeConfigurationProperty>[]>;
+    inputArtifactDetails?: pulumi.Input<inputs.CustomActionTypeInputArtifactDetails>;
+    outputArtifactDetails?: pulumi.Input<inputs.CustomActionTypeOutputArtifactDetails>;
     /**
      * The creator of the action being called.
      */
     owner?: pulumi.Input<string>;
     providerName?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
+    settings?: pulumi.Input<inputs.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -199,11 +198,11 @@ export interface CustomActionTypeArgs {
     /**
      * The configuration properties for the custom action. Max 10 items.
      */
-    configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
+    configurationProperties?: pulumi.Input<pulumi.Input<inputs.CustomActionTypeConfigurationProperty>[]>;
+    inputArtifactDetails: pulumi.Input<inputs.CustomActionTypeInputArtifactDetails>;
+    outputArtifactDetails: pulumi.Input<inputs.CustomActionTypeOutputArtifactDetails>;
     providerName: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
+    settings?: pulumi.Input<inputs.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     version: pulumi.Input<string>;
 }

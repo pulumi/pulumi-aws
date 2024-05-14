@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {InstanceProfile} from "../iam";
@@ -90,7 +90,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.LaunchConfigurationEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -102,7 +102,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.LaunchConfigurationEphemeralBlockDevice[] | undefined>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.LaunchConfigurationEphemeralBlockDevice[] | undefined>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
@@ -124,7 +124,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * The metadata options for the instance.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
@@ -140,7 +140,7 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.LaunchConfigurationRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<outputs.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */
@@ -238,7 +238,7 @@ export interface LaunchConfigurationState {
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.LaunchConfigurationEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -250,7 +250,7 @@ export interface LaunchConfigurationState {
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.LaunchConfigurationEphemeralBlockDevice>[]>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
@@ -272,7 +272,7 @@ export interface LaunchConfigurationState {
     /**
      * The metadata options for the instance.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
@@ -288,7 +288,7 @@ export interface LaunchConfigurationState {
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */
@@ -318,7 +318,7 @@ export interface LaunchConfigurationArgs {
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.LaunchConfigurationEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      */
@@ -330,7 +330,7 @@ export interface LaunchConfigurationArgs {
     /**
      * Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchConfigurationEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.LaunchConfigurationEphemeralBlockDevice>[]>;
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      */
@@ -352,7 +352,7 @@ export interface LaunchConfigurationArgs {
     /**
      * The metadata options for the instance.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
@@ -368,7 +368,7 @@ export interface LaunchConfigurationArgs {
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.LaunchConfigurationRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.LaunchConfigurationRootBlockDevice>;
     /**
      * A list of associated security group IDS.
      */

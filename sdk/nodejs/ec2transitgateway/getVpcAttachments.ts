@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,14 +44,14 @@ export interface GetVpcAttachmentsArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetVpcAttachmentsFilter[];
+    filters?: inputs.GetVpcAttachmentsFilter[];
 }
 
 /**
  * A collection of values returned by getVpcAttachments.
  */
 export interface GetVpcAttachmentsResult {
-    readonly filters?: outputs.ec2transitgateway.GetVpcAttachmentsFilter[];
+    readonly filters?: inputs.GetVpcAttachmentsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -95,5 +94,5 @@ export interface GetVpcAttachmentsOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcAttachmentsFilterArgs>[]>;
 }

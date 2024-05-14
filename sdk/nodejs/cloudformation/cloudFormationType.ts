@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class CloudFormationType extends pulumi.CustomResource {
     /**
      * Configuration block containing logging configuration.
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.CloudFormationTypeLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.CloudFormationTypeLoggingConfig | undefined>;
     /**
      * Provisioning behavior of the CloudFormation Type.
      */
@@ -211,7 +210,7 @@ export interface CloudFormationTypeState {
     /**
      * Configuration block containing logging configuration.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudformation.CloudFormationTypeLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.CloudFormationTypeLoggingConfig>;
     /**
      * Provisioning behavior of the CloudFormation Type.
      */
@@ -261,7 +260,7 @@ export interface CloudFormationTypeArgs {
     /**
      * Configuration block containing logging configuration.
      */
-    loggingConfig?: pulumi.Input<inputs.cloudformation.CloudFormationTypeLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.CloudFormationTypeLoggingConfig>;
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      */

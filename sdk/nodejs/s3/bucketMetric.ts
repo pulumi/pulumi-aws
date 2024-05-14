@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -114,7 +114,7 @@ export class BucketMetric extends pulumi.CustomResource {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    public readonly filter!: pulumi.Output<outputs.s3.BucketMetricFilter | undefined>;
+    public readonly filter!: pulumi.Output<outputs.BucketMetricFilter | undefined>;
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
@@ -161,7 +161,7 @@ export interface BucketMetricState {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
@@ -179,7 +179,7 @@ export interface BucketMetricArgs {
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */

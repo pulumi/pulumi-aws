@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("neptune-cluster-demo")
  *             .engine("neptune")
  *             .backupRetentionPeriod(5)
@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *             .applyImmediately("true")
  *             .build());
  * 
- *         var example = new ClusterInstance("example", ClusterInstanceArgs.builder()        
+ *         var example = new ClusterInstance("example", ClusterInstanceArgs.builder()
  *             .clusterIdentifier(default_.id())
  *             .engine("neptune")
  *             .instanceClass("db.r4.large")
  *             .applyImmediately("true")
  *             .build());
  * 
- *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()
  *             .name("neptune-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()
  *             .name("neptune-event-sub")
  *             .snsTopicArn(defaultTopic.arn())
  *             .sourceType("db-instance")

@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .domainName("testing.example.com")
  *             .validationMethod("EMAIL")
  *             .validationOptions(CertificateValidationOptionArgs.builder()
@@ -133,11 +133,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrivateKey("example", PrivateKeyArgs.builder()        
+ *         var example = new PrivateKey("example", PrivateKeyArgs.builder()
  *             .algorithm("RSA")
  *             .build());
  * 
- *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()        
+ *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
  *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *                 "server_auth")
  *             .build());
  * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .privateKey(example.privateKeyPem())
  *             .certificateBody(exampleSelfSignedCert.certPem())
  *             .build());

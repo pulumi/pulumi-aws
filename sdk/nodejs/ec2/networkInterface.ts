@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +87,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    public readonly attachments!: pulumi.Output<outputs.ec2.NetworkInterfaceAttachment[]>;
+    public readonly attachments!: pulumi.Output<outputs.NetworkInterfaceAttachment[]>;
     /**
      * Description for the network interface.
      */
@@ -270,7 +270,7 @@ export interface NetworkInterfaceState {
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.NetworkInterfaceAttachment>[]>;
     /**
      * Description for the network interface.
      */
@@ -374,7 +374,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.NetworkInterfaceAttachment>[]>;
     /**
      * Description for the network interface.
      */

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Logging("example", LoggingArgs.builder()        
+ *         var example = new Logging("example", LoggingArgs.builder()
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .logDestinationType("cloudwatch")
  *             .logExports(            
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Logging("example", LoggingArgs.builder()        
+ *         var example = new Logging("example", LoggingArgs.builder()
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .logDestinationType("s3")
  *             .bucketName(exampleAwsS3Bucket.id())

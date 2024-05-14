@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new QuerySuggestionsBlockList("example", QuerySuggestionsBlockListArgs.builder()        
+ *         var example = new QuerySuggestionsBlockList("example", QuerySuggestionsBlockListArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("Example")
  *             .roleArn(exampleAwsIamRole.arn())

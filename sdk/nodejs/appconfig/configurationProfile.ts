@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +115,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
-    public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidator[] | undefined>;
+    public readonly validators!: pulumi.Output<outputs.ConfigurationProfileValidator[] | undefined>;
 
     /**
      * Create a ConfigurationProfile resource with the given unique name, arguments, and options.
@@ -222,7 +221,7 @@ export interface ConfigurationProfileState {
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
-    validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidator>[]>;
+    validators?: pulumi.Input<pulumi.Input<inputs.ConfigurationProfileValidator>[]>;
 }
 
 /**
@@ -264,5 +263,5 @@ export interface ConfigurationProfileArgs {
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
-    validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidator>[]>;
+    validators?: pulumi.Input<pulumi.Input<inputs.ConfigurationProfileValidator>[]>;
 }

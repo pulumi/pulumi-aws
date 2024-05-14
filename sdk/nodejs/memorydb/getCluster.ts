@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +59,7 @@ export interface GetClusterResult {
      * True when the cluster allows automatic minor version upgrades.
      */
     readonly autoMinorVersionUpgrade: boolean;
-    readonly clusterEndpoints: outputs.memorydb.GetClusterClusterEndpoint[];
+    readonly clusterEndpoints: outputs.GetClusterClusterEndpoint[];
     /**
      * True when data tiering is enabled.
      */
@@ -124,7 +123,7 @@ export interface GetClusterResult {
     /**
      * Set of shards in this cluster.
      */
-    readonly shards: outputs.memorydb.GetClusterShard[];
+    readonly shards: outputs.GetClusterShard[];
     /**
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +99,7 @@ export class FileCache extends pulumi.CustomResource {
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      */
-    public readonly dataRepositoryAssociations!: pulumi.Output<outputs.fsx.FileCacheDataRepositoryAssociation[] | undefined>;
+    public readonly dataRepositoryAssociations!: pulumi.Output<outputs.FileCacheDataRepositoryAssociation[] | undefined>;
     /**
      * The Domain Name System (DNS) name for the cache.
      */
@@ -124,7 +123,7 @@ export class FileCache extends pulumi.CustomResource {
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
-    public readonly lustreConfigurations!: pulumi.Output<outputs.fsx.FileCacheLustreConfiguration[] | undefined>;
+    public readonly lustreConfigurations!: pulumi.Output<outputs.FileCacheLustreConfiguration[] | undefined>;
     /**
      * A list of network interface IDs.
      */
@@ -246,7 +245,7 @@ export interface FileCacheState {
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      */
-    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[]>;
+    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.FileCacheDataRepositoryAssociation>[]>;
     /**
      * The Domain Name System (DNS) name for the cache.
      */
@@ -270,7 +269,7 @@ export interface FileCacheState {
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
-    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[]>;
+    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.FileCacheLustreConfiguration>[]>;
     /**
      * A list of network interface IDs.
      */
@@ -316,7 +315,7 @@ export interface FileCacheArgs {
      * See the `dataRepositoryAssociation` configuration block. Max of 8.
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      */
-    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheDataRepositoryAssociation>[]>;
+    dataRepositoryAssociations?: pulumi.Input<pulumi.Input<inputs.FileCacheDataRepositoryAssociation>[]>;
     /**
      * The type of cache that you're creating. The only supported value is `LUSTRE`.
      */
@@ -332,7 +331,7 @@ export interface FileCacheArgs {
     /**
      * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
      */
-    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfiguration>[]>;
+    lustreConfigurations?: pulumi.Input<pulumi.Input<inputs.FileCacheLustreConfiguration>[]>;
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      */

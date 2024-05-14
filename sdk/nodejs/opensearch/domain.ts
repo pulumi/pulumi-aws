@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -316,7 +315,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    public readonly advancedSecurityOptions!: pulumi.Output<outputs.opensearch.DomainAdvancedSecurityOptions>;
+    public readonly advancedSecurityOptions!: pulumi.Output<outputs.DomainAdvancedSecurityOptions>;
     /**
      * ARN of the domain.
      */
@@ -324,15 +323,15 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    public readonly autoTuneOptions!: pulumi.Output<outputs.opensearch.DomainAutoTuneOptions>;
+    public readonly autoTuneOptions!: pulumi.Output<outputs.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    public readonly clusterConfig!: pulumi.Output<outputs.opensearch.DomainClusterConfig>;
+    public readonly clusterConfig!: pulumi.Output<outputs.DomainClusterConfig>;
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
-    public readonly cognitoOptions!: pulumi.Output<outputs.opensearch.DomainCognitoOptions | undefined>;
+    public readonly cognitoOptions!: pulumi.Output<outputs.DomainCognitoOptions | undefined>;
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      */
@@ -340,7 +339,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.DomainDomainEndpointOptions>;
     /**
      * Unique identifier for the domain.
      */
@@ -354,11 +353,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */
-    public readonly ebsOptions!: pulumi.Output<outputs.opensearch.DomainEbsOptions>;
+    public readonly ebsOptions!: pulumi.Output<outputs.DomainEbsOptions>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      */
-    public readonly encryptAtRest!: pulumi.Output<outputs.opensearch.DomainEncryptAtRest>;
+    public readonly encryptAtRest!: pulumi.Output<outputs.DomainEncryptAtRest>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
@@ -378,23 +377,23 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    public readonly logPublishingOptions!: pulumi.Output<outputs.opensearch.DomainLogPublishingOption[] | undefined>;
+    public readonly logPublishingOptions!: pulumi.Output<outputs.DomainLogPublishingOption[] | undefined>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption>;
+    public readonly nodeToNodeEncryption!: pulumi.Output<outputs.DomainNodeToNodeEncryption>;
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
-    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
+    public readonly offPeakWindowOptions!: pulumi.Output<outputs.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
-    public readonly snapshotOptions!: pulumi.Output<outputs.opensearch.DomainSnapshotOptions | undefined>;
+    public readonly snapshotOptions!: pulumi.Output<outputs.DomainSnapshotOptions | undefined>;
     /**
      * Software update options for the domain. Detailed below.
      */
-    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions>;
+    public readonly softwareUpdateOptions!: pulumi.Output<outputs.DomainSoftwareUpdateOptions>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -408,7 +407,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */
-    public readonly vpcOptions!: pulumi.Output<outputs.opensearch.DomainVpcOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.DomainVpcOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -494,7 +493,7 @@ export interface DomainState {
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    advancedSecurityOptions?: pulumi.Input<inputs.DomainAdvancedSecurityOptions>;
     /**
      * ARN of the domain.
      */
@@ -502,15 +501,15 @@ export interface DomainState {
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    autoTuneOptions?: pulumi.Input<inputs.opensearch.DomainAutoTuneOptions>;
+    autoTuneOptions?: pulumi.Input<inputs.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
+    clusterConfig?: pulumi.Input<inputs.DomainClusterConfig>;
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
-    cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
+    cognitoOptions?: pulumi.Input<inputs.DomainCognitoOptions>;
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      */
@@ -518,7 +517,7 @@ export interface DomainState {
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    domainEndpointOptions?: pulumi.Input<inputs.opensearch.DomainDomainEndpointOptions>;
+    domainEndpointOptions?: pulumi.Input<inputs.DomainDomainEndpointOptions>;
     /**
      * Unique identifier for the domain.
      */
@@ -532,11 +531,11 @@ export interface DomainState {
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */
-    ebsOptions?: pulumi.Input<inputs.opensearch.DomainEbsOptions>;
+    ebsOptions?: pulumi.Input<inputs.DomainEbsOptions>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      */
-    encryptAtRest?: pulumi.Input<inputs.opensearch.DomainEncryptAtRest>;
+    encryptAtRest?: pulumi.Input<inputs.DomainEncryptAtRest>;
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
@@ -556,23 +555,23 @@ export interface DomainState {
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.DomainLogPublishingOption>[]>;
+    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.DomainLogPublishingOption>[]>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    nodeToNodeEncryption?: pulumi.Input<inputs.opensearch.DomainNodeToNodeEncryption>;
+    nodeToNodeEncryption?: pulumi.Input<inputs.DomainNodeToNodeEncryption>;
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
-    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
+    offPeakWindowOptions?: pulumi.Input<inputs.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
-    snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
+    snapshotOptions?: pulumi.Input<inputs.DomainSnapshotOptions>;
     /**
      * Software update options for the domain. Detailed below.
      */
-    softwareUpdateOptions?: pulumi.Input<inputs.opensearch.DomainSoftwareUpdateOptions>;
+    softwareUpdateOptions?: pulumi.Input<inputs.DomainSoftwareUpdateOptions>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -586,7 +585,7 @@ export interface DomainState {
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearch.DomainVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.DomainVpcOptions>;
 }
 
 /**
@@ -604,23 +603,23 @@ export interface DomainArgs {
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      */
-    advancedSecurityOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptions>;
+    advancedSecurityOptions?: pulumi.Input<inputs.DomainAdvancedSecurityOptions>;
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      */
-    autoTuneOptions?: pulumi.Input<inputs.opensearch.DomainAutoTuneOptions>;
+    autoTuneOptions?: pulumi.Input<inputs.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
-    clusterConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfig>;
+    clusterConfig?: pulumi.Input<inputs.DomainClusterConfig>;
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      */
-    cognitoOptions?: pulumi.Input<inputs.opensearch.DomainCognitoOptions>;
+    cognitoOptions?: pulumi.Input<inputs.DomainCognitoOptions>;
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
-    domainEndpointOptions?: pulumi.Input<inputs.opensearch.DomainDomainEndpointOptions>;
+    domainEndpointOptions?: pulumi.Input<inputs.DomainDomainEndpointOptions>;
     /**
      * Name of the domain.
      *
@@ -630,11 +629,11 @@ export interface DomainArgs {
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */
-    ebsOptions?: pulumi.Input<inputs.opensearch.DomainEbsOptions>;
+    ebsOptions?: pulumi.Input<inputs.DomainEbsOptions>;
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      */
-    encryptAtRest?: pulumi.Input<inputs.opensearch.DomainEncryptAtRest>;
+    encryptAtRest?: pulumi.Input<inputs.DomainEncryptAtRest>;
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
      * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
@@ -644,23 +643,23 @@ export interface DomainArgs {
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
-    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.DomainLogPublishingOption>[]>;
+    logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.DomainLogPublishingOption>[]>;
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      */
-    nodeToNodeEncryption?: pulumi.Input<inputs.opensearch.DomainNodeToNodeEncryption>;
+    nodeToNodeEncryption?: pulumi.Input<inputs.DomainNodeToNodeEncryption>;
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
-    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
+    offPeakWindowOptions?: pulumi.Input<inputs.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
-    snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
+    snapshotOptions?: pulumi.Input<inputs.DomainSnapshotOptions>;
     /**
      * Software update options for the domain. Detailed below.
      */
-    softwareUpdateOptions?: pulumi.Input<inputs.opensearch.DomainSoftwareUpdateOptions>;
+    softwareUpdateOptions?: pulumi.Input<inputs.DomainSoftwareUpdateOptions>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -668,5 +667,5 @@ export interface DomainArgs {
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      */
-    vpcOptions?: pulumi.Input<inputs.opensearch.DomainVpcOptions>;
+    vpcOptions?: pulumi.Input<inputs.DomainVpcOptions>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
-    public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
+    public readonly datasources!: pulumi.Output<outputs.DetectorDatasources>;
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
@@ -158,7 +157,7 @@ export interface DetectorState {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
-    datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
+    datasources?: pulumi.Input<inputs.DetectorDatasources>;
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
@@ -186,7 +185,7 @@ export interface DetectorArgs {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
-    datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
+    datasources?: pulumi.Input<inputs.DetectorDatasources>;
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */

@@ -16,6 +16,15 @@ export const VaultLock: typeof import("./vaultLock").VaultLock = null as any;
 utilities.lazyLoad(exports, ["VaultLock"], () => require("./vaultLock"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

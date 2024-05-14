@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +82,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
+    public readonly createTableDefaultPermissions!: pulumi.Output<outputs.CatalogDatabaseCreateTableDefaultPermission[]>;
     /**
      * Description of the database.
      */
@@ -91,7 +90,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    public readonly federatedDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseFederatedDatabase | undefined>;
+    public readonly federatedDatabase!: pulumi.Output<outputs.CatalogDatabaseFederatedDatabase | undefined>;
     /**
      * Location of the database (for example, an HDFS path).
      */
@@ -117,7 +116,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    public readonly targetDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
+    public readonly targetDatabase!: pulumi.Output<outputs.CatalogDatabaseTargetDatabase | undefined>;
 
     /**
      * Create a CatalogDatabase resource with the given unique name, arguments, and options.
@@ -177,7 +176,7 @@ export interface CatalogDatabaseState {
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.CatalogDatabaseCreateTableDefaultPermission>[]>;
     /**
      * Description of the database.
      */
@@ -185,7 +184,7 @@ export interface CatalogDatabaseState {
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
+    federatedDatabase?: pulumi.Input<inputs.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */
@@ -211,7 +210,7 @@ export interface CatalogDatabaseState {
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
+    targetDatabase?: pulumi.Input<inputs.CatalogDatabaseTargetDatabase>;
 }
 
 /**
@@ -225,7 +224,7 @@ export interface CatalogDatabaseArgs {
     /**
      * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
      */
-    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.CatalogDatabaseCreateTableDefaultPermission>[]>;
     /**
      * Description of the database.
      */
@@ -233,7 +232,7 @@ export interface CatalogDatabaseArgs {
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federatedDatabase` below.
      */
-    federatedDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseFederatedDatabase>;
+    federatedDatabase?: pulumi.Input<inputs.CatalogDatabaseFederatedDatabase>;
     /**
      * Location of the database (for example, an HDFS path).
      */
@@ -253,5 +252,5 @@ export interface CatalogDatabaseArgs {
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
-    targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
+    targetDatabase?: pulumi.Input<inputs.CatalogDatabaseTargetDatabase>;
 }

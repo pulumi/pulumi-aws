@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {EngineType} from "./index";
@@ -406,7 +406,7 @@ export interface ClusterInstanceState {
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
-    instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass?: pulumi.Input<string | enums.InstanceType>;
     /**
      * ARN for the KMS encryption key if one is set to the cluster.
      */
@@ -535,7 +535,7 @@ export interface ClusterInstanceArgs {
     /**
      * Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details.
      */
-    instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass: pulumi.Input<string | enums.InstanceType>;
     /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      */

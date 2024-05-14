@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    public readonly appversionLifecycle!: pulumi.Output<outputs.elasticbeanstalk.ApplicationAppversionLifecycle | undefined>;
+    public readonly appversionLifecycle!: pulumi.Output<outputs.ApplicationAppversionLifecycle | undefined>;
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      */
@@ -129,7 +128,7 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    appversionLifecycle?: pulumi.Input<inputs.elasticbeanstalk.ApplicationAppversionLifecycle>;
+    appversionLifecycle?: pulumi.Input<inputs.ApplicationAppversionLifecycle>;
     /**
      * The ARN assigned by AWS for this Elastic Beanstalk Application.
      */
@@ -158,7 +157,7 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    appversionLifecycle?: pulumi.Input<inputs.elasticbeanstalk.ApplicationAppversionLifecycle>;
+    appversionLifecycle?: pulumi.Input<inputs.ApplicationAppversionLifecycle>;
     /**
      * Short description of the application
      */

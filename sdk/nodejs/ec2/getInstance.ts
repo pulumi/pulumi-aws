@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetInstanceArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    filters?: inputs.ec2.GetInstanceFilter[];
+    filters?: inputs.GetInstanceFilter[];
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -107,7 +107,7 @@ export interface GetInstanceResult {
     /**
      * Credit specification of the Instance.
      */
-    readonly creditSpecifications: outputs.ec2.GetInstanceCreditSpecification[];
+    readonly creditSpecifications: outputs.GetInstanceCreditSpecification[];
     /**
      * Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
      */
@@ -119,7 +119,7 @@ export interface GetInstanceResult {
     /**
      * EBS block device mappings of the Instance.
      */
-    readonly ebsBlockDevices: outputs.ec2.GetInstanceEbsBlockDevice[];
+    readonly ebsBlockDevices: outputs.GetInstanceEbsBlockDevice[];
     /**
      * Whether the Instance is EBS optimized or not (Boolean).
      */
@@ -127,12 +127,12 @@ export interface GetInstanceResult {
     /**
      * Enclave options of the instance.
      */
-    readonly enclaveOptions: outputs.ec2.GetInstanceEnclaveOption[];
+    readonly enclaveOptions: outputs.GetInstanceEnclaveOption[];
     /**
      * Ephemeral block device mappings of the Instance.
      */
-    readonly ephemeralBlockDevices: outputs.ec2.GetInstanceEphemeralBlockDevice[];
-    readonly filters?: outputs.ec2.GetInstanceFilter[];
+    readonly ephemeralBlockDevices: outputs.GetInstanceEphemeralBlockDevice[];
+    readonly filters?: inputs.GetInstanceFilter[];
     readonly getPasswordData?: boolean;
     readonly getUserData?: boolean;
     /**
@@ -172,11 +172,11 @@ export interface GetInstanceResult {
     /**
      * Maintenance and recovery options for the instance.
      */
-    readonly maintenanceOptions: outputs.ec2.GetInstanceMaintenanceOption[];
+    readonly maintenanceOptions: outputs.GetInstanceMaintenanceOption[];
     /**
      * Metadata options of the Instance.
      */
-    readonly metadataOptions: outputs.ec2.GetInstanceMetadataOption[];
+    readonly metadataOptions: outputs.GetInstanceMetadataOption[];
     /**
      * Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
      */
@@ -208,7 +208,7 @@ export interface GetInstanceResult {
     /**
      * Options for the instance hostname.
      */
-    readonly privateDnsNameOptions: outputs.ec2.GetInstancePrivateDnsNameOption[];
+    readonly privateDnsNameOptions: outputs.GetInstancePrivateDnsNameOption[];
     /**
      * Private IP address assigned to the Instance.
      */
@@ -224,7 +224,7 @@ export interface GetInstanceResult {
     /**
      * Root block device mappings of the Instance
      */
-    readonly rootBlockDevices: outputs.ec2.GetInstanceRootBlockDevice[];
+    readonly rootBlockDevices: outputs.GetInstanceRootBlockDevice[];
     /**
      * Secondary private IPv4 addresses assigned to the instance's primary network interface (eth0) in a VPC.
      */
@@ -299,7 +299,7 @@ export interface GetInstanceOutputArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetInstanceFilterArgs>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */

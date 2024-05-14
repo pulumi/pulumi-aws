@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,7 +108,7 @@ export class Collaboration extends pulumi.CustomResource {
      * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
      * or cryptographically processed (false).
      */
-    public readonly dataEncryptionMetadata!: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
+    public readonly dataEncryptionMetadata!: pulumi.Output<outputs.CollaborationDataEncryptionMetadata | undefined>;
     /**
      * A description for a collaboration.
      */
@@ -120,7 +119,7 @@ export class Collaboration extends pulumi.CustomResource {
      * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMember[] | undefined>;
+    public readonly members!: pulumi.Output<outputs.CollaborationMember[] | undefined>;
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      */
@@ -229,7 +228,7 @@ export interface CollaborationState {
      * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
      * or cryptographically processed (false).
      */
-    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata>;
+    dataEncryptionMetadata?: pulumi.Input<inputs.CollaborationDataEncryptionMetadata>;
     /**
      * A description for a collaboration.
      */
@@ -240,7 +239,7 @@ export interface CollaborationState {
      * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.CollaborationMember>[]>;
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      */
@@ -284,7 +283,7 @@ export interface CollaborationArgs {
      * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
      * or cryptographically processed (false).
      */
-    dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadata>;
+    dataEncryptionMetadata?: pulumi.Input<inputs.CollaborationDataEncryptionMetadata>;
     /**
      * A description for a collaboration.
      */
@@ -295,7 +294,7 @@ export interface CollaborationArgs {
      * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      */
-    members?: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.CollaborationMember>[]>;
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      */

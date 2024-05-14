@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    public readonly s3Destination!: pulumi.Output<outputs.macie2.ClassificationExportConfigurationS3Destination | undefined>;
+    public readonly s3Destination!: pulumi.Output<outputs.ClassificationExportConfigurationS3Destination | undefined>;
 
     /**
      * Create a ClassificationExportConfiguration resource with the given unique name, arguments, and options.
@@ -97,7 +96,7 @@ export interface ClassificationExportConfigurationState {
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
+    s3Destination?: pulumi.Input<inputs.ClassificationExportConfigurationS3Destination>;
 }
 
 /**
@@ -107,5 +106,5 @@ export interface ClassificationExportConfigurationArgs {
     /**
      * Configuration block for a S3 Destination. Defined below
      */
-    s3Destination?: pulumi.Input<inputs.macie2.ClassificationExportConfigurationS3Destination>;
+    s3Destination?: pulumi.Input<inputs.ClassificationExportConfigurationS3Destination>;
 }

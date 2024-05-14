@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -168,7 +167,7 @@ export class Selection extends pulumi.CustomResource {
     /**
      * A list of conditions that you define to assign resources to your backup plans using tags.
      */
-    public readonly conditions!: pulumi.Output<outputs.backup.SelectionCondition[]>;
+    public readonly conditions!: pulumi.Output<outputs.SelectionCondition[]>;
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
@@ -192,7 +191,7 @@ export class Selection extends pulumi.CustomResource {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    public readonly selectionTags!: pulumi.Output<outputs.backup.SelectionSelectionTag[] | undefined>;
+    public readonly selectionTags!: pulumi.Output<outputs.SelectionSelectionTag[] | undefined>;
 
     /**
      * Create a Selection resource with the given unique name, arguments, and options.
@@ -242,7 +241,7 @@ export interface SelectionState {
     /**
      * A list of conditions that you define to assign resources to your backup plans using tags.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.SelectionCondition>[]>;
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
@@ -266,7 +265,7 @@ export interface SelectionState {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
+    selectionTags?: pulumi.Input<pulumi.Input<inputs.SelectionSelectionTag>[]>;
 }
 
 /**
@@ -276,7 +275,7 @@ export interface SelectionArgs {
     /**
      * A list of conditions that you define to assign resources to your backup plans using tags.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.backup.SelectionCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.SelectionCondition>[]>;
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
@@ -300,5 +299,5 @@ export interface SelectionArgs {
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
+    selectionTags?: pulumi.Input<pulumi.Input<inputs.SelectionSelectionTag>[]>;
 }

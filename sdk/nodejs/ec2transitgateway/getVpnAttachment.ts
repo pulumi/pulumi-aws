@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +58,7 @@ export interface GetVpnAttachmentArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
+    filters?: inputs.GetVpnAttachmentFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
@@ -78,7 +77,7 @@ export interface GetVpnAttachmentArgs {
  * A collection of values returned by getVpnAttachment.
  */
 export interface GetVpnAttachmentResult {
-    readonly filters?: outputs.ec2transitgateway.GetVpnAttachmentFilter[];
+    readonly filters?: inputs.GetVpnAttachmentFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -134,7 +133,7 @@ export interface GetVpnAttachmentOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpnAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpnAttachmentFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */

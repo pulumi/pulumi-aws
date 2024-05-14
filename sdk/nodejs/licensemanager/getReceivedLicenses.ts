@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +44,7 @@ export interface GetReceivedLicensesArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.licensemanager.GetReceivedLicensesFilter[];
+    filters?: inputs.GetReceivedLicensesFilter[];
 }
 
 /**
@@ -56,7 +55,7 @@ export interface GetReceivedLicensesResult {
      * List of all the license ARNs found.
      */
     readonly arns: string[];
-    readonly filters?: outputs.licensemanager.GetReceivedLicensesFilter[];
+    readonly filters?: inputs.GetReceivedLicensesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -95,5 +94,5 @@ export interface GetReceivedLicensesOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetReceivedLicensesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetReceivedLicensesFilterArgs>[]>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +51,7 @@ export interface GetWorkgroupResult {
     /**
      * The endpoint that is created from the workgroup. See `Endpoint` below.
      */
-    readonly endpoints: outputs.redshiftserverless.GetWorkgroupEndpoint[];
+    readonly endpoints: outputs.GetWorkgroupEndpoint[];
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */

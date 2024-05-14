@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The action points defined in the extension. Detailed below.
      */
-    public readonly actionPoints!: pulumi.Output<outputs.appconfig.ExtensionActionPoint[]>;
+    public readonly actionPoints!: pulumi.Output<outputs.ExtensionActionPoint[]>;
     /**
      * ARN of the AppConfig Extension.
      */
@@ -102,7 +101,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
-    public readonly parameters!: pulumi.Output<outputs.appconfig.ExtensionParameter[]>;
+    public readonly parameters!: pulumi.Output<outputs.ExtensionParameter[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -163,7 +162,7 @@ export interface ExtensionState {
     /**
      * The action points defined in the extension. Detailed below.
      */
-    actionPoints?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[]>;
+    actionPoints?: pulumi.Input<pulumi.Input<inputs.ExtensionActionPoint>[]>;
     /**
      * ARN of the AppConfig Extension.
      */
@@ -179,7 +178,7 @@ export interface ExtensionState {
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ExtensionParameter>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -201,7 +200,7 @@ export interface ExtensionArgs {
     /**
      * The action points defined in the extension. Detailed below.
      */
-    actionPoints: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[]>;
+    actionPoints: pulumi.Input<pulumi.Input<inputs.ExtensionActionPoint>[]>;
     /**
      * Information about the extension.
      */
@@ -213,7 +212,7 @@ export interface ExtensionArgs {
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ExtensionParameter>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

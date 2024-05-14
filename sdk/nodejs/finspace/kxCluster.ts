@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      */
-    public readonly autoScalingConfiguration!: pulumi.Output<outputs.finspace.KxClusterAutoScalingConfiguration | undefined>;
+    public readonly autoScalingConfiguration!: pulumi.Output<outputs.KxClusterAutoScalingConfiguration | undefined>;
     /**
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
@@ -69,15 +68,15 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      */
-    public readonly cacheStorageConfigurations!: pulumi.Output<outputs.finspace.KxClusterCacheStorageConfiguration[] | undefined>;
+    public readonly cacheStorageConfigurations!: pulumi.Output<outputs.KxClusterCacheStorageConfiguration[] | undefined>;
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    public readonly capacityConfiguration!: pulumi.Output<outputs.finspace.KxClusterCapacityConfiguration | undefined>;
+    public readonly capacityConfiguration!: pulumi.Output<outputs.KxClusterCapacityConfiguration | undefined>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
-    public readonly code!: pulumi.Output<outputs.finspace.KxClusterCode | undefined>;
+    public readonly code!: pulumi.Output<outputs.KxClusterCode | undefined>;
     /**
      * List of key-value pairs to make available inside the cluster.
      */
@@ -89,7 +88,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * KX database that will be available for querying. Defined below.
      */
-    public readonly databases!: pulumi.Output<outputs.finspace.KxClusterDatabase[] | undefined>;
+    public readonly databases!: pulumi.Output<outputs.KxClusterDatabase[] | undefined>;
     /**
      * Description of the cluster.
      */
@@ -121,11 +120,11 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
-    public readonly savedownStorageConfiguration!: pulumi.Output<outputs.finspace.KxClusterSavedownStorageConfiguration | undefined>;
+    public readonly savedownStorageConfiguration!: pulumi.Output<outputs.KxClusterSavedownStorageConfiguration | undefined>;
     /**
      * The structure that stores the configuration details of a scaling group.
      */
-    public readonly scalingGroupConfiguration!: pulumi.Output<outputs.finspace.KxClusterScalingGroupConfiguration | undefined>;
+    public readonly scalingGroupConfiguration!: pulumi.Output<outputs.KxClusterScalingGroupConfiguration | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
@@ -141,7 +140,7 @@ export class KxCluster extends pulumi.CustomResource {
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      */
-    public readonly tickerplantLogConfigurations!: pulumi.Output<outputs.finspace.KxClusterTickerplantLogConfiguration[] | undefined>;
+    public readonly tickerplantLogConfigurations!: pulumi.Output<outputs.KxClusterTickerplantLogConfiguration[] | undefined>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -156,7 +155,7 @@ export class KxCluster extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.finspace.KxClusterVpcConfiguration>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.KxClusterVpcConfiguration>;
 
     /**
      * Create a KxCluster resource with the given unique name, arguments, and options.
@@ -257,7 +256,7 @@ export interface KxClusterState {
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      */
-    autoScalingConfiguration?: pulumi.Input<inputs.finspace.KxClusterAutoScalingConfiguration>;
+    autoScalingConfiguration?: pulumi.Input<inputs.KxClusterAutoScalingConfiguration>;
     /**
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
@@ -271,15 +270,15 @@ export interface KxClusterState {
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      */
-    cacheStorageConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterCacheStorageConfiguration>[]>;
+    cacheStorageConfigurations?: pulumi.Input<pulumi.Input<inputs.KxClusterCacheStorageConfiguration>[]>;
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    capacityConfiguration?: pulumi.Input<inputs.finspace.KxClusterCapacityConfiguration>;
+    capacityConfiguration?: pulumi.Input<inputs.KxClusterCapacityConfiguration>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
-    code?: pulumi.Input<inputs.finspace.KxClusterCode>;
+    code?: pulumi.Input<inputs.KxClusterCode>;
     /**
      * List of key-value pairs to make available inside the cluster.
      */
@@ -291,7 +290,7 @@ export interface KxClusterState {
     /**
      * KX database that will be available for querying. Defined below.
      */
-    databases?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterDatabase>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.KxClusterDatabase>[]>;
     /**
      * Description of the cluster.
      */
@@ -323,11 +322,11 @@ export interface KxClusterState {
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
-    savedownStorageConfiguration?: pulumi.Input<inputs.finspace.KxClusterSavedownStorageConfiguration>;
+    savedownStorageConfiguration?: pulumi.Input<inputs.KxClusterSavedownStorageConfiguration>;
     /**
      * The structure that stores the configuration details of a scaling group.
      */
-    scalingGroupConfiguration?: pulumi.Input<inputs.finspace.KxClusterScalingGroupConfiguration>;
+    scalingGroupConfiguration?: pulumi.Input<inputs.KxClusterScalingGroupConfiguration>;
     status?: pulumi.Input<string>;
     statusReason?: pulumi.Input<string>;
     /**
@@ -343,7 +342,7 @@ export interface KxClusterState {
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      */
-    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[]>;
+    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.KxClusterTickerplantLogConfiguration>[]>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -358,7 +357,7 @@ export interface KxClusterState {
      *
      * The following arguments are optional:
      */
-    vpcConfiguration?: pulumi.Input<inputs.finspace.KxClusterVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.KxClusterVpcConfiguration>;
 }
 
 /**
@@ -368,7 +367,7 @@ export interface KxClusterArgs {
     /**
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      */
-    autoScalingConfiguration?: pulumi.Input<inputs.finspace.KxClusterAutoScalingConfiguration>;
+    autoScalingConfiguration?: pulumi.Input<inputs.KxClusterAutoScalingConfiguration>;
     /**
      * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      */
@@ -382,15 +381,15 @@ export interface KxClusterArgs {
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      */
-    cacheStorageConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterCacheStorageConfiguration>[]>;
+    cacheStorageConfigurations?: pulumi.Input<pulumi.Input<inputs.KxClusterCacheStorageConfiguration>[]>;
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      */
-    capacityConfiguration?: pulumi.Input<inputs.finspace.KxClusterCapacityConfiguration>;
+    capacityConfiguration?: pulumi.Input<inputs.KxClusterCapacityConfiguration>;
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      */
-    code?: pulumi.Input<inputs.finspace.KxClusterCode>;
+    code?: pulumi.Input<inputs.KxClusterCode>;
     /**
      * List of key-value pairs to make available inside the cluster.
      */
@@ -398,7 +397,7 @@ export interface KxClusterArgs {
     /**
      * KX database that will be available for querying. Defined below.
      */
-    databases?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterDatabase>[]>;
+    databases?: pulumi.Input<pulumi.Input<inputs.KxClusterDatabase>[]>;
     /**
      * Description of the cluster.
      */
@@ -426,11 +425,11 @@ export interface KxClusterArgs {
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      */
-    savedownStorageConfiguration?: pulumi.Input<inputs.finspace.KxClusterSavedownStorageConfiguration>;
+    savedownStorageConfiguration?: pulumi.Input<inputs.KxClusterSavedownStorageConfiguration>;
     /**
      * The structure that stores the configuration details of a scaling group.
      */
-    scalingGroupConfiguration?: pulumi.Input<inputs.finspace.KxClusterScalingGroupConfiguration>;
+    scalingGroupConfiguration?: pulumi.Input<inputs.KxClusterScalingGroupConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -438,7 +437,7 @@ export interface KxClusterArgs {
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      */
-    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterTickerplantLogConfiguration>[]>;
+    tickerplantLogConfigurations?: pulumi.Input<pulumi.Input<inputs.KxClusterTickerplantLogConfiguration>[]>;
     /**
      * Type of KDB database. The following types are available:
      * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -453,5 +452,5 @@ export interface KxClusterArgs {
      *
      * The following arguments are optional:
      */
-    vpcConfiguration: pulumi.Input<inputs.finspace.KxClusterVpcConfiguration>;
+    vpcConfiguration: pulumi.Input<inputs.KxClusterVpcConfiguration>;
 }

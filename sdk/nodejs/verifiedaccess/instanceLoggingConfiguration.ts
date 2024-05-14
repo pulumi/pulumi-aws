@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -156,7 +155,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
     /**
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      */
-    public readonly accessLogs!: pulumi.Output<outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
+    public readonly accessLogs!: pulumi.Output<outputs.InstanceLoggingConfigurationAccessLogs>;
     /**
      * The ID of the Verified Access instance.
      */
@@ -200,7 +199,7 @@ export interface InstanceLoggingConfigurationState {
     /**
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      */
-    accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.InstanceLoggingConfigurationAccessLogs>;
     /**
      * The ID of the Verified Access instance.
      */
@@ -214,7 +213,7 @@ export interface InstanceLoggingConfigurationArgs {
     /**
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      */
-    accessLogs: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
+    accessLogs: pulumi.Input<inputs.InstanceLoggingConfigurationAccessLogs>;
     /**
      * The ID of the Verified Access instance.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -144,7 +143,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The command of the job. Defined below.
      */
-    public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
+    public readonly command!: pulumi.Output<outputs.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -164,7 +163,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Execution property of the job. Defined below.
      */
-    public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty>;
+    public readonly executionProperty!: pulumi.Output<outputs.JobExecutionProperty>;
     /**
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
@@ -188,7 +187,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Notification property of the job. Defined below.
      */
-    public readonly notificationProperty!: pulumi.Output<outputs.glue.JobNotificationProperty>;
+    public readonly notificationProperty!: pulumi.Output<outputs.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
@@ -305,7 +304,7 @@ export interface JobState {
     /**
      * The command of the job. Defined below.
      */
-    command?: pulumi.Input<inputs.glue.JobCommand>;
+    command?: pulumi.Input<inputs.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -325,7 +324,7 @@ export interface JobState {
     /**
      * Execution property of the job. Defined below.
      */
-    executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    executionProperty?: pulumi.Input<inputs.JobExecutionProperty>;
     /**
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
@@ -349,7 +348,7 @@ export interface JobState {
     /**
      * Notification property of the job. Defined below.
      */
-    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
+    notificationProperty?: pulumi.Input<inputs.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
@@ -396,7 +395,7 @@ export interface JobArgs {
     /**
      * The command of the job. Defined below.
      */
-    command: pulumi.Input<inputs.glue.JobCommand>;
+    command: pulumi.Input<inputs.JobCommand>;
     /**
      * The list of connections used for this job.
      */
@@ -416,7 +415,7 @@ export interface JobArgs {
     /**
      * Execution property of the job. Defined below.
      */
-    executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    executionProperty?: pulumi.Input<inputs.JobExecutionProperty>;
     /**
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
@@ -440,7 +439,7 @@ export interface JobArgs {
     /**
      * Notification property of the job. Defined below.
      */
-    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
+    notificationProperty?: pulumi.Input<inputs.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */

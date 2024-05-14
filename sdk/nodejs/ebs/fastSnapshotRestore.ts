@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export class FastSnapshotRestore extends pulumi.CustomResource {
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.ebs.FastSnapshotRestoreTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.FastSnapshotRestoreTimeouts | undefined>;
 
     /**
      * Create a FastSnapshotRestore resource with the given unique name, arguments, and options.
@@ -125,7 +124,7 @@ export interface FastSnapshotRestoreState {
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      */
     state?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
+    timeouts?: pulumi.Input<inputs.FastSnapshotRestoreTimeouts>;
 }
 
 /**
@@ -140,5 +139,5 @@ export interface FastSnapshotRestoreArgs {
      * ID of the snapshot.
      */
     snapshotId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.ebs.FastSnapshotRestoreTimeouts>;
+    timeouts?: pulumi.Input<inputs.FastSnapshotRestoreTimeouts>;
 }

@@ -11,6 +11,15 @@ export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy
 utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

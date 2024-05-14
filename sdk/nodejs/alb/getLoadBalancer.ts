@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -66,11 +66,11 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.alb.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
     readonly clientKeepAlive: number;
-    readonly connectionLogs: outputs.alb.GetLoadBalancerConnectionLog[];
+    readonly connectionLogs: outputs.GetLoadBalancerConnectionLog[];
     readonly customerOwnedIpv4Pool: string;
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
@@ -94,7 +94,7 @@ export interface GetLoadBalancerResult {
     readonly name: string;
     readonly preserveHostHeader: boolean;
     readonly securityGroups: string[];
-    readonly subnetMappings: outputs.alb.GetLoadBalancerSubnetMapping[];
+    readonly subnetMappings: outputs.GetLoadBalancerSubnetMapping[];
     readonly subnets: string[];
     readonly tags: {[key: string]: string};
     readonly vpcId: string;

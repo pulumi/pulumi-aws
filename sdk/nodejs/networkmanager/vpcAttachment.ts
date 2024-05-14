@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Options for the VPC attachment.
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.VpcAttachmentOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.VpcAttachmentOptions | undefined>;
     /**
      * The ID of the attachment account owner.
      */
@@ -217,7 +216,7 @@ export interface VpcAttachmentState {
     /**
      * Options for the VPC attachment.
      */
-    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
+    options?: pulumi.Input<inputs.VpcAttachmentOptions>;
     /**
      * The ID of the attachment account owner.
      */
@@ -267,7 +266,7 @@ export interface VpcAttachmentArgs {
     /**
      * Options for the VPC attachment.
      */
-    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentOptions>;
+    options?: pulumi.Input<inputs.VpcAttachmentOptions>;
     /**
      * The subnet ARN of the VPC attachment.
      */

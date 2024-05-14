@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +101,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
-    public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
+    public readonly tableReference!: pulumi.Output<outputs.ConfiguredTableTableReference>;
     /**
      * Key value pairs which tag the configured table.
      */
@@ -199,7 +198,7 @@ export interface ConfiguredTableState {
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
-    tableReference?: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
+    tableReference?: pulumi.Input<inputs.ConfiguredTableTableReference>;
     /**
      * Key value pairs which tag the configured table.
      */
@@ -239,7 +238,7 @@ export interface ConfiguredTableArgs {
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      */
-    tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference>;
+    tableReference: pulumi.Input<inputs.ConfiguredTableTableReference>;
     /**
      * Key value pairs which tag the configured table.
      */

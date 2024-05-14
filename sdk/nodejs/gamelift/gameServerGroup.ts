@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -156,7 +155,7 @@ export class GameServerGroup extends pulumi.CustomResource {
      * The ARN of the created EC2 Auto Scaling group.
      */
     public /*out*/ readonly autoScalingGroupArn!: pulumi.Output<string>;
-    public readonly autoScalingPolicy!: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
+    public readonly autoScalingPolicy!: pulumi.Output<outputs.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -176,8 +175,8 @@ export class GameServerGroup extends pulumi.CustomResource {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     public readonly gameServerProtectionPolicy!: pulumi.Output<string>;
-    public readonly instanceDefinitions!: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
-    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
+    public readonly instanceDefinitions!: pulumi.Output<outputs.GameServerGroupInstanceDefinition[]>;
+    public readonly launchTemplate!: pulumi.Output<outputs.GameServerGroupLaunchTemplate>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
@@ -285,7 +284,7 @@ export interface GameServerGroupState {
      * The ARN of the created EC2 Auto Scaling group.
      */
     autoScalingGroupArn?: pulumi.Input<string>;
-    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy>;
+    autoScalingPolicy?: pulumi.Input<inputs.GameServerGroupAutoScalingPolicy>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -305,8 +304,8 @@ export interface GameServerGroupState {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     gameServerProtectionPolicy?: pulumi.Input<string>;
-    instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[]>;
-    launchTemplate?: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate>;
+    instanceDefinitions?: pulumi.Input<pulumi.Input<inputs.GameServerGroupInstanceDefinition>[]>;
+    launchTemplate?: pulumi.Input<inputs.GameServerGroupLaunchTemplate>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
@@ -340,7 +339,7 @@ export interface GameServerGroupState {
  * The set of arguments for constructing a GameServerGroup resource.
  */
 export interface GameServerGroupArgs {
-    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicy>;
+    autoScalingPolicy?: pulumi.Input<inputs.GameServerGroupAutoScalingPolicy>;
     /**
      * Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -360,8 +359,8 @@ export interface GameServerGroupArgs {
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      */
     gameServerProtectionPolicy?: pulumi.Input<string>;
-    instanceDefinitions: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinition>[]>;
-    launchTemplate: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplate>;
+    instanceDefinitions: pulumi.Input<pulumi.Input<inputs.GameServerGroupInstanceDefinition>[]>;
+    launchTemplate: pulumi.Input<inputs.GameServerGroupLaunchTemplate>;
     /**
      * The maximum number of instances allowed in the EC2 Auto Scaling group.
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.

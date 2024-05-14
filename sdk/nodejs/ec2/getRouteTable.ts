@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +53,7 @@ export interface GetRouteTableArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: inputs.ec2.GetRouteTableFilter[];
+    filters?: inputs.GetRouteTableFilter[];
     /**
      * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */
@@ -87,8 +87,8 @@ export interface GetRouteTableResult {
     /**
      * List of associations with attributes detailed below.
      */
-    readonly associations: outputs.ec2.GetRouteTableAssociation[];
-    readonly filters?: outputs.ec2.GetRouteTableFilter[];
+    readonly associations: outputs.GetRouteTableAssociation[];
+    readonly filters?: inputs.GetRouteTableFilter[];
     /**
      * Gateway ID. Only set when associated with an Internet Gateway or Virtual Private Gateway.
      */
@@ -108,7 +108,7 @@ export interface GetRouteTableResult {
     /**
      * List of routes with attributes detailed below.
      */
-    readonly routes: outputs.ec2.GetRouteTableRoute[];
+    readonly routes: outputs.GetRouteTableRoute[];
     /**
      * Subnet ID. Only set when associated with a subnet.
      */
@@ -152,7 +152,7 @@ export interface GetRouteTableOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTableFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetRouteTableFilterArgs>[]>;
     /**
      * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */

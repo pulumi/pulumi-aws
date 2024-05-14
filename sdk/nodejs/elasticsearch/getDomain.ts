@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +58,7 @@ export interface GetDomainResult {
     /**
      * Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
      */
-    readonly advancedSecurityOptions: outputs.elasticsearch.GetDomainAdvancedSecurityOption[];
+    readonly advancedSecurityOptions: outputs.GetDomainAdvancedSecurityOption[];
     /**
      * The ARN of the domain.
      */
@@ -67,15 +66,15 @@ export interface GetDomainResult {
     /**
      * Configuration of the Auto-Tune options of the domain.
      */
-    readonly autoTuneOptions: outputs.elasticsearch.GetDomainAutoTuneOption[];
+    readonly autoTuneOptions: outputs.GetDomainAutoTuneOption[];
     /**
      * Cluster configuration of the domain.
      */
-    readonly clusterConfigs: outputs.elasticsearch.GetDomainClusterConfig[];
+    readonly clusterConfigs: outputs.GetDomainClusterConfig[];
     /**
      * Domain Amazon Cognito Authentication options for Kibana.
      */
-    readonly cognitoOptions: outputs.elasticsearch.GetDomainCognitoOption[];
+    readonly cognitoOptions: outputs.GetDomainCognitoOption[];
     /**
      * Status of the creation of the domain.
      */
@@ -92,7 +91,7 @@ export interface GetDomainResult {
     /**
      * EBS Options for the instances in the domain.
      */
-    readonly ebsOptions: outputs.elasticsearch.GetDomainEbsOption[];
+    readonly ebsOptions: outputs.GetDomainEbsOption[];
     /**
      * Elasticsearch version for the domain.
      */
@@ -100,7 +99,7 @@ export interface GetDomainResult {
     /**
      * Domain encryption at rest related options.
      */
-    readonly encryptionAtRests: outputs.elasticsearch.GetDomainEncryptionAtRest[];
+    readonly encryptionAtRests: outputs.GetDomainEncryptionAtRest[];
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
@@ -116,11 +115,11 @@ export interface GetDomainResult {
     /**
      * Domain log publishing related options.
      */
-    readonly logPublishingOptions: outputs.elasticsearch.GetDomainLogPublishingOption[];
+    readonly logPublishingOptions: outputs.GetDomainLogPublishingOption[];
     /**
      * Domain in transit encryption related options.
      */
-    readonly nodeToNodeEncryptions: outputs.elasticsearch.GetDomainNodeToNodeEncryption[];
+    readonly nodeToNodeEncryptions: outputs.GetDomainNodeToNodeEncryption[];
     /**
      * Status of a configuration change in the domain.
      */
@@ -128,7 +127,7 @@ export interface GetDomainResult {
     /**
      * Domain snapshot related options.
      */
-    readonly snapshotOptions: outputs.elasticsearch.GetDomainSnapshotOption[];
+    readonly snapshotOptions: outputs.GetDomainSnapshotOption[];
     /**
      * Tags assigned to the domain.
      */
@@ -136,7 +135,7 @@ export interface GetDomainResult {
     /**
      * VPC Options for private Elasticsearch domains.
      */
-    readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
+    readonly vpcOptions: outputs.GetDomainVpcOption[];
 }
 /**
  * Use this data source to get information about an Elasticsearch Domain

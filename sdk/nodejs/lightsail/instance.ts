@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -113,7 +112,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The add on configuration for the instance. Detailed below.
      */
-    public readonly addOn!: pulumi.Output<outputs.lightsail.InstanceAddOn | undefined>;
+    public readonly addOn!: pulumi.Output<outputs.InstanceAddOn | undefined>;
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
@@ -271,7 +270,7 @@ export interface InstanceState {
     /**
      * The add on configuration for the instance. Detailed below.
      */
-    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    addOn?: pulumi.Input<inputs.InstanceAddOn>;
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
@@ -362,7 +361,7 @@ export interface InstanceArgs {
     /**
      * The add on configuration for the instance. Detailed below.
      */
-    addOn?: pulumi.Input<inputs.lightsail.InstanceAddOn>;
+    addOn?: pulumi.Input<inputs.InstanceAddOn>;
     /**
      * The Availability Zone in which to create your instance. A
      * list of available zones can be obtained using the AWS CLI command:

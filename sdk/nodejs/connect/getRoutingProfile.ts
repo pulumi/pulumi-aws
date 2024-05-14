@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,12 +92,12 @@ export interface GetRoutingProfileResult {
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    readonly mediaConcurrencies: outputs.connect.GetRoutingProfileMediaConcurrency[];
+    readonly mediaConcurrencies: outputs.GetRoutingProfileMediaConcurrency[];
     readonly name: string;
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    readonly queueConfigs: outputs.connect.GetRoutingProfileQueueConfig[];
+    readonly queueConfigs: outputs.GetRoutingProfileQueueConfig[];
     readonly routingProfileId: string;
     /**
      * Map of tags to assign to the Routing Profile.

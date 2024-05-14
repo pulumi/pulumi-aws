@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -168,7 +167,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    public readonly evaluationModes!: pulumi.Output<outputs.cfg.RuleEvaluationMode[]>;
+    public readonly evaluationModes!: pulumi.Output<outputs.RuleEvaluationMode[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
@@ -188,11 +187,11 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    public readonly scope!: pulumi.Output<outputs.cfg.RuleScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.RuleScope | undefined>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
-    public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
+    public readonly source!: pulumi.Output<outputs.RuleSource>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -265,7 +264,7 @@ export interface RuleState {
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.RuleEvaluationMode>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
@@ -285,11 +284,11 @@ export interface RuleState {
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
-    source?: pulumi.Input<inputs.cfg.RuleSource>;
+    source?: pulumi.Input<inputs.RuleSource>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -313,7 +312,7 @@ export interface RuleArgs {
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      */
-    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.RuleEvaluationMode>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
@@ -329,11 +328,11 @@ export interface RuleArgs {
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */
-    scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      */
-    source: pulumi.Input<inputs.cfg.RuleSource>;
+    source: pulumi.Input<inputs.RuleSource>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

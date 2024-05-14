@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -312,7 +311,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      */
-    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
+    public readonly advancedEventSelectors!: pulumi.Output<outputs.TrailAdvancedEventSelector[] | undefined>;
     /**
      * ARN of the trail.
      */
@@ -336,7 +335,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
-    public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
+    public readonly eventSelectors!: pulumi.Output<outputs.TrailEventSelector[] | undefined>;
     /**
      * Region in which the trail was created.
      */
@@ -348,7 +347,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      */
-    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.TrailInsightSelector[] | undefined>;
+    public readonly insightSelectors!: pulumi.Output<outputs.TrailInsightSelector[] | undefined>;
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      */
@@ -459,7 +458,7 @@ export interface TrailState {
     /**
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      */
-    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelector>[]>;
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.TrailAdvancedEventSelector>[]>;
     /**
      * ARN of the trail.
      */
@@ -483,7 +482,7 @@ export interface TrailState {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
-    eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
+    eventSelectors?: pulumi.Input<pulumi.Input<inputs.TrailEventSelector>[]>;
     /**
      * Region in which the trail was created.
      */
@@ -495,7 +494,7 @@ export interface TrailState {
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      */
-    insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailInsightSelector>[]>;
+    insightSelectors?: pulumi.Input<pulumi.Input<inputs.TrailInsightSelector>[]>;
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      */
@@ -545,7 +544,7 @@ export interface TrailArgs {
     /**
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
      */
-    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelector>[]>;
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.TrailAdvancedEventSelector>[]>;
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
@@ -565,7 +564,7 @@ export interface TrailArgs {
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
-    eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
+    eventSelectors?: pulumi.Input<pulumi.Input<inputs.TrailEventSelector>[]>;
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      */
@@ -573,7 +572,7 @@ export interface TrailArgs {
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      */
-    insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailInsightSelector>[]>;
+    insightSelectors?: pulumi.Input<pulumi.Input<inputs.TrailInsightSelector>[]>;
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      */

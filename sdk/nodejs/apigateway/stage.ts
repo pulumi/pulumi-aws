@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {Deployment, RestApi} from "./index";
@@ -71,7 +70,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    public readonly accessLogSettings!: pulumi.Output<outputs.apigateway.StageAccessLogSettings | undefined>;
+    public readonly accessLogSettings!: pulumi.Output<outputs.StageAccessLogSettings | undefined>;
     /**
      * ARN
      */
@@ -87,7 +86,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    public readonly canarySettings!: pulumi.Output<outputs.apigateway.StageCanarySettings | undefined>;
+    public readonly canarySettings!: pulumi.Output<outputs.StageCanarySettings | undefined>;
     /**
      * Identifier of a client certificate for the stage.
      */
@@ -219,7 +218,7 @@ export interface StageState {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.StageAccessLogSettings>;
     /**
      * ARN
      */
@@ -235,7 +234,7 @@ export interface StageState {
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    canarySettings?: pulumi.Input<inputs.StageCanarySettings>;
     /**
      * Identifier of a client certificate for the stage.
      */
@@ -302,7 +301,7 @@ export interface StageArgs {
     /**
      * Enables access logs for the API stage. See Access Log Settings below.
      */
-    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.StageAccessLogSettings>;
     /**
      * Whether a cache cluster is enabled for the stage
      */
@@ -314,7 +313,7 @@ export interface StageArgs {
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      */
-    canarySettings?: pulumi.Input<inputs.apigateway.StageCanarySettings>;
+    canarySettings?: pulumi.Input<inputs.StageCanarySettings>;
     /**
      * Identifier of a client certificate for the stage.
      */

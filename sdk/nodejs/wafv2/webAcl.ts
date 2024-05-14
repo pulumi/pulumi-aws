@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 export class WebAcl extends pulumi.CustomResource {
@@ -46,7 +45,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    public readonly associationConfig!: pulumi.Output<outputs.WebAclAssociationConfig | undefined>;
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
@@ -54,19 +53,19 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
+    public readonly captchaConfig!: pulumi.Output<outputs.WebAclCaptchaConfig | undefined>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
+    public readonly challengeConfig!: pulumi.Output<outputs.WebAclChallengeConfig | undefined>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<outputs.WebAclCustomResponseBody[] | undefined>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.WebAclDefaultAction>;
     /**
      * Friendly description of the WebACL.
      */
@@ -79,7 +78,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.WebAclRule[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -101,7 +100,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.WebAclVisibilityConfig>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -182,7 +181,7 @@ export interface WebAclState {
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    associationConfig?: pulumi.Input<inputs.WebAclAssociationConfig>;
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
@@ -190,19 +189,19 @@ export interface WebAclState {
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.WebAclCaptchaConfig>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.WebAclChallengeConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.WebAclCustomResponseBody>[]>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
-    defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Friendly description of the WebACL.
      */
@@ -215,7 +214,7 @@ export interface WebAclState {
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -237,7 +236,7 @@ export interface WebAclState {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.WebAclVisibilityConfig>;
 }
 
 /**
@@ -247,23 +246,23 @@ export interface WebAclArgs {
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      */
-    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
+    associationConfig?: pulumi.Input<inputs.WebAclAssociationConfig>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
+    captchaConfig?: pulumi.Input<inputs.WebAclCaptchaConfig>;
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfig>;
+    challengeConfig?: pulumi.Input<inputs.WebAclChallengeConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.WebAclCustomResponseBody>[]>;
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
-    defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
+    defaultAction: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Friendly description of the WebACL.
      */
@@ -275,7 +274,7 @@ export interface WebAclArgs {
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -291,5 +290,5 @@ export interface WebAclArgs {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
-    visibilityConfig: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
+    visibilityConfig: pulumi.Input<inputs.WebAclVisibilityConfig>;
 }

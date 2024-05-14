@@ -26,6 +26,15 @@ export const Segment: typeof import("./segment").Segment = null as any;
 utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

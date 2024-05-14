@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -229,11 +229,11 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[]>;
+    public readonly egress!: pulumi.Output<outputs.SecurityGroupEgress[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
+    public readonly ingress!: pulumi.Output<outputs.SecurityGroupIngress[]>;
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
      */
@@ -323,11 +323,11 @@ export interface SecurityGroupState {
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.SecurityGroupIngress>[]>;
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
      */
@@ -371,11 +371,11 @@ export interface SecurityGroupArgs {
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.SecurityGroupIngress>[]>;
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
      */

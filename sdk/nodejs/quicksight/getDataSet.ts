@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +42,7 @@ export interface GetDataSetArgs {
      * AWS account ID.
      */
     awsAccountId?: string;
-    columnLevelPermissionRules?: inputs.quicksight.GetDataSetColumnLevelPermissionRule[];
+    columnLevelPermissionRules?: inputs.GetDataSetColumnLevelPermissionRule[];
     /**
      * Identifier for the data set.
      *
@@ -63,22 +62,22 @@ export interface GetDataSetArgs {
 export interface GetDataSetResult {
     readonly arn: string;
     readonly awsAccountId: string;
-    readonly columnGroups: outputs.quicksight.GetDataSetColumnGroup[];
-    readonly columnLevelPermissionRules?: outputs.quicksight.GetDataSetColumnLevelPermissionRule[];
+    readonly columnGroups: outputs.GetDataSetColumnGroup[];
+    readonly columnLevelPermissionRules?: inputs.GetDataSetColumnLevelPermissionRule[];
     readonly dataSetId: string;
-    readonly dataSetUsageConfigurations: outputs.quicksight.GetDataSetDataSetUsageConfiguration[];
-    readonly fieldFolders: outputs.quicksight.GetDataSetFieldFolder[];
+    readonly dataSetUsageConfigurations: outputs.GetDataSetDataSetUsageConfiguration[];
+    readonly fieldFolders: outputs.GetDataSetFieldFolder[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly importMode: string;
-    readonly logicalTableMaps: outputs.quicksight.GetDataSetLogicalTableMap[];
+    readonly logicalTableMaps: outputs.GetDataSetLogicalTableMap[];
     readonly name: string;
-    readonly permissions: outputs.quicksight.GetDataSetPermission[];
-    readonly physicalTableMaps: outputs.quicksight.GetDataSetPhysicalTableMap[];
-    readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
-    readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
+    readonly permissions: outputs.GetDataSetPermission[];
+    readonly physicalTableMaps: outputs.GetDataSetPhysicalTableMap[];
+    readonly rowLevelPermissionDataSets: outputs.GetDataSetRowLevelPermissionDataSet[];
+    readonly rowLevelPermissionTagConfigurations: outputs.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
     /**
      * @deprecated this attribute has been deprecated
@@ -113,7 +112,7 @@ export interface GetDataSetOutputArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.GetDataSetColumnLevelPermissionRuleArgs>[]>;
+    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.GetDataSetColumnLevelPermissionRuleArgs>[]>;
     /**
      * Identifier for the data set.
      *

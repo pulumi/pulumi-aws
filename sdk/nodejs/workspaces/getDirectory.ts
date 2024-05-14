@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export interface GetDirectoryResult {
     /**
      * The permissions to enable or disable self-service capabilities.
      */
-    readonly selfServicePermissions: outputs.workspaces.GetDirectorySelfServicePermission[];
+    readonly selfServicePermissions: outputs.GetDirectorySelfServicePermission[];
     /**
      * Identifiers of the subnets where the directory resides.
      */
@@ -100,11 +99,11 @@ export interface GetDirectoryResult {
     /**
      * (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    readonly workspaceAccessProperties: outputs.workspaces.GetDirectoryWorkspaceAccessProperty[];
+    readonly workspaceAccessProperties: outputs.GetDirectoryWorkspaceAccessProperty[];
     /**
      * The default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
+    readonly workspaceCreationProperties: outputs.GetDirectoryWorkspaceCreationProperty[];
     /**
      * The identifier of the security group that is assigned to new WorkSpaces. Defined below.
      */

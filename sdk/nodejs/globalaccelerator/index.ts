@@ -51,6 +51,15 @@ export const Listener: typeof import("./listener").Listener = null as any;
 utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

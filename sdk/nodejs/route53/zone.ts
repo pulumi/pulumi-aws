@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -143,7 +143,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    public readonly vpcs!: pulumi.Output<outputs.route53.ZoneVpc[] | undefined>;
+    public readonly vpcs!: pulumi.Output<outputs.ZoneVpc[] | undefined>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -238,7 +238,7 @@ export interface ZoneState {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.ZoneVpc>[]>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
@@ -272,5 +272,5 @@ export interface ZoneArgs {
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.ZoneVpc>[]>;
 }

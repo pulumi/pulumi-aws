@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +86,7 @@ export class FunctionUrl extends pulumi.CustomResource {
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      */
-    public readonly cors!: pulumi.Output<outputs.lambda.FunctionUrlCors | undefined>;
+    public readonly cors!: pulumi.Output<outputs.FunctionUrlCors | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the function.
      */
@@ -166,7 +166,7 @@ export interface FunctionUrlState {
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      */
-    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
+    cors?: pulumi.Input<inputs.FunctionUrlCors>;
     /**
      * The Amazon Resource Name (ARN) of the function.
      */
@@ -204,7 +204,7 @@ export interface FunctionUrlArgs {
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      */
-    cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
+    cors?: pulumi.Input<inputs.FunctionUrlCors>;
     /**
      * The name (or ARN) of the Lambda function.
      */

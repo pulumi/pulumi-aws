@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetConfigurationSetResult {
     /**
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
      */
-    readonly deliveryOptions: outputs.sesv2.GetConfigurationSetDeliveryOption[];
+    readonly deliveryOptions: outputs.GetConfigurationSetDeliveryOption[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -63,15 +62,15 @@ export interface GetConfigurationSetResult {
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
-    readonly reputationOptions: outputs.sesv2.GetConfigurationSetReputationOption[];
+    readonly reputationOptions: outputs.GetConfigurationSetReputationOption[];
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
      */
-    readonly sendingOptions: outputs.sesv2.GetConfigurationSetSendingOption[];
+    readonly sendingOptions: outputs.GetConfigurationSetSendingOption[];
     /**
      * An object that contains information about the suppression list preferences for your account.
      */
-    readonly suppressionOptions: outputs.sesv2.GetConfigurationSetSuppressionOption[];
+    readonly suppressionOptions: outputs.GetConfigurationSetSuppressionOption[];
     /**
      * Key-value map of resource tags for the container recipe.
      */
@@ -79,11 +78,11 @@ export interface GetConfigurationSetResult {
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      */
-    readonly trackingOptions: outputs.sesv2.GetConfigurationSetTrackingOption[];
+    readonly trackingOptions: outputs.GetConfigurationSetTrackingOption[];
     /**
      * An object that contains information about the VDM preferences for your configuration set.
      */
-    readonly vdmOptions: outputs.sesv2.GetConfigurationSetVdmOption[];
+    readonly vdmOptions: outputs.GetConfigurationSetVdmOption[];
 }
 /**
  * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.

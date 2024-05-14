@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs
  * A collection of arguments for invoking getLifecyclePolicyDocument.
  */
 export interface GetLifecyclePolicyDocumentArgs {
-    rules?: inputs.ecr.GetLifecyclePolicyDocumentRule[];
+    rules?: inputs.GetLifecyclePolicyDocumentRule[];
 }
 
 /**
@@ -64,7 +63,7 @@ export interface GetLifecyclePolicyDocumentResult {
      * The above arguments serialized as a standard JSON policy document.
      */
     readonly json: string;
-    readonly rules?: outputs.ecr.GetLifecyclePolicyDocumentRule[];
+    readonly rules?: inputs.GetLifecyclePolicyDocumentRule[];
 }
 /**
  * Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.
@@ -103,5 +102,5 @@ export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocume
  * A collection of arguments for invoking getLifecyclePolicyDocument.
  */
 export interface GetLifecyclePolicyDocumentOutputArgs {
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.GetLifecyclePolicyDocumentRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.GetLifecyclePolicyDocumentRuleArgs>[]>;
 }

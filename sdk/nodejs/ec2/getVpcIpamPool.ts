@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +66,7 @@ export interface GetVpcIpamPoolArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcIpamPoolFilter[];
+    filters?: inputs.GetVpcIpamPoolFilter[];
     /**
      * ID of the IPAM pool.
      */
@@ -121,7 +121,7 @@ export interface GetVpcIpamPoolResult {
      * Description for the IPAM pool.
      */
     readonly description: string;
-    readonly filters?: outputs.ec2.GetVpcIpamPoolFilter[];
+    readonly filters?: inputs.GetVpcIpamPoolFilter[];
     /**
      * ID of the IPAM pool.
      */
@@ -201,7 +201,7 @@ export interface GetVpcIpamPoolOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcIpamPoolFilterArgs>[]>;
     /**
      * ID of the IPAM pool.
      */

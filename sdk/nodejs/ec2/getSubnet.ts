@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +93,7 @@ export interface GetSubnetArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: inputs.ec2.GetSubnetFilter[];
+    filters?: inputs.GetSubnetFilter[];
     /**
      * ID of the specific subnet to retrieve.
      */
@@ -156,7 +156,7 @@ export interface GetSubnetResult {
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      */
     readonly enableResourceNameDnsAaaaRecordOnLaunch: boolean;
-    readonly filters?: outputs.ec2.GetSubnetFilter[];
+    readonly filters?: inputs.GetSubnetFilter[];
     readonly id: string;
     readonly ipv6CidrBlock: string;
     /**
@@ -263,7 +263,7 @@ export interface GetSubnetOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSubnetFilterArgs>[]>;
     /**
      * ID of the specific subnet to retrieve.
      */

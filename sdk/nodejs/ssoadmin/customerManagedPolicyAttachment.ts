@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +50,7 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
     /**
      * Specifies the name and path of a customer managed policy. See below.
      */
-    public readonly customerManagedPolicyReference!: pulumi.Output<outputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
+    public readonly customerManagedPolicyReference!: pulumi.Output<outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
@@ -104,7 +103,7 @@ export interface CustomerManagedPolicyAttachmentState {
     /**
      * Specifies the name and path of a customer managed policy. See below.
      */
-    customerManagedPolicyReference?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
+    customerManagedPolicyReference?: pulumi.Input<inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
@@ -122,7 +121,7 @@ export interface CustomerManagedPolicyAttachmentArgs {
     /**
      * Specifies the name and path of a customer managed policy. See below.
      */
-    customerManagedPolicyReference: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
+    customerManagedPolicyReference: pulumi.Input<inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */

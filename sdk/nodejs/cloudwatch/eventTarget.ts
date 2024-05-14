@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -447,15 +446,15 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    public readonly batchTarget!: pulumi.Output<outputs.cloudwatch.EventTargetBatchTarget | undefined>;
+    public readonly batchTarget!: pulumi.Output<outputs.EventTargetBatchTarget | undefined>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.cloudwatch.EventTargetDeadLetterConfig | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<outputs.EventTargetDeadLetterConfig | undefined>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    public readonly ecsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetEcsTarget | undefined>;
+    public readonly ecsTarget!: pulumi.Output<outputs.EventTargetEcsTarget | undefined>;
     /**
      * The name or ARN of the event bus to associate with the rule.
      * If you omit this, the `default` event bus is used.
@@ -468,7 +467,7 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    public readonly httpTarget!: pulumi.Output<outputs.cloudwatch.EventTargetHttpTarget | undefined>;
+    public readonly httpTarget!: pulumi.Output<outputs.EventTargetHttpTarget | undefined>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
@@ -480,19 +479,19 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    public readonly inputTransformer!: pulumi.Output<outputs.cloudwatch.EventTargetInputTransformer | undefined>;
+    public readonly inputTransformer!: pulumi.Output<outputs.EventTargetInputTransformer | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    public readonly kinesisTarget!: pulumi.Output<outputs.cloudwatch.EventTargetKinesisTarget | undefined>;
+    public readonly kinesisTarget!: pulumi.Output<outputs.EventTargetKinesisTarget | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
-    public readonly redshiftTarget!: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
+    public readonly redshiftTarget!: pulumi.Output<outputs.EventTargetRedshiftTarget | undefined>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
+    public readonly retryPolicy!: pulumi.Output<outputs.EventTargetRetryPolicy | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
@@ -506,15 +505,15 @@ export class EventTarget extends pulumi.CustomResource {
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    public readonly runCommandTargets!: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
+    public readonly runCommandTargets!: pulumi.Output<outputs.EventTargetRunCommandTarget[] | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
      */
-    public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
+    public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.EventTargetSagemakerPipelineTarget | undefined>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    public readonly sqsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
+    public readonly sqsTarget!: pulumi.Output<outputs.EventTargetSqsTarget | undefined>;
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      */
@@ -596,15 +595,15 @@ export interface EventTargetState {
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
+    batchTarget?: pulumi.Input<inputs.EventTargetBatchTarget>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.EventTargetDeadLetterConfig>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
+    ecsTarget?: pulumi.Input<inputs.EventTargetEcsTarget>;
     /**
      * The name or ARN of the event bus to associate with the rule.
      * If you omit this, the `default` event bus is used.
@@ -617,7 +616,7 @@ export interface EventTargetState {
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
+    httpTarget?: pulumi.Input<inputs.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
@@ -629,19 +628,19 @@ export interface EventTargetState {
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
+    inputTransformer?: pulumi.Input<inputs.EventTargetInputTransformer>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    kinesisTarget?: pulumi.Input<inputs.EventTargetKinesisTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
-    redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
+    redshiftTarget?: pulumi.Input<inputs.EventTargetRedshiftTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
+    retryPolicy?: pulumi.Input<inputs.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
@@ -655,15 +654,15 @@ export interface EventTargetState {
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.EventTargetRunCommandTarget>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
      */
-    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
+    sagemakerPipelineTarget?: pulumi.Input<inputs.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
+    sqsTarget?: pulumi.Input<inputs.EventTargetSqsTarget>;
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      */
@@ -681,15 +680,15 @@ export interface EventTargetArgs {
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
+    batchTarget?: pulumi.Input<inputs.EventTargetBatchTarget>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.EventTargetDeadLetterConfig>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
+    ecsTarget?: pulumi.Input<inputs.EventTargetEcsTarget>;
     /**
      * The name or ARN of the event bus to associate with the rule.
      * If you omit this, the `default` event bus is used.
@@ -702,7 +701,7 @@ export interface EventTargetArgs {
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
+    httpTarget?: pulumi.Input<inputs.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
@@ -714,19 +713,19 @@ export interface EventTargetArgs {
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
+    inputTransformer?: pulumi.Input<inputs.EventTargetInputTransformer>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    kinesisTarget?: pulumi.Input<inputs.EventTargetKinesisTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      */
-    redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
+    redshiftTarget?: pulumi.Input<inputs.EventTargetRedshiftTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
+    retryPolicy?: pulumi.Input<inputs.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      */
@@ -740,15 +739,15 @@ export interface EventTargetArgs {
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.EventTargetRunCommandTarget>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
      */
-    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
+    sagemakerPipelineTarget?: pulumi.Input<inputs.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
+    sqsTarget?: pulumi.Input<inputs.EventTargetSqsTarget>;
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      */

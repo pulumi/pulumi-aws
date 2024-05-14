@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +66,7 @@ export interface GetSlotTypeResult {
      * the slot type can take. Each value can have a set of synonyms, which are additional values that help
      * train the machine learning model about the values that it resolves for a slot.
      */
-    readonly enumerationValues: outputs.lex.GetSlotTypeEnumerationValue[];
+    readonly enumerationValues: outputs.GetSlotTypeEnumerationValue[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

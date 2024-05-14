@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
+    public readonly dashboardPublishOptions!: pulumi.Output<outputs.DashboardDashboardPublishOptions>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     /**
      * The time that the dashboard was last updated.
@@ -102,15 +101,15 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters>;
+    public readonly parameters!: pulumi.Output<outputs.DashboardParameters>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.DashboardPermission[] | undefined>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.DashboardSourceEntity | undefined>;
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      */
@@ -230,7 +229,7 @@ export interface DashboardState {
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
+    dashboardPublishOptions?: pulumi.Input<inputs.DashboardDashboardPublishOptions>;
     lastPublishedTime?: pulumi.Input<string>;
     /**
      * The time that the dashboard was last updated.
@@ -243,15 +242,15 @@ export interface DashboardState {
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters>;
+    parameters?: pulumi.Input<inputs.DashboardParameters>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.DashboardPermission>[]>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.DashboardSourceEntity>;
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      */
@@ -301,7 +300,7 @@ export interface DashboardArgs {
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
+    dashboardPublishOptions?: pulumi.Input<inputs.DashboardDashboardPublishOptions>;
     /**
      * Display name for the dashboard.
      */
@@ -309,15 +308,15 @@ export interface DashboardArgs {
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.DashboardParameters>;
+    parameters?: pulumi.Input<inputs.DashboardParameters>;
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.DashboardPermission>[]>;
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.DashboardSourceEntity>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

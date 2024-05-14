@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -165,7 +164,7 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      */
-    public readonly storageConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigStorageConfig>;
+    public readonly storageConfig!: pulumi.Output<outputs.InstanceStorageConfigStorageConfig>;
 
     /**
      * Create a InstanceStorageConfig resource with the given unique name, arguments, and options.
@@ -224,7 +223,7 @@ export interface InstanceStorageConfigState {
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      */
-    storageConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigStorageConfig>;
+    storageConfig?: pulumi.Input<inputs.InstanceStorageConfigStorageConfig>;
 }
 
 /**
@@ -242,5 +241,5 @@ export interface InstanceStorageConfigArgs {
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      */
-    storageConfig: pulumi.Input<inputs.connect.InstanceStorageConfigStorageConfig>;
+    storageConfig: pulumi.Input<inputs.InstanceStorageConfigStorageConfig>;
 }

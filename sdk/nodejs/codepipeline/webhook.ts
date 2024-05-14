@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,11 +56,11 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookAuthenticationConfiguration | undefined>;
+    public readonly authenticationConfiguration!: pulumi.Output<outputs.WebhookAuthenticationConfiguration | undefined>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookFilter[]>;
+    public readonly filters!: pulumi.Output<outputs.WebhookFilter[]>;
     /**
      * The name of the webhook.
      */
@@ -157,11 +156,11 @@ export interface WebhookState {
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.WebhookAuthenticationConfiguration>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.WebhookFilter>[]>;
     /**
      * The name of the webhook.
      */
@@ -201,11 +200,11 @@ export interface WebhookArgs {
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      */
-    authenticationConfiguration?: pulumi.Input<inputs.codepipeline.WebhookAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.WebhookAuthenticationConfiguration>;
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      */
-    filters: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilter>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.WebhookFilter>[]>;
     /**
      * The name of the webhook.
      */

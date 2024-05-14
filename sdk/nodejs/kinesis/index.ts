@@ -52,6 +52,15 @@ export const VideoStream: typeof import("./videoStream").VideoStream = null as a
 utilities.lazyLoad(exports, ["VideoStream"], () => require("./videoStream"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

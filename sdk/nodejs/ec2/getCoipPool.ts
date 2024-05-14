@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,7 +30,7 @@ export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getCoipPool.
  */
 export interface GetCoipPoolArgs {
-    filters?: inputs.ec2.GetCoipPoolFilter[];
+    filters?: inputs.GetCoipPoolFilter[];
     /**
      * Local Gateway Route Table Id assigned to desired COIP Pool
      */
@@ -57,7 +57,7 @@ export interface GetCoipPoolResult {
      * ARN of the COIP pool
      */
     readonly arn: string;
-    readonly filters?: outputs.ec2.GetCoipPoolFilter[];
+    readonly filters?: inputs.GetCoipPoolFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -85,7 +85,7 @@ export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getCoipPool.
  */
 export interface GetCoipPoolOutputArgs {
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetCoipPoolFilterArgs>[]>;
     /**
      * Local Gateway Route Table Id assigned to desired COIP Pool
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -130,11 +129,11 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      */
-    public readonly loadBalancerOptions!: pulumi.Output<outputs.verifiedaccess.EndpointLoadBalancerOptions | undefined>;
+    public readonly loadBalancerOptions!: pulumi.Output<outputs.EndpointLoadBalancerOptions | undefined>;
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
-    public readonly networkInterfaceOptions!: pulumi.Output<outputs.verifiedaccess.EndpointNetworkInterfaceOptions | undefined>;
+    public readonly networkInterfaceOptions!: pulumi.Output<outputs.EndpointNetworkInterfaceOptions | undefined>;
     /**
      * The policy document that is associated with this resource.
      */
@@ -146,7 +145,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The options in use for server side encryption.
      */
-    public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.EndpointSseSpecification>;
+    public readonly sseSpecification!: pulumi.Output<outputs.EndpointSseSpecification>;
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -275,11 +274,11 @@ export interface EndpointState {
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      */
-    loadBalancerOptions?: pulumi.Input<inputs.verifiedaccess.EndpointLoadBalancerOptions>;
+    loadBalancerOptions?: pulumi.Input<inputs.EndpointLoadBalancerOptions>;
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
-    networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
+    networkInterfaceOptions?: pulumi.Input<inputs.EndpointNetworkInterfaceOptions>;
     /**
      * The policy document that is associated with this resource.
      */
@@ -291,7 +290,7 @@ export interface EndpointState {
     /**
      * The options in use for server side encryption.
      */
-    sseSpecification?: pulumi.Input<inputs.verifiedaccess.EndpointSseSpecification>;
+    sseSpecification?: pulumi.Input<inputs.EndpointSseSpecification>;
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -340,11 +339,11 @@ export interface EndpointArgs {
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      */
-    loadBalancerOptions?: pulumi.Input<inputs.verifiedaccess.EndpointLoadBalancerOptions>;
+    loadBalancerOptions?: pulumi.Input<inputs.EndpointLoadBalancerOptions>;
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      */
-    networkInterfaceOptions?: pulumi.Input<inputs.verifiedaccess.EndpointNetworkInterfaceOptions>;
+    networkInterfaceOptions?: pulumi.Input<inputs.EndpointNetworkInterfaceOptions>;
     /**
      * The policy document that is associated with this resource.
      */
@@ -356,7 +355,7 @@ export interface EndpointArgs {
     /**
      * The options in use for server side encryption.
      */
-    sseSpecification?: pulumi.Input<inputs.verifiedaccess.EndpointSseSpecification>;
+    sseSpecification?: pulumi.Input<inputs.EndpointSseSpecification>;
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

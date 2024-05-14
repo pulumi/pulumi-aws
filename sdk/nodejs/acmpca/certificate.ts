@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -124,7 +123,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */
-    public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
+    public readonly validity!: pulumi.Output<outputs.CertificateValidity>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -217,7 +216,7 @@ export interface CertificateState {
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */
-    validity?: pulumi.Input<inputs.acmpca.CertificateValidity>;
+    validity?: pulumi.Input<inputs.CertificateValidity>;
 }
 
 /**
@@ -248,5 +247,5 @@ export interface CertificateArgs {
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      */
-    validity: pulumi.Input<inputs.acmpca.CertificateValidity>;
+    validity: pulumi.Input<inputs.CertificateValidity>;
 }

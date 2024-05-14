@@ -108,7 +108,16 @@ utilities.lazyLoad(exports, ["ServiceSetting"], () => require("./serviceSetting"
 
 
 // Export enums:
-export * from "../types/enums/ssm";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

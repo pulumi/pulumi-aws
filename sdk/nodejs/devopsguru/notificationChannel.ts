@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,13 +78,13 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    public readonly filters!: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
+    public readonly filters!: pulumi.Output<outputs.NotificationChannelFilters | undefined>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
      */
-    public readonly sns!: pulumi.Output<outputs.devopsguru.NotificationChannelSns | undefined>;
+    public readonly sns!: pulumi.Output<outputs.NotificationChannelSns | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -119,13 +118,13 @@ export interface NotificationChannelState {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
+    filters?: pulumi.Input<inputs.NotificationChannelFilters>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
      */
-    sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
+    sns?: pulumi.Input<inputs.NotificationChannelSns>;
 }
 
 /**
@@ -135,11 +134,11 @@ export interface NotificationChannelArgs {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
-    filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
+    filters?: pulumi.Input<inputs.NotificationChannelFilters>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
      */
-    sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSns>;
+    sns?: pulumi.Input<inputs.NotificationChannelSns>;
 }

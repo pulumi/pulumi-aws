@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
     public readonly roleArnAssociationId!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.shield.DrtAccessLogBucketAssociationTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DrtAccessLogBucketAssociationTimeouts | undefined>;
 
     /**
      * Create a DrtAccessLogBucketAssociation resource with the given unique name, arguments, and options.
@@ -117,7 +116,7 @@ export interface DrtAccessLogBucketAssociationState {
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
     roleArnAssociationId?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.DrtAccessLogBucketAssociationTimeouts>;
 }
 
 /**
@@ -132,5 +131,5 @@ export interface DrtAccessLogBucketAssociationArgs {
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      */
     roleArnAssociationId: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessLogBucketAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.DrtAccessLogBucketAssociationTimeouts>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,15 +108,15 @@ export class Table extends pulumi.CustomResource {
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
-    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.TableMagneticStoreWriteProperties>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
+    public readonly retentionProperties!: pulumi.Output<outputs.TableRetentionProperties>;
     /**
      * The schema of the table. See Schema below for more details.
      */
-    public readonly schema!: pulumi.Output<outputs.timestreamwrite.TableSchema>;
+    public readonly schema!: pulumi.Output<outputs.TableSchema>;
     /**
      * The name of the Timestream table.
      */
@@ -191,15 +190,15 @@ export interface TableState {
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
-    magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    magneticStoreWriteProperties?: pulumi.Input<inputs.TableMagneticStoreWriteProperties>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
+    retentionProperties?: pulumi.Input<inputs.TableRetentionProperties>;
     /**
      * The schema of the table. See Schema below for more details.
      */
-    schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
+    schema?: pulumi.Input<inputs.TableSchema>;
     /**
      * The name of the Timestream table.
      */
@@ -227,15 +226,15 @@ export interface TableArgs {
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
-    magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    magneticStoreWriteProperties?: pulumi.Input<inputs.TableMagneticStoreWriteProperties>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
+    retentionProperties?: pulumi.Input<inputs.TableRetentionProperties>;
     /**
      * The schema of the table. See Schema below for more details.
      */
-    schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
+    schema?: pulumi.Input<inputs.TableSchema>;
     /**
      * The name of the Timestream table.
      */

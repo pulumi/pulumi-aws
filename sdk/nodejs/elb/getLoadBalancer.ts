@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +52,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elb.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
@@ -61,7 +60,7 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
-    readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
+    readonly healthCheck: outputs.GetLoadBalancerHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -69,7 +68,7 @@ export interface GetLoadBalancerResult {
     readonly idleTimeout: number;
     readonly instances: string[];
     readonly internal: boolean;
-    readonly listeners: outputs.elb.GetLoadBalancerListener[];
+    readonly listeners: outputs.GetLoadBalancerListener[];
     readonly name: string;
     readonly securityGroups: string[];
     readonly sourceSecurityGroup: string;

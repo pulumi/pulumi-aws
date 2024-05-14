@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -128,7 +127,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    public readonly requestParameters!: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
+    public readonly requestParameters!: pulumi.Output<outputs.RouteRequestParameter[] | undefined>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
@@ -235,7 +234,7 @@ export interface RouteState {
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
+    requestParameters?: pulumi.Input<pulumi.Input<inputs.RouteRequestParameter>[]>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */
@@ -292,7 +291,7 @@ export interface RouteArgs {
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      */
-    requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[]>;
+    requestParameters?: pulumi.Input<pulumi.Input<inputs.RouteRequestParameter>[]>;
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +93,7 @@ export interface GetFileSystemResult {
     /**
      * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    readonly lifecyclePolicy: outputs.GetFileSystemLifecyclePolicy;
     /**
      * The value of the file system's `Name` tag.
      */
@@ -103,7 +102,7 @@ export interface GetFileSystemResult {
      * File system performance mode.
      */
     readonly performanceMode: string;
-    readonly protections: outputs.efs.GetFileSystemProtection[];
+    readonly protections: outputs.GetFileSystemProtection[];
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system.
      */

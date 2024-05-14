@@ -71,7 +71,7 @@ export * from "./tags";
 export * from "./utils";
 
 // Export enums:
-export * from "./types/enums";
+export * from "./enums";
 
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
@@ -178,6 +178,7 @@ import * as guardduty from "./guardduty";
 import * as iam from "./iam";
 import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
+import * as input from "./input";
 import * as inspector from "./inspector";
 import * as inspector2 from "./inspector2";
 import * as iot from "./iot";
@@ -216,6 +217,7 @@ import * as opensearchingest from "./opensearchingest";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
+import * as output from "./output";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as polly from "./polly";
@@ -269,7 +271,6 @@ import * as synthetics from "./synthetics";
 import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
-import * as types from "./types";
 import * as verifiedaccess from "./verifiedaccess";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpc from "./vpc";
@@ -386,6 +387,7 @@ export {
     iam,
     identitystore,
     imagebuilder,
+    input,
     inspector,
     inspector2,
     iot,
@@ -424,6 +426,7 @@ export {
     opsworks,
     organizations,
     outposts,
+    output,
     pinpoint,
     pipes,
     polly,
@@ -477,7 +480,6 @@ export {
     timestreamwrite,
     transcribe,
     transfer,
-    types,
     verifiedaccess,
     verifiedpermissions,
     vpc,

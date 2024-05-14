@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export interface GetProductArgs {
     /**
      * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
-    filters: inputs.pricing.GetProductFilter[];
+    filters: inputs.GetProductFilter[];
     /**
      * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */
@@ -98,7 +97,7 @@ export interface GetProductArgs {
  * A collection of values returned by getProduct.
  */
 export interface GetProductResult {
-    readonly filters: outputs.pricing.GetProductFilter[];
+    readonly filters: inputs.GetProductFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -184,7 +183,7 @@ export interface GetProductOutputArgs {
     /**
      * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
-    filters: pulumi.Input<pulumi.Input<inputs.pricing.GetProductFilterArgs>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.GetProductFilterArgs>[]>;
     /**
      * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */

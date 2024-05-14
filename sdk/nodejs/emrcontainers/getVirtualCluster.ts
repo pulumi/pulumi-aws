@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +56,7 @@ export interface GetVirtualClusterResult {
     /**
      * Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
      */
-    readonly containerProviders: outputs.emrcontainers.GetVirtualClusterContainerProvider[];
+    readonly containerProviders: outputs.GetVirtualClusterContainerProvider[];
     /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */

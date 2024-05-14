@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
-    public readonly kinesisConfiguration!: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
+    public readonly kinesisConfiguration!: pulumi.Output<outputs.StreamKinesisConfiguration>;
     /**
      * The name of the QLDB ledger.
      */
@@ -171,7 +170,7 @@ export interface StreamState {
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
-    kinesisConfiguration?: pulumi.Input<inputs.qldb.StreamKinesisConfiguration>;
+    kinesisConfiguration?: pulumi.Input<inputs.StreamKinesisConfiguration>;
     /**
      * The name of the QLDB ledger.
      */
@@ -211,7 +210,7 @@ export interface StreamArgs {
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
-    kinesisConfiguration: pulumi.Input<inputs.qldb.StreamKinesisConfiguration>;
+    kinesisConfiguration: pulumi.Input<inputs.StreamKinesisConfiguration>;
     /**
      * The name of the QLDB ledger.
      */

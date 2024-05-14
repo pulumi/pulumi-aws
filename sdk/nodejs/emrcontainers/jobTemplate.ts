@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class JobTemplate extends pulumi.CustomResource {
     /**
      * The job template data which holds values of StartJobRun API request.
      */
-    public readonly jobTemplateData!: pulumi.Output<outputs.emrcontainers.JobTemplateJobTemplateData>;
+    public readonly jobTemplateData!: pulumi.Output<outputs.JobTemplateJobTemplateData>;
     /**
      * The KMS key ARN used to encrypt the job template.
      */
@@ -142,7 +141,7 @@ export interface JobTemplateState {
     /**
      * The job template data which holds values of StartJobRun API request.
      */
-    jobTemplateData?: pulumi.Input<inputs.emrcontainers.JobTemplateJobTemplateData>;
+    jobTemplateData?: pulumi.Input<inputs.JobTemplateJobTemplateData>;
     /**
      * The KMS key ARN used to encrypt the job template.
      */
@@ -170,7 +169,7 @@ export interface JobTemplateArgs {
     /**
      * The job template data which holds values of StartJobRun API request.
      */
-    jobTemplateData: pulumi.Input<inputs.emrcontainers.JobTemplateJobTemplateData>;
+    jobTemplateData: pulumi.Input<inputs.JobTemplateJobTemplateData>;
     /**
      * The KMS key ARN used to encrypt the job template.
      */

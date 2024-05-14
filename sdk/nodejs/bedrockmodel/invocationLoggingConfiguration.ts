@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +52,7 @@ export class InvocationLoggingConfiguration extends pulumi.CustomResource {
     /**
      * The logging configuration values to set.
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.InvocationLoggingConfigurationLoggingConfig | undefined>;
 
     /**
      * Create a InvocationLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -85,7 +84,7 @@ export interface InvocationLoggingConfigurationState {
     /**
      * The logging configuration values to set.
      */
-    loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.InvocationLoggingConfigurationLoggingConfig>;
 }
 
 /**
@@ -95,5 +94,5 @@ export interface InvocationLoggingConfigurationArgs {
     /**
      * The logging configuration values to set.
      */
-    loggingConfig?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.InvocationLoggingConfigurationLoggingConfig>;
 }

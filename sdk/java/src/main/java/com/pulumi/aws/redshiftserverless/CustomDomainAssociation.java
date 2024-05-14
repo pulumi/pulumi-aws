@@ -47,20 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Certificate("example", CertificateArgs.builder()        
+ *         var example = new Certificate("example", CertificateArgs.builder()
  *             .domainName("example.com")
  *             .build());
  * 
- *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()        
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
  *             .namespaceName("example-namespace")
  *             .build());
  * 
- *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()        
+ *         var exampleWorkgroup = new Workgroup("exampleWorkgroup", WorkgroupArgs.builder()
  *             .workgroupName("example-workgroup")
  *             .namespaceName(exampleNamespace.namespaceName())
  *             .build());
  * 
- *         var exampleCustomDomainAssociation = new CustomDomainAssociation("exampleCustomDomainAssociation", CustomDomainAssociationArgs.builder()        
+ *         var exampleCustomDomainAssociation = new CustomDomainAssociation("exampleCustomDomainAssociation", CustomDomainAssociationArgs.builder()
  *             .workgroupName(exampleWorkgroup.workgroupName())
  *             .customDomainName("example.com")
  *             .customDomainCertificateArn(example.arn())

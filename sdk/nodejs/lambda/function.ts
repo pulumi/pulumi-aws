@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -274,7 +274,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.lambda.FunctionDeadLetterConfig | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<outputs.FunctionDeadLetterConfig | undefined>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -282,15 +282,15 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
+    public readonly environment!: pulumi.Output<outputs.FunctionEnvironment | undefined>;
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      */
-    public readonly ephemeralStorage!: pulumi.Output<outputs.lambda.FunctionEphemeralStorage>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.FunctionEphemeralStorage>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly fileSystemConfig!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig | undefined>;
+    public readonly fileSystemConfig!: pulumi.Output<outputs.FunctionFileSystemConfig | undefined>;
     /**
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -298,7 +298,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly imageConfig!: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
+    public readonly imageConfig!: pulumi.Output<outputs.FunctionImageConfig | undefined>;
     /**
      * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
@@ -322,7 +322,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block used to specify advanced logging settings. Detailed below.
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
+    public readonly loggingConfig!: pulumi.Output<outputs.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -400,7 +400,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Snap start settings block. Detailed below.
      */
-    public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
+    public readonly snapStart!: pulumi.Output<outputs.FunctionSnapStart | undefined>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
@@ -426,7 +426,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
+    public readonly tracingConfig!: pulumi.Output<outputs.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
      */
@@ -434,7 +434,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.lambda.FunctionVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.FunctionVpcConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -569,7 +569,7 @@ export interface FunctionState {
     /**
      * Configuration block. Detailed below.
      */
-    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.FunctionDeadLetterConfig>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -577,15 +577,15 @@ export interface FunctionState {
     /**
      * Configuration block. Detailed below.
      */
-    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    environment?: pulumi.Input<inputs.FunctionEnvironment>;
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      */
-    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.FunctionEphemeralStorage>;
     /**
      * Configuration block. Detailed below.
      */
-    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
+    fileSystemConfig?: pulumi.Input<inputs.FunctionFileSystemConfig>;
     /**
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -593,7 +593,7 @@ export interface FunctionState {
     /**
      * Configuration block. Detailed below.
      */
-    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    imageConfig?: pulumi.Input<inputs.FunctionImageConfig>;
     /**
      * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
@@ -617,7 +617,7 @@ export interface FunctionState {
     /**
      * Configuration block used to specify advanced logging settings. Detailed below.
      */
-    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -667,7 +667,7 @@ export interface FunctionState {
     /**
      * Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    runtime?: pulumi.Input<string | enums.lambda.Runtime>;
+    runtime?: pulumi.Input<string | enums.Runtime>;
     /**
      * S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
      */
@@ -695,7 +695,7 @@ export interface FunctionState {
     /**
      * Snap start settings block. Detailed below.
      */
-    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    snapStart?: pulumi.Input<inputs.FunctionSnapStart>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
@@ -721,7 +721,7 @@ export interface FunctionState {
     /**
      * Configuration block. Detailed below.
      */
-    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig>;
+    tracingConfig?: pulumi.Input<inputs.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
      */
@@ -729,7 +729,7 @@ export interface FunctionState {
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.FunctionVpcConfig>;
 }
 
 /**
@@ -751,7 +751,7 @@ export interface FunctionArgs {
     /**
      * Configuration block. Detailed below.
      */
-    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.FunctionDeadLetterConfig>;
     /**
      * Description of what your Lambda Function does.
      */
@@ -759,15 +759,15 @@ export interface FunctionArgs {
     /**
      * Configuration block. Detailed below.
      */
-    environment?: pulumi.Input<inputs.lambda.FunctionEnvironment>;
+    environment?: pulumi.Input<inputs.FunctionEnvironment>;
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      */
-    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.FunctionEphemeralStorage>;
     /**
      * Configuration block. Detailed below.
      */
-    fileSystemConfig?: pulumi.Input<inputs.lambda.FunctionFileSystemConfig>;
+    fileSystemConfig?: pulumi.Input<inputs.FunctionFileSystemConfig>;
     /**
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      */
@@ -775,7 +775,7 @@ export interface FunctionArgs {
     /**
      * Configuration block. Detailed below.
      */
-    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfig>;
+    imageConfig?: pulumi.Input<inputs.FunctionImageConfig>;
     /**
      * ECR image URI containing the function's deployment package. Exactly one of `filename`, `imageUri`,  or `s3Bucket` must be specified.
      */
@@ -791,7 +791,7 @@ export interface FunctionArgs {
     /**
      * Configuration block used to specify advanced logging settings. Detailed below.
      */
-    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
+    loggingConfig?: pulumi.Input<inputs.FunctionLoggingConfig>;
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      */
@@ -833,7 +833,7 @@ export interface FunctionArgs {
     /**
      * Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      */
-    runtime?: pulumi.Input<string | enums.lambda.Runtime>;
+    runtime?: pulumi.Input<string | enums.Runtime>;
     /**
      * S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
      */
@@ -853,7 +853,7 @@ export interface FunctionArgs {
     /**
      * Snap start settings block. Detailed below.
      */
-    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    snapStart?: pulumi.Input<inputs.FunctionSnapStart>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
      */
@@ -869,9 +869,9 @@ export interface FunctionArgs {
     /**
      * Configuration block. Detailed below.
      */
-    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig>;
+    tracingConfig?: pulumi.Input<inputs.FunctionTracingConfig>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.FunctionVpcConfig>;
 }

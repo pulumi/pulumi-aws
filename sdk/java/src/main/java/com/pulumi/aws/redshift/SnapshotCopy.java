@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SnapshotCopy("example", SnapshotCopyArgs.builder()        
+ *         var example = new SnapshotCopy("example", SnapshotCopyArgs.builder()
  *             .clusterIdentifier(exampleAwsRedshiftCluster.id())
  *             .destinationRegion("us-east-1")
  *             .build());

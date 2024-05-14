@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +89,7 @@ export class Package extends pulumi.CustomResource {
     /**
      * Configuration block for the package source options.
      */
-    public readonly packageSource!: pulumi.Output<outputs.opensearch.PackagePackageSource>;
+    public readonly packageSource!: pulumi.Output<outputs.PackagePackageSource>;
     /**
      * The type of package.
      */
@@ -158,7 +157,7 @@ export interface PackageState {
     /**
      * Configuration block for the package source options.
      */
-    packageSource?: pulumi.Input<inputs.opensearch.PackagePackageSource>;
+    packageSource?: pulumi.Input<inputs.PackagePackageSource>;
     /**
      * The type of package.
      */
@@ -180,7 +179,7 @@ export interface PackageArgs {
     /**
      * Configuration block for the package source options.
      */
-    packageSource: pulumi.Input<inputs.opensearch.PackagePackageSource>;
+    packageSource: pulumi.Input<inputs.PackagePackageSource>;
     /**
      * The type of package.
      */

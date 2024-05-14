@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +55,7 @@ export interface GetResourceShareArgs {
     /**
      * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
-    filters?: inputs.ram.GetResourceShareFilter[];
+    filters?: inputs.GetResourceShareFilter[];
     /**
      * Name of the resource share to retrieve.
      */
@@ -83,7 +82,7 @@ export interface GetResourceShareResult {
      * ARN of the resource share.
      */
     readonly arn: string;
-    readonly filters?: outputs.ram.GetResourceShareFilter[];
+    readonly filters?: inputs.GetResourceShareFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -149,7 +148,7 @@ export interface GetResourceShareOutputArgs {
     /**
      * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetResourceShareFilterArgs>[]>;
     /**
      * Name of the resource share to retrieve.
      */

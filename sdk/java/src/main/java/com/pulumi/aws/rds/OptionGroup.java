@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OptionGroup("example", OptionGroupArgs.builder()        
+ *         var example = new OptionGroup("example", OptionGroupArgs.builder()
  *             .name("option-group-test")
  *             .optionGroupDescription("Option Group")
  *             .engineName("sqlserver-ee")

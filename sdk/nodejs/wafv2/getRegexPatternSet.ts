@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export interface GetRegexPatternSetResult {
     /**
      * One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      */
-    readonly regularExpressions: outputs.wafv2.GetRegexPatternSetRegularExpression[];
+    readonly regularExpressions: outputs.GetRegexPatternSetRegularExpression[];
     readonly scope: string;
 }
 /**

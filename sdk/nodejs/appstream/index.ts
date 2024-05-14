@@ -41,6 +41,15 @@ export const UserStackAssociation: typeof import("./userStackAssociation").UserS
 utilities.lazyLoad(exports, ["UserStackAssociation"], () => require("./userStackAssociation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

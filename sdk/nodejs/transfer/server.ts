@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -188,7 +187,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
      */
-    public readonly endpointDetails!: pulumi.Output<outputs.transfer.ServerEndpointDetails | undefined>;
+    public readonly endpointDetails!: pulumi.Output<outputs.ServerEndpointDetails | undefined>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
@@ -232,7 +231,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
      */
-    public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails>;
+    public readonly protocolDetails!: pulumi.Output<outputs.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      */
@@ -240,7 +239,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
      */
-    public readonly s3StorageOptions!: pulumi.Output<outputs.transfer.ServerS3StorageOptions>;
+    public readonly s3StorageOptions!: pulumi.Output<outputs.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
      * * `TransferSecurityPolicy-2024-01`
@@ -280,7 +279,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies the workflow details. See `workflowDetails` block below for details.
      */
-    public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
+    public readonly workflowDetails!: pulumi.Output<outputs.ServerWorkflowDetails | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -384,7 +383,7 @@ export interface ServerState {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
      */
-    endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
+    endpointDetails?: pulumi.Input<inputs.ServerEndpointDetails>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
@@ -428,7 +427,7 @@ export interface ServerState {
     /**
      * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
      */
-    protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
+    protocolDetails?: pulumi.Input<inputs.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      */
@@ -436,7 +435,7 @@ export interface ServerState {
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
      */
-    s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
+    s3StorageOptions?: pulumi.Input<inputs.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
      * * `TransferSecurityPolicy-2024-01`
@@ -476,7 +475,7 @@ export interface ServerState {
     /**
      * Specifies the workflow details. See `workflowDetails` block below for details.
      */
-    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
+    workflowDetails?: pulumi.Input<inputs.ServerWorkflowDetails>;
 }
 
 /**
@@ -498,7 +497,7 @@ export interface ServerArgs {
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` block below for details.
      */
-    endpointDetails?: pulumi.Input<inputs.transfer.ServerEndpointDetails>;
+    endpointDetails?: pulumi.Input<inputs.ServerEndpointDetails>;
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      */
@@ -538,7 +537,7 @@ export interface ServerArgs {
     /**
      * The protocol settings that are configured for your server. See `protocolDetails` block below for details.
      */
-    protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
+    protocolDetails?: pulumi.Input<inputs.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
      */
@@ -546,7 +545,7 @@ export interface ServerArgs {
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
      */
-    s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
+    s3StorageOptions?: pulumi.Input<inputs.ServerS3StorageOptions>;
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
      * * `TransferSecurityPolicy-2024-01`
@@ -580,5 +579,5 @@ export interface ServerArgs {
     /**
      * Specifies the workflow details. See `workflowDetails` block below for details.
      */
-    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
+    workflowDetails?: pulumi.Input<inputs.ServerWorkflowDetails>;
 }

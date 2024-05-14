@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -268,7 +268,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
-    public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyPredictiveScalingConfiguration | undefined>;
+    public readonly predictiveScalingConfiguration!: pulumi.Output<outputs.PolicyPredictiveScalingConfiguration | undefined>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -299,7 +299,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * The following fields are available in step adjustments:
      */
-    public readonly stepAdjustments!: pulumi.Output<outputs.autoscaling.PolicyStepAdjustment[] | undefined>;
+    public readonly stepAdjustments!: pulumi.Output<outputs.PolicyStepAdjustment[] | undefined>;
     /**
      * Target tracking policy. These have the following structure:
      *
@@ -317,7 +317,7 @@ export class Policy extends pulumi.CustomResource {
      *
      * The following fields are available in target tracking configuration:
      */
-    public readonly targetTrackingConfiguration!: pulumi.Output<outputs.autoscaling.PolicyTargetTrackingConfiguration | undefined>;
+    public readonly targetTrackingConfiguration!: pulumi.Output<outputs.PolicyTargetTrackingConfiguration | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -422,7 +422,7 @@ export interface PolicyState {
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
-    predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
+    predictiveScalingConfiguration?: pulumi.Input<inputs.PolicyPredictiveScalingConfiguration>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -453,7 +453,7 @@ export interface PolicyState {
      *
      * The following fields are available in step adjustments:
      */
-    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
+    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.PolicyStepAdjustment>[]>;
     /**
      * Target tracking policy. These have the following structure:
      *
@@ -471,7 +471,7 @@ export interface PolicyState {
      *
      * The following fields are available in target tracking configuration:
      */
-    targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
+    targetTrackingConfiguration?: pulumi.Input<inputs.PolicyTargetTrackingConfiguration>;
 }
 
 /**
@@ -521,7 +521,7 @@ export interface PolicyArgs {
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      */
-    predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyPredictiveScalingConfiguration>;
+    predictiveScalingConfiguration?: pulumi.Input<inputs.PolicyPredictiveScalingConfiguration>;
     /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
@@ -552,7 +552,7 @@ export interface PolicyArgs {
      *
      * The following fields are available in step adjustments:
      */
-    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.PolicyStepAdjustment>[]>;
+    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.PolicyStepAdjustment>[]>;
     /**
      * Target tracking policy. These have the following structure:
      *
@@ -570,5 +570,5 @@ export interface PolicyArgs {
      *
      * The following fields are available in target tracking configuration:
      */
-    targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.PolicyTargetTrackingConfiguration>;
+    targetTrackingConfiguration?: pulumi.Input<inputs.PolicyTargetTrackingConfiguration>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
-    public readonly configuration!: pulumi.Output<outputs.s3control.ObjectLambdaAccessPointConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.ObjectLambdaAccessPointConfiguration>;
     /**
      * The name for this Object Lambda Access Point.
      */
@@ -148,7 +147,7 @@ export interface ObjectLambdaAccessPointState {
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
-    configuration?: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
+    configuration?: pulumi.Input<inputs.ObjectLambdaAccessPointConfiguration>;
     /**
      * The name for this Object Lambda Access Point.
      */
@@ -166,7 +165,7 @@ export interface ObjectLambdaAccessPointArgs {
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      */
-    configuration: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
+    configuration: pulumi.Input<inputs.ObjectLambdaAccessPointConfiguration>;
     /**
      * The name for this Object Lambda Access Point.
      */

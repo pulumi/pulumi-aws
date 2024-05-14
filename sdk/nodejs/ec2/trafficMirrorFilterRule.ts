@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -103,7 +103,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    public readonly destinationPortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleDestinationPortRange | undefined>;
+    public readonly destinationPortRange!: pulumi.Output<outputs.TrafficMirrorFilterRuleDestinationPortRange | undefined>;
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
@@ -123,7 +123,7 @@ export class TrafficMirrorFilterRule extends pulumi.CustomResource {
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    public readonly sourcePortRange!: pulumi.Output<outputs.ec2.TrafficMirrorFilterRuleSourcePortRange | undefined>;
+    public readonly sourcePortRange!: pulumi.Output<outputs.TrafficMirrorFilterRuleSourcePortRange | undefined>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      *
@@ -215,7 +215,7 @@ export interface TrafficMirrorFilterRuleState {
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    destinationPortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleDestinationPortRange>;
+    destinationPortRange?: pulumi.Input<inputs.TrafficMirrorFilterRuleDestinationPortRange>;
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
@@ -235,7 +235,7 @@ export interface TrafficMirrorFilterRuleState {
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleSourcePortRange>;
+    sourcePortRange?: pulumi.Input<inputs.TrafficMirrorFilterRuleSourcePortRange>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      *
@@ -263,7 +263,7 @@ export interface TrafficMirrorFilterRuleArgs {
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    destinationPortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleDestinationPortRange>;
+    destinationPortRange?: pulumi.Input<inputs.TrafficMirrorFilterRuleDestinationPortRange>;
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      */
@@ -283,7 +283,7 @@ export interface TrafficMirrorFilterRuleArgs {
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      */
-    sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleSourcePortRange>;
+    sourcePortRange?: pulumi.Input<inputs.TrafficMirrorFilterRuleSourcePortRange>;
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      *

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
-    public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
+    public readonly serviceAccountCredentials!: pulumi.Output<outputs.DirectoryConfigServiceAccountCredentials>;
 
     /**
      * Create a DirectoryConfig resource with the given unique name, arguments, and options.
@@ -136,7 +135,7 @@ export interface DirectoryConfigState {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
-    serviceAccountCredentials?: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentials>;
+    serviceAccountCredentials?: pulumi.Input<inputs.DirectoryConfigServiceAccountCredentials>;
 }
 
 /**
@@ -154,5 +153,5 @@ export interface DirectoryConfigArgs {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
-    serviceAccountCredentials: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentials>;
+    serviceAccountCredentials: pulumi.Input<inputs.DirectoryConfigServiceAccountCredentials>;
 }

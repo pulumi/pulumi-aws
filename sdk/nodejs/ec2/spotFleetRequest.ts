@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -287,11 +287,11 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    public readonly launchSpecifications!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchSpecification[] | undefined>;
+    public readonly launchSpecifications!: pulumi.Output<outputs.SpotFleetRequestLaunchSpecification[] | undefined>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.SpotFleetRequestLaunchTemplateConfig[] | undefined>;
+    public readonly launchTemplateConfigs!: pulumi.Output<outputs.SpotFleetRequestLaunchTemplateConfig[] | undefined>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -315,7 +315,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    public readonly spotMaintenanceStrategies!: pulumi.Output<outputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
+    public readonly spotMaintenanceStrategies!: pulumi.Output<outputs.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
     /**
      * The maximum bid price per unit hour.
      */
@@ -514,11 +514,11 @@ export interface SpotFleetRequestState {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.SpotFleetRequestLaunchSpecification>[]>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
+    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.SpotFleetRequestLaunchTemplateConfig>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -542,7 +542,7 @@ export interface SpotFleetRequestState {
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
+    spotMaintenanceStrategies?: pulumi.Input<inputs.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
      * The maximum bid price per unit hour.
      */
@@ -658,11 +658,11 @@ export interface SpotFleetRequestArgs {
      * [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
      * a additional parameter `iamInstanceProfileArn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      */
-    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecification>[]>;
+    launchSpecifications?: pulumi.Input<pulumi.Input<inputs.SpotFleetRequestLaunchSpecification>[]>;
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launchSpecification`. At least one of `launchSpecification` or `launchTemplateConfig` is required.
      */
-    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchTemplateConfig>[]>;
+    launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.SpotFleetRequestLaunchTemplateConfig>[]>;
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      */
@@ -686,7 +686,7 @@ export interface SpotFleetRequestArgs {
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      */
-    spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
+    spotMaintenanceStrategies?: pulumi.Input<inputs.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
      * The maximum bid price per unit hour.
      */

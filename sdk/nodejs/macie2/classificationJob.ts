@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +103,7 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    public readonly s3JobDefinition!: pulumi.Output<outputs.macie2.ClassificationJobS3JobDefinition>;
+    public readonly s3JobDefinition!: pulumi.Output<outputs.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
@@ -112,7 +111,7 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    public readonly scheduleFrequency!: pulumi.Output<outputs.macie2.ClassificationJobScheduleFrequency>;
+    public readonly scheduleFrequency!: pulumi.Output<outputs.ClassificationJobScheduleFrequency>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
@@ -124,7 +123,7 @@ export class ClassificationJob extends pulumi.CustomResource {
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
-    public /*out*/ readonly userPausedDetails!: pulumi.Output<outputs.macie2.ClassificationJobUserPausedDetail[]>;
+    public /*out*/ readonly userPausedDetails!: pulumi.Output<outputs.ClassificationJobUserPausedDetail[]>;
 
     /**
      * Create a ClassificationJob resource with the given unique name, arguments, and options.
@@ -226,7 +225,7 @@ export interface ClassificationJobState {
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    s3JobDefinition?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
+    s3JobDefinition?: pulumi.Input<inputs.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
@@ -234,7 +233,7 @@ export interface ClassificationJobState {
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
+    scheduleFrequency?: pulumi.Input<inputs.ClassificationJobScheduleFrequency>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
@@ -246,7 +245,7 @@ export interface ClassificationJobState {
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
-    userPausedDetails?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobUserPausedDetail>[]>;
+    userPausedDetails?: pulumi.Input<pulumi.Input<inputs.ClassificationJobUserPausedDetail>[]>;
 }
 
 /**
@@ -284,7 +283,7 @@ export interface ClassificationJobArgs {
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    s3JobDefinition: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
+    s3JobDefinition: pulumi.Input<inputs.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
@@ -292,7 +291,7 @@ export interface ClassificationJobArgs {
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
+    scheduleFrequency?: pulumi.Input<inputs.ClassificationJobScheduleFrequency>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */

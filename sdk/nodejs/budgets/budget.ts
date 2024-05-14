@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -209,7 +208,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
-    public readonly autoAdjustData!: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
+    public readonly autoAdjustData!: pulumi.Output<outputs.BudgetAutoAdjustData | undefined>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -217,11 +216,11 @@ export class Budget extends pulumi.CustomResource {
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    public readonly costFilters!: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
+    public readonly costFilters!: pulumi.Output<outputs.BudgetCostFilter[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
+    public readonly costTypes!: pulumi.Output<outputs.BudgetCostTypes>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -241,11 +240,11 @@ export class Budget extends pulumi.CustomResource {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    public readonly notifications!: pulumi.Output<outputs.budgets.BudgetNotification[] | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.BudgetNotification[] | undefined>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    public readonly plannedLimits!: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
+    public readonly plannedLimits!: pulumi.Output<outputs.BudgetPlannedLimit[] | undefined>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -331,7 +330,7 @@ export interface BudgetState {
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
-    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    autoAdjustData?: pulumi.Input<inputs.BudgetAutoAdjustData>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -339,11 +338,11 @@ export interface BudgetState {
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
+    costFilters?: pulumi.Input<pulumi.Input<inputs.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    costTypes?: pulumi.Input<inputs.BudgetCostTypes>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -363,11 +362,11 @@ export interface BudgetState {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.BudgetNotification>[]>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.BudgetPlannedLimit>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
@@ -393,7 +392,7 @@ export interface BudgetArgs {
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
-    autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
+    autoAdjustData?: pulumi.Input<inputs.BudgetAutoAdjustData>;
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -401,11 +400,11 @@ export interface BudgetArgs {
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
+    costFilters?: pulumi.Input<pulumi.Input<inputs.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    costTypes?: pulumi.Input<inputs.BudgetCostTypes>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -425,11 +424,11 @@ export interface BudgetArgs {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    notifications?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.BudgetNotification>[]>;
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
+    plannedLimits?: pulumi.Input<pulumi.Input<inputs.BudgetPlannedLimit>[]>;
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */

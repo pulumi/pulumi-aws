@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -82,7 +81,7 @@ export class Control extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly controlMappingSources!: pulumi.Output<outputs.auditmanager.ControlControlMappingSource[] | undefined>;
+    public readonly controlMappingSources!: pulumi.Output<outputs.ControlControlMappingSource[] | undefined>;
     /**
      * Description of the control.
      */
@@ -171,7 +170,7 @@ export interface ControlState {
      *
      * The following arguments are optional:
      */
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[]>;
+    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.ControlControlMappingSource>[]>;
     /**
      * Description of the control.
      */
@@ -215,7 +214,7 @@ export interface ControlArgs {
      *
      * The following arguments are optional:
      */
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.ControlControlMappingSource>[]>;
+    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.ControlControlMappingSource>[]>;
     /**
      * Description of the control.
      */

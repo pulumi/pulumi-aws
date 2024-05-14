@@ -533,7 +533,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -556,7 +556,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -641,7 +641,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -664,7 +664,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -749,7 +749,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -772,7 +772,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -857,7 +857,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -880,7 +880,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -965,7 +965,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -988,7 +988,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1073,7 +1073,7 @@ public final class OrganizationsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = OrganizationsFunctions.getOrganization();
      * 
-     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()        
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
      *             .build());
      * 
@@ -1096,7 +1096,7 @@ public final class OrganizationsFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
      *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());

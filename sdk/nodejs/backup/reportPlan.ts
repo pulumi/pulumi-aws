@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,11 +93,11 @@ export class ReportPlan extends pulumi.CustomResource {
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    public readonly reportDeliveryChannel!: pulumi.Output<outputs.backup.ReportPlanReportDeliveryChannel>;
+    public readonly reportDeliveryChannel!: pulumi.Output<outputs.ReportPlanReportDeliveryChannel>;
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    public readonly reportSetting!: pulumi.Output<outputs.backup.ReportPlanReportSetting>;
+    public readonly reportSetting!: pulumi.Output<outputs.ReportPlanReportSetting>;
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -182,11 +181,11 @@ export interface ReportPlanState {
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    reportDeliveryChannel?: pulumi.Input<inputs.backup.ReportPlanReportDeliveryChannel>;
+    reportDeliveryChannel?: pulumi.Input<inputs.ReportPlanReportDeliveryChannel>;
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    reportSetting?: pulumi.Input<inputs.backup.ReportPlanReportSetting>;
+    reportSetting?: pulumi.Input<inputs.ReportPlanReportSetting>;
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -214,11 +213,11 @@ export interface ReportPlanArgs {
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
-    reportDeliveryChannel: pulumi.Input<inputs.backup.ReportPlanReportDeliveryChannel>;
+    reportDeliveryChannel: pulumi.Input<inputs.ReportPlanReportDeliveryChannel>;
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
-    reportSetting: pulumi.Input<inputs.backup.ReportPlanReportSetting>;
+    reportSetting: pulumi.Input<inputs.ReportPlanReportSetting>;
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

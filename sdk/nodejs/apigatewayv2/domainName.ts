@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,11 +108,11 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * Domain name configuration. See below.
      */
-    public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
+    public readonly domainNameConfiguration!: pulumi.Output<outputs.DomainNameDomainNameConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name.
      */
-    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -185,11 +184,11 @@ export interface DomainNameState {
     /**
      * Domain name configuration. See below.
      */
-    domainNameConfiguration?: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
+    domainNameConfiguration?: pulumi.Input<inputs.DomainNameDomainNameConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.DomainNameMutualTlsAuthentication>;
     /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -213,11 +212,11 @@ export interface DomainNameArgs {
     /**
      * Domain name configuration. See below.
      */
-    domainNameConfiguration: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
+    domainNameConfiguration: pulumi.Input<inputs.DomainNameDomainNameConfiguration>;
     /**
      * Mutual TLS authentication configuration for the domain name.
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.DomainNameMutualTlsAuthentication>;
     /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

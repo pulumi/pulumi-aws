@@ -131,6 +131,15 @@ export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").Res
 utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -28,13 +27,13 @@ export interface GetGroupArgs {
     /**
      * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
+    alternateIdentifier?: inputs.GetGroupAlternateIdentifier;
     /**
      * Configuration block for filtering by a unique attribute of the group. Detailed below.
      *
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    filter?: inputs.identitystore.GetGroupFilter;
+    filter?: inputs.GetGroupFilter;
     /**
      * The identifier for a group in the Identity Store.
      *
@@ -53,7 +52,7 @@ export interface GetGroupArgs {
  * A collection of values returned by getGroup.
  */
 export interface GetGroupResult {
-    readonly alternateIdentifier?: outputs.identitystore.GetGroupAlternateIdentifier;
+    readonly alternateIdentifier?: inputs.GetGroupAlternateIdentifier;
     /**
      * Description of the specified group.
      */
@@ -65,11 +64,11 @@ export interface GetGroupResult {
     /**
      * List of identifiers issued to this resource by an external identity provider.
      */
-    readonly externalIds: outputs.identitystore.GetGroupExternalId[];
+    readonly externalIds: outputs.GetGroupExternalId[];
     /**
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    readonly filter?: outputs.identitystore.GetGroupFilter;
+    readonly filter?: inputs.GetGroupFilter;
     readonly groupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -91,13 +90,13 @@ export interface GetGroupOutputArgs {
     /**
      * A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
      */
-    alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
+    alternateIdentifier?: pulumi.Input<inputs.GetGroupAlternateIdentifierArgs>;
     /**
      * Configuration block for filtering by a unique attribute of the group. Detailed below.
      *
      * @deprecated Use the alternateIdentifier attribute instead.
      */
-    filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
+    filter?: pulumi.Input<inputs.GetGroupFilterArgs>;
     /**
      * The identifier for a group in the Identity Store.
      *

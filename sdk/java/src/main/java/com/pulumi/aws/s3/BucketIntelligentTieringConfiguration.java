@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_entire_bucket = new BucketIntelligentTieringConfiguration("example-entire-bucket", BucketIntelligentTieringConfigurationArgs.builder()        
+ *         var example_entire_bucket = new BucketIntelligentTieringConfiguration("example-entire-bucket", BucketIntelligentTieringConfigurationArgs.builder()
  *             .bucket(example.id())
  *             .name("EntireBucket")
  *             .tierings(            
@@ -105,11 +105,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_filtered = new BucketIntelligentTieringConfiguration("example-filtered", BucketIntelligentTieringConfigurationArgs.builder()        
+ *         var example_filtered = new BucketIntelligentTieringConfiguration("example-filtered", BucketIntelligentTieringConfigurationArgs.builder()
  *             .bucket(example.id())
  *             .name("ImportantBlueDocuments")
  *             .status("Disabled")

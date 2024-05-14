@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +71,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      */
-    public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
+    public readonly allowedPublishers!: pulumi.Output<outputs.CodeSigningConfigAllowedPublishers>;
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      */
@@ -91,7 +91,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
+    public readonly policies!: pulumi.Output<outputs.CodeSigningConfigPolicies>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -136,7 +136,7 @@ export interface CodeSigningConfigState {
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      */
-    allowedPublishers?: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
+    allowedPublishers?: pulumi.Input<inputs.CodeSigningConfigAllowedPublishers>;
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      */
@@ -156,7 +156,7 @@ export interface CodeSigningConfigState {
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    policies?: pulumi.Input<inputs.CodeSigningConfigPolicies>;
 }
 
 /**
@@ -166,7 +166,7 @@ export interface CodeSigningConfigArgs {
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      */
-    allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
+    allowedPublishers: pulumi.Input<inputs.CodeSigningConfigAllowedPublishers>;
     /**
      * Descriptive name for this code signing configuration.
      */
@@ -174,5 +174,5 @@ export interface CodeSigningConfigArgs {
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    policies?: pulumi.Input<inputs.CodeSigningConfigPolicies>;
 }

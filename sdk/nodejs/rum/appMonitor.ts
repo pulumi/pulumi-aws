@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +60,7 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorAppMonitorConfiguration>;
+    public readonly appMonitorConfiguration!: pulumi.Output<outputs.AppMonitorAppMonitorConfiguration>;
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      */
@@ -73,7 +72,7 @@ export class AppMonitor extends pulumi.CustomResource {
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents>;
+    public readonly customEvents!: pulumi.Output<outputs.AppMonitorCustomEvents>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
@@ -152,7 +151,7 @@ export interface AppMonitorState {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    appMonitorConfiguration?: pulumi.Input<inputs.AppMonitorAppMonitorConfiguration>;
     /**
      * The unique ID of the app monitor. Useful for JS templates.
      */
@@ -164,7 +163,7 @@ export interface AppMonitorState {
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents>;
+    customEvents?: pulumi.Input<inputs.AppMonitorCustomEvents>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */
@@ -200,11 +199,11 @@ export interface AppMonitorArgs {
     /**
      * configuration data for the app monitor. See appMonitorConfiguration below.
      */
-    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorAppMonitorConfiguration>;
+    appMonitorConfiguration?: pulumi.Input<inputs.AppMonitorAppMonitorConfiguration>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
      */
-    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEvents>;
+    customEvents?: pulumi.Input<inputs.AppMonitorCustomEvents>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      */

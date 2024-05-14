@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export interface GetQueryLogConfigArgs {
      *
      * In addition to all arguments above, the following attributes are exported:
      */
-    filters?: inputs.route53.GetQueryLogConfigFilter[];
+    filters?: inputs.GetQueryLogConfigFilter[];
     /**
      * The name of the query logging configuration.
      */
@@ -85,7 +85,7 @@ export interface GetQueryLogConfigArgs {
 export interface GetQueryLogConfigResult {
     readonly arn: string;
     readonly destinationArn: string;
-    readonly filters?: outputs.route53.GetQueryLogConfigFilter[];
+    readonly filters?: inputs.GetQueryLogConfigFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -143,7 +143,7 @@ export interface GetQueryLogConfigOutputArgs {
      *
      * In addition to all arguments above, the following attributes are exported:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetQueryLogConfigFilterArgs>[]>;
     /**
      * The name of the query logging configuration.
      */

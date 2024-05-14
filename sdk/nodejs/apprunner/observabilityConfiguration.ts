@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +95,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    public readonly traceConfiguration!: pulumi.Output<outputs.apprunner.ObservabilityConfigurationTraceConfiguration | undefined>;
+    public readonly traceConfiguration!: pulumi.Output<outputs.ObservabilityConfigurationTraceConfiguration | undefined>;
 
     /**
      * Create a ObservabilityConfiguration resource with the given unique name, arguments, and options.
@@ -175,7 +174,7 @@ export interface ObservabilityConfigurationState {
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration>;
+    traceConfiguration?: pulumi.Input<inputs.ObservabilityConfigurationTraceConfiguration>;
 }
 
 /**
@@ -193,5 +192,5 @@ export interface ObservabilityConfigurationArgs {
     /**
      * Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
      */
-    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfiguration>;
+    traceConfiguration?: pulumi.Input<inputs.ObservabilityConfigurationTraceConfiguration>;
 }

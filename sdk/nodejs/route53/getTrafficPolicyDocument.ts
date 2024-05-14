@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -151,7 +151,7 @@ export interface GetTrafficPolicyDocumentArgs {
     /**
      * Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
      */
-    endpoints?: inputs.route53.GetTrafficPolicyDocumentEndpoint[];
+    endpoints?: inputs.GetTrafficPolicyDocumentEndpoint[];
     /**
      * DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
      */
@@ -159,7 +159,7 @@ export interface GetTrafficPolicyDocumentArgs {
     /**
      * Configuration block for definitions of the rules that you want to use in this traffic policy. See below
      */
-    rules?: inputs.route53.GetTrafficPolicyDocumentRule[];
+    rules?: inputs.GetTrafficPolicyDocumentRule[];
     /**
      * An endpoint to be as the starting point for the traffic policy.
      */
@@ -178,7 +178,7 @@ export interface GetTrafficPolicyDocumentArgs {
  * A collection of values returned by getTrafficPolicyDocument.
  */
 export interface GetTrafficPolicyDocumentResult {
-    readonly endpoints?: outputs.route53.GetTrafficPolicyDocumentEndpoint[];
+    readonly endpoints?: inputs.GetTrafficPolicyDocumentEndpoint[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -188,7 +188,7 @@ export interface GetTrafficPolicyDocumentResult {
      */
     readonly json: string;
     readonly recordType?: string;
-    readonly rules?: outputs.route53.GetTrafficPolicyDocumentRule[];
+    readonly rules?: inputs.GetTrafficPolicyDocumentRule[];
     readonly startEndpoint?: string;
     readonly startRule?: string;
     readonly version?: string;
@@ -327,7 +327,7 @@ export interface GetTrafficPolicyDocumentOutputArgs {
     /**
      * Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentEndpointArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.GetTrafficPolicyDocumentEndpointArgs>[]>;
     /**
      * DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
      */
@@ -335,7 +335,7 @@ export interface GetTrafficPolicyDocumentOutputArgs {
     /**
      * Configuration block for definitions of the rules that you want to use in this traffic policy. See below
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.GetTrafficPolicyDocumentRuleArgs>[]>;
     /**
      * An endpoint to be as the starting point for the traffic policy.
      */

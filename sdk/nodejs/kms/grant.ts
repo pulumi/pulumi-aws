@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export class Grant extends pulumi.CustomResource {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      */
-    public readonly constraints!: pulumi.Output<outputs.kms.GrantConstraint[] | undefined>;
+    public readonly constraints!: pulumi.Output<outputs.GrantConstraint[] | undefined>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      */
@@ -145,7 +144,7 @@ export interface GrantState {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      */
-    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.GrantConstraint>[]>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      */
@@ -192,7 +191,7 @@ export interface GrantArgs {
     /**
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      */
-    constraints?: pulumi.Input<pulumi.Input<inputs.kms.GrantConstraint>[]>;
+    constraints?: pulumi.Input<pulumi.Input<inputs.GrantConstraint>[]>;
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      */

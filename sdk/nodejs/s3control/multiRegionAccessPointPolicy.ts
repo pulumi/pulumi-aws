@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    public readonly details!: pulumi.Output<outputs.MultiRegionAccessPointPolicyDetails>;
     /**
      * The last established policy for the Multi-Region Access Point.
      */
@@ -108,7 +107,7 @@ export interface MultiRegionAccessPointPolicyState {
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    details?: pulumi.Input<inputs.MultiRegionAccessPointPolicyDetails>;
     /**
      * The last established policy for the Multi-Region Access Point.
      */
@@ -130,5 +129,5 @@ export interface MultiRegionAccessPointPolicyArgs {
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    details: pulumi.Input<inputs.s3control.MultiRegionAccessPointPolicyDetails>;
+    details: pulumi.Input<inputs.MultiRegionAccessPointPolicyDetails>;
 }

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()
  *             .instanceType("t2.micro")
  *             .name("example-env")
  *             .imageId("amazonlinux-2023-x86_64")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()
  *             .instanceType("t2.micro")
  *             .build());
  * 
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()        
+ *         var example = new EnvironmentEC2("example", EnvironmentEC2Args.builder()
  *             .instanceType("t2.micro")
  *             .build());
  * 
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var cloud9Eip = new Eip("cloud9Eip", EipArgs.builder()        
+ *         var cloud9Eip = new Eip("cloud9Eip", EipArgs.builder()
  *             .instance(cloud9Instance.applyValue(getInstanceResult -> getInstanceResult).applyValue(cloud9Instance -> cloud9Instance.applyValue(getInstanceResult -> getInstanceResult.id())))
  *             .domain("vpc")
  *             .build());

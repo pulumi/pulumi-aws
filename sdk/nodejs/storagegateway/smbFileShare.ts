@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +106,7 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
+    public readonly cacheAttributes!: pulumi.Output<outputs.SmbFileShareCacheAttributes | undefined>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */
@@ -318,7 +317,7 @@ export interface SmbFileShareState {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.SmbFileShareCacheAttributes>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */
@@ -438,7 +437,7 @@ export interface SmbFileShareArgs {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.SmbFileShareCacheAttributes>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */

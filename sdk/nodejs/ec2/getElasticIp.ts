@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +80,7 @@ export interface GetElasticIpArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
      */
-    filters?: inputs.ec2.GetElasticIpFilter[];
+    filters?: inputs.GetElasticIpFilter[];
     /**
      * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
@@ -120,7 +120,7 @@ export interface GetElasticIpResult {
      * Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
      */
     readonly domain: string;
-    readonly filters?: outputs.ec2.GetElasticIpFilter[];
+    readonly filters?: inputs.GetElasticIpFilter[];
     /**
      * If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
      */
@@ -231,7 +231,7 @@ export interface GetElasticIpOutputArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetElasticIpFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetElasticIpFilterArgs>[]>;
     /**
      * Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */

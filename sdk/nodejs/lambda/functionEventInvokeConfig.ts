@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -144,7 +144,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     /**
      * Configuration block with destination configuration. See below for details.
      */
-    public readonly destinationConfig!: pulumi.Output<outputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
+    public readonly destinationConfig!: pulumi.Output<outputs.FunctionEventInvokeConfigDestinationConfig | undefined>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      *
@@ -205,7 +205,7 @@ export interface FunctionEventInvokeConfigState {
     /**
      * Configuration block with destination configuration. See below for details.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      *
@@ -233,7 +233,7 @@ export interface FunctionEventInvokeConfigArgs {
     /**
      * Configuration block with destination configuration. See below for details.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      *

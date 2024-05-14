@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName("example")
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .snapshotId(exampleAwsEbsSnapshot.id())
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()        
+ *         var example = new CachesIscsiVolume("example", CachesIscsiVolumeArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .sourceVolumeArn(existing.arn())

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export interface GetApiResult {
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
      * Applicable for HTTP APIs.
      */
-    readonly corsConfigurations: outputs.apigatewayv2.GetApiCorsConfiguration[];
+    readonly corsConfigurations: outputs.GetApiCorsConfiguration[];
     /**
      * Description of the API.
      */

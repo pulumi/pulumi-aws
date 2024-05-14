@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -164,7 +164,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * An output location block. Output Location is documented below.
      */
-    public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.AssociationOutputLocation | undefined>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -180,7 +180,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
+    public readonly targets!: pulumi.Output<outputs.AssociationTarget[]>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *
@@ -296,7 +296,7 @@ export interface AssociationState {
     /**
      * An output location block. Output Location is documented below.
      */
-    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.AssociationOutputLocation>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -312,7 +312,7 @@ export interface AssociationState {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.AssociationTarget>[]>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *
@@ -366,7 +366,7 @@ export interface AssociationArgs {
     /**
      * An output location block. Output Location is documented below.
      */
-    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.AssociationOutputLocation>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
@@ -382,7 +382,7 @@ export interface AssociationArgs {
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.AssociationTarget>[]>;
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      *

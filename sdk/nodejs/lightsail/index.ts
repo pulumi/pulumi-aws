@@ -121,6 +121,15 @@ export const StaticIpAttachment: typeof import("./staticIpAttachment").StaticIpA
 utilities.lazyLoad(exports, ["StaticIpAttachment"], () => require("./staticIpAttachment"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

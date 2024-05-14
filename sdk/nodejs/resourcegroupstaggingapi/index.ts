@@ -9,3 +9,12 @@ export const getResources: typeof import("./getResources").getResources = null a
 export const getResourcesOutput: typeof import("./getResources").getResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["getResources","getResourcesOutput"], () => require("./getResources"));
 
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};

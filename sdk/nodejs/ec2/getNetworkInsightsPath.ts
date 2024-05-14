@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export interface GetNetworkInsightsPathArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetNetworkInsightsPathFilter[];
+    filters?: inputs.GetNetworkInsightsPathFilter[];
     /**
      * ID of the Network Insights Path to select.
      */
@@ -74,7 +74,7 @@ export interface GetNetworkInsightsPathResult {
      * Destination port.
      */
     readonly destinationPort: number;
-    readonly filters?: outputs.ec2.GetNetworkInsightsPathFilter[];
+    readonly filters?: inputs.GetNetworkInsightsPathFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -126,7 +126,7 @@ export interface GetNetworkInsightsPathOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNetworkInsightsPathFilterArgs>[]>;
     /**
      * ID of the Network Insights Path to select.
      */

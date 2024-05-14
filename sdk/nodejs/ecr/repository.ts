@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Encryption configuration for the repository. See below for schema.
      */
-    public readonly encryptionConfigurations!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration[] | undefined>;
+    public readonly encryptionConfigurations!: pulumi.Output<outputs.RepositoryEncryptionConfiguration[] | undefined>;
     /**
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
@@ -77,7 +76,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.RepositoryImageScanningConfiguration | undefined>;
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */
@@ -157,7 +156,7 @@ export interface RepositoryState {
     /**
      * Encryption configuration for the repository. See below for schema.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.RepositoryEncryptionConfiguration>[]>;
     /**
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
@@ -166,7 +165,7 @@ export interface RepositoryState {
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.RepositoryImageScanningConfiguration>;
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */
@@ -202,7 +201,7 @@ export interface RepositoryArgs {
     /**
      * Encryption configuration for the repository. See below for schema.
      */
-    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
+    encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.RepositoryEncryptionConfiguration>[]>;
     /**
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
@@ -211,7 +210,7 @@ export interface RepositoryArgs {
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.RepositoryImageScanningConfiguration>;
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      */

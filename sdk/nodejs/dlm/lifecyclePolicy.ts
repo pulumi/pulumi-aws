@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -241,7 +240,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
+    public readonly policyDetails!: pulumi.Output<outputs.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
@@ -320,7 +319,7 @@ export interface LifecyclePolicyState {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    policyDetails?: pulumi.Input<inputs.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
@@ -352,7 +351,7 @@ export interface LifecyclePolicyArgs {
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    policyDetails: pulumi.Input<inputs.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */

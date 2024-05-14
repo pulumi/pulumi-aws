@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +49,7 @@ export interface GetVpcEndpointArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcEndpointFilter[];
+    filters?: inputs.GetVpcEndpointFilter[];
     /**
      * ID of the specific VPC Endpoint to retrieve.
      */
@@ -91,12 +91,12 @@ export interface GetVpcEndpointResult {
     /**
      * DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
      */
-    readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
+    readonly dnsEntries: outputs.GetVpcEndpointDnsEntry[];
     /**
      * DNS options for the VPC Endpoint. DNS options blocks are documented below.
      */
-    readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
-    readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
+    readonly dnsOptions: outputs.GetVpcEndpointDnsOption[];
+    readonly filters?: inputs.GetVpcEndpointFilter[];
     readonly id: string;
     readonly ipAddressType: string;
     /**
@@ -176,7 +176,7 @@ export interface GetVpcEndpointOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcEndpointFilterArgs>[]>;
     /**
      * ID of the specific VPC Endpoint to retrieve.
      */

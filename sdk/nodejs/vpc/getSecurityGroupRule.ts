@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +37,7 @@ export interface GetSecurityGroupRuleArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
+    filters?: inputs.GetSecurityGroupRuleFilter[];
     /**
      * ID of the security group rule to select.
      */
@@ -65,7 +64,7 @@ export interface GetSecurityGroupRuleResult {
      * The security group rule description.
      */
     readonly description: string;
-    readonly filters?: outputs.vpc.GetSecurityGroupRuleFilter[];
+    readonly filters?: inputs.GetSecurityGroupRuleFilter[];
     /**
      * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
@@ -126,7 +125,7 @@ export interface GetSecurityGroupRuleOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSecurityGroupRuleFilterArgs>[]>;
     /**
      * ID of the security group rule to select.
      */

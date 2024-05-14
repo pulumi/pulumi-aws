@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationFsxWindows("example", LocationFsxWindowsArgs.builder()        
+ *         var example = new LocationFsxWindows("example", LocationFsxWindowsArgs.builder()
  *             .fsxFilesystemArn(exampleAwsFsxWindowsFileSystem.arn())
  *             .user("SomeUser")
  *             .password("SuperSecretPassw0rd")

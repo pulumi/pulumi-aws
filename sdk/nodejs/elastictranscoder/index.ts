@@ -16,6 +16,15 @@ export const Preset: typeof import("./preset").Preset = null as any;
 utilities.lazyLoad(exports, ["Preset"], () => require("./preset"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

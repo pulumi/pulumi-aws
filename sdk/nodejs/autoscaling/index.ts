@@ -59,7 +59,16 @@ utilities.lazyLoad(exports, ["TrafficSourceAttachment"], () => require("./traffi
 
 
 // Export enums:
-export * from "../types/enums/autoscaling";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

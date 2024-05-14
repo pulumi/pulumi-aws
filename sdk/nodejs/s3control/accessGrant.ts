@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class AccessGrant extends pulumi.CustomResource {
     /**
      * See Location Configuration below for more details.
      */
-    public readonly accessGrantsLocationConfiguration!: pulumi.Output<outputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
+    public readonly accessGrantsLocationConfiguration!: pulumi.Output<outputs.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      */
@@ -98,7 +97,7 @@ export class AccessGrant extends pulumi.CustomResource {
     /**
      * See Grantee below for more details.
      */
-    public readonly grantee!: pulumi.Output<outputs.s3control.AccessGrantGrantee | undefined>;
+    public readonly grantee!: pulumi.Output<outputs.AccessGrantGrantee | undefined>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
@@ -182,7 +181,7 @@ export interface AccessGrantState {
     /**
      * See Location Configuration below for more details.
      */
-    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration>;
+    accessGrantsLocationConfiguration?: pulumi.Input<inputs.AccessGrantAccessGrantsLocationConfiguration>;
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      */
@@ -195,7 +194,7 @@ export interface AccessGrantState {
     /**
      * See Grantee below for more details.
      */
-    grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
+    grantee?: pulumi.Input<inputs.AccessGrantGrantee>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
@@ -223,7 +222,7 @@ export interface AccessGrantArgs {
     /**
      * See Location Configuration below for more details.
      */
-    accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration>;
+    accessGrantsLocationConfiguration?: pulumi.Input<inputs.AccessGrantAccessGrantsLocationConfiguration>;
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      */
@@ -232,7 +231,7 @@ export interface AccessGrantArgs {
     /**
      * See Grantee below for more details.
      */
-    grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
+    grantee?: pulumi.Input<inputs.AccessGrantGrantee>;
     /**
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */

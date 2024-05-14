@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new SamlProvider("default", SamlProviderArgs.builder()        
+ *         var default_ = new SamlProvider("default", SamlProviderArgs.builder()
  *             .name("my-saml-provider")
  *             .samlMetadataDocument(StdFunctions.file(FileArgs.builder()
  *                 .input("saml-metadata.xml")
  *                 .build()).result())
  *             .build());
  * 
- *         var main = new IdentityPool("main", IdentityPoolArgs.builder()        
+ *         var main = new IdentityPool("main", IdentityPoolArgs.builder()
  *             .identityPoolName("identity pool")
  *             .allowUnauthenticatedIdentities(false)
  *             .allowClassicFlow(false)

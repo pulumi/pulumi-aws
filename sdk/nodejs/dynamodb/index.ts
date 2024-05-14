@@ -62,6 +62,15 @@ export const Tag: typeof import("./tag").Tag = null as any;
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

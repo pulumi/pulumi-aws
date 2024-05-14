@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +41,7 @@ export interface GetDomainArgs {
     /**
      * Off Peak update options
      */
-    offPeakWindowOptions?: inputs.opensearch.GetDomainOffPeakWindowOptions;
+    offPeakWindowOptions?: inputs.GetDomainOffPeakWindowOptions;
     /**
      * Tags assigned to the domain.
      */
@@ -64,7 +63,7 @@ export interface GetDomainResult {
     /**
      * Status of the OpenSearch domain's advanced security options. The block consists of the following attributes:
      */
-    readonly advancedSecurityOptions: outputs.opensearch.GetDomainAdvancedSecurityOption[];
+    readonly advancedSecurityOptions: outputs.GetDomainAdvancedSecurityOption[];
     /**
      * ARN of the domain.
      */
@@ -72,15 +71,15 @@ export interface GetDomainResult {
     /**
      * Configuration of the Auto-Tune options of the domain.
      */
-    readonly autoTuneOptions: outputs.opensearch.GetDomainAutoTuneOption[];
+    readonly autoTuneOptions: outputs.GetDomainAutoTuneOption[];
     /**
      * Cluster configuration of the domain.
      */
-    readonly clusterConfigs: outputs.opensearch.GetDomainClusterConfig[];
+    readonly clusterConfigs: outputs.GetDomainClusterConfig[];
     /**
      * Domain Amazon Cognito Authentication options for Dashboard.
      */
-    readonly cognitoOptions: outputs.opensearch.GetDomainCognitoOption[];
+    readonly cognitoOptions: outputs.GetDomainCognitoOption[];
     /**
      * Status of the creation of the domain.
      */
@@ -101,11 +100,11 @@ export interface GetDomainResult {
     /**
      * EBS Options for the instances in the domain.
      */
-    readonly ebsOptions: outputs.opensearch.GetDomainEbsOption[];
+    readonly ebsOptions: outputs.GetDomainEbsOption[];
     /**
      * Domain encryption at rest related options.
      */
-    readonly encryptionAtRests: outputs.opensearch.GetDomainEncryptionAtRest[];
+    readonly encryptionAtRests: outputs.GetDomainEncryptionAtRest[];
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
@@ -127,15 +126,15 @@ export interface GetDomainResult {
     /**
      * Domain log publishing related options.
      */
-    readonly logPublishingOptions: outputs.opensearch.GetDomainLogPublishingOption[];
+    readonly logPublishingOptions: outputs.GetDomainLogPublishingOption[];
     /**
      * Domain in transit encryption related options.
      */
-    readonly nodeToNodeEncryptions: outputs.opensearch.GetDomainNodeToNodeEncryption[];
+    readonly nodeToNodeEncryptions: outputs.GetDomainNodeToNodeEncryption[];
     /**
      * Off Peak update options
      */
-    readonly offPeakWindowOptions?: outputs.opensearch.GetDomainOffPeakWindowOptions;
+    readonly offPeakWindowOptions?: inputs.GetDomainOffPeakWindowOptions;
     /**
      * Status of a configuration change in the domain.
      */
@@ -143,11 +142,11 @@ export interface GetDomainResult {
     /**
      * Domain snapshot related options.
      */
-    readonly snapshotOptions: outputs.opensearch.GetDomainSnapshotOption[];
+    readonly snapshotOptions: outputs.GetDomainSnapshotOption[];
     /**
      * Software update options for the domain
      */
-    readonly softwareUpdateOptions: outputs.opensearch.GetDomainSoftwareUpdateOption[];
+    readonly softwareUpdateOptions: outputs.GetDomainSoftwareUpdateOption[];
     /**
      * Tags assigned to the domain.
      */
@@ -155,7 +154,7 @@ export interface GetDomainResult {
     /**
      * VPC Options for private OpenSearch domains.
      */
-    readonly vpcOptions: outputs.opensearch.GetDomainVpcOption[];
+    readonly vpcOptions: outputs.GetDomainVpcOption[];
 }
 /**
  * Use this data source to get information about an OpenSearch Domain
@@ -186,7 +185,7 @@ export interface GetDomainOutputArgs {
     /**
      * Off Peak update options
      */
-    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.GetDomainOffPeakWindowOptionsArgs>;
+    offPeakWindowOptions?: pulumi.Input<inputs.GetDomainOffPeakWindowOptionsArgs>;
     /**
      * Tags assigned to the domain.
      */

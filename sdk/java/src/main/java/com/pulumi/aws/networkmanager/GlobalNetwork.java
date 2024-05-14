@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalNetwork("example", GlobalNetworkArgs.builder()        
+ *         var example = new GlobalNetwork("example", GlobalNetworkArgs.builder()
  *             .description("example")
  *             .build());
  * 

@@ -63,17 +63,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test_role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testAttach = new RolePolicyAttachment("testAttach", RolePolicyAttachmentArgs.builder()        
+ *         var testAttach = new RolePolicyAttachment("testAttach", RolePolicyAttachmentArgs.builder()
  *             .role(testRole.name())
  *             .policyArn("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
  *             .build());
  * 
- *         var foo = new Activation("foo", ActivationArgs.builder()        
+ *         var foo = new Activation("foo", ActivationArgs.builder()
  *             .name("test_ssm_activation")
  *             .description("Test")
  *             .iamRole(testRole.id())

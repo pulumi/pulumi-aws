@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +59,7 @@ export interface GetSecurityGroupsArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
      */
-    filters?: inputs.ec2.GetSecurityGroupsFilter[];
+    filters?: inputs.GetSecurityGroupsFilter[];
     /**
      * Map of tags, each pair of which must exactly match for desired security groups.
      */
@@ -74,7 +74,7 @@ export interface GetSecurityGroupsResult {
      * ARNs of the matched security groups.
      */
     readonly arns: string[];
-    readonly filters?: outputs.ec2.GetSecurityGroupsFilter[];
+    readonly filters?: inputs.GetSecurityGroupsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -135,7 +135,7 @@ export interface GetSecurityGroupsOutputArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSecurityGroupsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match for desired security groups.
      */

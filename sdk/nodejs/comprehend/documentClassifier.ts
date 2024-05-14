@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    public readonly inputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
+    public readonly inputDataConfig!: pulumi.Output<outputs.DocumentClassifierInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -109,7 +108,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Configuration for the output results of training.
      * See the `outputDataConfig` Configuration Block section below.
      */
-    public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig>;
+    public readonly outputDataConfig!: pulumi.Output<outputs.DocumentClassifierOutputDataConfig>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -146,7 +145,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Configuration parameters for VPC to contain Document Classifier resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.DocumentClassifierVpcConfig | undefined>;
 
     /**
      * Create a DocumentClassifier resource with the given unique name, arguments, and options.
@@ -222,7 +221,7 @@ export interface DocumentClassifierState {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    inputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierInputDataConfig>;
+    inputDataConfig?: pulumi.Input<inputs.DocumentClassifierInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -251,7 +250,7 @@ export interface DocumentClassifierState {
      * Configuration for the output results of training.
      * See the `outputDataConfig` Configuration Block section below.
      */
-    outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.DocumentClassifierOutputDataConfig>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -288,7 +287,7 @@ export interface DocumentClassifierState {
      * Configuration parameters for VPC to contain Document Classifier resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.DocumentClassifierVpcConfig>;
 }
 
 /**
@@ -303,7 +302,7 @@ export interface DocumentClassifierArgs {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    inputDataConfig: pulumi.Input<inputs.comprehend.DocumentClassifierInputDataConfig>;
+    inputDataConfig: pulumi.Input<inputs.DocumentClassifierInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -332,7 +331,7 @@ export interface DocumentClassifierArgs {
      * Configuration for the output results of training.
      * See the `outputDataConfig` Configuration Block section below.
      */
-    outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.DocumentClassifierOutputDataConfig>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -363,5 +362,5 @@ export interface DocumentClassifierArgs {
      * Configuration parameters for VPC to contain Document Classifier resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.DocumentClassifierVpcConfig>;
 }

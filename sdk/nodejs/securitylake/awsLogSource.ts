@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export class AwsLogSource extends pulumi.CustomResource {
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    public readonly source!: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
+    public readonly source!: pulumi.Output<outputs.AwsLogSourceSource | undefined>;
 
     /**
      * Create a AwsLogSource resource with the given unique name, arguments, and options.
@@ -97,7 +96,7 @@ export interface AwsLogSourceState {
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
+    source?: pulumi.Input<inputs.AwsLogSourceSource>;
 }
 
 /**
@@ -107,5 +106,5 @@ export interface AwsLogSourceArgs {
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
+    source?: pulumi.Input<inputs.AwsLogSourceSource>;
 }

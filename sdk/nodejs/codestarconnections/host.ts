@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.codestarconnections.HostVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.HostVpcConfiguration | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -152,7 +151,7 @@ export interface HostState {
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.HostVpcConfiguration>;
 }
 
 /**
@@ -174,5 +173,5 @@ export interface HostArgs {
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      */
-    vpcConfiguration?: pulumi.Input<inputs.codestarconnections.HostVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.HostVpcConfiguration>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +82,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * Specifies details about the repository. see Output Config details below.
      */
-    public readonly outputConfig!: pulumi.Output<outputs.sagemaker.DeviceFleetOutputConfig>;
+    public readonly outputConfig!: pulumi.Output<outputs.DeviceFleetOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */
@@ -171,7 +170,7 @@ export interface DeviceFleetState {
     /**
      * Specifies details about the repository. see Output Config details below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
+    outputConfig?: pulumi.Input<inputs.DeviceFleetOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */
@@ -207,7 +206,7 @@ export interface DeviceFleetArgs {
     /**
      * Specifies details about the repository. see Output Config details below.
      */
-    outputConfig: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
+    outputConfig: pulumi.Input<inputs.DeviceFleetOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */

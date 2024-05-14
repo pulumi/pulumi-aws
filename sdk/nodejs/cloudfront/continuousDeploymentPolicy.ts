@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -139,11 +138,11 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    public readonly stagingDistributionDnsNames!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
+    public readonly stagingDistributionDnsNames!: pulumi.Output<outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    public readonly trafficConfig!: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig | undefined>;
+    public readonly trafficConfig!: pulumi.Output<outputs.ContinuousDeploymentPolicyTrafficConfig | undefined>;
 
     /**
      * Create a ContinuousDeploymentPolicy resource with the given unique name, arguments, and options.
@@ -198,11 +197,11 @@ export interface ContinuousDeploymentPolicyState {
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
+    stagingDistributionDnsNames?: pulumi.Input<inputs.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
+    trafficConfig?: pulumi.Input<inputs.ContinuousDeploymentPolicyTrafficConfig>;
 }
 
 /**
@@ -216,9 +215,9 @@ export interface ContinuousDeploymentPolicyArgs {
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
+    stagingDistributionDnsNames?: pulumi.Input<inputs.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
-    trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig>;
+    trafficConfig?: pulumi.Input<inputs.ContinuousDeploymentPolicyTrafficConfig>;
 }

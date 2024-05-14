@@ -26,6 +26,15 @@ export const RecordingConfiguration: typeof import("./recordingConfiguration").R
 utilities.lazyLoad(exports, ["RecordingConfiguration"], () => require("./recordingConfiguration"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

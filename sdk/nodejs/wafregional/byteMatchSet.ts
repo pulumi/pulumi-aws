@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    public readonly byteMatchTuples!: pulumi.Output<outputs.wafregional.ByteMatchSetByteMatchTuple[] | undefined>;
+    public readonly byteMatchTuples!: pulumi.Output<outputs.ByteMatchSetByteMatchTuple[] | undefined>;
     /**
      * The name or description of the ByteMatchSet.
      */
@@ -107,7 +106,7 @@ export interface ByteMatchSetState {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the ByteMatchSet.
      */
@@ -121,7 +120,7 @@ export interface ByteMatchSetArgs {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the ByteMatchSet.
      */

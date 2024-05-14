@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class RestApi extends pulumi.CustomResource {
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.RestApiEndpointConfiguration>;
     /**
      * Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
@@ -222,7 +221,7 @@ export interface RestApiState {
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.RestApiEndpointConfiguration>;
     /**
      * Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
@@ -296,7 +295,7 @@ export interface RestApiArgs {
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
-    endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.RestApiEndpointConfiguration>;
     /**
      * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
      */

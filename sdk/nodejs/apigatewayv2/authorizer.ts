@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,7 +126,7 @@ export class Authorizer extends pulumi.CustomResource {
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    public readonly jwtConfiguration!: pulumi.Output<outputs.apigatewayv2.AuthorizerJwtConfiguration | undefined>;
+    public readonly jwtConfiguration!: pulumi.Output<outputs.AuthorizerJwtConfiguration | undefined>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
@@ -231,7 +230,7 @@ export interface AuthorizerState {
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
+    jwtConfiguration?: pulumi.Input<inputs.AuthorizerJwtConfiguration>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
@@ -289,7 +288,7 @@ export interface AuthorizerArgs {
      * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
      * Supported only for HTTP APIs.
      */
-    jwtConfiguration?: pulumi.Input<inputs.apigatewayv2.AuthorizerJwtConfiguration>;
+    jwtConfiguration?: pulumi.Input<inputs.AuthorizerJwtConfiguration>;
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */

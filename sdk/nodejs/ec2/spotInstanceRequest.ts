@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -103,7 +103,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      *
      * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
-    public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
@@ -113,7 +113,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    public readonly cpuOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestCpuOptions>;
+    public readonly cpuOptions!: pulumi.Output<outputs.SpotInstanceRequestCpuOptions>;
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
@@ -123,7 +123,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    public readonly creditSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCreditSpecification | undefined>;
+    public readonly creditSpecification!: pulumi.Output<outputs.SpotInstanceRequestCreditSpecification | undefined>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
@@ -135,7 +135,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.SpotInstanceRequestEbsBlockDevice[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
@@ -143,11 +143,11 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    public readonly enclaveOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    public readonly enclaveOptions!: pulumi.Output<outputs.SpotInstanceRequestEnclaveOptions>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.SpotInstanceRequestEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.SpotInstanceRequestEphemeralBlockDevice[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -201,15 +201,15 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.ec2.SpotInstanceRequestLaunchTemplate | undefined>;
+    public readonly launchTemplate!: pulumi.Output<outputs.SpotInstanceRequestLaunchTemplate | undefined>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestMaintenanceOptions>;
+    public readonly maintenanceOptions!: pulumi.Output<outputs.SpotInstanceRequestMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    public readonly metadataOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestMetadataOptions>;
+    public readonly metadataOptions!: pulumi.Output<outputs.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
@@ -217,7 +217,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.ec2.SpotInstanceRequestNetworkInterface[]>;
+    public readonly networkInterfaces!: pulumi.Output<outputs.SpotInstanceRequestNetworkInterface[]>;
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     public /*out*/ readonly passwordData!: pulumi.Output<string>;
     /**
@@ -238,7 +238,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestPrivateDnsNameOptions>;
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.SpotInstanceRequestPrivateDnsNameOptions>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
@@ -255,7 +255,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    public readonly rootBlockDevice!: pulumi.Output<outputs.SpotInstanceRequestRootBlockDevice>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
@@ -530,7 +530,7 @@ export interface SpotInstanceRequestState {
      *
      * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
@@ -540,7 +540,7 @@ export interface SpotInstanceRequestState {
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.SpotInstanceRequestCpuOptions>;
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
@@ -550,7 +550,7 @@ export interface SpotInstanceRequestState {
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.SpotInstanceRequestCreditSpecification>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
@@ -562,7 +562,7 @@ export interface SpotInstanceRequestState {
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
@@ -570,11 +570,11 @@ export interface SpotInstanceRequestState {
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.SpotInstanceRequestEnclaveOptions>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestEphemeralBlockDevice>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -628,15 +628,15 @@ export interface SpotInstanceRequestState {
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.SpotInstanceRequestLaunchTemplate>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.SpotInstanceRequestMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
@@ -644,7 +644,7 @@ export interface SpotInstanceRequestState {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestNetworkInterface>[]>;
     outpostArn?: pulumi.Input<string>;
     passwordData?: pulumi.Input<string>;
     /**
@@ -665,7 +665,7 @@ export interface SpotInstanceRequestState {
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.SpotInstanceRequestPrivateDnsNameOptions>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
@@ -682,7 +682,7 @@ export interface SpotInstanceRequestState {
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.SpotInstanceRequestRootBlockDevice>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
@@ -806,7 +806,7 @@ export interface SpotInstanceRequestArgs {
      *
      * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
-    capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
+    capacityReservationSpecification?: pulumi.Input<inputs.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      *
@@ -816,7 +816,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
-    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    cpuOptions?: pulumi.Input<inputs.SpotInstanceRequestCpuOptions>;
     /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      *
@@ -826,7 +826,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
-    creditSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCreditSpecification>;
+    creditSpecification?: pulumi.Input<inputs.SpotInstanceRequestCreditSpecification>;
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      */
@@ -838,7 +838,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestEbsBlockDevice>[]>;
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
@@ -846,11 +846,11 @@ export interface SpotInstanceRequestArgs {
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
-    enclaveOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestEnclaveOptions>;
+    enclaveOptions?: pulumi.Input<inputs.SpotInstanceRequestEnclaveOptions>;
     /**
      * One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestEphemeralBlockDevice>[]>;
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      */
@@ -903,15 +903,15 @@ export interface SpotInstanceRequestArgs {
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
-    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.SpotInstanceRequestLaunchTemplate>;
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      */
-    maintenanceOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMaintenanceOptions>;
+    maintenanceOptions?: pulumi.Input<inputs.SpotInstanceRequestMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
-    metadataOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestMetadataOptions>;
+    metadataOptions?: pulumi.Input<inputs.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
@@ -919,7 +919,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
-    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.SpotInstanceRequestNetworkInterface>[]>;
     /**
      * Placement Group to start the instance in.
      */
@@ -931,7 +931,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      */
-    privateDnsNameOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestPrivateDnsNameOptions>;
+    privateDnsNameOptions?: pulumi.Input<inputs.SpotInstanceRequestPrivateDnsNameOptions>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */
@@ -939,7 +939,7 @@ export interface SpotInstanceRequestArgs {
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
-    rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    rootBlockDevice?: pulumi.Input<inputs.SpotInstanceRequestRootBlockDevice>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */

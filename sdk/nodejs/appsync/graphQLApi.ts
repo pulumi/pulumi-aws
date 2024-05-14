@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 export class GraphQLApi extends pulumi.CustomResource {
@@ -38,7 +37,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      */
-    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
+    public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
     /**
      * ARN
      */
@@ -54,11 +53,11 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
-    public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
+    public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.GraphQLApiLambdaAuthorizerConfig | undefined>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
+    public readonly logConfig!: pulumi.Output<outputs.GraphQLApiLogConfig | undefined>;
     /**
      * User-supplied name for the GraphqlApi.
      */
@@ -66,7 +65,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
+    public readonly openidConnectConfig!: pulumi.Output<outputs.GraphQLApiOpenidConnectConfig | undefined>;
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
      *
@@ -98,7 +97,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Amazon Cognito User Pool configuration. Defined below.
      */
-    public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
+    public readonly userPoolConfig!: pulumi.Output<outputs.GraphQLApiUserPoolConfig | undefined>;
     /**
      * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
      */
@@ -173,7 +172,7 @@ export interface GraphQLApiState {
     /**
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      */
-    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * ARN
      */
@@ -189,11 +188,11 @@ export interface GraphQLApiState {
     /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
-    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
+    lambdaAuthorizerConfig?: pulumi.Input<inputs.GraphQLApiLambdaAuthorizerConfig>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    logConfig?: pulumi.Input<inputs.GraphQLApiLogConfig>;
     /**
      * User-supplied name for the GraphqlApi.
      */
@@ -201,7 +200,7 @@ export interface GraphQLApiState {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    openidConnectConfig?: pulumi.Input<inputs.GraphQLApiOpenidConnectConfig>;
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
      *
@@ -233,7 +232,7 @@ export interface GraphQLApiState {
     /**
      * Amazon Cognito User Pool configuration. Defined below.
      */
-    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    userPoolConfig?: pulumi.Input<inputs.GraphQLApiUserPoolConfig>;
     /**
      * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
      */
@@ -251,7 +250,7 @@ export interface GraphQLApiArgs {
     /**
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      */
-    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
@@ -263,11 +262,11 @@ export interface GraphQLApiArgs {
     /**
      * Nested argument containing Lambda authorizer configuration. Defined below.
      */
-    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
+    lambdaAuthorizerConfig?: pulumi.Input<inputs.GraphQLApiLambdaAuthorizerConfig>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    logConfig?: pulumi.Input<inputs.GraphQLApiLogConfig>;
     /**
      * User-supplied name for the GraphqlApi.
      */
@@ -275,7 +274,7 @@ export interface GraphQLApiArgs {
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    openidConnectConfig?: pulumi.Input<inputs.GraphQLApiOpenidConnectConfig>;
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
      *
@@ -297,7 +296,7 @@ export interface GraphQLApiArgs {
     /**
      * Amazon Cognito User Pool configuration. Defined below.
      */
-    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    userPoolConfig?: pulumi.Input<inputs.GraphQLApiUserPoolConfig>;
     /**
      * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
      */

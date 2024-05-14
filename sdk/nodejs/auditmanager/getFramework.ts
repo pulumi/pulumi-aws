@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +37,7 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkArgs {
-    controlSets?: inputs.auditmanager.GetFrameworkControlSet[];
+    controlSets?: inputs.GetFrameworkControlSet[];
     frameworkType: string;
     /**
      * Name of the framework.
@@ -52,7 +51,7 @@ export interface GetFrameworkArgs {
 export interface GetFrameworkResult {
     readonly arn: string;
     readonly complianceType: string;
-    readonly controlSets?: outputs.auditmanager.GetFrameworkControlSet[];
+    readonly controlSets?: inputs.GetFrameworkControlSet[];
     readonly description: string;
     readonly frameworkType: string;
     readonly id: string;
@@ -84,7 +83,7 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkOutputArgs {
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.GetFrameworkControlSetArgs>[]>;
+    controlSets?: pulumi.Input<pulumi.Input<inputs.GetFrameworkControlSetArgs>[]>;
     frameworkType: pulumi.Input<string>;
     /**
      * Name of the framework.

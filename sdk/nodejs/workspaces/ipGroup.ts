@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +82,7 @@ export class IpGroup extends pulumi.CustomResource {
     /**
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
-    public readonly rules!: pulumi.Output<outputs.workspaces.IpGroupRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.IpGroupRule[] | undefined>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -141,7 +140,7 @@ export interface IpGroupState {
     /**
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.IpGroupRule>[]>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -169,7 +168,7 @@ export interface IpGroupArgs {
     /**
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.workspaces.IpGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.IpGroupRule>[]>;
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +42,7 @@ export interface GetServerlessSecurityConfigArgs {
     /**
      * SAML options for the security configuration.
      */
-    samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    samlOptions?: inputs.GetServerlessSecurityConfigSamlOptions;
 }
 
 /**
@@ -70,7 +69,7 @@ export interface GetServerlessSecurityConfigResult {
     /**
      * SAML options for the security configuration.
      */
-    readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    readonly samlOptions?: inputs.GetServerlessSecurityConfigSamlOptions;
     /**
      * The type of security configuration.
      */
@@ -107,5 +106,5 @@ export interface GetServerlessSecurityConfigOutputArgs {
     /**
      * SAML options for the security configuration.
      */
-    samlOptions?: pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionsArgs>;
+    samlOptions?: pulumi.Input<inputs.GetServerlessSecurityConfigSamlOptionsArgs>;
 }

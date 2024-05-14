@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,11 +96,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain endpoint options. Documented below.
      */
-    public readonly endpointOptions!: pulumi.Output<outputs.cloudsearch.DomainEndpointOptions>;
+    public readonly endpointOptions!: pulumi.Output<outputs.DomainEndpointOptions>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    public readonly indexFields!: pulumi.Output<outputs.cloudsearch.DomainIndexField[] | undefined>;
+    public readonly indexFields!: pulumi.Output<outputs.DomainIndexField[] | undefined>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
@@ -113,7 +112,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain scaling parameters. Documented below.
      */
-    public readonly scalingParameters!: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
+    public readonly scalingParameters!: pulumi.Output<outputs.DomainScalingParameters>;
     /**
      * The service endpoint for requesting search results from a search domain.
      */
@@ -177,11 +176,11 @@ export interface DomainState {
     /**
      * Domain endpoint options. Documented below.
      */
-    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
+    endpointOptions?: pulumi.Input<inputs.DomainEndpointOptions>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
+    indexFields?: pulumi.Input<pulumi.Input<inputs.DomainIndexField>[]>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
@@ -193,7 +192,7 @@ export interface DomainState {
     /**
      * Domain scaling parameters. Documented below.
      */
-    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
+    scalingParameters?: pulumi.Input<inputs.DomainScalingParameters>;
     /**
      * The service endpoint for requesting search results from a search domain.
      */
@@ -207,11 +206,11 @@ export interface DomainArgs {
     /**
      * Domain endpoint options. Documented below.
      */
-    endpointOptions?: pulumi.Input<inputs.cloudsearch.DomainEndpointOptions>;
+    endpointOptions?: pulumi.Input<inputs.DomainEndpointOptions>;
     /**
      * The index fields for documents added to the domain. Documented below.
      */
-    indexFields?: pulumi.Input<pulumi.Input<inputs.cloudsearch.DomainIndexField>[]>;
+    indexFields?: pulumi.Input<pulumi.Input<inputs.DomainIndexField>[]>;
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      */
@@ -223,5 +222,5 @@ export interface DomainArgs {
     /**
      * Domain scaling parameters. Documented below.
      */
-    scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
+    scalingParameters?: pulumi.Input<inputs.DomainScalingParameters>;
 }

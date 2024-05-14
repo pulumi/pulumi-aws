@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export class Index extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.resourceexplorer.IndexTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.IndexTimeouts | undefined>;
     /**
      * The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
      */
@@ -127,7 +126,7 @@ export interface IndexState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.resourceexplorer.IndexTimeouts>;
+    timeouts?: pulumi.Input<inputs.IndexTimeouts>;
     /**
      * The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
      */
@@ -142,7 +141,7 @@ export interface IndexArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.resourceexplorer.IndexTimeouts>;
+    timeouts?: pulumi.Input<inputs.IndexTimeouts>;
     /**
      * The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -115,11 +114,11 @@ export class PipelineDefinition extends pulumi.CustomResource {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterObject[] | undefined>;
+    public readonly parameterObjects!: pulumi.Output<outputs.PipelineDefinitionParameterObject[] | undefined>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineDefinitionParameterValue[] | undefined>;
+    public readonly parameterValues!: pulumi.Output<outputs.PipelineDefinitionParameterValue[] | undefined>;
     /**
      * ID of the pipeline.
      */
@@ -129,7 +128,7 @@ export class PipelineDefinition extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
+    public readonly pipelineObjects!: pulumi.Output<outputs.PipelineDefinitionPipelineObject[]>;
 
     /**
      * Create a PipelineDefinition resource with the given unique name, arguments, and options.
@@ -173,11 +172,11 @@ export interface PipelineDefinitionState {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionParameterObject>[]>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionParameterValue>[]>;
     /**
      * ID of the pipeline.
      */
@@ -187,7 +186,7 @@ export interface PipelineDefinitionState {
      *
      * The following arguments are optional:
      */
-    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
+    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionPipelineObject>[]>;
 }
 
 /**
@@ -197,11 +196,11 @@ export interface PipelineDefinitionArgs {
     /**
      * Configuration block for the parameter objects used in the pipeline definition. See below
      */
-    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterObject>[]>;
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionParameterObject>[]>;
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionParameterValue>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionParameterValue>[]>;
     /**
      * ID of the pipeline.
      */
@@ -211,5 +210,5 @@ export interface PipelineDefinitionArgs {
      *
      * The following arguments are optional:
      */
-    pipelineObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
+    pipelineObjects: pulumi.Input<pulumi.Input<inputs.PipelineDefinitionPipelineObject>[]>;
 }

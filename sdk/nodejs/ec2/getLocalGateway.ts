@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -44,7 +44,7 @@ export interface GetLocalGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetLocalGatewayFilter[];
+    filters?: inputs.GetLocalGatewayFilter[];
     /**
      * Id of the specific Local Gateway to retrieve.
      */
@@ -68,7 +68,7 @@ export interface GetLocalGatewayArgs {
  * A collection of values returned by getLocalGateway.
  */
 export interface GetLocalGatewayResult {
-    readonly filters?: outputs.ec2.GetLocalGatewayFilter[];
+    readonly filters?: inputs.GetLocalGatewayFilter[];
     readonly id: string;
     /**
      * ARN of Outpost
@@ -113,7 +113,7 @@ export interface GetLocalGatewayOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetLocalGatewayFilterArgs>[]>;
     /**
      * Id of the specific Local Gateway to retrieve.
      */

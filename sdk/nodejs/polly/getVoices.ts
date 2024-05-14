@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +62,7 @@ export interface GetVoicesArgs {
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
-    voices?: inputs.polly.GetVoicesVoice[];
+    voices?: inputs.GetVoicesVoice[];
 }
 
 /**
@@ -83,7 +82,7 @@ export interface GetVoicesResult {
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
-    readonly voices?: outputs.polly.GetVoicesVoice[];
+    readonly voices?: inputs.GetVoicesVoice[];
 }
 /**
  * Data source for managing an AWS Polly Voices.
@@ -133,5 +132,5 @@ export interface GetVoicesOutputArgs {
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
-    voices?: pulumi.Input<pulumi.Input<inputs.polly.GetVoicesVoiceArgs>[]>;
+    voices?: pulumi.Input<pulumi.Input<inputs.GetVoicesVoiceArgs>[]>;
 }

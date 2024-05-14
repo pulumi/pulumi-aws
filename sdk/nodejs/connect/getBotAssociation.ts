@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +45,7 @@ export interface GetBotAssociationArgs {
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    lexBot: inputs.connect.GetBotAssociationLexBot;
+    lexBot: inputs.GetBotAssociationLexBot;
 }
 
 /**
@@ -58,7 +57,7 @@ export interface GetBotAssociationResult {
      */
     readonly id: string;
     readonly instanceId: string;
-    readonly lexBot: outputs.connect.GetBotAssociationLexBot;
+    readonly lexBot: inputs.GetBotAssociationLexBot;
 }
 /**
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
@@ -94,5 +93,5 @@ export interface GetBotAssociationOutputArgs {
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    lexBot: pulumi.Input<inputs.connect.GetBotAssociationLexBotArgs>;
+    lexBot: pulumi.Input<inputs.GetBotAssociationLexBotArgs>;
 }

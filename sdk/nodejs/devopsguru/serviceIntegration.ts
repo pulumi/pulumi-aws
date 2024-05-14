@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -91,15 +90,15 @@ export class ServiceIntegration extends pulumi.CustomResource {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    public readonly kmsServerSideEncryption!: pulumi.Output<outputs.devopsguru.ServiceIntegrationKmsServerSideEncryption | undefined>;
+    public readonly kmsServerSideEncryption!: pulumi.Output<outputs.ServiceIntegrationKmsServerSideEncryption | undefined>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    public readonly logsAnomalyDetection!: pulumi.Output<outputs.devopsguru.ServiceIntegrationLogsAnomalyDetection | undefined>;
+    public readonly logsAnomalyDetection!: pulumi.Output<outputs.ServiceIntegrationLogsAnomalyDetection | undefined>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    public readonly opsCenter!: pulumi.Output<outputs.devopsguru.ServiceIntegrationOpsCenter | undefined>;
+    public readonly opsCenter!: pulumi.Output<outputs.ServiceIntegrationOpsCenter | undefined>;
 
     /**
      * Create a ServiceIntegration resource with the given unique name, arguments, and options.
@@ -135,15 +134,15 @@ export interface ServiceIntegrationState {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    kmsServerSideEncryption?: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
+    kmsServerSideEncryption?: pulumi.Input<inputs.ServiceIntegrationKmsServerSideEncryption>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    logsAnomalyDetection?: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
+    logsAnomalyDetection?: pulumi.Input<inputs.ServiceIntegrationLogsAnomalyDetection>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
+    opsCenter?: pulumi.Input<inputs.ServiceIntegrationOpsCenter>;
 }
 
 /**
@@ -153,13 +152,13 @@ export interface ServiceIntegrationArgs {
     /**
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      */
-    kmsServerSideEncryption?: pulumi.Input<inputs.devopsguru.ServiceIntegrationKmsServerSideEncryption>;
+    kmsServerSideEncryption?: pulumi.Input<inputs.ServiceIntegrationKmsServerSideEncryption>;
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      */
-    logsAnomalyDetection?: pulumi.Input<inputs.devopsguru.ServiceIntegrationLogsAnomalyDetection>;
+    logsAnomalyDetection?: pulumi.Input<inputs.ServiceIntegrationLogsAnomalyDetection>;
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      */
-    opsCenter?: pulumi.Input<inputs.devopsguru.ServiceIntegrationOpsCenter>;
+    opsCenter?: pulumi.Input<inputs.ServiceIntegrationOpsCenter>;
 }

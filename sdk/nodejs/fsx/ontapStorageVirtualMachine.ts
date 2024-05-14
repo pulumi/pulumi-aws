@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -91,7 +90,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      */
-    public readonly activeDirectoryConfiguration!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
+    public readonly activeDirectoryConfiguration!: pulumi.Output<outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     /**
      * Amazon Resource Name of the storage virtual machine.
      */
@@ -99,7 +98,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.OntapStorageVirtualMachineEndpoint[]>;
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
@@ -187,7 +186,7 @@ export interface OntapStorageVirtualMachineState {
     /**
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      */
-    activeDirectoryConfiguration?: pulumi.Input<inputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration>;
+    activeDirectoryConfiguration?: pulumi.Input<inputs.OntapStorageVirtualMachineActiveDirectoryConfiguration>;
     /**
      * Amazon Resource Name of the storage virtual machine.
      */
@@ -195,7 +194,7 @@ export interface OntapStorageVirtualMachineState {
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.OntapStorageVirtualMachineEndpoint>[]>;
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
@@ -236,7 +235,7 @@ export interface OntapStorageVirtualMachineArgs {
     /**
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      */
-    activeDirectoryConfiguration?: pulumi.Input<inputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration>;
+    activeDirectoryConfiguration?: pulumi.Input<inputs.OntapStorageVirtualMachineActiveDirectoryConfiguration>;
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */

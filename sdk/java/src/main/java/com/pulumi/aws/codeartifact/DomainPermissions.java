@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domain("example")
  *             .encryptionKey(example.arn())
  *             .build());
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testDomainPermissions = new DomainPermissions("testDomainPermissions", DomainPermissionsArgs.builder()        
+ *         var testDomainPermissions = new DomainPermissions("testDomainPermissions", DomainPermissionsArgs.builder()
  *             .domain(exampleDomain.domain())
  *             .policyDocument(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

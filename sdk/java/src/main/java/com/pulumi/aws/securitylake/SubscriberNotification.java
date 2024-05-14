@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SubscriberNotification("test", SubscriberNotificationArgs.builder()        
+ *         var test = new SubscriberNotification("test", SubscriberNotificationArgs.builder()
  *             .subscriberId(testAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .sqsNotificationConfiguration()

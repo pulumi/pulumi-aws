@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,7 +126,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      */
-    public readonly cdiInputSpecification!: pulumi.Output<outputs.medialive.ChannelCdiInputSpecification | undefined>;
+    public readonly cdiInputSpecification!: pulumi.Output<outputs.ChannelCdiInputSpecification | undefined>;
     /**
      * Concise argument description.
      */
@@ -139,19 +138,19 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Destinations for channel. See Destinations for more details.
      */
-    public readonly destinations!: pulumi.Output<outputs.medialive.ChannelDestination[]>;
+    public readonly destinations!: pulumi.Output<outputs.ChannelDestination[]>;
     /**
      * Encoder settings. See Encoder Settings for more details.
      */
-    public readonly encoderSettings!: pulumi.Output<outputs.medialive.ChannelEncoderSettings>;
+    public readonly encoderSettings!: pulumi.Output<outputs.ChannelEncoderSettings>;
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      */
-    public readonly inputAttachments!: pulumi.Output<outputs.medialive.ChannelInputAttachment[]>;
+    public readonly inputAttachments!: pulumi.Output<outputs.ChannelInputAttachment[]>;
     /**
      * Specification of network and file inputs for the channel.
      */
-    public readonly inputSpecification!: pulumi.Output<outputs.medialive.ChannelInputSpecification>;
+    public readonly inputSpecification!: pulumi.Output<outputs.ChannelInputSpecification>;
     /**
      * The log level to write to Cloudwatch logs.
      */
@@ -159,7 +158,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      */
-    public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
+    public readonly maintenance!: pulumi.Output<outputs.ChannelMaintenance>;
     /**
      * Name of the Channel.
      *
@@ -185,7 +184,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Settings for the VPC outputs. See VPC for more details.
      */
-    public readonly vpc!: pulumi.Output<outputs.medialive.ChannelVpc | undefined>;
+    public readonly vpc!: pulumi.Output<outputs.ChannelVpc | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -266,7 +265,7 @@ export interface ChannelState {
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      */
-    cdiInputSpecification?: pulumi.Input<inputs.medialive.ChannelCdiInputSpecification>;
+    cdiInputSpecification?: pulumi.Input<inputs.ChannelCdiInputSpecification>;
     /**
      * Concise argument description.
      */
@@ -278,19 +277,19 @@ export interface ChannelState {
     /**
      * Destinations for channel. See Destinations for more details.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestination>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.ChannelDestination>[]>;
     /**
      * Encoder settings. See Encoder Settings for more details.
      */
-    encoderSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettings>;
+    encoderSettings?: pulumi.Input<inputs.ChannelEncoderSettings>;
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      */
-    inputAttachments?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachment>[]>;
+    inputAttachments?: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachment>[]>;
     /**
      * Specification of network and file inputs for the channel.
      */
-    inputSpecification?: pulumi.Input<inputs.medialive.ChannelInputSpecification>;
+    inputSpecification?: pulumi.Input<inputs.ChannelInputSpecification>;
     /**
      * The log level to write to Cloudwatch logs.
      */
@@ -298,7 +297,7 @@ export interface ChannelState {
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      */
-    maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
+    maintenance?: pulumi.Input<inputs.ChannelMaintenance>;
     /**
      * Name of the Channel.
      *
@@ -324,7 +323,7 @@ export interface ChannelState {
     /**
      * Settings for the VPC outputs. See VPC for more details.
      */
-    vpc?: pulumi.Input<inputs.medialive.ChannelVpc>;
+    vpc?: pulumi.Input<inputs.ChannelVpc>;
 }
 
 /**
@@ -334,7 +333,7 @@ export interface ChannelArgs {
     /**
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      */
-    cdiInputSpecification?: pulumi.Input<inputs.medialive.ChannelCdiInputSpecification>;
+    cdiInputSpecification?: pulumi.Input<inputs.ChannelCdiInputSpecification>;
     /**
      * Concise argument description.
      */
@@ -342,19 +341,19 @@ export interface ChannelArgs {
     /**
      * Destinations for channel. See Destinations for more details.
      */
-    destinations: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestination>[]>;
+    destinations: pulumi.Input<pulumi.Input<inputs.ChannelDestination>[]>;
     /**
      * Encoder settings. See Encoder Settings for more details.
      */
-    encoderSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettings>;
+    encoderSettings: pulumi.Input<inputs.ChannelEncoderSettings>;
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      */
-    inputAttachments: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachment>[]>;
+    inputAttachments: pulumi.Input<pulumi.Input<inputs.ChannelInputAttachment>[]>;
     /**
      * Specification of network and file inputs for the channel.
      */
-    inputSpecification: pulumi.Input<inputs.medialive.ChannelInputSpecification>;
+    inputSpecification: pulumi.Input<inputs.ChannelInputSpecification>;
     /**
      * The log level to write to Cloudwatch logs.
      */
@@ -362,7 +361,7 @@ export interface ChannelArgs {
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      */
-    maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
+    maintenance?: pulumi.Input<inputs.ChannelMaintenance>;
     /**
      * Name of the Channel.
      *
@@ -384,5 +383,5 @@ export interface ChannelArgs {
     /**
      * Settings for the VPC outputs. See VPC for more details.
      */
-    vpc?: pulumi.Input<inputs.medialive.ChannelVpc>;
+    vpc?: pulumi.Input<inputs.ChannelVpc>;
 }

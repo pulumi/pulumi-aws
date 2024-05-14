@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var testInstance = new Instance("testInstance");
  * 
- *         var test = new TargetGroupAttachment("test", TargetGroupAttachmentArgs.builder()        
+ *         var test = new TargetGroupAttachment("test", TargetGroupAttachmentArgs.builder()
  *             .targetGroupArn(testTargetGroup.arn())
  *             .targetId(testInstance.id())
  *             .port(80)
@@ -98,14 +98,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TargetGroup("test", TargetGroupArgs.builder()        
+ *         var test = new TargetGroup("test", TargetGroupArgs.builder()
  *             .name("test")
  *             .targetType("lambda")
  *             .build());
  * 
  *         var testFunction = new Function("testFunction");
  * 
- *         var withLb = new Permission("withLb", PermissionArgs.builder()        
+ *         var withLb = new Permission("withLb", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromlb")
  *             .action("lambda:InvokeFunction")
  *             .function(testFunction.name())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *             .sourceArn(test.arn())
  *             .build());
  * 
- *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()        
+ *         var testTargetGroupAttachment = new TargetGroupAttachment("testTargetGroupAttachment", TargetGroupAttachmentArgs.builder()
  *             .targetGroupArn(test.arn())
  *             .targetId(testFunction.arn())
  *             .build(), CustomResourceOptions.builder()

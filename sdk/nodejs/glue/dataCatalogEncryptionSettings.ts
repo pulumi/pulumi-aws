@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
 
     /**
      * Create a DataCatalogEncryptionSettings resource with the given unique name, arguments, and options.
@@ -113,7 +112,7 @@ export interface DataCatalogEncryptionSettingsState {
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    dataCatalogEncryptionSettings?: pulumi.Input<inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
 }
 
 /**
@@ -127,5 +126,5 @@ export interface DataCatalogEncryptionSettingsArgs {
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    dataCatalogEncryptionSettings: pulumi.Input<inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
 }

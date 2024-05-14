@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +40,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The definition of the schema.
      */
-    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition | undefined>;
+    public readonly definition!: pulumi.Output<outputs.SchemaDefinition | undefined>;
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.
      */
@@ -88,7 +87,7 @@ export interface SchemaState {
     /**
      * The definition of the schema.
      */
-    definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
+    definition?: pulumi.Input<inputs.SchemaDefinition>;
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.
      */
@@ -106,7 +105,7 @@ export interface SchemaArgs {
     /**
      * The definition of the schema.
      */
-    definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
+    definition?: pulumi.Input<inputs.SchemaDefinition>;
     /**
      * The ID of the Policy Store.
      */

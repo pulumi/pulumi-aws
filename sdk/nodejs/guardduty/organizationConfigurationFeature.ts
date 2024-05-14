@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +60,7 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
     /**
      * The additional information that will be configured for the organization See below.
      */
-    public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
+    public readonly additionalConfigurations!: pulumi.Output<outputs.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
@@ -117,7 +116,7 @@ export interface OrganizationConfigurationFeatureState {
     /**
      * The additional information that will be configured for the organization See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */
@@ -139,7 +138,7 @@ export interface OrganizationConfigurationFeatureArgs {
     /**
      * The additional information that will be configured for the organization See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      */

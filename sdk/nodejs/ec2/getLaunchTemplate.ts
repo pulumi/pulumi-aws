@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetLaunchTemplateArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetLaunchTemplateFilter[];
+    filters?: inputs.GetLaunchTemplateFilter[];
     /**
      * ID of the specific launch template to retrieve.
      */
@@ -74,44 +74,44 @@ export interface GetLaunchTemplateArgs {
  */
 export interface GetLaunchTemplateResult {
     readonly arn: string;
-    readonly blockDeviceMappings: outputs.ec2.GetLaunchTemplateBlockDeviceMapping[];
-    readonly capacityReservationSpecifications: outputs.ec2.GetLaunchTemplateCapacityReservationSpecification[];
-    readonly cpuOptions: outputs.ec2.GetLaunchTemplateCpuOption[];
-    readonly creditSpecifications: outputs.ec2.GetLaunchTemplateCreditSpecification[];
+    readonly blockDeviceMappings: outputs.GetLaunchTemplateBlockDeviceMapping[];
+    readonly capacityReservationSpecifications: outputs.GetLaunchTemplateCapacityReservationSpecification[];
+    readonly cpuOptions: outputs.GetLaunchTemplateCpuOption[];
+    readonly creditSpecifications: outputs.GetLaunchTemplateCreditSpecification[];
     readonly defaultVersion: number;
     readonly description: string;
     readonly disableApiStop: boolean;
     readonly disableApiTermination: boolean;
     readonly ebsOptimized: string;
-    readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
-    readonly elasticInferenceAccelerators: outputs.ec2.GetLaunchTemplateElasticInferenceAccelerator[];
-    readonly enclaveOptions: outputs.ec2.GetLaunchTemplateEnclaveOption[];
-    readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
-    readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
-    readonly iamInstanceProfiles: outputs.ec2.GetLaunchTemplateIamInstanceProfile[];
+    readonly elasticGpuSpecifications: outputs.GetLaunchTemplateElasticGpuSpecification[];
+    readonly elasticInferenceAccelerators: outputs.GetLaunchTemplateElasticInferenceAccelerator[];
+    readonly enclaveOptions: outputs.GetLaunchTemplateEnclaveOption[];
+    readonly filters?: inputs.GetLaunchTemplateFilter[];
+    readonly hibernationOptions: outputs.GetLaunchTemplateHibernationOption[];
+    readonly iamInstanceProfiles: outputs.GetLaunchTemplateIamInstanceProfile[];
     /**
      * ID of the launch template.
      */
     readonly id: string;
     readonly imageId: string;
     readonly instanceInitiatedShutdownBehavior: string;
-    readonly instanceMarketOptions: outputs.ec2.GetLaunchTemplateInstanceMarketOption[];
-    readonly instanceRequirements: outputs.ec2.GetLaunchTemplateInstanceRequirement[];
+    readonly instanceMarketOptions: outputs.GetLaunchTemplateInstanceMarketOption[];
+    readonly instanceRequirements: outputs.GetLaunchTemplateInstanceRequirement[];
     readonly instanceType: string;
     readonly kernelId: string;
     readonly keyName: string;
     readonly latestVersion: number;
-    readonly licenseSpecifications: outputs.ec2.GetLaunchTemplateLicenseSpecification[];
-    readonly maintenanceOptions: outputs.ec2.GetLaunchTemplateMaintenanceOption[];
-    readonly metadataOptions: outputs.ec2.GetLaunchTemplateMetadataOption[];
-    readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
+    readonly licenseSpecifications: outputs.GetLaunchTemplateLicenseSpecification[];
+    readonly maintenanceOptions: outputs.GetLaunchTemplateMaintenanceOption[];
+    readonly metadataOptions: outputs.GetLaunchTemplateMetadataOption[];
+    readonly monitorings: outputs.GetLaunchTemplateMonitoring[];
     readonly name: string;
-    readonly networkInterfaces: outputs.ec2.GetLaunchTemplateNetworkInterface[];
-    readonly placements: outputs.ec2.GetLaunchTemplatePlacement[];
-    readonly privateDnsNameOptions: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
+    readonly networkInterfaces: outputs.GetLaunchTemplateNetworkInterface[];
+    readonly placements: outputs.GetLaunchTemplatePlacement[];
+    readonly privateDnsNameOptions: outputs.GetLaunchTemplatePrivateDnsNameOption[];
     readonly ramDiskId: string;
     readonly securityGroupNames: string[];
-    readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
+    readonly tagSpecifications: outputs.GetLaunchTemplateTagSpecification[];
     readonly tags: {[key: string]: string};
     readonly userData: string;
     readonly vpcSecurityGroupIds: string[];
@@ -155,7 +155,7 @@ export interface GetLaunchTemplateOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLaunchTemplateFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetLaunchTemplateFilterArgs>[]>;
     /**
      * ID of the specific launch template to retrieve.
      */

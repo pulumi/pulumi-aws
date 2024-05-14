@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
+    public readonly routingStrategy!: pulumi.Output<outputs.AliasRoutingStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -144,7 +143,7 @@ export interface AliasState {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    routingStrategy?: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
+    routingStrategy?: pulumi.Input<inputs.AliasRoutingStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -172,7 +171,7 @@ export interface AliasArgs {
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      */
-    routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategy>;
+    routingStrategy: pulumi.Input<inputs.AliasRoutingStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

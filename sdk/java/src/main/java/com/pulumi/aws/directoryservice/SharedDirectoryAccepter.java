@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SharedDirectory("example", SharedDirectoryArgs.builder()        
+ *         var example = new SharedDirectory("example", SharedDirectoryArgs.builder()
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .notes("example")
  *             .target(SharedDirectoryTargetArgs.builder()
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter("exampleSharedDirectoryAccepter", SharedDirectoryAccepterArgs.builder()        
+ *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter("exampleSharedDirectoryAccepter", SharedDirectoryAccepterArgs.builder()
  *             .sharedDirectoryId(example.sharedDirectoryId())
  *             .build());
  * 

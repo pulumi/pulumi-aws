@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +59,7 @@ export interface GetRepositoryResult {
     /**
      * Encryption configuration for the repository. See Encryption Configuration below.
      */
-    readonly encryptionConfigurations: outputs.ecr.GetRepositoryEncryptionConfiguration[];
+    readonly encryptionConfigurations: outputs.GetRepositoryEncryptionConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -68,7 +67,7 @@ export interface GetRepositoryResult {
     /**
      * Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
      */
-    readonly imageScanningConfigurations: outputs.ecr.GetRepositoryImageScanningConfiguration[];
+    readonly imageScanningConfigurations: outputs.GetRepositoryImageScanningConfiguration[];
     /**
      * The tag mutability setting for the repository.
      */

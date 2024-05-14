@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -99,11 +99,11 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      */
-    public readonly targetGrants!: pulumi.Output<outputs.s3.BucketLoggingV2TargetGrant[] | undefined>;
+    public readonly targetGrants!: pulumi.Output<outputs.BucketLoggingV2TargetGrant[] | undefined>;
     /**
      * Amazon S3 key format for log objects. See below.
      */
-    public readonly targetObjectKeyFormat!: pulumi.Output<outputs.s3.BucketLoggingV2TargetObjectKeyFormat | undefined>;
+    public readonly targetObjectKeyFormat!: pulumi.Output<outputs.BucketLoggingV2TargetObjectKeyFormat | undefined>;
     /**
      * Prefix for all log object keys.
      */
@@ -170,11 +170,11 @@ export interface BucketLoggingV2State {
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      */
-    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    targetGrants?: pulumi.Input<pulumi.Input<inputs.BucketLoggingV2TargetGrant>[]>;
     /**
      * Amazon S3 key format for log objects. See below.
      */
-    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    targetObjectKeyFormat?: pulumi.Input<inputs.BucketLoggingV2TargetObjectKeyFormat>;
     /**
      * Prefix for all log object keys.
      */
@@ -200,11 +200,11 @@ export interface BucketLoggingV2Args {
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      */
-    targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
+    targetGrants?: pulumi.Input<pulumi.Input<inputs.BucketLoggingV2TargetGrant>[]>;
     /**
      * Amazon S3 key format for log objects. See below.
      */
-    targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketLoggingV2TargetObjectKeyFormat>;
+    targetObjectKeyFormat?: pulumi.Input<inputs.BucketLoggingV2TargetObjectKeyFormat>;
     /**
      * Prefix for all log object keys.
      */

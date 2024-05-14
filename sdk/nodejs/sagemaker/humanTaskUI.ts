@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class HumanTaskUI extends pulumi.CustomResource {
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      */
-    public readonly uiTemplate!: pulumi.Output<outputs.sagemaker.HumanTaskUIUiTemplate>;
+    public readonly uiTemplate!: pulumi.Output<outputs.HumanTaskUIUiTemplate>;
 
     /**
      * Create a HumanTaskUI resource with the given unique name, arguments, and options.
@@ -148,7 +147,7 @@ export interface HumanTaskUIState {
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      */
-    uiTemplate?: pulumi.Input<inputs.sagemaker.HumanTaskUIUiTemplate>;
+    uiTemplate?: pulumi.Input<inputs.HumanTaskUIUiTemplate>;
 }
 
 /**
@@ -166,5 +165,5 @@ export interface HumanTaskUIArgs {
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      */
-    uiTemplate: pulumi.Input<inputs.sagemaker.HumanTaskUIUiTemplate>;
+    uiTemplate: pulumi.Input<inputs.HumanTaskUIUiTemplate>;
 }

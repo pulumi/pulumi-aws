@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +96,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * The user settings. See User Settings below.
      */
-    public readonly userSettings!: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
+    public readonly userSettings!: pulumi.Output<outputs.UserProfileUserSettings | undefined>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -185,7 +184,7 @@ export interface UserProfileState {
     /**
      * The user settings. See User Settings below.
      */
-    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.UserProfileUserSettings>;
 }
 
 /**
@@ -215,5 +214,5 @@ export interface UserProfileArgs {
     /**
      * The user settings. See User Settings below.
      */
-    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.UserProfileUserSettings>;
 }

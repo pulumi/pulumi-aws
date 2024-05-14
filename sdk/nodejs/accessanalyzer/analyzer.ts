@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class Analyzer extends pulumi.CustomResource {
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      */
-    public readonly configuration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.AnalyzerConfiguration | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -154,7 +153,7 @@ export interface AnalyzerState {
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      */
-    configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
+    configuration?: pulumi.Input<inputs.AnalyzerConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -184,7 +183,7 @@ export interface AnalyzerArgs {
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      */
-    configuration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfiguration>;
+    configuration?: pulumi.Input<inputs.AnalyzerConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,12 +104,12 @@ export class Stack extends pulumi.CustomResource {
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `accessEndpoints` below.
      */
-    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
+    public readonly accessEndpoints!: pulumi.Output<outputs.StackAccessEndpoint[]>;
     /**
      * Settings for application settings persistence.
      * See `applicationSettings` below.
      */
-    public readonly applicationSettings!: pulumi.Output<outputs.appstream.StackApplicationSettings>;
+    public readonly applicationSettings!: pulumi.Output<outputs.StackApplicationSettings>;
     /**
      * ARN of the appstream stack.
      */
@@ -149,12 +148,12 @@ export class Stack extends pulumi.CustomResource {
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
-    public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
+    public readonly storageConnectors!: pulumi.Output<outputs.StackStorageConnector[]>;
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streamingExperienceSettings` below.
      */
-    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
+    public readonly streamingExperienceSettings!: pulumi.Output<outputs.StackStreamingExperienceSettings>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -167,7 +166,7 @@ export class Stack extends pulumi.CustomResource {
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
-    public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[]>;
+    public readonly userSettings!: pulumi.Output<outputs.StackUserSetting[]>;
 
     /**
      * Create a Stack resource with the given unique name, arguments, and options.
@@ -228,12 +227,12 @@ export interface StackState {
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `accessEndpoints` below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.
      * See `applicationSettings` below.
      */
-    applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
+    applicationSettings?: pulumi.Input<inputs.StackApplicationSettings>;
     /**
      * ARN of the appstream stack.
      */
@@ -272,12 +271,12 @@ export interface StackState {
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
-    storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
+    storageConnectors?: pulumi.Input<pulumi.Input<inputs.StackStorageConnector>[]>;
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streamingExperienceSettings` below.
      */
-    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
+    streamingExperienceSettings?: pulumi.Input<inputs.StackStreamingExperienceSettings>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -290,7 +289,7 @@ export interface StackState {
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
-    userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
+    userSettings?: pulumi.Input<pulumi.Input<inputs.StackUserSetting>[]>;
 }
 
 /**
@@ -301,12 +300,12 @@ export interface StackArgs {
      * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      * See `accessEndpoints` below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.
      * See `applicationSettings` below.
      */
-    applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettings>;
+    applicationSettings?: pulumi.Input<inputs.StackApplicationSettings>;
     /**
      * Description for the AppStream stack.
      */
@@ -337,12 +336,12 @@ export interface StackArgs {
      * Configuration block for the storage connectors to enable.
      * See `storageConnectors` below.
      */
-    storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
+    storageConnectors?: pulumi.Input<pulumi.Input<inputs.StackStorageConnector>[]>;
     /**
      * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      * See `streamingExperienceSettings` below.
      */
-    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
+    streamingExperienceSettings?: pulumi.Input<inputs.StackStreamingExperienceSettings>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -351,5 +350,5 @@ export interface StackArgs {
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
-    userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
+    userSettings?: pulumi.Input<pulumi.Input<inputs.StackUserSetting>[]>;
 }

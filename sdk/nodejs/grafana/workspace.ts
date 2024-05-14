@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -115,7 +114,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    public readonly networkAccessControl!: pulumi.Output<outputs.grafana.WorkspaceNetworkAccessControl | undefined>;
+    public readonly networkAccessControl!: pulumi.Output<outputs.WorkspaceNetworkAccessControl | undefined>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
@@ -156,7 +155,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.WorkspaceVpcConfiguration | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -271,7 +270,7 @@ export interface WorkspaceState {
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
+    networkAccessControl?: pulumi.Input<inputs.WorkspaceNetworkAccessControl>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
@@ -312,7 +311,7 @@ export interface WorkspaceState {
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.WorkspaceVpcConfiguration>;
 }
 
 /**
@@ -350,7 +349,7 @@ export interface WorkspaceArgs {
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      */
-    networkAccessControl?: pulumi.Input<inputs.grafana.WorkspaceNetworkAccessControl>;
+    networkAccessControl?: pulumi.Input<inputs.WorkspaceNetworkAccessControl>;
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      */
@@ -384,5 +383,5 @@ export interface WorkspaceArgs {
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
-    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.WorkspaceVpcConfiguration>;
 }

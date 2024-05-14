@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -370,7 +370,7 @@ export interface GetPolicyDocumentArgs {
     /**
      * Configuration block for a policy statement. Detailed below.
      */
-    statements?: inputs.iam.GetPolicyDocumentStatement[];
+    statements?: inputs.GetPolicyDocumentStatement[];
     /**
      * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
@@ -400,7 +400,7 @@ export interface GetPolicyDocumentResult {
      */
     readonly sourceJson?: string;
     readonly sourcePolicyDocuments?: string[];
-    readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
+    readonly statements?: inputs.GetPolicyDocumentStatement[];
     readonly version?: string;
 }
 /**
@@ -755,7 +755,7 @@ export interface GetPolicyDocumentOutputArgs {
     /**
      * Configuration block for a policy statement. Detailed below.
      */
-    statements?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementArgs>[]>;
+    statements?: pulumi.Input<pulumi.Input<inputs.GetPolicyDocumentStatementArgs>[]>;
     /**
      * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */

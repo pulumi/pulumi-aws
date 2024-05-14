@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +82,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    public readonly adminContact!: pulumi.Output<outputs.route53domains.RegisteredDomainAdminContact>;
+    public readonly adminContact!: pulumi.Output<outputs.RegisteredDomainAdminContact>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -95,7 +94,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    public readonly billingContact!: pulumi.Output<outputs.route53domains.RegisteredDomainBillingContact>;
+    public readonly billingContact!: pulumi.Output<outputs.RegisteredDomainBillingContact>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -115,11 +114,11 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    public readonly nameServers!: pulumi.Output<outputs.route53domains.RegisteredDomainNameServer[]>;
+    public readonly nameServers!: pulumi.Output<outputs.RegisteredDomainNameServer[]>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    public readonly registrantContact!: pulumi.Output<outputs.route53domains.RegisteredDomainRegistrantContact>;
+    public readonly registrantContact!: pulumi.Output<outputs.RegisteredDomainRegistrantContact>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -153,7 +152,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    public readonly techContact!: pulumi.Output<outputs.route53domains.RegisteredDomainTechContact>;
+    public readonly techContact!: pulumi.Output<outputs.RegisteredDomainTechContact>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -258,7 +257,7 @@ export interface RegisteredDomainState {
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
+    adminContact?: pulumi.Input<inputs.RegisteredDomainAdminContact>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -270,7 +269,7 @@ export interface RegisteredDomainState {
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    billingContact?: pulumi.Input<inputs.RegisteredDomainBillingContact>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -290,11 +289,11 @@ export interface RegisteredDomainState {
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<inputs.RegisteredDomainNameServer>[]>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
+    registrantContact?: pulumi.Input<inputs.RegisteredDomainRegistrantContact>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -328,7 +327,7 @@ export interface RegisteredDomainState {
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
+    techContact?: pulumi.Input<inputs.RegisteredDomainTechContact>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -354,7 +353,7 @@ export interface RegisteredDomainArgs {
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    adminContact?: pulumi.Input<inputs.route53domains.RegisteredDomainAdminContact>;
+    adminContact?: pulumi.Input<inputs.RegisteredDomainAdminContact>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -366,7 +365,7 @@ export interface RegisteredDomainArgs {
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      */
-    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    billingContact?: pulumi.Input<inputs.RegisteredDomainBillingContact>;
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -378,11 +377,11 @@ export interface RegisteredDomainArgs {
     /**
      * The list of nameservers for the domain. See `nameServer` Blocks for more details.
      */
-    nameServers?: pulumi.Input<pulumi.Input<inputs.route53domains.RegisteredDomainNameServer>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<inputs.RegisteredDomainNameServer>[]>;
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    registrantContact?: pulumi.Input<inputs.route53domains.RegisteredDomainRegistrantContact>;
+    registrantContact?: pulumi.Input<inputs.RegisteredDomainRegistrantContact>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -394,7 +393,7 @@ export interface RegisteredDomainArgs {
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    techContact?: pulumi.Input<inputs.route53domains.RegisteredDomainTechContact>;
+    techContact?: pulumi.Input<inputs.RegisteredDomainTechContact>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */

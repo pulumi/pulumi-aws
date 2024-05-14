@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -218,7 +218,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      */
-    public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineApprovalRule[] | undefined>;
+    public readonly approvalRules!: pulumi.Output<outputs.PatchBaselineApprovalRule[] | undefined>;
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      */
@@ -242,7 +242,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      */
-    public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselineGlobalFilter[] | undefined>;
+    public readonly globalFilters!: pulumi.Output<outputs.PatchBaselineGlobalFilter[] | undefined>;
     /**
      * JSON definition of the baseline.
      */
@@ -268,7 +268,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      */
-    public readonly sources!: pulumi.Output<outputs.ssm.PatchBaselineSource[] | undefined>;
+    public readonly sources!: pulumi.Output<outputs.PatchBaselineSource[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -338,7 +338,7 @@ export interface PatchBaselineState {
     /**
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      */
-    approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
+    approvalRules?: pulumi.Input<pulumi.Input<inputs.PatchBaselineApprovalRule>[]>;
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      */
@@ -362,7 +362,7 @@ export interface PatchBaselineState {
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      */
-    globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
+    globalFilters?: pulumi.Input<pulumi.Input<inputs.PatchBaselineGlobalFilter>[]>;
     /**
      * JSON definition of the baseline.
      */
@@ -388,7 +388,7 @@ export interface PatchBaselineState {
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.PatchBaselineSource>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -408,7 +408,7 @@ export interface PatchBaselineArgs {
     /**
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approvalRule` below.
      */
-    approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
+    approvalRules?: pulumi.Input<pulumi.Input<inputs.PatchBaselineApprovalRule>[]>;
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approvalRule`.
      */
@@ -428,7 +428,7 @@ export interface PatchBaselineArgs {
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      */
-    globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
+    globalFilters?: pulumi.Input<pulumi.Input<inputs.PatchBaselineGlobalFilter>[]>;
     /**
      * Name of the patch baseline.
      *
@@ -450,7 +450,7 @@ export interface PatchBaselineArgs {
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.PatchBaselineSource>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

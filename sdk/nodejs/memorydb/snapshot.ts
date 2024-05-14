@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +66,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The configuration of the cluster from which the snapshot was taken.
      */
-    public /*out*/ readonly clusterConfigurations!: pulumi.Output<outputs.memorydb.SnapshotClusterConfiguration[]>;
+    public /*out*/ readonly clusterConfigurations!: pulumi.Output<outputs.SnapshotClusterConfiguration[]>;
     /**
      * Name of the MemoryDB cluster to take a snapshot of.
      */
@@ -152,7 +151,7 @@ export interface SnapshotState {
     /**
      * The configuration of the cluster from which the snapshot was taken.
      */
-    clusterConfigurations?: pulumi.Input<pulumi.Input<inputs.memorydb.SnapshotClusterConfiguration>[]>;
+    clusterConfigurations?: pulumi.Input<pulumi.Input<inputs.SnapshotClusterConfiguration>[]>;
     /**
      * Name of the MemoryDB cluster to take a snapshot of.
      */

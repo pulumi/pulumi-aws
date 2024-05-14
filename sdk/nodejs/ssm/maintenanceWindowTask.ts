@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -204,7 +204,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.MaintenanceWindowTaskTarget[] | undefined>;
     /**
      * The ARN of the task to execute.
      */
@@ -212,7 +212,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**
      * Configuration block with parameters for task execution.
      */
-    public readonly taskInvocationParameters!: pulumi.Output<outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
+    public readonly taskInvocationParameters!: pulumi.Output<outputs.MaintenanceWindowTaskTaskInvocationParameters | undefined>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
@@ -323,7 +323,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -331,7 +331,7 @@ export interface MaintenanceWindowTaskState {
     /**
      * Configuration block with parameters for task execution.
      */
-    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
@@ -381,7 +381,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
@@ -389,7 +389,7 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * Configuration block with parameters for task execution.
      */
-    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */
-    public readonly regularExpressions!: pulumi.Output<outputs.wafv2.RegexPatternSetRegularExpression[] | undefined>;
+    public readonly regularExpressions!: pulumi.Output<outputs.RegexPatternSetRegularExpression[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -163,7 +162,7 @@ export interface RegexPatternSetState {
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */
-    regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
+    regularExpressions?: pulumi.Input<pulumi.Input<inputs.RegexPatternSetRegularExpression>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -195,7 +194,7 @@ export interface RegexPatternSetArgs {
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regularExpression` blocks may be specified.
      */
-    regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
+    regularExpressions?: pulumi.Input<pulumi.Input<inputs.RegexPatternSetRegularExpression>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */

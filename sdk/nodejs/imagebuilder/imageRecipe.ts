@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,11 +86,11 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeBlockDeviceMapping[] | undefined>;
+    public readonly blockDeviceMappings!: pulumi.Output<outputs.ImageRecipeBlockDeviceMapping[] | undefined>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponent[]>;
+    public readonly components!: pulumi.Output<outputs.ImageRecipeComponent[]>;
     /**
      * Date the image recipe was created.
      */
@@ -119,7 +118,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
-    public readonly systemsManagerAgent!: pulumi.Output<outputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    public readonly systemsManagerAgent!: pulumi.Output<outputs.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -216,11 +215,11 @@ export interface ImageRecipeState {
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageRecipeBlockDeviceMapping>[]>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.ImageRecipeComponent>[]>;
     /**
      * Date the image recipe was created.
      */
@@ -248,7 +247,7 @@ export interface ImageRecipeState {
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
-    systemsManagerAgent?: pulumi.Input<inputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    systemsManagerAgent?: pulumi.Input<inputs.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -282,11 +281,11 @@ export interface ImageRecipeArgs {
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageRecipeBlockDeviceMapping>[]>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
+    components: pulumi.Input<pulumi.Input<inputs.ImageRecipeComponent>[]>;
     /**
      * Description of the image recipe.
      */
@@ -302,7 +301,7 @@ export interface ImageRecipeArgs {
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      */
-    systemsManagerAgent?: pulumi.Input<inputs.imagebuilder.ImageRecipeSystemsManagerAgent>;
+    systemsManagerAgent?: pulumi.Input<inputs.ImageRecipeSystemsManagerAgent>;
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

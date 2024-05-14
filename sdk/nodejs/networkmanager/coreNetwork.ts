@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -398,7 +397,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * One or more blocks detailing the edges within a core network. Detailed below.
      */
-    public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
+    public /*out*/ readonly edges!: pulumi.Output<outputs.CoreNetworkEdge[]>;
     /**
      * The ID of the global network that a core network will be a part of.
      */
@@ -406,7 +405,7 @@ export class CoreNetwork extends pulumi.CustomResource {
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
-    public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
+    public /*out*/ readonly segments!: pulumi.Output<outputs.CoreNetworkSegment[]>;
     /**
      * Current state of a core network.
      */
@@ -534,7 +533,7 @@ export interface CoreNetworkState {
     /**
      * One or more blocks detailing the edges within a core network. Detailed below.
      */
-    edges?: pulumi.Input<pulumi.Input<inputs.networkmanager.CoreNetworkEdge>[]>;
+    edges?: pulumi.Input<pulumi.Input<inputs.CoreNetworkEdge>[]>;
     /**
      * The ID of the global network that a core network will be a part of.
      */
@@ -542,7 +541,7 @@ export interface CoreNetworkState {
     /**
      * One or more blocks detailing the segments within a core network. Detailed below.
      */
-    segments?: pulumi.Input<pulumi.Input<inputs.networkmanager.CoreNetworkSegment>[]>;
+    segments?: pulumi.Input<pulumi.Input<inputs.CoreNetworkSegment>[]>;
     /**
      * Current state of a core network.
      */

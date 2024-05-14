@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,11 +71,11 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
-    public readonly destinationConfigurations!: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration[]>;
+    public readonly destinationConfigurations!: pulumi.Output<outputs.CustomRoutingEndpointGroupDestinationConfiguration[]>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
@@ -134,11 +133,11 @@ export interface CustomRoutingEndpointGroupState {
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
-    destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
+    destinationConfigurations?: pulumi.Input<pulumi.Input<inputs.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */
@@ -156,11 +155,11 @@ export interface CustomRoutingEndpointGroupArgs {
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      */
-    destinationConfigurations: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
+    destinationConfigurations: pulumi.Input<pulumi.Input<inputs.CustomRoutingEndpointGroupDestinationConfiguration>[]>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      */

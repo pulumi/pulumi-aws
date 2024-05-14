@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -138,7 +137,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      */
-    public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
+    public readonly s3Path!: pulumi.Output<outputs.FaqS3Path>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
@@ -253,7 +252,7 @@ export interface FaqState {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      */
-    s3Path?: pulumi.Input<inputs.kendra.FaqS3Path>;
+    s3Path?: pulumi.Input<inputs.FaqS3Path>;
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      */
@@ -293,6 +292,6 @@ export interface FaqArgs {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      */
-    s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
+    s3Path: pulumi.Input<inputs.FaqS3Path>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

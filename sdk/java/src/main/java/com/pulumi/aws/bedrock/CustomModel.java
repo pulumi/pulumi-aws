@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .modelId("amazon.titan-text-express-v1")
  *             .build());
  * 
- *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()        
+ *         var exampleCustomModel = new CustomModel("exampleCustomModel", CustomModelArgs.builder()
  *             .customModelName("example-model")
  *             .jobName("example-job-1")
  *             .baseModelIdentifier(example.applyValue(getModelResult -> getModelResult.modelArn()))

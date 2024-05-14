@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * A list of Feature names and types. See Feature Definition Below.
      */
-    public readonly featureDefinitions!: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
+    public readonly featureDefinitions!: pulumi.Output<outputs.FeatureGroupFeatureDefinition[]>;
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      */
@@ -92,11 +91,11 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    public readonly offlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOfflineStoreConfig | undefined>;
+    public readonly offlineStoreConfig!: pulumi.Output<outputs.FeatureGroupOfflineStoreConfig | undefined>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    public readonly onlineStoreConfig!: pulumi.Output<outputs.sagemaker.FeatureGroupOnlineStoreConfig | undefined>;
+    public readonly onlineStoreConfig!: pulumi.Output<outputs.FeatureGroupOnlineStoreConfig | undefined>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
@@ -193,7 +192,7 @@ export interface FeatureGroupState {
     /**
      * A list of Feature names and types. See Feature Definition Below.
      */
-    featureDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[]>;
+    featureDefinitions?: pulumi.Input<pulumi.Input<inputs.FeatureGroupFeatureDefinition>[]>;
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      */
@@ -201,11 +200,11 @@ export interface FeatureGroupState {
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    offlineStoreConfig?: pulumi.Input<inputs.FeatureGroupOfflineStoreConfig>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    onlineStoreConfig?: pulumi.Input<inputs.FeatureGroupOnlineStoreConfig>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
@@ -241,7 +240,7 @@ export interface FeatureGroupArgs {
     /**
      * A list of Feature names and types. See Feature Definition Below.
      */
-    featureDefinitions: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinition>[]>;
+    featureDefinitions: pulumi.Input<pulumi.Input<inputs.FeatureGroupFeatureDefinition>[]>;
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      */
@@ -249,11 +248,11 @@ export interface FeatureGroupArgs {
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      */
-    offlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfig>;
+    offlineStoreConfig?: pulumi.Input<inputs.FeatureGroupOfflineStoreConfig>;
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      */
-    onlineStoreConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreConfig>;
+    onlineStoreConfig?: pulumi.Input<inputs.FeatureGroupOnlineStoreConfig>;
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,7 +124,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
-    public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[]>;
+    public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.ClusterClusterNode[]>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
@@ -197,7 +196,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
-    public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging>;
+    public readonly logging!: pulumi.Output<outputs.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -281,7 +280,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
-    public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy>;
+    public readonly snapshotCopy!: pulumi.Output<outputs.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
@@ -475,7 +474,7 @@ export interface ClusterState {
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
-    clusterNodes?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterClusterNode>[]>;
+    clusterNodes?: pulumi.Input<pulumi.Input<inputs.ClusterClusterNode>[]>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
@@ -547,7 +546,7 @@ export interface ClusterState {
      *
      * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
-    logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
+    logging?: pulumi.Input<inputs.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -631,7 +630,7 @@ export interface ClusterState {
      *
      * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
-    snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
+    snapshotCopy?: pulumi.Input<inputs.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
@@ -755,7 +754,7 @@ export interface ClusterArgs {
      *
      * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
-    logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
+    logging?: pulumi.Input<inputs.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -835,7 +834,7 @@ export interface ClusterArgs {
      *
      * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
-    snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
+    snapshotCopy?: pulumi.Input<inputs.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */

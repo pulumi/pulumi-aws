@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +63,7 @@ export interface GetVpnGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpnGatewayFilter[];
+    filters?: inputs.GetVpnGatewayFilter[];
     /**
      * ID of the specific VPN Gateway to retrieve.
      */
@@ -87,7 +87,7 @@ export interface GetVpnGatewayResult {
     readonly arn: string;
     readonly attachedVpcId: string;
     readonly availabilityZone: string;
-    readonly filters?: outputs.ec2.GetVpnGatewayFilter[];
+    readonly filters?: inputs.GetVpnGatewayFilter[];
     readonly id: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
@@ -137,7 +137,7 @@ export interface GetVpnGatewayOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpnGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpnGatewayFilterArgs>[]>;
     /**
      * ID of the specific VPN Gateway to retrieve.
      */

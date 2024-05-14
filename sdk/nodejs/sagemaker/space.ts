@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class Space extends pulumi.CustomResource {
     /**
      * A collection of ownership settings. See Ownership Settings below.
      */
-    public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
+    public readonly ownershipSettings!: pulumi.Output<outputs.SpaceOwnershipSettings | undefined>;
     /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
@@ -87,11 +86,11 @@ export class Space extends pulumi.CustomResource {
     /**
      * A collection of space settings. See Space Settings below.
      */
-    public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
+    public readonly spaceSettings!: pulumi.Output<outputs.SpaceSpaceSettings | undefined>;
     /**
      * A collection of space sharing settings. See Space Sharing Settings below.
      */
-    public readonly spaceSharingSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSharingSettings | undefined>;
+    public readonly spaceSharingSettings!: pulumi.Output<outputs.SpaceSpaceSharingSettings | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -175,7 +174,7 @@ export interface SpaceState {
     /**
      * A collection of ownership settings. See Ownership Settings below.
      */
-    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    ownershipSettings?: pulumi.Input<inputs.SpaceOwnershipSettings>;
     /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
@@ -187,11 +186,11 @@ export interface SpaceState {
     /**
      * A collection of space settings. See Space Settings below.
      */
-    spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
+    spaceSettings?: pulumi.Input<inputs.SpaceSpaceSettings>;
     /**
      * A collection of space sharing settings. See Space Sharing Settings below.
      */
-    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
+    spaceSharingSettings?: pulumi.Input<inputs.SpaceSpaceSharingSettings>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -219,7 +218,7 @@ export interface SpaceArgs {
     /**
      * A collection of ownership settings. See Ownership Settings below.
      */
-    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    ownershipSettings?: pulumi.Input<inputs.SpaceOwnershipSettings>;
     /**
      * The name of the space that appears in the SageMaker Studio UI.
      */
@@ -231,11 +230,11 @@ export interface SpaceArgs {
     /**
      * A collection of space settings. See Space Settings below.
      */
-    spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
+    spaceSettings?: pulumi.Input<inputs.SpaceSpaceSettings>;
     /**
      * A collection of space sharing settings. See Space Sharing Settings below.
      */
-    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSharingSettings>;
+    spaceSharingSettings?: pulumi.Input<inputs.SpaceSpaceSharingSettings>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

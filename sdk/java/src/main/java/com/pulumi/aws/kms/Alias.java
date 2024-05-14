@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var a = new Key("a");
  * 
- *         var aAlias = new Alias("aAlias", AliasArgs.builder()        
+ *         var aAlias = new Alias("aAlias", AliasArgs.builder()
  *             .name("alias/my-key-alias")
  *             .targetKeyId(a.keyId())
  *             .build());

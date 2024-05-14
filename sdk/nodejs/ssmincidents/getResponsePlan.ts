@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +41,7 @@ export interface GetResponsePlanResult {
     /**
      * (Optional) The actions that the response plan starts at the beginning of an incident.
      */
-    readonly actions: outputs.ssmincidents.GetResponsePlanAction[];
+    readonly actions: outputs.GetResponsePlanAction[];
     readonly arn: string;
     /**
      * The Chatbot chat channel used for collaboration during an incident.
@@ -60,11 +59,11 @@ export interface GetResponsePlanResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly incidentTemplates: outputs.ssmincidents.GetResponsePlanIncidentTemplate[];
+    readonly incidentTemplates: outputs.GetResponsePlanIncidentTemplate[];
     /**
      * Information about third-party services integrated into the response plan. The following values are supported:
      */
-    readonly integrations: outputs.ssmincidents.GetResponsePlanIntegration[];
+    readonly integrations: outputs.GetResponsePlanIntegration[];
     /**
      * The name of the PagerDuty configuration.
      */

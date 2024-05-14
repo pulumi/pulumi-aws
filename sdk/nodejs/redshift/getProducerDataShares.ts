@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +39,7 @@ export interface GetProducerDataSharesArgs {
     /**
      * An array of all data shares in the producer. See `dataShares` below.
      */
-    dataShares?: inputs.redshift.GetProducerDataSharesDataShare[];
+    dataShares?: inputs.GetProducerDataSharesDataShare[];
     /**
      * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
      *
@@ -60,7 +59,7 @@ export interface GetProducerDataSharesResult {
     /**
      * An array of all data shares in the producer. See `dataShares` below.
      */
-    readonly dataShares?: outputs.redshift.GetProducerDataSharesDataShare[];
+    readonly dataShares?: inputs.GetProducerDataSharesDataShare[];
     /**
      * Producer ARN.
      */
@@ -98,7 +97,7 @@ export interface GetProducerDataSharesOutputArgs {
     /**
      * An array of all data shares in the producer. See `dataShares` below.
      */
-    dataShares?: pulumi.Input<pulumi.Input<inputs.redshift.GetProducerDataSharesDataShareArgs>[]>;
+    dataShares?: pulumi.Input<pulumi.Input<inputs.GetProducerDataSharesDataShareArgs>[]>;
     /**
      * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
      *

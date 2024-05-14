@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,14 +40,14 @@ export interface GetMaintenanceWindowsArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ssm.GetMaintenanceWindowsFilter[];
+    filters?: inputs.GetMaintenanceWindowsFilter[];
 }
 
 /**
  * A collection of values returned by getMaintenanceWindows.
  */
 export interface GetMaintenanceWindowsResult {
-    readonly filters?: outputs.ssm.GetMaintenanceWindowsFilter[];
+    readonly filters?: inputs.GetMaintenanceWindowsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -85,5 +85,5 @@ export interface GetMaintenanceWindowsOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetMaintenanceWindowsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetMaintenanceWindowsFilterArgs>[]>;
 }

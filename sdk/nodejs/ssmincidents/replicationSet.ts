@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -131,7 +130,7 @@ export class ReplicationSet extends pulumi.CustomResource {
      * A timestamp showing when the replication set was last modified.
      */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
-    public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
+    public readonly regions!: pulumi.Output<outputs.ReplicationSetRegion[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -205,7 +204,7 @@ export interface ReplicationSetState {
      * A timestamp showing when the replication set was last modified.
      */
     lastModifiedBy?: pulumi.Input<string>;
-    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    regions?: pulumi.Input<pulumi.Input<inputs.ReplicationSetRegion>[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -224,6 +223,6 @@ export interface ReplicationSetState {
  * The set of arguments for constructing a ReplicationSet resource.
  */
 export interface ReplicationSetArgs {
-    regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    regions: pulumi.Input<pulumi.Input<inputs.ReplicationSetRegion>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

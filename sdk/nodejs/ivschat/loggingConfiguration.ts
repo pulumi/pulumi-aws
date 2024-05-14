@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -112,7 +111,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration | undefined>;
+    public readonly destinationConfiguration!: pulumi.Output<outputs.LoggingConfigurationDestinationConfiguration | undefined>;
     /**
      * Logging Configuration name.
      */
@@ -176,7 +175,7 @@ export interface LoggingConfigurationState {
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
-    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.LoggingConfigurationDestinationConfiguration>;
     /**
      * Logging Configuration name.
      */
@@ -204,7 +203,7 @@ export interface LoggingConfigurationArgs {
     /**
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      */
-    destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
+    destinationConfiguration?: pulumi.Input<inputs.LoggingConfigurationDestinationConfiguration>;
     /**
      * Logging Configuration name.
      */

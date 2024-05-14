@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +52,7 @@ export interface GetInputResult {
      * Channels attached to Input.
      */
     readonly attachedChannels: string[];
-    readonly destinations: outputs.medialive.GetInputDestination[];
+    readonly destinations: outputs.GetInputDestination[];
     readonly id: string;
     /**
      * The input class.
@@ -62,7 +61,7 @@ export interface GetInputResult {
     /**
      * Settings for the devices.
      */
-    readonly inputDevices: outputs.medialive.GetInputInputDevice[];
+    readonly inputDevices: outputs.GetInputInputDevice[];
     /**
      * A list of IDs for all Inputs which are partners of this one.
      */
@@ -74,7 +73,7 @@ export interface GetInputResult {
     /**
      * A list of the MediaConnect Flows.
      */
-    readonly mediaConnectFlows: outputs.medialive.GetInputMediaConnectFlow[];
+    readonly mediaConnectFlows: outputs.GetInputMediaConnectFlow[];
     /**
      * Name of the input.
      */
@@ -90,7 +89,7 @@ export interface GetInputResult {
     /**
      * The source URLs for a PULL-type input.
      */
-    readonly sources: outputs.medialive.GetInputSource[];
+    readonly sources: outputs.GetInputSource[];
     /**
      * The state of the input.
      */

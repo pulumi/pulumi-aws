@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -217,11 +216,11 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      */
-    public readonly columnGroups!: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
+    public readonly columnGroups!: pulumi.Output<outputs.DataSetColumnGroup[] | undefined>;
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      */
-    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
+    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.DataSetColumnLevelPermissionRule[] | undefined>;
     /**
      * Identifier for the data set.
      */
@@ -229,11 +228,11 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      */
-    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.quicksight.DataSetDataSetUsageConfiguration>;
+    public readonly dataSetUsageConfiguration!: pulumi.Output<outputs.DataSetDataSetUsageConfiguration>;
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      */
-    public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolder[] | undefined>;
+    public readonly fieldFolders!: pulumi.Output<outputs.DataSetFieldFolder[] | undefined>;
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      */
@@ -241,34 +240,34 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      */
-    public readonly logicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetLogicalTableMap[]>;
+    public readonly logicalTableMaps!: pulumi.Output<outputs.DataSetLogicalTableMap[]>;
     /**
      * Display name for the dataset.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.DataSetOutputColumn[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.DataSetPermission[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      *
      * The following arguments are optional:
      */
-    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
+    public readonly physicalTableMaps!: pulumi.Output<outputs.DataSetPhysicalTableMap[] | undefined>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
-    public readonly refreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
+    public readonly refreshProperties!: pulumi.Output<outputs.DataSetRefreshProperties | undefined>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
-    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
+    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.DataSetRowLevelPermissionDataSet | undefined>;
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      */
-    public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
+    public readonly rowLevelPermissionTagConfiguration!: pulumi.Output<outputs.DataSetRowLevelPermissionTagConfiguration | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -358,11 +357,11 @@ export interface DataSetState {
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      */
-    columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroup>[]>;
+    columnGroups?: pulumi.Input<pulumi.Input<inputs.DataSetColumnGroup>[]>;
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      */
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRule>[]>;
+    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.DataSetColumnLevelPermissionRule>[]>;
     /**
      * Identifier for the data set.
      */
@@ -370,11 +369,11 @@ export interface DataSetState {
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      */
-    dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataSetUsageConfiguration>;
+    dataSetUsageConfiguration?: pulumi.Input<inputs.DataSetDataSetUsageConfiguration>;
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      */
-    fieldFolders?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetFieldFolder>[]>;
+    fieldFolders?: pulumi.Input<pulumi.Input<inputs.DataSetFieldFolder>[]>;
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      */
@@ -382,34 +381,34 @@ export interface DataSetState {
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      */
-    logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMap>[]>;
+    logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.DataSetLogicalTableMap>[]>;
     /**
      * Display name for the dataset.
      */
     name?: pulumi.Input<string>;
-    outputColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetOutputColumn>[]>;
+    outputColumns?: pulumi.Input<pulumi.Input<inputs.DataSetOutputColumn>[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      *
      * The following arguments are optional:
      */
-    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
+    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.DataSetPhysicalTableMap>[]>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
-    refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
+    refreshProperties?: pulumi.Input<inputs.DataSetRefreshProperties>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
-    rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSet>;
+    rowLevelPermissionDataSet?: pulumi.Input<inputs.DataSetRowLevelPermissionDataSet>;
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      */
-    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfiguration>;
+    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.DataSetRowLevelPermissionTagConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -433,11 +432,11 @@ export interface DataSetArgs {
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      */
-    columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroup>[]>;
+    columnGroups?: pulumi.Input<pulumi.Input<inputs.DataSetColumnGroup>[]>;
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      */
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRule>[]>;
+    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.DataSetColumnLevelPermissionRule>[]>;
     /**
      * Identifier for the data set.
      */
@@ -445,11 +444,11 @@ export interface DataSetArgs {
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      */
-    dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataSetUsageConfiguration>;
+    dataSetUsageConfiguration?: pulumi.Input<inputs.DataSetDataSetUsageConfiguration>;
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      */
-    fieldFolders?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetFieldFolder>[]>;
+    fieldFolders?: pulumi.Input<pulumi.Input<inputs.DataSetFieldFolder>[]>;
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      */
@@ -457,7 +456,7 @@ export interface DataSetArgs {
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      */
-    logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMap>[]>;
+    logicalTableMaps?: pulumi.Input<pulumi.Input<inputs.DataSetLogicalTableMap>[]>;
     /**
      * Display name for the dataset.
      */
@@ -465,25 +464,25 @@ export interface DataSetArgs {
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.DataSetPermission>[]>;
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      *
      * The following arguments are optional:
      */
-    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
+    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.DataSetPhysicalTableMap>[]>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
-    refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
+    refreshProperties?: pulumi.Input<inputs.DataSetRefreshProperties>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
-    rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSet>;
+    rowLevelPermissionDataSet?: pulumi.Input<inputs.DataSetRowLevelPermissionDataSet>;
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      */
-    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfiguration>;
+    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.DataSetRowLevelPermissionTagConfiguration>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +91,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     /**
      * S3 path where your block list text file is located. See details below.
      */
-    public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    public readonly sourceS3Path!: pulumi.Output<outputs.QuerySuggestionsBlockListSourceS3Path>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -180,7 +179,7 @@ export interface QuerySuggestionsBlockListState {
     /**
      * S3 path where your block list text file is located. See details below.
      */
-    sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    sourceS3Path?: pulumi.Input<inputs.QuerySuggestionsBlockListSourceS3Path>;
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -211,6 +210,6 @@ export interface QuerySuggestionsBlockListArgs {
     /**
      * S3 path where your block list text file is located. See details below.
      */
-    sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    sourceS3Path: pulumi.Input<inputs.QuerySuggestionsBlockListSourceS3Path>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

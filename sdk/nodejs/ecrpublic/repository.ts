@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    public readonly catalogData!: pulumi.Output<outputs.ecrpublic.RepositoryCatalogData | undefined>;
+    public readonly catalogData!: pulumi.Output<outputs.RepositoryCatalogData | undefined>;
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * The registry ID where the repository was created.
@@ -156,7 +155,7 @@ export interface RepositoryState {
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
+    catalogData?: pulumi.Input<inputs.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * The registry ID where the repository was created.
@@ -189,7 +188,7 @@ export interface RepositoryArgs {
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
+    catalogData?: pulumi.Input<inputs.RepositoryCatalogData>;
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the repository.

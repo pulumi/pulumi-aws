@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Account("test");
  * 
- *         var testClassificationJob = new ClassificationJob("testClassificationJob", ClassificationJobArgs.builder()        
+ *         var testClassificationJob = new ClassificationJob("testClassificationJob", ClassificationJobArgs.builder()
  *             .jobType("ONE_TIME")
  *             .name("NAME OF THE CLASSIFICATION JOB")
  *             .s3JobDefinition(ClassificationJobS3JobDefinitionArgs.builder()

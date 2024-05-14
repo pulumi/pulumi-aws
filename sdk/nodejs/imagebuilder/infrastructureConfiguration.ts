@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +95,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    public readonly instanceMetadataOptions!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
+    public readonly instanceMetadataOptions!: pulumi.Output<outputs.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
     /**
      * Name of IAM Instance Profile.
      */
@@ -112,7 +111,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    public readonly logging!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
+    public readonly logging!: pulumi.Output<outputs.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
      *
@@ -231,7 +230,7 @@ export interface InfrastructureConfigurationState {
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
+    instanceMetadataOptions?: pulumi.Input<inputs.InfrastructureConfigurationInstanceMetadataOptions>;
     /**
      * Name of IAM Instance Profile.
      */
@@ -247,7 +246,7 @@ export interface InfrastructureConfigurationState {
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
      *
@@ -297,7 +296,7 @@ export interface InfrastructureConfigurationArgs {
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      */
-    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
+    instanceMetadataOptions?: pulumi.Input<inputs.InfrastructureConfigurationInstanceMetadataOptions>;
     /**
      * Name of IAM Instance Profile.
      */
@@ -313,7 +312,7 @@ export interface InfrastructureConfigurationArgs {
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
      *

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -214,7 +213,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    public readonly responseParameters!: pulumi.Output<outputs.apigatewayv2.IntegrationResponseParameter[] | undefined>;
+    public readonly responseParameters!: pulumi.Output<outputs.IntegrationResponseParameter[] | undefined>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
@@ -228,7 +227,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.apigatewayv2.IntegrationTlsConfig | undefined>;
+    public readonly tlsConfig!: pulumi.Output<outputs.IntegrationTlsConfig | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -368,7 +367,7 @@ export interface IntegrationState {
     /**
      * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    responseParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameter>[]>;
+    responseParameters?: pulumi.Input<pulumi.Input<inputs.IntegrationResponseParameter>[]>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
@@ -382,7 +381,7 @@ export interface IntegrationState {
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.
      */
-    tlsConfig?: pulumi.Input<inputs.apigatewayv2.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.IntegrationTlsConfig>;
 }
 
 /**
@@ -454,7 +453,7 @@ export interface IntegrationArgs {
     /**
      * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      */
-    responseParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.IntegrationResponseParameter>[]>;
+    responseParameters?: pulumi.Input<pulumi.Input<inputs.IntegrationResponseParameter>[]>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      */
@@ -468,5 +467,5 @@ export interface IntegrationArgs {
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.
      */
-    tlsConfig?: pulumi.Input<inputs.apigatewayv2.IntegrationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.IntegrationTlsConfig>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,11 +124,11 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.waf.WebAclDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.waf.WebAclLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.WebAclLoggingConfiguration | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -141,7 +140,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    public readonly rules!: pulumi.Output<outputs.waf.WebAclRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.WebAclRule[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -207,11 +206,11 @@ export interface WebAclState {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    defaultAction?: pulumi.Input<inputs.waf.WebAclDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -223,7 +222,7 @@ export interface WebAclState {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -243,11 +242,11 @@ export interface WebAclArgs {
     /**
      * Configuration block with action that you want AWS WAF to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL. Detailed below.
      */
-    defaultAction: pulumi.Input<inputs.waf.WebAclDefaultAction>;
+    defaultAction: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.waf.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -259,7 +258,7 @@ export interface WebAclArgs {
     /**
      * Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.waf.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

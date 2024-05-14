@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +58,7 @@ export interface GetEndpointArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2clientvpn.GetEndpointFilter[];
+    filters?: inputs.GetEndpointFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
      */
@@ -77,7 +76,7 @@ export interface GetEndpointResult {
     /**
      * Information about the authentication method used by the Client VPN endpoint.
      */
-    readonly authenticationOptions: outputs.ec2clientvpn.GetEndpointAuthenticationOption[];
+    readonly authenticationOptions: outputs.GetEndpointAuthenticationOption[];
     /**
      * IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
      */
@@ -85,16 +84,16 @@ export interface GetEndpointResult {
     /**
      * The options for managing connection authorization for new client connections.
      */
-    readonly clientConnectOptions: outputs.ec2clientvpn.GetEndpointClientConnectOption[];
+    readonly clientConnectOptions: outputs.GetEndpointClientConnectOption[];
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    readonly clientLoginBannerOptions: outputs.ec2clientvpn.GetEndpointClientLoginBannerOption[];
+    readonly clientLoginBannerOptions: outputs.GetEndpointClientLoginBannerOption[];
     readonly clientVpnEndpointId: string;
     /**
      * Information about the client connection logging options for the Client VPN endpoint.
      */
-    readonly connectionLogOptions: outputs.ec2clientvpn.GetEndpointConnectionLogOption[];
+    readonly connectionLogOptions: outputs.GetEndpointConnectionLogOption[];
     /**
      * Brief description of the endpoint.
      */
@@ -107,7 +106,7 @@ export interface GetEndpointResult {
      * Information about the DNS servers to be used for DNS resolution.
      */
     readonly dnsServers: string[];
-    readonly filters?: outputs.ec2clientvpn.GetEndpointFilter[];
+    readonly filters?: inputs.GetEndpointFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -195,7 +194,7 @@ export interface GetEndpointOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.GetEndpointFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetEndpointFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
      */

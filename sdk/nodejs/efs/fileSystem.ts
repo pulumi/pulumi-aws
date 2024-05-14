@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -110,7 +109,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
-    public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
+    public readonly lifecyclePolicies!: pulumi.Output<outputs.FileSystemLifecyclePolicy[] | undefined>;
     /**
      * The value of the file system's `Name` tag.
      */
@@ -130,7 +129,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
-    public readonly protection!: pulumi.Output<outputs.efs.FileSystemProtection>;
+    public readonly protection!: pulumi.Output<outputs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
@@ -138,7 +137,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      */
-    public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[]>;
+    public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.FileSystemSizeInByte[]>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -249,7 +248,7 @@ export interface FileSystemState {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
-    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.FileSystemLifecyclePolicy>[]>;
     /**
      * The value of the file system's `Name` tag.
      */
@@ -269,7 +268,7 @@ export interface FileSystemState {
     /**
      * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
-    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
+    protection?: pulumi.Input<inputs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
@@ -277,7 +276,7 @@ export interface FileSystemState {
     /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      */
-    sizeInBytes?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemSizeInByte>[]>;
+    sizeInBytes?: pulumi.Input<pulumi.Input<inputs.FileSystemSizeInByte>[]>;
     /**
      * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -320,7 +319,7 @@ export interface FileSystemArgs {
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
-    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.FileSystemLifecyclePolicy>[]>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
@@ -328,7 +327,7 @@ export interface FileSystemArgs {
     /**
      * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      */
-    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
+    protection?: pulumi.Input<inputs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +65,7 @@ export interface GetGroupResult {
     /**
      * List of objects containing group member information. See below.
      */
-    readonly users: outputs.iam.GetGroupUser[];
+    readonly users: outputs.GetGroupUser[];
 }
 /**
  * This data source can be used to fetch information about a specific

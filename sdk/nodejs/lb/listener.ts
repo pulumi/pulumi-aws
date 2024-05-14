@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -266,7 +265,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Configuration block for default actions. Detailed below.
      */
-    public readonly defaultActions!: pulumi.Output<outputs.lb.ListenerDefaultAction[]>;
+    public readonly defaultActions!: pulumi.Output<outputs.ListenerDefaultAction[]>;
     /**
      * ARN of the load balancer.
      *
@@ -276,7 +275,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The mutual authentication configuration information. Detailed below.
      */
-    public readonly mutualAuthentication!: pulumi.Output<outputs.lb.ListenerMutualAuthentication>;
+    public readonly mutualAuthentication!: pulumi.Output<outputs.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
@@ -372,7 +371,7 @@ export interface ListenerState {
     /**
      * Configuration block for default actions. Detailed below.
      */
-    defaultActions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerDefaultAction>[]>;
+    defaultActions?: pulumi.Input<pulumi.Input<inputs.ListenerDefaultAction>[]>;
     /**
      * ARN of the load balancer.
      *
@@ -382,7 +381,7 @@ export interface ListenerState {
     /**
      * The mutual authentication configuration information. Detailed below.
      */
-    mutualAuthentication?: pulumi.Input<inputs.lb.ListenerMutualAuthentication>;
+    mutualAuthentication?: pulumi.Input<inputs.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */
@@ -424,7 +423,7 @@ export interface ListenerArgs {
     /**
      * Configuration block for default actions. Detailed below.
      */
-    defaultActions: pulumi.Input<pulumi.Input<inputs.lb.ListenerDefaultAction>[]>;
+    defaultActions: pulumi.Input<pulumi.Input<inputs.ListenerDefaultAction>[]>;
     /**
      * ARN of the load balancer.
      *
@@ -434,7 +433,7 @@ export interface ListenerArgs {
     /**
      * The mutual authentication configuration information. Detailed below.
      */
-    mutualAuthentication?: pulumi.Input<inputs.lb.ListenerMutualAuthentication>;
+    mutualAuthentication?: pulumi.Input<inputs.ListenerMutualAuthentication>;
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      */

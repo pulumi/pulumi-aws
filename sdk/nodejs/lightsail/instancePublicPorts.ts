@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
-    public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
+    public readonly portInfos!: pulumi.Output<outputs.InstancePublicPortsPortInfo[]>;
 
     /**
      * Create a InstancePublicPorts resource with the given unique name, arguments, and options.
@@ -115,7 +114,7 @@ export interface InstancePublicPortsState {
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
-    portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    portInfos?: pulumi.Input<pulumi.Input<inputs.InstancePublicPortsPortInfo>[]>;
 }
 
 /**
@@ -129,5 +128,5 @@ export interface InstancePublicPortsArgs {
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
-    portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    portInfos: pulumi.Input<pulumi.Input<inputs.InstancePublicPortsPortInfo>[]>;
 }

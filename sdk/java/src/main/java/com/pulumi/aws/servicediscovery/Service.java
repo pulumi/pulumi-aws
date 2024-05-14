@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()        
+ *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()
  *             .name("example.mydomain.local")
  *             .description("example")
  *             .vpc(example.id())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(examplePrivateDnsNamespace.id())
@@ -113,12 +113,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicDnsNamespace("example", PublicDnsNamespaceArgs.builder()        
+ *         var example = new PublicDnsNamespace("example", PublicDnsNamespaceArgs.builder()
  *             .name("example.mydomain.com")
  *             .description("example")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(example.id())

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +75,7 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
-    public readonly eventFilter!: pulumi.Output<outputs.appconfig.EventIntegrationEventFilter>;
+    public readonly eventFilter!: pulumi.Output<outputs.EventIntegrationEventFilter>;
     /**
      * EventBridge bus.
      */
@@ -152,7 +151,7 @@ export interface EventIntegrationState {
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
-    eventFilter?: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
+    eventFilter?: pulumi.Input<inputs.EventIntegrationEventFilter>;
     /**
      * EventBridge bus.
      */
@@ -184,7 +183,7 @@ export interface EventIntegrationArgs {
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
-    eventFilter: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
+    eventFilter: pulumi.Input<inputs.EventIntegrationEventFilter>;
     /**
      * EventBridge bus.
      */

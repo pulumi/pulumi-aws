@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -126,7 +125,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
+    public readonly analyticsConfiguration!: pulumi.Output<outputs.ManagedUserPoolClientAnalyticsConfiguration | undefined>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
@@ -196,7 +195,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.ManagedUserPoolClientTokenValidityUnits | undefined>;
+    public readonly tokenValidityUnits!: pulumi.Output<outputs.ManagedUserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool that the client belongs to.
      */
@@ -303,7 +302,7 @@ export interface ManagedUserPoolClientState {
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.ManagedUserPoolClientAnalyticsConfiguration>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
@@ -373,7 +372,7 @@ export interface ManagedUserPoolClientState {
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.ManagedUserPoolClientTokenValidityUnits>;
     /**
      * User pool that the client belongs to.
      */
@@ -407,7 +406,7 @@ export interface ManagedUserPoolClientArgs {
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      */
-    analyticsConfiguration?: pulumi.Input<inputs.cognito.ManagedUserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.ManagedUserPoolClientAnalyticsConfiguration>;
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
      */
@@ -469,7 +468,7 @@ export interface ManagedUserPoolClientArgs {
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      */
-    tokenValidityUnits?: pulumi.Input<inputs.cognito.ManagedUserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.ManagedUserPoolClientTokenValidityUnits>;
     /**
      * User pool that the client belongs to.
      */

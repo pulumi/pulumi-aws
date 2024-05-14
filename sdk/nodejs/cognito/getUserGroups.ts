@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +38,7 @@ export interface GetUserGroupsArgs {
     /**
      * List of groups. See `groups` below.
      */
-    groups?: inputs.cognito.GetUserGroupsGroup[];
+    groups?: inputs.GetUserGroupsGroup[];
     /**
      * User pool the client belongs to.
      */
@@ -53,7 +52,7 @@ export interface GetUserGroupsResult {
     /**
      * List of groups. See `groups` below.
      */
-    readonly groups?: outputs.cognito.GetUserGroupsGroup[];
+    readonly groups?: inputs.GetUserGroupsGroup[];
     /**
      * User pool identifier.
      */
@@ -87,7 +86,7 @@ export interface GetUserGroupsOutputArgs {
     /**
      * List of groups. See `groups` below.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.cognito.GetUserGroupsGroupArgs>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.GetUserGroupsGroupArgs>[]>;
     /**
      * User pool the client belongs to.
      */

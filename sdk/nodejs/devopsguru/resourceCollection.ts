@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -113,11 +112,11 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    public readonly cloudformation!: pulumi.Output<outputs.devopsguru.ResourceCollectionCloudformation | undefined>;
+    public readonly cloudformation!: pulumi.Output<outputs.ResourceCollectionCloudformation | undefined>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    public readonly tags!: pulumi.Output<outputs.devopsguru.ResourceCollectionTags | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ResourceCollectionTags | undefined>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *
@@ -162,11 +161,11 @@ export interface ResourceCollectionState {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    cloudformation?: pulumi.Input<inputs.ResourceCollectionCloudformation>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
+    tags?: pulumi.Input<inputs.ResourceCollectionTags>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *
@@ -182,11 +181,11 @@ export interface ResourceCollectionArgs {
     /**
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
-    cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    cloudformation?: pulumi.Input<inputs.ResourceCollectionCloudformation>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
-    tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
+    tags?: pulumi.Input<inputs.ResourceCollectionTags>;
     /**
      * Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
      *

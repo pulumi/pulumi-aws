@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,15 +83,15 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
-    public /*out*/ readonly revocationRecords!: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
+    public /*out*/ readonly revocationRecords!: pulumi.Output<outputs.SigningProfileRevocationRecord[]>;
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */
-    public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod>;
+    public readonly signatureValidityPeriod!: pulumi.Output<outputs.SigningProfileSignatureValidityPeriod>;
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      */
-    public readonly signingMaterial!: pulumi.Output<outputs.signer.SigningProfileSigningMaterial>;
+    public readonly signingMaterial!: pulumi.Output<outputs.SigningProfileSigningMaterial>;
     /**
      * The status of the target signing profile.
      */
@@ -187,15 +186,15 @@ export interface SigningProfileState {
     /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
-    revocationRecords?: pulumi.Input<pulumi.Input<inputs.signer.SigningProfileRevocationRecord>[]>;
+    revocationRecords?: pulumi.Input<pulumi.Input<inputs.SigningProfileRevocationRecord>[]>;
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */
-    signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
+    signatureValidityPeriod?: pulumi.Input<inputs.SigningProfileSignatureValidityPeriod>;
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      */
-    signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
+    signingMaterial?: pulumi.Input<inputs.SigningProfileSigningMaterial>;
     /**
      * The status of the target signing profile.
      */
@@ -233,11 +232,11 @@ export interface SigningProfileArgs {
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */
-    signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
+    signatureValidityPeriod?: pulumi.Input<inputs.SigningProfileSignatureValidityPeriod>;
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signingMaterial` Block below for details.
      */
-    signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
+    signingMaterial?: pulumi.Input<inputs.SigningProfileSigningMaterial>;
     /**
      * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

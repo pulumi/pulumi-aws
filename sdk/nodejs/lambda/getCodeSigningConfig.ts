@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +48,7 @@ export interface GetCodeSigningConfigResult {
     /**
      * List of allowed publishers as signing profiles for this code signing configuration.
      */
-    readonly allowedPublishers: outputs.lambda.GetCodeSigningConfigAllowedPublisher[];
+    readonly allowedPublishers: outputs.GetCodeSigningConfigAllowedPublisher[];
     readonly arn: string;
     /**
      * Unique identifier for the code signing configuration.
@@ -69,7 +69,7 @@ export interface GetCodeSigningConfigResult {
     /**
      * List of code signing policies that control the validation failure action for signature mismatch or expiry.
      */
-    readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
+    readonly policies: outputs.GetCodeSigningConfigPolicy[];
 }
 /**
  * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).

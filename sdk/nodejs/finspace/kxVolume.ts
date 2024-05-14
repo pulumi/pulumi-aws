@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class KxVolume extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) identifier of the KX volume.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly attachedClusters!: pulumi.Output<outputs.finspace.KxVolumeAttachedCluster[]>;
+    public /*out*/ readonly attachedClusters!: pulumi.Output<outputs.KxVolumeAttachedCluster[]>;
     /**
      * The identifier of the AWS Availability Zone IDs.
      *
@@ -105,7 +104,7 @@ export class KxVolume extends pulumi.CustomResource {
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
-    public readonly nas1Configurations!: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
+    public readonly nas1Configurations!: pulumi.Output<outputs.KxVolumeNas1Configuration[] | undefined>;
     /**
      * The status of volume creation.
      */
@@ -198,7 +197,7 @@ export interface KxVolumeState {
      * Amazon Resource Name (ARN) identifier of the KX volume.
      */
     arn?: pulumi.Input<string>;
-    attachedClusters?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeAttachedCluster>[]>;
+    attachedClusters?: pulumi.Input<pulumi.Input<inputs.KxVolumeAttachedCluster>[]>;
     /**
      * The identifier of the AWS Availability Zone IDs.
      *
@@ -232,7 +231,7 @@ export interface KxVolumeState {
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
-    nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
+    nas1Configurations?: pulumi.Input<pulumi.Input<inputs.KxVolumeNas1Configuration>[]>;
     /**
      * The status of volume creation.
      */
@@ -284,7 +283,7 @@ export interface KxVolumeArgs {
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
-    nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
+    nas1Configurations?: pulumi.Input<pulumi.Input<inputs.KxVolumeNas1Configuration>[]>;
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */

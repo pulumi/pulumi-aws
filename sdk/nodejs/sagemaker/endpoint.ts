@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      */
-    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
+    public readonly deploymentConfig!: pulumi.Output<outputs.EndpointDeploymentConfig | undefined>;
     /**
      * The name of the endpoint configuration to use.
      */
@@ -137,7 +136,7 @@ export interface EndpointState {
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      */
-    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
+    deploymentConfig?: pulumi.Input<inputs.EndpointDeploymentConfig>;
     /**
      * The name of the endpoint configuration to use.
      */
@@ -165,7 +164,7 @@ export interface EndpointArgs {
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      */
-    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
+    deploymentConfig?: pulumi.Input<inputs.EndpointDeploymentConfig>;
     /**
      * The name of the endpoint configuration to use.
      */

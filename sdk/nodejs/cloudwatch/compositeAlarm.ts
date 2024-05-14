@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    public readonly actionsSuppressor!: pulumi.Output<outputs.cloudwatch.CompositeAlarmActionsSuppressor | undefined>;
+    public readonly actionsSuppressor!: pulumi.Output<outputs.CompositeAlarmActionsSuppressor | undefined>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
@@ -177,7 +176,7 @@ export interface CompositeAlarmState {
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
+    actionsSuppressor?: pulumi.Input<inputs.CompositeAlarmActionsSuppressor>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
@@ -229,7 +228,7 @@ export interface CompositeAlarmArgs {
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      */
-    actionsSuppressor?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionsSuppressor>;
+    actionsSuppressor?: pulumi.Input<inputs.CompositeAlarmActionsSuppressor>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class Multiplex extends pulumi.CustomResource {
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    public readonly multiplexSettings!: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
+    public readonly multiplexSettings!: pulumi.Output<outputs.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
      *
@@ -160,7 +159,7 @@ export interface MultiplexState {
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
+    multiplexSettings?: pulumi.Input<inputs.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
      *
@@ -192,7 +191,7 @@ export interface MultiplexArgs {
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      */
-    multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
+    multiplexSettings?: pulumi.Input<inputs.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
      *

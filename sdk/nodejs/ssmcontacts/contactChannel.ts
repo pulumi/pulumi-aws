@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +98,7 @@ export class ContactChannel extends pulumi.CustomResource {
     /**
      * Block that contains contact engagement details. See details below.
      */
-    public readonly deliveryAddress!: pulumi.Output<outputs.ssmcontacts.ContactChannelDeliveryAddress>;
+    public readonly deliveryAddress!: pulumi.Output<outputs.ContactChannelDeliveryAddress>;
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
@@ -170,7 +169,7 @@ export interface ContactChannelState {
     /**
      * Block that contains contact engagement details. See details below.
      */
-    deliveryAddress?: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
+    deliveryAddress?: pulumi.Input<inputs.ContactChannelDeliveryAddress>;
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
@@ -192,7 +191,7 @@ export interface ContactChannelArgs {
     /**
      * Block that contains contact engagement details. See details below.
      */
-    deliveryAddress: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
+    deliveryAddress: pulumi.Input<inputs.ContactChannelDeliveryAddress>;
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */

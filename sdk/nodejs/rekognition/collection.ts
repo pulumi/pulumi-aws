@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class Collection extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.rekognition.CollectionTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.CollectionTimeouts | undefined>;
 
     /**
      * Create a Collection resource with the given unique name, arguments, and options.
@@ -150,7 +149,7 @@ export interface CollectionState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.rekognition.CollectionTimeouts>;
+    timeouts?: pulumi.Input<inputs.CollectionTimeouts>;
 }
 
 /**
@@ -167,5 +166,5 @@ export interface CollectionArgs {
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.rekognition.CollectionTimeouts>;
+    timeouts?: pulumi.Input<inputs.CollectionTimeouts>;
 }

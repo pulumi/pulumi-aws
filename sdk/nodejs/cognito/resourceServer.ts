@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export class ResourceServer extends pulumi.CustomResource {
     /**
      * A list of Authorization Scope.
      */
-    public readonly scopes!: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
+    public readonly scopes!: pulumi.Output<outputs.ResourceServerScope[] | undefined>;
     /**
      * User pool the client belongs to.
      */
@@ -157,7 +156,7 @@ export interface ResourceServerState {
     /**
      * A list of Authorization Scope.
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.ResourceServerScope>[]>;
     /**
      * User pool the client belongs to.
      */
@@ -179,7 +178,7 @@ export interface ResourceServerArgs {
     /**
      * A list of Authorization Scope.
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.ResourceServerScope>[]>;
     /**
      * User pool the client belongs to.
      */

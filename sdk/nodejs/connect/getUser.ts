@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +91,7 @@ export interface GetUserResult {
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    readonly identityInfos: outputs.connect.GetUserIdentityInfo[];
+    readonly identityInfos: outputs.GetUserIdentityInfo[];
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -101,7 +100,7 @@ export interface GetUserResult {
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    readonly phoneConfigs: outputs.connect.GetUserPhoneConfig[];
+    readonly phoneConfigs: outputs.GetUserPhoneConfig[];
     /**
      * The identifier of the routing profile for the user.
      */

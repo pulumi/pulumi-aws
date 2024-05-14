@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()        
+ *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()
  *             .description("traffic mirror filter - example")
  *             .networkServices("amazon-dns")
  *             .build());
  * 
- *         var ruleout = new TrafficMirrorFilterRule("ruleout", TrafficMirrorFilterRuleArgs.builder()        
+ *         var ruleout = new TrafficMirrorFilterRule("ruleout", TrafficMirrorFilterRuleArgs.builder()
  *             .description("test rule")
  *             .trafficMirrorFilterId(filter.id())
  *             .destinationCidrBlock("10.0.0.0/8")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .trafficDirection("egress")
  *             .build());
  * 
- *         var rulein = new TrafficMirrorFilterRule("rulein", TrafficMirrorFilterRuleArgs.builder()        
+ *         var rulein = new TrafficMirrorFilterRule("rulein", TrafficMirrorFilterRuleArgs.builder()
  *             .description("test rule")
  *             .trafficMirrorFilterId(filter.id())
  *             .destinationCidrBlock("10.0.0.0/8")

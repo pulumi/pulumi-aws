@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +102,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination>;
+    public readonly s3Destination!: pulumi.Output<outputs.ResourceDataSyncS3Destination>;
 
     /**
      * Create a ResourceDataSync resource with the given unique name, arguments, and options.
@@ -143,7 +143,7 @@ export interface ResourceDataSyncState {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
+    s3Destination?: pulumi.Input<inputs.ResourceDataSyncS3Destination>;
 }
 
 /**
@@ -157,5 +157,5 @@ export interface ResourceDataSyncArgs {
     /**
      * Amazon S3 configuration details for the sync.
      */
-    s3Destination: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
+    s3Destination: pulumi.Input<inputs.ResourceDataSyncS3Destination>;
 }

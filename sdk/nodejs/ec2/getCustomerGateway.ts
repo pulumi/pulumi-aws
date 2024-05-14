@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetCustomerGatewayArgs {
      *
      * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
      */
-    filters?: inputs.ec2.GetCustomerGatewayFilter[];
+    filters?: inputs.GetCustomerGatewayFilter[];
     /**
      * ID of the gateway.
      */
@@ -85,7 +85,7 @@ export interface GetCustomerGatewayResult {
      * Name for the customer gateway device.
      */
     readonly deviceName: string;
-    readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
+    readonly filters?: inputs.GetCustomerGatewayFilter[];
     readonly id: string;
     /**
      * IP address of the gateway's Internet-routable external interface.
@@ -140,7 +140,7 @@ export interface GetCustomerGatewayOutputArgs {
      *
      * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCustomerGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetCustomerGatewayFilterArgs>[]>;
     /**
      * ID of the gateway.
      */

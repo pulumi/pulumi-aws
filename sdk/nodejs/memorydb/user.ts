@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +78,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    public readonly authenticationMode!: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
+    public readonly authenticationMode!: pulumi.Output<outputs.UserAuthenticationMode>;
     /**
      * Minimum engine version supported for the user.
      */
@@ -160,7 +159,7 @@ export interface UserState {
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    authenticationMode?: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
+    authenticationMode?: pulumi.Input<inputs.UserAuthenticationMode>;
     /**
      * Minimum engine version supported for the user.
      */
@@ -194,7 +193,7 @@ export interface UserArgs {
     /**
      * Denotes the user's authentication properties. Detailed below.
      */
-    authenticationMode: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
+    authenticationMode: pulumi.Input<inputs.UserAuthenticationMode>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

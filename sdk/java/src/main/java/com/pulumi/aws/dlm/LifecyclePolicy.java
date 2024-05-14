@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dlmLifecycleRole = new Role("dlmLifecycleRole", RoleArgs.builder()        
+ *         var dlmLifecycleRole = new Role("dlmLifecycleRole", RoleArgs.builder()
  *             .name("dlm-lifecycle-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -89,13 +89,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var dlmLifecycleRolePolicy = new RolePolicy("dlmLifecycleRolePolicy", RolePolicyArgs.builder()        
+ *         var dlmLifecycleRolePolicy = new RolePolicy("dlmLifecycleRolePolicy", RolePolicyArgs.builder()
  *             .name("dlm-lifecycle-policy")
  *             .role(dlmLifecycleRole.id())
  *             .policy(dlmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()        
+ *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()
  *             .description("example DLM lifecycle policy")
  *             .executionRoleArn(dlmLifecycleRole.arn())
  *             .state("ENABLED")
@@ -172,12 +172,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dlmCrossRegionCopyCmk = new Key("dlmCrossRegionCopyCmk", KeyArgs.builder()        
+ *         var dlmCrossRegionCopyCmk = new Key("dlmCrossRegionCopyCmk", KeyArgs.builder()
  *             .description("Example Alternate Region KMS Key")
  *             .policy(key.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()        
+ *         var example = new LifecyclePolicy("example", LifecyclePolicyArgs.builder()
  *             .description("example DLM lifecycle policy")
  *             .executionRoleArn(dlmLifecycleRole.arn())
  *             .state("ENABLED")
@@ -253,7 +253,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+ *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
  *             .description("tf-acc-basic")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
@@ -284,7 +284,7 @@ import javax.annotation.Nullable;
  *             .name("AWSDataLifecycleManagerServiceRole")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(exampleAwsIamRole.id())
  *             .policyArn(example.applyValue(getPolicyResult -> getPolicyResult.arn()))
  *             .build());

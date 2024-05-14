@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -207,7 +207,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * An Action block. Action blocks are documented below.
      */
-    public readonly actions!: pulumi.Output<outputs.alb.ListenerRuleAction[]>;
+    public readonly actions!: pulumi.Output<outputs.ListenerRuleAction[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
@@ -215,7 +215,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    public readonly conditions!: pulumi.Output<outputs.alb.ListenerRuleCondition[]>;
+    public readonly conditions!: pulumi.Output<outputs.ListenerRuleCondition[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
@@ -288,7 +288,7 @@ export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.ListenerRuleAction>[]>;
     /**
      * The ARN of the rule (matches `id`)
      */
@@ -296,7 +296,7 @@ export interface ListenerRuleState {
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.ListenerRuleCondition>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
@@ -324,11 +324,11 @@ export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.ListenerRuleAction>[]>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    conditions: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleCondition>[]>;
+    conditions: pulumi.Input<pulumi.Input<inputs.ListenerRuleCondition>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */

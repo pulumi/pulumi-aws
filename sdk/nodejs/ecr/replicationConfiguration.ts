@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -117,7 +116,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.ReplicationConfigurationReplicationConfiguration | undefined>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -155,7 +154,7 @@ export interface ReplicationConfigurationState {
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ReplicationConfigurationReplicationConfiguration>;
 }
 
 /**
@@ -165,5 +164,5 @@ export interface ReplicationConfigurationArgs {
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ReplicationConfigurationReplicationConfiguration>;
 }

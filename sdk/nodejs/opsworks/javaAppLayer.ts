@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      * Whether to enable auto-healing for the layer.
      */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
-    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.JavaAppLayerCloudwatchConfiguration | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.JavaAppLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -96,7 +95,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.JavaAppLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.JavaAppLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -121,7 +120,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
      * Version of JVM to use. Defaults to "7".
      */
     public readonly jvmVersion!: pulumi.Output<string | undefined>;
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -265,7 +264,7 @@ export interface JavaAppLayerState {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.JavaAppLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.JavaAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -290,7 +289,7 @@ export interface JavaAppLayerState {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.JavaAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -315,7 +314,7 @@ export interface JavaAppLayerState {
      * Version of JVM to use. Defaults to "7".
      */
     jvmVersion?: pulumi.Input<string>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -372,7 +371,7 @@ export interface JavaAppLayerArgs {
      * Whether to enable auto-healing for the layer.
      */
     autoHealing?: pulumi.Input<boolean>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.JavaAppLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.JavaAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -397,7 +396,7 @@ export interface JavaAppLayerArgs {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.JavaAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -422,7 +421,7 @@ export interface JavaAppLayerArgs {
      * Version of JVM to use. Defaults to "7".
      */
     jvmVersion?: pulumi.Input<string>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.JavaAppLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

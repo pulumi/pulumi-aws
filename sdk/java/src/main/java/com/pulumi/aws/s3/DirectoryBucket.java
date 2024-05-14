@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()        
+ *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
  *             .bucket("example--usw2-az1--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name("usw2-az1")

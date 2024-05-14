@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +42,7 @@ export interface GetTagsArgs {
     /**
      * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
-    filter?: inputs.costexplorer.GetTagsFilter;
+    filter?: inputs.GetTagsFilter;
     /**
      * Value that you want to search for.
      */
@@ -51,7 +50,7 @@ export interface GetTagsArgs {
     /**
      * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      */
-    sortBies?: inputs.costexplorer.GetTagsSortBy[];
+    sortBies?: inputs.GetTagsSortBy[];
     /**
      * Key of the tag that you want to return values for.
      */
@@ -61,26 +60,26 @@ export interface GetTagsArgs {
      *
      * The following arguments are optional:
      */
-    timePeriod: inputs.costexplorer.GetTagsTimePeriod;
+    timePeriod: inputs.GetTagsTimePeriod;
 }
 
 /**
  * A collection of values returned by getTags.
  */
 export interface GetTagsResult {
-    readonly filter?: outputs.costexplorer.GetTagsFilter;
+    readonly filter?: inputs.GetTagsFilter;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly searchString?: string;
-    readonly sortBies?: outputs.costexplorer.GetTagsSortBy[];
+    readonly sortBies?: inputs.GetTagsSortBy[];
     readonly tagKey?: string;
     /**
      * Tags that match your request.
      */
     readonly tags: string[];
-    readonly timePeriod: outputs.costexplorer.GetTagsTimePeriod;
+    readonly timePeriod: inputs.GetTagsTimePeriod;
 }
 /**
  * Provides the available cost allocation tag keys and tag values for a specified period.
@@ -110,7 +109,7 @@ export interface GetTagsOutputArgs {
     /**
      * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
-    filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs>;
+    filter?: pulumi.Input<inputs.GetTagsFilterArgs>;
     /**
      * Value that you want to search for.
      */
@@ -118,7 +117,7 @@ export interface GetTagsOutputArgs {
     /**
      * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      */
-    sortBies?: pulumi.Input<pulumi.Input<inputs.costexplorer.GetTagsSortByArgs>[]>;
+    sortBies?: pulumi.Input<pulumi.Input<inputs.GetTagsSortByArgs>[]>;
     /**
      * Key of the tag that you want to return values for.
      */
@@ -128,5 +127,5 @@ export interface GetTagsOutputArgs {
      *
      * The following arguments are optional:
      */
-    timePeriod: pulumi.Input<inputs.costexplorer.GetTagsTimePeriodArgs>;
+    timePeriod: pulumi.Input<inputs.GetTagsTimePeriodArgs>;
 }

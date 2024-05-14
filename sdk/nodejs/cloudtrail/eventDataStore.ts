@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +103,7 @@ export class EventDataStore extends pulumi.CustomResource {
     /**
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
-    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[]>;
+    public readonly advancedEventSelectors!: pulumi.Output<outputs.EventDataStoreAdvancedEventSelector[]>;
     /**
      * ARN of the event data store.
      */
@@ -192,7 +191,7 @@ export interface EventDataStoreState {
     /**
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
-    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelector>[]>;
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.EventDataStoreAdvancedEventSelector>[]>;
     /**
      * ARN of the event data store.
      */
@@ -240,7 +239,7 @@ export interface EventDataStoreArgs {
     /**
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
-    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelector>[]>;
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.EventDataStoreAdvancedEventSelector>[]>;
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */

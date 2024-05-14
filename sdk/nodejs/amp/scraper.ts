@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +55,7 @@ export class Scraper extends pulumi.CustomResource {
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
+    public readonly destination!: pulumi.Output<outputs.ScraperDestination | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
@@ -70,13 +69,13 @@ export class Scraper extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly source!: pulumi.Output<outputs.amp.ScraperSource | undefined>;
+    public readonly source!: pulumi.Output<outputs.ScraperSource | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ScraperTimeouts | undefined>;
 
     /**
      * Create a Scraper resource with the given unique name, arguments, and options.
@@ -135,7 +134,7 @@ export interface ScraperState {
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    destination?: pulumi.Input<inputs.ScraperDestination>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
@@ -149,13 +148,13 @@ export interface ScraperState {
      *
      * The following arguments are optional:
      */
-    source?: pulumi.Input<inputs.amp.ScraperSource>;
+    source?: pulumi.Input<inputs.ScraperSource>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts>;
+    timeouts?: pulumi.Input<inputs.ScraperTimeouts>;
 }
 
 /**
@@ -169,7 +168,7 @@ export interface ScraperArgs {
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
-    destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    destination?: pulumi.Input<inputs.ScraperDestination>;
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
@@ -179,7 +178,7 @@ export interface ScraperArgs {
      *
      * The following arguments are optional:
      */
-    source?: pulumi.Input<inputs.amp.ScraperSource>;
+    source?: pulumi.Input<inputs.ScraperSource>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts>;
+    timeouts?: pulumi.Input<inputs.ScraperTimeouts>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      */
-    public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
+    public readonly computeConfig!: pulumi.Output<outputs.ReplicationConfigComputeConfig>;
     /**
      * Unique identifier that you want to use to create the config.
      */
@@ -205,7 +204,7 @@ export interface ReplicationConfigState {
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      */
-    computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
+    computeConfig?: pulumi.Input<inputs.ReplicationConfigComputeConfig>;
     /**
      * Unique identifier that you want to use to create the config.
      */
@@ -261,7 +260,7 @@ export interface ReplicationConfigArgs {
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      */
-    computeConfig: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
+    computeConfig: pulumi.Input<inputs.ReplicationConfigComputeConfig>;
     /**
      * Unique identifier that you want to use to create the config.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +62,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    public readonly aclConfiguration!: pulumi.Output<outputs.athena.DatabaseAclConfiguration | undefined>;
+    public readonly aclConfiguration!: pulumi.Output<outputs.DatabaseAclConfiguration | undefined>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
@@ -75,7 +74,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.DatabaseEncryptionConfiguration | undefined>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
@@ -137,7 +136,7 @@ export interface DatabaseState {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
+    aclConfiguration?: pulumi.Input<inputs.DatabaseAclConfiguration>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
@@ -149,7 +148,7 @@ export interface DatabaseState {
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.DatabaseEncryptionConfiguration>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */
@@ -175,7 +174,7 @@ export interface DatabaseArgs {
     /**
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      */
-    aclConfiguration?: pulumi.Input<inputs.athena.DatabaseAclConfiguration>;
+    aclConfiguration?: pulumi.Input<inputs.DatabaseAclConfiguration>;
     /**
      * Name of S3 bucket to save the results of the query execution.
      */
@@ -187,7 +186,7 @@ export interface DatabaseArgs {
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.DatabaseEncryptionConfiguration>;
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      */

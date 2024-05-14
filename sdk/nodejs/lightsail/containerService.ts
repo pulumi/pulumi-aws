@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -157,7 +156,7 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      */
-    public readonly privateRegistryAccess!: pulumi.Output<outputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    public readonly privateRegistryAccess!: pulumi.Output<outputs.ContainerServicePrivateRegistryAccess>;
     /**
      * The public domain names to use with the container service, such as example.com
      * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -165,7 +164,7 @@ export class ContainerService extends pulumi.CustomResource {
      * service. If you don't specify public domain names, then you can use the default domain of the container service.
      * Defined below.
      */
-    public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
+    public readonly publicDomainNames!: pulumi.Output<outputs.ContainerServicePublicDomainNames | undefined>;
     /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      */
@@ -306,7 +305,7 @@ export interface ContainerServiceState {
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      */
-    privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    privateRegistryAccess?: pulumi.Input<inputs.ContainerServicePrivateRegistryAccess>;
     /**
      * The public domain names to use with the container service, such as example.com
      * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -314,7 +313,7 @@ export interface ContainerServiceState {
      * service. If you don't specify public domain names, then you can use the default domain of the container service.
      * Defined below.
      */
-    publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    publicDomainNames?: pulumi.Input<inputs.ContainerServicePublicDomainNames>;
     /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      */
@@ -371,7 +370,7 @@ export interface ContainerServiceArgs {
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      */
-    privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerServicePrivateRegistryAccess>;
+    privateRegistryAccess?: pulumi.Input<inputs.ContainerServicePrivateRegistryAccess>;
     /**
      * The public domain names to use with the container service, such as example.com
      * and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -379,7 +378,7 @@ export interface ContainerServiceArgs {
      * service. If you don't specify public domain names, then you can use the default domain of the container service.
      * Defined below.
      */
-    publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    publicDomainNames?: pulumi.Input<inputs.ContainerServicePublicDomainNames>;
     /**
      * The scale specification for the container service. The scale specifies the allocated compute
      * nodes of the container service.

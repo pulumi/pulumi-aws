@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,7 +124,7 @@ export class KxDataview extends pulumi.CustomResource {
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
-    public readonly segmentConfigurations!: pulumi.Output<outputs.finspace.KxDataviewSegmentConfiguration[] | undefined>;
+    public readonly segmentConfigurations!: pulumi.Output<outputs.KxDataviewSegmentConfiguration[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,7 +262,7 @@ export interface KxDataviewState {
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
-    segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxDataviewSegmentConfiguration>[]>;
+    segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.KxDataviewSegmentConfiguration>[]>;
     status?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -325,7 +324,7 @@ export interface KxDataviewArgs {
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
-    segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxDataviewSegmentConfiguration>[]>;
+    segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.KxDataviewSegmentConfiguration>[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

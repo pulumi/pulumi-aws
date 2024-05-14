@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
     /**
      * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
-    public readonly accessScope!: pulumi.Output<outputs.eks.AccessPolicyAssociationAccessScope>;
+    public readonly accessScope!: pulumi.Output<outputs.AccessPolicyAssociationAccessScope>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      */
@@ -140,7 +139,7 @@ export interface AccessPolicyAssociationState {
     /**
      * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
-    accessScope?: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope>;
+    accessScope?: pulumi.Input<inputs.AccessPolicyAssociationAccessScope>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      */
@@ -170,7 +169,7 @@ export interface AccessPolicyAssociationArgs {
     /**
      * The configuration block to determine the scope of the access. See `accessScope` Block below.
      */
-    accessScope: pulumi.Input<inputs.eks.AccessPolicyAssociationAccessScope>;
+    accessScope: pulumi.Input<inputs.AccessPolicyAssociationAccessScope>;
     /**
      * Name of the EKS Cluster.
      */

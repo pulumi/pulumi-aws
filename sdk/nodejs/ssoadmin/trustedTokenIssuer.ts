@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class TrustedTokenIssuer extends pulumi.CustomResource {
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    public readonly trustedTokenIssuerConfiguration!: pulumi.Output<outputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
+    public readonly trustedTokenIssuerConfiguration!: pulumi.Output<outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration | undefined>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *
@@ -161,7 +160,7 @@ export interface TrustedTokenIssuerState {
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
+    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *
@@ -193,7 +192,7 @@ export interface TrustedTokenIssuerArgs {
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      */
-    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
+    trustedTokenIssuerConfiguration?: pulumi.Input<inputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration>;
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
      *

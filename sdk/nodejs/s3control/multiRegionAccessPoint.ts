@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointDetails>;
+    public readonly details!: pulumi.Output<outputs.MultiRegionAccessPointDetails>;
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
@@ -151,7 +150,7 @@ export interface MultiRegionAccessPointState {
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
+    details?: pulumi.Input<inputs.MultiRegionAccessPointDetails>;
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
@@ -173,5 +172,5 @@ export interface MultiRegionAccessPointArgs {
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
-    details: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
+    details: pulumi.Input<inputs.MultiRegionAccessPointDetails>;
 }

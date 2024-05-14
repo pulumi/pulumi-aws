@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -158,7 +157,7 @@ export class ServiceRegion extends pulumi.CustomResource {
     /**
      * VPC information in the replicated Region. Detailed below.
      */
-    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.ServiceRegionVpcSettings>;
+    public readonly vpcSettings!: pulumi.Output<outputs.ServiceRegionVpcSettings>;
 
     /**
      * Create a ServiceRegion resource with the given unique name, arguments, and options.
@@ -231,7 +230,7 @@ export interface ServiceRegionState {
     /**
      * VPC information in the replicated Region. Detailed below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.ServiceRegionVpcSettings>;
 }
 
 /**
@@ -257,5 +256,5 @@ export interface ServiceRegionArgs {
     /**
      * VPC information in the replicated Region. Detailed below.
      */
-    vpcSettings: pulumi.Input<inputs.directoryservice.ServiceRegionVpcSettings>;
+    vpcSettings: pulumi.Input<inputs.ServiceRegionVpcSettings>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -201,7 +200,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
+    public readonly selfServicePermissions!: pulumi.Output<outputs.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
@@ -219,11 +218,11 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    public readonly workspaceAccessProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    public readonly workspaceAccessProperties!: pulumi.Output<outputs.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    public readonly workspaceCreationProperties!: pulumi.Output<outputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    public readonly workspaceCreationProperties!: pulumi.Output<outputs.DirectoryWorkspaceCreationProperties>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
@@ -328,7 +327,7 @@ export interface DirectoryState {
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
@@ -346,11 +345,11 @@ export interface DirectoryState {
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.DirectoryWorkspaceCreationProperties>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
@@ -372,7 +371,7 @@ export interface DirectoryArgs {
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
@@ -384,9 +383,9 @@ export interface DirectoryArgs {
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.DirectoryWorkspaceCreationProperties>;
 }

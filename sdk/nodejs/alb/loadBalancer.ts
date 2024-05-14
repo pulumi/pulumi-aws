@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {IpAddressType, LoadBalancerType} from "./index";
@@ -141,7 +141,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Access Logs block. See below.
      */
-    public readonly accessLogs!: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
+    public readonly accessLogs!: pulumi.Output<outputs.LoadBalancerAccessLogs | undefined>;
     /**
      * ARN of the load balancer (matches `id`).
      */
@@ -157,7 +157,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
-    public readonly connectionLogs!: pulumi.Output<outputs.alb.LoadBalancerConnectionLogs | undefined>;
+    public readonly connectionLogs!: pulumi.Output<outputs.LoadBalancerConnectionLogs | undefined>;
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      */
@@ -241,7 +241,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.alb.LoadBalancerSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<outputs.LoadBalancerSubnetMapping[]>;
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
@@ -360,7 +360,7 @@ export interface LoadBalancerState {
     /**
      * Access Logs block. See below.
      */
-    accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.LoadBalancerAccessLogs>;
     /**
      * ARN of the load balancer (matches `id`).
      */
@@ -376,7 +376,7 @@ export interface LoadBalancerState {
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
-    connectionLogs?: pulumi.Input<inputs.alb.LoadBalancerConnectionLogs>;
+    connectionLogs?: pulumi.Input<inputs.LoadBalancerConnectionLogs>;
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      */
@@ -460,7 +460,7 @@ export interface LoadBalancerState {
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
-    subnetMappings?: pulumi.Input<pulumi.Input<inputs.alb.LoadBalancerSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.LoadBalancerSubnetMapping>[]>;
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
@@ -493,7 +493,7 @@ export interface LoadBalancerArgs {
     /**
      * Access Logs block. See below.
      */
-    accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.LoadBalancerAccessLogs>;
     /**
      * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
      */
@@ -501,7 +501,7 @@ export interface LoadBalancerArgs {
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
-    connectionLogs?: pulumi.Input<inputs.alb.LoadBalancerConnectionLogs>;
+    connectionLogs?: pulumi.Input<inputs.LoadBalancerConnectionLogs>;
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      */
@@ -581,7 +581,7 @@ export interface LoadBalancerArgs {
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
-    subnetMappings?: pulumi.Input<pulumi.Input<inputs.alb.LoadBalancerSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.LoadBalancerSubnetMapping>[]>;
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */

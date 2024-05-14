@@ -36,6 +36,15 @@ export const TrustProvider: typeof import("./trustProvider").TrustProvider = nul
 utilities.lazyLoad(exports, ["TrustProvider"], () => require("./trustProvider"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

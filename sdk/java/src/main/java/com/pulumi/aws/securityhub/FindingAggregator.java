@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()
  *             .linkingMode("ALL_REGIONS")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()
  *             .linkingMode("ALL_REGIONS_EXCEPT_SPECIFIED")
  *             .specifiedRegions(            
  *                 "eu-west-1",
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()
  *             .linkingMode("SPECIFIED_REGIONS")
  *             .specifiedRegions(            
  *                 "eu-west-1",

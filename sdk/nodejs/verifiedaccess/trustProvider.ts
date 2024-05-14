@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class TrustProvider extends pulumi.CustomResource {
     /**
      * A block of options for device identity based trust providers.
      */
-    public readonly deviceOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderDeviceOptions | undefined>;
+    public readonly deviceOptions!: pulumi.Output<outputs.TrustProviderDeviceOptions | undefined>;
     /**
      * The type of device-based trust provider.
      */
@@ -74,7 +73,7 @@ export class TrustProvider extends pulumi.CustomResource {
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
-    public readonly oidcOptions!: pulumi.Output<outputs.verifiedaccess.TrustProviderOidcOptions | undefined>;
+    public readonly oidcOptions!: pulumi.Output<outputs.TrustProviderOidcOptions | undefined>;
     /**
      * The identifier to be used when working with policy rules.
      */
@@ -154,7 +153,7 @@ export interface TrustProviderState {
     /**
      * A block of options for device identity based trust providers.
      */
-    deviceOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderDeviceOptions>;
+    deviceOptions?: pulumi.Input<inputs.TrustProviderDeviceOptions>;
     /**
      * The type of device-based trust provider.
      */
@@ -162,7 +161,7 @@ export interface TrustProviderState {
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
-    oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions>;
+    oidcOptions?: pulumi.Input<inputs.TrustProviderOidcOptions>;
     /**
      * The identifier to be used when working with policy rules.
      */
@@ -198,7 +197,7 @@ export interface TrustProviderArgs {
     /**
      * A block of options for device identity based trust providers.
      */
-    deviceOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderDeviceOptions>;
+    deviceOptions?: pulumi.Input<inputs.TrustProviderDeviceOptions>;
     /**
      * The type of device-based trust provider.
      */
@@ -206,7 +205,7 @@ export interface TrustProviderArgs {
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      */
-    oidcOptions?: pulumi.Input<inputs.verifiedaccess.TrustProviderOidcOptions>;
+    oidcOptions?: pulumi.Input<inputs.TrustProviderOidcOptions>;
     /**
      * The identifier to be used when working with policy rules.
      */

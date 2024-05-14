@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .certificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .domainName("api.example.com")
  *             .build());
  * 
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
  *             .name(example.domainName())
  *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.id())
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .domainName("api.example.com")
  *             .regionalCertificateArn(exampleAwsAcmCertificateValidation.certificateArn())
  *             .endpointConfiguration(DomainNameEndpointConfigurationArgs.builder()
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  * 
  *         // Example DNS record using Route53.
  *         // Route53 is not specifically required; any DNS host can be used.
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
  *             .name(example.domainName())
  *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.id())

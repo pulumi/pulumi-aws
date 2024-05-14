@@ -86,6 +86,15 @@ export const ReplicaKey: typeof import("./replicaKey").ReplicaKey = null as any;
 utilities.lazyLoad(exports, ["ReplicaKey"], () => require("./replicaKey"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

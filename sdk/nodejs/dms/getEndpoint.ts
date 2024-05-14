@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export interface GetEndpointArgs {
 export interface GetEndpointResult {
     readonly certificateArn: string;
     readonly databaseName: string;
-    readonly elasticsearchSettings: outputs.dms.GetEndpointElasticsearchSetting[];
+    readonly elasticsearchSettings: outputs.GetEndpointElasticsearchSetting[];
     readonly endpointArn: string;
     readonly endpointId: string;
     readonly endpointType: string;
@@ -59,16 +58,16 @@ export interface GetEndpointResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly kafkaSettings: outputs.dms.GetEndpointKafkaSetting[];
-    readonly kinesisSettings: outputs.dms.GetEndpointKinesisSetting[];
+    readonly kafkaSettings: outputs.GetEndpointKafkaSetting[];
+    readonly kinesisSettings: outputs.GetEndpointKinesisSetting[];
     readonly kmsKeyArn: string;
-    readonly mongodbSettings: outputs.dms.GetEndpointMongodbSetting[];
+    readonly mongodbSettings: outputs.GetEndpointMongodbSetting[];
     readonly password: string;
     readonly port: number;
-    readonly postgresSettings: outputs.dms.GetEndpointPostgresSetting[];
-    readonly redisSettings: outputs.dms.GetEndpointRedisSetting[];
-    readonly redshiftSettings: outputs.dms.GetEndpointRedshiftSetting[];
-    readonly s3Settings: outputs.dms.GetEndpointS3Setting[];
+    readonly postgresSettings: outputs.GetEndpointPostgresSetting[];
+    readonly redisSettings: outputs.GetEndpointRedisSetting[];
+    readonly redshiftSettings: outputs.GetEndpointRedshiftSetting[];
+    readonly s3Settings: outputs.GetEndpointS3Setting[];
     readonly secretsManagerAccessRoleArn: string;
     readonly secretsManagerArn: string;
     readonly serverName: string;

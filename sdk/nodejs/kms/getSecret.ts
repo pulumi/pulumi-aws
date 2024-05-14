@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
@@ -19,7 +18,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
-    secrets: inputs.kms.GetSecretSecret[];
+    secrets: inputs.GetSecretSecret[];
 }
 
 /**
@@ -30,7 +29,7 @@ export interface GetSecretResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly secrets: outputs.kms.GetSecretSecret[];
+    readonly secrets: inputs.GetSecretSecret[];
 }
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
@@ -40,5 +39,5 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretOutputArgs {
-    secrets: pulumi.Input<pulumi.Input<inputs.kms.GetSecretSecretArgs>[]>;
+    secrets: pulumi.Input<pulumi.Input<inputs.GetSecretSecretArgs>[]>;
 }

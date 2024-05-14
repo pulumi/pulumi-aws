@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("my-test-trail")
  *             .forceDestroy(true)
  *             .build());
@@ -119,12 +119,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucketV2.id())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()        
+ *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()
  *             .name("example")
  *             .s3BucketName(exampleBucketV2.id())
  *             .s3KeyPrefix("prefix")
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trail("example", TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
  *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
@@ -215,7 +215,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trail("example", TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
  *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *             .bucket("important-bucket")
  *             .build());
  * 
- *         var example = new Trail("example", TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()
  *             .eventSelectors(TrailEventSelectorArgs.builder()
  *                 .readWriteType("All")
  *                 .includeManagementEvents(true)
@@ -317,7 +317,7 @@ import javax.annotation.Nullable;
  *             .bucket("not-important-bucket-2")
  *             .build());
  * 
- *         var example = new Trail("example", TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
  *                     .name("Log all S3 objects events except for two S3 buckets")
@@ -392,7 +392,7 @@ import javax.annotation.Nullable;
  *             .bucket("important-bucket-3")
  *             .build());
  * 
- *         var example = new Trail("example", TrailArgs.builder()        
+ *         var example = new Trail("example", TrailArgs.builder()
  *             .advancedEventSelectors(            
  *                 TrailAdvancedEventSelectorArgs.builder()
  *                     .name("Log PutObject and DeleteObject events for two S3 buckets")
@@ -481,11 +481,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("Example")
  *             .build());
  * 
- *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()        
+ *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()
  *             .cloudWatchLogsGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
  *             .build());
  * 

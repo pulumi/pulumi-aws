@@ -201,7 +201,16 @@ utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 
 
 // Export enums:
-export * from "../types/enums/rds";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

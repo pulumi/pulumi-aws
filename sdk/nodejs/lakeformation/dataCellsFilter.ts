@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,8 +68,8 @@ export class DataCellsFilter extends pulumi.CustomResource {
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    public readonly tableData!: pulumi.Output<outputs.lakeformation.DataCellsFilterTableData | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.lakeformation.DataCellsFilterTimeouts | undefined>;
+    public readonly tableData!: pulumi.Output<outputs.DataCellsFilterTableData | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DataCellsFilterTimeouts | undefined>;
 
     /**
      * Create a DataCellsFilter resource with the given unique name, arguments, and options.
@@ -104,8 +103,8 @@ export interface DataCellsFilterState {
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
-    timeouts?: pulumi.Input<inputs.lakeformation.DataCellsFilterTimeouts>;
+    tableData?: pulumi.Input<inputs.DataCellsFilterTableData>;
+    timeouts?: pulumi.Input<inputs.DataCellsFilterTimeouts>;
 }
 
 /**
@@ -115,6 +114,6 @@ export interface DataCellsFilterArgs {
     /**
      * Information about the data cells filter. See Table Data below for details.
      */
-    tableData?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableData>;
-    timeouts?: pulumi.Input<inputs.lakeformation.DataCellsFilterTimeouts>;
+    tableData?: pulumi.Input<inputs.DataCellsFilterTableData>;
+    timeouts?: pulumi.Input<inputs.DataCellsFilterTimeouts>;
 }

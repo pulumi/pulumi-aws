@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,23 +87,23 @@ export interface GetCustomModelResult {
     /**
      * Output data configuration associated with this custom model.
      */
-    readonly outputDataConfigs: outputs.bedrock.GetCustomModelOutputDataConfig[];
+    readonly outputDataConfigs: outputs.GetCustomModelOutputDataConfig[];
     /**
      * Information about the training dataset.
      */
-    readonly trainingDataConfigs: outputs.bedrock.GetCustomModelTrainingDataConfig[];
+    readonly trainingDataConfigs: outputs.GetCustomModelTrainingDataConfig[];
     /**
      * Metrics associated with the customization job.
      */
-    readonly trainingMetrics: outputs.bedrock.GetCustomModelTrainingMetric[];
+    readonly trainingMetrics: outputs.GetCustomModelTrainingMetric[];
     /**
      * Information about the validation dataset.
      */
-    readonly validationDataConfigs: outputs.bedrock.GetCustomModelValidationDataConfig[];
+    readonly validationDataConfigs: outputs.GetCustomModelValidationDataConfig[];
     /**
      * The loss metric for each validator that you provided.
      */
-    readonly validationMetrics: outputs.bedrock.GetCustomModelValidationMetric[];
+    readonly validationMetrics: outputs.GetCustomModelValidationMetric[];
 }
 /**
  * Returns properties of a specific Amazon Bedrock custom model.

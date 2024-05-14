@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +106,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     /**
      * Virtual router specification to apply.
      */
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualRouterSpec>;
+    public readonly spec!: pulumi.Output<outputs.VirtualRouterSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -201,7 +200,7 @@ export interface VirtualRouterState {
     /**
      * Virtual router specification to apply.
      */
-    spec?: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
+    spec?: pulumi.Input<inputs.VirtualRouterSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -233,7 +232,7 @@ export interface VirtualRouterArgs {
     /**
      * Virtual router specification to apply.
      */
-    spec: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
+    spec: pulumi.Input<inputs.VirtualRouterSpec>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

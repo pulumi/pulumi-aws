@@ -47,18 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverFirewallDomainList("example", ResolverFirewallDomainListArgs.builder()        
+ *         var example = new ResolverFirewallDomainList("example", ResolverFirewallDomainListArgs.builder()
  *             .name("example")
  *             .domains("example.com")
  *             .tags()
  *             .build());
  * 
- *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", ResolverFirewallRuleGroupArgs.builder()        
+ *         var exampleResolverFirewallRuleGroup = new ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", ResolverFirewallRuleGroupArgs.builder()
  *             .name("example")
  *             .tags()
  *             .build());
  * 
- *         var exampleResolverFirewallRule = new ResolverFirewallRule("exampleResolverFirewallRule", ResolverFirewallRuleArgs.builder()        
+ *         var exampleResolverFirewallRule = new ResolverFirewallRule("exampleResolverFirewallRule", ResolverFirewallRuleArgs.builder()
  *             .name("example")
  *             .action("BLOCK")
  *             .blockOverrideDnsType("CNAME")

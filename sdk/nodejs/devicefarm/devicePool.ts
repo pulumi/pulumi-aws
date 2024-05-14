@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class DevicePool extends pulumi.CustomResource {
     /**
      * The device pool's rules. See Rule.
      */
-    public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
+    public readonly rules!: pulumi.Output<outputs.DevicePoolRule[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -171,7 +170,7 @@ export interface DevicePoolState {
     /**
      * The device pool's rules. See Rule.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.DevicePoolRule>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -208,7 +207,7 @@ export interface DevicePoolArgs {
     /**
      * The device pool's rules. See Rule.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.DevicePoolRule>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

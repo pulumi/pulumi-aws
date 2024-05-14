@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class DevEnvironment extends pulumi.CustomResource {
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    public readonly ides!: pulumi.Output<outputs.codecatalyst.DevEnvironmentIdes>;
+    public readonly ides!: pulumi.Output<outputs.DevEnvironmentIdes>;
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
@@ -82,7 +81,7 @@ export class DevEnvironment extends pulumi.CustomResource {
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    public readonly persistentStorage!: pulumi.Output<outputs.codecatalyst.DevEnvironmentPersistentStorage>;
+    public readonly persistentStorage!: pulumi.Output<outputs.DevEnvironmentPersistentStorage>;
     /**
      * The name of the project in the space.
      */
@@ -90,7 +89,7 @@ export class DevEnvironment extends pulumi.CustomResource {
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    public readonly repositories!: pulumi.Output<outputs.codecatalyst.DevEnvironmentRepository[] | undefined>;
+    public readonly repositories!: pulumi.Output<outputs.DevEnvironmentRepository[] | undefined>;
     /**
      * The name of the space.
      */
@@ -156,7 +155,7 @@ export interface DevEnvironmentState {
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    ides?: pulumi.Input<inputs.codecatalyst.DevEnvironmentIdes>;
+    ides?: pulumi.Input<inputs.DevEnvironmentIdes>;
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
@@ -170,7 +169,7 @@ export interface DevEnvironmentState {
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    persistentStorage?: pulumi.Input<inputs.codecatalyst.DevEnvironmentPersistentStorage>;
+    persistentStorage?: pulumi.Input<inputs.DevEnvironmentPersistentStorage>;
     /**
      * The name of the project in the space.
      */
@@ -178,7 +177,7 @@ export interface DevEnvironmentState {
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.DevEnvironmentRepository>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.DevEnvironmentRepository>[]>;
     /**
      * The name of the space.
      */
@@ -193,7 +192,7 @@ export interface DevEnvironmentArgs {
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    ides: pulumi.Input<inputs.codecatalyst.DevEnvironmentIdes>;
+    ides: pulumi.Input<inputs.DevEnvironmentIdes>;
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
@@ -207,7 +206,7 @@ export interface DevEnvironmentArgs {
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    persistentStorage: pulumi.Input<inputs.codecatalyst.DevEnvironmentPersistentStorage>;
+    persistentStorage: pulumi.Input<inputs.DevEnvironmentPersistentStorage>;
     /**
      * The name of the project in the space.
      */
@@ -215,7 +214,7 @@ export interface DevEnvironmentArgs {
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.DevEnvironmentRepository>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.DevEnvironmentRepository>[]>;
     /**
      * The name of the space.
      */

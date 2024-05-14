@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()        
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .relationalDatabaseName("test")
  *             .availabilityZone("us-east-1a")
  *             .masterDatabaseName("testdatabasename")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()        
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .relationalDatabaseName("test")
  *             .availabilityZone("us-east-1a")
  *             .masterDatabaseName("testdatabasename")
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()        
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .relationalDatabaseName("test")
  *             .availabilityZone("us-east-1a")
  *             .masterDatabaseName("testdatabasename")
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()        
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .relationalDatabaseName("test")
  *             .availabilityZone("us-east-1a")
  *             .masterDatabaseName("testdatabasename")
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Database("test", DatabaseArgs.builder()        
+ *         var test = new Database("test", DatabaseArgs.builder()
  *             .relationalDatabaseName("test")
  *             .availabilityZone("us-east-1a")
  *             .masterDatabaseName("testdatabasename")

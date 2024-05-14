@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Lightsail Key Pair
- *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()
  *             .name("lg_key_pair")
  *             .build());
  * 
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()
  *             .name("lg_key_pair")
  *             .pgpKey("keybase:keybaseusername")
  *             .build());
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()        
+ *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()
  *             .name("importing")
  *             .publicKey(StdFunctions.file(FileArgs.builder()
  *                 .input("~/.ssh/id_rsa.pub")

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +68,7 @@ export interface GetAmiArgs {
      * several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    filters?: inputs.ec2.GetAmiFilter[];
+    filters?: inputs.GetAmiFilter[];
     /**
      * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
      */
@@ -118,7 +118,7 @@ export interface GetAmiResult {
     /**
      * Set of objects with block device mappings of the AMI.
      */
-    readonly blockDeviceMappings: outputs.ec2.GetAmiBlockDeviceMapping[];
+    readonly blockDeviceMappings: outputs.GetAmiBlockDeviceMapping[];
     /**
      * Boot mode of the image.
      */
@@ -141,7 +141,7 @@ export interface GetAmiResult {
      */
     readonly enaSupport: boolean;
     readonly executableUsers?: string[];
-    readonly filters?: outputs.ec2.GetAmiFilter[];
+    readonly filters?: inputs.GetAmiFilter[];
     /**
      * Hypervisor type of the image.
      */
@@ -201,7 +201,7 @@ export interface GetAmiResult {
      * * `product_codes.#.product_code_id` - The product code.
      * * `product_codes.#.product_code_type` - The type of product code.
      */
-    readonly productCodes: outputs.ec2.GetAmiProductCode[];
+    readonly productCodes: outputs.GetAmiProductCode[];
     /**
      * `true` if the image has public launch permissions.
      */
@@ -307,7 +307,7 @@ export interface GetAmiOutputArgs {
      * several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAmiFilterArgs>[]>;
     /**
      * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
      */

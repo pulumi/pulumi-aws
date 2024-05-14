@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -140,7 +139,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      */
-    public readonly inputParameters!: pulumi.Output<outputs.cfg.OrganizationConformancePackInputParameter[] | undefined>;
+    public readonly inputParameters!: pulumi.Output<outputs.OrganizationConformancePackInputParameter[] | undefined>;
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      */
@@ -214,7 +213,7 @@ export interface OrganizationConformancePackState {
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      */
-    inputParameters?: pulumi.Input<pulumi.Input<inputs.cfg.OrganizationConformancePackInputParameter>[]>;
+    inputParameters?: pulumi.Input<pulumi.Input<inputs.OrganizationConformancePackInputParameter>[]>;
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      */
@@ -248,7 +247,7 @@ export interface OrganizationConformancePackArgs {
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
      */
-    inputParameters?: pulumi.Input<pulumi.Input<inputs.cfg.OrganizationConformancePackInputParameter>[]>;
+    inputParameters?: pulumi.Input<pulumi.Input<inputs.OrganizationConformancePackInputParameter>[]>;
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +65,7 @@ export interface GetVpcDhcpOptionsArgs {
     /**
      * List of custom filters as described below.
      */
-    filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
+    filters?: inputs.GetVpcDhcpOptionsFilter[];
     /**
      * Map of tags assigned to the resource.
      */
@@ -92,7 +92,7 @@ export interface GetVpcDhcpOptionsResult {
      * List of name servers.
      */
     readonly domainNameServers: string[];
-    readonly filters?: outputs.ec2.GetVpcDhcpOptionsFilter[];
+    readonly filters?: inputs.GetVpcDhcpOptionsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -173,7 +173,7 @@ export interface GetVpcDhcpOptionsOutputArgs {
     /**
      * List of custom filters as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcDhcpOptionsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcDhcpOptionsFilterArgs>[]>;
     /**
      * Map of tags assigned to the resource.
      */

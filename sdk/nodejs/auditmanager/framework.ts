@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class Framework extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly controlSets!: pulumi.Output<outputs.auditmanager.FrameworkControlSet[] | undefined>;
+    public readonly controlSets!: pulumi.Output<outputs.FrameworkControlSet[] | undefined>;
     /**
      * Description of the framework.
      */
@@ -161,7 +160,7 @@ export interface FrameworkState {
      *
      * The following arguments are optional:
      */
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[]>;
+    controlSets?: pulumi.Input<pulumi.Input<inputs.FrameworkControlSet>[]>;
     /**
      * Description of the framework.
      */
@@ -197,7 +196,7 @@ export interface FrameworkArgs {
      *
      * The following arguments are optional:
      */
-    controlSets?: pulumi.Input<pulumi.Input<inputs.auditmanager.FrameworkControlSet>[]>;
+    controlSets?: pulumi.Input<pulumi.Input<inputs.FrameworkControlSet>[]>;
     /**
      * Description of the framework.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -178,7 +178,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclV2AccessControlPolicy>;
+    public readonly accessControlPolicy!: pulumi.Output<outputs.BucketAclV2AccessControlPolicy>;
     /**
      * Canned ACL to apply to the bucket.
      */
@@ -231,7 +231,7 @@ export interface BucketAclV2State {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
+    accessControlPolicy?: pulumi.Input<inputs.BucketAclV2AccessControlPolicy>;
     /**
      * Canned ACL to apply to the bucket.
      */
@@ -253,7 +253,7 @@ export interface BucketAclV2Args {
     /**
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      */
-    accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
+    accessControlPolicy?: pulumi.Input<inputs.BucketAclV2AccessControlPolicy>;
     /**
      * Canned ACL to apply to the bucket.
      */

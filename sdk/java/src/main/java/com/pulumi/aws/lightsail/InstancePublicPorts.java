@@ -50,14 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance("test", InstanceArgs.builder()        
+ *         var test = new Instance("test", InstanceArgs.builder()
  *             .name("yak_sail")
  *             .availabilityZone(available.names()[0])
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testInstancePublicPorts = new InstancePublicPorts("testInstancePublicPorts", InstancePublicPortsArgs.builder()        
+ *         var testInstancePublicPorts = new InstancePublicPorts("testInstancePublicPorts", InstancePublicPortsArgs.builder()
  *             .instanceName(test.name())
  *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
  *                 .protocol("tcp")

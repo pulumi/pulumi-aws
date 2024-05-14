@@ -21,6 +21,15 @@ export const LandingZone: typeof import("./landingZone").LandingZone = null as a
 utilities.lazyLoad(exports, ["LandingZone"], () => require("./landingZone"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -133,7 +132,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
-    public readonly stages!: pulumi.Output<outputs.ssmcontacts.PlanStage[]>;
+    public readonly stages!: pulumi.Output<outputs.PlanStage[]>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -177,7 +176,7 @@ export interface PlanState {
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
-    stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.PlanStage>[]>;
 }
 
 /**
@@ -191,5 +190,5 @@ export interface PlanArgs {
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
-    stages: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
+    stages: pulumi.Input<pulumi.Input<inputs.PlanStage>[]>;
 }

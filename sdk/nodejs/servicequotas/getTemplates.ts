@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +42,7 @@ export interface GetTemplatesArgs {
     /**
      * A list of quota increase templates for specified region. See `templates`.
      */
-    templates?: inputs.servicequotas.GetTemplatesTemplate[];
+    templates?: inputs.GetTemplatesTemplate[];
 }
 
 /**
@@ -58,7 +57,7 @@ export interface GetTemplatesResult {
     /**
      * A list of quota increase templates for specified region. See `templates`.
      */
-    readonly templates?: outputs.servicequotas.GetTemplatesTemplate[];
+    readonly templates?: inputs.GetTemplatesTemplate[];
 }
 /**
  * Data source for managing an AWS Service Quotas Templates.
@@ -91,5 +90,5 @@ export interface GetTemplatesOutputArgs {
     /**
      * A list of quota increase templates for specified region. See `templates`.
      */
-    templates?: pulumi.Input<pulumi.Input<inputs.servicequotas.GetTemplatesTemplateArgs>[]>;
+    templates?: pulumi.Input<pulumi.Input<inputs.GetTemplatesTemplateArgs>[]>;
 }

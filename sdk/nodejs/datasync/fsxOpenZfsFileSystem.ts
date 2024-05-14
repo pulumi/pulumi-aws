@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * The type of protocol that DataSync uses to access your file system. See below.
      */
-    public readonly protocol!: pulumi.Output<outputs.datasync.FsxOpenZfsFileSystemProtocol>;
+    public readonly protocol!: pulumi.Output<outputs.FsxOpenZfsFileSystemProtocol>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      */
@@ -171,7 +170,7 @@ export interface FsxOpenZfsFileSystemState {
     /**
      * The type of protocol that DataSync uses to access your file system. See below.
      */
-    protocol?: pulumi.Input<inputs.datasync.FsxOpenZfsFileSystemProtocol>;
+    protocol?: pulumi.Input<inputs.FsxOpenZfsFileSystemProtocol>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      */
@@ -207,7 +206,7 @@ export interface FsxOpenZfsFileSystemArgs {
     /**
      * The type of protocol that DataSync uses to access your file system. See below.
      */
-    protocol: pulumi.Input<inputs.datasync.FsxOpenZfsFileSystemProtocol>;
+    protocol: pulumi.Input<inputs.FsxOpenZfsFileSystemProtocol>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
      */

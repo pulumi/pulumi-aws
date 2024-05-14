@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +40,7 @@ export interface GetSecurityGroupRulesArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.vpc.GetSecurityGroupRulesFilter[];
+    filters?: inputs.GetSecurityGroupRulesFilter[];
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
@@ -56,7 +55,7 @@ export interface GetSecurityGroupRulesArgs {
  * A collection of values returned by getSecurityGroupRules.
  */
 export interface GetSecurityGroupRulesResult {
-    readonly filters?: outputs.vpc.GetSecurityGroupRulesFilter[];
+    readonly filters?: inputs.GetSecurityGroupRulesFilter[];
     readonly id: string;
     /**
      * List of all the security group rule IDs found.
@@ -92,7 +91,7 @@ export interface GetSecurityGroupRulesOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRulesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSecurityGroupRulesFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.

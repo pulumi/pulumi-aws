@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export interface GetCachePolicyResult {
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    readonly parametersInCacheKeyAndForwardedToOrigins: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin[];
+    readonly parametersInCacheKeyAndForwardedToOrigins: outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin[];
 }
 /**
  * Use this data source to retrieve information about a CloudFront cache policy.

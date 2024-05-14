@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -112,7 +111,7 @@ export class CustomModel extends pulumi.CustomResource {
     /**
      * S3 location for the output data.
      */
-    public readonly outputDataConfig!: pulumi.Output<outputs.bedrock.CustomModelOutputDataConfig | undefined>;
+    public readonly outputDataConfig!: pulumi.Output<outputs.CustomModelOutputDataConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
@@ -127,27 +126,27 @@ export class CustomModel extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.CustomModelTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.CustomModelTimeouts | undefined>;
     /**
      * Information about the training dataset.
      */
-    public readonly trainingDataConfig!: pulumi.Output<outputs.bedrock.CustomModelTrainingDataConfig | undefined>;
+    public readonly trainingDataConfig!: pulumi.Output<outputs.CustomModelTrainingDataConfig | undefined>;
     /**
      * Metrics associated with the customization job.
      */
-    public /*out*/ readonly trainingMetrics!: pulumi.Output<outputs.bedrock.CustomModelTrainingMetric[]>;
+    public /*out*/ readonly trainingMetrics!: pulumi.Output<outputs.CustomModelTrainingMetric[]>;
     /**
      * Information about the validation dataset.
      */
-    public readonly validationDataConfig!: pulumi.Output<outputs.bedrock.CustomModelValidationDataConfig | undefined>;
+    public readonly validationDataConfig!: pulumi.Output<outputs.CustomModelValidationDataConfig | undefined>;
     /**
      * The loss metric for each validator that you provided.
      */
-    public /*out*/ readonly validationMetrics!: pulumi.Output<outputs.bedrock.CustomModelValidationMetric[]>;
+    public /*out*/ readonly validationMetrics!: pulumi.Output<outputs.CustomModelValidationMetric[]>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.bedrock.CustomModelVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.CustomModelVpcConfig | undefined>;
 
     /**
      * Create a CustomModel resource with the given unique name, arguments, and options.
@@ -266,7 +265,7 @@ export interface CustomModelState {
     /**
      * S3 location for the output data.
      */
-    outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.CustomModelOutputDataConfig>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
@@ -281,27 +280,27 @@ export interface CustomModelState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts>;
+    timeouts?: pulumi.Input<inputs.CustomModelTimeouts>;
     /**
      * Information about the training dataset.
      */
-    trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
+    trainingDataConfig?: pulumi.Input<inputs.CustomModelTrainingDataConfig>;
     /**
      * Metrics associated with the customization job.
      */
-    trainingMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelTrainingMetric>[]>;
+    trainingMetrics?: pulumi.Input<pulumi.Input<inputs.CustomModelTrainingMetric>[]>;
     /**
      * Information about the validation dataset.
      */
-    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig>;
+    validationDataConfig?: pulumi.Input<inputs.CustomModelValidationDataConfig>;
     /**
      * The loss metric for each validator that you provided.
      */
-    validationMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.CustomModelValidationMetric>[]>;
+    validationMetrics?: pulumi.Input<pulumi.Input<inputs.CustomModelValidationMetric>[]>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.CustomModelVpcConfig>;
 }
 
 /**
@@ -335,7 +334,7 @@ export interface CustomModelArgs {
     /**
      * S3 location for the output data.
      */
-    outputDataConfig?: pulumi.Input<inputs.bedrock.CustomModelOutputDataConfig>;
+    outputDataConfig?: pulumi.Input<inputs.CustomModelOutputDataConfig>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      */
@@ -344,17 +343,17 @@ export interface CustomModelArgs {
      * A map of tags to assign to the customization job and custom model. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.CustomModelTimeouts>;
+    timeouts?: pulumi.Input<inputs.CustomModelTimeouts>;
     /**
      * Information about the training dataset.
      */
-    trainingDataConfig?: pulumi.Input<inputs.bedrock.CustomModelTrainingDataConfig>;
+    trainingDataConfig?: pulumi.Input<inputs.CustomModelTrainingDataConfig>;
     /**
      * Information about the validation dataset.
      */
-    validationDataConfig?: pulumi.Input<inputs.bedrock.CustomModelValidationDataConfig>;
+    validationDataConfig?: pulumi.Input<inputs.CustomModelValidationDataConfig>;
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      */
-    vpcConfig?: pulumi.Input<inputs.bedrock.CustomModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.CustomModelVpcConfig>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    public readonly kmsKeyDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
+    public readonly kmsKeyDetails!: pulumi.Output<outputs.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
      * The name of the repository.
      */
@@ -92,8 +91,8 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly repository!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
-    public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
+    public readonly repository!: pulumi.Output<outputs.RepositoryAssociationRepository>;
+    public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.RepositoryAssociationS3RepositoryDetail[]>;
     /**
      * The state of the repository association.
      */
@@ -177,7 +176,7 @@ export interface RepositoryAssociationState {
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
+    kmsKeyDetails?: pulumi.Input<inputs.RepositoryAssociationKmsKeyDetails>;
     /**
      * The name of the repository.
      */
@@ -195,8 +194,8 @@ export interface RepositoryAssociationState {
      *
      * The following arguments are optional:
      */
-    repository?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
-    s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail>[]>;
+    repository?: pulumi.Input<inputs.RepositoryAssociationRepository>;
+    s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.RepositoryAssociationS3RepositoryDetail>[]>;
     /**
      * The state of the repository association.
      */
@@ -219,12 +218,12 @@ export interface RepositoryAssociationArgs {
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      */
-    kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
+    kmsKeyDetails?: pulumi.Input<inputs.RepositoryAssociationKmsKeyDetails>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
      *
      * The following arguments are optional:
      */
-    repository: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
+    repository: pulumi.Input<inputs.RepositoryAssociationRepository>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .availabilityZones(            
  *                 available.names()[0],
@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("example-events")
  *             .build());
  * 
- *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()        
+ *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()
  *             .name("example")
  *             .enabled(true)
  *             .eventCategories(            

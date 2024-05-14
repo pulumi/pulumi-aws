@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export interface GetOriginRequestPolicyResult {
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
-    readonly cookiesConfigs: outputs.cloudfront.GetOriginRequestPolicyCookiesConfig[];
+    readonly cookiesConfigs: outputs.GetOriginRequestPolicyCookiesConfig[];
     /**
      * Current version of the origin request policy.
      */
@@ -77,13 +76,13 @@ export interface GetOriginRequestPolicyResult {
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */
-    readonly headersConfigs: outputs.cloudfront.GetOriginRequestPolicyHeadersConfig[];
+    readonly headersConfigs: outputs.GetOriginRequestPolicyHeadersConfig[];
     readonly id?: string;
     readonly name?: string;
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
-    readonly queryStringsConfigs: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfig[];
+    readonly queryStringsConfigs: outputs.GetOriginRequestPolicyQueryStringsConfig[];
 }
 /**
  * ## Example Usage

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,11 +103,11 @@ export class Replicator extends pulumi.CustomResource {
     /**
      * A list of Kafka clusters which are targets of the replicator.
      */
-    public readonly kafkaClusters!: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
+    public readonly kafkaClusters!: pulumi.Output<outputs.ReplicatorKafkaCluster[]>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
-    public readonly replicationInfoList!: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
+    public readonly replicationInfoList!: pulumi.Output<outputs.ReplicatorReplicationInfoList>;
     /**
      * The name of the replicator.
      */
@@ -190,11 +189,11 @@ export interface ReplicatorState {
     /**
      * A list of Kafka clusters which are targets of the replicator.
      */
-    kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
+    kafkaClusters?: pulumi.Input<pulumi.Input<inputs.ReplicatorKafkaCluster>[]>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
-    replicationInfoList?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
+    replicationInfoList?: pulumi.Input<inputs.ReplicatorReplicationInfoList>;
     /**
      * The name of the replicator.
      */
@@ -221,11 +220,11 @@ export interface ReplicatorArgs {
     /**
      * A list of Kafka clusters which are targets of the replicator.
      */
-    kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
+    kafkaClusters: pulumi.Input<pulumi.Input<inputs.ReplicatorKafkaCluster>[]>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
-    replicationInfoList: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
+    replicationInfoList: pulumi.Input<inputs.ReplicatorReplicationInfoList>;
     /**
      * The name of the replicator.
      */

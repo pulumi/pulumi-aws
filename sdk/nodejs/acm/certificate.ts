@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -169,7 +168,7 @@ export class Certificate extends pulumi.CustomResource {
      * Can have more than one element, e.g., if SANs are defined.
      * Only set if `DNS`-validation was used.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.CertificateDomainValidationOption[]>;
     public readonly earlyRenewalDuration!: pulumi.Output<string | undefined>;
     public readonly keyAlgorithm!: pulumi.Output<string>;
     /**
@@ -180,7 +179,7 @@ export class Certificate extends pulumi.CustomResource {
      * Start of the validity period of the certificate.
      */
     public /*out*/ readonly notBefore!: pulumi.Output<string>;
-    public readonly options!: pulumi.Output<outputs.acm.CertificateOptions>;
+    public readonly options!: pulumi.Output<outputs.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
@@ -193,7 +192,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      */
-    public /*out*/ readonly renewalSummaries!: pulumi.Output<outputs.acm.CertificateRenewalSummary[]>;
+    public /*out*/ readonly renewalSummaries!: pulumi.Output<outputs.CertificateRenewalSummary[]>;
     /**
      * Status of the certificate.
      */
@@ -222,7 +221,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
     public readonly validationMethod!: pulumi.Output<string>;
-    public readonly validationOptions!: pulumi.Output<outputs.acm.CertificateValidationOption[] | undefined>;
+    public readonly validationOptions!: pulumi.Output<outputs.CertificateValidationOption[] | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -313,7 +312,7 @@ export interface CertificateState {
      * Can have more than one element, e.g., if SANs are defined.
      * Only set if `DNS`-validation was used.
      */
-    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
+    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.CertificateDomainValidationOption>[]>;
     earlyRenewalDuration?: pulumi.Input<string>;
     keyAlgorithm?: pulumi.Input<string>;
     /**
@@ -324,7 +323,7 @@ export interface CertificateState {
      * Start of the validity period of the certificate.
      */
     notBefore?: pulumi.Input<string>;
-    options?: pulumi.Input<inputs.acm.CertificateOptions>;
+    options?: pulumi.Input<inputs.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
@@ -337,7 +336,7 @@ export interface CertificateState {
     /**
      * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
      */
-    renewalSummaries?: pulumi.Input<pulumi.Input<inputs.acm.CertificateRenewalSummary>[]>;
+    renewalSummaries?: pulumi.Input<pulumi.Input<inputs.CertificateRenewalSummary>[]>;
     /**
      * Status of the certificate.
      */
@@ -366,7 +365,7 @@ export interface CertificateState {
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     validationMethod?: pulumi.Input<string>;
-    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.CertificateValidationOption>[]>;
 }
 
 /**
@@ -382,7 +381,7 @@ export interface CertificateArgs {
     domainName?: pulumi.Input<string>;
     earlyRenewalDuration?: pulumi.Input<string>;
     keyAlgorithm?: pulumi.Input<string>;
-    options?: pulumi.Input<inputs.acm.CertificateOptions>;
+    options?: pulumi.Input<inputs.CertificateOptions>;
     privateKey?: pulumi.Input<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.
@@ -394,5 +393,5 @@ export interface CertificateArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     validationMethod?: pulumi.Input<string>;
-    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.CertificateValidationOption>[]>;
 }

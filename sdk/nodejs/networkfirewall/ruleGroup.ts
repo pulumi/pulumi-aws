@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -341,7 +340,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.RuleGroupEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.RuleGroupEncryptionConfiguration | undefined>;
     /**
      * A friendly name of the rule group.
      */
@@ -349,7 +348,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup>;
+    public readonly ruleGroup!: pulumi.Output<outputs.RuleGroupRuleGroup>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */
@@ -441,7 +440,7 @@ export interface RuleGroupState {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.RuleGroupEncryptionConfiguration>;
     /**
      * A friendly name of the rule group.
      */
@@ -449,7 +448,7 @@ export interface RuleGroupState {
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    ruleGroup?: pulumi.Input<inputs.RuleGroupRuleGroup>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */
@@ -489,7 +488,7 @@ export interface RuleGroupArgs {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.RuleGroupEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.RuleGroupEncryptionConfiguration>;
     /**
      * A friendly name of the rule group.
      */
@@ -497,7 +496,7 @@ export interface RuleGroupArgs {
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    ruleGroup?: pulumi.Input<inputs.RuleGroupRuleGroup>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -162,7 +161,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    public readonly connectSettings!: pulumi.Output<outputs.directoryservice.DirectoryConnectSettings | undefined>;
+    public readonly connectSettings!: pulumi.Output<outputs.DirectoryConnectSettings | undefined>;
     /**
      * A textual description for the directory.
      */
@@ -220,7 +219,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.DirectoryVpcSettings | undefined>;
+    public readonly vpcSettings!: pulumi.Output<outputs.DirectoryVpcSettings | undefined>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -300,7 +299,7 @@ export interface DirectoryState {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
+    connectSettings?: pulumi.Input<inputs.DirectoryConnectSettings>;
     /**
      * A textual description for the directory.
      */
@@ -358,7 +357,7 @@ export interface DirectoryState {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.DirectoryVpcSettings>;
 }
 
 /**
@@ -372,7 +371,7 @@ export interface DirectoryArgs {
     /**
      * Connector related information about the directory. Fields documented below.
      */
-    connectSettings?: pulumi.Input<inputs.directoryservice.DirectoryConnectSettings>;
+    connectSettings?: pulumi.Input<inputs.DirectoryConnectSettings>;
     /**
      * A textual description for the directory.
      */
@@ -416,5 +415,5 @@ export interface DirectoryArgs {
     /**
      * VPC related information about the directory. Fields documented below.
      */
-    vpcSettings?: pulumi.Input<inputs.directoryservice.DirectoryVpcSettings>;
+    vpcSettings?: pulumi.Input<inputs.DirectoryVpcSettings>;
 }

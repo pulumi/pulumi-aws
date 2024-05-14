@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -105,7 +105,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    public readonly filter!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
+    public readonly filter!: pulumi.Output<outputs.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
@@ -117,7 +117,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */
-    public readonly tierings!: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationTiering[]>;
+    public readonly tierings!: pulumi.Output<outputs.BucketIntelligentTieringConfigurationTiering[]>;
 
     /**
      * Create a BucketIntelligentTieringConfiguration resource with the given unique name, arguments, and options.
@@ -167,7 +167,7 @@ export interface BucketIntelligentTieringConfigurationState {
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
+    filter?: pulumi.Input<inputs.BucketIntelligentTieringConfigurationFilter>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
@@ -179,7 +179,7 @@ export interface BucketIntelligentTieringConfigurationState {
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */
-    tierings?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
+    tierings?: pulumi.Input<pulumi.Input<inputs.BucketIntelligentTieringConfigurationTiering>[]>;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface BucketIntelligentTieringConfigurationArgs {
     /**
      * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter>;
+    filter?: pulumi.Input<inputs.BucketIntelligentTieringConfigurationFilter>;
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
@@ -205,5 +205,5 @@ export interface BucketIntelligentTieringConfigurationArgs {
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      */
-    tierings: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
+    tierings: pulumi.Input<pulumi.Input<inputs.BucketIntelligentTieringConfigurationTiering>[]>;
 }

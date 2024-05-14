@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +100,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    public readonly filter!: pulumi.Output<outputs.s3.AnalyticsConfigurationFilter | undefined>;
+    public readonly filter!: pulumi.Output<outputs.AnalyticsConfigurationFilter | undefined>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
@@ -108,7 +108,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
     /**
      * Configuration for the analytics data export (documented below).
      */
-    public readonly storageClassAnalysis!: pulumi.Output<outputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
+    public readonly storageClassAnalysis!: pulumi.Output<outputs.AnalyticsConfigurationStorageClassAnalysis | undefined>;
 
     /**
      * Create a AnalyticsConfiguration resource with the given unique name, arguments, and options.
@@ -153,7 +153,7 @@ export interface AnalyticsConfigurationState {
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    filter?: pulumi.Input<inputs.AnalyticsConfigurationFilter>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
@@ -161,7 +161,7 @@ export interface AnalyticsConfigurationState {
     /**
      * Configuration for the analytics data export (documented below).
      */
-    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
+    storageClassAnalysis?: pulumi.Input<inputs.AnalyticsConfigurationStorageClassAnalysis>;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface AnalyticsConfigurationArgs {
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    filter?: pulumi.Input<inputs.s3.AnalyticsConfigurationFilter>;
+    filter?: pulumi.Input<inputs.AnalyticsConfigurationFilter>;
     /**
      * Unique identifier of the analytics configuration for the bucket.
      */
@@ -183,5 +183,5 @@ export interface AnalyticsConfigurationArgs {
     /**
      * Configuration for the analytics data export (documented below).
      */
-    storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
+    storageClassAnalysis?: pulumi.Input<inputs.AnalyticsConfigurationStorageClassAnalysis>;
 }

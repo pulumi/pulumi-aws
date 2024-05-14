@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
-    public readonly configs!: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
+    public readonly configs!: pulumi.Output<outputs.HoursOfOperationConfig[]>;
     /**
      * Specifies the description of the Hours of Operation.
      */
@@ -186,7 +185,7 @@ export interface HoursOfOperationState {
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
-    configs?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationConfig>[]>;
+    configs?: pulumi.Input<pulumi.Input<inputs.HoursOfOperationConfig>[]>;
     /**
      * Specifies the description of the Hours of Operation.
      */
@@ -226,7 +225,7 @@ export interface HoursOfOperationArgs {
     /**
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      */
-    configs: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationConfig>[]>;
+    configs: pulumi.Input<pulumi.Input<inputs.HoursOfOperationConfig>[]>;
     /**
      * Specifies the description of the Hours of Operation.
      */

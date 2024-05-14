@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -141,7 +141,7 @@ export interface GetInstanceResult {
     /**
      * Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
-    readonly masterUserSecrets: outputs.rds.GetInstanceMasterUserSecret[];
+    readonly masterUserSecrets: outputs.GetInstanceMasterUserSecret[];
     /**
      * Contains the master username for the DB instance.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class Thesaurus extends pulumi.CustomResource {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      */
-    public readonly sourceS3Path!: pulumi.Output<outputs.kendra.ThesaurusSourceS3Path>;
+    public readonly sourceS3Path!: pulumi.Output<outputs.ThesaurusSourceS3Path>;
     /**
      * The current status of the thesaurus.
      */
@@ -174,7 +173,7 @@ export interface ThesaurusState {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      */
-    sourceS3Path?: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
+    sourceS3Path?: pulumi.Input<inputs.ThesaurusSourceS3Path>;
     /**
      * The current status of the thesaurus.
      */
@@ -209,6 +208,6 @@ export interface ThesaurusArgs {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      */
-    sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
+    sourceS3Path: pulumi.Input<inputs.ThesaurusSourceS3Path>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

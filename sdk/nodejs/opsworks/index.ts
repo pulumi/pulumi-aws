@@ -91,6 +91,15 @@ export const UserProfile: typeof import("./userProfile").UserProfile = null as a
 utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

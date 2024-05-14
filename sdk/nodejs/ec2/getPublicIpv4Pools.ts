@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +53,7 @@ export interface GetPublicIpv4PoolsArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetPublicIpv4PoolsFilter[];
+    filters?: inputs.GetPublicIpv4PoolsFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      *
@@ -67,7 +67,7 @@ export interface GetPublicIpv4PoolsArgs {
  * A collection of values returned by getPublicIpv4Pools.
  */
 export interface GetPublicIpv4PoolsResult {
-    readonly filters?: outputs.ec2.GetPublicIpv4PoolsFilter[];
+    readonly filters?: inputs.GetPublicIpv4PoolsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -118,7 +118,7 @@ export interface GetPublicIpv4PoolsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPublicIpv4PoolsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetPublicIpv4PoolsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      *
