@@ -20,8 +20,8 @@ index b9a8e0b2f7..a1f83415f1 100644
  	}
  }
  
-+func constructTopicArn(client *sns.Client, account, region, snsTopicName string) string {
-+	return fmt.Sprintf("arn:aws:sns:%s:%s:%s", region, account, snsTopicName)
++func constructTopicArn(client *sns.Client, account, region, partition, snsTopicName string) string {
++	return fmt.Sprintf("arn:%s:sns:%s:%s:%s", partition, region, account, snsTopicName)
 +}
 +
 +var snsGlobalMutex sync.Map
@@ -29,14 +29,15 @@ index b9a8e0b2f7..a1f83415f1 100644
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -284,6 +291,27 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -284,6 +291,28 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
  		delete(attributes, topicAttributeNameFIFOTopic)
  	}
  
 +	// create a lock based on the topic ARN. We really want to make sure
 +	// that we prevent a race condition where two resources are created with
 +	// the same name.
-+	topicArn := constructTopicArn(conn, meta.(*conns.AWSClient).AccountID, meta.(*conns.AWSClient).Region, name)
++	awsClient := meta.(*conns.AWSClient)
++	topicArn := constructTopicArn(conn, awsClient.AccountID, awsClient.Region, awsClient.Partition, name)
 +	localMutex := &sync.Mutex{}
 +	if val, ok := snsGlobalMutex.LoadOrStore(topicArn, localMutex); ok {
 +		localMutex = val.(*sync.Mutex)
