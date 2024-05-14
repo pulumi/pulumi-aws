@@ -33,9 +33,9 @@ const ami = aws.ec2.getAmiOutput({
     mostRecent: true,
     filters: [{
         name: "name",
-        values: ["amzn2-ami-hvm-*-x86_64-ebs"],
+        values: ["al2023-ami-2023.*-kernel-*-x86_64"],
     }],
-});
+}, providerOpts);
 
 export class Server {
     public readonly instance: aws.ec2.Instance;
