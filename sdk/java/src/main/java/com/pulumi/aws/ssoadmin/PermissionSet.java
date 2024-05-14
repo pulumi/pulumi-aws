@@ -20,6 +20,48 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.PermissionSet;
+ * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()        
+ *             .name("Example")
+ *             .description("An example")
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .relayState("https://s3.console.aws.amazon.com/s3/home?region=us-east-1#")
+ *             .sessionDuration("PT2H")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For example:

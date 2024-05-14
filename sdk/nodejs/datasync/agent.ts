@@ -21,6 +21,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With VPC Endpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
+ *     serviceName: current.then(current => `com.amazonaws.${current.name}.datasync`),
+ *     vpcId: exampleAwsVpc.id,
+ *     securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     vpcEndpointType: "Interface",
+ * });
+ * const example = aws.ec2.getNetworkInterfaceOutput({
+ *     id: exampleVpcEndpoint.networkInterfaceIds[0],
+ * });
+ * const exampleAgent = new aws.datasync.Agent("example", {
+ *     ipAddress: "1.2.3.4",
+ *     securityGroupArns: [exampleAwsSecurityGroup.arn],
+ *     subnetArns: [exampleAwsSubnet.arn],
+ *     vpcEndpointId: exampleVpcEndpoint.id,
+ *     privateLinkEndpoint: example.apply(example => example.privateIp),
+ *     name: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:

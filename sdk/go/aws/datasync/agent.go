@@ -42,6 +42,70 @@ import (
 //
 // ```
 //
+// ### With VPC Endpoints
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
+//				ServiceName: pulumi.String(fmt.Sprintf("com.amazonaws.%v.datasync", current.Name)),
+//				VpcId:       pulumi.Any(exampleAwsVpc.Id),
+//				SecurityGroupIds: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Id,
+//				},
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				VpcEndpointType: pulumi.String("Interface"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := ec2.LookupNetworkInterfaceOutput(ctx, ec2.GetNetworkInterfaceOutputArgs{
+//				Id: exampleVpcEndpoint.NetworkInterfaceIds.ApplyT(func(networkInterfaceIds []string) (string, error) {
+//					return networkInterfaceIds[0], nil
+//				}).(pulumi.StringOutput),
+//			}, nil)
+//			_, err = datasync.NewAgent(ctx, "example", &datasync.AgentArgs{
+//				IpAddress: pulumi.String("1.2.3.4"),
+//				SecurityGroupArns: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Arn,
+//				},
+//				SubnetArns: pulumi.StringArray{
+//					exampleAwsSubnet.Arn,
+//				},
+//				VpcEndpointId: exampleVpcEndpoint.ID(),
+//				PrivateLinkEndpoint: example.ApplyT(func(example ec2.GetNetworkInterfaceResult) (*string, error) {
+//					return &example.PrivateIp, nil
+//				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:

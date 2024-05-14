@@ -13,12 +13,76 @@ namespace Pulumi.Aws.IdentityStore
     {
         /// <summary>
         /// Use this data source to get an Identity Store User.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
+        ///     {
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
+        ///         {
+        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
+        ///             {
+        ///                 AttributePath = "UserName",
+        ///                 AttributeValue = "ExampleUser",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["userId"] = exampleGetUser.Apply(getUserResult =&gt; getUserResult.UserId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get an Identity Store User.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     var exampleGetUser = Aws.IdentityStore.GetUser.Invoke(new()
+        ///     {
+        ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+        ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierInputArgs
+        ///         {
+        ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs
+        ///             {
+        ///                 AttributePath = "UserName",
+        ///                 AttributeValue = "ExampleUser",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["userId"] = exampleGetUser.Apply(getUserResult =&gt; getUserResult.UserId),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

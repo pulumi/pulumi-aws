@@ -261,6 +261,23 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
     """
     Use this data source to get an Identity Store User.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssoadmin.get_instances()
+    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
+        alternate_identifier=aws.identitystore.GetUserAlternateIdentifierArgs(
+            unique_attribute=aws.identitystore.GetUserAlternateIdentifierUniqueAttributeArgs(
+                attribute_path="UserName",
+                attribute_value="ExampleUser",
+            ),
+        ))
+    pulumi.export("userId", example_get_user.user_id)
+    ```
+
 
     :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
@@ -309,6 +326,23 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get an Identity Store User.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssoadmin.get_instances()
+    example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
+        alternate_identifier=aws.identitystore.GetUserAlternateIdentifierArgs(
+            unique_attribute=aws.identitystore.GetUserAlternateIdentifierUniqueAttributeArgs(
+                attribute_path="UserName",
+                attribute_value="ExampleUser",
+            ),
+        ))
+    pulumi.export("userId", example_get_user.user_id)
+    ```
 
 
     :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.

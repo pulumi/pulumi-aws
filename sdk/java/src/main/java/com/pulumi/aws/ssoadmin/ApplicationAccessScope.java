@@ -20,6 +20,54 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.Application;
+ * import com.pulumi.aws.ssoadmin.ApplicationArgs;
+ * import com.pulumi.aws.ssoadmin.ApplicationAccessScope;
+ * import com.pulumi.aws.ssoadmin.ApplicationAccessScopeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *             .name("example")
+ *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *         var exampleApplicationAccessScope = new ApplicationAccessScope("exampleApplicationAccessScope", ApplicationAccessScopeArgs.builder()        
+ *             .applicationArn(exampleApplication.applicationArn())
+ *             .authorizedTargets("arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901")
+ *             .scope("sso:account:access")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:

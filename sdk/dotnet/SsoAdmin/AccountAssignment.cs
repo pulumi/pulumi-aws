@@ -14,6 +14,103 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var exampleGetPermissionSet = Aws.SsoAdmin.GetPermissionSet.Invoke(new()
+    ///     {
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         Name = "AWSReadOnlyAccess",
+    ///     });
+    /// 
+    ///     var exampleGetGroup = Aws.IdentityStore.GetGroup.Invoke(new()
+    ///     {
+    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+    ///         AlternateIdentifier = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierInputArgs
+    ///         {
+    ///             UniqueAttribute = new Aws.IdentityStore.Inputs.GetGroupAlternateIdentifierUniqueAttributeInputArgs
+    ///             {
+    ///                 AttributePath = "DisplayName",
+    ///                 AttributeValue = "ExampleGroup",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountAssignment = new Aws.SsoAdmin.AccountAssignment("example", new()
+    ///     {
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         PermissionSetArn = exampleGetPermissionSet.Apply(getPermissionSetResult =&gt; getPermissionSetResult.Arn),
+    ///         PrincipalId = exampleGetGroup.Apply(getGroupResult =&gt; getGroupResult.GroupId),
+    ///         PrincipalType = "GROUP",
+    ///         TargetId = "123456789012",
+    ///         TargetType = "AWS_ACCOUNT",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Managed Policy Attachment
+    /// 
+    /// &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+    /// 
+    ///     var examplePermissionSet = new Aws.SsoAdmin.PermissionSet("example", new()
+    ///     {
+    ///         Name = "Example",
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
+    ///     {
+    ///         IdentityStoreId = ssoInstance.IdentityStoreIds[0],
+    ///         DisplayName = "Admin",
+    ///         Description = "Admin Group",
+    ///     });
+    /// 
+    ///     var accountAssignment = new Aws.SsoAdmin.AccountAssignment("account_assignment", new()
+    ///     {
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///         PrincipalId = exampleGroup.GroupId,
+    ///         PrincipalType = "GROUP",
+    ///         TargetId = "123456789012",
+    ///         TargetType = "AWS_ACCOUNT",
+    ///     });
+    /// 
+    ///     var exampleManagedPolicyAttachment = new Aws.SsoAdmin.ManagedPolicyAttachment("example", new()
+    ///     {
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+    ///         ManagedPolicyArn = "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
+    ///         PermissionSetArn = examplePermissionSet.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsoadminAccountAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:

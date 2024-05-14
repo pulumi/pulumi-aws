@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-aws</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
+    <Version>6.0.0-alpha.0+dev</Version>
 
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
