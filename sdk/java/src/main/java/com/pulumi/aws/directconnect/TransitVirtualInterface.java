@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("tf-dxg-example")
  *             .amazonSideAsn(64512)
  *             .build());
  * 
- *         var exampleTransitVirtualInterface = new TransitVirtualInterface("exampleTransitVirtualInterface", TransitVirtualInterfaceArgs.builder()        
+ *         var exampleTransitVirtualInterface = new TransitVirtualInterface("exampleTransitVirtualInterface", TransitVirtualInterfaceArgs.builder()
  *             .connectionId(exampleAwsDxConnection.id())
  *             .dxGatewayId(example.id())
  *             .name("tf-transit-vif-example")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new QuickConnect("test", QuickConnectArgs.builder()        
+ *         var test = new QuickConnect("test", QuickConnectArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("Example Name")
  *             .description("quick connect phone number")

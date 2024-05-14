@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Model("example", ModelArgs.builder()        
+ *         var example = new Model("example", ModelArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .contentType("application/json")
  *             .name("example")

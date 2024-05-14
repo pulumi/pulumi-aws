@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()        
+ *         var example = new Group("example", GroupArgs.builder()
  *             .name("example")
  *             .build());
  * 

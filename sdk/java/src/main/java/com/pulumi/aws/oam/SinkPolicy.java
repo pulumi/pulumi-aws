@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Sink("example", SinkArgs.builder()        
+ *         var example = new Sink("example", SinkArgs.builder()
  *             .name("ExampleSink")
  *             .build());
  * 
- *         var exampleSinkPolicy = new SinkPolicy("exampleSinkPolicy", SinkPolicyArgs.builder()        
+ *         var exampleSinkPolicy = new SinkPolicy("exampleSinkPolicy", SinkPolicyArgs.builder()
  *             .sinkIdentifier(example.id())
  *             .policy(serializeJson(
  *                 jsonObject(

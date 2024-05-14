@@ -74,17 +74,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var rRole = new Role("rRole", RoleArgs.builder()        
+ *         var rRole = new Role("rRole", RoleArgs.builder()
  *             .name("my-awsconfig-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *         var foo = new Recorder("foo", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(rRole.arn())
  *             .build());
  * 
- *         var r = new Rule("r", RuleArgs.builder()        
+ *         var r = new Rule("r", RuleArgs.builder()
  *             .name("example")
  *             .source(RuleSourceArgs.builder()
  *                 .owner("AWS")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()        
+ *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
  *             .name("my-awsconfig-policy")
  *             .role(rRole.id())
  *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -151,14 +151,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFunction = new Function("exampleFunction");
  * 
- *         var examplePermission = new Permission("examplePermission", PermissionArgs.builder()        
+ *         var examplePermission = new Permission("examplePermission", PermissionArgs.builder()
  *             .action("lambda:InvokeFunction")
  *             .function(exampleFunction.arn())
  *             .principal("config.amazonaws.com")
  *             .statementId("AllowExecutionFromConfig")
  *             .build());
  * 
- *         var exampleRule = new Rule("exampleRule", RuleArgs.builder()        
+ *         var exampleRule = new Rule("exampleRule", RuleArgs.builder()
  *             .source(RuleSourceArgs.builder()
  *                 .owner("CUSTOM_LAMBDA")
  *                 .sourceIdentifier(exampleFunction.arn())
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Rule("example", RuleArgs.builder()        
+ *         var example = new Rule("example", RuleArgs.builder()
  *             .name("example")
  *             .source(RuleSourceArgs.builder()
  *                 .owner("CUSTOM_POLICY")

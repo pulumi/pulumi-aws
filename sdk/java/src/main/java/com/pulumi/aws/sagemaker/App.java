@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .domainId(exampleAwsSagemakerDomain.id())
  *             .userProfileName(exampleAwsSagemakerUserProfile.userProfileName())
  *             .appName("example")

@@ -77,7 +77,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
+     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
      *             .vpcId(main.id())
      *             .build());
      * 
@@ -126,7 +126,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
+     *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
      *             .vpcId(main.id())
      *             .build());
      * 
@@ -284,7 +284,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
+         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
          *             .vpcId(main.id())
          *             .build());
          * 
@@ -337,7 +337,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
+         *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
          *             .vpcId(main.id())
          *             .build());
          * 

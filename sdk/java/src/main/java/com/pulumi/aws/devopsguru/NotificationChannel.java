@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()        
+ *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
  *             .sns(NotificationChannelSnsArgs.builder()
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()        
+ *         var example = new NotificationChannel("example", NotificationChannelArgs.builder()
  *             .sns(NotificationChannelSnsArgs.builder()
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AggregateAuthorization("example", AggregateAuthorizationArgs.builder()        
+ *         var example = new AggregateAuthorization("example", AggregateAuthorizationArgs.builder()
  *             .accountId("123456789012")
  *             .region("eu-west-2")
  *             .build());

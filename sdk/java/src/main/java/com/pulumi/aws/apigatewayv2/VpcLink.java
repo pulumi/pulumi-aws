@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcLink("example", VpcLinkArgs.builder()        
+ *         var example = new VpcLink("example", VpcLinkArgs.builder()
  *             .name("example")
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .subnetIds(exampleAwsSubnets.ids())

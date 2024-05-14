@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .buildId(exampleAwsGameliftBuild.id())
  *             .ec2InstanceType("t2.micro")
  *             .fleetType("ON_DEMAND")

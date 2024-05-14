@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .repositoryName("kmeans")
  *             .build());
  * 
- *         var example = new Model("example", ModelArgs.builder()        
+ *         var example = new Model("example", ModelArgs.builder()
  *             .name("my-model")
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()

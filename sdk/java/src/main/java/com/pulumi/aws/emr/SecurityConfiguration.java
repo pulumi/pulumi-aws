@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SecurityConfiguration("foo", SecurityConfigurationArgs.builder()        
+ *         var foo = new SecurityConfiguration("foo", SecurityConfigurationArgs.builder()
  *             .name("emrsc_other")
  *             .configuration("""
  * {

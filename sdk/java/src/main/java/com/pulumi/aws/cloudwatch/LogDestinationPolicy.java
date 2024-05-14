@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testDestination = new LogDestination("testDestination", LogDestinationArgs.builder()        
+ *         var testDestination = new LogDestination("testDestination", LogDestinationArgs.builder()
  *             .name("test_destination")
  *             .roleArn(iamForCloudwatch.arn())
  *             .targetArn(kinesisForCloudwatch.arn())
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", LogDestinationPolicyArgs.builder()        
+ *         var testDestinationPolicyLogDestinationPolicy = new LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", LogDestinationPolicyArgs.builder()
  *             .destinationName(testDestination.name())
  *             .accessPolicy(testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(testDestinationPolicy -> testDestinationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

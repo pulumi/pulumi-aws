@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
  *             .name("my_database")
  *             .build());
  * 
- *         var exampleUserDefinedFunction = new UserDefinedFunction("exampleUserDefinedFunction", UserDefinedFunctionArgs.builder()        
+ *         var exampleUserDefinedFunction = new UserDefinedFunction("exampleUserDefinedFunction", UserDefinedFunctionArgs.builder()
  *             .name("my_func")
  *             .catalogId(example.catalogId())
  *             .databaseName(example.name())

@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()        
+ *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .build());
  * 
- *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()        
+ *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
  *             .permissionSetArn(examplePermissionSet.arn())
@@ -104,18 +104,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()        
+ *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .identityStoreId(ssoInstance.identityStoreIds()[0])
  *             .displayName("Admin")
  *             .description("Admin Group")
  *             .build());
  * 
- *         var accountAssignment = new AccountAssignment("accountAssignment", AccountAssignmentArgs.builder()        
+ *         var accountAssignment = new AccountAssignment("accountAssignment", AccountAssignmentArgs.builder()
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .permissionSetArn(examplePermissionSet.arn())
  *             .principalId(exampleGroup.groupId())
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *             .targetType("AWS_ACCOUNT")
  *             .build());
  * 
- *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()        
+ *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
  *             .permissionSetArn(examplePermissionSet.arn())

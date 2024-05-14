@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApprovalRuleTemplate("example", ApprovalRuleTemplateArgs.builder()        
+ *         var example = new ApprovalRuleTemplate("example", ApprovalRuleTemplateArgs.builder()
  *             .name("MyExampleApprovalRuleTemplate")
  *             .description("This is an example approval rule template")
  *             .content(serializeJson(

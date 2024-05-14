@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupAssociation("example", GroupAssociationArgs.builder()        
+ *         var example = new GroupAssociation("example", GroupAssociationArgs.builder()
  *             .groupName(exampleAwsSyntheticsGroup.name())
  *             .canaryArn(exampleAwsSyntheticsCanary.arn())
  *             .build());

@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()
  *             .name("example")
  *             .volumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
@@ -95,19 +95,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var exampleOpenZfsVolume = new OpenZfsVolume("exampleOpenZfsVolume", OpenZfsVolumeArgs.builder()        
+ *         var exampleOpenZfsVolume = new OpenZfsVolume("exampleOpenZfsVolume", OpenZfsVolumeArgs.builder()
  *             .name("example")
  *             .parentVolumeId(exampleOpenZfsFileSystem.rootVolumeId())
  *             .build());
  * 
- *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()        
+ *         var example = new OpenZfsSnapshot("example", OpenZfsSnapshotArgs.builder()
  *             .name("example")
  *             .volumeId(exampleOpenZfsVolume.id())
  *             .build());

@@ -24,51 +24,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securitylake.Subscriber;
- * import com.pulumi.aws.securitylake.SubscriberArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberSourceArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Subscriber("example", SubscriberArgs.builder()        
- *             .subscriberName("example-name")
- *             .sourceVersion("1.0")
- *             .accessType("S3")
- *             .source(SubscriberSourceArgs.builder()
- *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
- *                     .sourceName("ROUTE53")
- *                     .sourceVersion("1.0")
- *                     .build())
- *                 .build())
- *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
- *                 .externalId("example")
- *                 .principal("1234567890")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

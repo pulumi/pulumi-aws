@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer
- *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+ *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
  *             .name("foobar-elb")
  *             .availabilityZones(            
  *                 "us-west-2a",

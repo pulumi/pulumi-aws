@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RecordingConfiguration("example", RecordingConfigurationArgs.builder()        
+ *         var example = new RecordingConfiguration("example", RecordingConfigurationArgs.builder()
  *             .name("recording_configuration-1")
  *             .destinationConfiguration(RecordingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(RecordingConfigurationDestinationConfigurationS3Args.builder()

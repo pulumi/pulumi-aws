@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .launchTemplateId(exampleAwsLaunchTemplate.id())

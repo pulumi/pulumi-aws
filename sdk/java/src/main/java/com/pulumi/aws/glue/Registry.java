@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Registry("example", RegistryArgs.builder()        
+ *         var example = new Registry("example", RegistryArgs.builder()
  *             .registryName("example")
  *             .build());
  * 

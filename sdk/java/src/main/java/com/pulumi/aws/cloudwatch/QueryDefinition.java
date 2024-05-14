@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new QueryDefinition("example", QueryDefinitionArgs.builder()        
+ *         var example = new QueryDefinition("example", QueryDefinitionArgs.builder()
  *             .name("custom_query")
  *             .logGroupNames(            
  *                 "/aws/logGroup1",

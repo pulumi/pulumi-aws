@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Role("test", RoleArgs.builder()        
+ *         var test = new Role("test", RoleArgs.builder()
  *             .name("test")
  *             .path("/")
  *             .assumeRolePolicy(serializeJson(
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testProfile = new Profile("testProfile", ProfileArgs.builder()        
+ *         var testProfile = new Profile("testProfile", ProfileArgs.builder()
  *             .name("example")
  *             .roleArns(test.arn())
  *             .build());

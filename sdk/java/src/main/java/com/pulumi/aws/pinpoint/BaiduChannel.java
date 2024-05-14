@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var channel = new BaiduChannel("channel", BaiduChannelArgs.builder()        
+ *         var channel = new BaiduChannel("channel", BaiduChannelArgs.builder()
  *             .applicationId(app.applicationId())
  *             .apiKey("")
  *             .secretKey("")

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new Group("foobar", GroupArgs.builder()        
+ *         var foobar = new Group("foobar", GroupArgs.builder()
  *             .availabilityZones("us-west-2a")
  *             .name("test-foobar5")
  *             .healthCheckType("EC2")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foobarLifecycleHook = new LifecycleHook("foobarLifecycleHook", LifecycleHookArgs.builder()        
+ *         var foobarLifecycleHook = new LifecycleHook("foobarLifecycleHook", LifecycleHookArgs.builder()
  *             .name("foobar")
  *             .autoscalingGroupName(foobar.name())
  *             .defaultResult("CONTINUE")

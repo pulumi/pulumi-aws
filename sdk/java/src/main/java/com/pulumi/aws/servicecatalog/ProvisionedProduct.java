@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisionedProduct("example", ProvisionedProductArgs.builder()        
+ *         var example = new ProvisionedProduct("example", ProvisionedProductArgs.builder()
  *             .name("example")
  *             .productName("Example product")
  *             .provisioningArtifactName("Example version")

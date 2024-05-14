@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()        
+ *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()
  *             .attachmentId(vpc.id())
  *             .attachmentType(vpc.attachmentType())
  *             .build());
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()        
+ *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()
  *             .attachmentId(vpn.id())
  *             .attachmentType(vpn.attachmentType())
  *             .build());

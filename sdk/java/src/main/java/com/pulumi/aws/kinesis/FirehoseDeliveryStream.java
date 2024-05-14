@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("tf-test-bucket")
  *             .build());
  * 
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()        
+ *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()
  *             .name("firehose_test_role")
  *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -102,12 +102,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var lambdaIam = new Role("lambdaIam", RoleArgs.builder()        
+ *         var lambdaIam = new Role("lambdaIam", RoleArgs.builder()
  *             .name("lambda_iam")
  *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var lambdaProcessor = new Function("lambdaProcessor", FunctionArgs.builder()        
+ *         var lambdaProcessor = new Function("lambdaProcessor", FunctionArgs.builder()
  *             .code(new FileArchive("lambda.zip"))
  *             .name("firehose_lambda_processor")
  *             .role(lambdaIam.arn())
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *             .runtime("nodejs16.x")
  *             .build());
  * 
- *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()        
+ *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-extended-s3-test-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()        
+ *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-extended-s3-test-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -252,7 +252,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()        
+ *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-extended-s3-test-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
  *             .clusterIdentifier("tf-redshift-cluster")
  *             .databaseName("test")
  *             .masterUsername("testuser")
@@ -327,7 +327,7 @@ import javax.annotation.Nullable;
  *             .clusterType("single-node")
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("redshift")
  *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
@@ -396,11 +396,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCluster = new Domain("testCluster", DomainArgs.builder()        
+ *         var testCluster = new Domain("testCluster", DomainArgs.builder()
  *             .domainName("firehose-es-test")
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("elasticsearch")
  *             .elasticsearchConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationArgs.builder()
@@ -472,7 +472,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCluster = new Domain("testCluster", DomainArgs.builder()        
+ *         var testCluster = new Domain("testCluster", DomainArgs.builder()
  *             .domainName("es-test")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceCount(2)
@@ -515,13 +515,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var firehose_elasticsearchRolePolicy = new RolePolicy("firehose-elasticsearchRolePolicy", RolePolicyArgs.builder()        
+ *         var firehose_elasticsearchRolePolicy = new RolePolicy("firehose-elasticsearchRolePolicy", RolePolicyArgs.builder()
  *             .name("elasticsearch")
  *             .role(firehose.id())
  *             .policy(firehose_elasticsearch.applyValue(firehose_elasticsearch -> firehose_elasticsearch.json()))
  *             .build());
  * 
- *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()        
+ *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-es")
  *             .destination("elasticsearch")
  *             .elasticsearchConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationArgs.builder()
@@ -581,11 +581,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCluster = new Domain("testCluster", DomainArgs.builder()        
+ *         var testCluster = new Domain("testCluster", DomainArgs.builder()
  *             .domainName("firehose-os-test")
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("opensearch")
  *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
@@ -654,7 +654,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCluster = new Domain("testCluster", DomainArgs.builder()        
+ *         var testCluster = new Domain("testCluster", DomainArgs.builder()
  *             .domainName("es-test")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceCount(2)
@@ -673,7 +673,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehose_opensearch = new RolePolicy("firehose-opensearch", RolePolicyArgs.builder()        
+ *         var firehose_opensearch = new RolePolicy("firehose-opensearch", RolePolicyArgs.builder()
  *             .name("opensearch")
  *             .role(firehose.id())
  *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -> {
@@ -715,7 +715,7 @@ import javax.annotation.Nullable;
  *             }))
  *             .build());
  * 
- *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()        
+ *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()
  *             .name("pulumi-kinesis-firehose-os")
  *             .destination("opensearch")
  *             .opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs.builder()
@@ -774,11 +774,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCollection = new ServerlessCollection("testCollection", ServerlessCollectionArgs.builder()        
+ *         var testCollection = new ServerlessCollection("testCollection", ServerlessCollectionArgs.builder()
  *             .name("firehose-osserverless-test")
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("opensearchserverless")
  *             .opensearchserverlessConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.builder()
@@ -838,7 +838,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("splunk")
  *             .splunkConfiguration(FirehoseDeliveryStreamSplunkConfigurationArgs.builder()
@@ -891,7 +891,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-test-stream")
  *             .destination("http_endpoint")
  *             .httpEndpointConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationArgs.builder()
@@ -957,7 +957,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSnowflakeDestination = new FirehoseDeliveryStream("exampleSnowflakeDestination", FirehoseDeliveryStreamArgs.builder()        
+ *         var exampleSnowflakeDestination = new FirehoseDeliveryStream("exampleSnowflakeDestination", FirehoseDeliveryStreamArgs.builder()
  *             .name("example-snowflake-destination")
  *             .destination("snowflake")
  *             .snowflakeConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationArgs.builder()

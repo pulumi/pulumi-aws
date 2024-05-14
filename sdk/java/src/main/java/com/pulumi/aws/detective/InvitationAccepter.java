@@ -47,14 +47,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var primary = new Graph("primary");
  * 
- *         var primaryMember = new Member("primaryMember", MemberArgs.builder()        
+ *         var primaryMember = new Member("primaryMember", MemberArgs.builder()
  *             .accountId("ACCOUNT ID")
  *             .emailAddress("EMAIL")
  *             .graphArn(primary.id())
  *             .message("Message of the invite")
  *             .build());
  * 
- *         var member = new InvitationAccepter("member", InvitationAccepterArgs.builder()        
+ *         var member = new InvitationAccepter("member", InvitationAccepterArgs.builder()
  *             .graphArn(primary.graphArn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryMember)

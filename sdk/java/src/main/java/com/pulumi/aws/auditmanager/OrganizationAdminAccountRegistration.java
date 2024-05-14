@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationAdminAccountRegistration("example", OrganizationAdminAccountRegistrationArgs.builder()        
+ *         var example = new OrganizationAdminAccountRegistration("example", OrganizationAdminAccountRegistrationArgs.builder()
  *             .adminAccountId("012345678901")
  *             .build());
  * 

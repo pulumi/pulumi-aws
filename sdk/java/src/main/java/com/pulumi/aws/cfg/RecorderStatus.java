@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2("b", BucketV2Args.builder()        
+ *         var b = new BucketV2("b", BucketV2Args.builder()
  *             .bucket("awsconfig-example")
  *             .build());
  * 
- *         var fooDeliveryChannel = new DeliveryChannel("fooDeliveryChannel", DeliveryChannelArgs.builder()        
+ *         var fooDeliveryChannel = new DeliveryChannel("fooDeliveryChannel", DeliveryChannelArgs.builder()
  *             .name("example")
  *             .s3BucketName(b.bucket())
  *             .build());
@@ -79,24 +79,24 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var r = new Role("r", RoleArgs.builder()        
+ *         var r = new Role("r", RoleArgs.builder()
  *             .name("example-awsconfig")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()        
+ *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(r.arn())
  *             .build());
  * 
- *         var foo = new RecorderStatus("foo", RecorderStatusArgs.builder()        
+ *         var foo = new RecorderStatus("foo", RecorderStatusArgs.builder()
  *             .name(fooRecorder.name())
  *             .isEnabled(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(fooDeliveryChannel)
  *                 .build());
  * 
- *         var a = new RolePolicyAttachment("a", RolePolicyAttachmentArgs.builder()        
+ *         var a = new RolePolicyAttachment("a", RolePolicyAttachmentArgs.builder()
  *             .role(r.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
  *             .build());
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()        
+ *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
  *             .name("awsconfig-example")
  *             .role(r.id())
  *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(p -> p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new DataQualityJobDefinition("test", DataQualityJobDefinitionArgs.builder()        
+ *         var test = new DataQualityJobDefinition("test", DataQualityJobDefinitionArgs.builder()
  *             .name("my-data-quality-job-definition")
  *             .dataQualityAppSpecification(DataQualityJobDefinitionDataQualityAppSpecificationArgs.builder()
  *                 .imageUri(monitor.registryPath())

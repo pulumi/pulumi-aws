@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Graph("example");
  * 
- *         var exampleMember = new Member("exampleMember", MemberArgs.builder()        
+ *         var exampleMember = new Member("exampleMember", MemberArgs.builder()
  *             .accountId("AWS ACCOUNT ID")
  *             .emailAddress("EMAIL")
  *             .graphArn(example.id())

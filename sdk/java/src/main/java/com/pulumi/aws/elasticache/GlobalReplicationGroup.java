@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-primary")
  *             .description("primary replication group")
  *             .engine("redis")
@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()
  *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
  *             .build());
  * 
- *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-secondary")
  *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-primary")
  *             .description("primary replication group")
  *             .engine("redis")
@@ -127,13 +127,13 @@ import javax.annotation.Nullable;
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()
  *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
  *             .engineVersion("6.2")
  *             .build());
  * 
- *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-secondary")
  *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())

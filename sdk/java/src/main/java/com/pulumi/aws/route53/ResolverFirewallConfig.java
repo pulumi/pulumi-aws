@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var exampleResolverFirewallConfig = new ResolverFirewallConfig("exampleResolverFirewallConfig", ResolverFirewallConfigArgs.builder()        
+ *         var exampleResolverFirewallConfig = new ResolverFirewallConfig("exampleResolverFirewallConfig", ResolverFirewallConfigArgs.builder()
  *             .resourceId(example.id())
  *             .firewallFailOpen("ENABLED")
  *             .build());

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *         var testStream = new Stream("testStream", StreamArgs.builder()
  *             .name("kinesis-test")
  *             .shardCount(1)
  *             .retentionPeriod(48)

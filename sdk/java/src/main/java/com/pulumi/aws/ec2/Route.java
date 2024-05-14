@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var r = new Route("r", RouteArgs.builder()        
+ *         var r = new Route("r", RouteArgs.builder()
  *             .routeTableId(testing.id())
  *             .destinationCidrBlock("10.0.1.0/22")
  *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -87,16 +87,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .assignGeneratedIpv6CidrBlock(true)
  *             .build());
  * 
- *         var egress = new EgressOnlyInternetGateway("egress", EgressOnlyInternetGatewayArgs.builder()        
+ *         var egress = new EgressOnlyInternetGateway("egress", EgressOnlyInternetGatewayArgs.builder()
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var r = new Route("r", RouteArgs.builder()        
+ *         var r = new Route("r", RouteArgs.builder()
  *             .routeTableId("rtb-4fbb3ac4")
  *             .destinationIpv6CidrBlock("::/0")
  *             .egressOnlyGatewayId(egress.id())

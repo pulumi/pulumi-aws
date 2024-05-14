@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()
  *             .comment("example public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
  *                 .input("public_key.pem")
@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("example-key")
  *             .build());
  * 
- *         var exampleKeyGroup = new KeyGroup("exampleKeyGroup", KeyGroupArgs.builder()        
+ *         var exampleKeyGroup = new KeyGroup("exampleKeyGroup", KeyGroupArgs.builder()
  *             .comment("example key group")
  *             .items(example.id())
  *             .name("example-key-group")

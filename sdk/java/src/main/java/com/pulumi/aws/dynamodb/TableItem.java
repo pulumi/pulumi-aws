@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("example-name")
  *             .readCapacity(10)
  *             .writeCapacity(10)
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new TableItem("example", TableItemArgs.builder()        
+ *         var example = new TableItem("example", TableItemArgs.builder()
  *             .tableName(exampleTable.name())
  *             .hashKey(exampleTable.hashKey())
  *             .item("""

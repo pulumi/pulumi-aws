@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContainerServiceDeploymentVersion("example", ContainerServiceDeploymentVersionArgs.builder()        
+ *         var example = new ContainerServiceDeploymentVersion("example", ContainerServiceDeploymentVersionArgs.builder()
  *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
  *                 .containerName("hello-world")
  *                 .image("amazon/amazon-lightsail:hello-world")
