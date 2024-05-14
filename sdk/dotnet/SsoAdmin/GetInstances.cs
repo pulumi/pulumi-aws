@@ -13,12 +13,52 @@ namespace Pulumi.Aws.SsoAdmin
     {
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+        ///         ["identityStoreId"] = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+        ///         ["identityStoreId"] = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+        ///     };
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetInstancesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());

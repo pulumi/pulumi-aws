@@ -12,6 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _this = new aws.identitystore.Group("this", {
+ *     displayName: "Example group",
+ *     description: "Example description",
+ *     identityStoreId: example.identityStoreIds[0],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:

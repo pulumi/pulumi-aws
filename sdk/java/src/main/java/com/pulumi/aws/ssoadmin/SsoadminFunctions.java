@@ -635,12 +635,80 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -649,12 +717,80 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetInstancesResult> getInstances(InvokeArgs args) {
         return getInstances(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args) {
@@ -663,12 +799,80 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         ctx.export("arn", example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]));
+     *         ctx.export("identityStoreId", example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
@@ -677,12 +881,90 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .name("Example")
+     *             .build());
+     * 
+     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args) {
         return getPermissionSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .name("Example")
+     *             .build());
+     * 
+     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args) {
@@ -691,12 +973,90 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
      * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .name("Example")
+     *             .build());
+     * 
+     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .name("Example")
+     *             .build());
+     * 
+     *         ctx.export("arn", exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args, InvokeOptions options) {
@@ -707,6 +1067,43 @@ public final class SsoadminFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
+     *             .instanceArn(test.arns()[0])
+     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .principalType("USER")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs args) {
         return getPrincipalApplicationAssignments(args, InvokeOptions.Empty);
@@ -715,6 +1112,43 @@ public final class SsoadminFunctions {
      * Data source for viewing AWS SSO Admin Principal Application Assignments.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
+     *             .instanceArn(test.arns()[0])
+     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .principalType("USER")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignmentsPlain(GetPrincipalApplicationAssignmentsPlainArgs args) {
@@ -725,6 +1159,43 @@ public final class SsoadminFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
+     *             .instanceArn(test.arns()[0])
+     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .principalType("USER")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", TypeShape.of(GetPrincipalApplicationAssignmentsResult.class), args, Utilities.withVersion(options));
@@ -733,6 +1204,43 @@ public final class SsoadminFunctions {
      * Data source for viewing AWS SSO Admin Principal Application Assignments.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getPrincipalApplicationAssignments(GetPrincipalApplicationAssignmentsArgs.builder()
+     *             .instanceArn(test.arns()[0])
+     *             .principalId(testAwsIdentitystoreUser.userId())
+     *             .principalType("USER")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrincipalApplicationAssignmentsResult> getPrincipalApplicationAssignmentsPlain(GetPrincipalApplicationAssignmentsPlainArgs args, InvokeOptions options) {

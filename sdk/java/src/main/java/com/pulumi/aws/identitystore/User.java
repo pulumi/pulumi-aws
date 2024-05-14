@@ -30,6 +30,52 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.identitystore.User;
+ * import com.pulumi.aws.identitystore.UserArgs;
+ * import com.pulumi.aws.identitystore.inputs.UserNameArgs;
+ * import com.pulumi.aws.identitystore.inputs.UserEmailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new User("example", UserArgs.builder()        
+ *             .identityStoreId(exampleAwsSsoadminInstances.identityStoreIds()[0])
+ *             .displayName("John Doe")
+ *             .userName("johndoe")
+ *             .name(UserNameArgs.builder()
+ *                 .givenName("John")
+ *                 .familyName("Doe")
+ *                 .build())
+ *             .emails(UserEmailsArgs.builder()
+ *                 .value("john{@literal @}example.com")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:

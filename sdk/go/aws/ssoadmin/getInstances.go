@@ -12,6 +12,32 @@ import (
 )
 
 // Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ssoadmin.GetInstances(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("arn", example.Arns[0])
+//			ctx.Export("identityStoreId", example.IdentityStoreIds[0])
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetInstances(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult

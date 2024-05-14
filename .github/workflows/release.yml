@@ -107,6 +107,13 @@ jobs:
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
       uses: pulumi/git-status-check-action@v1
+      with:
+        allowed-changes: |
+          sdk/**/pulumi-plugin.json
+          sdk/dotnet/Pulumi.*.csproj
+          sdk/go/*/internal/pulumiUtilities.go
+          sdk/nodejs/package.json
+          sdk/python/pyproject.toml
     - name: Compress SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
@@ -349,9 +356,28 @@ jobs:
         repo: pulumi/pulumictl
     - id: version
       uses: pulumi/provider-version-action@v1
-    - name: Add SDK version tag
-      run: git tag "sdk/v${{ steps.version.outputs.version }}" && git push origin
-        "sdk/v${{ steps.version.outputs.version }}"
+    - name: Download Go SDK
+      uses: actions/download-artifact@v4
+      with:
+        name: go-sdk.tar.gz
+        path: ${{ github.workspace }}/sdk/
+    - name: Uncompress Go SDK
+      run: tar -zxf ${{ github.workspace }}/sdk/go.tar.gz -C
+        ${{ github.workspace }}/sdk/go
+      shell: bash
+    - uses: pulumi/publish-go-sdk-action@v1
+      with:
+        repository: ${{ github.repository }}
+        base-ref: ${{ github.sha }}
+        source: sdk
+        path: sdk
+        version: ${{ steps.version.outputs.version }}
+        additive: false
+        # Avoid including other language SDKs & artifacts in the commit
+        files: |
+          go.*
+          go/**
+          !*.tar.gz
 
   clean_up_release_labels:
     name: Clean up release labels

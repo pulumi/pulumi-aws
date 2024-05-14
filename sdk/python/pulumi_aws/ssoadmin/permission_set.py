@@ -289,6 +289,21 @@ class PermissionSet(pulumi.CustomResource):
 
         > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssoadmin.get_instances()
+        example_permission_set = aws.ssoadmin.PermissionSet("example",
+            name="Example",
+            description="An example",
+            instance_arn=example.arns[0],
+            relay_state="https://s3.console.aws.amazon.com/s3/home?region=us-east-1#",
+            session_duration="PT2H")
+        ```
+
         ## Import
 
         Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For example:
@@ -316,6 +331,21 @@ class PermissionSet(pulumi.CustomResource):
         Provides a Single Sign-On (SSO) Permission Set resource
 
         > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssoadmin.get_instances()
+        example_permission_set = aws.ssoadmin.PermissionSet("example",
+            name="Example",
+            description="An example",
+            instance_arn=example.arns[0],
+            relay_state="https://s3.console.aws.amazon.com/s3/home?region=us-east-1#",
+            session_duration="PT2H")
+        ```
 
         ## Import
 

@@ -140,6 +140,63 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
+    /// ### Elasticache Cluster in Outpost
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.Outposts.GetOutposts.Invoke();
+    /// 
+    ///     var exampleGetOutpost = Aws.Outposts.GetOutpost.Invoke(new()
+    ///     {
+    ///         Id = example.Apply(getOutpostsResult =&gt; getOutpostsResult.Ids[0]),
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "my-subnet" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetGroup = new Aws.ElastiCache.SubnetGroup("example", new()
+    ///     {
+    ///         Name = "my-cache-subnet",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCluster = new Aws.ElastiCache.Cluster("example", new()
+    ///     {
+    ///         ClusterId = "cluster-example",
+    ///         OutpostMode = "single-outpost",
+    ///         PreferredOutpostArn = exampleGetOutpost.Apply(getOutpostResult =&gt; getOutpostResult.Arn),
+    ///         Engine = "memcached",
+    ///         NodeType = "cache.r5.large",
+    ///         NumCacheNodes = 2,
+    ///         ParameterGroupName = "default.memcached1.4",
+    ///         Port = 11211,
+    ///         SubnetGroupName = exampleSubnetGroup.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:

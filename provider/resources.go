@@ -195,7 +195,7 @@ const (
 	ramMod                      = "Ram"                      // Resource Access Manager
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
-	rekognitionMod              = "Rekognition"              //Amazon Rekognition"
+	rekognitionMod              = "Rekognition"              // Amazon Rekognition"
 	redshiftMod                 = "RedShift"                 // RedShift
 	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	redshiftServerlessMod       = "RedshiftServerless"       // Redshift Serverless
@@ -5609,8 +5609,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 			},
+			RespectSchemaVersion: true,
 		},
 		Python: &tfbridge.PythonInfo{
+			RespectSchemaVersion: true,
 			Requires: map[string]string{
 				"pulumi": ">=3.0.0,<4.0.0",
 			},
@@ -5624,8 +5626,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				awsPkg,
 			),
 			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
+			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},

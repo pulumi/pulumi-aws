@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * export const arn = example.then(example => example.arns?.[0]);
+ * export const identityStoreId = example.then(example => example.identityStoreIds?.[0]);
+ * ```
  */
 export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
 
@@ -33,6 +44,17 @@ export interface GetInstancesResult {
 }
 /**
  * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * export const arn = example.then(example => example.arns?.[0]);
+ * export const identityStoreId = example.then(example => example.identityStoreIds?.[0]);
+ * ```
  */
 export function getInstancesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(getInstances(opts))

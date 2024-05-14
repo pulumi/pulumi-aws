@@ -21,6 +21,77 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Attaching a customer-managed policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.PermissionSet;
+ * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachment;
+ * import com.pulumi.aws.ssoadmin.PermissionsBoundaryAttachmentArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()        
+ *             .name("Example")
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *             .name("TestPolicy")
+ *             .description("My test policy")
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray("ec2:Describe*")),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Resource", "*")
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var examplePermissionsBoundaryAttachment = new PermissionsBoundaryAttachment("examplePermissionsBoundaryAttachment", PermissionsBoundaryAttachmentArgs.builder()        
+ *             .instanceArn(examplePermissionSet.instanceArn())
+ *             .permissionSetArn(examplePermissionSet.arn())
+ *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
+ *                 .customerManagedPolicyReference(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs.builder()
+ *                     .name(examplePolicy.name())
+ *                     .path("/")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Attaching an AWS-managed policy
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
+ *     name: "Example",
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ * });
+ * const exampleGetPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "1",
+ *         actions: [
+ *             "s3:ListAllMyBuckets",
+ *             "s3:GetBucketLocation",
+ *         ],
+ *         resources: ["arn:aws:s3:::*"],
+ *     }],
+ * });
+ * const examplePermissionSetInlinePolicy = new aws.ssoadmin.PermissionSetInlinePolicy("example", {
+ *     inlinePolicy: exampleGetPolicyDocument.then(exampleGetPolicyDocument => exampleGetPolicyDocument.json),
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ *     permissionSetArn: examplePermissionSet.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:

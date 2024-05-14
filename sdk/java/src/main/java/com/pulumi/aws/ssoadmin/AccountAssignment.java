@@ -19,6 +19,140 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
+ * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
+ * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
+ * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
+ * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierUniqueAttributeArgs;
+ * import com.pulumi.aws.ssoadmin.AccountAssignment;
+ * import com.pulumi.aws.ssoadmin.AccountAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .name("AWSReadOnlyAccess")
+ *             .build());
+ * 
+ *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
+ *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
+ *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
+ *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
+ *                     .attributePath("DisplayName")
+ *                     .attributeValue("ExampleGroup")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAccountAssignment = new AccountAssignment("exampleAccountAssignment", AccountAssignmentArgs.builder()        
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .permissionSetArn(exampleGetPermissionSet.applyValue(getPermissionSetResult -> getPermissionSetResult.arn()))
+ *             .principalId(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.groupId()))
+ *             .principalType("GROUP")
+ *             .targetId("123456789012")
+ *             .targetType("AWS_ACCOUNT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Managed Policy Attachment
+ * 
+ * &gt; Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.PermissionSet;
+ * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
+ * import com.pulumi.aws.identitystore.Group;
+ * import com.pulumi.aws.identitystore.GroupArgs;
+ * import com.pulumi.aws.ssoadmin.AccountAssignment;
+ * import com.pulumi.aws.ssoadmin.AccountAssignmentArgs;
+ * import com.pulumi.aws.ssoadmin.ManagedPolicyAttachment;
+ * import com.pulumi.aws.ssoadmin.ManagedPolicyAttachmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SsoadminFunctions.getInstances();
+ * 
+ *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()        
+ *             .name("Example")
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .build());
+ * 
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *             .identityStoreId(ssoInstance.identityStoreIds()[0])
+ *             .displayName("Admin")
+ *             .description("Admin Group")
+ *             .build());
+ * 
+ *         var accountAssignment = new AccountAssignment("accountAssignment", AccountAssignmentArgs.builder()        
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .permissionSetArn(examplePermissionSet.arn())
+ *             .principalId(exampleGroup.groupId())
+ *             .principalType("GROUP")
+ *             .targetId("123456789012")
+ *             .targetType("AWS_ACCOUNT")
+ *             .build());
+ * 
+ *         var exampleManagedPolicyAttachment = new ManagedPolicyAttachment("exampleManagedPolicyAttachment", ManagedPolicyAttachmentArgs.builder()        
+ *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+ *             .managedPolicyArn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
+ *             .permissionSetArn(examplePermissionSet.arn())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSsoadminAccountAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:

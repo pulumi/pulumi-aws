@@ -216,6 +216,79 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Elasticache Cluster in Outpost
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.outposts.OutpostsFunctions;
+ * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+ * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.elasticache.SubnetGroup;
+ * import com.pulumi.aws.elasticache.SubnetGroupArgs;
+ * import com.pulumi.aws.elasticache.Cluster;
+ * import com.pulumi.aws.elasticache.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = OutpostsFunctions.getOutposts();
+ * 
+ *         final var exampleGetOutpost = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+ *             .id(example.applyValue(getOutpostsResult -> getOutpostsResult.ids()[0]))
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *             .vpcId(exampleVpc.id())
+ *             .cidrBlock("10.0.1.0/24")
+ *             .tags(Map.of("Name", "my-subnet"))
+ *             .build());
+ * 
+ *         var exampleSubnetGroup = new SubnetGroup("exampleSubnetGroup", SubnetGroupArgs.builder()        
+ *             .name("my-cache-subnet")
+ *             .subnetIds(exampleSubnet.id())
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *             .clusterId("cluster-example")
+ *             .outpostMode("single-outpost")
+ *             .preferredOutpostArn(exampleGetOutpost.applyValue(getOutpostResult -> getOutpostResult.arn()))
+ *             .engine("memcached")
+ *             .nodeType("cache.r5.large")
+ *             .numCacheNodes(2)
+ *             .parameterGroupName("default.memcached1.4")
+ *             .port(11211)
+ *             .subnetGroupName(exampleSubnetGroup.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:

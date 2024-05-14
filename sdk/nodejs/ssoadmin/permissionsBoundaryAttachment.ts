@@ -14,6 +14,41 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Attaching a customer-managed policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssoadmin.getInstances({});
+ * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
+ *     name: "Example",
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ * });
+ * const examplePolicy = new aws.iam.Policy("example", {
+ *     name: "TestPolicy",
+ *     description: "My test policy",
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *         }],
+ *     }),
+ * });
+ * const examplePermissionsBoundaryAttachment = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
+ *     instanceArn: examplePermissionSet.instanceArn,
+ *     permissionSetArn: examplePermissionSet.arn,
+ *     permissionsBoundary: {
+ *         customerManagedPolicyReference: {
+ *             name: examplePolicy.name,
+ *             path: "/",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Attaching an AWS-managed policy
  *
  * ```typescript
