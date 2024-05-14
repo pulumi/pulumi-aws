@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
  *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
  *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()        
+ *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
  *             .contactIds(exampleAwsSsmcontactsContact.arn())
  *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()        
+ *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
  *                 .suffix("index.html")
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()        
+ *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
  *                 .suffix("index.html")

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceProfile("example", InstanceProfileArgs.builder()        
+ *         var example = new InstanceProfile("example", InstanceProfileArgs.builder()
  *             .name("example")
  *             .build());
  * 

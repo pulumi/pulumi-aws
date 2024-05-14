@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()        
+ *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()
  *             .snapshotCopyGrantName("my-grant")
  *             .build());
  * 
- *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+ *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
  *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
  *                 .destinationRegion("us-east-2")
  *                 .grantName(test.snapshotCopyGrantName())

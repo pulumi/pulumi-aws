@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connect("example", ConnectArgs.builder()        
+ *         var example = new Connect("example", ConnectArgs.builder()
  *             .transportAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
- *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()        
+ *         var exampleConnectPeer = new ConnectPeer("exampleConnectPeer", ConnectPeerArgs.builder()
  *             .peerAddress("10.1.2.3")
  *             .insideCidrBlocks("169.254.100.0/29")
  *             .transitGatewayAttachmentId(example.id())

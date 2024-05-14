@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PeeringAttachmentAccepter("example", PeeringAttachmentAccepterArgs.builder()        
+ *         var example = new PeeringAttachmentAccepter("example", PeeringAttachmentAccepterArgs.builder()
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayPeeringAttachment.id())
  *             .tags(Map.of("Name", "Example cross-account attachment"))
  *             .build());

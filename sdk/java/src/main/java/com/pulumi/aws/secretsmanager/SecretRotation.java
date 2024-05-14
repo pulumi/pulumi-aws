@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecretRotation("example", SecretRotationArgs.builder()        
+ *         var example = new SecretRotation("example", SecretRotationArgs.builder()
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .rotationLambdaArn(exampleAwsLambdaFunction.arn())
  *             .rotationRules(SecretRotationRotationRulesArgs.builder()

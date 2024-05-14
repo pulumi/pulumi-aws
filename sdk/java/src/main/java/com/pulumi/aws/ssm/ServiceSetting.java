@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSetting = new ServiceSetting("testSetting", ServiceSettingArgs.builder()        
+ *         var testSetting = new ServiceSetting("testSetting", ServiceSettingArgs.builder()
  *             .settingId("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled")
  *             .settingValue("true")
  *             .build());

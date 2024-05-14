@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConditionalForwader("example", ConditionalForwaderArgs.builder()        
+ *         var example = new ConditionalForwader("example", ConditionalForwaderArgs.builder()
  *             .directoryId(ad.id())
  *             .remoteDomainName("example.com")
  *             .dnsIps(            

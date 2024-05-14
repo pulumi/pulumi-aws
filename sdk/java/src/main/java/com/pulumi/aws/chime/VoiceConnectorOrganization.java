@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
  *             .name("test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization("defaultVoiceConnectorOrganization", VoiceConnectorOrganizationArgs.builder()        
+ *         var defaultVoiceConnectorOrganization = new VoiceConnectorOrganization("defaultVoiceConnectorOrganization", VoiceConnectorOrganizationArgs.builder()
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .routes(            

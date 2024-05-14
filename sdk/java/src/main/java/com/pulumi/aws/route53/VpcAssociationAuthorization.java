@@ -48,31 +48,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.6.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(example.id())
  *                 .build())
  *             .build());
  * 
- *         var alternate = new Vpc("alternate", VpcArgs.builder()        
+ *         var alternate = new Vpc("alternate", VpcArgs.builder()
  *             .cidrBlock("10.7.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization("exampleVpcAssociationAuthorization", VpcAssociationAuthorizationArgs.builder()        
+ *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization("exampleVpcAssociationAuthorization", VpcAssociationAuthorizationArgs.builder()
  *             .vpcId(alternate.id())
  *             .zoneId(exampleZone.id())
  *             .build());
  * 
- *         var exampleZoneAssociation = new ZoneAssociation("exampleZoneAssociation", ZoneAssociationArgs.builder()        
+ *         var exampleZoneAssociation = new ZoneAssociation("exampleZoneAssociation", ZoneAssociationArgs.builder()
  *             .vpcId(exampleVpcAssociationAuthorization.vpcId())
  *             .zoneId(exampleVpcAssociationAuthorization.zoneId())
  *             .build());

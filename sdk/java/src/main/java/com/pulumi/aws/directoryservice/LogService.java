@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name(String.format("/aws/directoryservice/%s", exampleAwsDirectoryServiceDirectory.id()))
  *             .retentionInDays(14)
  *             .build());
@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy("ad-log-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy("ad-log-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyDocument(ad_log_policy.applyValue(ad_log_policy -> ad_log_policy.json()))
  *             .policyName("ad-log-policy")
  *             .build());
  * 
- *         var exampleLogService = new LogService("exampleLogService", LogServiceArgs.builder()        
+ *         var exampleLogService = new LogService("exampleLogService", LogServiceArgs.builder()
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .logGroupName(example.name())
  *             .build());

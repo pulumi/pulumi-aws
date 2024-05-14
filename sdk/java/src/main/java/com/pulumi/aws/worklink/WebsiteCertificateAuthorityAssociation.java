@@ -42,11 +42,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var test = new WebsiteCertificateAuthorityAssociation("test", WebsiteCertificateAuthorityAssociationArgs.builder()        
+ *         var test = new WebsiteCertificateAuthorityAssociation("test", WebsiteCertificateAuthorityAssociationArgs.builder()
  *             .fleetArn(testAwsWorklinkFleet.arn())
  *             .certificate(StdFunctions.file(FileArgs.builder()
  *                 .input("certificate.pem")

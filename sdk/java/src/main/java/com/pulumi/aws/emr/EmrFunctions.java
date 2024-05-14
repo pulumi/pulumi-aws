@@ -371,7 +371,7 @@ public final class EmrFunctions {
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -466,7 +466,7 @@ public final class EmrFunctions {
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -561,7 +561,7 @@ public final class EmrFunctions {
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)
@@ -656,7 +656,7 @@ public final class EmrFunctions {
      *             .releaseLabel(releaseLabel)
      *             .build());
      * 
-     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()        
+     *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
      *             .releaseLabel(releaseLabel)
      *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
      *                 .instanceType(instanceType)

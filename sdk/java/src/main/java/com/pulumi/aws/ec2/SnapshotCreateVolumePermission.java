@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume("example", VolumeArgs.builder()        
+ *         var example = new Volume("example", VolumeArgs.builder()
  *             .availabilityZone("us-west-2a")
  *             .size(40)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .volumeId(example.id())
  *             .build());
  * 
- *         var examplePerm = new SnapshotCreateVolumePermission("examplePerm", SnapshotCreateVolumePermissionArgs.builder()        
+ *         var examplePerm = new SnapshotCreateVolumePermission("examplePerm", SnapshotCreateVolumePermissionArgs.builder()
  *             .snapshotId(exampleSnapshot.id())
  *             .accountId("12345678")
  *             .build());

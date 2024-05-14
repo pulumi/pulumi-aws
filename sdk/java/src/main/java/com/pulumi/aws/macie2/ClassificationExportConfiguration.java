@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration("exampleClassificationExportConfiguration", ClassificationExportConfigurationArgs.builder()        
+ *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration("exampleClassificationExportConfiguration", ClassificationExportConfigurationArgs.builder()
  *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
  *                 .bucketName(exampleAwsS3Bucket.bucket())
  *                 .keyPrefix("exampleprefix/")

@@ -55,19 +55,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var pubsubPolicy = new Policy("pubsubPolicy", PolicyArgs.builder()        
+ *         var pubsubPolicy = new Policy("pubsubPolicy", PolicyArgs.builder()
  *             .name("PubSubToAnyTopic")
  *             .policy(pubsub.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .csr(StdFunctions.file(FileArgs.builder()
  *                 .input("csr.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
- *         var att = new PolicyAttachment("att", PolicyAttachmentArgs.builder()        
+ *         var att = new PolicyAttachment("att", PolicyAttachmentArgs.builder()
  *             .policy(pubsubPolicy.name())
  *             .target(cert.arn())
  *             .build());

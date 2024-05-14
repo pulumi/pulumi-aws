@@ -54,15 +54,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var analytics = new BucketV2("analytics", BucketV2Args.builder()        
+ *         var analytics = new BucketV2("analytics", BucketV2Args.builder()
  *             .bucket("analytics destination")
  *             .build());
  * 
- *         var example_entire_bucket = new AnalyticsConfiguration("example-entire-bucket", AnalyticsConfigurationArgs.builder()        
+ *         var example_entire_bucket = new AnalyticsConfiguration("example-entire-bucket", AnalyticsConfigurationArgs.builder()
  *             .bucket(example.id())
  *             .name("EntireBucket")
  *             .storageClassAnalysis(AnalyticsConfigurationStorageClassAnalysisArgs.builder()
@@ -110,11 +110,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_filtered = new AnalyticsConfiguration("example-filtered", AnalyticsConfigurationArgs.builder()        
+ *         var example_filtered = new AnalyticsConfiguration("example-filtered", AnalyticsConfigurationArgs.builder()
  *             .bucket(example.id())
  *             .name("ImportantBlueDocuments")
  *             .filter(AnalyticsConfigurationFilterArgs.builder()

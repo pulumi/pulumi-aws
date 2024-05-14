@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleCustomDataIdentifier = new CustomDataIdentifier("exampleCustomDataIdentifier", CustomDataIdentifierArgs.builder()        
+ *         var exampleCustomDataIdentifier = new CustomDataIdentifier("exampleCustomDataIdentifier", CustomDataIdentifierArgs.builder()
  *             .name("NAME OF CUSTOM DATA IDENTIFIER")
  *             .regex("[0-9]{3}-[0-9]{2}-[0-9]{4}")
  *             .description("DESCRIPTION")

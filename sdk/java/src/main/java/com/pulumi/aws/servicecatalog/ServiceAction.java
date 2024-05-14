@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceAction("example", ServiceActionArgs.builder()        
+ *         var example = new ServiceAction("example", ServiceActionArgs.builder()
  *             .description("Motor generator unit")
  *             .name("MGU")
  *             .definition(ServiceActionDefinitionArgs.builder()

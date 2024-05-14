@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
  *                 Map.entry("PASSWORD", "examplepassword"),
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.endpoint())),
  *                 Map.entry("PASSWORD", "examplepassword"),

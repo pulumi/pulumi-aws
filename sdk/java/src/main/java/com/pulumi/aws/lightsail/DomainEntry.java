@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Domain("test", DomainArgs.builder()        
+ *         var test = new Domain("test", DomainArgs.builder()
  *             .domainName("mydomain.com")
  *             .build());
  * 
- *         var testDomainEntry = new DomainEntry("testDomainEntry", DomainEntryArgs.builder()        
+ *         var testDomainEntry = new DomainEntry("testDomainEntry", DomainEntryArgs.builder()
  *             .domainName(domainTest.domainName())
  *             .name("www")
  *             .type("A")

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteCalculation("example", RouteCalculationArgs.builder()        
+ *         var example = new RouteCalculation("example", RouteCalculationArgs.builder()
  *             .calculatorName("example")
  *             .dataSource("Here")
  *             .build());

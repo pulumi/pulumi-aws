@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationSmb("example", LocationSmbArgs.builder()        
+ *         var example = new LocationSmb("example", LocationSmbArgs.builder()
  *             .serverHostname("smb.example.com")
  *             .subdirectory("/exported/path")
  *             .user("Guest")

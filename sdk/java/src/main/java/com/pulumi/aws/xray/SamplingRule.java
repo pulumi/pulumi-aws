@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SamplingRule("example", SamplingRuleArgs.builder()        
+ *         var example = new SamplingRule("example", SamplingRuleArgs.builder()
  *             .ruleName("example")
  *             .priority(9999)
  *             .version(1)

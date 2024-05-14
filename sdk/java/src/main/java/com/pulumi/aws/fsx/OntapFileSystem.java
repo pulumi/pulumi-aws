@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapFileSystem("test", OntapFileSystemArgs.builder()        
+ *         var test = new OntapFileSystem("test", OntapFileSystemArgs.builder()
  *             .storageCapacity(1024)
  *             .subnetIds(            
  *                 test1.id(),
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testhapairs = new OntapFileSystem("testhapairs", OntapFileSystemArgs.builder()        
+ *         var testhapairs = new OntapFileSystem("testhapairs", OntapFileSystemArgs.builder()
  *             .storageCapacity(2048)
  *             .subnetIds(test1.id())
  *             .deploymentType("SINGLE_AZ_2")

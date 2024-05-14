@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myStackPermission = new Permission("myStackPermission", PermissionArgs.builder()        
+ *         var myStackPermission = new Permission("myStackPermission", PermissionArgs.builder()
  *             .allowSsh(true)
  *             .allowSudo(true)
  *             .level("iam_only")

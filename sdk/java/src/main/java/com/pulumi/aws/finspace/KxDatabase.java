@@ -49,17 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Example KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()
  *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
  * 
- *         var exampleKxDatabase = new KxDatabase("exampleKxDatabase", KxDatabaseArgs.builder()        
+ *         var exampleKxDatabase = new KxDatabase("exampleKxDatabase", KxDatabaseArgs.builder()
  *             .environmentId(exampleKxEnvironment.id())
  *             .name("my-tf-kx-database")
  *             .description("Example database description")

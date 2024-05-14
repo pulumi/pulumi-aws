@@ -52,18 +52,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example-vocab-123")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()        
+ *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()
  *             .bucket(example.id())
  *             .key("transcribe/test1.txt")
  *             .source(new FileAsset("test.txt"))
  *             .build());
  * 
- *         var exampleVocabulary = new Vocabulary("exampleVocabulary", VocabularyArgs.builder()        
+ *         var exampleVocabulary = new Vocabulary("exampleVocabulary", VocabularyArgs.builder()
  *             .vocabularyName("example")
  *             .languageCode("en-US")
  *             .vocabularyFileUri(Output.tuple(example.id(), object.key()).applyValue(values -> {

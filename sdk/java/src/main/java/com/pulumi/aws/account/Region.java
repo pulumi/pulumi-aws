@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Region("example", RegionArgs.builder()        
+ *         var example = new Region("example", RegionArgs.builder()
  *             .regionName("ap-southeast-3")
  *             .enabled(true)
  *             .build());

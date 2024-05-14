@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteResponse("example", RouteResponseArgs.builder()        
+ *         var example = new RouteResponse("example", RouteResponseArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .routeId(exampleAwsApigatewayv2Route.id())
  *             .routeResponseKey("$default")

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("example")
  *             .schema("""
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()        
+ *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
  *             .apiId(example.id())
  *             .name("example")
  *             .type("HTTP")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()        
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
  *             .apiId(example.id())
  *             .dataSource(exampleDataSource.name())
  *             .name("example")
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Function("example", FunctionArgs.builder()        
+ *         var example = new Function("example", FunctionArgs.builder()
  *             .apiId(exampleAwsAppsyncGraphqlApi.id())
  *             .dataSource(exampleAwsAppsyncDatasource.name())
  *             .name("example")

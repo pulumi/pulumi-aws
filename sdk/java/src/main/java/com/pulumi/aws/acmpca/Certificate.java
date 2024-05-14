@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
  *                 .signingAlgorithm("SHA512WITHRSA")
@@ -71,18 +71,18 @@ import javax.annotation.Nullable;
  *             .permanentDeletionTimeInDays(7)
  *             .build());
  * 
- *         var key = new PrivateKey("key", PrivateKeyArgs.builder()        
+ *         var key = new PrivateKey("key", PrivateKeyArgs.builder()
  *             .algorithm("RSA")
  *             .build());
  * 
- *         var csr = new CertRequest("csr", CertRequestArgs.builder()        
+ *         var csr = new CertRequest("csr", CertRequestArgs.builder()
  *             .privateKeyPem(key.privateKeyPem())
  *             .subject(CertRequestSubjectArgs.builder()
  *                 .commonName("example")
  *                 .build())
  *             .build());
  * 
- *         var example = new Certificate("example", CertificateArgs.builder()        
+ *         var example = new Certificate("example", CertificateArgs.builder()
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(csr.certRequestPem())
  *             .signingAlgorithm("SHA256WITHRSA")

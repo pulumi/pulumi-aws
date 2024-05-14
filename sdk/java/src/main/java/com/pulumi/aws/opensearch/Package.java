@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myOpensearchPackages = new BucketV2("myOpensearchPackages", BucketV2Args.builder()        
+ *         var myOpensearchPackages = new BucketV2("myOpensearchPackages", BucketV2Args.builder()
  *             .bucket("my-opensearch-packages")
  *             .build());
  * 
- *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()        
+ *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
  *             .bucket(myOpensearchPackages.bucket())
  *             .key("example.txt")
  *             .source(new FileAsset("./example.txt"))
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var examplePackage = new Package("examplePackage", PackageArgs.builder()        
+ *         var examplePackage = new Package("examplePackage", PackageArgs.builder()
  *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())

@@ -47,16 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Stack("test", StackArgs.builder()        
+ *         var test = new Stack("test", StackArgs.builder()
  *             .name("STACK NAME")
  *             .build());
  * 
- *         var testUser = new User("testUser", UserArgs.builder()        
+ *         var testUser = new User("testUser", UserArgs.builder()
  *             .authenticationType("USERPOOL")
  *             .userName("EMAIL")
  *             .build());
  * 
- *         var testUserStackAssociation = new UserStackAssociation("testUserStackAssociation", UserStackAssociationArgs.builder()        
+ *         var testUserStackAssociation = new UserStackAssociation("testUserStackAssociation", UserStackAssociationArgs.builder()
  *             .authenticationType(testUser.authenticationType())
  *             .stackName(test.name())
  *             .userName(testUser.userName())

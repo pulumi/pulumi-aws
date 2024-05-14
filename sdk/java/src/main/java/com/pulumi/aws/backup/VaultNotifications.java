@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic("testTopic", TopicArgs.builder()        
+ *         var testTopic = new Topic("testTopic", TopicArgs.builder()
  *             .name("backup-vault-events")
  *             .build());
  * 
@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()        
+ *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(testTopic.arn())
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var testVaultNotifications = new VaultNotifications("testVaultNotifications", VaultNotificationsArgs.builder()        
+ *         var testVaultNotifications = new VaultNotifications("testVaultNotifications", VaultNotificationsArgs.builder()
  *             .backupVaultName("example_backup_vault")
  *             .snsTopicArn(testTopic.arn())
  *             .backupVaultEvents(            

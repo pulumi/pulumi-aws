@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var db = new MysqlLayer("db", MysqlLayerArgs.builder()        
+ *         var db = new MysqlLayer("db", MysqlLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

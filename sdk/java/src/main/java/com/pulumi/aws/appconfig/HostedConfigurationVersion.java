@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()        
+ *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
  *             .description("Example Freeform Hosted Configuration Version")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()        
+ *         var example = new HostedConfigurationVersion("example", HostedConfigurationVersionArgs.builder()
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .configurationProfileId(exampleAwsAppconfigConfigurationProfile.configurationProfileId())
  *             .description("Example Feature Flag Configuration Version")

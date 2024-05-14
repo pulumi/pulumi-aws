@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()        
+ *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()
  *             .name("foo")
  *             .direction("INBOUND")
  *             .securityGroupIds(            

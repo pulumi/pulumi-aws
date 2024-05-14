@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new TrafficMirrorFilter("foo", TrafficMirrorFilterArgs.builder()        
+ *         var foo = new TrafficMirrorFilter("foo", TrafficMirrorFilterArgs.builder()
  *             .description("traffic mirror filter - example")
  *             .networkServices("amazon-dns")
  *             .build());

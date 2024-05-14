@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .kinesisDataFirehose(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs.builder()
  *                     .deliveryStream(exampleAwsKinesisFirehoseDeliveryStream.name())
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .s3(InstanceLoggingConfigurationAccessLogsS3Args.builder()
  *                     .bucketName(exampleAwsS3Bucket.id())
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .cloudwatchLogs(InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs.builder()
  *                     .enabled(true)
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .includeTrustContext(true)
  *                 .build())
@@ -267,7 +267,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()        
+ *         var example = new InstanceLoggingConfiguration("example", InstanceLoggingConfigurationArgs.builder()
  *             .accessLogs(InstanceLoggingConfigurationAccessLogsArgs.builder()
  *                 .logVersion("ocsf-1.0.0-rc.2")
  *                 .build())

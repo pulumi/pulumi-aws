@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workgroup("example", WorkgroupArgs.builder()        
+ *         var example = new Workgroup("example", WorkgroupArgs.builder()
  *             .name("example")
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .enforceWorkgroupConfiguration(true)

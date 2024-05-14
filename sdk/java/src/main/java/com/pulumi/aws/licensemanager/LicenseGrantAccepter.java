@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new LicenseGrantAccepter("test", LicenseGrantAccepterArgs.builder()        
+ *         var test = new LicenseGrantAccepter("test", LicenseGrantAccepterArgs.builder()
  *             .grantArn("arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
  *             .build());
  * 

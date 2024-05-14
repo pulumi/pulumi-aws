@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .authenticationConfiguration(ServiceSourceConfigurationAuthenticationConfigurationArgs.builder()
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .serviceName("example")
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
@@ -178,14 +178,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleObservabilityConfiguration = new ObservabilityConfiguration("exampleObservabilityConfiguration", ObservabilityConfigurationArgs.builder()        
+ *         var exampleObservabilityConfiguration = new ObservabilityConfiguration("exampleObservabilityConfiguration", ObservabilityConfigurationArgs.builder()
  *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor("AWSXRAY")
  *                 .build())
  *             .build());
  * 
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .serviceName("example")
  *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
  *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())

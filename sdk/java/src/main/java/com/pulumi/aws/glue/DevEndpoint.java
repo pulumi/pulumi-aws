@@ -63,17 +63,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("AWSGlueServiceRole-foo")
  *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDevEndpoint = new DevEndpoint("exampleDevEndpoint", DevEndpointArgs.builder()        
+ *         var exampleDevEndpoint = new DevEndpoint("exampleDevEndpoint", DevEndpointArgs.builder()
  *             .name("foo")
  *             .roleArn(exampleRole.arn())
  *             .build());
  * 
- *         var example_AWSGlueServiceRole = new RolePolicyAttachment("example-AWSGlueServiceRole", RolePolicyAttachmentArgs.builder()        
+ *         var example_AWSGlueServiceRole = new RolePolicyAttachment("example-AWSGlueServiceRole", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole")
  *             .role(exampleRole.name())
  *             .build());

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()        
+ *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()
  *             .name("All VPC CIDR-s")
  *             .addressFamily("IPv4")
  *             .maxEntries(5)

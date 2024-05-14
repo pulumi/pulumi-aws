@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cache = new MemcachedLayer("cache", MemcachedLayerArgs.builder()        
+ *         var cache = new MemcachedLayer("cache", MemcachedLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myInstance = new RdsDbInstance("myInstance", RdsDbInstanceArgs.builder()        
+ *         var myInstance = new RdsDbInstance("myInstance", RdsDbInstanceArgs.builder()
  *             .stackId(myStack.id())
  *             .rdsDbInstanceArn(myInstanceAwsDbInstance.arn())
  *             .dbUser("someUser")

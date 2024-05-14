@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Detector("example", DetectorArgs.builder()        
+ *         var example = new Detector("example", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
- *         var eksRuntimeMonitoring = new DetectorFeature("eksRuntimeMonitoring", DetectorFeatureArgs.builder()        
+ *         var eksRuntimeMonitoring = new DetectorFeature("eksRuntimeMonitoring", DetectorFeatureArgs.builder()
  *             .detectorId(example.id())
  *             .name("EKS_RUNTIME_MONITORING")
  *             .status("ENABLED")
