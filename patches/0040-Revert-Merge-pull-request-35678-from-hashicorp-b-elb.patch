@@ -21,7 +21,7 @@ index 106f298c02..0000000000
 -resource/aws_lb_listener_rule: Fixes unexpected diff when using `action` parameters which don't match the `type`.
 -```
 diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
-index 5b358cc768..159d62abf7 100644
+index d47935f910..e1bd664c4f 100644
 --- a/internal/service/elbv2/listener.go
 +++ b/internal/service/elbv2/listener.go
 @@ -75,10 +75,9 @@ func ResourceListener() *schema.Resource {
@@ -108,7 +108,7 @@ index 5b358cc768..159d62abf7 100644
 +							Optional:     true,
 +							ValidateFunc: verify.ValidARN,
  						},
- 						"type": {
+ 						names.AttrType: {
  							Type:             schema.TypeString,
 @@ -397,21 +393,6 @@ func ResourceListener() *schema.Resource {
  	}
@@ -124,7 +124,7 @@ index 5b358cc768..159d62abf7 100644
 -			}
 -			return false
 -		})
--		at := k[:i+1] + "type"
+-		at := k[:i+1] + names.AttrType
 -		return awstypes.ActionTypeEnum(d.Get(at).(string)) != t
 -	}
 -}
@@ -133,7 +133,7 @@ index 5b358cc768..159d62abf7 100644
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index 424c9f24f3..cf2d9e9e71 100644
+index 239c0c940d..00064312b9 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
 @@ -11,7 +11,6 @@ import (
@@ -228,7 +228,7 @@ index 424c9f24f3..cf2d9e9e71 100644
 -			}
 -			return false
 -		})
--		at := k[:i+1] + "type"
+-		at := k[:i+1] + names.AttrType
 -		return awstypes.ActionTypeEnum(d.Get(at).(string)) != t
 -	}
 -}

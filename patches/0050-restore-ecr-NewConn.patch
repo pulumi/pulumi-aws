@@ -5,7 +5,7 @@ Subject: [PATCH] restore ecr NewConn
 
 
 diff --git a/internal/service/ecr/service_package_gen.go b/internal/service/ecr/service_package_gen.go
-index 5c55049ad5..a5f6e621d1 100644
+index 01f450f46c..8b46cd0ff6 100644
 --- a/internal/service/ecr/service_package_gen.go
 +++ b/internal/service/ecr/service_package_gen.go
 @@ -7,6 +7,9 @@ import (

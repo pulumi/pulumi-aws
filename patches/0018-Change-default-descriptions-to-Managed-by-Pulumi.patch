@@ -5,24 +5,24 @@ Subject: [PATCH] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index f877edde6f..007456ebf8 100644
+index f68c242fe0..c7be2c51b7 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
 @@ -55,7 +55,7 @@ func resourceAPIKey() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"enabled": {
+ 			names.AttrEnabled: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/appsync/api_key.go b/internal/service/appsync/api_key.go
-index 154306cde7..e3c6189ab2 100644
+index fbdf814b82..ae8e490533 100644
 --- a/internal/service/appsync/api_key.go
 +++ b/internal/service/appsync/api_key.go
-@@ -35,7 +35,7 @@ func ResourceAPIKey() *schema.Resource {
- 			"description": {
+@@ -36,7 +36,7 @@ func ResourceAPIKey() *schema.Resource {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
@@ -31,11 +31,11 @@ index 154306cde7..e3c6189ab2 100644
  			"api_id": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
-index 4fb70de716..03bc2ac3c7 100644
+index 837e79c057..8fc8280900 100644
 --- a/internal/service/cloudfront/origin_access_control.go
 +++ b/internal/service/cloudfront/origin_access_control.go
-@@ -37,7 +37,7 @@ func resourceOriginAccessControl() *schema.Resource {
- 			"description": {
+@@ -38,7 +38,7 @@ func resourceOriginAccessControl() *schema.Resource {
+ 			names.AttrDescription: {
  				Type:         schema.TypeString,
  				Optional:     true,
 -				Default:      "Managed by Terraform",
@@ -44,7 +44,7 @@ index 4fb70de716..03bc2ac3c7 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index a1af860ca7..1db92c7f3f 100644
+index 959a97abd7..f7587ff9ab 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -57,20 +57,20 @@ index a1af860ca7..1db92c7f3f 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
-index 6970e2c917..9644b1a733 100644
+index 333fe4befa..b706339eea 100644
 --- a/internal/service/docdb/subnet_group.go
 +++ b/internal/service/docdb/subnet_group.go
 @@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 3d022369db..c88eebf5be 100644
+index d2f71a3305..c650bee4bf 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -66,7 +66,7 @@ func ResourceSecurityGroup() *schema.Resource {
@@ -83,7 +83,7 @@ index 3d022369db..c88eebf5be 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index 5db5edf801..8cc3d84313 100644
+index efd59ed47e..dfe5a0f410 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -49,7 +49,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -229,24 +229,24 @@ index 0000000000..f587fcbcce
 +	return diags
 +}
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index d0ccfcef0f..a2a5cda65f 100644
+index b00bb973e4..daa2df4791 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
 @@ -48,7 +48,7 @@ func resourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 74bb15b961..b89c7980f3 100644
+index cec42b0ab5..e1ce46856e 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -51,7 +51,7 @@ func ResourceChannel() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
@@ -255,11 +255,11 @@ index 74bb15b961..b89c7980f3 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 5cc41d41a5..76702cb008 100644
+index 55d3637a4e..465e394512 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
 @@ -73,7 +73,7 @@ func ResourceCluster() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
@@ -268,7 +268,7 @@ index 5cc41d41a5..76702cb008 100644
  			"engine_patch_version": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index 6a00a65414..4f6e17d0fc 100644
+index 877c845404..5be6fa78a8 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
 @@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -281,20 +281,20 @@ index 6a00a65414..4f6e17d0fc 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
-index 539b58f81f..bc15c792e8 100644
+index 314802c87e..9bd9633a92 100644
 --- a/internal/service/memorydb/subnet_group.go
 +++ b/internal/service/memorydb/subnet_group.go
 @@ -46,7 +46,7 @@ func ResourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index fc811f78a6..6bdc216d7e 100644
+index 2807e14fea..18be05a952 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -307,7 +307,7 @@ index fc811f78a6..6bdc216d7e 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 6b3466f4d2..4fe2595102 100644
+index e438ed4cb6..95d1b3f345 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -320,20 +320,20 @@ index 6b3466f4d2..4fe2595102 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
-index 359047d7ab..acc8ff375e 100644
+index fc60010e7d..0b213b1bf7 100644
 --- a/internal/service/neptune/subnet_group.go
 +++ b/internal/service/neptune/subnet_group.go
 @@ -44,7 +44,7 @@ func ResourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index a66785b727..f27440d36c 100644
+index f116ad37e4..c8b59e9363 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -346,7 +346,7 @@ index a66785b727..f27440d36c 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index 7336c50e7a..431e2d47b9 100644
+index 76678ca094..774986d77b 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
 @@ -123,7 +123,7 @@ func ResourceOptionGroup() *schema.Resource {
@@ -359,7 +359,7 @@ index 7336c50e7a..431e2d47b9 100644
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 227dae6935..5c46cc3fb9 100644
+index 546903e074..fcdea229c6 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -694,20 +694,20 @@ index 0000000000..54d4e61495
 +	return create.StringHashcode(buf.String())
 +}
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index 66b981fa2f..0334e3d8fd 100644
+index dfc4040034..e044b6a8cf 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
 @@ -47,7 +47,7 @@ func resourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index d12705aa23..d3231d0cb2 100644
+index 32c6f92b44..aa4eda9830 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -1017,23 +1017,23 @@ index 0000000000..47b5d7cda2
 +	return ingress
 +}
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index 0703821ac6..b175faacaf 100644
+index 2d1a8f8bcb..47c939f356 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
 @@ -45,7 +45,7 @@ func resourceSubnetGroup() *schema.Resource {
- 			"description": {
+ 			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"name": {
+ 			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index e938feac80..c1659dad30 100644
+index c46f2480be..99b65c9466 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -361,7 +361,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
  	// retry for us since Route53 sometimes returns errors about another
  	// operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1042,7 +1042,7 @@ index e938feac80..c1659dad30 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(action),
-@@ -663,7 +663,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -664,7 +664,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
  	// StateChangeConf for this to retry for us since Route53 sometimes returns
  	// errors about another operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1051,7 +1051,7 @@ index e938feac80..c1659dad30 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
-@@ -734,7 +734,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -735,7 +735,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
  
  	// Change batch for deleting
  	changeBatch := &route53.ChangeBatch{
@@ -1061,7 +1061,7 @@ index e938feac80..c1659dad30 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index d2e20f6dda..b9e1bf2bfe 100644
+index 3ffc464eae..55d4aa852c 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -59,7 +59,7 @@ func ResourceZone() *schema.Resource {
@@ -1074,10 +1074,10 @@ index d2e20f6dda..b9e1bf2bfe 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index e17fa7c445..fb9e5b7304 100644
+index b35f1a2241..82766fec83 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
-@@ -76,7 +76,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+@@ -77,7 +77,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
  			VPCId:     aws.String(vpcID),
  			VPCRegion: aws.String(vpcRegion),
  		},
@@ -1086,7 +1086,7 @@ index e17fa7c445..fb9e5b7304 100644
  	}
  
  	output, err := conn.AssociateVPCWithHostedZoneWithContext(ctx, input)
-@@ -179,7 +179,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
+@@ -180,7 +180,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
  			VPCId:     aws.String(vpcID),
  			VPCRegion: aws.String(vpcRegion),
  		},

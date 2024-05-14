@@ -7,10 +7,10 @@ Subject: [PATCH] Workaround Autoscaling launch_configuration
 - Disable computation of property until fixed.
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
-index 4c8e2b6bf8..feb96a6076 100644
+index 5070e8bde4..48008f0b18 100644
 --- a/internal/service/autoscaling/launch_configuration.go
 +++ b/internal/service/autoscaling/launch_configuration.go
-@@ -50,7 +50,8 @@ func resourceLaunchConfiguration() *schema.Resource {
+@@ -51,7 +51,8 @@ func resourceLaunchConfiguration() *schema.Resource {
  			"associate_public_ip_address": {
  				Type:     schema.TypeBool,
  				Optional: true,
@@ -20,17 +20,17 @@ index 4c8e2b6bf8..feb96a6076 100644
  				ForceNew: true,
  			},
  			"ebs_block_device": {
-@@ -317,16 +318,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
+@@ -318,16 +319,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
  
- 	lcName := create.Name(d.Get("name").(string), d.Get("name_prefix").(string))
+ 	lcName := create.Name(d.Get(names.AttrName).(string), d.Get(names.AttrNamePrefix).(string))
  	input := autoscaling.CreateLaunchConfigurationInput{
 -		EbsOptimized:            aws.Bool(d.Get("ebs_optimized").(bool)),
 -		ImageId:                 aws.String(d.Get("image_id").(string)),
--		InstanceType:            aws.String(d.Get("instance_type").(string)),
+-		InstanceType:            aws.String(d.Get(names.AttrInstanceType).(string)),
 -		LaunchConfigurationName: aws.String(lcName),
 +		EbsOptimized:             aws.Bool(d.Get("ebs_optimized").(bool)),
 +		ImageId:                  aws.String(d.Get("image_id").(string)),
-+		InstanceType:             aws.String(d.Get("instance_type").(string)),
++		InstanceType:             aws.String(d.Get(names.AttrInstanceType).(string)),
 +		LaunchConfigurationName:  aws.String(lcName),
 +		AssociatePublicIpAddress: aws.Bool(d.Get("associate_public_ip_address").(bool)),
  	}

@@ -29,7 +29,7 @@ index 7c9da01c62..0000000000
 -resource/aws_lb_listener_rule: Was incorrectly reporting conflicting `action[].target_group_arn` when `ignore_changes` was set.
 -```
 diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
-index 159d62abf7..dd0eaddc43 100644
+index e1bd664c4f..c89f978124 100644
 --- a/internal/service/elbv2/listener.go
 +++ b/internal/service/elbv2/listener.go
 @@ -214,11 +214,9 @@ func ResourceListener() *schema.Resource {
@@ -67,7 +67,7 @@ index 159d62abf7..dd0eaddc43 100644
 -	}
 -
  	return &awstypes.TargetGroupStickinessConfig{
- 		Enabled:         aws.Bool(tfMap["enabled"].(bool)),
+ 		Enabled:         aws.Bool(tfMap[names.AttrEnabled].(bool)),
 -		DurationSeconds: duration,
 +		DurationSeconds: aws.Int32(int32(tfMap["duration"].(int))),
  	}
@@ -85,8 +85,8 @@ index 159d62abf7..dd0eaddc43 100644
 -	for i, action := range actions {
 +	for i, action := range Actions {
  		m := map[string]interface{}{
- 			"type":  string(action.Type),
- 			"order": aws.ToInt32(action.Order),
+ 			names.AttrType: string(action.Type),
+ 			"order":        aws.ToInt32(action.Order),
 @@ -957,7 +949,11 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
  
  		switch action.Type {
@@ -187,10 +187,10 @@ index 159d62abf7..dd0eaddc43 100644
 -	}
 -}
 diff --git a/internal/service/elbv2/listener_data_source.go b/internal/service/elbv2/listener_data_source.go
-index a209c9338b..c9ec31a266 100644
+index 6748be0f47..9fac77e331 100644
 --- a/internal/service/elbv2/listener_data_source.go
 +++ b/internal/service/elbv2/listener_data_source.go
-@@ -338,7 +338,7 @@ func dataSourceListenerRead(ctx context.Context, d *schema.ResourceData, meta in
+@@ -339,7 +339,7 @@ func dataSourceListenerRead(ctx context.Context, d *schema.ResourceData, meta in
  	sort.Slice(listener.DefaultActions, func(i, j int) bool {
  		return aws.ToInt32(listener.DefaultActions[i].Order) < aws.ToInt32(listener.DefaultActions[j].Order)
  	})
@@ -200,7 +200,7 @@ index a209c9338b..c9ec31a266 100644
  	}
  	d.Set("load_balancer_arn", listener.LoadBalancerArn)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index cf2d9e9e71..3b63032c21 100644
+index 00064312b9..e18c5b0479 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
 @@ -99,11 +99,9 @@ func ResourceListenerRule() *schema.Resource {

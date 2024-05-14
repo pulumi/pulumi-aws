@@ -6,7 +6,7 @@ Subject: [PATCH] Patch ACM retry to not retry after LimitExceededException
 
 
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index dbd2989c62..949496c395 100644
+index b75c973f68..91dd8f2621 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
 @@ -6,7 +6,9 @@ import (
@@ -20,7 +20,7 @@ index dbd2989c62..949496c395 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
 @@ -60,6 +62,14 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
- 		if endpoint := config["endpoint"].(string); endpoint != "" {
+ 		if endpoint := config[names.AttrEndpoint].(string); endpoint != "" {
  			o.BaseEndpoint = aws_sdkv2.String(endpoint)
  		}
 +

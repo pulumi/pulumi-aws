@@ -12,7 +12,7 @@ This patch fixes that by adding the missing nil checks for the
 retry strategy.
 
 diff --git a/internal/service/batch/job_definition.go b/internal/service/batch/job_definition.go
-index d1b5102162..a6a9c190c8 100644
+index 99706cb551..a18114f1c3 100644
 --- a/internal/service/batch/job_definition.go
 +++ b/internal/service/batch/job_definition.go
 @@ -528,12 +528,12 @@ func needsJobDefUpdate(d *schema.ResourceDiff) bool {

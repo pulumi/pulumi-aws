@@ -5,12 +5,12 @@ Subject: [PATCH] Patch tags ComputedOnly on bedrockagent and other modules
 
 
 diff --git a/internal/service/bcmdataexports/export.go b/internal/service/bcmdataexports/export.go
-index b11cdf3f1e..1a3a356b14 100644
+index 0055c1bb19..c3d5cd90b2 100644
 --- a/internal/service/bcmdataexports/export.go
 +++ b/internal/service/bcmdataexports/export.go
 @@ -168,7 +168,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
  		Attributes: map[string]schema.Attribute{
- 			"id":              framework.IDAttribute(),
+ 			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
@@ -18,7 +18,7 @@ index b11cdf3f1e..1a3a356b14 100644
  		Blocks: map[string]schema.Block{
  			"export": schema.ListNestedBlock{
 diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
-index b25cc44032..24265c2b01 100644
+index 152acf0653..6ad3dc1bad 100644
 --- a/internal/service/bedrockagent/agent.go
 +++ b/internal/service/bedrockagent/agent.go
 @@ -144,7 +144,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
@@ -29,9 +29,9 @@ index b25cc44032..24265c2b01 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			"timeouts": timeouts.Block(ctx, timeouts.Opts{
+ 			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/agent_alias.go b/internal/service/bedrockagent/agent_alias.go
-index 2af0e6ce90..8b9b75bf95 100644
+index 193035bbd0..a87fbfd16c 100644
 --- a/internal/service/bedrockagent/agent_alias.go
 +++ b/internal/service/bedrockagent/agent_alias.go
 @@ -97,7 +97,7 @@ func (r *agentAliasResource) Schema(ctx context.Context, request resource.Schema
@@ -42,9 +42,9 @@ index 2af0e6ce90..8b9b75bf95 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			"timeouts": timeouts.Block(ctx, timeouts.Opts{
+ 			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/knowledge_base.go b/internal/service/bedrockagent/knowledge_base.go
-index a2c0e6a0c9..1a339667f9 100644
+index 47f166f409..3136f1be3a 100644
 --- a/internal/service/bedrockagent/knowledge_base.go
 +++ b/internal/service/bedrockagent/knowledge_base.go
 @@ -88,7 +88,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
@@ -57,7 +57,7 @@ index a2c0e6a0c9..1a339667f9 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/globalaccelerator/cross_account_attachment.go b/internal/service/globalaccelerator/cross_account_attachment.go
-index 5bc7b2eaa4..bb8df48612 100644
+index dbeaa5d05a..b193b6a5a8 100644
 --- a/internal/service/globalaccelerator/cross_account_attachment.go
 +++ b/internal/service/globalaccelerator/cross_account_attachment.go
 @@ -72,7 +72,7 @@ func (r *crossAccountAttachmentResource) Schema(ctx context.Context, request res

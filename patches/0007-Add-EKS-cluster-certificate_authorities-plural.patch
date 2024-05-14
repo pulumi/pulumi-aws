@@ -5,7 +5,7 @@ Subject: [PATCH] Add EKS cluster certificate_authorities (plural)
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 518deaaef2..6f4ddd9ea4 100644
+index 2826bc48f2..6a9b729b3b 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -83,9 +83,24 @@ func resourceCluster() *schema.Resource {
@@ -36,7 +36,7 @@ index 518deaaef2..6f4ddd9ea4 100644
 @@ -418,6 +433,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta inter
  		return sdkdiag.AppendErrorf(diags, "setting access_config: %s", err)
  	}
- 	d.Set("arn", cluster.Arn)
+ 	d.Set(names.AttrARN, cluster.Arn)
 +
 +	// FORK: Stack72: Renamed certificate_authority list to be certificate_authorities and map in the Pulumi provider
 +	if err := d.Set("certificate_authorities", flattenCertificate(cluster.CertificateAuthority)); err != nil {
