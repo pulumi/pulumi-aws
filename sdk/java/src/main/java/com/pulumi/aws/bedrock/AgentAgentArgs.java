@@ -131,22 +131,30 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.instruction);
     }
 
+    /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
     @Import(name="prepareAgent")
     private @Nullable Output<Boolean> prepareAgent;
 
+    /**
+     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> prepareAgent() {
         return Optional.ofNullable(this.prepareAgent);
     }
 
     /**
-     * Prompt Override Configuration
+     * Prompt override configuration.
      * 
      */
     @Import(name="promptOverrideConfigurations")
     private @Nullable Output<List<AgentAgentPromptOverrideConfigurationArgs>> promptOverrideConfigurations;
 
     /**
-     * @return Prompt Override Configuration
+     * @return Prompt override configuration.
      * 
      */
     public Optional<Output<List<AgentAgentPromptOverrideConfigurationArgs>>> promptOverrideConfigurations() {
@@ -360,17 +368,29 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
             return instruction(Output.of(instruction));
         }
 
+        /**
+         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prepareAgent(@Nullable Output<Boolean> prepareAgent) {
             $.prepareAgent = prepareAgent;
             return this;
         }
 
+        /**
+         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prepareAgent(Boolean prepareAgent) {
             return prepareAgent(Output.of(prepareAgent));
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt Override Configuration
+         * @param promptOverrideConfigurations Prompt override configuration.
          * 
          * @return builder
          * 
@@ -381,7 +401,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt Override Configuration
+         * @param promptOverrideConfigurations Prompt override configuration.
          * 
          * @return builder
          * 
@@ -391,7 +411,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt Override Configuration
+         * @param promptOverrideConfigurations Prompt override configuration.
          * 
          * @return builder
          * 

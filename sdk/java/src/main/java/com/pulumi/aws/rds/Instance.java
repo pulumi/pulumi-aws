@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")
- *             .engineVersion("5.7")
+ *             .engineVersion("8.0")
  *             .instanceClass("db.t3.micro")
  *             .username("foo")
  *             .password("foobarbaz")
- *             .parameterGroupName("default.mysql5.7")
+ *             .parameterGroupName("default.mysql8.0")
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
@@ -414,11 +414,11 @@ import javax.annotation.Nullable;
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")
- *             .engineVersion("5.7")
+ *             .engineVersion("8.0")
  *             .instanceClass("db.t3.micro")
  *             .manageMasterUserPassword(true)
  *             .username("foo")
- *             .parameterGroupName("default.mysql5.7")
+ *             .parameterGroupName("default.mysql8.0")
  *             .build());
  * 
  *     }
@@ -466,12 +466,12 @@ import javax.annotation.Nullable;
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")
- *             .engineVersion("5.7")
+ *             .engineVersion("8.0")
  *             .instanceClass("db.t3.micro")
  *             .manageMasterUserPassword(true)
  *             .masterUserSecretKmsKeyId(example.keyId())
  *             .username("foo")
- *             .parameterGroupName("default.mysql5.7")
+ *             .parameterGroupName("default.mysql8.0")
  *             .build());
  * 
  *     }
@@ -968,14 +968,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Output<String> engineVersion() {

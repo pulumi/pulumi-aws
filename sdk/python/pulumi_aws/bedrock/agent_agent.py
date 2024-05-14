@@ -38,7 +38,8 @@ class AgentAgentArgs:
         :param pulumi.Input[str] description: Description of the agent.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: TTL in seconds for the agent to idle.
         :param pulumi.Input[str] instruction: Instructions to tell agent what it should do.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Prompt Override Configuration
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Prompt override configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_name", agent_name)
@@ -150,6 +151,9 @@ class AgentAgentArgs:
     @property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -160,7 +164,7 @@ class AgentAgentArgs:
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
         """
-        Prompt Override Configuration
+        Prompt override configuration.
         """
         return pulumi.get(self, "prompt_override_configurations")
 
@@ -222,7 +226,8 @@ class _AgentAgentState:
                The following arguments are optional:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: TTL in seconds for the agent to idle.
         :param pulumi.Input[str] instruction: Instructions to tell agent what it should do.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Prompt Override Configuration
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Prompt override configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if agent_arn is not None:
@@ -384,6 +389,9 @@ class _AgentAgentState:
     @property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
         return pulumi.get(self, "prepare_agent")
 
     @prepare_agent.setter
@@ -394,7 +402,7 @@ class _AgentAgentState:
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
         """
-        Prompt Override Configuration
+        Prompt override configuration.
         """
         return pulumi.get(self, "prompt_override_configurations")
 
@@ -504,10 +512,10 @@ class AgentAgent(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+        $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -521,7 +529,8 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: TTL in seconds for the agent to idle.
         :param pulumi.Input[str] instruction: Instructions to tell agent what it should do.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Prompt Override Configuration
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Prompt override configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -581,10 +590,10 @@ class AgentAgent(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+        $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -687,7 +696,8 @@ class AgentAgent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: TTL in seconds for the agent to idle.
         :param pulumi.Input[str] instruction: Instructions to tell agent what it should do.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Prompt Override Configuration
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Prompt override configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -796,13 +806,16 @@ class AgentAgent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="prepareAgent")
     def prepare_agent(self) -> pulumi.Output[bool]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
         return pulumi.get(self, "prepare_agent")
 
     @property
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentPromptOverrideConfiguration']]:
         """
-        Prompt Override Configuration
+        Prompt override configuration.
         """
         return pulumi.get(self, "prompt_override_configurations")
 

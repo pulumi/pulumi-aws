@@ -1410,6 +1410,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String workspacesweb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String xray;
 
     private Endpoints() {}
@@ -3370,6 +3375,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> workspacesweb() {
+        return Optional.ofNullable(this.workspacesweb);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> xray() {
         return Optional.ofNullable(this.xray);
     }
@@ -3662,6 +3674,7 @@ public final class Endpoints {
         private @Nullable String wellarchitected;
         private @Nullable String worklink;
         private @Nullable String workspaces;
+        private @Nullable String workspacesweb;
         private @Nullable String xray;
         public Builder() {}
         public Builder(Endpoints defaults) {
@@ -3945,6 +3958,7 @@ public final class Endpoints {
     	      this.wellarchitected = defaults.wellarchitected;
     	      this.worklink = defaults.worklink;
     	      this.workspaces = defaults.workspaces;
+    	      this.workspacesweb = defaults.workspacesweb;
     	      this.xray = defaults.xray;
         }
 
@@ -5623,6 +5637,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder workspacesweb(@Nullable String workspacesweb) {
+
+            this.workspacesweb = workspacesweb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder xray(@Nullable String xray) {
 
             this.xray = xray;
@@ -5909,6 +5929,7 @@ public final class Endpoints {
             _resultValue.wellarchitected = wellarchitected;
             _resultValue.worklink = worklink;
             _resultValue.workspaces = workspaces;
+            _resultValue.workspacesweb = workspacesweb;
             _resultValue.xray = xray;
             return _resultValue;
         }

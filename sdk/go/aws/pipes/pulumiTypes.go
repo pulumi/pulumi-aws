@@ -6745,7 +6745,7 @@ type PipeTargetParametersEventbridgeEventBusParameters struct {
 	DetailType *string  `pulumi:"detailType"`
 	EndpointId *string  `pulumi:"endpointId"`
 	Resources  []string `pulumi:"resources"`
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source *string `pulumi:"source"`
 	Time   *string `pulumi:"time"`
 }
@@ -6765,7 +6765,7 @@ type PipeTargetParametersEventbridgeEventBusParametersArgs struct {
 	DetailType pulumi.StringPtrInput   `pulumi:"detailType"`
 	EndpointId pulumi.StringPtrInput   `pulumi:"endpointId"`
 	Resources  pulumi.StringArrayInput `pulumi:"resources"`
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 	Time   pulumi.StringPtrInput `pulumi:"time"`
 }
@@ -6859,7 +6859,7 @@ func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Resources() pul
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// Source resource of the pipe (typically an ARN).
+// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -6919,7 +6919,7 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Resources() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Source resource of the pipe (typically an ARN).
+// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) *string {
 		if v == nil {

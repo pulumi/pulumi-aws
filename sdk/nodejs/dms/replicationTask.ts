@@ -76,28 +76,23 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     public readonly cdcStartTime!: pulumi.Output<string | undefined>;
     /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     public readonly migrationType!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     public readonly replicationInstanceArn!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the replication task.
+     * ARN for the replication task.
      */
     public /*out*/ readonly replicationTaskArn!: pulumi.Output<string>;
     /**
-     * The replication task identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      */
     public readonly replicationTaskId!: pulumi.Output<string>;
     /**
-     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      */
     public readonly replicationTaskSettings!: pulumi.Output<string>;
     /**
@@ -105,7 +100,7 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN that uniquely identifies the source endpoint.
      */
     public readonly sourceEndpointArn!: pulumi.Output<string>;
     /**
@@ -117,7 +112,7 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
     public readonly tableMappings!: pulumi.Output<string>;
     /**
@@ -125,13 +120,13 @@ export class ReplicationTask extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN that uniquely identifies the target endpoint.
      */
     public readonly targetEndpointArn!: pulumi.Output<string>;
 
@@ -217,28 +212,23 @@ export interface ReplicationTaskState {
      */
     cdcStartTime?: pulumi.Input<string>;
     /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     migrationType?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     replicationInstanceArn?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the replication task.
+     * ARN for the replication task.
      */
     replicationTaskArn?: pulumi.Input<string>;
     /**
-     * The replication task identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      */
     replicationTaskId?: pulumi.Input<string>;
     /**
-     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      */
     replicationTaskSettings?: pulumi.Input<string>;
     /**
@@ -246,7 +236,7 @@ export interface ReplicationTaskState {
      */
     resourceIdentifier?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN that uniquely identifies the source endpoint.
      */
     sourceEndpointArn?: pulumi.Input<string>;
     /**
@@ -258,7 +248,7 @@ export interface ReplicationTaskState {
      */
     status?: pulumi.Input<string>;
     /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
     tableMappings?: pulumi.Input<string>;
     /**
@@ -266,13 +256,13 @@ export interface ReplicationTaskState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN that uniquely identifies the target endpoint.
      */
     targetEndpointArn?: pulumi.Input<string>;
 }
@@ -290,24 +280,19 @@ export interface ReplicationTaskArgs {
      */
     cdcStartTime?: pulumi.Input<string>;
     /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     migrationType: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      */
     replicationInstanceArn: pulumi.Input<string>;
     /**
-     * The replication task identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      */
     replicationTaskId: pulumi.Input<string>;
     /**
-     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      */
     replicationTaskSettings?: pulumi.Input<string>;
     /**
@@ -315,7 +300,7 @@ export interface ReplicationTaskArgs {
      */
     resourceIdentifier?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN that uniquely identifies the source endpoint.
      */
     sourceEndpointArn: pulumi.Input<string>;
     /**
@@ -323,7 +308,7 @@ export interface ReplicationTaskArgs {
      */
     startReplicationTask?: pulumi.Input<boolean>;
     /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      */
     tableMappings: pulumi.Input<string>;
     /**
@@ -331,7 +316,7 @@ export interface ReplicationTaskArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN that uniquely identifies the target endpoint.
      */
     targetEndpointArn: pulumi.Input<string>;
 }

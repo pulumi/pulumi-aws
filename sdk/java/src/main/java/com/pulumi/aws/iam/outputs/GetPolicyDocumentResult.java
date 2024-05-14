@@ -25,6 +25,11 @@ public final class GetPolicyDocumentResult {
      */
     private String json;
     /**
+     * @return Minified JSON policy document rendered based on the arguments above.
+     * 
+     */
+    private String minifiedJson;
+    /**
      * @deprecated
      * Not used
      * 
@@ -58,6 +63,13 @@ public final class GetPolicyDocumentResult {
      */
     public String json() {
         return this.json;
+    }
+    /**
+     * @return Minified JSON policy document rendered based on the arguments above.
+     * 
+     */
+    public String minifiedJson() {
+        return this.minifiedJson;
     }
     /**
      * @deprecated
@@ -104,6 +116,7 @@ public final class GetPolicyDocumentResult {
     public static final class Builder {
         private String id;
         private String json;
+        private String minifiedJson;
         private @Nullable String overrideJson;
         private @Nullable List<String> overridePolicyDocuments;
         private @Nullable String policyId;
@@ -116,6 +129,7 @@ public final class GetPolicyDocumentResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.json = defaults.json;
+    	      this.minifiedJson = defaults.minifiedJson;
     	      this.overrideJson = defaults.overrideJson;
     	      this.overridePolicyDocuments = defaults.overridePolicyDocuments;
     	      this.policyId = defaults.policyId;
@@ -139,6 +153,14 @@ public final class GetPolicyDocumentResult {
               throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "json");
             }
             this.json = json;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minifiedJson(String minifiedJson) {
+            if (minifiedJson == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDocumentResult", "minifiedJson");
+            }
+            this.minifiedJson = minifiedJson;
             return this;
         }
         @CustomType.Setter
@@ -196,6 +218,7 @@ public final class GetPolicyDocumentResult {
             final var _resultValue = new GetPolicyDocumentResult();
             _resultValue.id = id;
             _resultValue.json = json;
+            _resultValue.minifiedJson = minifiedJson;
             _resultValue.overrideJson = overrideJson;
             _resultValue.overridePolicyDocuments = overridePolicyDocuments;
             _resultValue.policyId = policyId;

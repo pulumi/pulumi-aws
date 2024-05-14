@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Rds
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",
     ///         Engine = "mysql",
-    ///         EngineVersion = "5.7",
+    ///         EngineVersion = "8.0",
     ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         Username = "foo",
     ///         Password = "foobarbaz",
-    ///         ParameterGroupName = "default.mysql5.7",
+    ///         ParameterGroupName = "default.mysql8.0",
     ///         SkipFinalSnapshot = true,
     ///     });
     /// 
@@ -305,11 +305,11 @@ namespace Pulumi.Aws.Rds
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",
     ///         Engine = "mysql",
-    ///         EngineVersion = "5.7",
+    ///         EngineVersion = "8.0",
     ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         ManageMasterUserPassword = true,
     ///         Username = "foo",
-    ///         ParameterGroupName = "default.mysql5.7",
+    ///         ParameterGroupName = "default.mysql8.0",
     ///     });
     /// 
     /// });
@@ -339,12 +339,12 @@ namespace Pulumi.Aws.Rds
     ///         AllocatedStorage = 10,
     ///         DbName = "mydb",
     ///         Engine = "mysql",
-    ///         EngineVersion = "5.7",
+    ///         EngineVersion = "8.0",
     ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         ManageMasterUserPassword = true,
     ///         MasterUserSecretKmsKeyId = example.KeyId,
     ///         Username = "foo",
-    ///         ParameterGroupName = "default.mysql5.7",
+    ///         ParameterGroupName = "default.mysql8.0",
     ///     });
     /// 
     /// });
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -1164,7 +1164,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -1705,7 +1705,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

@@ -24,6 +24,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
             set => _columnNames = value;
         }
 
+        /// <summary>
+        /// A wildcard with exclusions. See Column Wildcard below for details.
+        /// </summary>
         [Input("columnWildcard")]
         public Input<Inputs.DataCellsFilterTableDataColumnWildcardArgs>? ColumnWildcard { get; set; }
 

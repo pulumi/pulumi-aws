@@ -618,6 +618,8 @@ type GetPolicyDocumentResult struct {
 	Id string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
 	Json string `pulumi:"json"`
+	// Minified JSON policy document rendered based on the arguments above.
+	MinifiedJson string `pulumi:"minifiedJson"`
 	// Deprecated: Not used
 	OverrideJson            *string  `pulumi:"overrideJson"`
 	OverridePolicyDocuments []string `pulumi:"overridePolicyDocuments"`
@@ -687,6 +689,11 @@ func (o GetPolicyDocumentResultOutput) Id() pulumi.StringOutput {
 // Standard JSON policy document rendered based on the arguments above.
 func (o GetPolicyDocumentResultOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+}
+
+// Minified JSON policy document rendered based on the arguments above.
+func (o GetPolicyDocumentResultOutput) MinifiedJson() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyDocumentResult) string { return v.MinifiedJson }).(pulumi.StringOutput)
 }
 
 // Deprecated: Not used

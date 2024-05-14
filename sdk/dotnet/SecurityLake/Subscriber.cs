@@ -12,6 +12,46 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Subscriber.
     /// 
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `depends_on` statement.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityLake.Subscriber("example", new()
+    ///     {
+    ///         SubscriberName = "example-name",
+    ///         AccessType = "S3",
+    ///         Source = new Aws.SecurityLake.Inputs.SubscriberSourceArgs
+    ///         {
+    ///             AwsLogSourceResource = new Aws.SecurityLake.Inputs.SubscriberSourceAwsLogSourceResourceArgs
+    ///             {
+    ///                 SourceName = "ROUTE53",
+    ///                 SourceVersion = "1.0",
+    ///             },
+    ///         },
+    ///         SubscriberIdentity = new Aws.SecurityLake.Inputs.SubscriberSubscriberIdentityArgs
+    ///         {
+    ///             ExternalId = "example",
+    ///             Principal = "1234567890",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSecuritylakeDataLake,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:

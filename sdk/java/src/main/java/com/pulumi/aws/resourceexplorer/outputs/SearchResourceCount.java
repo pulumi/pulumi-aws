@@ -11,7 +11,11 @@ import java.util.Objects;
 
 @CustomType
 public final class SearchResourceCount {
-    private Boolean completed;
+    /**
+     * @return Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
+     * 
+     */
+    private Boolean complete;
     /**
      * @return Number of resources that match the search query. This value can&#39;t exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
      * 
@@ -19,8 +23,12 @@ public final class SearchResourceCount {
     private Integer totalResources;
 
     private SearchResourceCount() {}
-    public Boolean completed() {
-        return this.completed;
+    /**
+     * @return Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
+     * 
+     */
+    public Boolean complete() {
+        return this.complete;
     }
     /**
      * @return Number of resources that match the search query. This value can&#39;t exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
@@ -39,21 +47,21 @@ public final class SearchResourceCount {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean completed;
+        private Boolean complete;
         private Integer totalResources;
         public Builder() {}
         public Builder(SearchResourceCount defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.completed = defaults.completed;
+    	      this.complete = defaults.complete;
     	      this.totalResources = defaults.totalResources;
         }
 
         @CustomType.Setter
-        public Builder completed(Boolean completed) {
-            if (completed == null) {
-              throw new MissingRequiredPropertyException("SearchResourceCount", "completed");
+        public Builder complete(Boolean complete) {
+            if (complete == null) {
+              throw new MissingRequiredPropertyException("SearchResourceCount", "complete");
             }
-            this.completed = completed;
+            this.complete = complete;
             return this;
         }
         @CustomType.Setter
@@ -66,7 +74,7 @@ public final class SearchResourceCount {
         }
         public SearchResourceCount build() {
             final var _resultValue = new SearchResourceCount();
-            _resultValue.completed = completed;
+            _resultValue.complete = complete;
             _resultValue.totalResources = totalResources;
             return _resultValue;
         }

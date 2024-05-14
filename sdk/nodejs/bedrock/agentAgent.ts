@@ -65,10 +65,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+ * $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
  * ```
  */
 export class AgentAgent extends pulumi.CustomResource {
@@ -141,9 +141,12 @@ export class AgentAgent extends pulumi.CustomResource {
      * Instructions to tell agent what it should do.
      */
     public readonly instruction!: pulumi.Output<string>;
+    /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
-     * Prompt Override Configuration
+     * Prompt override configuration.
      */
     public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
     /**
@@ -262,9 +265,12 @@ export interface AgentAgentState {
      * Instructions to tell agent what it should do.
      */
     instruction?: pulumi.Input<string>;
+    /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
     prepareAgent?: pulumi.Input<boolean>;
     /**
-     * Prompt Override Configuration
+     * Prompt override configuration.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**
@@ -312,9 +318,12 @@ export interface AgentAgentArgs {
      * Instructions to tell agent what it should do.
      */
     instruction?: pulumi.Input<string>;
+    /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
     prepareAgent?: pulumi.Input<boolean>;
     /**
-     * Prompt Override Configuration
+     * Prompt override configuration.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**

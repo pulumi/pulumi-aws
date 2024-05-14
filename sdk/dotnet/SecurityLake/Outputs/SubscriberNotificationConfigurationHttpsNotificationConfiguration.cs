@@ -14,25 +14,28 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class SubscriberNotificationConfigurationHttpsNotificationConfiguration
     {
         /// <summary>
-        /// The key name for the notification subscription.
+        /// The API key name for the notification subscription.
         /// </summary>
         public readonly string? AuthorizationApiKeyName;
         /// <summary>
-        /// The key value for the notification subscription.
+        /// The API key value for the notification subscription.
         /// </summary>
         public readonly string? AuthorizationApiKeyValue;
         /// <summary>
-        /// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+        /// The subscription endpoint in Security Lake.
+        /// If you prefer notification with an HTTPS endpoint, populate this field.
         /// </summary>
-        public readonly string? Endpoint;
+        public readonly string Endpoint;
         /// <summary>
-        /// The HTTPS method used for the notification subscription.
+        /// The HTTP method used for the notification subscription.
+        /// Valid values are `POST` and `PUT`.
         /// </summary>
         public readonly string? HttpMethod;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        /// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         /// </summary>
-        public readonly string? TargetRoleArn;
+        public readonly string TargetRoleArn;
 
         [OutputConstructor]
         private SubscriberNotificationConfigurationHttpsNotificationConfiguration(
@@ -40,11 +43,11 @@ namespace Pulumi.Aws.SecurityLake.Outputs
 
             string? authorizationApiKeyValue,
 
-            string? endpoint,
+            string endpoint,
 
             string? httpMethod,
 
-            string? targetRoleArn)
+            string targetRoleArn)
         {
             AuthorizationApiKeyName = authorizationApiKeyName;
             AuthorizationApiKeyValue = authorizationApiKeyValue;

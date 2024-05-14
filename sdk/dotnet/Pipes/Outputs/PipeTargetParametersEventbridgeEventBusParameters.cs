@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         public readonly string? EndpointId;
         public readonly ImmutableArray<string> Resources;
         /// <summary>
-        /// Source resource of the pipe (typically an ARN).
+        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         public readonly string? Source;
         public readonly string? Time;

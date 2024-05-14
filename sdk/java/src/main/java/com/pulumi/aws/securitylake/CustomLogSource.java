@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS Security Lake Custom Log Source.
  * 
+ * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `depends_on` statement.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -38,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationArgs;
  * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationCrawlerConfigurationArgs;
  * import com.pulumi.aws.securitylake.inputs.CustomLogSourceConfigurationProviderIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,7 +67,9 @@ import javax.annotation.Nullable;
  *                     .principal("123456789012")
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSecuritylakeDataLake)
+ *                 .build());
  * 
  *     }
  * }
@@ -140,14 +145,18 @@ public class CustomLogSource extends com.pulumi.resources.CustomResource {
         return this.providerDetails;
     }
     /**
-     * Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      * 
      */
     @Export(name="sourceName", refs={String.class}, tree="[0]")
     private Output<String> sourceName;
 
     /**
-     * @return Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * @return Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      * 
      */
     public Output<String> sourceName() {

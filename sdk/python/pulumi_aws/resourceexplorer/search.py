@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'SearchResult',
@@ -55,7 +54,7 @@ class SearchResult:
 
     @property
     @pulumi.getter(name="resourceCounts")
-    def resource_counts(self) -> Optional[Sequence['outputs.SearchResourceCountResult']]:
+    def resource_counts(self) -> Sequence['outputs.SearchResourceCountResult']:
         """
         Number of resources that match the query. See `resource_count` below.
         """
@@ -63,7 +62,7 @@ class SearchResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[Sequence['outputs.SearchResourceResult']]:
+    def resources(self) -> Sequence['outputs.SearchResourceResult']:
         """
         List of structures that describe the resources that match the query. See `resources` below.
         """
@@ -71,7 +70,7 @@ class SearchResult:
 
     @property
     @pulumi.getter(name="viewArn")
-    def view_arn(self) -> Optional[str]:
+    def view_arn(self) -> str:
         return pulumi.get(self, "view_arn")
 
 
@@ -89,8 +88,6 @@ class AwaitableSearchResult(SearchResult):
 
 
 def search(query_string: Optional[str] = None,
-           resource_counts: Optional[Sequence[pulumi.InputType['SearchResourceCountArgs']]] = None,
-           resources: Optional[Sequence[pulumi.InputType['SearchResourceArgs']]] = None,
            view_arn: Optional[str] = None,
            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableSearchResult:
     """
@@ -112,14 +109,10 @@ def search(query_string: Optional[str] = None,
     :param str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.
            
            The following arguments are optional:
-    :param Sequence[pulumi.InputType['SearchResourceCountArgs']] resource_counts: Number of resources that match the query. See `resource_count` below.
-    :param Sequence[pulumi.InputType['SearchResourceArgs']] resources: List of structures that describe the resources that match the query. See `resources` below.
     :param str view_arn: Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
     """
     __args__ = dict()
     __args__['queryString'] = query_string
-    __args__['resourceCounts'] = resource_counts
-    __args__['resources'] = resources
     __args__['viewArn'] = view_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:resourceexplorer/search:Search', __args__, opts=opts, typ=SearchResult).value
@@ -134,8 +127,6 @@ def search(query_string: Optional[str] = None,
 
 @_utilities.lift_output_func(search)
 def search_output(query_string: Optional[pulumi.Input[str]] = None,
-                  resource_counts: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['SearchResourceCountArgs']]]]] = None,
-                  resources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['SearchResourceArgs']]]]] = None,
                   view_arn: Optional[pulumi.Input[Optional[str]]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[SearchResult]:
     """
@@ -157,8 +148,6 @@ def search_output(query_string: Optional[pulumi.Input[str]] = None,
     :param str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.
            
            The following arguments are optional:
-    :param Sequence[pulumi.InputType['SearchResourceCountArgs']] resource_counts: Number of resources that match the query. See `resource_count` below.
-    :param Sequence[pulumi.InputType['SearchResourceArgs']] resources: List of structures that describe the resources that match the query. See `resources` below.
     :param str view_arn: Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
     """
     ...

@@ -3,13 +3,10 @@
 
 package com.pulumi.aws.resourceexplorer.inputs;
 
-import com.pulumi.aws.resourceexplorer.inputs.SearchResourceArgs;
-import com.pulumi.aws.resourceexplorer.inputs.SearchResourceCountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -39,36 +36,6 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Number of resources that match the query. See `resource_count` below.
-     * 
-     */
-    @Import(name="resourceCounts")
-    private @Nullable Output<List<SearchResourceCountArgs>> resourceCounts;
-
-    /**
-     * @return Number of resources that match the query. See `resource_count` below.
-     * 
-     */
-    public Optional<Output<List<SearchResourceCountArgs>>> resourceCounts() {
-        return Optional.ofNullable(this.resourceCounts);
-    }
-
-    /**
-     * List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
-    @Import(name="resources")
-    private @Nullable Output<List<SearchResourceArgs>> resources;
-
-    /**
-     * @return List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
-    public Optional<Output<List<SearchResourceArgs>>> resources() {
-        return Optional.ofNullable(this.resources);
-    }
-
-    /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      * 
      */
@@ -87,8 +54,6 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
 
     private SearchArgs(SearchArgs $) {
         this.queryString = $.queryString;
-        this.resourceCounts = $.resourceCounts;
-        this.resources = $.resources;
         this.viewArn = $.viewArn;
     }
 
@@ -133,68 +98,6 @@ public final class SearchArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
-        }
-
-        /**
-         * @param resourceCounts Number of resources that match the query. See `resource_count` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceCounts(@Nullable Output<List<SearchResourceCountArgs>> resourceCounts) {
-            $.resourceCounts = resourceCounts;
-            return this;
-        }
-
-        /**
-         * @param resourceCounts Number of resources that match the query. See `resource_count` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceCounts(List<SearchResourceCountArgs> resourceCounts) {
-            return resourceCounts(Output.of(resourceCounts));
-        }
-
-        /**
-         * @param resourceCounts Number of resources that match the query. See `resource_count` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceCounts(SearchResourceCountArgs... resourceCounts) {
-            return resourceCounts(List.of(resourceCounts));
-        }
-
-        /**
-         * @param resources List of structures that describe the resources that match the query. See `resources` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resources(@Nullable Output<List<SearchResourceArgs>> resources) {
-            $.resources = resources;
-            return this;
-        }
-
-        /**
-         * @param resources List of structures that describe the resources that match the query. See `resources` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resources(List<SearchResourceArgs> resources) {
-            return resources(Output.of(resources));
-        }
-
-        /**
-         * @param resources List of structures that describe the resources that match the query. See `resources` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resources(SearchResourceArgs... resources) {
-            return resources(List.of(resources));
         }
 
         /**

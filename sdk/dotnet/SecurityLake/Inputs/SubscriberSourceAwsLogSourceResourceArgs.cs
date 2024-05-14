@@ -15,8 +15,8 @@ namespace Pulumi.Aws.SecurityLake.Inputs
         /// <summary>
         /// The name for a third-party custom source. This must be a Regionally unique value.
         /// </summary>
-        [Input("sourceName")]
-        public Input<string>? SourceName { get; set; }
+        [Input("sourceName", required: true)]
+        public Input<string> SourceName { get; set; } = null!;
 
         /// <summary>
         /// The version for a third-party custom source. This must be a Regionally unique value.

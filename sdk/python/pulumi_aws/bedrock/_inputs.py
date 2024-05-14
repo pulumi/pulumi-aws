@@ -17,6 +17,13 @@ __all__ = [
     'AgentAgentAliasTimeoutsArgs',
     'AgentAgentPromptOverrideConfigurationArgs',
     'AgentAgentTimeoutsArgs',
+    'AgentDataSourceDataSourceConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs',
+    'AgentDataSourceServerSideEncryptionConfigurationArgs',
+    'AgentDataSourceTimeoutsArgs',
+    'AgentDataSourceVectorIngestionConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseStorageConfigurationArgs',
@@ -316,6 +323,202 @@ class AgentAgentTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 s3_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']]:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[str],
+                 bucket_owner_account_id: Optional[pulumi.Input[str]] = None,
+                 inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if inclusion_prefixes is not None:
+            pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @bucket_owner_account_id.setter
+    def bucket_owner_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner_account_id", value)
+
+    @property
+    @pulumi.getter(name="inclusionPrefixes")
+    def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "inclusion_prefixes")
+
+    @inclusion_prefixes.setter
+    def inclusion_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inclusion_prefixes", value)
+
+
+@pulumi.input_type
+class AgentDataSourceServerSideEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
+class AgentDataSourceTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationArgs:
+    def __init__(__self__, *,
+                 chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']] = None):
+        if chunking_configuration is not None:
+            pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingConfiguration")
+    def chunking_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]:
+        return pulumi.get(self, "chunking_configuration")
+
+    @chunking_configuration.setter
+    def chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]):
+        pulumi.set(self, "chunking_configuration", value)
+
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 chunking_strategy: pulumi.Input[str],
+                 fixed_size_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']] = None):
+        pulumi.set(__self__, "chunking_strategy", chunking_strategy)
+        if fixed_size_chunking_configuration is not None:
+            pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingStrategy")
+    def chunking_strategy(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "chunking_strategy")
+
+    @chunking_strategy.setter
+    def chunking_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "chunking_strategy", value)
+
+    @property
+    @pulumi.getter(name="fixedSizeChunkingConfiguration")
+    def fixed_size_chunking_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']]:
+        return pulumi.get(self, "fixed_size_chunking_configuration")
+
+    @fixed_size_chunking_configuration.setter
+    def fixed_size_chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']]):
+        pulumi.set(self, "fixed_size_chunking_configuration", value)
+
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: pulumi.Input[int],
+                 overlap_percentage: pulumi.Input[int]):
+        pulumi.set(__self__, "max_tokens", max_tokens)
+        pulumi.set(__self__, "overlap_percentage", overlap_percentage)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_tokens", value)
+
+    @property
+    @pulumi.getter(name="overlapPercentage")
+    def overlap_percentage(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "overlap_percentage")
+
+    @overlap_percentage.setter
+    def overlap_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "overlap_percentage", value)
 
 
 @pulumi.input_type

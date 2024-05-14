@@ -4204,6 +4204,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="workspacesweb")
+    private @Nullable Output<String> workspacesweb;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> workspacesweb() {
+        return Optional.ofNullable(this.workspacesweb);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="xray")
     private @Nullable Output<String> xray;
 
@@ -4497,6 +4512,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.wellarchitected = $.wellarchitected;
         this.worklink = $.worklink;
         this.workspaces = $.workspaces;
+        this.workspacesweb = $.workspacesweb;
         this.xray = $.xray;
     }
 
@@ -10375,6 +10391,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder workspaces(String workspaces) {
             return workspaces(Output.of(workspaces));
+        }
+
+        /**
+         * @param workspacesweb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspacesweb(@Nullable Output<String> workspacesweb) {
+            $.workspacesweb = workspacesweb;
+            return this;
+        }
+
+        /**
+         * @param workspacesweb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspacesweb(String workspacesweb) {
+            return workspacesweb(Output.of(workspacesweb));
         }
 
         /**

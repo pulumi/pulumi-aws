@@ -355,14 +355,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
     @Import(name="enableHttpEndpoint")
     private @Nullable Output<Boolean> enableHttpEndpoint;
 
     /**
-     * @return Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+     * @return Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
     public Optional<Output<Boolean>> enableHttpEndpoint() {
@@ -1379,7 +1379,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
          * 
          * @return builder
          * 
@@ -1390,7 +1390,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+         * @param enableHttpEndpoint Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
          * 
          * @return builder
          * 

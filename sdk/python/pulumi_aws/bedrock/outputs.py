@@ -18,6 +18,13 @@ __all__ = [
     'AgentAgentAliasTimeouts',
     'AgentAgentPromptOverrideConfiguration',
     'AgentAgentTimeouts',
+    'AgentDataSourceDataSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationS3Configuration',
+    'AgentDataSourceServerSideEncryptionConfiguration',
+    'AgentDataSourceTimeouts',
+    'AgentDataSourceVectorIngestionConfiguration',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfiguration',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseStorageConfiguration',
@@ -339,6 +346,260 @@ class AgentAgentTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 s3_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration'] = None):
+        pulumi.set(__self__, "type", type)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration']:
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationS3Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+        elif key == "inclusionPrefixes":
+            suggest = "inclusion_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 bucket_owner_account_id: Optional[str] = None,
+                 inclusion_prefixes: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+        if inclusion_prefixes is not None:
+            pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_owner_account_id")
+
+    @property
+    @pulumi.getter(name="inclusionPrefixes")
+    def inclusion_prefixes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "inclusion_prefixes")
+
+
+@pulumi.output_type
+class AgentDataSourceServerSideEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceServerSideEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceServerSideEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceServerSideEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[str] = None):
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class AgentDataSourceTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chunkingConfiguration":
+            suggest = "chunking_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration'] = None):
+        if chunking_configuration is not None:
+            pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingConfiguration")
+    def chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration']:
+        return pulumi.get(self, "chunking_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chunkingStrategy":
+            suggest = "chunking_strategy"
+        elif key == "fixedSizeChunkingConfiguration":
+            suggest = "fixed_size_chunking_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationChunkingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationChunkingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chunking_strategy: str,
+                 fixed_size_chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration'] = None):
+        pulumi.set(__self__, "chunking_strategy", chunking_strategy)
+        if fixed_size_chunking_configuration is not None:
+            pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingStrategy")
+    def chunking_strategy(self) -> str:
+        return pulumi.get(self, "chunking_strategy")
+
+    @property
+    @pulumi.getter(name="fixedSizeChunkingConfiguration")
+    def fixed_size_chunking_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration']:
+        return pulumi.get(self, "fixed_size_chunking_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "overlapPercentage":
+            suggest = "overlap_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens: int,
+                 overlap_percentage: int):
+        pulumi.set(__self__, "max_tokens", max_tokens)
+        pulumi.set(__self__, "overlap_percentage", overlap_percentage)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> int:
+        return pulumi.get(self, "max_tokens")
+
+    @property
+    @pulumi.getter(name="overlapPercentage")
+    def overlap_percentage(self) -> int:
+        return pulumi.get(self, "overlap_percentage")
 
 
 @pulumi.output_type

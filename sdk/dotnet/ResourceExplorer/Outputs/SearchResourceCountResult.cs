@@ -13,7 +13,10 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
     [OutputType]
     public sealed class SearchResourceCountResult
     {
-        public readonly bool Completed;
+        /// <summary>
+        /// Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
+        /// </summary>
+        public readonly bool Complete;
         /// <summary>
         /// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
         /// </summary>
@@ -21,11 +24,11 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
 
         [OutputConstructor]
         private SearchResourceCountResult(
-            bool completed,
+            bool complete,
 
             int totalResources)
         {
-            Completed = completed;
+            Complete = complete;
             TotalResources = totalResources;
         }
     }

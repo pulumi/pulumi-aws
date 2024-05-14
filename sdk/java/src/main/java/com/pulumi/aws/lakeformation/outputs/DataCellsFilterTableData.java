@@ -20,6 +20,10 @@ public final class DataCellsFilterTableData {
      * 
      */
     private @Nullable List<String> columnNames;
+    /**
+     * @return A wildcard with exclusions. See Column Wildcard below for details.
+     * 
+     */
     private @Nullable DataCellsFilterTableDataColumnWildcard columnWildcard;
     /**
      * @return The name of the database.
@@ -60,6 +64,10 @@ public final class DataCellsFilterTableData {
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
+    /**
+     * @return A wildcard with exclusions. See Column Wildcard below for details.
+     * 
+     */
     public Optional<DataCellsFilterTableDataColumnWildcard> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }

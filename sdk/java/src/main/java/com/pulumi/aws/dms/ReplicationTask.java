@@ -105,80 +105,70 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cdcStartTime);
     }
     /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
     @Export(name="migrationType", refs={String.class}, tree="[0]")
     private Output<String> migrationType;
 
     /**
-     * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+     * @return Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
     public Output<String> migrationType() {
         return this.migrationType;
     }
     /**
-     * The Amazon Resource Name (ARN) of the replication instance.
+     * ARN of the replication instance.
      * 
      */
     @Export(name="replicationInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     public Output<String> replicationInstanceArn() {
         return this.replicationInstanceArn;
     }
     /**
-     * The Amazon Resource Name (ARN) for the replication task.
+     * ARN for the replication task.
      * 
      */
     @Export(name="replicationTaskArn", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
+     * @return ARN for the replication task.
      * 
      */
     public Output<String> replicationTaskArn() {
         return this.replicationTaskArn;
     }
     /**
-     * The replication task identifier.
-     * 
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      * 
      */
     @Export(name="replicationTaskId", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskId;
 
     /**
-     * @return The replication task identifier.
-     * 
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     * @return Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationTaskId() {
         return this.replicationTaskId;
     }
     /**
-     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      * 
      */
     @Export(name="replicationTaskSettings", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskSettings;
 
     /**
-     * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+     * @return Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      * 
      */
     public Output<String> replicationTaskSettings() {
@@ -199,14 +189,14 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceIdentifier);
     }
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * ARN that uniquely identifies the source endpoint.
      * 
      */
     @Export(name="sourceEndpointArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * @return ARN that uniquely identifies the source endpoint.
      * 
      */
     public Output<String> sourceEndpointArn() {
@@ -241,14 +231,14 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
     @Export(name="tableMappings", refs={String.class}, tree="[0]")
     private Output<String> tableMappings;
 
     /**
-     * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
+     * @return Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
     public Output<String> tableMappings() {
@@ -269,7 +259,7 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -280,21 +270,21 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * ARN that uniquely identifies the target endpoint.
      * 
      */
     @Export(name="targetEndpointArn", refs={String.class}, tree="[0]")
     private Output<String> targetEndpointArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * @return ARN that uniquely identifies the target endpoint.
      * 
      */
     public Output<String> targetEndpointArn() {

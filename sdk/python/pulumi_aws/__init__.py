@@ -147,6 +147,8 @@ if typing.TYPE_CHECKING:
     datapipeline = __datapipeline
     import pulumi_aws.datasync as __datasync
     datasync = __datasync
+    import pulumi_aws.datazone as __datazone
+    datazone = __datazone
     import pulumi_aws.dax as __dax
     dax = __dax
     import pulumi_aws.detective as __detective
@@ -494,6 +496,7 @@ else:
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
+    datazone = _utilities.lazy_import('pulumi_aws.datazone')
     dax = _utilities.lazy_import('pulumi_aws.dax')
     detective = _utilities.lazy_import('pulumi_aws.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws.devicefarm')
@@ -1858,6 +1861,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentDataSource",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentDataSource:AgentDataSource": "AgentDataSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentKnowledgeBase",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -3214,6 +3225,22 @@ _utilities.register(
   "fqn": "pulumi_aws.datasync",
   "classes": {
    "aws:datasync/task:Task": "Task"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/domain",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/environmentBlueprintConfiguration",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration": "EnvironmentBlueprintConfiguration"
   }
  },
  {

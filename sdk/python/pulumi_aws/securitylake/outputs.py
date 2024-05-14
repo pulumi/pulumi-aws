@@ -66,7 +66,10 @@ class AwsLogSourceSource(dict):
         :param Sequence[str] regions: Specify the Regions where you want to enable Security Lake.
         :param str source_name: The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
         :param Sequence[str] accounts: Specify the AWS account information where you want to enable Security Lake.
-        :param str source_version: The version for a AWS source. This must be a Regionally unique value.
+               If not specified, uses all accounts included in the Security Lake.
+        :param str source_version: The version for a AWS source.
+               If not specified, the version will be the default.
+               This must be a Regionally unique value.
         """
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "source_name", source_name)
@@ -96,6 +99,7 @@ class AwsLogSourceSource(dict):
     def accounts(self) -> Optional[Sequence[str]]:
         """
         Specify the AWS account information where you want to enable Security Lake.
+        If not specified, uses all accounts included in the Security Lake.
         """
         return pulumi.get(self, "accounts")
 
@@ -103,7 +107,9 @@ class AwsLogSourceSource(dict):
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[str]:
         """
-        The version for a AWS source. This must be a Regionally unique value.
+        The version for a AWS source.
+        If not specified, the version will be the default.
+        This must be a Regionally unique value.
         """
         return pulumi.get(self, "source_version")
 
@@ -662,6 +668,7 @@ class SubscriberNotificationConfiguration(dict):
         """
         :param 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs' https_notification_configuration: The configurations for HTTPS subscriber notification.
         :param 'SubscriberNotificationConfigurationSqsNotificationConfigurationArgs' sqs_notification_configuration: The configurations for SQS subscriber notification.
+               There are no parameters within `sqs_notification_configuration`.
         """
         if https_notification_configuration is not None:
             pulumi.set(__self__, "https_notification_configuration", https_notification_configuration)
@@ -681,6 +688,7 @@ class SubscriberNotificationConfiguration(dict):
     def sqs_notification_configuration(self) -> Optional['outputs.SubscriberNotificationConfigurationSqsNotificationConfiguration']:
         """
         The configurations for SQS subscriber notification.
+        There are no parameters within `sqs_notification_configuration`.
         """
         return pulumi.get(self, "sqs_notification_configuration")
 
@@ -690,14 +698,14 @@ class SubscriberNotificationConfigurationHttpsNotificationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "authorizationApiKeyName":
+        if key == "targetRoleArn":
+            suggest = "target_role_arn"
+        elif key == "authorizationApiKeyName":
             suggest = "authorization_api_key_name"
         elif key == "authorizationApiKeyValue":
             suggest = "authorization_api_key_value"
         elif key == "httpMethod":
             suggest = "http_method"
-        elif key == "targetRoleArn":
-            suggest = "target_role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SubscriberNotificationConfigurationHttpsNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -711,34 +719,53 @@ class SubscriberNotificationConfigurationHttpsNotificationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 endpoint: str,
+                 target_role_arn: str,
                  authorization_api_key_name: Optional[str] = None,
                  authorization_api_key_value: Optional[str] = None,
-                 endpoint: Optional[str] = None,
-                 http_method: Optional[str] = None,
-                 target_role_arn: Optional[str] = None):
+                 http_method: Optional[str] = None):
         """
-        :param str authorization_api_key_name: The key name for the notification subscription.
-        :param str authorization_api_key_value: The key value for the notification subscription.
-        :param str endpoint: The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
-        :param str http_method: The HTTPS method used for the notification subscription.
-        :param str target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+        :param str endpoint: The subscription endpoint in Security Lake.
+               If you prefer notification with an HTTPS endpoint, populate this field.
+        :param str target_role_arn: The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+               For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+        :param str authorization_api_key_name: The API key name for the notification subscription.
+        :param str authorization_api_key_value: The API key value for the notification subscription.
+        :param str http_method: The HTTP method used for the notification subscription.
+               Valid values are `POST` and `PUT`.
         """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "target_role_arn", target_role_arn)
         if authorization_api_key_name is not None:
             pulumi.set(__self__, "authorization_api_key_name", authorization_api_key_name)
         if authorization_api_key_value is not None:
             pulumi.set(__self__, "authorization_api_key_value", authorization_api_key_value)
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
         if http_method is not None:
             pulumi.set(__self__, "http_method", http_method)
-        if target_role_arn is not None:
-            pulumi.set(__self__, "target_role_arn", target_role_arn)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The subscription endpoint in Security Lake.
+        If you prefer notification with an HTTPS endpoint, populate this field.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="targetRoleArn")
+    def target_role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+        """
+        return pulumi.get(self, "target_role_arn")
 
     @property
     @pulumi.getter(name="authorizationApiKeyName")
     def authorization_api_key_name(self) -> Optional[str]:
         """
-        The key name for the notification subscription.
+        The API key name for the notification subscription.
         """
         return pulumi.get(self, "authorization_api_key_name")
 
@@ -746,33 +773,18 @@ class SubscriberNotificationConfigurationHttpsNotificationConfiguration(dict):
     @pulumi.getter(name="authorizationApiKeyValue")
     def authorization_api_key_value(self) -> Optional[str]:
         """
-        The key value for the notification subscription.
+        The API key value for the notification subscription.
         """
         return pulumi.get(self, "authorization_api_key_value")
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[str]:
-        """
-        The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
-        """
-        return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional[str]:
         """
-        The HTTPS method used for the notification subscription.
+        The HTTP method used for the notification subscription.
+        Valid values are `POST` and `PUT`.
         """
         return pulumi.get(self, "http_method")
-
-    @property
-    @pulumi.getter(name="targetRoleArn")
-    def target_role_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-        """
-        return pulumi.get(self, "target_role_arn")
 
 
 @pulumi.output_type
@@ -853,20 +865,19 @@ class SubscriberSourceAwsLogSourceResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_name: Optional[str] = None,
+                 source_name: str,
                  source_version: Optional[str] = None):
         """
         :param str source_name: The name for a third-party custom source. This must be a Regionally unique value.
         :param str source_version: The version for a third-party custom source. This must be a Regionally unique value.
         """
-        if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
             pulumi.set(__self__, "source_version", source_version)
 
     @property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[str]:
+    def source_name(self) -> str:
         """
         The name for a third-party custom source. This must be a Regionally unique value.
         """
@@ -903,23 +914,30 @@ class SubscriberSourceCustomLogSourceResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 source_name: str,
                  attributes: Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceAttribute']] = None,
                  providers: Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceProvider']] = None,
-                 source_name: Optional[str] = None,
                  source_version: Optional[str] = None):
         """
-        :param Sequence['SubscriberSourceCustomLogSourceResourceAttributeArgs'] attributes: The attributes of a third-party custom source.
         :param str source_name: The name for a third-party custom source. This must be a Regionally unique value.
+        :param Sequence['SubscriberSourceCustomLogSourceResourceAttributeArgs'] attributes: The attributes of a third-party custom source.
         :param str source_version: The version for a third-party custom source. This must be a Regionally unique value.
         """
+        pulumi.set(__self__, "source_name", source_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if providers is not None:
             pulumi.set(__self__, "providers", providers)
-        if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
             pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> str:
+        """
+        The name for a third-party custom source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_name")
 
     @property
     @pulumi.getter
@@ -933,14 +951,6 @@ class SubscriberSourceCustomLogSourceResource(dict):
     @pulumi.getter
     def providers(self) -> Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceProvider']]:
         return pulumi.get(self, "providers")
-
-    @property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[str]:
-        """
-        The name for a third-party custom source. This must be a Regionally unique value.
-        """
-        return pulumi.get(self, "source_name")
 
     @property
     @pulumi.getter(name="sourceVersion")

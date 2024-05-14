@@ -3,13 +3,12 @@
 
 package com.pulumi.aws.resourceexplorer.outputs;
 
-import com.pulumi.aws.resourceexplorer.outputs.SearchResourceResourceProperty;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class SearchResource {
@@ -29,15 +28,15 @@ public final class SearchResource {
      */
     private String owningAccountId;
     /**
+     * @return Structure with additional type-specific details about the resource.  See `properties` below.
+     * 
+     */
+    private List<Object> properties;
+    /**
      * @return Amazon Web Services Region in which the resource was created and exists.
      * 
      */
     private String region;
-    /**
-     * @return Structure with additional type-specific details about the resource.  See `resource_property` below.
-     * 
-     */
-    private @Nullable List<SearchResourceResourceProperty> resourceProperties;
     /**
      * @return Type of the resource.
      * 
@@ -72,18 +71,18 @@ public final class SearchResource {
         return this.owningAccountId;
     }
     /**
+     * @return Structure with additional type-specific details about the resource.  See `properties` below.
+     * 
+     */
+    public List<Object> properties() {
+        return this.properties;
+    }
+    /**
      * @return Amazon Web Services Region in which the resource was created and exists.
      * 
      */
     public String region() {
         return this.region;
-    }
-    /**
-     * @return Structure with additional type-specific details about the resource.  See `resource_property` below.
-     * 
-     */
-    public List<SearchResourceResourceProperty> resourceProperties() {
-        return this.resourceProperties == null ? List.of() : this.resourceProperties;
     }
     /**
      * @return Type of the resource.
@@ -112,8 +111,8 @@ public final class SearchResource {
         private String arn;
         private String lastReportedAt;
         private String owningAccountId;
+        private List<Object> properties;
         private String region;
-        private @Nullable List<SearchResourceResourceProperty> resourceProperties;
         private String resourceType;
         private String service;
         public Builder() {}
@@ -122,8 +121,8 @@ public final class SearchResource {
     	      this.arn = defaults.arn;
     	      this.lastReportedAt = defaults.lastReportedAt;
     	      this.owningAccountId = defaults.owningAccountId;
+    	      this.properties = defaults.properties;
     	      this.region = defaults.region;
-    	      this.resourceProperties = defaults.resourceProperties;
     	      this.resourceType = defaults.resourceType;
     	      this.service = defaults.service;
         }
@@ -153,21 +152,23 @@ public final class SearchResource {
             return this;
         }
         @CustomType.Setter
+        public Builder properties(List<Object> properties) {
+            if (properties == null) {
+              throw new MissingRequiredPropertyException("SearchResource", "properties");
+            }
+            this.properties = properties;
+            return this;
+        }
+        public Builder properties(Object... properties) {
+            return properties(List.of(properties));
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("SearchResource", "region");
             }
             this.region = region;
             return this;
-        }
-        @CustomType.Setter
-        public Builder resourceProperties(@Nullable List<SearchResourceResourceProperty> resourceProperties) {
-
-            this.resourceProperties = resourceProperties;
-            return this;
-        }
-        public Builder resourceProperties(SearchResourceResourceProperty... resourceProperties) {
-            return resourceProperties(List.of(resourceProperties));
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
@@ -190,8 +191,8 @@ public final class SearchResource {
             _resultValue.arn = arn;
             _resultValue.lastReportedAt = lastReportedAt;
             _resultValue.owningAccountId = owningAccountId;
+            _resultValue.properties = properties;
             _resultValue.region = region;
-            _resultValue.resourceProperties = resourceProperties;
             _resultValue.resourceType = resourceType;
             _resultValue.service = service;
             return _resultValue;

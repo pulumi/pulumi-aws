@@ -77,30 +77,6 @@ namespace Pulumi.Aws.ResourceExplorer
         [Input("queryString", required: true)]
         public string QueryString { get; set; } = null!;
 
-        [Input("resourceCounts")]
-        private List<Inputs.SearchResourceCountArgs>? _resourceCounts;
-
-        /// <summary>
-        /// Number of resources that match the query. See `resource_count` below.
-        /// </summary>
-        public List<Inputs.SearchResourceCountArgs> ResourceCounts
-        {
-            get => _resourceCounts ?? (_resourceCounts = new List<Inputs.SearchResourceCountArgs>());
-            set => _resourceCounts = value;
-        }
-
-        [Input("resources")]
-        private List<Inputs.SearchResourceArgs>? _resources;
-
-        /// <summary>
-        /// List of structures that describe the resources that match the query. See `resources` below.
-        /// </summary>
-        public List<Inputs.SearchResourceArgs> Resources
-        {
-            get => _resources ?? (_resources = new List<Inputs.SearchResourceArgs>());
-            set => _resources = value;
-        }
-
         /// <summary>
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         /// </summary>
@@ -122,30 +98,6 @@ namespace Pulumi.Aws.ResourceExplorer
         /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
-
-        [Input("resourceCounts")]
-        private InputList<Inputs.SearchResourceCountInputArgs>? _resourceCounts;
-
-        /// <summary>
-        /// Number of resources that match the query. See `resource_count` below.
-        /// </summary>
-        public InputList<Inputs.SearchResourceCountInputArgs> ResourceCounts
-        {
-            get => _resourceCounts ?? (_resourceCounts = new InputList<Inputs.SearchResourceCountInputArgs>());
-            set => _resourceCounts = value;
-        }
-
-        [Input("resources")]
-        private InputList<Inputs.SearchResourceInputArgs>? _resources;
-
-        /// <summary>
-        /// List of structures that describe the resources that match the query. See `resources` below.
-        /// </summary>
-        public InputList<Inputs.SearchResourceInputArgs> Resources
-        {
-            get => _resources ?? (_resources = new InputList<Inputs.SearchResourceInputArgs>());
-            set => _resources = value;
-        }
 
         /// <summary>
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
@@ -176,7 +128,7 @@ namespace Pulumi.Aws.ResourceExplorer
         /// List of structures that describe the resources that match the query. See `resources` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourceResult> Resources;
-        public readonly string? ViewArn;
+        public readonly string ViewArn;
 
         [OutputConstructor]
         private SearchResult(
@@ -188,7 +140,7 @@ namespace Pulumi.Aws.ResourceExplorer
 
             ImmutableArray<Outputs.SearchResourceResult> resources,
 
-            string? viewArn)
+            string viewArn)
         {
             Id = id;
             QueryString = queryString;

@@ -215,6 +215,8 @@ class DataLake(pulumi.CustomResource):
         """
         Resource for managing an AWS Security Lake Data Lake.
 
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `depends_on` statement.
+
         ## Example Usage
 
         ```python
@@ -284,6 +286,8 @@ class DataLake(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Security Lake Data Lake.
+
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `depends_on` statement.
 
         ## Example Usage
 

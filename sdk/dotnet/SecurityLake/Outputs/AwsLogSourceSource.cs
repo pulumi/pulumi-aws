@@ -15,6 +15,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     {
         /// <summary>
         /// Specify the AWS account information where you want to enable Security Lake.
+        /// If not specified, uses all accounts included in the Security Lake.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
@@ -26,7 +27,9 @@ namespace Pulumi.Aws.SecurityLake.Outputs
         /// </summary>
         public readonly string SourceName;
         /// <summary>
-        /// The version for a AWS source. This must be a Regionally unique value.
+        /// The version for a AWS source.
+        /// If not specified, the version will be the default.
+        /// This must be a Regionally unique value.
         /// </summary>
         public readonly string? SourceVersion;
 

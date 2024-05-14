@@ -100,7 +100,7 @@ class ClusterArgs:
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
-        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
@@ -511,7 +511,7 @@ class ClusterArgs:
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         """
         return pulumi.get(self, "enable_http_endpoint")
 
@@ -972,7 +972,7 @@ class _ClusterState:
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
-        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
@@ -1423,7 +1423,7 @@ class _ClusterState:
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         """
         return pulumi.get(self, "enable_http_endpoint")
 
@@ -2166,7 +2166,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
-        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -2654,7 +2654,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
-        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
@@ -2954,7 +2954,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enableHttpEndpoint")
     def enable_http_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         """
         return pulumi.get(self, "enable_http_endpoint")
 

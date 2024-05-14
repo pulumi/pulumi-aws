@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Custom Log Source.
     /// 
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `depends_on` statement.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -43,6 +45,12 @@ namespace Pulumi.Aws.SecurityLake
     ///                 ExternalId = "example-id",
     ///                 Principal = "123456789012",
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSecuritylakeDataLake,
     ///         },
     ///     });
     /// 
@@ -85,7 +93,9 @@ namespace Pulumi.Aws.SecurityLake
         public Output<ImmutableArray<Outputs.CustomLogSourceProviderDetail>> ProviderDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the name for a third-party custom source. This must be a Regionally unique value.
+        /// Specify the name for a third-party custom source.
+        /// This must be a Regionally unique value.
+        /// Has a maximum length of 20.
         /// </summary>
         [Output("sourceName")]
         public Output<string> SourceName { get; private set; } = null!;
@@ -161,7 +171,9 @@ namespace Pulumi.Aws.SecurityLake
         }
 
         /// <summary>
-        /// Specify the name for a third-party custom source. This must be a Regionally unique value.
+        /// Specify the name for a third-party custom source.
+        /// This must be a Regionally unique value.
+        /// Has a maximum length of 20.
         /// </summary>
         [Input("sourceName", required: true)]
         public Input<string> SourceName { get; set; } = null!;
@@ -223,7 +235,9 @@ namespace Pulumi.Aws.SecurityLake
         }
 
         /// <summary>
-        /// Specify the name for a third-party custom source. This must be a Regionally unique value.
+        /// Specify the name for a third-party custom source.
+        /// This must be a Regionally unique value.
+        /// Has a maximum length of 20.
         /// </summary>
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }

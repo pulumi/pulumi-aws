@@ -390,6 +390,10 @@ export interface GetPolicyDocumentResult {
      */
     readonly json: string;
     /**
+     * Minified JSON policy document rendered based on the arguments above.
+     */
+    readonly minifiedJson: string;
+    /**
      * @deprecated Not used
      */
     readonly overrideJson?: string;

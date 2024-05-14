@@ -14,6 +14,8 @@ import (
 
 // Resource for managing an AWS Security Lake Data Lake.
 //
+// > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `dependsOn` statement.
+//
 // ## Example Usage
 //
 // ```go

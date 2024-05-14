@@ -413,7 +413,7 @@ type Cluster struct {
 	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableGlobalWriteForwarding"`
-	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableLocalWriteForwarding"`
@@ -585,7 +585,7 @@ type clusterState struct {
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
-	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
@@ -718,7 +718,7 @@ type ClusterState struct {
 	DomainIamRoleName pulumi.StringPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
-	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrInput
@@ -851,7 +851,7 @@ type clusterArgs struct {
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
-	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
@@ -966,7 +966,7 @@ type ClusterArgs struct {
 	DomainIamRoleName pulumi.StringPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
-	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+	// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
 	EnableLocalWriteForwarding pulumi.BoolPtrInput
@@ -1239,7 +1239,7 @@ func (o ClusterOutput) EnableGlobalWriteForwarding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableGlobalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
-// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+// Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
 func (o ClusterOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableHttpEndpoint }).(pulumi.BoolPtrOutput)
 }

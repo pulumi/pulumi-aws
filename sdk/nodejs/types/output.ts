@@ -9819,6 +9819,46 @@ export namespace bedrock {
         update?: string;
     }
 
+    export interface AgentDataSourceDataSourceConfiguration {
+        s3Configuration?: outputs.bedrock.AgentDataSourceDataSourceConfigurationS3Configuration;
+        type: string;
+    }
+
+    export interface AgentDataSourceDataSourceConfigurationS3Configuration {
+        bucketArn: string;
+        bucketOwnerAccountId?: string;
+        inclusionPrefixes?: string[];
+    }
+
+    export interface AgentDataSourceServerSideEncryptionConfiguration {
+        kmsKeyArn?: string;
+    }
+
+    export interface AgentDataSourceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfiguration {
+        chunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
+        chunkingStrategy: string;
+        fixedSizeChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
+        maxTokens: number;
+        overlapPercentage: number;
+    }
+
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
         /**
          * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
@@ -16549,6 +16589,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        workspacesweb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         xray?: string;
     }
 
@@ -20304,6 +20348,25 @@ export namespace datasync {
          * Specifies a bucket prefix for your report.
          */
         subdirectory?: string;
+    }
+
+}
+
+export namespace datazone {
+    export interface DomainSingleSignOn {
+        type: string;
+        userAssignment?: string;
+    }
+
+    export interface DomainTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
     }
 
 }
@@ -33855,7 +33918,7 @@ export namespace glue {
 
     export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
         /**
-         * The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+         * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          */
         catalogEncryptionMode: string;
         /**
@@ -41100,6 +41163,9 @@ export namespace lakeformation {
          * A list of column names and/or nested column attributes.
          */
         columnNames: string[];
+        /**
+         * A wildcard with exclusions. See Column Wildcard below for details.
+         */
         columnWildcard?: outputs.lakeformation.DataCellsFilterTableDataColumnWildcard;
         /**
          * The name of the database.
@@ -61926,7 +61992,7 @@ export namespace pipes {
         endpointId?: string;
         resources?: string[];
         /**
-         * Source resource of the pipe (typically an ARN).
+         * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
          */
         source?: string;
         time?: string;
@@ -64763,13 +64829,13 @@ export namespace resourceexplorer {
          */
         owningAccountId: string;
         /**
+         * Structure with additional type-specific details about the resource.  See `properties` below.
+         */
+        properties: any[];
+        /**
          * Amazon Web Services Region in which the resource was created and exists.
          */
         region: string;
-        /**
-         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
-         */
-        resourceProperties?: outputs.resourceexplorer.SearchResourceResourceProperty[];
         /**
          * Type of the resource.
          */
@@ -64781,26 +64847,14 @@ export namespace resourceexplorer {
     }
 
     export interface SearchResourceCount {
-        completed: boolean;
+        /**
+         * Indicates whether the TotalResources value represents an exhaustive count of search results. If True, it indicates that the search was exhaustive. Every resource that matches the query was counted. If False, then the search reached the limit of 1,000 matching results, and stopped counting.
+         */
+        complete: boolean;
         /**
          * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
          */
         totalResources: number;
-    }
-
-    export interface SearchResourceResourceProperty {
-        /**
-         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
-         */
-        data: string;
-        /**
-         * The date and time that the information about this resource property was last updated.
-         */
-        lastReportedAt: string;
-        /**
-         * Name of this property of the resource.
-         */
-        name: string;
     }
 
     export interface ViewFilters {
@@ -72367,6 +72421,7 @@ export namespace securitylake {
     export interface AwsLogSourceSource {
         /**
          * Specify the AWS account information where you want to enable Security Lake.
+         * If not specified, uses all accounts included in the Security Lake.
          */
         accounts: string[];
         /**
@@ -72378,7 +72433,9 @@ export namespace securitylake {
          */
         sourceName: string;
         /**
-         * The version for a AWS source. This must be a Regionally unique value.
+         * The version for a AWS source.
+         * If not specified, the version will be the default.
+         * This must be a Regionally unique value.
          */
         sourceVersion: string;
     }
@@ -72520,31 +72577,35 @@ export namespace securitylake {
         httpsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfiguration;
         /**
          * The configurations for SQS subscriber notification.
+         * There are no parameters within `sqsNotificationConfiguration`.
          */
         sqsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationConfigurationSqsNotificationConfiguration;
     }
 
     export interface SubscriberNotificationConfigurationHttpsNotificationConfiguration {
         /**
-         * The key name for the notification subscription.
+         * The API key name for the notification subscription.
          */
         authorizationApiKeyName?: string;
         /**
-         * The key value for the notification subscription.
+         * The API key value for the notification subscription.
          */
         authorizationApiKeyValue?: string;
         /**
-         * The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+         * The subscription endpoint in Security Lake.
+         * If you prefer notification with an HTTPS endpoint, populate this field.
          */
-        endpoint?: string;
+        endpoint: string;
         /**
-         * The HTTPS method used for the notification subscription.
+         * The HTTP method used for the notification subscription.
+         * Valid values are `POST` and `PUT`.
          */
         httpMethod?: string;
         /**
-         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+         * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
          */
-        targetRoleArn?: string;
+        targetRoleArn: string;
     }
 
     export interface SubscriberNotificationConfigurationSqsNotificationConfiguration {
@@ -72565,11 +72626,11 @@ export namespace securitylake {
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceName?: string;
+        sourceName: string;
         /**
          * The version for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceVersion?: string;
+        sourceVersion: string;
     }
 
     export interface SubscriberSourceCustomLogSourceResource {
@@ -72581,11 +72642,11 @@ export namespace securitylake {
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceName?: string;
+        sourceName: string;
         /**
          * The version for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceVersion?: string;
+        sourceVersion: string;
     }
 
     export interface SubscriberSourceCustomLogSourceResourceAttribute {
@@ -80384,7 +80445,7 @@ export namespace wafv2 {
         /**
          * Whether or not to allow the use of regular expressions in the login page path.
          */
-        enableRegexInPath?: boolean;
+        enableRegexInPath: boolean;
         /**
          * The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
          */
@@ -80524,7 +80585,7 @@ export namespace wafv2 {
         /**
          * Whether or not to allow the use of regular expressions in the login page path.
          */
-        enableRegexInPath?: boolean;
+        enableRegexInPath: boolean;
         /**
          * The path of the login endpoint for your application.
          */

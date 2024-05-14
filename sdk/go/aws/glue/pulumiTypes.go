@@ -5456,7 +5456,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
 	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole *string `pulumi:"catalogEncryptionServiceRole"`
@@ -5476,7 +5476,7 @@ type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestI
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
 	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
 	CatalogEncryptionServiceRole pulumi.StringPtrInput `pulumi:"catalogEncryptionServiceRole"`
@@ -5561,7 +5561,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
 
-// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) string {
 		return v.CatalogEncryptionMode
@@ -5606,7 +5606,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
 }
 
-// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
 		if v == nil {

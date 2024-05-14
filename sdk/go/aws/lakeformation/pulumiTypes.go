@@ -15,7 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 type DataCellsFilterTableData struct {
 	// A list of column names and/or nested column attributes.
-	ColumnNames    []string                                `pulumi:"columnNames"`
+	ColumnNames []string `pulumi:"columnNames"`
+	// A wildcard with exclusions. See Column Wildcard below for details.
 	ColumnWildcard *DataCellsFilterTableDataColumnWildcard `pulumi:"columnWildcard"`
 	// The name of the database.
 	DatabaseName string `pulumi:"databaseName"`
@@ -44,7 +45,8 @@ type DataCellsFilterTableDataInput interface {
 
 type DataCellsFilterTableDataArgs struct {
 	// A list of column names and/or nested column attributes.
-	ColumnNames    pulumi.StringArrayInput                        `pulumi:"columnNames"`
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// A wildcard with exclusions. See Column Wildcard below for details.
 	ColumnWildcard DataCellsFilterTableDataColumnWildcardPtrInput `pulumi:"columnWildcard"`
 	// The name of the database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
@@ -142,6 +144,7 @@ func (o DataCellsFilterTableDataOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCellsFilterTableData) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// A wildcard with exclusions. See Column Wildcard below for details.
 func (o DataCellsFilterTableDataOutput) ColumnWildcard() DataCellsFilterTableDataColumnWildcardPtrOutput {
 	return o.ApplyT(func(v DataCellsFilterTableData) *DataCellsFilterTableDataColumnWildcard { return v.ColumnWildcard }).(DataCellsFilterTableDataColumnWildcardPtrOutput)
 }
@@ -210,6 +213,7 @@ func (o DataCellsFilterTableDataPtrOutput) ColumnNames() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// A wildcard with exclusions. See Column Wildcard below for details.
 func (o DataCellsFilterTableDataPtrOutput) ColumnWildcard() DataCellsFilterTableDataColumnWildcardPtrOutput {
 	return o.ApplyT(func(v *DataCellsFilterTableData) *DataCellsFilterTableDataColumnWildcard {
 		if v == nil {

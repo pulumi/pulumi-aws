@@ -387,6 +387,30 @@ class Subscriber(pulumi.CustomResource):
         """
         Resource for managing an AWS Security Lake Subscriber.
 
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.Subscriber`. Use a `depends_on` statement.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.Subscriber("example",
+            subscriber_name="example-name",
+            access_type="S3",
+            source=aws.securitylake.SubscriberSourceArgs(
+                aws_log_source_resource=aws.securitylake.SubscriberSourceAwsLogSourceResourceArgs(
+                    source_name="ROUTE53",
+                    source_version="1.0",
+                ),
+            ),
+            subscriber_identity=aws.securitylake.SubscriberSubscriberIdentityArgs(
+                external_id="example",
+                principal="1234567890",
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        ```
+
         ## Import
 
         Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:
@@ -411,6 +435,30 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Security Lake Subscriber.
+
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.Subscriber`. Use a `depends_on` statement.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.Subscriber("example",
+            subscriber_name="example-name",
+            access_type="S3",
+            source=aws.securitylake.SubscriberSourceArgs(
+                aws_log_source_resource=aws.securitylake.SubscriberSourceAwsLogSourceResourceArgs(
+                    source_name="ROUTE53",
+                    source_version="1.0",
+                ),
+            ),
+            subscriber_identity=aws.securitylake.SubscriberSubscriberIdentityArgs(
+                external_id="example",
+                principal="1234567890",
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        ```
 
         ## Import
 

@@ -777,14 +777,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableGlobalWriteForwarding);
     }
     /**
-     * Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
     @Export(name="enableHttpEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableHttpEndpoint;
 
     /**
-     * @return Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+     * @return Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
     public Output<Optional<Boolean>> enableHttpEndpoint() {

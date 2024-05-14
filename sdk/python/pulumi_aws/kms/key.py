@@ -24,6 +24,7 @@ class KeyArgs:
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
+                 rotation_period_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xks_key_id: Optional[pulumi.Input[str]] = None):
         """
@@ -47,6 +48,7 @@ class KeyArgs:
         :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
@@ -70,6 +72,8 @@ class KeyArgs:
             pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if rotation_period_in_days is not None:
+            pulumi.set(__self__, "rotation_period_in_days", rotation_period_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if xks_key_id is not None:
@@ -205,6 +209,18 @@ class KeyArgs:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter(name="rotationPeriodInDays")
+    def rotation_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        """
+        return pulumi.get(self, "rotation_period_in_days")
+
+    @rotation_period_in_days.setter
+    def rotation_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rotation_period_in_days", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -244,6 +260,7 @@ class _KeyState:
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
+                 rotation_period_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xks_key_id: Optional[pulumi.Input[str]] = None):
@@ -270,6 +287,7 @@ class _KeyState:
         :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
@@ -298,6 +316,8 @@ class _KeyState:
             pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if rotation_period_in_days is not None:
+            pulumi.set(__self__, "rotation_period_in_days", rotation_period_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -462,6 +482,18 @@ class _KeyState:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter(name="rotationPeriodInDays")
+    def rotation_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        """
+        return pulumi.get(self, "rotation_period_in_days")
+
+    @rotation_period_in_days.setter
+    def rotation_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rotation_period_in_days", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -516,6 +548,7 @@ class Key(pulumi.CustomResource):
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
+                 rotation_period_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xks_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -566,6 +599,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
         """
@@ -626,6 +660,7 @@ class Key(pulumi.CustomResource):
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
+                 rotation_period_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xks_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -647,6 +682,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_usage"] = key_usage
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["rotation_period_in_days"] = rotation_period_in_days
             __props__.__dict__["tags"] = tags
             __props__.__dict__["xks_key_id"] = xks_key_id
             __props__.__dict__["arn"] = None
@@ -674,6 +710,7 @@ class Key(pulumi.CustomResource):
             key_usage: Optional[pulumi.Input[str]] = None,
             multi_region: Optional[pulumi.Input[bool]] = None,
             policy: Optional[pulumi.Input[str]] = None,
+            rotation_period_in_days: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             xks_key_id: Optional[pulumi.Input[str]] = None) -> 'Key':
@@ -705,6 +742,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam_get_policy_document`, in the form that designates a principal, can be used.
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        :param pulumi.Input[int] rotation_period_in_days: Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] xks_key_id: Identifies the external key that serves as key material for the KMS key in an external key store.
@@ -725,6 +763,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_usage"] = key_usage
         __props__.__dict__["multi_region"] = multi_region
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["rotation_period_in_days"] = rotation_period_in_days
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["xks_key_id"] = xks_key_id
@@ -834,6 +873,14 @@ class Key(pulumi.CustomResource):
         > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="rotationPeriodInDays")
+    def rotation_period_in_days(self) -> pulumi.Output[int]:
+        """
+        Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        """
+        return pulumi.get(self, "rotation_period_in_days")
 
     @property
     @pulumi.getter

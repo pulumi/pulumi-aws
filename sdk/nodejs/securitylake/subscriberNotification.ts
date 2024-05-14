@@ -12,14 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### SQS Notification
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.securitylake.SubscriberNotification("test", {
- *     subscriberId: testAwsSecuritylakeSubscriber.id,
+ * const example = new aws.securitylake.SubscriberNotification("example", {
+ *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
  *     configuration: {
  *         sqsNotificationConfiguration: {},
+ *     },
+ * });
+ * ```
+ *
+ * ### HTTPS Notification
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.securitylake.SubscriberNotification("example", {
+ *     subscriberId: exampleAwsSecuritylakeSubscriber.id,
+ *     configuration: {
+ *         httpsNotificationConfiguration: {
+ *             endpoint: test.apiEndpoint,
+ *             targetRoleArn: eventBridge.arn,
+ *         },
  *     },
  * });
  * ```
@@ -56,7 +75,16 @@ export class SubscriberNotification extends pulumi.CustomResource {
      * Specify the configuration using which you want to create the subscriber notification..
      */
     public readonly configuration!: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
+    /**
+     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     *
+     * @deprecated Use subscriberEndpoint instead
+     */
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
+    /**
+     * The subscriber endpoint to which exception messages are posted.
+     */
+    public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
     /**
      * The subscriber ID for the notification subscription.
      */
@@ -77,6 +105,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
             const state = argsOrState as SubscriberNotificationState | undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["subscriberEndpoint"] = state ? state.subscriberEndpoint : undefined;
             resourceInputs["subscriberId"] = state ? state.subscriberId : undefined;
         } else {
             const args = argsOrState as SubscriberNotificationArgs | undefined;
@@ -86,6 +115,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["subscriberId"] = args ? args.subscriberId : undefined;
             resourceInputs["endpointId"] = undefined /*out*/;
+            resourceInputs["subscriberEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriberNotification.__pulumiType, name, resourceInputs, opts);
@@ -100,7 +130,16 @@ export interface SubscriberNotificationState {
      * Specify the configuration using which you want to create the subscriber notification..
      */
     configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    /**
+     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     *
+     * @deprecated Use subscriberEndpoint instead
+     */
     endpointId?: pulumi.Input<string>;
+    /**
+     * The subscriber endpoint to which exception messages are posted.
+     */
+    subscriberEndpoint?: pulumi.Input<string>;
     /**
      * The subscriber ID for the notification subscription.
      */

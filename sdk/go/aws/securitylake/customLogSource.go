@@ -14,6 +14,8 @@ import (
 
 // Resource for managing an AWS Security Lake Custom Log Source.
 //
+// > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.CustomLogSource`. Use a `dependsOn` statement.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -45,7 +47,9 @@ import (
 //						Principal:  pulumi.String("123456789012"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSecuritylakeDataLake,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -73,7 +77,9 @@ type CustomLogSource struct {
 	EventClasses pulumi.StringArrayOutput `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayOutput `pulumi:"providerDetails"`
-	// Specify the name for a third-party custom source. This must be a Regionally unique value.
+	// Specify the name for a third-party custom source.
+	// This must be a Regionally unique value.
+	// Has a maximum length of 20.
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
 	// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
 	SourceVersion pulumi.StringOutput `pulumi:"sourceVersion"`
@@ -120,7 +126,9 @@ type customLogSourceState struct {
 	EventClasses []string `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails []CustomLogSourceProviderDetail `pulumi:"providerDetails"`
-	// Specify the name for a third-party custom source. This must be a Regionally unique value.
+	// Specify the name for a third-party custom source.
+	// This must be a Regionally unique value.
+	// Has a maximum length of 20.
 	SourceName *string `pulumi:"sourceName"`
 	// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
 	SourceVersion *string `pulumi:"sourceVersion"`
@@ -135,7 +143,9 @@ type CustomLogSourceState struct {
 	EventClasses pulumi.StringArrayInput
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayInput
-	// Specify the name for a third-party custom source. This must be a Regionally unique value.
+	// Specify the name for a third-party custom source.
+	// This must be a Regionally unique value.
+	// Has a maximum length of 20.
 	SourceName pulumi.StringPtrInput
 	// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
 	SourceVersion pulumi.StringPtrInput
@@ -150,7 +160,9 @@ type customLogSourceArgs struct {
 	Configuration *CustomLogSourceConfiguration `pulumi:"configuration"`
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses []string `pulumi:"eventClasses"`
-	// Specify the name for a third-party custom source. This must be a Regionally unique value.
+	// Specify the name for a third-party custom source.
+	// This must be a Regionally unique value.
+	// Has a maximum length of 20.
 	SourceName string `pulumi:"sourceName"`
 	// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
 	SourceVersion *string `pulumi:"sourceVersion"`
@@ -162,7 +174,9 @@ type CustomLogSourceArgs struct {
 	Configuration CustomLogSourceConfigurationPtrInput
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses pulumi.StringArrayInput
-	// Specify the name for a third-party custom source. This must be a Regionally unique value.
+	// Specify the name for a third-party custom source.
+	// This must be a Regionally unique value.
+	// Has a maximum length of 20.
 	SourceName pulumi.StringInput
 	// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
 	SourceVersion pulumi.StringPtrInput
@@ -275,7 +289,9 @@ func (o CustomLogSourceOutput) ProviderDetails() CustomLogSourceProviderDetailAr
 	return o.ApplyT(func(v *CustomLogSource) CustomLogSourceProviderDetailArrayOutput { return v.ProviderDetails }).(CustomLogSourceProviderDetailArrayOutput)
 }
 
-// Specify the name for a third-party custom source. This must be a Regionally unique value.
+// Specify the name for a third-party custom source.
+// This must be a Regionally unique value.
+// Has a maximum length of 20.
 func (o CustomLogSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomLogSource) pulumi.StringOutput { return v.SourceName }).(pulumi.StringOutput)
 }

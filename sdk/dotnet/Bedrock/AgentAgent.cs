@@ -117,10 +117,10 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+    /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentAgent:AgentAgent")]
@@ -188,11 +188,14 @@ namespace Pulumi.Aws.Bedrock
         [Output("instruction")]
         public Output<string> Instruction { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt Override Configuration
+        /// Prompt override configuration.
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
@@ -299,6 +302,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
 
+        /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
 
@@ -306,7 +312,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Prompt Override Configuration
+        /// Prompt override configuration.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs> PromptOverrideConfigurations
         {
@@ -399,6 +405,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
 
+        /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
 
@@ -406,7 +415,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Prompt Override Configuration
+        /// Prompt override configuration.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs> PromptOverrideConfigurations
         {

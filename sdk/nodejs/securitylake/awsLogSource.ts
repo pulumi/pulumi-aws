@@ -10,6 +10,10 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an Amazon Security Lake AWS Log Source.
  *
+ * > **NOTE:** A single `aws.securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
+ *
+ * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.AwsLogSource`. Use a `dependsOn` statement.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -18,12 +22,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.securitylake.AwsLogSource("test", {source: {
+ * const example = new aws.securitylake.AwsLogSource("example", {source: {
  *     accounts: ["123456789012"],
  *     regions: ["eu-west-1"],
  *     sourceName: "ROUTE53",
- *     sourceVersion: "1.0",
- * }});
+ * }}, {
+ *     dependsOn: [exampleAwsSecuritylakeDataLake],
+ * });
  * ```
  *
  * ## Import

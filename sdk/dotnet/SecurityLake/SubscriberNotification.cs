@@ -14,6 +14,8 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// ## Example Usage
     /// 
+    /// ### SQS Notification
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +24,38 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.SecurityLake.SubscriberNotification("test", new()
+    ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
     ///     {
-    ///         SubscriberId = testAwsSecuritylakeSubscriber.Id,
+    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
     ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
     ///         {
     ///             SqsNotificationConfiguration = null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### HTTPS Notification
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityLake.SubscriberNotification("example", new()
+    ///     {
+    ///         SubscriberId = exampleAwsSecuritylakeSubscriber.Id,
+    ///         Configuration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationArgs
+    ///         {
+    ///             HttpsNotificationConfiguration = new Aws.SecurityLake.Inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs
+    ///             {
+    ///                 Endpoint = test.ApiEndpoint,
+    ///                 TargetRoleArn = eventBridge.Arn,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -43,8 +71,17 @@ namespace Pulumi.Aws.SecurityLake
         [Output("configuration")]
         public Output<Outputs.SubscriberNotificationConfiguration?> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        /// </summary>
         [Output("endpointId")]
         public Output<string> EndpointId { get; private set; } = null!;
+
+        /// <summary>
+        /// The subscriber endpoint to which exception messages are posted.
+        /// </summary>
+        [Output("subscriberEndpoint")]
+        public Output<string> SubscriberEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The subscriber ID for the notification subscription.
@@ -124,8 +161,17 @@ namespace Pulumi.Aws.SecurityLake
         [Input("configuration")]
         public Input<Inputs.SubscriberNotificationConfigurationGetArgs>? Configuration { get; set; }
 
+        /// <summary>
+        /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }
+
+        /// <summary>
+        /// The subscriber endpoint to which exception messages are posted.
+        /// </summary>
+        [Input("subscriberEndpoint")]
+        public Input<string>? SubscriberEndpoint { get; set; }
 
         /// <summary>
         /// The subscriber ID for the notification subscription.

@@ -33,6 +33,7 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
 
     /**
      * The configurations for SQS subscriber notification.
+     * There are no parameters within `sqs_notification_configuration`.
      * 
      */
     @Import(name="sqsNotificationConfiguration")
@@ -40,6 +41,7 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
 
     /**
      * @return The configurations for SQS subscriber notification.
+     * There are no parameters within `sqs_notification_configuration`.
      * 
      */
     public Optional<Output<SubscriberNotificationConfigurationSqsNotificationConfigurationArgs>> sqsNotificationConfiguration() {
@@ -94,6 +96,7 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
 
         /**
          * @param sqsNotificationConfiguration The configurations for SQS subscriber notification.
+         * There are no parameters within `sqs_notification_configuration`.
          * 
          * @return builder
          * 
@@ -105,6 +108,7 @@ public final class SubscriberNotificationConfigurationArgs extends com.pulumi.re
 
         /**
          * @param sqsNotificationConfiguration The configurations for SQS subscriber notification.
+         * There are no parameters within `sqs_notification_configuration`.
          * 
          * @return builder
          * 
