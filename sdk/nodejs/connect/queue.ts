@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -133,7 +132,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      */
-    public readonly outboundCallerConfig!: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
+    public readonly outboundCallerConfig!: pulumi.Output<outputs.QueueOutboundCallerConfig | undefined>;
     /**
      * The identifier for the Queue.
      */
@@ -239,7 +238,7 @@ export interface QueueState {
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      */
-    outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfig>;
+    outboundCallerConfig?: pulumi.Input<inputs.QueueOutboundCallerConfig>;
     /**
      * The identifier for the Queue.
      */
@@ -291,7 +290,7 @@ export interface QueueArgs {
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      */
-    outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfig>;
+    outboundCallerConfig?: pulumi.Input<inputs.QueueOutboundCallerConfig>;
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */

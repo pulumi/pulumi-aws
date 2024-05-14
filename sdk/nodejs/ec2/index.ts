@@ -797,7 +797,16 @@ utilities.lazyLoad(exports, ["VpnGatewayRoutePropagation"], () => require("./vpn
 
 
 // Export enums:
-export * from "../types/enums/ec2";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

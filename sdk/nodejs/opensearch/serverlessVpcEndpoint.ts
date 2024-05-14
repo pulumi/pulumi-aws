@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +72,7 @@ export class ServerlessVpcEndpoint extends pulumi.CustomResource {
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    public readonly timeouts!: pulumi.Output<outputs.opensearch.ServerlessVpcEndpointTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ServerlessVpcEndpointTimeouts | undefined>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *
@@ -134,7 +133,7 @@ export interface ServerlessVpcEndpointState {
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts>;
+    timeouts?: pulumi.Input<inputs.ServerlessVpcEndpointTimeouts>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *
@@ -159,7 +158,7 @@ export interface ServerlessVpcEndpointArgs {
      * One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    timeouts?: pulumi.Input<inputs.opensearch.ServerlessVpcEndpointTimeouts>;
+    timeouts?: pulumi.Input<inputs.ServerlessVpcEndpointTimeouts>;
     /**
      * ID of the VPC from which you'll access OpenSearch Serverless.
      *

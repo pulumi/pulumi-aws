@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +101,7 @@ export class ReportGroup extends pulumi.CustomResource {
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
-    public readonly exportConfig!: pulumi.Output<outputs.codebuild.ReportGroupExportConfig>;
+    public readonly exportConfig!: pulumi.Output<outputs.ReportGroupExportConfig>;
     /**
      * The name of a Report Group.
      */
@@ -184,7 +183,7 @@ export interface ReportGroupState {
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
-    exportConfig?: pulumi.Input<inputs.codebuild.ReportGroupExportConfig>;
+    exportConfig?: pulumi.Input<inputs.ReportGroupExportConfig>;
     /**
      * The name of a Report Group.
      */
@@ -216,7 +215,7 @@ export interface ReportGroupArgs {
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      */
-    exportConfig: pulumi.Input<inputs.codebuild.ReportGroupExportConfig>;
+    exportConfig: pulumi.Input<inputs.ReportGroupExportConfig>;
     /**
      * The name of a Report Group.
      */

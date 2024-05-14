@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
      */
-    public readonly source!: pulumi.Output<outputs.securitylake.SubscriberSource | undefined>;
+    public readonly source!: pulumi.Output<outputs.SubscriberSource | undefined>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -82,7 +81,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The AWS identity used to access your data.
      */
-    public readonly subscriberIdentity!: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
+    public readonly subscriberIdentity!: pulumi.Output<outputs.SubscriberSubscriberIdentity | undefined>;
     /**
      * The name of your Security Lake subscriber account.
      */
@@ -101,7 +100,7 @@ export class Subscriber extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.securitylake.SubscriberTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.SubscriberTimeouts | undefined>;
 
     /**
      * Create a Subscriber resource with the given unique name, arguments, and options.
@@ -182,7 +181,7 @@ export interface SubscriberState {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
      */
-    source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
+    source?: pulumi.Input<inputs.SubscriberSource>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -194,7 +193,7 @@ export interface SubscriberState {
     /**
      * The AWS identity used to access your data.
      */
-    subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
+    subscriberIdentity?: pulumi.Input<inputs.SubscriberSubscriberIdentity>;
     /**
      * The name of your Security Lake subscriber account.
      */
@@ -213,7 +212,7 @@ export interface SubscriberState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.securitylake.SubscriberTimeouts>;
+    timeouts?: pulumi.Input<inputs.SubscriberTimeouts>;
 }
 
 /**
@@ -224,7 +223,7 @@ export interface SubscriberArgs {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
      */
-    source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
+    source?: pulumi.Input<inputs.SubscriberSource>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -232,7 +231,7 @@ export interface SubscriberArgs {
     /**
      * The AWS identity used to access your data.
      */
-    subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
+    subscriberIdentity?: pulumi.Input<inputs.SubscriberSubscriberIdentity>;
     /**
      * The name of your Security Lake subscriber account.
      */
@@ -241,5 +240,5 @@ export interface SubscriberArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.securitylake.SubscriberTimeouts>;
+    timeouts?: pulumi.Input<inputs.SubscriberTimeouts>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -42,14 +41,14 @@ export interface GetOntapStorageVirtualMachinesArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: inputs.fsx.GetOntapStorageVirtualMachinesFilter[];
+    filters?: inputs.GetOntapStorageVirtualMachinesFilter[];
 }
 
 /**
  * A collection of values returned by getOntapStorageVirtualMachines.
  */
 export interface GetOntapStorageVirtualMachinesResult {
-    readonly filters?: outputs.fsx.GetOntapStorageVirtualMachinesFilter[];
+    readonly filters?: inputs.GetOntapStorageVirtualMachinesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -89,5 +88,5 @@ export interface GetOntapStorageVirtualMachinesOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachinesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetOntapStorageVirtualMachinesFilterArgs>[]>;
 }

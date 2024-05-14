@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -192,11 +191,11 @@ export class Environment extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      */
     public readonly kmsKey!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastUpdateds!: pulumi.Output<outputs.mwaa.EnvironmentLastUpdated[]>;
+    public /*out*/ readonly lastUpdateds!: pulumi.Output<outputs.EnvironmentLastUpdated[]>;
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.EnvironmentLoggingConfiguration>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
@@ -212,7 +211,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.EnvironmentNetworkConfiguration>;
     /**
      * The plugins.zip file version you want to use.
      */
@@ -421,11 +420,11 @@ export interface EnvironmentState {
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      */
     kmsKey?: pulumi.Input<string>;
-    lastUpdateds?: pulumi.Input<pulumi.Input<inputs.mwaa.EnvironmentLastUpdated>[]>;
+    lastUpdateds?: pulumi.Input<pulumi.Input<inputs.EnvironmentLastUpdated>[]>;
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
-    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.EnvironmentLoggingConfiguration>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
@@ -441,7 +440,7 @@ export interface EnvironmentState {
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
      */
-    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.EnvironmentNetworkConfiguration>;
     /**
      * The plugins.zip file version you want to use.
      */
@@ -542,7 +541,7 @@ export interface EnvironmentArgs {
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
-    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.EnvironmentLoggingConfiguration>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
@@ -558,7 +557,7 @@ export interface EnvironmentArgs {
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
      */
-    networkConfiguration: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfiguration>;
+    networkConfiguration: pulumi.Input<inputs.EnvironmentNetworkConfiguration>;
     /**
      * The plugins.zip file version you want to use.
      */

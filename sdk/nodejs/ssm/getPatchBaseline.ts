@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +81,7 @@ export interface GetPatchBaselineResult {
     /**
      * List of rules used to include patches in the baseline.
      */
-    readonly approvalRules: outputs.ssm.GetPatchBaselineApprovalRule[];
+    readonly approvalRules: outputs.GetPatchBaselineApprovalRule[];
     /**
      * List of explicitly approved patches for the baseline.
      */
@@ -102,7 +102,7 @@ export interface GetPatchBaselineResult {
     /**
      * Set of global filters used to exclude patches from the baseline.
      */
-    readonly globalFilters: outputs.ssm.GetPatchBaselineGlobalFilter[];
+    readonly globalFilters: outputs.GetPatchBaselineGlobalFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -129,7 +129,7 @@ export interface GetPatchBaselineResult {
     /**
      * Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
      */
-    readonly sources: outputs.ssm.GetPatchBaselineSource[];
+    readonly sources: outputs.GetPatchBaselineSource[];
 }
 /**
  * Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.

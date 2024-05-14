@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +44,7 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
+    readonly appversionLifecycle: outputs.GetApplicationAppversionLifecycle;
     /**
      * ARN of the application.
      */

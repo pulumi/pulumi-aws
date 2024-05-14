@@ -6,4 +6,4 @@ export * from "./ipAddressType";
 export * from "./loadBalancerType";
 
 // Export enums:
-export * from "../types/enums/applicationloadbalancing";
+export * from "./enums";

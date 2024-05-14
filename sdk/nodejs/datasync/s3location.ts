@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -78,7 +77,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    public readonly s3Config!: pulumi.Output<outputs.datasync.S3LocationS3Config>;
+    public readonly s3Config!: pulumi.Output<outputs.S3LocationS3Config>;
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
@@ -166,7 +165,7 @@ export interface S3LocationState {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    s3Config?: pulumi.Input<inputs.S3LocationS3Config>;
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
@@ -203,7 +202,7 @@ export interface S3LocationArgs {
     /**
      * Configuration block containing information for connecting to S3.
      */
-    s3Config: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    s3Config: pulumi.Input<inputs.S3LocationS3Config>;
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +57,7 @@ export interface GetFunctionUrlResult {
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
      */
-    readonly cors: outputs.lambda.GetFunctionUrlCor[];
+    readonly cors: outputs.GetFunctionUrlCor[];
     /**
      * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
      */

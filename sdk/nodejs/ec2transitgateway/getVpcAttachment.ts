@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetVpcAttachmentArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetVpcAttachmentFilter[];
+    filters?: inputs.GetVpcAttachmentFilter[];
     /**
      * Identifier of the EC2 Transit Gateway VPC Attachment.
      */
@@ -78,7 +77,7 @@ export interface GetVpcAttachmentResult {
      * Whether DNS support is enabled.
      */
     readonly dnsSupport: string;
-    readonly filters?: outputs.ec2transitgateway.GetVpcAttachmentFilter[];
+    readonly filters?: inputs.GetVpcAttachmentFilter[];
     /**
      * EC2 Transit Gateway VPC Attachment identifier
      */
@@ -149,7 +148,7 @@ export interface GetVpcAttachmentOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcAttachmentFilterArgs>[]>;
     /**
      * Identifier of the EC2 Transit Gateway VPC Attachment.
      */

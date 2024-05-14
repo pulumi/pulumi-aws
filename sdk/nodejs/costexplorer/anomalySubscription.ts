@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -230,7 +229,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
-    public readonly subscribers!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionSubscriber[]>;
+    public readonly subscribers!: pulumi.Output<outputs.AnomalySubscriptionSubscriber[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -244,7 +243,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    public readonly thresholdExpression!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    public readonly thresholdExpression!: pulumi.Output<outputs.AnomalySubscriptionThresholdExpression>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.
@@ -321,7 +320,7 @@ export interface AnomalySubscriptionState {
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
-    subscribers?: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[]>;
+    subscribers?: pulumi.Input<pulumi.Input<inputs.AnomalySubscriptionSubscriber>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -335,7 +334,7 @@ export interface AnomalySubscriptionState {
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    thresholdExpression?: pulumi.Input<inputs.AnomalySubscriptionThresholdExpression>;
 }
 
 /**
@@ -361,7 +360,7 @@ export interface AnomalySubscriptionArgs {
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      */
-    subscribers: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionSubscriber>[]>;
+    subscribers: pulumi.Input<pulumi.Input<inputs.AnomalySubscriptionSubscriber>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -369,5 +368,5 @@ export interface AnomalySubscriptionArgs {
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      */
-    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
+    thresholdExpression?: pulumi.Input<inputs.AnomalySubscriptionThresholdExpression>;
 }

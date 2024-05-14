@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -91,7 +90,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
-    public readonly sasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
+    public readonly sasConfiguration!: pulumi.Output<outputs.LocationAzureBlobSasConfiguration | undefined>;
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      */
@@ -191,7 +190,7 @@ export interface LocationAzureBlobState {
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
-    sasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobSasConfiguration>;
+    sasConfiguration?: pulumi.Input<inputs.LocationAzureBlobSasConfiguration>;
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      */
@@ -236,7 +235,7 @@ export interface LocationAzureBlobArgs {
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
-    sasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobSasConfiguration>;
+    sasConfiguration?: pulumi.Input<inputs.LocationAzureBlobSasConfiguration>;
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      */

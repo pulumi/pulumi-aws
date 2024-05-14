@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +91,7 @@ export class Secret extends pulumi.CustomResource {
     /**
      * Configuration block to support secret replication. See details below.
      */
-    public readonly replicas!: pulumi.Output<outputs.secretsmanager.SecretReplica[]>;
+    public readonly replicas!: pulumi.Output<outputs.SecretReplica[]>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -186,7 +185,7 @@ export interface SecretState {
     /**
      * Configuration block to support secret replication. See details below.
      */
-    replicas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.SecretReplica>[]>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -234,7 +233,7 @@ export interface SecretArgs {
     /**
      * Configuration block to support secret replication. See details below.
      */
-    replicas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.SecretReplica>[]>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

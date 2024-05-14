@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,19 +106,19 @@ export interface GetCoreNetworkPolicyDocumentArgs {
     /**
      * In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
      */
-    attachmentPolicies?: inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
+    attachmentPolicies?: inputs.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
     /**
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
-    coreNetworkConfigurations: inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
+    coreNetworkConfigurations: inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
     /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
-    segmentActions?: inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentAction[];
+    segmentActions?: inputs.GetCoreNetworkPolicyDocumentSegmentAction[];
     /**
      * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
-    segments: inputs.networkmanager.GetCoreNetworkPolicyDocumentSegment[];
+    segments: inputs.GetCoreNetworkPolicyDocumentSegment[];
     version?: string;
 }
 
@@ -127,8 +126,8 @@ export interface GetCoreNetworkPolicyDocumentArgs {
  * A collection of values returned by getCoreNetworkPolicyDocument.
  */
 export interface GetCoreNetworkPolicyDocumentResult {
-    readonly attachmentPolicies?: outputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
-    readonly coreNetworkConfigurations: outputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
+    readonly attachmentPolicies?: inputs.GetCoreNetworkPolicyDocumentAttachmentPolicy[];
+    readonly coreNetworkConfigurations: inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -137,8 +136,8 @@ export interface GetCoreNetworkPolicyDocumentResult {
      * Standard JSON policy document rendered based on the arguments above.
      */
     readonly json: string;
-    readonly segmentActions?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentAction[];
-    readonly segments: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegment[];
+    readonly segmentActions?: inputs.GetCoreNetworkPolicyDocumentSegmentAction[];
+    readonly segments: inputs.GetCoreNetworkPolicyDocumentSegment[];
     readonly version?: string;
 }
 /**
@@ -233,18 +232,18 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
     /**
      * In a core network, all attachments use the block argument `attachmentPolicies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
      */
-    attachmentPolicies?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>[]>;
+    attachmentPolicies?: pulumi.Input<pulumi.Input<inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs>[]>;
     /**
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
-    coreNetworkConfigurations: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>[]>;
+    coreNetworkConfigurations: pulumi.Input<pulumi.Input<inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>[]>;
     /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
-    segmentActions?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs>[]>;
+    segmentActions?: pulumi.Input<pulumi.Input<inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs>[]>;
     /**
      * Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
-    segments: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs>[]>;
+    segments: pulumi.Input<pulumi.Input<inputs.GetCoreNetworkPolicyDocumentSegmentArgs>[]>;
     version?: pulumi.Input<string>;
 }

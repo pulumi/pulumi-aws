@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -98,7 +97,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.OntapFileSystemDiskIopsConfiguration>;
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      */
@@ -110,7 +109,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.OntapFileSystemEndpoint[]>;
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      */
@@ -290,7 +289,7 @@ export interface OntapFileSystemState {
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.OntapFileSystemDiskIopsConfiguration>;
     /**
      * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      */
@@ -302,7 +301,7 @@ export interface OntapFileSystemState {
     /**
      * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.OntapFileSystemEndpoint>[]>;
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      */
@@ -394,7 +393,7 @@ export interface OntapFileSystemArgs {
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.OntapFileSystemDiskIopsConfiguration>;
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      */

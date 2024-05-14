@@ -21,6 +21,15 @@ export const GroupAssociation: typeof import("./groupAssociation").GroupAssociat
 utilities.lazyLoad(exports, ["GroupAssociation"], () => require("./groupAssociation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

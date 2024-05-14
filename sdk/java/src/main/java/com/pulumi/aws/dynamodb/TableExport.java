@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucketPrefix("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("example-table-1")
  *             .billingMode("PAY_PER_REQUEST")
  *             .hashKey("user_id")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTableExport = new TableExport("exampleTableExport", TableExportArgs.builder()        
+ *         var exampleTableExport = new TableExport("exampleTableExport", TableExportArgs.builder()
  *             .tableArn(exampleTable.arn())
  *             .s3Bucket(example.id())
  *             .build());
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TableExport("example", TableExportArgs.builder()        
+ *         var example = new TableExport("example", TableExportArgs.builder()
  *             .exportTime("2023-04-02T11:30:13+01:00")
  *             .s3Bucket(exampleAwsS3Bucket.id())
  *             .tableArn(exampleAwsDynamodbTable.arn())

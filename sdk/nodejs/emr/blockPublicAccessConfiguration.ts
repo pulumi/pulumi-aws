@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -119,7 +118,7 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
-    public readonly permittedPublicSecurityGroupRuleRanges!: pulumi.Output<outputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | undefined>;
+    public readonly permittedPublicSecurityGroupRuleRanges!: pulumi.Output<outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | undefined>;
 
     /**
      * Create a BlockPublicAccessConfiguration resource with the given unique name, arguments, and options.
@@ -162,7 +161,7 @@ export interface BlockPublicAccessConfigurationState {
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
-    permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
+    permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
 }
 
 /**
@@ -178,5 +177,5 @@ export interface BlockPublicAccessConfigurationArgs {
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
-    permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
+    permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
 }

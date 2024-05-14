@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +99,7 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    public readonly rules!: pulumi.Output<outputs.ecr.RegistryScanningConfigurationRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.RegistryScanningConfigurationRule[] | undefined>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */
@@ -147,7 +146,7 @@ export interface RegistryScanningConfigurationState {
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.RegistryScanningConfigurationRule>[]>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */
@@ -161,7 +160,7 @@ export interface RegistryScanningConfigurationArgs {
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.RegistryScanningConfigurationRule>[]>;
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      */

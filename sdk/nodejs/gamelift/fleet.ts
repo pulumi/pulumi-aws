@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      */
-    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration>;
+    public readonly certificateConfiguration!: pulumi.Output<outputs.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -89,7 +88,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[]>;
+    public readonly ec2InboundPermissions!: pulumi.Output<outputs.FleetEc2InboundPermission[]>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
@@ -122,11 +121,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
+    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.FleetResourceCreationLimitPolicy | undefined>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
+    public readonly runtimeConfiguration!: pulumi.Output<outputs.FleetRuntimeConfiguration | undefined>;
     /**
      * Script ARN.
      */
@@ -229,7 +228,7 @@ export interface FleetState {
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      */
-    certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfiguration>;
+    certificateConfiguration?: pulumi.Input<inputs.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -237,7 +236,7 @@ export interface FleetState {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.FleetEc2InboundPermission>[]>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
@@ -270,11 +269,11 @@ export interface FleetState {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.FleetResourceCreationLimitPolicy>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    runtimeConfiguration?: pulumi.Input<inputs.FleetRuntimeConfiguration>;
     /**
      * Script ARN.
      */
@@ -306,7 +305,7 @@ export interface FleetArgs {
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      */
-    certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfiguration>;
+    certificateConfiguration?: pulumi.Input<inputs.FleetCertificateConfiguration>;
     /**
      * Human-readable description of the fleet.
      */
@@ -314,7 +313,7 @@ export interface FleetArgs {
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.FleetEc2InboundPermission>[]>;
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      */
@@ -342,11 +341,11 @@ export interface FleetArgs {
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.FleetResourceCreationLimitPolicy>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    runtimeConfiguration?: pulumi.Input<inputs.FleetRuntimeConfiguration>;
     /**
      * ID of the GameLift Script to be deployed on the fleet.
      */

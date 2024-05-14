@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,7 +104,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ebsConfigs!: pulumi.Output<outputs.emr.InstanceGroupEbsConfig[]>;
+    public readonly ebsConfigs!: pulumi.Output<outputs.InstanceGroupEbsConfig[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
@@ -224,7 +223,7 @@ export interface InstanceGroupState {
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
-    ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupEbsConfig>[]>;
+    ebsConfigs?: pulumi.Input<pulumi.Input<inputs.InstanceGroupEbsConfig>[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */
@@ -295,7 +294,7 @@ export interface InstanceGroupArgs {
     /**
      * One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
      */
-    ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupEbsConfig>[]>;
+    ebsConfigs?: pulumi.Input<pulumi.Input<inputs.InstanceGroupEbsConfig>[]>;
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      */

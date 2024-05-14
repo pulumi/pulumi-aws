@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +47,7 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
     public readonly resourceArn!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.shield.ApplicationLayerAutomaticResponseTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ApplicationLayerAutomaticResponseTimeouts | undefined>;
 
     /**
      * Create a ApplicationLayerAutomaticResponse resource with the given unique name, arguments, and options.
@@ -95,7 +94,7 @@ export interface ApplicationLayerAutomaticResponseState {
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
     resourceArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
+    timeouts?: pulumi.Input<inputs.ApplicationLayerAutomaticResponseTimeouts>;
 }
 
 /**
@@ -110,5 +109,5 @@ export interface ApplicationLayerAutomaticResponseArgs {
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      */
     resourceArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.ApplicationLayerAutomaticResponseTimeouts>;
+    timeouts?: pulumi.Input<inputs.ApplicationLayerAutomaticResponseTimeouts>;
 }

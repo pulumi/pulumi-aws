@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -123,7 +122,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      */
-    public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDelivery | undefined>;
+    public readonly dataDelivery!: pulumi.Output<outputs.ProjectDataDelivery | undefined>;
     /**
      * Specifies the description of the project.
      */
@@ -235,7 +234,7 @@ export interface ProjectState {
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      */
-    dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDelivery>;
+    dataDelivery?: pulumi.Input<inputs.ProjectDataDelivery>;
     /**
      * Specifies the description of the project.
      */
@@ -283,7 +282,7 @@ export interface ProjectArgs {
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      */
-    dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDelivery>;
+    dataDelivery?: pulumi.Input<inputs.ProjectDataDelivery>;
     /**
      * Specifies the description of the project.
      */

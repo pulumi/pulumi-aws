@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +46,7 @@ export interface GetDirectConnectGatewayAttachmentArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
+    filters?: inputs.GetDirectConnectGatewayAttachmentFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
@@ -63,7 +62,7 @@ export interface GetDirectConnectGatewayAttachmentArgs {
  */
 export interface GetDirectConnectGatewayAttachmentResult {
     readonly dxGatewayId?: string;
-    readonly filters?: outputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
+    readonly filters?: inputs.GetDirectConnectGatewayAttachmentFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -106,7 +105,7 @@ export interface GetDirectConnectGatewayAttachmentOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetDirectConnectGatewayAttachmentFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */

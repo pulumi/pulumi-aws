@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -94,11 +94,11 @@ export class NetworkAcl extends pulumi.CustomResource {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
+    public readonly egress!: pulumi.Output<outputs.NetworkAclEgress[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[]>;
+    public readonly ingress!: pulumi.Output<outputs.NetworkAclIngress[]>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
@@ -173,11 +173,11 @@ export interface NetworkAclState {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.NetworkAclIngress>[]>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
@@ -209,11 +209,11 @@ export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.NetworkAclIngress>[]>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */

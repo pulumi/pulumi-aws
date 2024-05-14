@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * EBS Block Devices attached to the instance.
      */
-    readonly ebsBlockDevices: outputs.ec2.GetLaunchConfigurationEbsBlockDevice[];
+    readonly ebsBlockDevices: outputs.GetLaunchConfigurationEbsBlockDevice[];
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      */
@@ -66,7 +66,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * The Ephemeral volumes on the instance.
      */
-    readonly ephemeralBlockDevices: outputs.ec2.GetLaunchConfigurationEphemeralBlockDevice[];
+    readonly ephemeralBlockDevices: outputs.GetLaunchConfigurationEphemeralBlockDevice[];
     /**
      * The IAM Instance Profile to associate with launched instances.
      */
@@ -90,7 +90,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * Metadata options for the instance.
      */
-    readonly metadataOptions: outputs.ec2.GetLaunchConfigurationMetadataOption[];
+    readonly metadataOptions: outputs.GetLaunchConfigurationMetadataOption[];
     /**
      * Name of the launch configuration.
      */
@@ -102,7 +102,7 @@ export interface GetLaunchConfigurationResult {
     /**
      * Root Block Device of the instance.
      */
-    readonly rootBlockDevices: outputs.ec2.GetLaunchConfigurationRootBlockDevice[];
+    readonly rootBlockDevices: outputs.GetLaunchConfigurationRootBlockDevice[];
     /**
      * List of associated Security Group IDS.
      */

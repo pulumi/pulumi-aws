@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -154,11 +153,11 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The Connect peer BGP options.
      */
-    public readonly bgpOptions!: pulumi.Output<outputs.networkmanager.ConnectPeerBgpOptions | undefined>;
+    public readonly bgpOptions!: pulumi.Output<outputs.ConnectPeerBgpOptions | undefined>;
     /**
      * The configuration of the Connect peer.
      */
-    public /*out*/ readonly configurations!: pulumi.Output<outputs.networkmanager.ConnectPeerConfiguration[]>;
+    public /*out*/ readonly configurations!: pulumi.Output<outputs.ConnectPeerConfiguration[]>;
     /**
      * The ID of the connection attachment.
      */
@@ -274,11 +273,11 @@ export interface ConnectPeerState {
     /**
      * The Connect peer BGP options.
      */
-    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions>;
+    bgpOptions?: pulumi.Input<inputs.ConnectPeerBgpOptions>;
     /**
      * The configuration of the Connect peer.
      */
-    configurations?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectPeerConfiguration>[]>;
+    configurations?: pulumi.Input<pulumi.Input<inputs.ConnectPeerConfiguration>[]>;
     /**
      * The ID of the connection attachment.
      */
@@ -334,7 +333,7 @@ export interface ConnectPeerArgs {
     /**
      * The Connect peer BGP options.
      */
-    bgpOptions?: pulumi.Input<inputs.networkmanager.ConnectPeerBgpOptions>;
+    bgpOptions?: pulumi.Input<inputs.ConnectPeerBgpOptions>;
     /**
      * The ID of the connection attachment.
      */

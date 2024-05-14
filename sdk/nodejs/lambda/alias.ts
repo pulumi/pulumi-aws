@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +95,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
+    public readonly routingConfig!: pulumi.Output<outputs.AliasRoutingConfig | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -169,7 +169,7 @@ export interface AliasState {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.AliasRoutingConfig>;
 }
 
 /**
@@ -195,5 +195,5 @@ export interface AliasArgs {
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.AliasRoutingConfig>;
 }

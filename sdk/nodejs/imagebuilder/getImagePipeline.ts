@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,11 +88,11 @@ export interface GetImagePipelineResult {
      * ARN of the image recipe.
      */
     readonly imageRecipeArn: string;
-    readonly imageScanningConfigurations: outputs.imagebuilder.GetImagePipelineImageScanningConfiguration[];
+    readonly imageScanningConfigurations: outputs.GetImagePipelineImageScanningConfiguration[];
     /**
      * List of an object with image tests configuration.
      */
-    readonly imageTestsConfigurations: outputs.imagebuilder.GetImagePipelineImageTestsConfiguration[];
+    readonly imageTestsConfigurations: outputs.GetImagePipelineImageTestsConfiguration[];
     /**
      * ARN of the Image Builder Infrastructure Configuration.
      */
@@ -109,7 +108,7 @@ export interface GetImagePipelineResult {
     /**
      * List of an object with schedule settings.
      */
-    readonly schedules: outputs.imagebuilder.GetImagePipelineSchedule[];
+    readonly schedules: outputs.GetImagePipelineSchedule[];
     /**
      * Status of the image pipeline.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -174,7 +173,7 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.sfn.StateMachineLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
@@ -213,7 +212,7 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    public readonly tracingConfiguration!: pulumi.Output<outputs.sfn.StateMachineTracingConfiguration>;
+    public readonly tracingConfiguration!: pulumi.Output<outputs.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
@@ -301,7 +300,7 @@ export interface StateMachineState {
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
@@ -340,7 +339,7 @@ export interface StateMachineState {
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
@@ -359,7 +358,7 @@ export interface StateMachineArgs {
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      */
@@ -383,7 +382,7 @@ export interface StateMachineArgs {
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */

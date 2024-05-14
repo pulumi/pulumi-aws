@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -178,7 +177,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.mq.BrokerConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.BrokerConfiguration>;
     /**
      * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
      */
@@ -194,7 +193,7 @@ export class Broker extends pulumi.CustomResource {
     /**
      * Configuration block containing encryption options. Detailed below.
      */
-    public readonly encryptionOptions!: pulumi.Output<outputs.mq.BrokerEncryptionOptions | undefined>;
+    public readonly encryptionOptions!: pulumi.Output<outputs.BrokerEncryptionOptions | undefined>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
@@ -210,19 +209,19 @@ export class Broker extends pulumi.CustomResource {
     /**
      * List of information about allocated brokers (both active & standby).
      */
-    public /*out*/ readonly instances!: pulumi.Output<outputs.mq.BrokerInstance[]>;
+    public /*out*/ readonly instances!: pulumi.Output<outputs.BrokerInstance[]>;
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      */
-    public readonly ldapServerMetadata!: pulumi.Output<outputs.mq.BrokerLdapServerMetadata | undefined>;
+    public readonly ldapServerMetadata!: pulumi.Output<outputs.BrokerLdapServerMetadata | undefined>;
     /**
      * Configuration block for the logging configuration of the broker. Detailed below.
      */
-    public readonly logs!: pulumi.Output<outputs.mq.BrokerLogs | undefined>;
+    public readonly logs!: pulumi.Output<outputs.BrokerLogs | undefined>;
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      */
-    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.mq.BrokerMaintenanceWindowStartTime>;
+    public readonly maintenanceWindowStartTime!: pulumi.Output<outputs.BrokerMaintenanceWindowStartTime>;
     /**
      * (Optional) The data replication mode that will be applied after reboot.
      */
@@ -258,7 +257,7 @@ export class Broker extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly users!: pulumi.Output<outputs.mq.BrokerUser[]>;
+    public readonly users!: pulumi.Output<outputs.BrokerUser[]>;
 
     /**
      * Create a Broker resource with the given unique name, arguments, and options.
@@ -370,7 +369,7 @@ export interface BrokerState {
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
+    configuration?: pulumi.Input<inputs.BrokerConfiguration>;
     /**
      * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
      */
@@ -386,7 +385,7 @@ export interface BrokerState {
     /**
      * Configuration block containing encryption options. Detailed below.
      */
-    encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
+    encryptionOptions?: pulumi.Input<inputs.BrokerEncryptionOptions>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
@@ -402,19 +401,19 @@ export interface BrokerState {
     /**
      * List of information about allocated brokers (both active & standby).
      */
-    instances?: pulumi.Input<pulumi.Input<inputs.mq.BrokerInstance>[]>;
+    instances?: pulumi.Input<pulumi.Input<inputs.BrokerInstance>[]>;
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      */
-    ldapServerMetadata?: pulumi.Input<inputs.mq.BrokerLdapServerMetadata>;
+    ldapServerMetadata?: pulumi.Input<inputs.BrokerLdapServerMetadata>;
     /**
      * Configuration block for the logging configuration of the broker. Detailed below.
      */
-    logs?: pulumi.Input<inputs.mq.BrokerLogs>;
+    logs?: pulumi.Input<inputs.BrokerLogs>;
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      */
-    maintenanceWindowStartTime?: pulumi.Input<inputs.mq.BrokerMaintenanceWindowStartTime>;
+    maintenanceWindowStartTime?: pulumi.Input<inputs.BrokerMaintenanceWindowStartTime>;
     /**
      * (Optional) The data replication mode that will be applied after reboot.
      */
@@ -450,7 +449,7 @@ export interface BrokerState {
      *
      * The following arguments are optional:
      */
-    users?: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.BrokerUser>[]>;
 }
 
 /**
@@ -476,7 +475,7 @@ export interface BrokerArgs {
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.mq.BrokerConfiguration>;
+    configuration?: pulumi.Input<inputs.BrokerConfiguration>;
     /**
      * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
      */
@@ -492,7 +491,7 @@ export interface BrokerArgs {
     /**
      * Configuration block containing encryption options. Detailed below.
      */
-    encryptionOptions?: pulumi.Input<inputs.mq.BrokerEncryptionOptions>;
+    encryptionOptions?: pulumi.Input<inputs.BrokerEncryptionOptions>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
@@ -508,15 +507,15 @@ export interface BrokerArgs {
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engineType` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      */
-    ldapServerMetadata?: pulumi.Input<inputs.mq.BrokerLdapServerMetadata>;
+    ldapServerMetadata?: pulumi.Input<inputs.BrokerLdapServerMetadata>;
     /**
      * Configuration block for the logging configuration of the broker. Detailed below.
      */
-    logs?: pulumi.Input<inputs.mq.BrokerLogs>;
+    logs?: pulumi.Input<inputs.BrokerLogs>;
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      */
-    maintenanceWindowStartTime?: pulumi.Input<inputs.mq.BrokerMaintenanceWindowStartTime>;
+    maintenanceWindowStartTime?: pulumi.Input<inputs.BrokerMaintenanceWindowStartTime>;
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
      */
@@ -542,5 +541,5 @@ export interface BrokerArgs {
      *
      * The following arguments are optional:
      */
-    users: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
+    users: pulumi.Input<pulumi.Input<inputs.BrokerUser>[]>;
 }

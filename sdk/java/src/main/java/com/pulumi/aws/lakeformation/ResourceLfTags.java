@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()        
+ *         var example = new LfTag("example", LfTagArgs.builder()
  *             .key("right")
  *             .values(            
  *                 "abbey",
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 "club")
  *             .build());
  * 
- *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()        
+ *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
  *             .database(ResourceLfTagsDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()        
+ *         var example = new LfTag("example", LfTagArgs.builder()
  *             .key("right")
  *             .values(            
  *                 "abbey",
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *                 "club")
  *             .build());
  * 
- *         var example2 = new LfTag("example2", LfTagArgs.builder()        
+ *         var example2 = new LfTag("example2", LfTagArgs.builder()
  *             .key("left")
  *             .values(            
  *                 "farm",
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                 "vale")
  *             .build());
  * 
- *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()        
+ *         var exampleResourceLfTags = new ResourceLfTags("exampleResourceLfTags", ResourceLfTagsArgs.builder()
  *             .database(ResourceLfTagsDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())

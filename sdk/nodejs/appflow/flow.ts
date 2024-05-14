@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -156,7 +155,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
-    public readonly destinationFlowConfigs!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
+    public readonly destinationFlowConfigs!: pulumi.Output<outputs.FlowDestinationFlowConfig[]>;
     /**
      * The current status of the flow.
      */
@@ -172,7 +171,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
-    public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
+    public readonly sourceFlowConfig!: pulumi.Output<outputs.FlowSourceFlowConfig>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -186,11 +185,11 @@ export class Flow extends pulumi.CustomResource {
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
-    public readonly tasks!: pulumi.Output<outputs.appflow.FlowTask[]>;
+    public readonly tasks!: pulumi.Output<outputs.FlowTask[]>;
     /**
      * A Trigger that determine how and when the flow runs.
      */
-    public readonly triggerConfig!: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
+    public readonly triggerConfig!: pulumi.Output<outputs.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -262,7 +261,7 @@ export interface FlowState {
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
-    destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
+    destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.FlowDestinationFlowConfig>[]>;
     /**
      * The current status of the flow.
      */
@@ -278,7 +277,7 @@ export interface FlowState {
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
-    sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
+    sourceFlowConfig?: pulumi.Input<inputs.FlowSourceFlowConfig>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -292,11 +291,11 @@ export interface FlowState {
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
-    tasks?: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[]>;
+    tasks?: pulumi.Input<pulumi.Input<inputs.FlowTask>[]>;
     /**
      * A Trigger that determine how and when the flow runs.
      */
-    triggerConfig?: pulumi.Input<inputs.appflow.FlowTriggerConfig>;
+    triggerConfig?: pulumi.Input<inputs.FlowTriggerConfig>;
 }
 
 /**
@@ -310,7 +309,7 @@ export interface FlowArgs {
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      */
-    destinationFlowConfigs: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
+    destinationFlowConfigs: pulumi.Input<pulumi.Input<inputs.FlowDestinationFlowConfig>[]>;
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
@@ -322,7 +321,7 @@ export interface FlowArgs {
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
-    sourceFlowConfig: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
+    sourceFlowConfig: pulumi.Input<inputs.FlowSourceFlowConfig>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -330,9 +329,9 @@ export interface FlowArgs {
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      */
-    tasks: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[]>;
+    tasks: pulumi.Input<pulumi.Input<inputs.FlowTask>[]>;
     /**
      * A Trigger that determine how and when the flow runs.
      */
-    triggerConfig: pulumi.Input<inputs.appflow.FlowTriggerConfig>;
+    triggerConfig: pulumi.Input<inputs.FlowTriggerConfig>;
 }

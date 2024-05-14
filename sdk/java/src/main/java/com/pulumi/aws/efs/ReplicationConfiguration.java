@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .region("us-west-2")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .availabilityZoneName("us-west-2b")
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new FileSystem("example");
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .fileSystemId("fs-1234567890")

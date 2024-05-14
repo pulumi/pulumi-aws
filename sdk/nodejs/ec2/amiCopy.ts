@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +94,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.AmiCopyEbsBlockDevice[]>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -107,7 +107,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiCopyEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.AmiCopyEphemeralBlockDevice[]>;
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -311,7 +311,7 @@ export interface AmiCopyState {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiCopyEbsBlockDevice>[]>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -324,7 +324,7 @@ export interface AmiCopyState {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiCopyEphemeralBlockDevice>[]>;
     hypervisor?: pulumi.Input<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -422,7 +422,7 @@ export interface AmiCopyArgs {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiCopyEbsBlockDevice>[]>;
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
@@ -431,7 +431,7 @@ export interface AmiCopyArgs {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiCopyEphemeralBlockDevice>[]>;
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      */

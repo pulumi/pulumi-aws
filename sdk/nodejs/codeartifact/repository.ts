@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -124,7 +123,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    public readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
+    public readonly externalConnections!: pulumi.Output<outputs.RepositoryExternalConnections | undefined>;
     /**
      * The name of the repository to create.
      */
@@ -142,7 +141,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    public readonly upstreams!: pulumi.Output<outputs.codeartifact.RepositoryUpstream[] | undefined>;
+    public readonly upstreams!: pulumi.Output<outputs.RepositoryUpstream[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -218,7 +217,7 @@ export interface RepositoryState {
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */
@@ -236,7 +235,7 @@ export interface RepositoryState {
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.RepositoryUpstream>[]>;
 }
 
 /**
@@ -258,7 +257,7 @@ export interface RepositoryArgs {
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */
@@ -270,5 +269,5 @@ export interface RepositoryArgs {
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.RepositoryUpstream>[]>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -143,11 +142,11 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.networkfirewall.FirewallPolicyEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.FirewallPolicyEncryptionConfiguration | undefined>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    public readonly firewallPolicy!: pulumi.Output<outputs.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */
@@ -222,11 +221,11 @@ export interface FirewallPolicyState {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.FirewallPolicyEncryptionConfiguration>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    firewallPolicy?: pulumi.Input<inputs.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */
@@ -258,11 +257,11 @@ export interface FirewallPolicyArgs {
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallPolicyEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.FirewallPolicyEncryptionConfiguration>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    firewallPolicy: pulumi.Input<inputs.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */

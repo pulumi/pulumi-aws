@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class Room extends pulumi.CustomResource {
      * Configuration information for optional
      * review of messages.
      */
-    public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
+    public readonly messageReviewHandler!: pulumi.Output<outputs.RoomMessageReviewHandler | undefined>;
     /**
      * Room name.
      */
@@ -162,7 +161,7 @@ export interface RoomState {
      * Configuration information for optional
      * review of messages.
      */
-    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    messageReviewHandler?: pulumi.Input<inputs.RoomMessageReviewHandler>;
     /**
      * Room name.
      */
@@ -203,7 +202,7 @@ export interface RoomArgs {
      * Configuration information for optional
      * review of messages.
      */
-    messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandler>;
+    messageReviewHandler?: pulumi.Input<inputs.RoomMessageReviewHandler>;
     /**
      * Room name.
      */

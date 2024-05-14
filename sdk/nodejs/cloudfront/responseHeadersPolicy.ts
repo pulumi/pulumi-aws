@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -130,11 +129,11 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
-    public readonly corsConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
+    public readonly corsConfig!: pulumi.Output<outputs.ResponseHeadersPolicyCorsConfig | undefined>;
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
-    public readonly customHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
+    public readonly customHeadersConfig!: pulumi.Output<outputs.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
     /**
      * The current version of the response headers policy.
      */
@@ -146,15 +145,15 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      */
-    public readonly removeHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
+    public readonly removeHeadersConfig!: pulumi.Output<outputs.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
-    public readonly securityHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
+    public readonly securityHeadersConfig!: pulumi.Output<outputs.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
-    public readonly serverTimingHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
+    public readonly serverTimingHeadersConfig!: pulumi.Output<outputs.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
 
     /**
      * Create a ResponseHeadersPolicy resource with the given unique name, arguments, and options.
@@ -204,11 +203,11 @@ export interface ResponseHeadersPolicyState {
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
-    corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
+    corsConfig?: pulumi.Input<inputs.ResponseHeadersPolicyCorsConfig>;
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
-    customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
+    customHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyCustomHeadersConfig>;
     /**
      * The current version of the response headers policy.
      */
@@ -220,15 +219,15 @@ export interface ResponseHeadersPolicyState {
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      */
-    removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
+    removeHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyRemoveHeadersConfig>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
-    securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
+    securityHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicySecurityHeadersConfig>;
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
-    serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
+    serverTimingHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }
 
 /**
@@ -242,11 +241,11 @@ export interface ResponseHeadersPolicyArgs {
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
-    corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
+    corsConfig?: pulumi.Input<inputs.ResponseHeadersPolicyCorsConfig>;
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
-    customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
+    customHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyCustomHeadersConfig>;
     /**
      * The current version of the response headers policy.
      */
@@ -258,13 +257,13 @@ export interface ResponseHeadersPolicyArgs {
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      */
-    removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
+    removeHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyRemoveHeadersConfig>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
-    securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
+    securityHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicySecurityHeadersConfig>;
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
-    serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
+    serverTimingHeadersConfig?: pulumi.Input<inputs.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }

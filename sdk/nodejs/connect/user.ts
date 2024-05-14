@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -178,7 +177,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    public readonly identityInfo!: pulumi.Output<outputs.connect.UserIdentityInfo | undefined>;
+    public readonly identityInfo!: pulumi.Output<outputs.UserIdentityInfo | undefined>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -194,7 +193,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    public readonly phoneConfig!: pulumi.Output<outputs.connect.UserPhoneConfig>;
+    public readonly phoneConfig!: pulumi.Output<outputs.UserPhoneConfig>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -299,7 +298,7 @@ export interface UserState {
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfo>;
+    identityInfo?: pulumi.Input<inputs.UserIdentityInfo>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -315,7 +314,7 @@ export interface UserState {
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfig>;
+    phoneConfig?: pulumi.Input<inputs.UserPhoneConfig>;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -356,7 +355,7 @@ export interface UserArgs {
     /**
      * A block that contains information about the identity of the user. Documented below.
      */
-    identityInfo?: pulumi.Input<inputs.connect.UserIdentityInfo>;
+    identityInfo?: pulumi.Input<inputs.UserIdentityInfo>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -372,7 +371,7 @@ export interface UserArgs {
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      */
-    phoneConfig: pulumi.Input<inputs.connect.UserPhoneConfig>;
+    phoneConfig: pulumi.Input<inputs.UserPhoneConfig>;
     /**
      * The identifier of the routing profile for the user.
      */

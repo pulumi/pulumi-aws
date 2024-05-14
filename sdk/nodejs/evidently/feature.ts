@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -171,7 +170,7 @@ export class Feature extends pulumi.CustomResource {
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      */
-    public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.evidently.FeatureEvaluationRule[]>;
+    public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.FeatureEvaluationRule[]>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
@@ -209,7 +208,7 @@ export class Feature extends pulumi.CustomResource {
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */
-    public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariation[]>;
+    public readonly variations!: pulumi.Output<outputs.FeatureVariation[]>;
 
     /**
      * Create a Feature resource with the given unique name, arguments, and options.
@@ -295,7 +294,7 @@ export interface FeatureState {
     /**
      * One or more blocks that define the evaluation rules for the feature. Detailed below
      */
-    evaluationRules?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEvaluationRule>[]>;
+    evaluationRules?: pulumi.Input<pulumi.Input<inputs.FeatureEvaluationRule>[]>;
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      */
@@ -333,7 +332,7 @@ export interface FeatureState {
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */
-    variations?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[]>;
+    variations?: pulumi.Input<pulumi.Input<inputs.FeatureVariation>[]>;
 }
 
 /**
@@ -371,5 +370,5 @@ export interface FeatureArgs {
     /**
      * One or more blocks that contain the configuration of the feature's different variations. Detailed below
      */
-    variations: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[]>;
+    variations: pulumi.Input<pulumi.Input<inputs.FeatureVariation>[]>;
 }

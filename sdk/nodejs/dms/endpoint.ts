@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    public readonly elasticsearchSettings!: pulumi.Output<outputs.dms.EndpointElasticsearchSettings | undefined>;
+    public readonly elasticsearchSettings!: pulumi.Output<outputs.EndpointElasticsearchSettings | undefined>;
     /**
      * ARN for the endpoint.
      */
@@ -109,11 +108,11 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Configuration block for Kafka settings. See below.
      */
-    public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
+    public readonly kafkaSettings!: pulumi.Output<outputs.EndpointKafkaSettings | undefined>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
+    public readonly kinesisSettings!: pulumi.Output<outputs.EndpointKinesisSettings | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
@@ -123,7 +122,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    public readonly mongodbSettings!: pulumi.Output<outputs.dms.EndpointMongodbSettings | undefined>;
+    public readonly mongodbSettings!: pulumi.Output<outputs.EndpointMongodbSettings | undefined>;
     /**
      * Password to be used to login to the endpoint database.
      */
@@ -136,16 +135,16 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Configuration block for Postgres settings. See below.
      */
-    public readonly postgresSettings!: pulumi.Output<outputs.dms.EndpointPostgresSettings | undefined>;
-    public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
+    public readonly postgresSettings!: pulumi.Output<outputs.EndpointPostgresSettings | undefined>;
+    public readonly redisSettings!: pulumi.Output<outputs.EndpointRedisSettings | undefined>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
+    public readonly redshiftSettings!: pulumi.Output<outputs.EndpointRedshiftSettings>;
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      */
-    public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
+    public readonly s3Settings!: pulumi.Output<outputs.EndpointS3Settings | undefined>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
@@ -284,7 +283,7 @@ export interface EndpointState {
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
+    elasticsearchSettings?: pulumi.Input<inputs.EndpointElasticsearchSettings>;
     /**
      * ARN for the endpoint.
      */
@@ -308,11 +307,11 @@ export interface EndpointState {
     /**
      * Configuration block for Kafka settings. See below.
      */
-    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
+    kafkaSettings?: pulumi.Input<inputs.EndpointKafkaSettings>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
+    kinesisSettings?: pulumi.Input<inputs.EndpointKinesisSettings>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
@@ -322,7 +321,7 @@ export interface EndpointState {
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    mongodbSettings?: pulumi.Input<inputs.EndpointMongodbSettings>;
     /**
      * Password to be used to login to the endpoint database.
      */
@@ -335,16 +334,16 @@ export interface EndpointState {
     /**
      * Configuration block for Postgres settings. See below.
      */
-    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
-    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
+    postgresSettings?: pulumi.Input<inputs.EndpointPostgresSettings>;
+    redisSettings?: pulumi.Input<inputs.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    redshiftSettings?: pulumi.Input<inputs.EndpointRedshiftSettings>;
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      */
-    s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
+    s3Settings?: pulumi.Input<inputs.EndpointS3Settings>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
@@ -398,7 +397,7 @@ export interface EndpointArgs {
     /**
      * Configuration block for OpenSearch settings. See below.
      */
-    elasticsearchSettings?: pulumi.Input<inputs.dms.EndpointElasticsearchSettings>;
+    elasticsearchSettings?: pulumi.Input<inputs.EndpointElasticsearchSettings>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
@@ -418,11 +417,11 @@ export interface EndpointArgs {
     /**
      * Configuration block for Kafka settings. See below.
      */
-    kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettings>;
+    kafkaSettings?: pulumi.Input<inputs.EndpointKafkaSettings>;
     /**
      * Configuration block for Kinesis settings. See below.
      */
-    kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettings>;
+    kinesisSettings?: pulumi.Input<inputs.EndpointKinesisSettings>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
      *
@@ -432,7 +431,7 @@ export interface EndpointArgs {
     /**
      * Configuration block for MongoDB settings. See below.
      */
-    mongodbSettings?: pulumi.Input<inputs.dms.EndpointMongodbSettings>;
+    mongodbSettings?: pulumi.Input<inputs.EndpointMongodbSettings>;
     /**
      * Password to be used to login to the endpoint database.
      */
@@ -445,16 +444,16 @@ export interface EndpointArgs {
     /**
      * Configuration block for Postgres settings. See below.
      */
-    postgresSettings?: pulumi.Input<inputs.dms.EndpointPostgresSettings>;
-    redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
+    postgresSettings?: pulumi.Input<inputs.EndpointPostgresSettings>;
+    redisSettings?: pulumi.Input<inputs.EndpointRedisSettings>;
     /**
      * Configuration block for Redshift settings. See below.
      */
-    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    redshiftSettings?: pulumi.Input<inputs.EndpointRedshiftSettings>;
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      */
-    s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
+    s3Settings?: pulumi.Input<inputs.EndpointS3Settings>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *

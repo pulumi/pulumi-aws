@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -242,11 +241,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
+    public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
+    public readonly clientAuthentication!: pulumi.Output<outputs.ClusterClientAuthentication | undefined>;
     /**
      * Name of the MSK cluster.
      */
@@ -258,7 +257,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
+    public readonly configurationInfo!: pulumi.Output<outputs.ClusterConfigurationInfo | undefined>;
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      */
@@ -266,7 +265,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for specifying encryption. See below.
      */
-    public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
+    public readonly encryptionInfo!: pulumi.Output<outputs.ClusterEncryptionInfo | undefined>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -278,7 +277,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      */
-    public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
+    public readonly loggingInfo!: pulumi.Output<outputs.ClusterLoggingInfo | undefined>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
@@ -286,7 +285,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
-    public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    public readonly openMonitoring!: pulumi.Output<outputs.ClusterOpenMonitoring | undefined>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
@@ -447,11 +446,11 @@ export interface ClusterState {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
+    brokerNodeGroupInfo?: pulumi.Input<inputs.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
@@ -463,7 +462,7 @@ export interface ClusterState {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.ClusterConfigurationInfo>;
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      */
@@ -471,7 +470,7 @@ export interface ClusterState {
     /**
      * Configuration block for specifying encryption. See below.
      */
-    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -483,7 +482,7 @@ export interface ClusterState {
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      */
-    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.ClusterLoggingInfo>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
@@ -491,7 +490,7 @@ export interface ClusterState {
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
-    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.ClusterOpenMonitoring>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
@@ -523,11 +522,11 @@ export interface ClusterArgs {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
+    brokerNodeGroupInfo: pulumi.Input<inputs.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
@@ -535,11 +534,11 @@ export interface ClusterArgs {
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.ClusterConfigurationInfo>;
     /**
      * Configuration block for specifying encryption. See below.
      */
-    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
@@ -551,7 +550,7 @@ export interface ClusterArgs {
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      */
-    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.ClusterLoggingInfo>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
@@ -559,7 +558,7 @@ export interface ClusterArgs {
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
-    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.ClusterOpenMonitoring>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */

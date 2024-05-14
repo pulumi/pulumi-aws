@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +79,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
     /**
      * Bucket location. See Location below for more details.
      */
-    public readonly location!: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.DirectoryBucketLocation | undefined>;
     /**
      * Bucket type. Valid values: `Directory`.
      */
@@ -144,7 +144,7 @@ export interface DirectoryBucketState {
     /**
      * Bucket location. See Location below for more details.
      */
-    location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
+    location?: pulumi.Input<inputs.DirectoryBucketLocation>;
     /**
      * Bucket type. Valid values: `Directory`.
      */
@@ -170,7 +170,7 @@ export interface DirectoryBucketArgs {
     /**
      * Bucket location. See Location below for more details.
      */
-    location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
+    location?: pulumi.Input<inputs.DirectoryBucketLocation>;
     /**
      * Bucket type. Valid values: `Directory`.
      */

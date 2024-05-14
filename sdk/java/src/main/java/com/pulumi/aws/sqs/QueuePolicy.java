@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var q = new Queue("q", QueueArgs.builder()        
+ *         var q = new Queue("q", QueueArgs.builder()
  *             .name("examplequeue")
  *             .build());
  * 
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()        
+ *         var testQueuePolicy = new QueuePolicy("testQueuePolicy", QueuePolicyArgs.builder()
  *             .queueUrl(q.id())
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

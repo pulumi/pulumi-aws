@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * The criteria to use to filter findings.
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
+    public readonly findingCriteria!: pulumi.Output<outputs.FindingsFilterFindingCriteria>;
     /**
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -170,7 +169,7 @@ export interface FindingsFilterState {
     /**
      * The criteria to use to filter findings.
      */
-    findingCriteria?: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    findingCriteria?: pulumi.Input<inputs.FindingsFilterFindingCriteria>;
     /**
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -208,7 +207,7 @@ export interface FindingsFilterArgs {
     /**
      * The criteria to use to filter findings.
      */
-    findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    findingCriteria: pulumi.Input<inputs.FindingsFilterFindingCriteria>;
     /**
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */

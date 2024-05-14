@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,11 +69,11 @@ export class NfsLocation extends pulumi.CustomResource {
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    public readonly mountOptions!: pulumi.Output<outputs.datasync.NfsLocationMountOptions | undefined>;
+    public readonly mountOptions!: pulumi.Output<outputs.NfsLocationMountOptions | undefined>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    public readonly onPremConfig!: pulumi.Output<outputs.datasync.NfsLocationOnPremConfig>;
+    public readonly onPremConfig!: pulumi.Output<outputs.NfsLocationOnPremConfig>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
@@ -152,11 +151,11 @@ export interface NfsLocationState {
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
+    mountOptions?: pulumi.Input<inputs.NfsLocationMountOptions>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    onPremConfig?: pulumi.Input<inputs.NfsLocationOnPremConfig>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
@@ -185,11 +184,11 @@ export interface NfsLocationArgs {
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
+    mountOptions?: pulumi.Input<inputs.NfsLocationMountOptions>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    onPremConfig: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    onPremConfig: pulumi.Input<inputs.NfsLocationOnPremConfig>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */

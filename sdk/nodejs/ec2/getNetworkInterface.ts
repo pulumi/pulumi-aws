@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export interface GetNetworkInterfaceArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
      */
-    filters?: inputs.ec2.GetNetworkInterfaceFilter[];
+    filters?: inputs.GetNetworkInterfaceFilter[];
     /**
      * Identifier for the network interface.
      */
@@ -61,8 +61,8 @@ export interface GetNetworkInterfaceResult {
     /**
      * Association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      */
-    readonly associations: outputs.ec2.GetNetworkInterfaceAssociation[];
-    readonly attachments: outputs.ec2.GetNetworkInterfaceAttachment[];
+    readonly associations: outputs.GetNetworkInterfaceAssociation[];
+    readonly attachments: outputs.GetNetworkInterfaceAttachment[];
     /**
      * Availability Zone.
      */
@@ -71,7 +71,7 @@ export interface GetNetworkInterfaceResult {
      * Description of the network interface.
      */
     readonly description: string;
-    readonly filters?: outputs.ec2.GetNetworkInterfaceFilter[];
+    readonly filters?: inputs.GetNetworkInterfaceFilter[];
     readonly id: string;
     /**
      * Type of interface.
@@ -151,7 +151,7 @@ export interface GetNetworkInterfaceOutputArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfaceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNetworkInterfaceFilterArgs>[]>;
     /**
      * Identifier for the network interface.
      */

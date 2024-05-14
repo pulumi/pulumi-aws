@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -231,11 +231,11 @@ export interface CapacityReservationState {
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform>;
+    instancePlatform?: pulumi.Input<string | enums.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
+    instanceType?: pulumi.Input<string | enums.InstanceType>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
@@ -261,7 +261,7 @@ export interface CapacityReservationState {
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.Tenancy>;
 }
 
 /**
@@ -299,11 +299,11 @@ export interface CapacityReservationArgs {
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    instancePlatform: pulumi.Input<string | enums.ec2.InstancePlatform>;
+    instancePlatform: pulumi.Input<string | enums.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
+    instanceType: pulumi.Input<string | enums.InstanceType>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
@@ -319,5 +319,5 @@ export interface CapacityReservationArgs {
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.Tenancy>;
 }

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +59,7 @@ export interface GetNatGatewayArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetNatGatewayFilter[];
+    filters?: inputs.GetNatGatewayFilter[];
     /**
      * ID of the specific NAT Gateway to retrieve.
      */
@@ -99,7 +99,7 @@ export interface GetNatGatewayResult {
      * Connectivity type of the NAT Gateway.
      */
     readonly connectivityType: string;
-    readonly filters?: outputs.ec2.GetNatGatewayFilter[];
+    readonly filters?: inputs.GetNatGatewayFilter[];
     readonly id: string;
     /**
      * The ID of the ENI allocated to the selected NAT Gateway.
@@ -172,7 +172,7 @@ export interface GetNatGatewayOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNatGatewayFilterArgs>[]>;
     /**
      * ID of the specific NAT Gateway to retrieve.
      */

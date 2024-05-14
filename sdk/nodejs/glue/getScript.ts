@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -217,11 +216,11 @@ export interface GetScriptArgs {
     /**
      * List of the edges in the DAG. Defined below.
      */
-    dagEdges: inputs.glue.GetScriptDagEdge[];
+    dagEdges: inputs.GetScriptDagEdge[];
     /**
      * List of the nodes in the DAG. Defined below.
      */
-    dagNodes: inputs.glue.GetScriptDagNode[];
+    dagNodes: inputs.GetScriptDagNode[];
     /**
      * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
@@ -232,8 +231,8 @@ export interface GetScriptArgs {
  * A collection of values returned by getScript.
  */
 export interface GetScriptResult {
-    readonly dagEdges: outputs.glue.GetScriptDagEdge[];
-    readonly dagNodes: outputs.glue.GetScriptDagNode[];
+    readonly dagEdges: inputs.GetScriptDagEdge[];
+    readonly dagNodes: inputs.GetScriptDagNode[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -452,11 +451,11 @@ export interface GetScriptOutputArgs {
     /**
      * List of the edges in the DAG. Defined below.
      */
-    dagEdges: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagEdgeArgs>[]>;
+    dagEdges: pulumi.Input<pulumi.Input<inputs.GetScriptDagEdgeArgs>[]>;
     /**
      * List of the nodes in the DAG. Defined below.
      */
-    dagNodes: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagNodeArgs>[]>;
+    dagNodes: pulumi.Input<pulumi.Input<inputs.GetScriptDagNodeArgs>[]>;
     /**
      * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */

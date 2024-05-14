@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +55,7 @@ export interface GetDirectoryResult {
      * Alias for the directory/connector, such as `d-991708b282.awsapps.com`.
      */
     readonly alias: string;
-    readonly connectSettings: outputs.directoryservice.GetDirectoryConnectSetting[];
+    readonly connectSettings: outputs.GetDirectoryConnectSetting[];
     /**
      * Textual description for the directory/connector.
      */
@@ -82,7 +81,7 @@ export interface GetDirectoryResult {
      * Fully qualified name for the directory/connector.
      */
     readonly name: string;
-    readonly radiusSettings: outputs.directoryservice.GetDirectoryRadiusSetting[];
+    readonly radiusSettings: outputs.GetDirectoryRadiusSetting[];
     /**
      * ID of the security group created by the directory/connector.
      */
@@ -103,7 +102,7 @@ export interface GetDirectoryResult {
      * Directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
      */
     readonly type: string;
-    readonly vpcSettings: outputs.directoryservice.GetDirectoryVpcSetting[];
+    readonly vpcSettings: outputs.GetDirectoryVpcSetting[];
 }
 /**
  * Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.

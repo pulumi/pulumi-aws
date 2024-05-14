@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -215,7 +215,7 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    public readonly rules!: pulumi.Output<outputs.s3.BucketReplicationConfigRule[]>;
+    public readonly rules!: pulumi.Output<outputs.BucketReplicationConfigRule[]>;
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
@@ -277,7 +277,7 @@ export interface BucketReplicationConfigState {
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.BucketReplicationConfigRule>[]>;
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
@@ -300,7 +300,7 @@ export interface BucketReplicationConfigArgs {
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.BucketReplicationConfigRule>[]>;
     /**
      * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).

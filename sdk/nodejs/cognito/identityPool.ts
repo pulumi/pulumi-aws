@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +98,7 @@ export class IdentityPool extends pulumi.CustomResource {
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    public readonly cognitoIdentityProviders!: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
+    public readonly cognitoIdentityProviders!: pulumi.Output<outputs.IdentityPoolCognitoIdentityProvider[] | undefined>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
@@ -197,7 +196,7 @@ export interface IdentityPoolState {
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProvider>[]>;
+    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.IdentityPoolCognitoIdentityProvider>[]>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.
@@ -246,7 +245,7 @@ export interface IdentityPoolArgs {
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      */
-    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProvider>[]>;
+    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.IdentityPoolCognitoIdentityProvider>[]>;
     /**
      * The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
      * backend and the Cognito service to communicate about the developer provider.

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    public readonly identities!: pulumi.Output<outputs.quicksight.IamPolicyAssignmentIdentities | undefined>;
+    public readonly identities!: pulumi.Output<outputs.IamPolicyAssignmentIdentities | undefined>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */
@@ -161,7 +160,7 @@ export interface IamPolicyAssignmentState {
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities>;
+    identities?: pulumi.Input<inputs.IamPolicyAssignmentIdentities>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */
@@ -193,7 +192,7 @@ export interface IamPolicyAssignmentArgs {
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      */
-    identities?: pulumi.Input<inputs.quicksight.IamPolicyAssignmentIdentities>;
+    identities?: pulumi.Input<inputs.IamPolicyAssignmentIdentities>;
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      */

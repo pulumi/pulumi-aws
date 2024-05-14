@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -211,7 +210,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
      */
-    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
+    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.AppAutoBranchCreationConfig>;
     /**
      * Automated branch creation glob patterns for an Amplify app.
      */
@@ -231,7 +230,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
-    public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
+    public readonly customRules!: pulumi.Output<outputs.AppCustomRule[] | undefined>;
     /**
      * Default domain for the Amplify app.
      */
@@ -279,7 +278,7 @@ export class App extends pulumi.CustomResource {
     /**
      * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      */
-    public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
+    public /*out*/ readonly productionBranches!: pulumi.Output<outputs.AppProductionBranch[]>;
     /**
      * Repository for an Amplify app.
      */
@@ -379,7 +378,7 @@ export interface AppState {
     /**
      * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
      */
-    autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
+    autoBranchCreationConfig?: pulumi.Input<inputs.AppAutoBranchCreationConfig>;
     /**
      * Automated branch creation glob patterns for an Amplify app.
      */
@@ -399,7 +398,7 @@ export interface AppState {
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.AppCustomRule>[]>;
     /**
      * Default domain for the Amplify app.
      */
@@ -447,7 +446,7 @@ export interface AppState {
     /**
      * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
      */
-    productionBranches?: pulumi.Input<pulumi.Input<inputs.amplify.AppProductionBranch>[]>;
+    productionBranches?: pulumi.Input<pulumi.Input<inputs.AppProductionBranch>[]>;
     /**
      * Repository for an Amplify app.
      */
@@ -475,7 +474,7 @@ export interface AppArgs {
     /**
      * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
      */
-    autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
+    autoBranchCreationConfig?: pulumi.Input<inputs.AppAutoBranchCreationConfig>;
     /**
      * Automated branch creation glob patterns for an Amplify app.
      */
@@ -495,7 +494,7 @@ export interface AppArgs {
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.AppCustomRule>[]>;
     /**
      * Description for an Amplify app.
      */

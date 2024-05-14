@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,11 +61,11 @@ export class InternetMonitor extends pulumi.CustomResource {
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    public readonly healthEventsConfig!: pulumi.Output<outputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
+    public readonly healthEventsConfig!: pulumi.Output<outputs.InternetMonitorHealthEventsConfig | undefined>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
+    public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */
@@ -155,11 +154,11 @@ export interface InternetMonitorState {
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
+    healthEventsConfig?: pulumi.Input<inputs.InternetMonitorHealthEventsConfig>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery>;
+    internetMeasurementsLogDelivery?: pulumi.Input<inputs.InternetMonitorInternetMeasurementsLogDelivery>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */
@@ -201,11 +200,11 @@ export interface InternetMonitorArgs {
     /**
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
      */
-    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
+    healthEventsConfig?: pulumi.Input<inputs.InternetMonitorHealthEventsConfig>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
-    internetMeasurementsLogDelivery?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery>;
+    internetMeasurementsLogDelivery?: pulumi.Input<inputs.InternetMonitorInternetMeasurementsLogDelivery>;
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      */

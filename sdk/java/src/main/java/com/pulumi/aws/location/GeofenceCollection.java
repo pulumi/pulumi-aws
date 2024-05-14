@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GeofenceCollection("example", GeofenceCollectionArgs.builder()        
+ *         var example = new GeofenceCollection("example", GeofenceCollectionArgs.builder()
  *             .collectionName("example")
  *             .build());
  * 

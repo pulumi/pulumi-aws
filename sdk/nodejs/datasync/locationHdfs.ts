@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -132,11 +131,11 @@ export class LocationHdfs extends pulumi.CustomResource {
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      */
-    public readonly nameNodes!: pulumi.Output<outputs.datasync.LocationHdfsNameNode[]>;
+    public readonly nameNodes!: pulumi.Output<outputs.LocationHdfsNameNode[]>;
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      */
-    public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration>;
+    public readonly qopConfiguration!: pulumi.Output<outputs.LocationHdfsQopConfiguration>;
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */
@@ -271,11 +270,11 @@ export interface LocationHdfsState {
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      */
-    nameNodes?: pulumi.Input<pulumi.Input<inputs.datasync.LocationHdfsNameNode>[]>;
+    nameNodes?: pulumi.Input<pulumi.Input<inputs.LocationHdfsNameNode>[]>;
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      */
-    qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
+    qopConfiguration?: pulumi.Input<inputs.LocationHdfsQopConfiguration>;
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */
@@ -344,11 +343,11 @@ export interface LocationHdfsArgs {
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      */
-    nameNodes: pulumi.Input<pulumi.Input<inputs.datasync.LocationHdfsNameNode>[]>;
+    nameNodes: pulumi.Input<pulumi.Input<inputs.LocationHdfsNameNode>[]>;
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      */
-    qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
+    qopConfiguration?: pulumi.Input<inputs.LocationHdfsQopConfiguration>;
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */

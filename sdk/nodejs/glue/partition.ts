@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class Partition extends pulumi.CustomResource {
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    public readonly storageDescriptor!: pulumi.Output<outputs.glue.PartitionStorageDescriptor | undefined>;
+    public readonly storageDescriptor!: pulumi.Output<outputs.PartitionStorageDescriptor | undefined>;
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -163,7 +162,7 @@ export interface PartitionState {
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.PartitionStorageDescriptor>;
     tableName?: pulumi.Input<string>;
 }
 
@@ -190,6 +189,6 @@ export interface PartitionArgs {
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.PartitionStorageDescriptor>;
     tableName: pulumi.Input<string>;
 }

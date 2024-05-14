@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -34,7 +33,7 @@ export interface GetSecretsArgs {
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */
-    secrets: inputs.kms.GetSecretsSecret[];
+    secrets: inputs.GetSecretsSecret[];
 }
 
 /**
@@ -49,7 +48,7 @@ export interface GetSecretsResult {
      * Map containing each `secret` `name` as the key with its decrypted plaintext value
      */
     readonly plaintext: {[key: string]: string};
-    readonly secrets: outputs.kms.GetSecretsSecret[];
+    readonly secrets: inputs.GetSecretsSecret[];
 }
 /**
  * Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -74,5 +73,5 @@ export interface GetSecretsOutputArgs {
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */
-    secrets: pulumi.Input<pulumi.Input<inputs.kms.GetSecretsSecretArgs>[]>;
+    secrets: pulumi.Input<pulumi.Input<inputs.GetSecretsSecretArgs>[]>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +72,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * A single item list of HLS ingest information
      */
-    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest[]>;
+    public /*out*/ readonly hlsIngests!: pulumi.Output<outputs.ChannelHlsIngest[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -140,7 +139,7 @@ export interface ChannelState {
     /**
      * A single item list of HLS ingest information
      */
-    hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
+    hlsIngests?: pulumi.Input<pulumi.Input<inputs.ChannelHlsIngest>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

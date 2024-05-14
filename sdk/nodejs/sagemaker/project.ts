@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
+    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<outputs.ProjectServiceCatalogProvisioningDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -157,7 +156,7 @@ export interface ProjectState {
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
-    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
+    serviceCatalogProvisioningDetails?: pulumi.Input<inputs.ProjectServiceCatalogProvisioningDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -185,7 +184,7 @@ export interface ProjectArgs {
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      */
-    serviceCatalogProvisioningDetails: pulumi.Input<inputs.sagemaker.ProjectServiceCatalogProvisioningDetails>;
+    serviceCatalogProvisioningDetails: pulumi.Input<inputs.ProjectServiceCatalogProvisioningDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +49,7 @@ export interface GetRealtimeLogConfigResult {
     /**
      * (Required) Amazon Kinesis data streams where real-time log data is sent.
      */
-    readonly endpoints: outputs.cloudfront.GetRealtimeLogConfigEndpoint[];
+    readonly endpoints: outputs.GetRealtimeLogConfigEndpoint[];
     /**
      * (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +78,7 @@ export class LbCertificate extends pulumi.CustomResource {
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
-    public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
+    public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.LbCertificateDomainValidationRecord[]>;
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
      */
@@ -150,7 +149,7 @@ export interface LbCertificateState {
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      */
     domainName?: pulumi.Input<string>;
-    domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[]>;
+    domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.LbCertificateDomainValidationRecord>[]>;
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
      */

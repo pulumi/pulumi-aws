@@ -26,6 +26,15 @@ export const PipelineDefinition: typeof import("./pipelineDefinition").PipelineD
 utilities.lazyLoad(exports, ["PipelineDefinition"], () => require("./pipelineDefinition"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

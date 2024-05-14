@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export interface GetVpcsArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetVpcsFilter[];
+    filters?: inputs.GetVpcsFilter[];
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
@@ -66,7 +66,7 @@ export interface GetVpcsArgs {
  * A collection of values returned by getVpcs.
  */
 export interface GetVpcsResult {
-    readonly filters?: outputs.ec2.GetVpcsFilter[];
+    readonly filters?: inputs.GetVpcsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -118,7 +118,7 @@ export interface GetVpcsOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     /**
      * Contains details about the embeddings model used for the knowledge base.
      */
-    public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
+    public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
     /**
      * A name for the knowledge base.
      */
@@ -101,7 +100,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     /**
      * Contains details about the configuration of the vector database used for the knowledge base.
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
+    public readonly storageConfiguration!: pulumi.Output<outputs.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -110,7 +109,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.AgentKnowledgeBaseTimeouts | undefined>;
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -178,7 +177,7 @@ export interface AgentKnowledgeBaseState {
     /**
      * Contains details about the embeddings model used for the knowledge base.
      */
-    knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
+    knowledgeBaseConfiguration?: pulumi.Input<inputs.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
      * A name for the knowledge base.
      */
@@ -190,7 +189,7 @@ export interface AgentKnowledgeBaseState {
     /**
      * Contains details about the configuration of the vector database used for the knowledge base.
      */
-    storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.AgentKnowledgeBaseStorageConfiguration>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -199,7 +198,7 @@ export interface AgentKnowledgeBaseState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
+    timeouts?: pulumi.Input<inputs.AgentKnowledgeBaseTimeouts>;
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -214,7 +213,7 @@ export interface AgentKnowledgeBaseArgs {
     /**
      * Contains details about the embeddings model used for the knowledge base.
      */
-    knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
+    knowledgeBaseConfiguration?: pulumi.Input<inputs.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
      * A name for the knowledge base.
      */
@@ -226,10 +225,10 @@ export interface AgentKnowledgeBaseArgs {
     /**
      * Contains details about the configuration of the vector database used for the knowledge base.
      */
-    storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.AgentKnowledgeBaseStorageConfiguration>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
+    timeouts?: pulumi.Input<inputs.AgentKnowledgeBaseTimeouts>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +47,7 @@ export interface GetOpenZfsSnapshotArgs {
      * One or more name/value pairs to filter off of. The
      * supported names are file-system-id or volume-id.
      */
-    filters?: inputs.fsx.GetOpenZfsSnapshotFilter[];
+    filters?: inputs.GetOpenZfsSnapshotFilter[];
     /**
      * If more than one result is returned, use the most recent snapshot.
      */
@@ -79,7 +78,7 @@ export interface GetOpenZfsSnapshotResult {
      * Time that the resource was created.
      */
     readonly creationTime: string;
-    readonly filters?: outputs.fsx.GetOpenZfsSnapshotFilter[];
+    readonly filters?: inputs.GetOpenZfsSnapshotFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -135,7 +134,7 @@ export interface GetOpenZfsSnapshotOutputArgs {
      * One or more name/value pairs to filter off of. The
      * supported names are file-system-id or volume-id.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOpenZfsSnapshotFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetOpenZfsSnapshotFilterArgs>[]>;
     /**
      * If more than one result is returned, use the most recent snapshot.
      */

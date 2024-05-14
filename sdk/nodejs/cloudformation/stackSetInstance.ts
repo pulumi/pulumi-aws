@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -145,11 +144,11 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
-    public readonly deploymentTargets!: pulumi.Output<outputs.cloudformation.StackSetInstanceDeploymentTargets | undefined>;
+    public readonly deploymentTargets!: pulumi.Output<outputs.StackSetInstanceDeploymentTargets | undefined>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation.
      */
-    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetInstanceOperationPreferences | undefined>;
+    public readonly operationPreferences!: pulumi.Output<outputs.StackSetInstanceOperationPreferences | undefined>;
     /**
      * Organizational unit ID in which the stack is deployed.
      */
@@ -173,7 +172,7 @@ export class StackSetInstance extends pulumi.CustomResource {
     /**
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
-    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.cloudformation.StackSetInstanceStackInstanceSummary[]>;
+    public /*out*/ readonly stackInstanceSummaries!: pulumi.Output<outputs.StackSetInstanceStackInstanceSummary[]>;
     /**
      * Name of the StackSet.
      */
@@ -240,11 +239,11 @@ export interface StackSetInstanceState {
     /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
-    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackSetInstanceDeploymentTargets>;
+    deploymentTargets?: pulumi.Input<inputs.StackSetInstanceDeploymentTargets>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetInstanceOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.StackSetInstanceOperationPreferences>;
     /**
      * Organizational unit ID in which the stack is deployed.
      */
@@ -268,7 +267,7 @@ export interface StackSetInstanceState {
     /**
      * List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
      */
-    stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetInstanceStackInstanceSummary>[]>;
+    stackInstanceSummaries?: pulumi.Input<pulumi.Input<inputs.StackSetInstanceStackInstanceSummary>[]>;
     /**
      * Name of the StackSet.
      */
@@ -290,11 +289,11 @@ export interface StackSetInstanceArgs {
     /**
      * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
      */
-    deploymentTargets?: pulumi.Input<inputs.cloudformation.StackSetInstanceDeploymentTargets>;
+    deploymentTargets?: pulumi.Input<inputs.StackSetInstanceDeploymentTargets>;
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetInstanceOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.StackSetInstanceOperationPreferences>;
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
      */

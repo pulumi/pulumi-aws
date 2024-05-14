@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {Application, ApplicationVersion} from "./index";
@@ -116,7 +115,7 @@ export class Environment extends pulumi.CustomResource {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    public /*out*/ readonly allSettings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentAllSetting[]>;
+    public /*out*/ readonly allSettings!: pulumi.Output<outputs.EnvironmentAllSetting[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
@@ -182,7 +181,7 @@ export class Environment extends pulumi.CustomResource {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    public readonly settings!: pulumi.Output<outputs.elasticbeanstalk.EnvironmentSetting[] | undefined>;
+    public readonly settings!: pulumi.Output<outputs.EnvironmentSetting[] | undefined>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
@@ -306,7 +305,7 @@ export interface EnvironmentState {
      * are a combination of default settings and their overrides from `setting` in
      * the configuration.
      */
-    allSettings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentAllSetting>[]>;
+    allSettings?: pulumi.Input<pulumi.Input<inputs.EnvironmentAllSetting>[]>;
     /**
      * Name of the application that contains the version
      * to be deployed
@@ -372,7 +371,7 @@ export interface EnvironmentState {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
@@ -456,7 +455,7 @@ export interface EnvironmentArgs {
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.EnvironmentSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.EnvironmentSetting>[]>;
     /**
      * A solution stack to base your environment
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)

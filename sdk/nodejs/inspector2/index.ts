@@ -26,6 +26,15 @@ export const OrganizationConfiguration: typeof import("./organizationConfigurati
 utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

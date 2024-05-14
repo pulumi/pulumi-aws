@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -140,11 +139,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * Information about the CloudWatch alarms. See below.
      */
-    public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
+    public readonly alarms!: pulumi.Output<outputs.ServiceAlarms | undefined>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
-    public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
+    public readonly capacityProviderStrategies!: pulumi.Output<outputs.ServiceCapacityProviderStrategy[] | undefined>;
     /**
      * ARN of an ECS cluster.
      */
@@ -152,11 +151,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * Configuration block for deployment circuit breaker. See below.
      */
-    public readonly deploymentCircuitBreaker!: pulumi.Output<outputs.ecs.ServiceDeploymentCircuitBreaker | undefined>;
+    public readonly deploymentCircuitBreaker!: pulumi.Output<outputs.ServiceDeploymentCircuitBreaker | undefined>;
     /**
      * Configuration block for deployment controller configuration. See below.
      */
-    public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
+    public readonly deploymentController!: pulumi.Output<outputs.ServiceDeploymentController | undefined>;
     /**
      * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
@@ -196,7 +195,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Configuration block for load balancers. See below.
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
+    public readonly loadBalancers!: pulumi.Output<outputs.ServiceLoadBalancer[] | undefined>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      *
@@ -206,15 +205,15 @@ export class Service extends pulumi.CustomResource {
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ServiceNetworkConfiguration | undefined>;
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
      */
-    public readonly orderedPlacementStrategies!: pulumi.Output<outputs.ecs.ServiceOrderedPlacementStrategy[] | undefined>;
+    public readonly orderedPlacementStrategies!: pulumi.Output<outputs.ServiceOrderedPlacementStrategy[] | undefined>;
     /**
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ServicePlacementConstraint[] | undefined>;
     /**
      * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -230,11 +229,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
-    public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceServiceConnectConfiguration | undefined>;
+    public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ServiceServiceConnectConfiguration | undefined>;
     /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistries | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ServiceServiceRegistries | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -344,11 +343,11 @@ export interface ServiceState {
     /**
      * Information about the CloudWatch alarms. See below.
      */
-    alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    alarms?: pulumi.Input<inputs.ServiceAlarms>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ServiceCapacityProviderStrategy>[]>;
     /**
      * ARN of an ECS cluster.
      */
@@ -356,11 +355,11 @@ export interface ServiceState {
     /**
      * Configuration block for deployment circuit breaker. See below.
      */
-    deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    deploymentCircuitBreaker?: pulumi.Input<inputs.ServiceDeploymentCircuitBreaker>;
     /**
      * Configuration block for deployment controller configuration. See below.
      */
-    deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentController>;
+    deploymentController?: pulumi.Input<inputs.ServiceDeploymentController>;
     /**
      * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
@@ -400,7 +399,7 @@ export interface ServiceState {
     /**
      * Configuration block for load balancers. See below.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ServiceLoadBalancer>[]>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      *
@@ -410,15 +409,15 @@ export interface ServiceState {
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.ServiceNetworkConfiguration>;
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
      */
-    orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
+    orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ServiceOrderedPlacementStrategy>[]>;
     /**
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ServicePlacementConstraint>[]>;
     /**
      * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -434,11 +433,11 @@ export interface ServiceState {
     /**
      * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
-    serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
+    serviceConnectConfiguration?: pulumi.Input<inputs.ServiceServiceConnectConfiguration>;
     /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */
-    serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
+    serviceRegistries?: pulumi.Input<inputs.ServiceServiceRegistries>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -470,11 +469,11 @@ export interface ServiceArgs {
     /**
      * Information about the CloudWatch alarms. See below.
      */
-    alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    alarms?: pulumi.Input<inputs.ServiceAlarms>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategy>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ServiceCapacityProviderStrategy>[]>;
     /**
      * ARN of an ECS cluster.
      */
@@ -482,11 +481,11 @@ export interface ServiceArgs {
     /**
      * Configuration block for deployment circuit breaker. See below.
      */
-    deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreaker>;
+    deploymentCircuitBreaker?: pulumi.Input<inputs.ServiceDeploymentCircuitBreaker>;
     /**
      * Configuration block for deployment controller configuration. See below.
      */
-    deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentController>;
+    deploymentController?: pulumi.Input<inputs.ServiceDeploymentController>;
     /**
      * Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      */
@@ -526,7 +525,7 @@ export interface ServiceArgs {
     /**
      * Configuration block for load balancers. See below.
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancer>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ServiceLoadBalancer>[]>;
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      *
@@ -536,15 +535,15 @@ export interface ServiceArgs {
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.ServiceNetworkConfiguration>;
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. The maximum number of `orderedPlacementStrategy` blocks is `5`. See below.
      */
-    orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceOrderedPlacementStrategy>[]>;
+    orderedPlacementStrategies?: pulumi.Input<pulumi.Input<inputs.ServiceOrderedPlacementStrategy>[]>;
     /**
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `forceNewDeployment` is enabled. Maximum number of `placementConstraints` is `10`. See below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ServicePlacementConstraint>[]>;
     /**
      * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
@@ -560,11 +559,11 @@ export interface ServiceArgs {
     /**
      * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
-    serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
+    serviceConnectConfiguration?: pulumi.Input<inputs.ServiceServiceConnectConfiguration>;
     /**
      * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
      */
-    serviceRegistries?: pulumi.Input<inputs.ecs.ServiceServiceRegistries>;
+    serviceRegistries?: pulumi.Input<inputs.ServiceServiceRegistries>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

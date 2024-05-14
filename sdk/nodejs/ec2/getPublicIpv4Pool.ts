@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +63,7 @@ export interface GetPublicIpv4PoolResult {
      * * poolAddressRanges` - List of Address Ranges in the Pool; each address range record contains:
      */
     readonly networkBorderGroup: string;
-    readonly poolAddressRanges: outputs.ec2.GetPublicIpv4PoolPoolAddressRange[];
+    readonly poolAddressRanges: outputs.GetPublicIpv4PoolPoolAddressRange[];
     readonly poolId: string;
     /**
      * Any tags for the address pool.

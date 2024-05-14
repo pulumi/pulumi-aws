@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -261,7 +260,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application's configuration
      */
-    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    public readonly applicationConfiguration!: pulumi.Output<outputs.ApplicationApplicationConfiguration>;
     /**
      * The ARN of the application.
      */
@@ -269,7 +268,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions | undefined>;
+    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.ApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * The current timestamp when the application was created.
      */
@@ -385,7 +384,7 @@ export interface ApplicationState {
     /**
      * The application's configuration
      */
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.ApplicationApplicationConfiguration>;
     /**
      * The ARN of the application.
      */
@@ -393,7 +392,7 @@ export interface ApplicationState {
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.ApplicationCloudwatchLoggingOptions>;
     /**
      * The current timestamp when the application was created.
      */
@@ -453,11 +452,11 @@ export interface ApplicationArgs {
     /**
      * The application's configuration
      */
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.ApplicationApplicationConfiguration>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.ApplicationCloudwatchLoggingOptions>;
     /**
      * A summary description of the application.
      */

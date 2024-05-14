@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,13 +88,13 @@ export class Export extends pulumi.CustomResource {
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
+    public readonly export!: pulumi.Output<outputs.ExportExport | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ExportTimeouts | undefined>;
 
     /**
      * Create a Export resource with the given unique name, arguments, and options.
@@ -133,13 +132,13 @@ export interface ExportState {
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    export?: pulumi.Input<inputs.ExportExport>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
+    timeouts?: pulumi.Input<inputs.ExportTimeouts>;
 }
 
 /**
@@ -149,7 +148,7 @@ export interface ExportArgs {
     /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
-    export?: pulumi.Input<inputs.bcmdata.ExportExport>;
+    export?: pulumi.Input<inputs.ExportExport>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
+    timeouts?: pulumi.Input<inputs.ExportTimeouts>;
 }

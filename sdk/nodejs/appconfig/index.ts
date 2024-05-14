@@ -71,6 +71,15 @@ export const HostedConfigurationVersion: typeof import("./hostedConfigurationVer
 utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

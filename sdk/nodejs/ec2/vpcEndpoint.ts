@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -133,11 +133,11 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.ec2.VpcEndpointDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.VpcEndpointDnsEntry[]>;
     /**
      * The DNS options for the endpoint. See dnsOptions below.
      */
-    public readonly dnsOptions!: pulumi.Output<outputs.ec2.VpcEndpointDnsOptions>;
+    public readonly dnsOptions!: pulumi.Output<outputs.VpcEndpointDnsOptions>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      */
@@ -295,11 +295,11 @@ export interface VpcEndpointState {
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    dnsEntries?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointDnsEntry>[]>;
+    dnsEntries?: pulumi.Input<pulumi.Input<inputs.VpcEndpointDnsEntry>[]>;
     /**
      * The DNS options for the endpoint. See dnsOptions below.
      */
-    dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptions>;
+    dnsOptions?: pulumi.Input<inputs.VpcEndpointDnsOptions>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      */
@@ -381,7 +381,7 @@ export interface VpcEndpointArgs {
     /**
      * The DNS options for the endpoint. See dnsOptions below.
      */
-    dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptions>;
+    dnsOptions?: pulumi.Input<inputs.VpcEndpointDnsOptions>;
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      */

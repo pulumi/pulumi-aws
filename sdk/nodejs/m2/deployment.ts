@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class Deployment extends pulumi.CustomResource {
      * Start the application once deployed.
      */
     public readonly start!: pulumi.Output<boolean>;
-    public readonly timeouts!: pulumi.Output<outputs.m2.DeploymentTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DeploymentTimeouts | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -151,7 +150,7 @@ export interface DeploymentState {
      * Start the application once deployed.
      */
     start?: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.DeploymentTimeouts>;
 }
 
 /**
@@ -175,5 +174,5 @@ export interface DeploymentArgs {
      * Start the application once deployed.
      */
     start: pulumi.Input<boolean>;
-    timeouts?: pulumi.Input<inputs.m2.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.DeploymentTimeouts>;
 }

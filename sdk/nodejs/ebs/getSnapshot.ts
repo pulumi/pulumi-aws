@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetSnapshotArgs {
      * several valid keys, for a full reference, check out
      * [describe-snapshots in the AWS CLI reference][1].
      */
-    filters?: inputs.ebs.GetSnapshotFilter[];
+    filters?: inputs.GetSnapshotFilter[];
     /**
      * If more than one result is returned, use the most recent snapshot.
      */
@@ -98,7 +97,7 @@ export interface GetSnapshotResult {
      * Whether the snapshot is encrypted.
      */
     readonly encrypted: boolean;
-    readonly filters?: outputs.ebs.GetSnapshotFilter[];
+    readonly filters?: inputs.GetSnapshotFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -186,7 +185,7 @@ export interface GetSnapshotOutputArgs {
      * several valid keys, for a full reference, check out
      * [describe-snapshots in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSnapshotFilterArgs>[]>;
     /**
      * If more than one result is returned, use the most recent snapshot.
      */

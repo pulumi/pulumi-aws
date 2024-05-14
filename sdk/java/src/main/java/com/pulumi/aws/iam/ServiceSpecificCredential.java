@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleServiceSpecificCredential = new ServiceSpecificCredential("exampleServiceSpecificCredential", ServiceSpecificCredentialArgs.builder()        
+ *         var exampleServiceSpecificCredential = new ServiceSpecificCredential("exampleServiceSpecificCredential", ServiceSpecificCredentialArgs.builder()
  *             .serviceName("codecommit.amazonaws.com")
  *             .userName(example.name())
  *             .build());

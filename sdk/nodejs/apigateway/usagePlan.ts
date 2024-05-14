@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +48,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * Associated API stages of the usage plan.
      */
-    public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
+    public readonly apiStages!: pulumi.Output<outputs.UsagePlanApiStage[] | undefined>;
     /**
      * ARN
      */
@@ -69,7 +68,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * Quota of the usage plan.
      */
-    public readonly quotaSettings!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
+    public readonly quotaSettings!: pulumi.Output<outputs.UsagePlanQuotaSettings | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -80,7 +79,7 @@ export class UsagePlan extends pulumi.CustomResource {
     /**
      * Throttling limits of the usage plan.
      */
-    public readonly throttleSettings!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
+    public readonly throttleSettings!: pulumi.Output<outputs.UsagePlanThrottleSettings | undefined>;
 
     /**
      * Create a UsagePlan resource with the given unique name, arguments, and options.
@@ -128,7 +127,7 @@ export interface UsagePlanState {
     /**
      * Associated API stages of the usage plan.
      */
-    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.UsagePlanApiStage>[]>;
     /**
      * ARN
      */
@@ -148,7 +147,7 @@ export interface UsagePlanState {
     /**
      * Quota of the usage plan.
      */
-    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.UsagePlanQuotaSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -159,7 +158,7 @@ export interface UsagePlanState {
     /**
      * Throttling limits of the usage plan.
      */
-    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.UsagePlanThrottleSettings>;
 }
 
 /**
@@ -169,7 +168,7 @@ export interface UsagePlanArgs {
     /**
      * Associated API stages of the usage plan.
      */
-    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.UsagePlanApiStage>[]>;
     /**
      * Description of a usage plan.
      */
@@ -185,10 +184,10 @@ export interface UsagePlanArgs {
     /**
      * Quota of the usage plan.
      */
-    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.UsagePlanQuotaSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throttling limits of the usage plan.
      */
-    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.UsagePlanThrottleSettings>;
 }

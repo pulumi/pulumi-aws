@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +78,7 @@ export interface GetNetworkAclsArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetNetworkAclsFilter[];
+    filters?: inputs.GetNetworkAclsFilter[];
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
@@ -94,7 +94,7 @@ export interface GetNetworkAclsArgs {
  * A collection of values returned by getNetworkAcls.
  */
 export interface GetNetworkAclsResult {
-    readonly filters?: outputs.ec2.GetNetworkAclsFilter[];
+    readonly filters?: inputs.GetNetworkAclsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -170,7 +170,7 @@ export interface GetNetworkAclsOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNetworkAclsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.

@@ -26,6 +26,15 @@ export const SecurityGroupIngressRule: typeof import("./securityGroupIngressRule
 utilities.lazyLoad(exports, ["SecurityGroupIngressRule"], () => require("./securityGroupIngressRule"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

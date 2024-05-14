@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +92,7 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
-    public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationV2Rule[]>;
+    public readonly rules!: pulumi.Output<outputs.BucketServerSideEncryptionConfigurationV2Rule[]>;
 
     /**
      * Create a BucketServerSideEncryptionConfigurationV2 resource with the given unique name, arguments, and options.
@@ -142,7 +142,7 @@ export interface BucketServerSideEncryptionConfigurationV2State {
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }
 
 /**
@@ -160,5 +160,5 @@ export interface BucketServerSideEncryptionConfigurationV2Args {
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }

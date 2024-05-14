@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,11 +70,11 @@ export interface GetResponseHeadersPolicyResult {
     /**
      * Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      */
-    readonly corsConfigs: outputs.cloudfront.GetResponseHeadersPolicyCorsConfig[];
+    readonly corsConfigs: outputs.GetResponseHeadersPolicyCorsConfig[];
     /**
      * Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      */
-    readonly customHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyCustomHeadersConfig[];
+    readonly customHeadersConfigs: outputs.GetResponseHeadersPolicyCustomHeadersConfig[];
     /**
      * Current version of the response headers policy.
      */
@@ -85,15 +84,15 @@ export interface GetResponseHeadersPolicyResult {
     /**
      * Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
      */
-    readonly removeHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyRemoveHeadersConfig[];
+    readonly removeHeadersConfigs: outputs.GetResponseHeadersPolicyRemoveHeadersConfig[];
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
-    readonly securityHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfig[];
+    readonly securityHeadersConfigs: outputs.GetResponseHeadersPolicySecurityHeadersConfig[];
     /**
      * (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      */
-    readonly serverTimingHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyServerTimingHeadersConfig[];
+    readonly serverTimingHeadersConfigs: outputs.GetResponseHeadersPolicyServerTimingHeadersConfig[];
 }
 /**
  * Use this data source to retrieve information about a CloudFront cache policy.

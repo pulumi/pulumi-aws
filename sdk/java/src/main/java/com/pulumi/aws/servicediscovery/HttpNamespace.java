@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()        
+ *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()
  *             .name("development")
  *             .description("example")
  *             .build());

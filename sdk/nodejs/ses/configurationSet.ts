@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +91,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfigurationSetDeliveryOptions | undefined>;
+    public readonly deliveryOptions!: pulumi.Output<outputs.ConfigurationSetDeliveryOptions | undefined>;
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
@@ -114,7 +113,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
+    public readonly trackingOptions!: pulumi.Output<outputs.ConfigurationSetTrackingOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -164,7 +163,7 @@ export interface ConfigurationSetState {
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ConfigurationSetDeliveryOptions>;
     /**
      * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
@@ -186,7 +185,7 @@ export interface ConfigurationSetState {
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions>;
+    trackingOptions?: pulumi.Input<inputs.ConfigurationSetTrackingOptions>;
 }
 
 /**
@@ -196,7 +195,7 @@ export interface ConfigurationSetArgs {
     /**
      * Whether messages that use the configuration set are required to use TLS. See below.
      */
-    deliveryOptions?: pulumi.Input<inputs.ses.ConfigurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ConfigurationSetDeliveryOptions>;
     /**
      * Name of the configuration set.
      *
@@ -214,5 +213,5 @@ export interface ConfigurationSetArgs {
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      */
-    trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptions>;
+    trackingOptions?: pulumi.Input<inputs.ConfigurationSetTrackingOptions>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -143,7 +142,7 @@ export class Folder extends pulumi.CustomResource {
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.FolderPermission[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -248,7 +247,7 @@ export interface FolderState {
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.FolderPermission>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -290,7 +289,7 @@ export interface FolderArgs {
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.FolderPermission>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

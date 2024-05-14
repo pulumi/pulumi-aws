@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new User("default", UserArgs.builder()        
+ *         var default_ = new User("default", UserArgs.builder()
  *             .userId("defaultUserID")
  *             .userName("default")
  *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .passwords("password123456789")
  *             .build());
  * 
- *         var example = new UserGroup("example", UserGroupArgs.builder()        
+ *         var example = new UserGroup("example", UserGroupArgs.builder()
  *             .engine("REDIS")
  *             .userGroupId("userGroupId")
  *             .userIds(default_.userId())
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userId("exampleUserID")
  *             .userName("exampleuser")
  *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .passwords("password123456789")
  *             .build());
  * 
- *         var exampleUserGroupAssociation = new UserGroupAssociation("exampleUserGroupAssociation", UserGroupAssociationArgs.builder()        
+ *         var exampleUserGroupAssociation = new UserGroupAssociation("exampleUserGroupAssociation", UserGroupAssociationArgs.builder()
  *             .userGroupId(example.userGroupId())
  *             .userId(exampleUser.userId())
  *             .build());

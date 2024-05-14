@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +36,7 @@ export interface GetDataSharesArgs {
     /**
      * An array of all data shares in the current region. See `dataShares` below.
      */
-    dataShares?: inputs.redshift.GetDataSharesDataShare[];
+    dataShares?: inputs.GetDataSharesDataShare[];
 }
 
 /**
@@ -47,7 +46,7 @@ export interface GetDataSharesResult {
     /**
      * An array of all data shares in the current region. See `dataShares` below.
      */
-    readonly dataShares?: outputs.redshift.GetDataSharesDataShare[];
+    readonly dataShares?: inputs.GetDataSharesDataShare[];
     /**
      * AWS region.
      */
@@ -78,5 +77,5 @@ export interface GetDataSharesOutputArgs {
     /**
      * An array of all data shares in the current region. See `dataShares` below.
      */
-    dataShares?: pulumi.Input<pulumi.Input<inputs.redshift.GetDataSharesDataShareArgs>[]>;
+    dataShares?: pulumi.Input<pulumi.Input<inputs.GetDataSharesDataShareArgs>[]>;
 }

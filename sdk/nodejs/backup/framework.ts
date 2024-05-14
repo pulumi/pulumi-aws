@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -140,7 +139,7 @@ export class Framework extends pulumi.CustomResource {
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      */
-    public readonly controls!: pulumi.Output<outputs.backup.FrameworkControl[]>;
+    public readonly controls!: pulumi.Output<outputs.FrameworkControl[]>;
     /**
      * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      */
@@ -225,7 +224,7 @@ export interface FrameworkState {
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      */
-    controls?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControl>[]>;
+    controls?: pulumi.Input<pulumi.Input<inputs.FrameworkControl>[]>;
     /**
      * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      */
@@ -265,7 +264,7 @@ export interface FrameworkArgs {
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      */
-    controls: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControl>[]>;
+    controls: pulumi.Input<pulumi.Input<inputs.FrameworkControl>[]>;
     /**
      * The description of the framework with a maximum of 1,024 characters
      */

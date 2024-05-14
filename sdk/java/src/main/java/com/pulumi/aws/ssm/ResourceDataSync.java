@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2("hogeBucketV2", BucketV2Args.builder()        
+ *         var hogeBucketV2 = new BucketV2("hogeBucketV2", BucketV2Args.builder()
  *             .bucket("tf-test-bucket-1234")
  *             .build());
  * 
@@ -82,12 +82,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()        
+ *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(hogeBucketV2.id())
  *             .policy(hoge.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()        
+ *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()
  *             .name("foo")
  *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
  *                 .bucketName(hogeBucketV2.bucket())

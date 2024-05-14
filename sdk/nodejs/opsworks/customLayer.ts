@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
      */
-    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.CustomLayerCloudwatchConfiguration | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.CustomLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -103,7 +102,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.CustomLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.CustomLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -119,7 +118,7 @@ export class CustomLayer extends pulumi.CustomResource {
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      */
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.CustomLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.CustomLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -257,7 +256,7 @@ export interface CustomLayerState {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
      */
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.CustomLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -282,7 +281,7 @@ export interface CustomLayerState {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.CustomLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -298,7 +297,7 @@ export interface CustomLayerState {
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      */
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.CustomLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */
@@ -354,7 +353,7 @@ export interface CustomLayerArgs {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
      */
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.CustomLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -379,7 +378,7 @@ export interface CustomLayerArgs {
     /**
      * Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.CustomLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -395,7 +394,7 @@ export interface CustomLayerArgs {
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      */
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.CustomLayerLoadBasedAutoScaling>;
     /**
      * A human-readable name for the layer.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +52,7 @@ export interface GetAmiIdsArgs {
      * are several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    filters?: inputs.ec2.GetAmiIdsFilter[];
+    filters?: inputs.GetAmiIdsFilter[];
     /**
      * If true, all deprecated AMIs are included in the response.
      * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
@@ -82,7 +82,7 @@ export interface GetAmiIdsArgs {
  */
 export interface GetAmiIdsResult {
     readonly executableUsers?: string[];
-    readonly filters?: outputs.ec2.GetAmiIdsFilter[];
+    readonly filters?: inputs.GetAmiIdsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -129,7 +129,7 @@ export interface GetAmiIdsOutputArgs {
      * are several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiIdsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAmiIdsFilterArgs>[]>;
     /**
      * If true, all deprecated AMIs are included in the response.
      * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.

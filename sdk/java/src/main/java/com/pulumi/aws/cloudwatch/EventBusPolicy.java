@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()        
+ *         var testEventBusPolicy = new EventBusPolicy("testEventBusPolicy", EventBusPolicyArgs.builder()
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .eventBusName(testAwsCloudwatchEventBus.name())
  *             .build());

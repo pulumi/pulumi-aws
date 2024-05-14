@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    public readonly conversationLogs!: pulumi.Output<outputs.lex.BotAliasConversationLogs | undefined>;
+    public readonly conversationLogs!: pulumi.Output<outputs.BotAliasConversationLogs | undefined>;
     /**
      * The date that the bot alias was created.
      */
@@ -166,7 +165,7 @@ export interface BotAliasState {
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
+    conversationLogs?: pulumi.Input<inputs.BotAliasConversationLogs>;
     /**
      * The date that the bot alias was created.
      */
@@ -200,7 +199,7 @@ export interface BotAliasArgs {
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      */
-    conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
+    conversationLogs?: pulumi.Input<inputs.BotAliasConversationLogs>;
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      */

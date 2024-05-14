@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -83,7 +82,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      */
-    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
+    public readonly assessmentReportsDestination!: pulumi.Output<outputs.AssessmentAssessmentReportsDestination | undefined>;
     /**
      * Description of the assessment.
      */
@@ -99,17 +98,17 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[]>;
+    public readonly roles!: pulumi.Output<outputs.AssessmentRole[]>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
-    public /*out*/ readonly rolesAlls!: pulumi.Output<outputs.auditmanager.AssessmentRolesAll[]>;
+    public /*out*/ readonly rolesAlls!: pulumi.Output<outputs.AssessmentRolesAll[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *
      * The following arguments are optional:
      */
-    public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.AssessmentScope | undefined>;
     /**
      * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      */
@@ -183,7 +182,7 @@ export interface AssessmentState {
     /**
      * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      */
-    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestination>;
+    assessmentReportsDestination?: pulumi.Input<inputs.AssessmentAssessmentReportsDestination>;
     /**
      * Description of the assessment.
      */
@@ -199,17 +198,17 @@ export interface AssessmentState {
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.AssessmentRole>[]>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
-    rolesAlls?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRolesAll>[]>;
+    rolesAlls?: pulumi.Input<pulumi.Input<inputs.AssessmentRolesAll>[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *
      * The following arguments are optional:
      */
-    scope?: pulumi.Input<inputs.auditmanager.AssessmentScope>;
+    scope?: pulumi.Input<inputs.AssessmentScope>;
     /**
      * Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
      */
@@ -231,7 +230,7 @@ export interface AssessmentArgs {
     /**
      * Assessment report storage destination configuration. See `assessmentReportsDestination` below.
      */
-    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestination>;
+    assessmentReportsDestination?: pulumi.Input<inputs.AssessmentAssessmentReportsDestination>;
     /**
      * Description of the assessment.
      */
@@ -247,13 +246,13 @@ export interface AssessmentArgs {
     /**
      * List of roles for the assessment. See `roles` below.
      */
-    roles: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
+    roles: pulumi.Input<pulumi.Input<inputs.AssessmentRole>[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *
      * The following arguments are optional:
      */
-    scope?: pulumi.Input<inputs.auditmanager.AssessmentScope>;
+    scope?: pulumi.Input<inputs.AssessmentScope>;
     /**
      * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -82,11 +81,11 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
-    public readonly nfsExports!: pulumi.Output<outputs.fsx.OpenZfsVolumeNfsExports | undefined>;
+    public readonly nfsExports!: pulumi.Output<outputs.OpenZfsVolumeNfsExports | undefined>;
     /**
      * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
-    public readonly originSnapshot!: pulumi.Output<outputs.fsx.OpenZfsVolumeOriginSnapshot | undefined>;
+    public readonly originSnapshot!: pulumi.Output<outputs.OpenZfsVolumeOriginSnapshot | undefined>;
     /**
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      */
@@ -120,7 +119,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
-    public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
+    public readonly userAndGroupQuotas!: pulumi.Output<outputs.OpenZfsVolumeUserAndGroupQuota[]>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
@@ -206,11 +205,11 @@ export interface OpenZfsVolumeState {
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
-    nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
+    nfsExports?: pulumi.Input<inputs.OpenZfsVolumeNfsExports>;
     /**
      * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
-    originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
+    originSnapshot?: pulumi.Input<inputs.OpenZfsVolumeOriginSnapshot>;
     /**
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      */
@@ -244,7 +243,7 @@ export interface OpenZfsVolumeState {
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
-    userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
+    userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
 }
 
@@ -271,11 +270,11 @@ export interface OpenZfsVolumeArgs {
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
-    nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
+    nfsExports?: pulumi.Input<inputs.OpenZfsVolumeNfsExports>;
     /**
      * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
-    originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
+    originSnapshot?: pulumi.Input<inputs.OpenZfsVolumeOriginSnapshot>;
     /**
      * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      */
@@ -303,6 +302,6 @@ export interface OpenZfsVolumeArgs {
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
-    userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
+    userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
 }

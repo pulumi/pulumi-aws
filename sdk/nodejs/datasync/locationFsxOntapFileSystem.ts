@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +59,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
-    public readonly protocol!: pulumi.Output<outputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    public readonly protocol!: pulumi.Output<outputs.LocationFsxOntapFileSystemProtocol>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -156,7 +155,7 @@ export interface LocationFsxOntapFileSystemState {
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
-    protocol?: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    protocol?: pulumi.Input<inputs.LocationFsxOntapFileSystemProtocol>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049
@@ -194,7 +193,7 @@ export interface LocationFsxOntapFileSystemArgs {
     /**
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      */
-    protocol: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocol>;
+    protocol: pulumi.Input<inputs.LocationFsxOntapFileSystemProtocol>;
     /**
      * The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
      * * Network File System (NFS): TCP ports 111, 635, and 2049

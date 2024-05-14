@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Deployment("example", DeploymentArgs.builder()        
+ *         var example = new Deployment("example", DeploymentArgs.builder()
  *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .build());
  * 

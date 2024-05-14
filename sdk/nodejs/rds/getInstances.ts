@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +56,7 @@ export interface GetInstancesArgs {
     /**
      * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
-    filters?: inputs.rds.GetInstancesFilter[];
+    filters?: inputs.GetInstancesFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instances.
      */
@@ -67,7 +67,7 @@ export interface GetInstancesArgs {
  * A collection of values returned by getInstances.
  */
 export interface GetInstancesResult {
-    readonly filters?: outputs.rds.GetInstancesFilter[];
+    readonly filters?: inputs.GetInstancesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -125,7 +125,7 @@ export interface GetInstancesOutputArgs {
     /**
      * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.rds.GetInstancesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetInstancesFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instances.
      */

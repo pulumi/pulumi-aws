@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export interface GetFaqResult {
     /**
      * S3 location of the FAQ input data. Detailed below.
      */
-    readonly s3Paths: outputs.kendra.GetFaqS3Path[];
+    readonly s3Paths: outputs.GetFaqS3Path[];
     /**
      * Status of the FAQ. It is ready to use when the status is ACTIVE.
      */

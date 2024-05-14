@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {Region} from "..";
@@ -31,18 +30,18 @@ Object.defineProperty(exports, "allowedAccountIds", {
     enumerable: true,
 });
 
-export declare const assumeRole: outputs.config.AssumeRole | undefined;
+export declare const assumeRole: outputs.AssumeRole | undefined;
 Object.defineProperty(exports, "assumeRole", {
     get() {
-        return __config.getObject<outputs.config.AssumeRole>("assumeRole");
+        return __config.getObject<outputs.AssumeRole>("assumeRole");
     },
     enumerable: true,
 });
 
-export declare const assumeRoleWithWebIdentity: outputs.config.AssumeRoleWithWebIdentity | undefined;
+export declare const assumeRoleWithWebIdentity: outputs.AssumeRoleWithWebIdentity | undefined;
 Object.defineProperty(exports, "assumeRoleWithWebIdentity", {
     get() {
-        return __config.getObject<outputs.config.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity");
+        return __config.getObject<outputs.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity");
     },
     enumerable: true,
 });
@@ -62,10 +61,10 @@ Object.defineProperty(exports, "customCaBundle", {
 /**
  * Configuration block with settings to default resource tags across all resources.
  */
-export declare const defaultTags: outputs.config.DefaultTags | undefined;
+export declare const defaultTags: outputs.DefaultTags | undefined;
 Object.defineProperty(exports, "defaultTags", {
     get() {
-        return __config.getObject<outputs.config.DefaultTags>("defaultTags");
+        return __config.getObject<outputs.DefaultTags>("defaultTags");
     },
     enumerable: true,
 });
@@ -94,10 +93,10 @@ Object.defineProperty(exports, "ec2MetadataServiceEndpointMode", {
     enumerable: true,
 });
 
-export declare const endpoints: outputs.config.Endpoints[] | undefined;
+export declare const endpoints: outputs.Endpoints[] | undefined;
 Object.defineProperty(exports, "endpoints", {
     get() {
-        return __config.getObject<outputs.config.Endpoints[]>("endpoints");
+        return __config.getObject<outputs.Endpoints[]>("endpoints");
     },
     enumerable: true,
 });
@@ -137,10 +136,10 @@ Object.defineProperty(exports, "httpsProxy", {
 /**
  * Configuration block with settings to ignore resource tags across all resources.
  */
-export declare const ignoreTags: outputs.config.IgnoreTags | undefined;
+export declare const ignoreTags: outputs.IgnoreTags | undefined;
 Object.defineProperty(exports, "ignoreTags", {
     get() {
-        return __config.getObject<outputs.config.IgnoreTags>("ignoreTags");
+        return __config.getObject<outputs.IgnoreTags>("ignoreTags");
     },
     enumerable: true,
 });

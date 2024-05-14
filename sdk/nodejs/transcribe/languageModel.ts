@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -118,7 +117,7 @@ export class LanguageModel extends pulumi.CustomResource {
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      */
-    public readonly inputDataConfig!: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
+    public readonly inputDataConfig!: pulumi.Output<outputs.LanguageModelInputDataConfig>;
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
@@ -195,7 +194,7 @@ export interface LanguageModelState {
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      */
-    inputDataConfig?: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
+    inputDataConfig?: pulumi.Input<inputs.LanguageModelInputDataConfig>;
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
@@ -222,7 +221,7 @@ export interface LanguageModelArgs {
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      */
-    inputDataConfig: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
+    inputDataConfig: pulumi.Input<inputs.LanguageModelInputDataConfig>;
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */

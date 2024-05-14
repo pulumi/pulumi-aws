@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,8 +80,8 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
      *
      * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
-    public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.lex.V2modelsBotVersionLocaleSpecification}>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotVersionTimeouts | undefined>;
+    public readonly localeSpecification!: pulumi.Output<{[key: string]: outputs.V2modelsBotVersionLocaleSpecification}>;
+    public readonly timeouts!: pulumi.Output<outputs.V2modelsBotVersionTimeouts | undefined>;
 
     /**
      * Create a V2modelsBotVersion resource with the given unique name, arguments, and options.
@@ -142,8 +141,8 @@ export interface V2modelsBotVersionState {
      *
      * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
-    localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
+    localeSpecification?: pulumi.Input<{[key: string]: pulumi.Input<inputs.V2modelsBotVersionLocaleSpecification>}>;
+    timeouts?: pulumi.Input<inputs.V2modelsBotVersionTimeouts>;
 }
 
 /**
@@ -167,6 +166,6 @@ export interface V2modelsBotVersionArgs {
      *
      * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
      */
-    localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.lex.V2modelsBotVersionLocaleSpecification>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotVersionTimeouts>;
+    localeSpecification: pulumi.Input<{[key: string]: pulumi.Input<inputs.V2modelsBotVersionLocaleSpecification>}>;
+    timeouts?: pulumi.Input<inputs.V2modelsBotVersionTimeouts>;
 }

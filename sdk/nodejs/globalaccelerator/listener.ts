@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,7 +83,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
+    public readonly portRanges!: pulumi.Output<outputs.ListenerPortRange[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
@@ -143,7 +142,7 @@ export interface ListenerState {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<inputs.ListenerPortRange>[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
@@ -165,7 +164,7 @@ export interface ListenerArgs {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
+    portRanges: pulumi.Input<pulumi.Input<inputs.ListenerPortRange>[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */

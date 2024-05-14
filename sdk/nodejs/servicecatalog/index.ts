@@ -111,6 +111,15 @@ export const TagOptionResourceAssociation: typeof import("./tagOptionResourceAss
 utilities.lazyLoad(exports, ["TagOptionResourceAssociation"], () => require("./tagOptionResourceAssociation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

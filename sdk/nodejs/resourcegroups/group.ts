@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      */
-    public readonly configurations!: pulumi.Output<outputs.resourcegroups.GroupConfiguration[] | undefined>;
+    public readonly configurations!: pulumi.Output<outputs.GroupConfiguration[] | undefined>;
     /**
      * A description of the resource group.
      */
@@ -90,7 +89,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
+    public readonly resourceQuery!: pulumi.Output<outputs.GroupResourceQuery | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -148,7 +147,7 @@ export interface GroupState {
     /**
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      */
-    configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
+    configurations?: pulumi.Input<pulumi.Input<inputs.GroupConfiguration>[]>;
     /**
      * A description of the resource group.
      */
@@ -160,7 +159,7 @@ export interface GroupState {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
+    resourceQuery?: pulumi.Input<inputs.GroupResourceQuery>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -180,7 +179,7 @@ export interface GroupArgs {
     /**
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      */
-    configurations?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfiguration>[]>;
+    configurations?: pulumi.Input<pulumi.Input<inputs.GroupConfiguration>[]>;
     /**
      * A description of the resource group.
      */
@@ -192,7 +191,7 @@ export interface GroupArgs {
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
-    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
+    resourceQuery?: pulumi.Input<inputs.GroupResourceQuery>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

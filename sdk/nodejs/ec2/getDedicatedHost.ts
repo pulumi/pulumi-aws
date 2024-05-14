@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +57,7 @@ export interface GetDedicatedHostArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: inputs.ec2.GetDedicatedHostFilter[];
+    filters?: inputs.GetDedicatedHostFilter[];
     /**
      * ID of the Dedicated Host.
      */
@@ -89,7 +89,7 @@ export interface GetDedicatedHostResult {
      * Number of cores on the Dedicated Host.
      */
     readonly cores: number;
-    readonly filters?: outputs.ec2.GetDedicatedHostFilter[];
+    readonly filters?: inputs.GetDedicatedHostFilter[];
     readonly hostId: string;
     /**
      * Whether host recovery is enabled or disabled for the Dedicated Host.
@@ -168,7 +168,7 @@ export interface GetDedicatedHostOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetDedicatedHostFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetDedicatedHostFilterArgs>[]>;
     /**
      * ID of the Dedicated Host.
      */

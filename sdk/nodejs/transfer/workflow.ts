@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,11 +103,11 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
+    public readonly onExceptionSteps!: pulumi.Output<outputs.WorkflowOnExceptionStep[] | undefined>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
-    public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
+    public readonly steps!: pulumi.Output<outputs.WorkflowStep[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -171,11 +170,11 @@ export interface WorkflowState {
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
+    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.WorkflowOnExceptionStep>[]>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
+    steps?: pulumi.Input<pulumi.Input<inputs.WorkflowStep>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -199,11 +198,11 @@ export interface WorkflowArgs {
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
-    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
+    onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.WorkflowOnExceptionStep>[]>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
-    steps: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
+    steps: pulumi.Input<pulumi.Input<inputs.WorkflowStep>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

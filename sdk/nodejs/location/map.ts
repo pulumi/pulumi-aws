@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +62,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * Configuration block with the map style selected from an available data provider. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.MapConfiguration>;
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      */
@@ -147,7 +146,7 @@ export interface MapState {
     /**
      * Configuration block with the map style selected from an available data provider. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.location.MapConfiguration>;
+    configuration?: pulumi.Input<inputs.MapConfiguration>;
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      */
@@ -189,7 +188,7 @@ export interface MapArgs {
     /**
      * Configuration block with the map style selected from an available data provider. Detailed below.
      */
-    configuration: pulumi.Input<inputs.location.MapConfiguration>;
+    configuration: pulumi.Input<inputs.MapConfiguration>;
     /**
      * An optional description for the map resource.
      */

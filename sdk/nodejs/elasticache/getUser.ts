@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +42,7 @@ export interface GetUserArgs {
      * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     accessString?: string;
-    authenticationModes?: inputs.elasticache.GetUserAuthenticationMode[];
+    authenticationModes?: inputs.GetUserAuthenticationMode[];
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
@@ -65,7 +64,7 @@ export interface GetUserResult {
      * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     readonly accessString?: string;
-    readonly authenticationModes?: outputs.elasticache.GetUserAuthenticationMode[];
+    readonly authenticationModes?: inputs.GetUserAuthenticationMode[];
     readonly engine?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -108,7 +107,7 @@ export interface GetUserOutputArgs {
      * String for what access a user possesses within the associated ElastiCache replication groups or clusters.
      */
     accessString?: pulumi.Input<string>;
-    authenticationModes?: pulumi.Input<pulumi.Input<inputs.elasticache.GetUserAuthenticationModeArgs>[]>;
+    authenticationModes?: pulumi.Input<pulumi.Input<inputs.GetUserAuthenticationModeArgs>[]>;
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;

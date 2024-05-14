@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
-    public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
+    public readonly clientAuthentication!: pulumi.Output<outputs.ServerlessClusterClientAuthentication>;
     /**
      * The name of the serverless cluster.
      */
@@ -99,7 +98,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * VPC configuration information. See below.
      */
-    public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
+    public readonly vpcConfigs!: pulumi.Output<outputs.ServerlessClusterVpcConfig[]>;
 
     /**
      * Create a ServerlessCluster resource with the given unique name, arguments, and options.
@@ -153,7 +152,7 @@ export interface ServerlessClusterState {
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
-    clientAuthentication?: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.ServerlessClusterClientAuthentication>;
     /**
      * The name of the serverless cluster.
      */
@@ -175,7 +174,7 @@ export interface ServerlessClusterState {
     /**
      * VPC configuration information. See below.
      */
-    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
+    vpcConfigs?: pulumi.Input<pulumi.Input<inputs.ServerlessClusterVpcConfig>[]>;
 }
 
 /**
@@ -185,7 +184,7 @@ export interface ServerlessClusterArgs {
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
-    clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
+    clientAuthentication: pulumi.Input<inputs.ServerlessClusterClientAuthentication>;
     /**
      * The name of the serverless cluster.
      */
@@ -197,5 +196,5 @@ export interface ServerlessClusterArgs {
     /**
      * VPC configuration information. See below.
      */
-    vpcConfigs: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
+    vpcConfigs: pulumi.Input<pulumi.Input<inputs.ServerlessClusterVpcConfig>[]>;
 }

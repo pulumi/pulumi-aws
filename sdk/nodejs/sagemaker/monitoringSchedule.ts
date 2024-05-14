@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
      */
-    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
+    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
      */
@@ -131,7 +130,7 @@ export interface MonitoringScheduleState {
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
      */
-    monitoringScheduleConfig?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
+    monitoringScheduleConfig?: pulumi.Input<inputs.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
      */
@@ -155,7 +154,7 @@ export interface MonitoringScheduleArgs {
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
      */
-    monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
+    monitoringScheduleConfig: pulumi.Input<inputs.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,15 +58,15 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
      */
-    public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigCodeEditorAppImageConfig | undefined>;
+    public readonly codeEditorAppImageConfig!: pulumi.Output<outputs.AppImageConfigCodeEditorAppImageConfig | undefined>;
     /**
      * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
      */
-    public readonly jupyterLabImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigJupyterLabImageConfig | undefined>;
+    public readonly jupyterLabImageConfig!: pulumi.Output<outputs.AppImageConfigJupyterLabImageConfig | undefined>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
+    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -132,15 +131,15 @@ export interface AppImageConfigState {
     /**
      * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
      */
-    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
+    codeEditorAppImageConfig?: pulumi.Input<inputs.AppImageConfigCodeEditorAppImageConfig>;
     /**
      * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
      */
-    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
+    jupyterLabImageConfig?: pulumi.Input<inputs.AppImageConfigJupyterLabImageConfig>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.AppImageConfigKernelGatewayImageConfig>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -164,15 +163,15 @@ export interface AppImageConfigArgs {
     /**
      * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
      */
-    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfig>;
+    codeEditorAppImageConfig?: pulumi.Input<inputs.AppImageConfigCodeEditorAppImageConfig>;
     /**
      * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
      */
-    jupyterLabImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabImageConfig>;
+    jupyterLabImageConfig?: pulumi.Input<inputs.AppImageConfigJupyterLabImageConfig>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.AppImageConfigKernelGatewayImageConfig>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -82,7 +81,7 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
     /**
      * List of termination SIP credentials.
      */
-    public readonly credentials!: pulumi.Output<outputs.chime.VoiceConnectorTerminationCredentialsCredential[]>;
+    public readonly credentials!: pulumi.Output<outputs.VoiceConnectorTerminationCredentialsCredential[]>;
     /**
      * Amazon Chime Voice Connector ID.
      */
@@ -126,7 +125,7 @@ export interface VoiceConnectorTerminationCredentialsState {
     /**
      * List of termination SIP credentials.
      */
-    credentials?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
+    credentials?: pulumi.Input<pulumi.Input<inputs.VoiceConnectorTerminationCredentialsCredential>[]>;
     /**
      * Amazon Chime Voice Connector ID.
      */
@@ -140,7 +139,7 @@ export interface VoiceConnectorTerminationCredentialsArgs {
     /**
      * List of termination SIP credentials.
      */
-    credentials: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
+    credentials: pulumi.Input<pulumi.Input<inputs.VoiceConnectorTerminationCredentialsCredential>[]>;
     /**
      * Amazon Chime Voice Connector ID.
      */

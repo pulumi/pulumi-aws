@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +75,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    public readonly authenticationOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointAuthenticationOption[]>;
+    public readonly authenticationOptions!: pulumi.Output<outputs.EndpointAuthenticationOption[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -84,15 +83,15 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The options for managing connection authorization for new client connections.
      */
-    public readonly clientConnectOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientConnectOptions>;
+    public readonly clientConnectOptions!: pulumi.Output<outputs.EndpointClientConnectOptions>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    public readonly clientLoginBannerOptions!: pulumi.Output<outputs.EndpointClientLoginBannerOptions>;
     /**
      * Information about the client connection logging options.
      */
-    public readonly connectionLogOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    public readonly connectionLogOptions!: pulumi.Output<outputs.EndpointConnectionLogOptions>;
     /**
      * A brief description of the Client VPN endpoint.
      */
@@ -236,7 +235,7 @@ export interface EndpointState {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
+    authenticationOptions?: pulumi.Input<pulumi.Input<inputs.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -244,15 +243,15 @@ export interface EndpointState {
     /**
      * The options for managing connection authorization for new client connections.
      */
-    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    clientConnectOptions?: pulumi.Input<inputs.EndpointClientConnectOptions>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    clientLoginBannerOptions?: pulumi.Input<inputs.EndpointClientLoginBannerOptions>;
     /**
      * Information about the client connection logging options.
      */
-    connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    connectionLogOptions?: pulumi.Input<inputs.EndpointConnectionLogOptions>;
     /**
      * A brief description of the Client VPN endpoint.
      */
@@ -320,7 +319,7 @@ export interface EndpointArgs {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
+    authenticationOptions: pulumi.Input<pulumi.Input<inputs.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
@@ -328,15 +327,15 @@ export interface EndpointArgs {
     /**
      * The options for managing connection authorization for new client connections.
      */
-    clientConnectOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientConnectOptions>;
+    clientConnectOptions?: pulumi.Input<inputs.EndpointClientConnectOptions>;
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
-    clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    clientLoginBannerOptions?: pulumi.Input<inputs.EndpointClientLoginBannerOptions>;
     /**
      * Information about the client connection logging options.
      */
-    connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    connectionLogOptions: pulumi.Input<inputs.EndpointConnectionLogOptions>;
     /**
      * A brief description of the Client VPN endpoint.
      */

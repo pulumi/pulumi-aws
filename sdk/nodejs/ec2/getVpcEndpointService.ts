@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +78,7 @@ export interface GetVpcEndpointServiceArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
+    filters?: inputs.GetVpcEndpointServiceFilter[];
     /**
      * Common name of an AWS service (e.g., `s3`).
      */
@@ -119,7 +119,7 @@ export interface GetVpcEndpointServiceResult {
      * The DNS names for the service.
      */
     readonly baseEndpointDnsNames: string[];
-    readonly filters?: outputs.ec2.GetVpcEndpointServiceFilter[];
+    readonly filters?: inputs.GetVpcEndpointServiceFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -218,7 +218,7 @@ export interface GetVpcEndpointServiceOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointServiceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcEndpointServiceFilterArgs>[]>;
     /**
      * Common name of an AWS service (e.g., `s3`).
      */

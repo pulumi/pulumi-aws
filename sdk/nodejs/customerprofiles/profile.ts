@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      */
-    public readonly address!: pulumi.Output<outputs.customerprofiles.ProfileAddress | undefined>;
+    public readonly address!: pulumi.Output<outputs.ProfileAddress | undefined>;
     /**
      * A key value pair of attributes of a customer profile.
      */
@@ -76,7 +75,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A block that specifies the customer’s billing address. Documented below.
      */
-    public readonly billingAddress!: pulumi.Output<outputs.customerprofiles.ProfileBillingAddress | undefined>;
+    public readonly billingAddress!: pulumi.Output<outputs.ProfileBillingAddress | undefined>;
     /**
      * The customer’s birth date.
      */
@@ -122,7 +121,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      */
-    public readonly mailingAddress!: pulumi.Output<outputs.customerprofiles.ProfileMailingAddress | undefined>;
+    public readonly mailingAddress!: pulumi.Output<outputs.ProfileMailingAddress | undefined>;
     /**
      * The customer’s middle name.
      */
@@ -146,7 +145,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
-    public readonly shippingAddress!: pulumi.Output<outputs.customerprofiles.ProfileShippingAddress | undefined>;
+    public readonly shippingAddress!: pulumi.Output<outputs.ProfileShippingAddress | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -231,7 +230,7 @@ export interface ProfileState {
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      */
-    address?: pulumi.Input<inputs.customerprofiles.ProfileAddress>;
+    address?: pulumi.Input<inputs.ProfileAddress>;
     /**
      * A key value pair of attributes of a customer profile.
      */
@@ -239,7 +238,7 @@ export interface ProfileState {
     /**
      * A block that specifies the customer’s billing address. Documented below.
      */
-    billingAddress?: pulumi.Input<inputs.customerprofiles.ProfileBillingAddress>;
+    billingAddress?: pulumi.Input<inputs.ProfileBillingAddress>;
     /**
      * The customer’s birth date.
      */
@@ -285,7 +284,7 @@ export interface ProfileState {
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      */
-    mailingAddress?: pulumi.Input<inputs.customerprofiles.ProfileMailingAddress>;
+    mailingAddress?: pulumi.Input<inputs.ProfileMailingAddress>;
     /**
      * The customer’s middle name.
      */
@@ -309,7 +308,7 @@ export interface ProfileState {
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
-    shippingAddress?: pulumi.Input<inputs.customerprofiles.ProfileShippingAddress>;
+    shippingAddress?: pulumi.Input<inputs.ProfileShippingAddress>;
 }
 
 /**
@@ -327,7 +326,7 @@ export interface ProfileArgs {
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      */
-    address?: pulumi.Input<inputs.customerprofiles.ProfileAddress>;
+    address?: pulumi.Input<inputs.ProfileAddress>;
     /**
      * A key value pair of attributes of a customer profile.
      */
@@ -335,7 +334,7 @@ export interface ProfileArgs {
     /**
      * A block that specifies the customer’s billing address. Documented below.
      */
-    billingAddress?: pulumi.Input<inputs.customerprofiles.ProfileBillingAddress>;
+    billingAddress?: pulumi.Input<inputs.ProfileBillingAddress>;
     /**
      * The customer’s birth date.
      */
@@ -381,7 +380,7 @@ export interface ProfileArgs {
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      */
-    mailingAddress?: pulumi.Input<inputs.customerprofiles.ProfileMailingAddress>;
+    mailingAddress?: pulumi.Input<inputs.ProfileMailingAddress>;
     /**
      * The customer’s middle name.
      */
@@ -405,5 +404,5 @@ export interface ProfileArgs {
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      */
-    shippingAddress?: pulumi.Input<inputs.customerprofiles.ProfileShippingAddress>;
+    shippingAddress?: pulumi.Input<inputs.ProfileShippingAddress>;
 }

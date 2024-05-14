@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -64,7 +64,7 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
     /**
      * The unique identifiers of a traffic sources.
      */
-    public readonly trafficSource!: pulumi.Output<outputs.autoscaling.TrafficSourceAttachmentTrafficSource | undefined>;
+    public readonly trafficSource!: pulumi.Output<outputs.TrafficSourceAttachmentTrafficSource | undefined>;
 
     /**
      * Create a TrafficSourceAttachment resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export interface TrafficSourceAttachmentState {
     /**
      * The unique identifiers of a traffic sources.
      */
-    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
+    trafficSource?: pulumi.Input<inputs.TrafficSourceAttachmentTrafficSource>;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface TrafficSourceAttachmentArgs {
     /**
      * The unique identifiers of a traffic sources.
      */
-    trafficSource?: pulumi.Input<inputs.autoscaling.TrafficSourceAttachmentTrafficSource>;
+    trafficSource?: pulumi.Input<inputs.TrafficSourceAttachmentTrafficSource>;
 }

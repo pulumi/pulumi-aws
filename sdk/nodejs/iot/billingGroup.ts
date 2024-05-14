@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +66,7 @@ export class BillingGroup extends pulumi.CustomResource {
      * The ARN of the Billing Group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.BillingGroupMetadata[]>;
+    public /*out*/ readonly metadatas!: pulumi.Output<outputs.BillingGroupMetadata[]>;
     /**
      * The name of the Billing Group.
      */
@@ -75,7 +74,7 @@ export class BillingGroup extends pulumi.CustomResource {
     /**
      * The Billing Group properties. Defined below.
      */
-    public readonly properties!: pulumi.Output<outputs.iot.BillingGroupProperties | undefined>;
+    public readonly properties!: pulumi.Output<outputs.BillingGroupProperties | undefined>;
     /**
      * Key-value mapping of resource tags
      */
@@ -132,7 +131,7 @@ export interface BillingGroupState {
      * The ARN of the Billing Group.
      */
     arn?: pulumi.Input<string>;
-    metadatas?: pulumi.Input<pulumi.Input<inputs.iot.BillingGroupMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.BillingGroupMetadata>[]>;
     /**
      * The name of the Billing Group.
      */
@@ -140,7 +139,7 @@ export interface BillingGroupState {
     /**
      * The Billing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.BillingGroupProperties>;
+    properties?: pulumi.Input<inputs.BillingGroupProperties>;
     /**
      * Key-value mapping of resource tags
      */
@@ -166,7 +165,7 @@ export interface BillingGroupArgs {
     /**
      * The Billing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.BillingGroupProperties>;
+    properties?: pulumi.Input<inputs.BillingGroupProperties>;
     /**
      * Key-value mapping of resource tags
      */

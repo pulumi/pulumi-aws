@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +78,7 @@ export interface GetVpcIpamPoolCidrsArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcIpamPoolCidrsFilter[];
+    filters?: inputs.GetVpcIpamPoolCidrsFilter[];
     /**
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */
@@ -89,7 +89,7 @@ export interface GetVpcIpamPoolCidrsArgs {
  * A collection of values returned by getVpcIpamPoolCidrs.
  */
 export interface GetVpcIpamPoolCidrsResult {
-    readonly filters?: outputs.ec2.GetVpcIpamPoolCidrsFilter[];
+    readonly filters?: inputs.GetVpcIpamPoolCidrsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -97,7 +97,7 @@ export interface GetVpcIpamPoolCidrsResult {
     /**
      * The CIDRs provisioned into the IPAM pool, described below.
      */
-    readonly ipamPoolCidrs: outputs.ec2.GetVpcIpamPoolCidrsIpamPoolCidr[];
+    readonly ipamPoolCidrs: outputs.GetVpcIpamPoolCidrsIpamPoolCidr[];
     readonly ipamPoolId: string;
 }
 /**
@@ -166,7 +166,7 @@ export interface GetVpcIpamPoolCidrsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolCidrsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVpcIpamPoolCidrsFilterArgs>[]>;
     /**
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */

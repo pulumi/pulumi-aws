@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
-    public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
+    public readonly scheduleConfig!: pulumi.Output<outputs.DataIntegrationScheduleConfig>;
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
@@ -172,7 +171,7 @@ export interface DataIntegrationState {
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
-    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig>;
+    scheduleConfig?: pulumi.Input<inputs.DataIntegrationScheduleConfig>;
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
@@ -208,7 +207,7 @@ export interface DataIntegrationArgs {
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
-    scheduleConfig: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig>;
+    scheduleConfig: pulumi.Input<inputs.DataIntegrationScheduleConfig>;
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */

@@ -9,3 +9,12 @@ export const getVoices: typeof import("./getVoices").getVoices = null as any;
 export const getVoicesOutput: typeof import("./getVoices").getVoicesOutput = null as any;
 utilities.lazyLoad(exports, ["getVoices","getVoicesOutput"], () => require("./getVoices"));
 
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * The client-specific data. Detailed below.
      */
-    public readonly clientData!: pulumi.Output<outputs.ebs.SnapshotImportClientData | undefined>;
+    public readonly clientData!: pulumi.Output<outputs.SnapshotImportClientData | undefined>;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -78,7 +77,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     /**
      * Information about the disk container. Detailed below.
      */
-    public readonly diskContainer!: pulumi.Output<outputs.ebs.SnapshotImportDiskContainer>;
+    public readonly diskContainer!: pulumi.Output<outputs.SnapshotImportDiskContainer>;
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      */
@@ -199,7 +198,7 @@ export interface SnapshotImportState {
     /**
      * The client-specific data. Detailed below.
      */
-    clientData?: pulumi.Input<inputs.ebs.SnapshotImportClientData>;
+    clientData?: pulumi.Input<inputs.SnapshotImportClientData>;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -211,7 +210,7 @@ export interface SnapshotImportState {
     /**
      * Information about the disk container. Detailed below.
      */
-    diskContainer?: pulumi.Input<inputs.ebs.SnapshotImportDiskContainer>;
+    diskContainer?: pulumi.Input<inputs.SnapshotImportDiskContainer>;
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      */
@@ -269,7 +268,7 @@ export interface SnapshotImportArgs {
     /**
      * The client-specific data. Detailed below.
      */
-    clientData?: pulumi.Input<inputs.ebs.SnapshotImportClientData>;
+    clientData?: pulumi.Input<inputs.SnapshotImportClientData>;
     /**
      * The description string for the import snapshot task.
      */
@@ -277,7 +276,7 @@ export interface SnapshotImportArgs {
     /**
      * Information about the disk container. Detailed below.
      */
-    diskContainer: pulumi.Input<inputs.ebs.SnapshotImportDiskContainer>;
+    diskContainer: pulumi.Input<inputs.SnapshotImportDiskContainer>;
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      */

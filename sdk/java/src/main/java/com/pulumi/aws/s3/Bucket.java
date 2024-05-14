@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()        
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("my-tf-test-bucket")
  *             .acl("private")
  *             .tags(Map.ofEntries(
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()        
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("s3-website-test.mydomain.com")
  *             .acl("public-read")
  *             .policy(StdFunctions.file(FileArgs.builder()
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()        
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("s3-website-test.mydomain.com")
  *             .acl("public-read")
  *             .corsRules(BucketCorsRuleArgs.builder()
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()        
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("my-tf-test-bucket")
  *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
@@ -241,12 +241,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var logBucket = new Bucket("logBucket", BucketArgs.builder()        
+ *         var logBucket = new Bucket("logBucket", BucketArgs.builder()
  *             .bucket("my-tf-log-bucket")
  *             .acl("log-delivery-write")
  *             .build());
  * 
- *         var b = new Bucket("b", BucketArgs.builder()        
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("my-tf-test-bucket")
  *             .acl("private")
  *             .loggings(BucketLoggingArgs.builder()
@@ -290,7 +290,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket("bucket", BucketArgs.builder()        
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("my-bucket")
  *             .acl("private")
  *             .lifecycleRules(            
@@ -325,7 +325,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new Bucket("versioningBucket", BucketArgs.builder()        
+ *         var versioningBucket = new Bucket("versioningBucket", BucketArgs.builder()
  *             .bucket("my-versioning-bucket")
  *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
@@ -390,7 +390,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replication = new Role("replication", RoleArgs.builder()        
+ *         var replication = new Role("replication", RoleArgs.builder()
  *             .name("tf-iam-role-replication-12345")
  *             .assumeRolePolicy("""
  * {
@@ -409,14 +409,14 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var destination = new Bucket("destination", BucketArgs.builder()        
+ *         var destination = new Bucket("destination", BucketArgs.builder()
  *             .bucket("tf-test-bucket-destination-12345")
  *             .versioning(BucketVersioningArgs.builder()
  *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
- *         var source = new Bucket("source", BucketArgs.builder()        
+ *         var source = new Bucket("source", BucketArgs.builder()
  *             .bucket("tf-test-bucket-source-12345")
  *             .acl("private")
  *             .versioning(BucketVersioningArgs.builder()
@@ -446,7 +446,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()        
+ *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()
  *             .name("tf-iam-role-policy-replication-12345")
  *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -> {
  *                 var sourceArn = values.t1;
@@ -492,7 +492,7 @@ import javax.annotation.Nullable;
  *             }))
  *             .build());
  * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(replication.name())
  *             .policyArn(replicationPolicy.arn())
  *             .build());
@@ -533,12 +533,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mykey = new Key("mykey", KeyArgs.builder()        
+ *         var mykey = new Key("mykey", KeyArgs.builder()
  *             .description("This key is used to encrypt bucket objects")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new Bucket("mybucket", BucketArgs.builder()        
+ *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .serverSideEncryptionConfiguration(BucketServerSideEncryptionConfigurationArgs.builder()
  *                 .rule(BucketServerSideEncryptionConfigurationRuleArgs.builder()
@@ -585,7 +585,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var currentUser = S3Functions.getCanonicalUserId();
  * 
- *         var bucket = new Bucket("bucket", BucketArgs.builder()        
+ *         var bucket = new Bucket("bucket", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .grants(            
  *                 BucketGrantArgs.builder()

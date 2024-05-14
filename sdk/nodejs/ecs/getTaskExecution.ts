@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export interface GetTaskExecutionArgs {
     /**
      * Set of capacity provider strategies to use for the cluster. See below.
      */
-    capacityProviderStrategies?: inputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    capacityProviderStrategies?: inputs.GetTaskExecutionCapacityProviderStrategy[];
     /**
      * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      */
@@ -97,19 +96,19 @@ export interface GetTaskExecutionArgs {
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    networkConfiguration?: inputs.ecs.GetTaskExecutionNetworkConfiguration;
+    networkConfiguration?: inputs.GetTaskExecutionNetworkConfiguration;
     /**
      * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      */
-    overrides?: inputs.ecs.GetTaskExecutionOverrides;
+    overrides?: inputs.GetTaskExecutionOverrides;
     /**
      * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      */
-    placementConstraints?: inputs.ecs.GetTaskExecutionPlacementConstraint[];
+    placementConstraints?: inputs.GetTaskExecutionPlacementConstraint[];
     /**
      * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      */
-    placementStrategies?: inputs.ecs.GetTaskExecutionPlacementStrategy[];
+    placementStrategies?: inputs.GetTaskExecutionPlacementStrategy[];
     /**
      * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
      */
@@ -142,7 +141,7 @@ export interface GetTaskExecutionArgs {
  * A collection of values returned by getTaskExecution.
  */
 export interface GetTaskExecutionResult {
-    readonly capacityProviderStrategies?: outputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
+    readonly capacityProviderStrategies?: inputs.GetTaskExecutionCapacityProviderStrategy[];
     readonly clientToken?: string;
     readonly cluster: string;
     readonly desiredCount?: number;
@@ -154,10 +153,10 @@ export interface GetTaskExecutionResult {
      */
     readonly id: string;
     readonly launchType?: string;
-    readonly networkConfiguration?: outputs.ecs.GetTaskExecutionNetworkConfiguration;
-    readonly overrides?: outputs.ecs.GetTaskExecutionOverrides;
-    readonly placementConstraints?: outputs.ecs.GetTaskExecutionPlacementConstraint[];
-    readonly placementStrategies?: outputs.ecs.GetTaskExecutionPlacementStrategy[];
+    readonly networkConfiguration?: inputs.GetTaskExecutionNetworkConfiguration;
+    readonly overrides?: inputs.GetTaskExecutionOverrides;
+    readonly placementConstraints?: inputs.GetTaskExecutionPlacementConstraint[];
+    readonly placementStrategies?: inputs.GetTaskExecutionPlacementStrategy[];
     readonly platformVersion?: string;
     readonly propagateTags?: string;
     readonly referenceId?: string;
@@ -206,7 +205,7 @@ export interface GetTaskExecutionOutputArgs {
     /**
      * Set of capacity provider strategies to use for the cluster. See below.
      */
-    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[]>;
+    capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.GetTaskExecutionCapacityProviderStrategyArgs>[]>;
     /**
      * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      */
@@ -238,19 +237,19 @@ export interface GetTaskExecutionOutputArgs {
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.GetTaskExecutionNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.GetTaskExecutionNetworkConfigurationArgs>;
     /**
      * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      */
-    overrides?: pulumi.Input<inputs.ecs.GetTaskExecutionOverridesArgs>;
+    overrides?: pulumi.Input<inputs.GetTaskExecutionOverridesArgs>;
     /**
      * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementConstraintArgs>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.GetTaskExecutionPlacementConstraintArgs>[]>;
     /**
      * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      */
-    placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementStrategyArgs>[]>;
+    placementStrategies?: pulumi.Input<pulumi.Input<inputs.GetTaskExecutionPlacementStrategyArgs>[]>;
     /**
      * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
      */

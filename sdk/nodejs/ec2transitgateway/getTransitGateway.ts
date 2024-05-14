@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetTransitGatewayArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetTransitGatewayFilter[];
+    filters?: inputs.GetTransitGatewayFilter[];
     /**
      * Identifier of the EC2 Transit Gateway.
      */
@@ -102,7 +101,7 @@ export interface GetTransitGatewayResult {
      * Whether DNS support is enabled
      */
     readonly dnsSupport: string;
-    readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
+    readonly filters?: inputs.GetTransitGatewayFilter[];
     /**
      * EC2 Transit Gateway identifier
      */
@@ -173,7 +172,7 @@ export interface GetTransitGatewayOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetTransitGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetTransitGatewayFilterArgs>[]>;
     /**
      * Identifier of the EC2 Transit Gateway.
      */

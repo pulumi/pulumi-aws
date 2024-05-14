@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new BucketV2("default", BucketV2Args.builder()        
+ *         var default_ = new BucketV2("default", BucketV2Args.builder()
  *             .bucket("tf-spot-datafeed")
  *             .build());
  * 
- *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription("defaultSpotDatafeedSubscription", SpotDatafeedSubscriptionArgs.builder()        
+ *         var defaultSpotDatafeedSubscription = new SpotDatafeedSubscription("defaultSpotDatafeedSubscription", SpotDatafeedSubscriptionArgs.builder()
  *             .bucket(default_.id())
  *             .prefix("my_subdirectory")
  *             .build());

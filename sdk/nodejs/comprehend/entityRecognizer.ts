@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +92,7 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    public readonly inputDataConfig!: pulumi.Output<outputs.comprehend.EntityRecognizerInputDataConfig>;
+    public readonly inputDataConfig!: pulumi.Output<outputs.EntityRecognizerInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -146,7 +145,7 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.comprehend.EntityRecognizerVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.EntityRecognizerVpcConfig | undefined>;
 
     /**
      * Create a EntityRecognizer resource with the given unique name, arguments, and options.
@@ -218,7 +217,7 @@ export interface EntityRecognizerState {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    inputDataConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig>;
+    inputDataConfig?: pulumi.Input<inputs.EntityRecognizerInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -271,7 +270,7 @@ export interface EntityRecognizerState {
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.EntityRecognizerVpcConfig>;
 }
 
 /**
@@ -286,7 +285,7 @@ export interface EntityRecognizerArgs {
      * Configuration for the training and testing data.
      * See the `inputDataConfig` Configuration Block section below.
      */
-    inputDataConfig: pulumi.Input<inputs.comprehend.EntityRecognizerInputDataConfig>;
+    inputDataConfig: pulumi.Input<inputs.EntityRecognizerInputDataConfig>;
     /**
      * Two-letter language code for the language.
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -333,5 +332,5 @@ export interface EntityRecognizerArgs {
      * Configuration parameters for VPC to contain Entity Recognizer resources.
      * See the `vpcConfig` Configuration Block section below.
      */
-    vpcConfig?: pulumi.Input<inputs.comprehend.EntityRecognizerVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.EntityRecognizerVpcConfig>;
 }

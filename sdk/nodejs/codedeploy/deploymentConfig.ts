@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -139,11 +138,11 @@ export class DeploymentConfig extends pulumi.CustomResource {
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    public readonly minimumHealthyHosts!: pulumi.Output<outputs.DeploymentConfigMinimumHealthyHosts | undefined>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    public readonly trafficRoutingConfig!: pulumi.Output<outputs.DeploymentConfigTrafficRoutingConfig | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -201,11 +200,11 @@ export interface DeploymentConfigState {
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.DeploymentConfigMinimumHealthyHosts>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.DeploymentConfigTrafficRoutingConfig>;
 }
 
 /**
@@ -223,9 +222,9 @@ export interface DeploymentConfigArgs {
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.DeploymentConfigMinimumHealthyHosts>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.DeploymentConfigTrafficRoutingConfig>;
 }

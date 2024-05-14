@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,11 +88,11 @@ export class Template extends pulumi.CustomResource {
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.TemplatePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.TemplatePermission[] | undefined>;
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.TemplateSourceEntity | undefined>;
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      */
@@ -209,11 +208,11 @@ export interface TemplateState {
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.TemplatePermission>[]>;
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.TemplateSourceEntity>;
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      */
@@ -263,11 +262,11 @@ export interface TemplateArgs {
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.TemplatePermission>[]>;
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.TemplateSourceEntity>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

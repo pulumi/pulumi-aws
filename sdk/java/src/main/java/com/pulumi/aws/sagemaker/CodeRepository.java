@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()        
+ *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()
  *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Secret("example", SecretArgs.builder()        
+ *         var example = new Secret("example", SecretArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
  *             .secretId(example.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleCodeRepository = new CodeRepository("exampleCodeRepository", CodeRepositoryArgs.builder()        
+ *         var exampleCodeRepository = new CodeRepository("exampleCodeRepository", CodeRepositoryArgs.builder()
  *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +56,7 @@ export interface GetContactsRotationResult {
     /**
      * Information about when an on-call rotation is in effect and how long the rotation period lasts.
      */
-    readonly recurrences: outputs.ssm.GetContactsRotationRecurrence[];
+    readonly recurrences: outputs.GetContactsRotationRecurrence[];
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */

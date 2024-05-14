@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +95,7 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
-    public readonly eventBuses!: pulumi.Output<outputs.cloudwatch.EventEndpointEventBus[]>;
+    public readonly eventBuses!: pulumi.Output<outputs.EventEndpointEventBus[]>;
     /**
      * The name of the global endpoint.
      */
@@ -104,7 +103,7 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * Parameters used for replication. Documented below.
      */
-    public readonly replicationConfig!: pulumi.Output<outputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
+    public readonly replicationConfig!: pulumi.Output<outputs.EventEndpointReplicationConfig | undefined>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
@@ -112,7 +111,7 @@ export class EventEndpoint extends pulumi.CustomResource {
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */
-    public readonly routingConfig!: pulumi.Output<outputs.cloudwatch.EventEndpointRoutingConfig>;
+    public readonly routingConfig!: pulumi.Output<outputs.EventEndpointRoutingConfig>;
 
     /**
      * Create a EventEndpoint resource with the given unique name, arguments, and options.
@@ -176,7 +175,7 @@ export interface EventEndpointState {
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
-    eventBuses?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[]>;
+    eventBuses?: pulumi.Input<pulumi.Input<inputs.EventEndpointEventBus>[]>;
     /**
      * The name of the global endpoint.
      */
@@ -184,7 +183,7 @@ export interface EventEndpointState {
     /**
      * Parameters used for replication. Documented below.
      */
-    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
+    replicationConfig?: pulumi.Input<inputs.EventEndpointReplicationConfig>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
@@ -192,7 +191,7 @@ export interface EventEndpointState {
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */
-    routingConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.EventEndpointRoutingConfig>;
 }
 
 /**
@@ -206,7 +205,7 @@ export interface EventEndpointArgs {
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      */
-    eventBuses: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventEndpointEventBus>[]>;
+    eventBuses: pulumi.Input<pulumi.Input<inputs.EventEndpointEventBus>[]>;
     /**
      * The name of the global endpoint.
      */
@@ -214,7 +213,7 @@ export interface EventEndpointArgs {
     /**
      * Parameters used for replication. Documented below.
      */
-    replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
+    replicationConfig?: pulumi.Input<inputs.EventEndpointReplicationConfig>;
     /**
      * The ARN of the IAM role used for replication between event buses.
      */
@@ -222,5 +221,5 @@ export interface EventEndpointArgs {
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      */
-    routingConfig: pulumi.Input<inputs.cloudwatch.EventEndpointRoutingConfig>;
+    routingConfig: pulumi.Input<inputs.EventEndpointRoutingConfig>;
 }

@@ -21,6 +21,15 @@ export const Trail: typeof import("./trail").Trail = null as any;
 utilities.lazyLoad(exports, ["Trail"], () => require("./trail"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

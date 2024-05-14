@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export interface GetHoursOfOperationResult {
     /**
      * Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
      */
-    readonly configs: outputs.connect.GetHoursOfOperationConfig[];
+    readonly configs: outputs.GetHoursOfOperationConfig[];
     /**
      * Description of the Hours of Operation.
      */

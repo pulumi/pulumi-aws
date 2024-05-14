@@ -54,14 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("global-test")
  *             .engine("aurora")
  *             .engineVersion("5.6.mysql_aurora.1.22.2")
  *             .databaseName("example_db")
  *             .build());
  * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-primary-cluster")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-primary-cluster-instance")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-secondary-cluster")
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(primaryClusterInstance)
  *                 .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-secondary-cluster-instance")
@@ -136,14 +136,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("global-test")
  *             .engine("aurora-postgresql")
  *             .engineVersion("11.9")
  *             .databaseName("example_db")
  *             .build());
  * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-primary-cluster")
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-primary-cluster-instance")
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-secondary-cluster")
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(primaryClusterInstance)
  *                 .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-secondary-cluster-instance")
@@ -217,7 +217,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example");
  * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .forceDestroy(true)
  *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(example.arn())
@@ -260,13 +260,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("kyivkharkiv")
  *             .engine("aurora-mysql")
  *             .engineVersion("5.7.mysql_aurora.2.07.5")
  *             .build());
  * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()
  *             .allowMajorVersionUpgrade(true)
  *             .applyImmediately(true)
  *             .clusterIdentifier("odessadnipro")
@@ -279,7 +279,7 @@ import javax.annotation.Nullable;
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
  *             .clusterIdentifier(primary.id())
  *             .engine(primary.engine())

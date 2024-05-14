@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +45,7 @@ export interface GetLicenseGrantsArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.licensemanager.GetLicenseGrantsFilter[];
+    filters?: inputs.GetLicenseGrantsFilter[];
 }
 
 /**
@@ -57,7 +56,7 @@ export interface GetLicenseGrantsResult {
      * List of all the license grant ARNs found.
      */
     readonly arns: string[];
-    readonly filters?: outputs.licensemanager.GetLicenseGrantsFilter[];
+    readonly filters?: inputs.GetLicenseGrantsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -97,5 +96,5 @@ export interface GetLicenseGrantsOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetLicenseGrantsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetLicenseGrantsFilterArgs>[]>;
 }

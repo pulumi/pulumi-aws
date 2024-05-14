@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +61,7 @@ export interface GetDevEnvironmentArgs {
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    repositories?: inputs.codecatalyst.GetDevEnvironmentRepository[];
+    repositories?: inputs.GetDevEnvironmentRepository[];
     /**
      * The name of the space.
      */
@@ -90,7 +89,7 @@ export interface GetDevEnvironmentResult {
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      */
-    readonly ides: outputs.codecatalyst.GetDevEnvironmentIde[];
+    readonly ides: outputs.GetDevEnvironmentIde[];
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      */
@@ -106,12 +105,12 @@ export interface GetDevEnvironmentResult {
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      */
-    readonly persistentStorages: outputs.codecatalyst.GetDevEnvironmentPersistentStorage[];
+    readonly persistentStorages: outputs.GetDevEnvironmentPersistentStorage[];
     readonly projectName: string;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    readonly repositories?: outputs.codecatalyst.GetDevEnvironmentRepository[];
+    readonly repositories?: inputs.GetDevEnvironmentRepository[];
     readonly spaceName: string;
     /**
      * The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
@@ -168,7 +167,7 @@ export interface GetDevEnvironmentOutputArgs {
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
-    repositories?: pulumi.Input<pulumi.Input<inputs.codecatalyst.GetDevEnvironmentRepositoryArgs>[]>;
+    repositories?: pulumi.Input<pulumi.Input<inputs.GetDevEnvironmentRepositoryArgs>[]>;
     /**
      * The name of the space.
      */

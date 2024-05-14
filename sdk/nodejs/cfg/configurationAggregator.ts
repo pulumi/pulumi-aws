@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +100,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    public readonly accountAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorAccountAggregationSource | undefined>;
+    public readonly accountAggregationSource!: pulumi.Output<outputs.ConfigurationAggregatorAccountAggregationSource | undefined>;
     /**
      * The ARN of the aggregator
      */
@@ -113,7 +112,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
+    public readonly organizationAggregationSource!: pulumi.Output<outputs.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -167,7 +166,7 @@ export interface ConfigurationAggregatorState {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
+    accountAggregationSource?: pulumi.Input<inputs.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The ARN of the aggregator
      */
@@ -179,7 +178,7 @@ export interface ConfigurationAggregatorState {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
+    organizationAggregationSource?: pulumi.Input<inputs.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -201,7 +200,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
+    accountAggregationSource?: pulumi.Input<inputs.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The name of the configuration aggregator.
      */
@@ -209,7 +208,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The organization to aggregate config data from as documented below.
      */
-    organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
+    organizationAggregationSource?: pulumi.Input<inputs.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

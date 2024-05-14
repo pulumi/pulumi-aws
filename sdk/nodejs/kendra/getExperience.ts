@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +55,7 @@ export interface GetExperienceResult {
     /**
      * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
      */
-    readonly configurations: outputs.kendra.GetExperienceConfiguration[];
+    readonly configurations: outputs.GetExperienceConfiguration[];
     /**
      * Unix datetime that the Experience was created.
      */
@@ -68,7 +67,7 @@ export interface GetExperienceResult {
     /**
      * Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
      */
-    readonly endpoints: outputs.kendra.GetExperienceEndpoint[];
+    readonly endpoints: outputs.GetExperienceEndpoint[];
     /**
      * Reason your Amazon Kendra Experience could not properly process.
      */

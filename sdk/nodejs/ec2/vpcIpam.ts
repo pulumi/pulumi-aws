@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -91,7 +91,7 @@ export class VpcIpam extends pulumi.CustomResource {
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
-    public readonly operatingRegions!: pulumi.Output<outputs.ec2.VpcIpamOperatingRegion[]>;
+    public readonly operatingRegions!: pulumi.Output<outputs.VpcIpamOperatingRegion[]>;
     /**
      * The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      */
@@ -195,7 +195,7 @@ export interface VpcIpamState {
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
-    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamOperatingRegion>[]>;
+    operatingRegions?: pulumi.Input<pulumi.Input<inputs.VpcIpamOperatingRegion>[]>;
     /**
      * The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      */
@@ -240,7 +240,7 @@ export interface VpcIpamArgs {
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
-    operatingRegions: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamOperatingRegion>[]>;
+    operatingRegions: pulumi.Input<pulumi.Input<inputs.VpcIpamOperatingRegion>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

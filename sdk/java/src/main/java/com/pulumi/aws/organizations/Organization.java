@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var org = new Organization("org", OrganizationArgs.builder()        
+ *         var org = new Organization("org", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals(            
  *                 "cloudtrail.amazonaws.com",
  *                 "config.amazonaws.com")

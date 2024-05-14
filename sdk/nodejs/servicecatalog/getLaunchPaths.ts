@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +60,7 @@ export interface GetLaunchPathsResult {
     /**
      * Block with information about the launch path. See details below.
      */
-    readonly summaries: outputs.servicecatalog.GetLaunchPathsSummary[];
+    readonly summaries: outputs.GetLaunchPathsSummary[];
 }
 /**
  * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.

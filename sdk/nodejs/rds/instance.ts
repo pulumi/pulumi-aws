@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -366,7 +366,7 @@ export class Instance extends pulumi.CustomResource {
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See `blueGreenUpdate` below.
      */
-    public readonly blueGreenUpdate!: pulumi.Output<outputs.rds.InstanceBlueGreenUpdate | undefined>;
+    public readonly blueGreenUpdate!: pulumi.Output<outputs.InstanceBlueGreenUpdate | undefined>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -520,7 +520,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
      */
-    public /*out*/ readonly listenerEndpoints!: pulumi.Output<outputs.rds.InstanceListenerEndpoint[]>;
+    public /*out*/ readonly listenerEndpoints!: pulumi.Output<outputs.InstanceListenerEndpoint[]>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -540,7 +540,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
-    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.InstanceMasterUserSecret[]>;
+    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.InstanceMasterUserSecret[]>;
     /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
@@ -637,11 +637,11 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.InstanceRestoreToPointInTime | undefined>;
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.InstanceRestoreToPointInTime | undefined>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    public readonly s3Import!: pulumi.Output<outputs.rds.InstanceS3Import | undefined>;
+    public readonly s3Import!: pulumi.Output<outputs.InstanceS3Import | undefined>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -952,7 +952,7 @@ export interface InstanceState {
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See `blueGreenUpdate` below.
      */
-    blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
+    blueGreenUpdate?: pulumi.Input<inputs.InstanceBlueGreenUpdate>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -1077,7 +1077,7 @@ export interface InstanceState {
     /**
      * The instance type of the RDS instance.
      */
-    instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass?: pulumi.Input<string | enums.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
@@ -1106,7 +1106,7 @@ export interface InstanceState {
     /**
      * Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
      */
-    listenerEndpoints?: pulumi.Input<pulumi.Input<inputs.rds.InstanceListenerEndpoint>[]>;
+    listenerEndpoints?: pulumi.Input<pulumi.Input<inputs.InstanceListenerEndpoint>[]>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -1126,7 +1126,7 @@ export interface InstanceState {
     /**
      * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
-    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.InstanceMasterUserSecret>[]>;
+    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.InstanceMasterUserSecret>[]>;
     /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
@@ -1223,11 +1223,11 @@ export interface InstanceState {
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
+    restoreToPointInTime?: pulumi.Input<inputs.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
+    s3Import?: pulumi.Input<inputs.InstanceS3Import>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1263,7 +1263,7 @@ export interface InstanceState {
      * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
      * "gp2" if not.
      */
-    storageType?: pulumi.Input<string | enums.rds.StorageType>;
+    storageType?: pulumi.Input<string | enums.StorageType>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -1347,7 +1347,7 @@ export interface InstanceArgs {
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
      * See `blueGreenUpdate` below.
      */
-    blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
+    blueGreenUpdate?: pulumi.Input<inputs.InstanceBlueGreenUpdate>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
@@ -1460,7 +1460,7 @@ export interface InstanceArgs {
     /**
      * The instance type of the RDS instance.
      */
-    instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass: pulumi.Input<string | enums.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
@@ -1589,11 +1589,11 @@ export interface InstanceArgs {
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
+    restoreToPointInTime?: pulumi.Input<inputs.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
+    s3Import?: pulumi.Input<inputs.InstanceS3Import>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1625,7 +1625,7 @@ export interface InstanceArgs {
      * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
      * "gp2" if not.
      */
-    storageType?: pulumi.Input<string | enums.rds.StorageType>;
+    storageType?: pulumi.Input<string | enums.StorageType>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

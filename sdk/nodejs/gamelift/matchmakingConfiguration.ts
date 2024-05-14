@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
      * One or more custom game properties. See below.
      */
-    public readonly gameProperties!: pulumi.Output<outputs.gamelift.MatchmakingConfigurationGameProperty[] | undefined>;
+    public readonly gameProperties!: pulumi.Output<outputs.MatchmakingConfigurationGameProperty[] | undefined>;
     /**
      * A set of custom game session properties.
      */
@@ -230,7 +229,7 @@ export interface MatchmakingConfigurationState {
     /**
      * One or more custom game properties. See below.
      */
-    gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGameProperty>[]>;
+    gameProperties?: pulumi.Input<pulumi.Input<inputs.MatchmakingConfigurationGameProperty>[]>;
     /**
      * A set of custom game session properties.
      */
@@ -303,7 +302,7 @@ export interface MatchmakingConfigurationArgs {
     /**
      * One or more custom game properties. See below.
      */
-    gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGameProperty>[]>;
+    gameProperties?: pulumi.Input<pulumi.Input<inputs.MatchmakingConfigurationGameProperty>[]>;
     /**
      * A set of custom game session properties.
      */

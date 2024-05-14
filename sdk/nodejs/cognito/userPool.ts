@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -103,11 +102,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
      */
-    public readonly accountRecoverySetting!: pulumi.Output<outputs.cognito.UserPoolAccountRecoverySetting | undefined>;
+    public readonly accountRecoverySetting!: pulumi.Output<outputs.UserPoolAccountRecoverySetting | undefined>;
     /**
      * Configuration block for creating a new user profile. Detailed below.
      */
-    public readonly adminCreateUserConfig!: pulumi.Output<outputs.cognito.UserPoolAdminCreateUserConfig>;
+    public readonly adminCreateUserConfig!: pulumi.Output<outputs.UserPoolAdminCreateUserConfig>;
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      */
@@ -135,7 +134,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
-    public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
+    public readonly deviceConfiguration!: pulumi.Output<outputs.UserPoolDeviceConfiguration | undefined>;
     /**
      * Holds the domain prefix if the user pool has a domain associated with it.
      */
@@ -143,7 +142,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for configuring email. Detailed below.
      */
-    public readonly emailConfiguration!: pulumi.Output<outputs.cognito.UserPoolEmailConfiguration | undefined>;
+    public readonly emailConfiguration!: pulumi.Output<outputs.UserPoolEmailConfiguration | undefined>;
     /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -163,7 +162,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */
-    public readonly lambdaConfig!: pulumi.Output<outputs.cognito.UserPoolLambdaConfig | undefined>;
+    public readonly lambdaConfig!: pulumi.Output<outputs.UserPoolLambdaConfig | undefined>;
     /**
      * Date the user pool was last modified.
      */
@@ -181,11 +180,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for information about the user pool password policy. Detailed below.
      */
-    public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
+    public readonly passwordPolicy!: pulumi.Output<outputs.UserPoolPasswordPolicy>;
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */
-    public readonly schemas!: pulumi.Output<outputs.cognito.UserPoolSchema[] | undefined>;
+    public readonly schemas!: pulumi.Output<outputs.UserPoolSchema[] | undefined>;
     /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
@@ -193,7 +192,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
-    public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration>;
+    public readonly smsConfiguration!: pulumi.Output<outputs.UserPoolSmsConfiguration>;
     /**
      * String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -201,7 +200,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
      */
-    public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolSoftwareTokenMfaConfiguration | undefined>;
+    public readonly softwareTokenMfaConfiguration!: pulumi.Output<outputs.UserPoolSoftwareTokenMfaConfiguration | undefined>;
     /**
      * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -215,11 +214,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for user attribute update settings. Detailed below.
      */
-    public readonly userAttributeUpdateSettings!: pulumi.Output<outputs.cognito.UserPoolUserAttributeUpdateSettings | undefined>;
+    public readonly userAttributeUpdateSettings!: pulumi.Output<outputs.UserPoolUserAttributeUpdateSettings | undefined>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
-    public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolUserPoolAddOns | undefined>;
+    public readonly userPoolAddOns!: pulumi.Output<outputs.UserPoolUserPoolAddOns | undefined>;
     /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -227,11 +226,11 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for username configuration. Detailed below.
      */
-    public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
+    public readonly usernameConfiguration!: pulumi.Output<outputs.UserPoolUsernameConfiguration | undefined>;
     /**
      * Configuration block for verification message templates. Detailed below.
      */
-    public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate>;
+    public readonly verificationMessageTemplate!: pulumi.Output<outputs.UserPoolVerificationMessageTemplate>;
 
     /**
      * Create a UserPool resource with the given unique name, arguments, and options.
@@ -325,11 +324,11 @@ export interface UserPoolState {
     /**
      * Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
      */
-    accountRecoverySetting?: pulumi.Input<inputs.cognito.UserPoolAccountRecoverySetting>;
+    accountRecoverySetting?: pulumi.Input<inputs.UserPoolAccountRecoverySetting>;
     /**
      * Configuration block for creating a new user profile. Detailed below.
      */
-    adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfig>;
+    adminCreateUserConfig?: pulumi.Input<inputs.UserPoolAdminCreateUserConfig>;
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      */
@@ -357,7 +356,7 @@ export interface UserPoolState {
     /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
-    deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfiguration>;
+    deviceConfiguration?: pulumi.Input<inputs.UserPoolDeviceConfiguration>;
     /**
      * Holds the domain prefix if the user pool has a domain associated with it.
      */
@@ -365,7 +364,7 @@ export interface UserPoolState {
     /**
      * Configuration block for configuring email. Detailed below.
      */
-    emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
+    emailConfiguration?: pulumi.Input<inputs.UserPoolEmailConfiguration>;
     /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -385,7 +384,7 @@ export interface UserPoolState {
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */
-    lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfig>;
+    lambdaConfig?: pulumi.Input<inputs.UserPoolLambdaConfig>;
     /**
      * Date the user pool was last modified.
      */
@@ -403,11 +402,11 @@ export interface UserPoolState {
     /**
      * Configuration block for information about the user pool password policy. Detailed below.
      */
-    passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    passwordPolicy?: pulumi.Input<inputs.UserPoolPasswordPolicy>;
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */
-    schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
+    schemas?: pulumi.Input<pulumi.Input<inputs.UserPoolSchema>[]>;
     /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
@@ -415,7 +414,7 @@ export interface UserPoolState {
     /**
      * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
-    smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
+    smsConfiguration?: pulumi.Input<inputs.UserPoolSmsConfiguration>;
     /**
      * String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -423,7 +422,7 @@ export interface UserPoolState {
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
      */
-    softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
+    softwareTokenMfaConfiguration?: pulumi.Input<inputs.UserPoolSoftwareTokenMfaConfiguration>;
     /**
      * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -437,11 +436,11 @@ export interface UserPoolState {
     /**
      * Configuration block for user attribute update settings. Detailed below.
      */
-    userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettings>;
+    userAttributeUpdateSettings?: pulumi.Input<inputs.UserPoolUserAttributeUpdateSettings>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
-    userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
+    userPoolAddOns?: pulumi.Input<inputs.UserPoolUserPoolAddOns>;
     /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -449,11 +448,11 @@ export interface UserPoolState {
     /**
      * Configuration block for username configuration. Detailed below.
      */
-    usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfiguration>;
+    usernameConfiguration?: pulumi.Input<inputs.UserPoolUsernameConfiguration>;
     /**
      * Configuration block for verification message templates. Detailed below.
      */
-    verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    verificationMessageTemplate?: pulumi.Input<inputs.UserPoolVerificationMessageTemplate>;
 }
 
 /**
@@ -463,11 +462,11 @@ export interface UserPoolArgs {
     /**
      * Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
      */
-    accountRecoverySetting?: pulumi.Input<inputs.cognito.UserPoolAccountRecoverySetting>;
+    accountRecoverySetting?: pulumi.Input<inputs.UserPoolAccountRecoverySetting>;
     /**
      * Configuration block for creating a new user profile. Detailed below.
      */
-    adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfig>;
+    adminCreateUserConfig?: pulumi.Input<inputs.UserPoolAdminCreateUserConfig>;
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phoneNumber`, `email`, or `preferredUsername`. Conflicts with `usernameAttributes`.
      */
@@ -483,11 +482,11 @@ export interface UserPoolArgs {
     /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
-    deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfiguration>;
+    deviceConfiguration?: pulumi.Input<inputs.UserPoolDeviceConfiguration>;
     /**
      * Configuration block for configuring email. Detailed below.
      */
-    emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
+    emailConfiguration?: pulumi.Input<inputs.UserPoolEmailConfiguration>;
     /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
@@ -499,7 +498,7 @@ export interface UserPoolArgs {
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */
-    lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfig>;
+    lambdaConfig?: pulumi.Input<inputs.UserPoolLambdaConfig>;
     /**
      * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
      */
@@ -513,11 +512,11 @@ export interface UserPoolArgs {
     /**
      * Configuration block for information about the user pool password policy. Detailed below.
      */
-    passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    passwordPolicy?: pulumi.Input<inputs.UserPoolPasswordPolicy>;
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */
-    schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
+    schemas?: pulumi.Input<pulumi.Input<inputs.UserPoolSchema>[]>;
     /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
@@ -525,7 +524,7 @@ export interface UserPoolArgs {
     /**
      * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
-    smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
+    smsConfiguration?: pulumi.Input<inputs.UserPoolSmsConfiguration>;
     /**
      * String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
      */
@@ -533,7 +532,7 @@ export interface UserPoolArgs {
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
      */
-    softwareTokenMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolSoftwareTokenMfaConfiguration>;
+    softwareTokenMfaConfiguration?: pulumi.Input<inputs.UserPoolSoftwareTokenMfaConfiguration>;
     /**
      * Map of tags to assign to the User Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -541,11 +540,11 @@ export interface UserPoolArgs {
     /**
      * Configuration block for user attribute update settings. Detailed below.
      */
-    userAttributeUpdateSettings?: pulumi.Input<inputs.cognito.UserPoolUserAttributeUpdateSettings>;
+    userAttributeUpdateSettings?: pulumi.Input<inputs.UserPoolUserAttributeUpdateSettings>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
-    userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
+    userPoolAddOns?: pulumi.Input<inputs.UserPoolUserPoolAddOns>;
     /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
@@ -553,9 +552,9 @@ export interface UserPoolArgs {
     /**
      * Configuration block for username configuration. Detailed below.
      */
-    usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfiguration>;
+    usernameConfiguration?: pulumi.Input<inputs.UserPoolUsernameConfiguration>;
     /**
      * Configuration block for verification message templates. Detailed below.
      */
-    verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    verificationMessageTemplate?: pulumi.Input<inputs.UserPoolVerificationMessageTemplate>;
 }

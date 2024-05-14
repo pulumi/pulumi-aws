@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +53,7 @@ export class LandingZone extends pulumi.CustomResource {
     /**
      * The drift status summary of the landing zone.
      */
-    public /*out*/ readonly driftStatuses!: pulumi.Output<outputs.controltower.LandingZoneDriftStatus[]>;
+    public /*out*/ readonly driftStatuses!: pulumi.Output<outputs.LandingZoneDriftStatus[]>;
     /**
      * The latest available version of the landing zone.
      */
@@ -130,7 +129,7 @@ export interface LandingZoneState {
     /**
      * The drift status summary of the landing zone.
      */
-    driftStatuses?: pulumi.Input<pulumi.Input<inputs.controltower.LandingZoneDriftStatus>[]>;
+    driftStatuses?: pulumi.Input<pulumi.Input<inputs.LandingZoneDriftStatus>[]>;
     /**
      * The latest available version of the landing zone.
      */

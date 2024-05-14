@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetOntapStorageVirtualMachineArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: inputs.fsx.GetOntapStorageVirtualMachineFilter[];
+    filters?: inputs.GetOntapStorageVirtualMachineFilter[];
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      */
@@ -70,7 +69,7 @@ export interface GetOntapStorageVirtualMachineResult {
     /**
      * The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
      */
-    readonly activeDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
+    readonly activeDirectoryConfigurations: outputs.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
     /**
      * Amazon Resource Name of the SVM.
      */
@@ -82,12 +81,12 @@ export interface GetOntapStorageVirtualMachineResult {
     /**
      * The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
      */
-    readonly endpoints: outputs.fsx.GetOntapStorageVirtualMachineEndpoint[];
+    readonly endpoints: outputs.GetOntapStorageVirtualMachineEndpoint[];
     /**
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     readonly fileSystemId: string;
-    readonly filters?: outputs.fsx.GetOntapStorageVirtualMachineFilter[];
+    readonly filters?: inputs.GetOntapStorageVirtualMachineFilter[];
     /**
      * The SVM's system generated unique ID.
      */
@@ -99,7 +98,7 @@ export interface GetOntapStorageVirtualMachineResult {
     /**
      * Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
      */
-    readonly lifecycleTransitionReasons: outputs.fsx.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
+    readonly lifecycleTransitionReasons: outputs.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
     /**
      * The name of the SVM, if provisioned.
      */
@@ -155,7 +154,7 @@ export interface GetOntapStorageVirtualMachineOutputArgs {
     /**
      * Configuration block. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachineFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetOntapStorageVirtualMachineFilterArgs>[]>;
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      */

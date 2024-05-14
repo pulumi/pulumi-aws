@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +56,7 @@ export interface GetClusterResult {
      * List of node objects including `id`, `address`, `port`, `availabilityZone` and `outpostArn`.
      * Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
      */
-    readonly cacheNodes: outputs.elasticache.GetClusterCacheNode[];
+    readonly cacheNodes: outputs.GetClusterCacheNode[];
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
@@ -86,7 +85,7 @@ export interface GetClusterResult {
     /**
      * Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
      */
-    readonly logDeliveryConfigurations: outputs.elasticache.GetClusterLogDeliveryConfiguration[];
+    readonly logDeliveryConfigurations: outputs.GetClusterLogDeliveryConfiguration[];
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed.

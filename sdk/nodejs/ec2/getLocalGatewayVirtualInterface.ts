@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export interface GetLocalGatewayVirtualInterfaceArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
      */
-    filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceFilter[];
+    filters?: inputs.GetLocalGatewayVirtualInterfaceFilter[];
     /**
      * Identifier of EC2 Local Gateway Virtual Interface.
      */
@@ -54,7 +54,7 @@ export interface GetLocalGatewayVirtualInterfaceArgs {
  * A collection of values returned by getLocalGatewayVirtualInterface.
  */
 export interface GetLocalGatewayVirtualInterfaceResult {
-    readonly filters?: outputs.ec2.GetLocalGatewayVirtualInterfaceFilter[];
+    readonly filters?: inputs.GetLocalGatewayVirtualInterfaceFilter[];
     readonly id: string;
     /**
      * Local address.
@@ -108,7 +108,7 @@ export interface GetLocalGatewayVirtualInterfaceOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetLocalGatewayVirtualInterfaceFilterArgs>[]>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface.
      */

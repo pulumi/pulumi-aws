@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -134,7 +133,7 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    public readonly mediaInsightsConfiguration!: pulumi.Output<outputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
+    public readonly mediaInsightsConfiguration!: pulumi.Output<outputs.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
@@ -196,7 +195,7 @@ export interface VoiceConnectorStreamingState {
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    mediaInsightsConfiguration?: pulumi.Input<inputs.VoiceConnectorStreamingMediaInsightsConfiguration>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
@@ -222,7 +221,7 @@ export interface VoiceConnectorStreamingArgs {
     /**
      * The media insights configuration. See `mediaInsightsConfiguration`.
      */
-    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
+    mediaInsightsConfiguration?: pulumi.Input<inputs.VoiceConnectorStreamingMediaInsightsConfiguration>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */

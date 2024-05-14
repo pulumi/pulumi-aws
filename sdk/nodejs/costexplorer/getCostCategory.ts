@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,11 +72,11 @@ export interface GetCostCategoryResult {
     /**
      * Configuration block for the `Expression` object used to categorize costs. See below.
      */
-    readonly rules: outputs.costexplorer.GetCostCategoryRule[];
+    readonly rules: outputs.GetCostCategoryRule[];
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    readonly splitChargeRules: outputs.costexplorer.GetCostCategorySplitChargeRule[];
+    readonly splitChargeRules: outputs.GetCostCategorySplitChargeRule[];
     /**
      * Configuration block for the specific `Tag` to use for `Expression`. See below.
      */

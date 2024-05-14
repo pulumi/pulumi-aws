@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +51,7 @@ export interface GetReceivedLicenseResult {
     /**
      * Configuration for consumption of the license. Detailed below
      */
-    readonly consumptionConfigurations: outputs.licensemanager.GetReceivedLicenseConsumptionConfiguration[];
+    readonly consumptionConfigurations: outputs.GetReceivedLicenseConsumptionConfiguration[];
     /**
      * Creation time of the granted license in RFC 3339 format.
      */
@@ -60,7 +59,7 @@ export interface GetReceivedLicenseResult {
     /**
      * License entitlements. Detailed below
      */
-    readonly entitlements: outputs.licensemanager.GetReceivedLicenseEntitlement[];
+    readonly entitlements: outputs.GetReceivedLicenseEntitlement[];
     /**
      * Home Region of the granted license.
      */
@@ -72,7 +71,7 @@ export interface GetReceivedLicenseResult {
     /**
      * Granted license issuer. Detailed below
      */
-    readonly issuers: outputs.licensemanager.GetReceivedLicenseIssuer[];
+    readonly issuers: outputs.GetReceivedLicenseIssuer[];
     /**
      * Amazon Resource Name (ARN) of the license.
      */
@@ -80,7 +79,7 @@ export interface GetReceivedLicenseResult {
     /**
      * Granted license metadata. This is in the form of a set of all meta data. Detailed below
      */
-    readonly licenseMetadatas: outputs.licensemanager.GetReceivedLicenseLicenseMetadata[];
+    readonly licenseMetadatas: outputs.GetReceivedLicenseLicenseMetadata[];
     /**
      * License name.
      */
@@ -94,7 +93,7 @@ export interface GetReceivedLicenseResult {
     /**
      * Granted license received metadata. Detailed below
      */
-    readonly receivedMetadatas: outputs.licensemanager.GetReceivedLicenseReceivedMetadata[];
+    readonly receivedMetadatas: outputs.GetReceivedLicenseReceivedMetadata[];
     /**
      * Granted license status.
      */
@@ -102,7 +101,7 @@ export interface GetReceivedLicenseResult {
     /**
      * Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
      */
-    readonly validities: outputs.licensemanager.GetReceivedLicenseValidity[];
+    readonly validities: outputs.GetReceivedLicenseValidity[];
     /**
      * Version of the granted license.
      */

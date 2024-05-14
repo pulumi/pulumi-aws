@@ -56,6 +56,15 @@ export const ResourceLfTags: typeof import("./resourceLfTags").ResourceLfTags = 
 utilities.lazyLoad(exports, ["ResourceLfTags"], () => require("./resourceLfTags"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -114,7 +113,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.servicediscovery.ServiceDnsConfig | undefined>;
+    public readonly dnsConfig!: pulumi.Output<outputs.ServiceDnsConfig | undefined>;
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
      */
@@ -122,11 +121,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    public readonly healthCheckConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
+    public readonly healthCheckConfig!: pulumi.Output<outputs.ServiceHealthCheckConfig | undefined>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    public readonly healthCheckCustomConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
+    public readonly healthCheckCustomConfig!: pulumi.Output<outputs.ServiceHealthCheckCustomConfig | undefined>;
     /**
      * The name of the service.
      */
@@ -208,7 +207,7 @@ export interface ServiceState {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.ServiceDnsConfig>;
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
      */
@@ -216,11 +215,11 @@ export interface ServiceState {
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */
@@ -256,7 +255,7 @@ export interface ServiceArgs {
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.ServiceDnsConfig>;
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
      */
@@ -264,11 +263,11 @@ export interface ServiceArgs {
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -283,11 +282,11 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
-    public readonly stepScalingPolicyConfiguration!: pulumi.Output<outputs.appautoscaling.PolicyStepScalingPolicyConfiguration | undefined>;
+    public readonly stepScalingPolicyConfiguration!: pulumi.Output<outputs.PolicyStepScalingPolicyConfiguration | undefined>;
     /**
      * Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
-    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfiguration | undefined>;
+    public readonly targetTrackingScalingPolicyConfiguration!: pulumi.Output<outputs.PolicyTargetTrackingScalingPolicyConfiguration | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -372,11 +371,11 @@ export interface PolicyState {
     /**
      * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
-    stepScalingPolicyConfiguration?: pulumi.Input<inputs.appautoscaling.PolicyStepScalingPolicyConfiguration>;
+    stepScalingPolicyConfiguration?: pulumi.Input<inputs.PolicyStepScalingPolicyConfiguration>;
     /**
      * Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
-    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfiguration>;
+    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.PolicyTargetTrackingScalingPolicyConfiguration>;
 }
 
 /**
@@ -406,9 +405,9 @@ export interface PolicyArgs {
     /**
      * Step scaling policy configuration, requires `policyType = "StepScaling"` (default). See supported fields below.
      */
-    stepScalingPolicyConfiguration?: pulumi.Input<inputs.appautoscaling.PolicyStepScalingPolicyConfiguration>;
+    stepScalingPolicyConfiguration?: pulumi.Input<inputs.PolicyStepScalingPolicyConfiguration>;
     /**
      * Target tracking policy, requires `policyType = "TargetTrackingScaling"`. See supported fields below.
      */
-    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfiguration>;
+    targetTrackingScalingPolicyConfiguration?: pulumi.Input<inputs.PolicyTargetTrackingScalingPolicyConfiguration>;
 }

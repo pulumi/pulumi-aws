@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -120,7 +119,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
-    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig>;
+    public readonly connectorProfileConfig!: pulumi.Output<outputs.ConnectorProfileConnectorProfileConfig>;
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      */
@@ -200,7 +199,7 @@ export interface ConnectorProfileState {
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
-    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig>;
+    connectorProfileConfig?: pulumi.Input<inputs.ConnectorProfileConnectorProfileConfig>;
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      */
@@ -231,7 +230,7 @@ export interface ConnectorProfileArgs {
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      */
-    connectorProfileConfig: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfig>;
+    connectorProfileConfig: pulumi.Input<inputs.ConnectorProfileConnectorProfileConfig>;
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      */

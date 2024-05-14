@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -130,7 +130,7 @@ export interface GetInstanceTypeResult {
      * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      */
-    readonly fpgas: outputs.ec2.GetInstanceTypeFpga[];
+    readonly fpgas: outputs.GetInstanceTypeFpga[];
     /**
      * `true` if the instance type is eligible for the free tier.
      */
@@ -142,7 +142,7 @@ export interface GetInstanceTypeResult {
      * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
      * * `gpus.#.name` - The name of the GPU accelerator.
      */
-    readonly gpuses: outputs.ec2.GetInstanceTypeGpus[];
+    readonly gpuses: outputs.GetInstanceTypeGpus[];
     /**
      * `true` if On-Demand hibernation is supported.
      */
@@ -161,14 +161,14 @@ export interface GetInstanceTypeResult {
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      */
-    readonly inferenceAccelerators: outputs.ec2.GetInstanceTypeInferenceAccelerator[];
+    readonly inferenceAccelerators: outputs.GetInstanceTypeInferenceAccelerator[];
     /**
      * Describes the disks for the instance type.
      * * `instance_disks.#.count` - The number of disks with this configuration.
      * * `instance_disks.#.size` - The size of the disk in GB.
      * * `instance_disks.#.type` - The type of disk.
      */
-    readonly instanceDisks: outputs.ec2.GetInstanceTypeInstanceDisk[];
+    readonly instanceDisks: outputs.GetInstanceTypeInstanceDisk[];
     /**
      * `true` if instance storage is supported.
      */

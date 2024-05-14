@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,15 +100,15 @@ export class Workforce extends pulumi.CustomResource {
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      */
-    public readonly cognitoConfig!: pulumi.Output<outputs.sagemaker.WorkforceCognitoConfig | undefined>;
+    public readonly cognitoConfig!: pulumi.Output<outputs.WorkforceCognitoConfig | undefined>;
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
-    public readonly oidcConfig!: pulumi.Output<outputs.sagemaker.WorkforceOidcConfig | undefined>;
+    public readonly oidcConfig!: pulumi.Output<outputs.WorkforceOidcConfig | undefined>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
-    public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
+    public readonly sourceIpConfig!: pulumi.Output<outputs.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
@@ -121,7 +120,7 @@ export class Workforce extends pulumi.CustomResource {
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      */
-    public readonly workforceVpcConfig!: pulumi.Output<outputs.sagemaker.WorkforceWorkforceVpcConfig | undefined>;
+    public readonly workforceVpcConfig!: pulumi.Output<outputs.WorkforceWorkforceVpcConfig | undefined>;
 
     /**
      * Create a Workforce resource with the given unique name, arguments, and options.
@@ -172,15 +171,15 @@ export interface WorkforceState {
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      */
-    cognitoConfig?: pulumi.Input<inputs.sagemaker.WorkforceCognitoConfig>;
+    cognitoConfig?: pulumi.Input<inputs.WorkforceCognitoConfig>;
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
-    oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
+    oidcConfig?: pulumi.Input<inputs.WorkforceOidcConfig>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
-    sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig>;
+    sourceIpConfig?: pulumi.Input<inputs.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
@@ -192,7 +191,7 @@ export interface WorkforceState {
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      */
-    workforceVpcConfig?: pulumi.Input<inputs.sagemaker.WorkforceWorkforceVpcConfig>;
+    workforceVpcConfig?: pulumi.Input<inputs.WorkforceWorkforceVpcConfig>;
 }
 
 /**
@@ -202,15 +201,15 @@ export interface WorkforceArgs {
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidcConfig`. see Cognito Config details below.
      */
-    cognitoConfig?: pulumi.Input<inputs.sagemaker.WorkforceCognitoConfig>;
+    cognitoConfig?: pulumi.Input<inputs.WorkforceCognitoConfig>;
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
-    oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
+    oidcConfig?: pulumi.Input<inputs.WorkforceOidcConfig>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
-    sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig>;
+    sourceIpConfig?: pulumi.Input<inputs.WorkforceSourceIpConfig>;
     /**
      * The name of the Workforce (must be unique).
      */
@@ -218,5 +217,5 @@ export interface WorkforceArgs {
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      */
-    workforceVpcConfig?: pulumi.Input<inputs.sagemaker.WorkforceWorkforceVpcConfig>;
+    workforceVpcConfig?: pulumi.Input<inputs.WorkforceWorkforceVpcConfig>;
 }

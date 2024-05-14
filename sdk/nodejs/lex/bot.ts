@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      */
-    public readonly abortStatement!: pulumi.Output<outputs.lex.BotAbortStatement>;
+    public readonly abortStatement!: pulumi.Output<outputs.BotAbortStatement>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
@@ -99,7 +98,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
      */
-    public readonly clarificationPrompt!: pulumi.Output<outputs.lex.BotClarificationPrompt | undefined>;
+    public readonly clarificationPrompt!: pulumi.Output<outputs.BotClarificationPrompt | undefined>;
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      */
@@ -131,7 +130,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
-    public readonly intents!: pulumi.Output<outputs.lex.BotIntent[]>;
+    public readonly intents!: pulumi.Output<outputs.BotIntent[]>;
     /**
      * The date when the $LATEST version of this bot was updated.
      */
@@ -247,7 +246,7 @@ export interface BotState {
     /**
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      */
-    abortStatement?: pulumi.Input<inputs.lex.BotAbortStatement>;
+    abortStatement?: pulumi.Input<inputs.BotAbortStatement>;
     arn?: pulumi.Input<string>;
     /**
      * Checksum identifying the version of the bot that was created. The checksum is not
@@ -261,7 +260,7 @@ export interface BotState {
     /**
      * The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
      */
-    clarificationPrompt?: pulumi.Input<inputs.lex.BotClarificationPrompt>;
+    clarificationPrompt?: pulumi.Input<inputs.BotClarificationPrompt>;
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      */
@@ -293,7 +292,7 @@ export interface BotState {
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
-    intents?: pulumi.Input<pulumi.Input<inputs.lex.BotIntent>[]>;
+    intents?: pulumi.Input<pulumi.Input<inputs.BotIntent>[]>;
     /**
      * The date when the $LATEST version of this bot was updated.
      */
@@ -338,7 +337,7 @@ export interface BotArgs {
     /**
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      */
-    abortStatement: pulumi.Input<inputs.lex.BotAbortStatement>;
+    abortStatement: pulumi.Input<inputs.BotAbortStatement>;
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      */
@@ -346,7 +345,7 @@ export interface BotArgs {
     /**
      * The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
      */
-    clarificationPrompt?: pulumi.Input<inputs.lex.BotClarificationPrompt>;
+    clarificationPrompt?: pulumi.Input<inputs.BotClarificationPrompt>;
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      */
@@ -370,7 +369,7 @@ export interface BotArgs {
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
-    intents: pulumi.Input<pulumi.Input<inputs.lex.BotIntent>[]>;
+    intents: pulumi.Input<pulumi.Input<inputs.BotIntent>[]>;
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      */

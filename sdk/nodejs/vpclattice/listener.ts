@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -154,7 +153,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.ListenerDefaultAction>;
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
@@ -256,7 +255,7 @@ export interface ListenerState {
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
-    defaultAction?: pulumi.Input<inputs.vpclattice.ListenerDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.ListenerDefaultAction>;
     lastUpdatedAt?: pulumi.Input<string>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
@@ -300,7 +299,7 @@ export interface ListenerArgs {
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
-    defaultAction: pulumi.Input<inputs.vpclattice.ListenerDefaultAction>;
+    defaultAction: pulumi.Input<inputs.ListenerDefaultAction>;
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */

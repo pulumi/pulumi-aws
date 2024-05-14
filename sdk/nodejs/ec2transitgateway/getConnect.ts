@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetConnectArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetConnectFilter[];
+    filters?: inputs.GetConnectFilter[];
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */
@@ -70,7 +69,7 @@ export interface GetConnectArgs {
  * A collection of values returned by getConnect.
  */
 export interface GetConnectResult {
-    readonly filters?: outputs.ec2transitgateway.GetConnectFilter[];
+    readonly filters?: inputs.GetConnectFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -134,7 +133,7 @@ export interface GetConnectOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetConnectFilterArgs>[]>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */

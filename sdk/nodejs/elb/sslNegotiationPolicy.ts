@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +94,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    public readonly attributes!: pulumi.Output<outputs.elb.SslNegotiationPolicyAttribute[] | undefined>;
+    public readonly attributes!: pulumi.Output<outputs.SslNegotiationPolicyAttribute[] | undefined>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
@@ -166,7 +165,7 @@ export interface SslNegotiationPolicyState {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.SslNegotiationPolicyAttribute>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
@@ -199,7 +198,7 @@ export interface SslNegotiationPolicyArgs {
     /**
      * An SSL Negotiation policy attribute. Each has two properties:
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.elb.SslNegotiationPolicyAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.SslNegotiationPolicyAttribute>[]>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load

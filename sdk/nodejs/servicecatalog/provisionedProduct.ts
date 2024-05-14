@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,7 +124,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * The set of outputs for the product created.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<outputs.servicecatalog.ProvisionedProductOutput[]>;
+    public /*out*/ readonly outputs!: pulumi.Output<outputs.ProvisionedProductOutput[]>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
@@ -153,7 +152,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
      */
-    public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.ProvisionedProductProvisioningParameter[] | undefined>;
+    public readonly provisioningParameters!: pulumi.Output<outputs.ProvisionedProductProvisioningParameter[] | undefined>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
@@ -161,7 +160,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See details below.
      */
-    public readonly stackSetProvisioningPreferences!: pulumi.Output<outputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
+    public readonly stackSetProvisioningPreferences!: pulumi.Output<outputs.ProvisionedProductStackSetProvisioningPreferences | undefined>;
     /**
      * Current status of the provisioned product. See meanings below.
      */
@@ -311,7 +310,7 @@ export interface ProvisionedProductState {
     /**
      * The set of outputs for the product created.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.ProvisionedProductOutput>[]>;
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `pathId` or `pathName`, but not both.
      */
@@ -339,7 +338,7 @@ export interface ProvisionedProductState {
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ProvisionedProductProvisioningParameter>[]>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
@@ -347,7 +346,7 @@ export interface ProvisionedProductState {
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See details below.
      */
-    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
+    stackSetProvisioningPreferences?: pulumi.Input<inputs.ProvisionedProductStackSetProvisioningPreferences>;
     /**
      * Current status of the provisioned product. See meanings below.
      */
@@ -421,7 +420,7 @@ export interface ProvisionedProductArgs {
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ProvisionedProductProvisioningParameter>[]>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
@@ -429,7 +428,7 @@ export interface ProvisionedProductArgs {
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See details below.
      */
-    stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
+    stackSetProvisioningPreferences?: pulumi.Input<inputs.ProvisionedProductStackSetProvisioningPreferences>;
     /**
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

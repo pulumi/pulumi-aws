@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,7 +106,7 @@ export class EmailIdentity extends pulumi.CustomResource {
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    public readonly dkimSigningAttributes!: pulumi.Output<outputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    public readonly dkimSigningAttributes!: pulumi.Output<outputs.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
      *
@@ -188,7 +187,7 @@ export interface EmailIdentityState {
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    dkimSigningAttributes?: pulumi.Input<inputs.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
      *
@@ -226,7 +225,7 @@ export interface EmailIdentityArgs {
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      */
-    dkimSigningAttributes?: pulumi.Input<inputs.sesv2.EmailIdentityDkimSigningAttributes>;
+    dkimSigningAttributes?: pulumi.Input<inputs.EmailIdentityDkimSigningAttributes>;
     /**
      * The email address or domain to verify.
      *

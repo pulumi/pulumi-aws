@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export class RiskConfiguration extends pulumi.CustomResource {
     /**
      * The account takeover risk configuration. See details below.
      */
-    public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
+    public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.RiskConfigurationAccountTakeoverRiskConfiguration | undefined>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
@@ -80,11 +79,11 @@ export class RiskConfiguration extends pulumi.CustomResource {
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
+    public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
+    public readonly riskExceptionConfiguration!: pulumi.Output<outputs.RiskConfigurationRiskExceptionConfiguration | undefined>;
     /**
      * The user pool ID.
      */
@@ -131,7 +130,7 @@ export interface RiskConfigurationState {
     /**
      * The account takeover risk configuration. See details below.
      */
-    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration>;
+    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.RiskConfigurationAccountTakeoverRiskConfiguration>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
@@ -139,11 +138,11 @@ export interface RiskConfigurationState {
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration>;
+    riskExceptionConfiguration?: pulumi.Input<inputs.RiskConfigurationRiskExceptionConfiguration>;
     /**
      * The user pool ID.
      */
@@ -157,7 +156,7 @@ export interface RiskConfigurationArgs {
     /**
      * The account takeover risk configuration. See details below.
      */
-    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationAccountTakeoverRiskConfiguration>;
+    accountTakeoverRiskConfiguration?: pulumi.Input<inputs.RiskConfigurationAccountTakeoverRiskConfiguration>;
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      */
@@ -165,11 +164,11 @@ export interface RiskConfigurationArgs {
     /**
      * The compromised credentials risk configuration. See details below.
      */
-    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
     /**
      * The configuration to override the risk decision. See details below.
      */
-    riskExceptionConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationRiskExceptionConfiguration>;
+    riskExceptionConfiguration?: pulumi.Input<inputs.RiskConfigurationRiskExceptionConfiguration>;
     /**
      * The user pool ID.
      */

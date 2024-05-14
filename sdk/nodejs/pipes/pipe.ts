@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -187,7 +186,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
+    public readonly enrichmentParameters!: pulumi.Output<outputs.PipeEnrichmentParameters | undefined>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -207,7 +206,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    public readonly sourceParameters!: pulumi.Output<outputs.pipes.PipeSourceParameters>;
+    public readonly sourceParameters!: pulumi.Output<outputs.PipeSourceParameters>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -227,7 +226,7 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
+    public readonly targetParameters!: pulumi.Output<outputs.PipeTargetParameters | undefined>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -310,7 +309,7 @@ export interface PipeState {
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    enrichmentParameters?: pulumi.Input<inputs.PipeEnrichmentParameters>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -330,7 +329,7 @@ export interface PipeState {
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
+    sourceParameters?: pulumi.Input<inputs.PipeSourceParameters>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -350,7 +349,7 @@ export interface PipeState {
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
+    targetParameters?: pulumi.Input<inputs.PipeTargetParameters>;
 }
 
 /**
@@ -372,7 +371,7 @@ export interface PipeArgs {
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
-    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    enrichmentParameters?: pulumi.Input<inputs.PipeEnrichmentParameters>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -392,7 +391,7 @@ export interface PipeArgs {
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      */
-    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters>;
+    sourceParameters?: pulumi.Input<inputs.PipeSourceParameters>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -406,5 +405,5 @@ export interface PipeArgs {
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      */
-    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
+    targetParameters?: pulumi.Input<inputs.PipeTargetParameters>;
 }

@@ -16,6 +16,15 @@ export const ArchiveRule: typeof import("./archiveRule").ArchiveRule = null as a
 utilities.lazyLoad(exports, ["ArchiveRule"], () => require("./archiveRule"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

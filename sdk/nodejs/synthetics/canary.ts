@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    public readonly artifactConfig!: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
+    public readonly artifactConfig!: pulumi.Output<outputs.CanaryArtifactConfig | undefined>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -106,7 +105,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig>;
+    public readonly runConfig!: pulumi.Output<outputs.CanaryRunConfig>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
@@ -128,7 +127,7 @@ export class Canary extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
+    public readonly schedule!: pulumi.Output<outputs.CanarySchedule>;
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      */
@@ -158,11 +157,11 @@ export class Canary extends pulumi.CustomResource {
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
-    public /*out*/ readonly timelines!: pulumi.Output<outputs.synthetics.CanaryTimeline[]>;
+    public /*out*/ readonly timelines!: pulumi.Output<outputs.CanaryTimeline[]>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.CanaryVpcConfig | undefined>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
@@ -263,7 +262,7 @@ export interface CanaryState {
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
+    artifactConfig?: pulumi.Input<inputs.CanaryArtifactConfig>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -295,7 +294,7 @@ export interface CanaryState {
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig>;
+    runConfig?: pulumi.Input<inputs.CanaryRunConfig>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
@@ -317,7 +316,7 @@ export interface CanaryState {
      *
      * The following arguments are optional:
      */
-    schedule?: pulumi.Input<inputs.synthetics.CanarySchedule>;
+    schedule?: pulumi.Input<inputs.CanarySchedule>;
     /**
      * ARN of the Lambda layer where Synthetics stores the canary script code.
      */
@@ -347,11 +346,11 @@ export interface CanaryState {
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
-    timelines?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTimeline>[]>;
+    timelines?: pulumi.Input<pulumi.Input<inputs.CanaryTimeline>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.CanaryVpcConfig>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */
@@ -365,7 +364,7 @@ export interface CanaryArgs {
     /**
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      */
-    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
+    artifactConfig?: pulumi.Input<inputs.CanaryArtifactConfig>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -393,7 +392,7 @@ export interface CanaryArgs {
     /**
      * Configuration block for individual canary runs. Detailed below.
      */
-    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfig>;
+    runConfig?: pulumi.Input<inputs.CanaryRunConfig>;
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      */
@@ -415,7 +414,7 @@ export interface CanaryArgs {
      *
      * The following arguments are optional:
      */
-    schedule: pulumi.Input<inputs.synthetics.CanarySchedule>;
+    schedule: pulumi.Input<inputs.CanarySchedule>;
     /**
      * Whether to run or stop the canary.
      */
@@ -431,7 +430,7 @@ export interface CanaryArgs {
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.CanaryVpcConfig>;
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3Bucket`, `s3Key`, and `s3Version`.**
      */

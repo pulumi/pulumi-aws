@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -145,7 +144,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    public readonly customDnsConfigurations!: pulumi.Output<outputs.finspace.KxEnvironmentCustomDnsConfiguration[] | undefined>;
+    public readonly customDnsConfigurations!: pulumi.Output<outputs.KxEnvironmentCustomDnsConfiguration[] | undefined>;
     /**
      * Description for the KX environment.
      */
@@ -185,7 +184,7 @@ export class KxEnvironment extends pulumi.CustomResource {
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    public readonly transitGatewayConfiguration!: pulumi.Output<outputs.finspace.KxEnvironmentTransitGatewayConfiguration | undefined>;
+    public readonly transitGatewayConfiguration!: pulumi.Output<outputs.KxEnvironmentTransitGatewayConfiguration | undefined>;
 
     /**
      * Create a KxEnvironment resource with the given unique name, arguments, and options.
@@ -256,7 +255,7 @@ export interface KxEnvironmentState {
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[]>;
+    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.KxEnvironmentCustomDnsConfiguration>[]>;
     /**
      * Description for the KX environment.
      */
@@ -296,7 +295,7 @@ export interface KxEnvironmentState {
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.KxEnvironmentTransitGatewayConfiguration>;
 }
 
 /**
@@ -306,7 +305,7 @@ export interface KxEnvironmentArgs {
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      */
-    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentCustomDnsConfiguration>[]>;
+    customDnsConfigurations?: pulumi.Input<pulumi.Input<inputs.KxEnvironmentCustomDnsConfiguration>[]>;
     /**
      * Description for the KX environment.
      */
@@ -328,5 +327,5 @@ export interface KxEnvironmentArgs {
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      */
-    transitGatewayConfiguration?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfiguration>;
+    transitGatewayConfiguration?: pulumi.Input<inputs.KxEnvironmentTransitGatewayConfiguration>;
 }

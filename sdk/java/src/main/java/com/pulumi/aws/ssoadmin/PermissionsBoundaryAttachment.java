@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()        
+ *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()
  *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
  *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()

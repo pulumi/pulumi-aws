@@ -26,6 +26,15 @@ export const SourceRepository: typeof import("./sourceRepository").SourceReposit
 utilities.lazyLoad(exports, ["SourceRepository"], () => require("./sourceRepository"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

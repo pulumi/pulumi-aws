@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      */
-    public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRuleAction[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.AutomationRuleAction[] | undefined>;
     /**
      * The ARN of the Security Hub automation rule.
      */
@@ -95,7 +94,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      */
-    public readonly criteria!: pulumi.Output<outputs.securityhub.AutomationRuleCriteria | undefined>;
+    public readonly criteria!: pulumi.Output<outputs.AutomationRuleCriteria | undefined>;
     /**
      * The description of the rule.
      */
@@ -179,7 +178,7 @@ export interface AutomationRuleState {
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.AutomationRuleAction>[]>;
     /**
      * The ARN of the Security Hub automation rule.
      */
@@ -187,7 +186,7 @@ export interface AutomationRuleState {
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      */
-    criteria?: pulumi.Input<inputs.securityhub.AutomationRuleCriteria>;
+    criteria?: pulumi.Input<inputs.AutomationRuleCriteria>;
     /**
      * The description of the rule.
      */
@@ -222,11 +221,11 @@ export interface AutomationRuleArgs {
     /**
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.AutomationRuleAction>[]>;
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      */
-    criteria?: pulumi.Input<inputs.securityhub.AutomationRuleCriteria>;
+    criteria?: pulumi.Input<inputs.AutomationRuleCriteria>;
     /**
      * The description of the rule.
      */

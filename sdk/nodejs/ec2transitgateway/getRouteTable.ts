@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +60,7 @@ export interface GetRouteTableArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetRouteTableFilter[];
+    filters?: inputs.GetRouteTableFilter[];
     /**
      * Identifier of the EC2 Transit Gateway Route Table.
      */
@@ -88,7 +87,7 @@ export interface GetRouteTableResult {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway
      */
     readonly defaultPropagationRouteTable: boolean;
-    readonly filters?: outputs.ec2transitgateway.GetRouteTableFilter[];
+    readonly filters?: inputs.GetRouteTableFilter[];
     /**
      * EC2 Transit Gateway Route Table identifier
      */
@@ -149,7 +148,7 @@ export interface GetRouteTableOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetRouteTableFilterArgs>[]>;
     /**
      * Identifier of the EC2 Transit Gateway Route Table.
      */

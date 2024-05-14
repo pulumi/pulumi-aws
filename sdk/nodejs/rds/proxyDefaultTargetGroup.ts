@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +93,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    public readonly connectionPoolConfig!: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    public readonly connectionPoolConfig!: pulumi.Output<outputs.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */
@@ -146,7 +146,7 @@ export interface ProxyDefaultTargetGroupState {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */
@@ -164,7 +164,7 @@ export interface ProxyDefaultTargetGroupArgs {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +115,7 @@ export class Cluster extends pulumi.CustomResource {
      * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    public /*out*/ readonly nodes!: pulumi.Output<outputs.dax.ClusterNode[]>;
+    public /*out*/ readonly nodes!: pulumi.Output<outputs.ClusterNode[]>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
@@ -146,7 +145,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Encrypt at rest options
      */
-    public readonly serverSideEncryption!: pulumi.Output<outputs.dax.ClusterServerSideEncryption | undefined>;
+    public readonly serverSideEncryption!: pulumi.Output<outputs.ClusterServerSideEncryption | undefined>;
     /**
      * Name of the subnet group to be used for the
      * cluster
@@ -296,7 +295,7 @@ export interface ClusterState {
      * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
-    nodes?: pulumi.Input<pulumi.Input<inputs.dax.ClusterNode>[]>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.ClusterNode>[]>;
     /**
      * An Amazon Resource Name (ARN) of an
      * SNS topic to send DAX notifications to. Example:
@@ -326,7 +325,7 @@ export interface ClusterState {
     /**
      * Encrypt at rest options
      */
-    serverSideEncryption?: pulumi.Input<inputs.dax.ClusterServerSideEncryption>;
+    serverSideEncryption?: pulumi.Input<inputs.ClusterServerSideEncryption>;
     /**
      * Name of the subnet group to be used for the
      * cluster
@@ -411,7 +410,7 @@ export interface ClusterArgs {
     /**
      * Encrypt at rest options
      */
-    serverSideEncryption?: pulumi.Input<inputs.dax.ClusterServerSideEncryption>;
+    serverSideEncryption?: pulumi.Input<inputs.ClusterServerSideEncryption>;
     /**
      * Name of the subnet group to be used for the
      * cluster

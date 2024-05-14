@@ -66,23 +66,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleA = new Subnet("exampleA", SubnetArgs.builder()        
+ *         var exampleA = new Subnet("exampleA", SubnetArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .availabilityZone("us-east-1a")
  *             .cidrBlock("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleB = new Subnet("exampleB", SubnetArgs.builder()        
+ *         var exampleB = new Subnet("exampleB", SubnetArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .availabilityZone("us-east-1b")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()        
+ *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()
  *             .name("corp.example.com")
  *             .password("#S1ncerely")
  *             .size("Small")
@@ -104,34 +104,34 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var workspacesDefault = new Role("workspacesDefault", RoleArgs.builder()        
+ *         var workspacesDefault = new Role("workspacesDefault", RoleArgs.builder()
  *             .name("workspaces_DefaultRole")
  *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var workspacesDefaultServiceAccess = new RolePolicyAttachment("workspacesDefaultServiceAccess", RolePolicyAttachmentArgs.builder()        
+ *         var workspacesDefaultServiceAccess = new RolePolicyAttachment("workspacesDefaultServiceAccess", RolePolicyAttachmentArgs.builder()
  *             .role(workspacesDefault.name())
  *             .policyArn("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
  *             .build());
  * 
- *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment("workspacesDefaultSelfServiceAccess", RolePolicyAttachmentArgs.builder()        
+ *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment("workspacesDefaultSelfServiceAccess", RolePolicyAttachmentArgs.builder()
  *             .role(workspacesDefault.name())
  *             .policyArn("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
  *             .build());
  * 
- *         var exampleC = new Subnet("exampleC", SubnetArgs.builder()        
+ *         var exampleC = new Subnet("exampleC", SubnetArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .availabilityZone("us-east-1c")
  *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var exampleD = new Subnet("exampleD", SubnetArgs.builder()        
+ *         var exampleD = new Subnet("exampleD", SubnetArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .availabilityZone("us-east-1d")
  *             .cidrBlock("10.0.3.0/24")
  *             .build());
  * 
- *         var example = new Directory("example", DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()
  *             .directoryId(exampleDirectory.id())
  *             .subnetIds(            
  *                 exampleC.id(),
@@ -200,11 +200,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleIpGroup = new IpGroup("exampleIpGroup", IpGroupArgs.builder()        
+ *         var exampleIpGroup = new IpGroup("exampleIpGroup", IpGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var example = new Directory("example", DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .ipGroupIds(exampleIpGroup.id())
  *             .build());

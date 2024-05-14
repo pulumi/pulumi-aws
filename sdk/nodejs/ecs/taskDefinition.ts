@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -296,7 +295,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    public readonly ephemeralStorage!: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
@@ -310,7 +309,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      */
-    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
+    public readonly inferenceAccelerators!: pulumi.Output<outputs.TaskDefinitionInferenceAccelerator[] | undefined>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -330,11 +329,11 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.TaskDefinitionPlacementConstraint[] | undefined>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
+    public readonly proxyConfiguration!: pulumi.Output<outputs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -346,7 +345,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    public readonly runtimePlatform!: pulumi.Output<outputs.TaskDefinitionRuntimePlatform | undefined>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
@@ -372,7 +371,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
-    public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
+    public readonly volumes!: pulumi.Output<outputs.TaskDefinitionVolume[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -470,7 +469,7 @@ export interface TaskDefinitionState {
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.TaskDefinitionEphemeralStorage>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
@@ -484,7 +483,7 @@ export interface TaskDefinitionState {
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -504,11 +503,11 @@ export interface TaskDefinitionState {
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionPlacementConstraint>[]>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.TaskDefinitionProxyConfiguration>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -520,7 +519,7 @@ export interface TaskDefinitionState {
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    runtimePlatform?: pulumi.Input<inputs.TaskDefinitionRuntimePlatform>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
@@ -546,7 +545,7 @@ export interface TaskDefinitionState {
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionVolume>[]>;
 }
 
 /**
@@ -564,7 +563,7 @@ export interface TaskDefinitionArgs {
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
-    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
+    ephemeralStorage?: pulumi.Input<inputs.TaskDefinitionEphemeralStorage>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
@@ -578,7 +577,7 @@ export interface TaskDefinitionArgs {
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -598,11 +597,11 @@ export interface TaskDefinitionArgs {
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionPlacementConstraint>[]>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.TaskDefinitionProxyConfiguration>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -610,7 +609,7 @@ export interface TaskDefinitionArgs {
     /**
      * Configuration block for runtimePlatform that containers in your task may use.
      */
-    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    runtimePlatform?: pulumi.Input<inputs.TaskDefinitionRuntimePlatform>;
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      */
@@ -630,5 +629,5 @@ export interface TaskDefinitionArgs {
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.TaskDefinitionVolume>[]>;
 }

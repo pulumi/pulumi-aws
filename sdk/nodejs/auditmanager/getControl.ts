@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getControl.
  */
 export interface GetControlArgs {
-    controlMappingSources?: inputs.auditmanager.GetControlControlMappingSource[];
+    controlMappingSources?: inputs.GetControlControlMappingSource[];
     /**
      * Name of the control.
      */
@@ -89,7 +88,7 @@ export interface GetControlResult {
     readonly actionPlanInstructions: string;
     readonly actionPlanTitle: string;
     readonly arn: string;
-    readonly controlMappingSources?: outputs.auditmanager.GetControlControlMappingSource[];
+    readonly controlMappingSources?: inputs.GetControlControlMappingSource[];
     readonly description: string;
     readonly id: string;
     readonly name: string;
@@ -155,7 +154,7 @@ export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getControl.
  */
 export interface GetControlOutputArgs {
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.GetControlControlMappingSourceArgs>[]>;
+    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.GetControlControlMappingSourceArgs>[]>;
     /**
      * Name of the control.
      */

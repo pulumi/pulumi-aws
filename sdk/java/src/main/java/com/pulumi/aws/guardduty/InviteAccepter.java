@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  * 
  *         var memberDetector = new Detector("memberDetector");
  * 
- *         var memberMember = new Member("memberMember", MemberArgs.builder()        
+ *         var memberMember = new Member("memberMember", MemberArgs.builder()
  *             .accountId(memberDetector.accountId())
  *             .detectorId(primary.id())
  *             .email("required{@literal @}example.com")
  *             .invite(true)
  *             .build());
  * 
- *         var member = new InviteAccepter("member", InviteAccepterArgs.builder()        
+ *         var member = new InviteAccepter("member", InviteAccepterArgs.builder()
  *             .detectorId(memberDetector.id())
  *             .masterAccountId(primary.accountId())
  *             .build(), CustomResourceOptions.builder()

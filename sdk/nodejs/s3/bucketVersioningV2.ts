@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -144,7 +144,7 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
     /**
      * Configuration block for the versioning parameters. See below.
      */
-    public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
+    public readonly versioningConfiguration!: pulumi.Output<outputs.BucketVersioningV2VersioningConfiguration>;
 
     /**
      * Create a BucketVersioningV2 resource with the given unique name, arguments, and options.
@@ -200,7 +200,7 @@ export interface BucketVersioningV2State {
     /**
      * Configuration block for the versioning parameters. See below.
      */
-    versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
+    versioningConfiguration?: pulumi.Input<inputs.BucketVersioningV2VersioningConfiguration>;
 }
 
 /**
@@ -222,5 +222,5 @@ export interface BucketVersioningV2Args {
     /**
      * Configuration block for the versioning parameters. See below.
      */
-    versioningConfiguration: pulumi.Input<inputs.s3.BucketVersioningV2VersioningConfiguration>;
+    versioningConfiguration: pulumi.Input<inputs.BucketVersioningV2VersioningConfiguration>;
 }

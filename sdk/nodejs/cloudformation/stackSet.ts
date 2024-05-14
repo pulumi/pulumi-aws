@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -134,7 +133,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      */
-    public readonly autoDeployment!: pulumi.Output<outputs.cloudformation.StackSetAutoDeployment | undefined>;
+    public readonly autoDeployment!: pulumi.Output<outputs.StackSetAutoDeployment | undefined>;
     /**
      * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
@@ -154,7 +153,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      */
-    public readonly managedExecution!: pulumi.Output<outputs.cloudformation.StackSetManagedExecution | undefined>;
+    public readonly managedExecution!: pulumi.Output<outputs.StackSetManagedExecution | undefined>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
@@ -162,7 +161,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Preferences for how AWS CloudFormation performs a stack set update.
      */
-    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
+    public readonly operationPreferences!: pulumi.Output<outputs.StackSetOperationPreferences | undefined>;
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
@@ -264,7 +263,7 @@ export interface StackSetState {
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      */
-    autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
+    autoDeployment?: pulumi.Input<inputs.StackSetAutoDeployment>;
     /**
      * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
@@ -284,7 +283,7 @@ export interface StackSetState {
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      */
-    managedExecution?: pulumi.Input<inputs.cloudformation.StackSetManagedExecution>;
+    managedExecution?: pulumi.Input<inputs.StackSetManagedExecution>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
@@ -292,7 +291,7 @@ export interface StackSetState {
     /**
      * Preferences for how AWS CloudFormation performs a stack set update.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.StackSetOperationPreferences>;
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */
@@ -336,7 +335,7 @@ export interface StackSetArgs {
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      */
-    autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeployment>;
+    autoDeployment?: pulumi.Input<inputs.StackSetAutoDeployment>;
     /**
      * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      */
@@ -356,7 +355,7 @@ export interface StackSetArgs {
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      */
-    managedExecution?: pulumi.Input<inputs.cloudformation.StackSetManagedExecution>;
+    managedExecution?: pulumi.Input<inputs.StackSetManagedExecution>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
@@ -364,7 +363,7 @@ export interface StackSetArgs {
     /**
      * Preferences for how AWS CloudFormation performs a stack set update.
      */
-    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferences>;
+    operationPreferences?: pulumi.Input<inputs.StackSetOperationPreferences>;
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
      */

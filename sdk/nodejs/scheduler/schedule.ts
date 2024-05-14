@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -111,7 +110,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      */
-    public readonly flexibleTimeWindow!: pulumi.Output<outputs.scheduler.ScheduleFlexibleTimeWindow>;
+    public readonly flexibleTimeWindow!: pulumi.Output<outputs.ScheduleFlexibleTimeWindow>;
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
@@ -149,7 +148,7 @@ export class Schedule extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
+    public readonly target!: pulumi.Output<outputs.ScheduleTarget>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -226,7 +225,7 @@ export interface ScheduleState {
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      */
-    flexibleTimeWindow?: pulumi.Input<inputs.scheduler.ScheduleFlexibleTimeWindow>;
+    flexibleTimeWindow?: pulumi.Input<inputs.ScheduleFlexibleTimeWindow>;
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
@@ -264,7 +263,7 @@ export interface ScheduleState {
      *
      * The following arguments are optional:
      */
-    target?: pulumi.Input<inputs.scheduler.ScheduleTarget>;
+    target?: pulumi.Input<inputs.ScheduleTarget>;
 }
 
 /**
@@ -282,7 +281,7 @@ export interface ScheduleArgs {
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      */
-    flexibleTimeWindow: pulumi.Input<inputs.scheduler.ScheduleFlexibleTimeWindow>;
+    flexibleTimeWindow: pulumi.Input<inputs.ScheduleFlexibleTimeWindow>;
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      */
@@ -320,5 +319,5 @@ export interface ScheduleArgs {
      *
      * The following arguments are optional:
      */
-    target: pulumi.Input<inputs.scheduler.ScheduleTarget>;
+    target: pulumi.Input<inputs.ScheduleTarget>;
 }

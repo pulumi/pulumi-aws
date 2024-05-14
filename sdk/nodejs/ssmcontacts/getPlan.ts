@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +52,7 @@ export interface GetPlanResult {
     /**
      * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      */
-    readonly stages: outputs.ssmcontacts.GetPlanStage[];
+    readonly stages: outputs.GetPlanStage[];
 }
 /**
  * Data source for managing a Plan of an AWS SSM Contact.

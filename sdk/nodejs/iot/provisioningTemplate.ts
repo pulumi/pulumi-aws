@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -135,7 +134,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplatePreProvisioningHook | undefined>;
+    public readonly preProvisioningHook!: pulumi.Output<outputs.ProvisioningTemplatePreProvisioningHook | undefined>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
@@ -235,7 +234,7 @@ export interface ProvisioningTemplateState {
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook>;
+    preProvisioningHook?: pulumi.Input<inputs.ProvisioningTemplatePreProvisioningHook>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */
@@ -279,7 +278,7 @@ export interface ProvisioningTemplateArgs {
     /**
      * Creates a pre-provisioning hook template. Details below.
      */
-    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplatePreProvisioningHook>;
+    preProvisioningHook?: pulumi.Input<inputs.ProvisioningTemplatePreProvisioningHook>;
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      */

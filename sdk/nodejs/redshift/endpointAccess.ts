@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class EndpointAccess extends pulumi.CustomResource {
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      */
-    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshift.EndpointAccessVpcEndpoint[]>;
+    public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.EndpointAccessVpcEndpoint[]>;
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */
@@ -169,7 +168,7 @@ export interface EndpointAccessState {
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      */
-    vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshift.EndpointAccessVpcEndpoint>[]>;
+    vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.EndpointAccessVpcEndpoint>[]>;
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */

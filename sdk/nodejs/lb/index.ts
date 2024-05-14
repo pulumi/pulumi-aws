@@ -76,6 +76,15 @@ export const TrustStoreRevocation: typeof import("./trustStoreRevocation").Trust
 utilities.lazyLoad(exports, ["TrustStoreRevocation"], () => require("./trustStoreRevocation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

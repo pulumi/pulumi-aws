@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -176,7 +175,7 @@ export class EventConnection extends pulumi.CustomResource {
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
-    public readonly authParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionAuthParameters>;
+    public readonly authParameters!: pulumi.Output<outputs.EventConnectionAuthParameters>;
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
@@ -244,7 +243,7 @@ export interface EventConnectionState {
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
-    authParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
+    authParameters?: pulumi.Input<inputs.EventConnectionAuthParameters>;
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
@@ -270,7 +269,7 @@ export interface EventConnectionArgs {
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      */
-    authParameters: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
+    authParameters: pulumi.Input<inputs.EventConnectionAuthParameters>;
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */

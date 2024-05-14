@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.EndpointGroupEndpointConfiguration[] | undefined>;
+    public readonly endpointConfigurations!: pulumi.Output<outputs.EndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
@@ -97,7 +96,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
+    public readonly portOverrides!: pulumi.Output<outputs.EndpointGroupPortOverride[] | undefined>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
@@ -164,7 +163,7 @@ export interface EndpointGroupState {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.EndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
@@ -193,7 +192,7 @@ export interface EndpointGroupState {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
@@ -211,7 +210,7 @@ export interface EndpointGroupArgs {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.EndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
@@ -240,7 +239,7 @@ export interface EndpointGroupArgs {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */

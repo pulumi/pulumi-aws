@@ -9,3 +9,12 @@ export const getProduct: typeof import("./getProduct").getProduct = null as any;
 export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
 utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
 
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};

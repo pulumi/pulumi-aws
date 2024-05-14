@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +58,7 @@ export class Deployment extends pulumi.CustomResource {
      * The current status of the App Runner service deployment.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.apprunner.DeploymentTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DeploymentTimeouts | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -109,7 +108,7 @@ export interface DeploymentState {
      * The current status of the App Runner service deployment.
      */
     status?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.DeploymentTimeouts>;
 }
 
 /**
@@ -120,5 +119,5 @@ export interface DeploymentArgs {
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     serviceArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts>;
+    timeouts?: pulumi.Input<inputs.DeploymentTimeouts>;
 }

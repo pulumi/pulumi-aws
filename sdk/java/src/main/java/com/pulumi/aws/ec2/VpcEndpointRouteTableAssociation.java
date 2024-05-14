@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointRouteTableAssociation("example", VpcEndpointRouteTableAssociationArgs.builder()        
+ *         var example = new VpcEndpointRouteTableAssociation("example", VpcEndpointRouteTableAssociationArgs.builder()
  *             .routeTableId(exampleAwsRouteTable.id())
  *             .vpcEndpointId(exampleAwsVpcEndpoint.id())
  *             .build());

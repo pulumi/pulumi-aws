@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +93,7 @@ export interface GetFirewallResult {
     /**
      * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
      */
-    readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
+    readonly encryptionConfigurations: outputs.GetFirewallEncryptionConfiguration[];
     /**
      * ARN of the VPC Firewall policy.
      */
@@ -106,7 +105,7 @@ export interface GetFirewallResult {
     /**
      * Nested list of information about the current status of the firewall.
      */
-    readonly firewallStatuses: outputs.networkfirewall.GetFirewallFirewallStatus[];
+    readonly firewallStatuses: outputs.GetFirewallFirewallStatus[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -122,7 +121,7 @@ export interface GetFirewallResult {
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
      */
-    readonly subnetMappings: outputs.networkfirewall.GetFirewallSubnetMapping[];
+    readonly subnetMappings: outputs.GetFirewallSubnetMapping[];
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

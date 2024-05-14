@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +39,7 @@ export interface GetImagePipelinesArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.imagebuilder.GetImagePipelinesFilter[];
+    filters?: inputs.GetImagePipelinesFilter[];
 }
 
 /**
@@ -51,7 +50,7 @@ export interface GetImagePipelinesResult {
      * Set of ARNs of the matched Image Builder Image Pipelines.
      */
     readonly arns: string[];
-    readonly filters?: outputs.imagebuilder.GetImagePipelinesFilter[];
+    readonly filters?: inputs.GetImagePipelinesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -89,5 +88,5 @@ export interface GetImagePipelinesOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImagePipelinesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetImagePipelinesFilterArgs>[]>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * A backupPolicy object (documented below).
      */
-    public readonly backupPolicy!: pulumi.Output<outputs.efs.BackupPolicyBackupPolicy>;
+    public readonly backupPolicy!: pulumi.Output<outputs.BackupPolicyBackupPolicy>;
     /**
      * The ID of the EFS file system.
      */
@@ -109,7 +108,7 @@ export interface BackupPolicyState {
     /**
      * A backupPolicy object (documented below).
      */
-    backupPolicy?: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy>;
+    backupPolicy?: pulumi.Input<inputs.BackupPolicyBackupPolicy>;
     /**
      * The ID of the EFS file system.
      */
@@ -123,7 +122,7 @@ export interface BackupPolicyArgs {
     /**
      * A backupPolicy object (documented below).
      */
-    backupPolicy: pulumi.Input<inputs.efs.BackupPolicyBackupPolicy>;
+    backupPolicy: pulumi.Input<inputs.BackupPolicyBackupPolicy>;
     /**
      * The ID of the EFS file system.
      */

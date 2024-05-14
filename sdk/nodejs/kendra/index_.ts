@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -626,7 +625,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
-    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnits>;
+    public readonly capacityUnits!: pulumi.Output<outputs.IndexCapacityUnits>;
     /**
      * The Unix datetime that the index was created.
      */
@@ -638,7 +637,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfigurationUpdate[]>;
+    public readonly documentMetadataConfigurationUpdates!: pulumi.Output<outputs.IndexDocumentMetadataConfigurationUpdate[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -650,7 +649,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
-    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.kendra.IndexIndexStatistic[]>;
+    public /*out*/ readonly indexStatistics!: pulumi.Output<outputs.IndexIndexStatistic[]>;
     /**
      * Specifies the name of the Index.
      */
@@ -662,7 +661,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.IndexServerSideEncryptionConfiguration | undefined>;
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
@@ -689,11 +688,11 @@ export class Index extends pulumi.CustomResource {
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
-    public readonly userGroupResolutionConfiguration!: pulumi.Output<outputs.kendra.IndexUserGroupResolutionConfiguration | undefined>;
+    public readonly userGroupResolutionConfiguration!: pulumi.Output<outputs.IndexUserGroupResolutionConfiguration | undefined>;
     /**
      * A block that specifies the user token configuration. Detailed below.
      */
-    public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfigurations | undefined>;
+    public readonly userTokenConfigurations!: pulumi.Output<outputs.IndexUserTokenConfigurations | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -766,7 +765,7 @@ export interface IndexState {
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
-    capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnits>;
+    capacityUnits?: pulumi.Input<inputs.IndexCapacityUnits>;
     /**
      * The Unix datetime that the index was created.
      */
@@ -778,7 +777,7 @@ export interface IndexState {
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationUpdate>[]>;
+    documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.IndexDocumentMetadataConfigurationUpdate>[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -790,7 +789,7 @@ export interface IndexState {
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      */
-    indexStatistics?: pulumi.Input<pulumi.Input<inputs.kendra.IndexIndexStatistic>[]>;
+    indexStatistics?: pulumi.Input<pulumi.Input<inputs.IndexIndexStatistic>[]>;
     /**
      * Specifies the name of the Index.
      */
@@ -802,7 +801,7 @@ export interface IndexState {
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.IndexServerSideEncryptionConfiguration>;
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
@@ -829,11 +828,11 @@ export interface IndexState {
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
-    userGroupResolutionConfiguration?: pulumi.Input<inputs.kendra.IndexUserGroupResolutionConfiguration>;
+    userGroupResolutionConfiguration?: pulumi.Input<inputs.IndexUserGroupResolutionConfiguration>;
     /**
      * A block that specifies the user token configuration. Detailed below.
      */
-    userTokenConfigurations?: pulumi.Input<inputs.kendra.IndexUserTokenConfigurations>;
+    userTokenConfigurations?: pulumi.Input<inputs.IndexUserTokenConfigurations>;
 }
 
 /**
@@ -843,7 +842,7 @@ export interface IndexArgs {
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      */
-    capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnits>;
+    capacityUnits?: pulumi.Input<inputs.IndexCapacityUnits>;
     /**
      * The description of the Index.
      */
@@ -851,7 +850,7 @@ export interface IndexArgs {
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      */
-    documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationUpdate>[]>;
+    documentMetadataConfigurationUpdates?: pulumi.Input<pulumi.Input<inputs.IndexDocumentMetadataConfigurationUpdate>[]>;
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
      */
@@ -867,7 +866,7 @@ export interface IndexArgs {
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.IndexServerSideEncryptionConfiguration>;
     /**
      * Tags to apply to the Index. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -880,9 +879,9 @@ export interface IndexArgs {
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      */
-    userGroupResolutionConfiguration?: pulumi.Input<inputs.kendra.IndexUserGroupResolutionConfiguration>;
+    userGroupResolutionConfiguration?: pulumi.Input<inputs.IndexUserGroupResolutionConfiguration>;
     /**
      * A block that specifies the user token configuration. Detailed below.
      */
-    userTokenConfigurations?: pulumi.Input<inputs.kendra.IndexUserTokenConfigurations>;
+    userTokenConfigurations?: pulumi.Input<inputs.IndexUserTokenConfigurations>;
 }

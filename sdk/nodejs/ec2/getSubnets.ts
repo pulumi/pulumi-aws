@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -27,7 +27,7 @@ export interface GetSubnetsArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetSubnetsFilter[];
+    filters?: inputs.GetSubnetsFilter[];
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
@@ -42,7 +42,7 @@ export interface GetSubnetsArgs {
  * A collection of values returned by getSubnets.
  */
 export interface GetSubnetsResult {
-    readonly filters?: outputs.ec2.GetSubnetsFilter[];
+    readonly filters?: inputs.GetSubnetsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -67,7 +67,7 @@ export interface GetSubnetsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetSubnetsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.

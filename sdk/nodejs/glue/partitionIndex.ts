@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -141,7 +140,7 @@ export class PartitionIndex extends pulumi.CustomResource {
     /**
      * Configuration block for a partition index. See `partitionIndex` below.
      */
-    public readonly partitionIndex!: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
+    public readonly partitionIndex!: pulumi.Output<outputs.PartitionIndexPartitionIndex>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
@@ -200,7 +199,7 @@ export interface PartitionIndexState {
     /**
      * Configuration block for a partition index. See `partitionIndex` below.
      */
-    partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
+    partitionIndex?: pulumi.Input<inputs.PartitionIndexPartitionIndex>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
@@ -222,7 +221,7 @@ export interface PartitionIndexArgs {
     /**
      * Configuration block for a partition index. See `partitionIndex` below.
      */
-    partitionIndex: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
+    partitionIndex: pulumi.Input<inputs.PartitionIndexPartitionIndex>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */

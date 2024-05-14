@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +38,7 @@ export interface GetTableArgs {
      * Name of the DynamoDB table.
      */
     name: string;
-    serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
+    serverSideEncryption?: inputs.GetTableServerSideEncryption;
     tags?: {[key: string]: string};
 }
 
@@ -48,29 +47,29 @@ export interface GetTableArgs {
  */
 export interface GetTableResult {
     readonly arn: string;
-    readonly attributes: outputs.dynamodb.GetTableAttribute[];
+    readonly attributes: outputs.GetTableAttribute[];
     readonly billingMode: string;
     readonly deletionProtectionEnabled: boolean;
-    readonly globalSecondaryIndexes: outputs.dynamodb.GetTableGlobalSecondaryIndex[];
+    readonly globalSecondaryIndexes: outputs.GetTableGlobalSecondaryIndex[];
     readonly hashKey: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
+    readonly localSecondaryIndexes: outputs.GetTableLocalSecondaryIndex[];
     readonly name: string;
-    readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
+    readonly pointInTimeRecovery: outputs.GetTablePointInTimeRecovery;
     readonly rangeKey: string;
     readonly readCapacity: number;
-    readonly replicas: outputs.dynamodb.GetTableReplica[];
-    readonly serverSideEncryption: outputs.dynamodb.GetTableServerSideEncryption;
+    readonly replicas: outputs.GetTableReplica[];
+    readonly serverSideEncryption: inputs.GetTableServerSideEncryption;
     readonly streamArn: string;
     readonly streamEnabled: boolean;
     readonly streamLabel: string;
     readonly streamViewType: string;
     readonly tableClass: string;
     readonly tags: {[key: string]: string};
-    readonly ttl: outputs.dynamodb.GetTableTtl;
+    readonly ttl: outputs.GetTableTtl;
     readonly writeCapacity: number;
 }
 /**
@@ -99,6 +98,6 @@ export interface GetTableOutputArgs {
      * Name of the DynamoDB table.
      */
     name: pulumi.Input<string>;
-    serverSideEncryption?: pulumi.Input<inputs.dynamodb.GetTableServerSideEncryptionArgs>;
+    serverSideEncryption?: pulumi.Input<inputs.GetTableServerSideEncryptionArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

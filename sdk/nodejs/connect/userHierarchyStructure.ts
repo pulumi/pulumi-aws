@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +95,7 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
     /**
      * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    public readonly hierarchyStructure!: pulumi.Output<outputs.connect.UserHierarchyStructureHierarchyStructure>;
+    public readonly hierarchyStructure!: pulumi.Output<outputs.UserHierarchyStructureHierarchyStructure>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -140,7 +139,7 @@ export interface UserHierarchyStructureState {
     /**
      * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    hierarchyStructure?: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
+    hierarchyStructure?: pulumi.Input<inputs.UserHierarchyStructureHierarchyStructure>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -154,7 +153,7 @@ export interface UserHierarchyStructureArgs {
     /**
      * A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
      */
-    hierarchyStructure: pulumi.Input<inputs.connect.UserHierarchyStructureHierarchyStructure>;
+    hierarchyStructure: pulumi.Input<inputs.UserHierarchyStructureHierarchyStructure>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */

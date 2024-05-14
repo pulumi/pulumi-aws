@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class VoiceConnectorOrganization extends pulumi.CustomResource {
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
-    public readonly routes!: pulumi.Output<outputs.chime.VoiceConnectorOrganizationRoute[]>;
+    public readonly routes!: pulumi.Output<outputs.VoiceConnectorOrganizationRoute[]>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
@@ -135,7 +134,7 @@ export interface VoiceConnectorOrganizationState {
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOrganizationRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.VoiceConnectorOrganizationRoute>[]>;
     /**
      * The Amazon Chime Voice Connector ID.
      */
@@ -153,7 +152,7 @@ export interface VoiceConnectorOrganizationArgs {
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
-    routes: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOrganizationRoute>[]>;
+    routes: pulumi.Input<pulumi.Input<inputs.VoiceConnectorOrganizationRoute>[]>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

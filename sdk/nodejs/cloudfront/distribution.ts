@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -297,8 +296,8 @@ export class Distribution extends pulumi.CustomResource {
     public /*out*/ readonly callerReference!: pulumi.Output<string>;
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly continuousDeploymentPolicyId!: pulumi.Output<string>;
-    public readonly customErrorResponses!: pulumi.Output<outputs.cloudfront.DistributionCustomErrorResponse[] | undefined>;
-    public readonly defaultCacheBehavior!: pulumi.Output<outputs.cloudfront.DistributionDefaultCacheBehavior>;
+    public readonly customErrorResponses!: pulumi.Output<outputs.DistributionCustomErrorResponse[] | undefined>;
+    public readonly defaultCacheBehavior!: pulumi.Output<outputs.DistributionDefaultCacheBehavior>;
     public readonly defaultRootObject!: pulumi.Output<string | undefined>;
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
@@ -326,12 +325,12 @@ export class Distribution extends pulumi.CustomResource {
      * Date and time the distribution was last modified.
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    public readonly loggingConfig!: pulumi.Output<outputs.cloudfront.DistributionLoggingConfig | undefined>;
-    public readonly orderedCacheBehaviors!: pulumi.Output<outputs.cloudfront.DistributionOrderedCacheBehavior[] | undefined>;
-    public readonly originGroups!: pulumi.Output<outputs.cloudfront.DistributionOriginGroup[] | undefined>;
-    public readonly origins!: pulumi.Output<outputs.cloudfront.DistributionOrigin[]>;
+    public readonly loggingConfig!: pulumi.Output<outputs.DistributionLoggingConfig | undefined>;
+    public readonly orderedCacheBehaviors!: pulumi.Output<outputs.DistributionOrderedCacheBehavior[] | undefined>;
+    public readonly originGroups!: pulumi.Output<outputs.DistributionOriginGroup[] | undefined>;
+    public readonly origins!: pulumi.Output<outputs.DistributionOrigin[]>;
     public readonly priceClass!: pulumi.Output<string | undefined>;
-    public readonly restrictions!: pulumi.Output<outputs.cloudfront.DistributionRestrictions>;
+    public readonly restrictions!: pulumi.Output<outputs.DistributionRestrictions>;
     public readonly retainOnDelete!: pulumi.Output<boolean | undefined>;
     public readonly staging!: pulumi.Output<boolean | undefined>;
     /**
@@ -348,12 +347,12 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      */
-    public /*out*/ readonly trustedKeyGroups!: pulumi.Output<outputs.cloudfront.DistributionTrustedKeyGroup[]>;
+    public /*out*/ readonly trustedKeyGroups!: pulumi.Output<outputs.DistributionTrustedKeyGroup[]>;
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      */
-    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.cloudfront.DistributionTrustedSigner[]>;
-    public readonly viewerCertificate!: pulumi.Output<outputs.cloudfront.DistributionViewerCertificate>;
+    public /*out*/ readonly trustedSigners!: pulumi.Output<outputs.DistributionTrustedSigner[]>;
+    public readonly viewerCertificate!: pulumi.Output<outputs.DistributionViewerCertificate>;
     public readonly waitForDeployment!: pulumi.Output<boolean | undefined>;
     public readonly webAclId!: pulumi.Output<string | undefined>;
 
@@ -472,8 +471,8 @@ export interface DistributionState {
     callerReference?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
     continuousDeploymentPolicyId?: pulumi.Input<string>;
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
-    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.DistributionCustomErrorResponse>[]>;
+    defaultCacheBehavior?: pulumi.Input<inputs.DistributionDefaultCacheBehavior>;
     defaultRootObject?: pulumi.Input<string>;
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
@@ -501,12 +500,12 @@ export interface DistributionState {
      * Date and time the distribution was last modified.
      */
     lastModifiedTime?: pulumi.Input<string>;
-    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
-    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
-    origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
+    loggingConfig?: pulumi.Input<inputs.DistributionLoggingConfig>;
+    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.DistributionOrderedCacheBehavior>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.DistributionOriginGroup>[]>;
+    origins?: pulumi.Input<pulumi.Input<inputs.DistributionOrigin>[]>;
     priceClass?: pulumi.Input<string>;
-    restrictions?: pulumi.Input<inputs.cloudfront.DistributionRestrictions>;
+    restrictions?: pulumi.Input<inputs.DistributionRestrictions>;
     retainOnDelete?: pulumi.Input<boolean>;
     staging?: pulumi.Input<boolean>;
     /**
@@ -523,12 +522,12 @@ export interface DistributionState {
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      */
-    trustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedKeyGroup>[]>;
+    trustedKeyGroups?: pulumi.Input<pulumi.Input<inputs.DistributionTrustedKeyGroup>[]>;
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      */
-    trustedSigners?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTrustedSigner>[]>;
-    viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    trustedSigners?: pulumi.Input<pulumi.Input<inputs.DistributionTrustedSigner>[]>;
+    viewerCertificate?: pulumi.Input<inputs.DistributionViewerCertificate>;
     waitForDeployment?: pulumi.Input<boolean>;
     webAclId?: pulumi.Input<string>;
 }
@@ -540,8 +539,8 @@ export interface DistributionArgs {
     aliases?: pulumi.Input<pulumi.Input<string>[]>;
     comment?: pulumi.Input<string>;
     continuousDeploymentPolicyId?: pulumi.Input<string>;
-    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponse>[]>;
-    defaultCacheBehavior: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehavior>;
+    customErrorResponses?: pulumi.Input<pulumi.Input<inputs.DistributionCustomErrorResponse>[]>;
+    defaultCacheBehavior: pulumi.Input<inputs.DistributionDefaultCacheBehavior>;
     defaultRootObject?: pulumi.Input<string>;
     /**
      * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
@@ -549,16 +548,16 @@ export interface DistributionArgs {
     enabled: pulumi.Input<boolean>;
     httpVersion?: pulumi.Input<string>;
     isIpv6Enabled?: pulumi.Input<boolean>;
-    loggingConfig?: pulumi.Input<inputs.cloudfront.DistributionLoggingConfig>;
-    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehavior>[]>;
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroup>[]>;
-    origins: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrigin>[]>;
+    loggingConfig?: pulumi.Input<inputs.DistributionLoggingConfig>;
+    orderedCacheBehaviors?: pulumi.Input<pulumi.Input<inputs.DistributionOrderedCacheBehavior>[]>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.DistributionOriginGroup>[]>;
+    origins: pulumi.Input<pulumi.Input<inputs.DistributionOrigin>[]>;
     priceClass?: pulumi.Input<string>;
-    restrictions: pulumi.Input<inputs.cloudfront.DistributionRestrictions>;
+    restrictions: pulumi.Input<inputs.DistributionRestrictions>;
     retainOnDelete?: pulumi.Input<boolean>;
     staging?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    viewerCertificate: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
+    viewerCertificate: pulumi.Input<inputs.DistributionViewerCertificate>;
     waitForDeployment?: pulumi.Input<boolean>;
     webAclId?: pulumi.Input<string>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -245,7 +244,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
-    public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    public readonly eksProperties!: pulumi.Output<outputs.JobDefinitionEksProperties | undefined>;
     /**
      * Specifies the name of the job definition.
      */
@@ -269,7 +268,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    public readonly retryStrategy!: pulumi.Output<outputs.JobDefinitionRetryStrategy | undefined>;
     /**
      * The revision of the job definition.
      */
@@ -291,7 +290,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<outputs.JobDefinitionTimeout | undefined>;
     /**
      * The type of job definition. Must be `container` or `multinode`.
      *
@@ -380,7 +379,7 @@ export interface JobDefinitionState {
     /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
-    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties>;
+    eksProperties?: pulumi.Input<inputs.JobDefinitionEksProperties>;
     /**
      * Specifies the name of the job definition.
      */
@@ -404,7 +403,7 @@ export interface JobDefinitionState {
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.JobDefinitionRetryStrategy>;
     /**
      * The revision of the job definition.
      */
@@ -426,7 +425,7 @@ export interface JobDefinitionState {
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    timeout?: pulumi.Input<inputs.JobDefinitionTimeout>;
     /**
      * The type of job definition. Must be `container` or `multinode`.
      *
@@ -450,7 +449,7 @@ export interface JobDefinitionArgs {
     /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
-    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksProperties>;
+    eksProperties?: pulumi.Input<inputs.JobDefinitionEksProperties>;
     /**
      * Specifies the name of the job definition.
      */
@@ -474,7 +473,7 @@ export interface JobDefinitionArgs {
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.JobDefinitionRetryStrategy>;
     /**
      * The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      */
@@ -486,7 +485,7 @@ export interface JobDefinitionArgs {
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    timeout?: pulumi.Input<inputs.JobDefinitionTimeout>;
     /**
      * The type of job definition. Must be `container` or `multinode`.
      *

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -196,7 +195,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
-    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamExcludeFilter[] | undefined>;
+    public readonly excludeFilters!: pulumi.Output<outputs.MetricStreamExcludeFilter[] | undefined>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
@@ -204,7 +203,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
-    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamIncludeFilter[] | undefined>;
+    public readonly includeFilters!: pulumi.Output<outputs.MetricStreamIncludeFilter[] | undefined>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
      */
@@ -238,7 +237,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      */
-    public readonly statisticsConfigurations!: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
+    public readonly statisticsConfigurations!: pulumi.Output<outputs.MetricStreamStatisticsConfiguration[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -325,7 +324,7 @@ export interface MetricStreamState {
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
-    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.MetricStreamExcludeFilter>[]>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
@@ -333,7 +332,7 @@ export interface MetricStreamState {
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
-    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.MetricStreamIncludeFilter>[]>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
      */
@@ -367,7 +366,7 @@ export interface MetricStreamState {
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      */
-    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfiguration>[]>;
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.MetricStreamStatisticsConfiguration>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -387,7 +386,7 @@ export interface MetricStreamArgs {
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
-    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.MetricStreamExcludeFilter>[]>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
@@ -395,7 +394,7 @@ export interface MetricStreamArgs {
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
-    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.MetricStreamIncludeFilter>[]>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
      */
@@ -421,7 +420,7 @@ export interface MetricStreamArgs {
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      */
-    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfiguration>[]>;
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.MetricStreamStatisticsConfiguration>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

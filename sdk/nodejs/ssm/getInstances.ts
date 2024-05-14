@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -40,14 +40,14 @@ export interface GetInstancesArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ssm.GetInstancesFilter[];
+    filters?: inputs.GetInstancesFilter[];
 }
 
 /**
  * A collection of values returned by getInstances.
  */
 export interface GetInstancesResult {
-    readonly filters?: outputs.ssm.GetInstancesFilter[];
+    readonly filters?: inputs.GetInstancesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -85,5 +85,5 @@ export interface GetInstancesOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetInstancesFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetInstancesFilterArgs>[]>;
 }

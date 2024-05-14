@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,7 +124,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
+    public readonly logConfiguration!: pulumi.Output<outputs.LustreFileSystemLogConfiguration>;
     /**
      * The value to be used when mounting the filesystem.
      */
@@ -145,7 +144,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
      */
-    public readonly rootSquashConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemRootSquashConfiguration | undefined>;
+    public readonly rootSquashConfiguration!: pulumi.Output<outputs.LustreFileSystemRootSquashConfiguration | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -330,7 +329,7 @@ export interface LustreFileSystemState {
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
-    logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.LustreFileSystemLogConfiguration>;
     /**
      * The value to be used when mounting the filesystem.
      */
@@ -350,7 +349,7 @@ export interface LustreFileSystemState {
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
      */
-    rootSquashConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemRootSquashConfiguration>;
+    rootSquashConfiguration?: pulumi.Input<inputs.LustreFileSystemRootSquashConfiguration>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -446,7 +445,7 @@ export interface LustreFileSystemArgs {
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
-    logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.LustreFileSystemLogConfiguration>;
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */
@@ -454,7 +453,7 @@ export interface LustreFileSystemArgs {
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
      */
-    rootSquashConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemRootSquashConfiguration>;
+    rootSquashConfiguration?: pulumi.Input<inputs.LustreFileSystemRootSquashConfiguration>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +100,7 @@ export class ProactiveEngagement extends pulumi.CustomResource {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    public readonly emergencyContacts!: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[] | undefined>;
+    public readonly emergencyContacts!: pulumi.Output<outputs.ProactiveEngagementEmergencyContact[] | undefined>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */
@@ -142,7 +141,7 @@ export interface ProactiveEngagementState {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
+    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.ProactiveEngagementEmergencyContact>[]>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */
@@ -156,7 +155,7 @@ export interface ProactiveEngagementArgs {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
+    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.ProactiveEngagementEmergencyContact>[]>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */

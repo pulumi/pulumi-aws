@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      */
-    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[]>;
+    public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.CertificateDomainValidationOption[]>;
     /**
      * The name of the Lightsail load balancer.
      */
@@ -150,7 +149,7 @@ export interface CertificateState {
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      */
-    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.lightsail.CertificateDomainValidationOption>[]>;
+    domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.CertificateDomainValidationOption>[]>;
     /**
      * The name of the Lightsail load balancer.
      */

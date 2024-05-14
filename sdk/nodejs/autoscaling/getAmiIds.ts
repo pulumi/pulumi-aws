@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +58,7 @@ export interface GetAmiIdsArgs {
     /**
      * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    filters?: inputs.autoscaling.GetAmiIdsFilter[];
+    filters?: inputs.GetAmiIdsFilter[];
     /**
      * List of autoscaling group names
      */
@@ -73,7 +73,7 @@ export interface GetAmiIdsResult {
      * List of the Autoscaling Groups Arns in the current region.
      */
     readonly arns: string[];
-    readonly filters?: outputs.autoscaling.GetAmiIdsFilter[];
+    readonly filters?: inputs.GetAmiIdsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -128,7 +128,7 @@ export interface GetAmiIdsOutputArgs {
     /**
      * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAmiIdsFilterArgs>[]>;
     /**
      * List of autoscaling group names
      */

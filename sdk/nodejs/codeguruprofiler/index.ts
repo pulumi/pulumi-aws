@@ -16,6 +16,15 @@ export const ProfilingGroup: typeof import("./profilingGroup").ProfilingGroup = 
 utilities.lazyLoad(exports, ["ProfilingGroup"], () => require("./profilingGroup"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

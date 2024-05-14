@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +75,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      */
-    public readonly ingressVpcConfiguration!: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
+    public readonly ingressVpcConfiguration!: pulumi.Output<outputs.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
@@ -158,7 +157,7 @@ export interface VpcIngressConnectionState {
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      */
-    ingressVpcConfiguration?: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
+    ingressVpcConfiguration?: pulumi.Input<inputs.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
@@ -190,7 +189,7 @@ export interface VpcIngressConnectionArgs {
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      */
-    ingressVpcConfiguration: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
+    ingressVpcConfiguration: pulumi.Input<inputs.VpcIngressConnectionIngressVpcConfiguration>;
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */

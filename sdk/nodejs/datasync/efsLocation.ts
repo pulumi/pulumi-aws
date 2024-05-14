@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -76,7 +75,7 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    public readonly ec2Config!: pulumi.Output<outputs.datasync.EfsLocationEc2Config>;
+    public readonly ec2Config!: pulumi.Output<outputs.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
@@ -167,7 +166,7 @@ export interface EfsLocationState {
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    ec2Config?: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
+    ec2Config?: pulumi.Input<inputs.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
@@ -208,7 +207,7 @@ export interface EfsLocationArgs {
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    ec2Config: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
+    ec2Config: pulumi.Input<inputs.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */

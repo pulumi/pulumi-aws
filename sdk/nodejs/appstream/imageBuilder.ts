@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    public readonly accessEndpoints!: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
+    public readonly accessEndpoints!: pulumi.Output<outputs.ImageBuilderAccessEndpoint[] | undefined>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
@@ -95,7 +94,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    public readonly domainJoinInfo!: pulumi.Output<outputs.appstream.ImageBuilderDomainJoinInfo>;
+    public readonly domainJoinInfo!: pulumi.Output<outputs.ImageBuilderDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the image builder.
      */
@@ -139,7 +138,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.ImageBuilderVpcConfig>;
 
     /**
      * Create a ImageBuilder resource with the given unique name, arguments, and options.
@@ -206,7 +205,7 @@ export interface ImageBuilderState {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.ImageBuilderAccessEndpoint>[]>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
@@ -230,7 +229,7 @@ export interface ImageBuilderState {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.ImageBuilderDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the image builder.
      */
@@ -274,7 +273,7 @@ export interface ImageBuilderState {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ImageBuilderVpcConfig>;
 }
 
 /**
@@ -284,7 +283,7 @@ export interface ImageBuilderArgs {
     /**
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpoint>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.ImageBuilderAccessEndpoint>[]>;
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      */
@@ -300,7 +299,7 @@ export interface ImageBuilderArgs {
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      */
-    domainJoinInfo?: pulumi.Input<inputs.appstream.ImageBuilderDomainJoinInfo>;
+    domainJoinInfo?: pulumi.Input<inputs.ImageBuilderDomainJoinInfo>;
     /**
      * Enables or disables default internet access for the image builder.
      */
@@ -334,5 +333,5 @@ export interface ImageBuilderArgs {
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
-    vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ImageBuilderVpcConfig>;
 }

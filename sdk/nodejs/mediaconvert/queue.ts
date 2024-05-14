@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    public readonly reservationPlanSettings!: pulumi.Output<outputs.mediaconvert.QueueReservationPlanSettings>;
+    public readonly reservationPlanSettings!: pulumi.Output<outputs.QueueReservationPlanSettings>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */
@@ -150,7 +149,7 @@ export interface QueueState {
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    reservationPlanSettings?: pulumi.Input<inputs.QueueReservationPlanSettings>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */
@@ -186,7 +185,7 @@ export interface QueueArgs {
     /**
      * A detail pricing plan of the  reserved queue. See below.
      */
-    reservationPlanSettings?: pulumi.Input<inputs.mediaconvert.QueueReservationPlanSettings>;
+    reservationPlanSettings?: pulumi.Input<inputs.QueueReservationPlanSettings>;
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      */

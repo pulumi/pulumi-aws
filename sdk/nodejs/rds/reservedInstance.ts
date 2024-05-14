@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -119,7 +119,7 @@ export class ReservedInstance extends pulumi.CustomResource {
     /**
      * Recurring price charged to run this reserved DB instance.
      */
-    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
+    public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.ReservedInstanceRecurringCharge[]>;
     /**
      * Customer-specified identifier to track this reservation.
      */
@@ -260,7 +260,7 @@ export interface ReservedInstanceState {
     /**
      * Recurring price charged to run this reserved DB instance.
      */
-    recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[]>;
+    recurringCharges?: pulumi.Input<pulumi.Input<inputs.ReservedInstanceRecurringCharge>[]>;
     /**
      * Customer-specified identifier to track this reservation.
      */

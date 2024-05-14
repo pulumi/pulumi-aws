@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,11 +89,11 @@ export class Image extends pulumi.CustomResource {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageScanningConfiguration>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ImageImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
@@ -112,7 +111,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * List of objects with resources created by the image.
      */
-    public /*out*/ readonly outputResources!: pulumi.Output<outputs.imagebuilder.ImageOutputResource[]>;
+    public /*out*/ readonly outputResources!: pulumi.Output<outputs.ImageOutputResource[]>;
     /**
      * Platform of the image.
      */
@@ -134,7 +133,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    public readonly workflows!: pulumi.Output<outputs.imagebuilder.ImageWorkflow[]>;
+    public readonly workflows!: pulumi.Output<outputs.ImageWorkflow[]>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -231,11 +230,11 @@ export interface ImageState {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ImageImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
@@ -253,7 +252,7 @@ export interface ImageState {
     /**
      * List of objects with resources created by the image.
      */
-    outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[]>;
+    outputResources?: pulumi.Input<pulumi.Input<inputs.ImageOutputResource>[]>;
     /**
      * Platform of the image.
      */
@@ -275,7 +274,7 @@ export interface ImageState {
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.ImageWorkflow>[]>;
 }
 
 /**
@@ -305,11 +304,11 @@ export interface ImageArgs {
     /**
      * Configuration block with image scanning configuration. Detailed below.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ImageImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      *
@@ -323,5 +322,5 @@ export interface ImageArgs {
     /**
      * Configuration block with the workflow configuration. Detailed below.
      */
-    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflow>[]>;
+    workflows?: pulumi.Input<pulumi.Input<inputs.ImageWorkflow>[]>;
 }

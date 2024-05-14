@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -103,7 +102,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition | undefined>;
+    public readonly definition!: pulumi.Output<outputs.ApplicationDefinition | undefined>;
     /**
      * Description of the application.
      */
@@ -136,7 +135,7 @@ export class Application extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.m2.ApplicationTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ApplicationTimeouts | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -205,7 +204,7 @@ export interface ApplicationState {
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    definition?: pulumi.Input<inputs.m2.ApplicationDefinition>;
+    definition?: pulumi.Input<inputs.ApplicationDefinition>;
     /**
      * Description of the application.
      */
@@ -238,7 +237,7 @@ export interface ApplicationState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.ApplicationTimeouts>;
+    timeouts?: pulumi.Input<inputs.ApplicationTimeouts>;
 }
 
 /**
@@ -248,7 +247,7 @@ export interface ApplicationArgs {
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      */
-    definition?: pulumi.Input<inputs.m2.ApplicationDefinition>;
+    definition?: pulumi.Input<inputs.ApplicationDefinition>;
     /**
      * Description of the application.
      */
@@ -275,5 +274,5 @@ export interface ApplicationArgs {
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.ApplicationTimeouts>;
+    timeouts?: pulumi.Input<inputs.ApplicationTimeouts>;
 }

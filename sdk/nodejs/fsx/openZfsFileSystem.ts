@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +92,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
@@ -125,7 +124,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
-    public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    public readonly rootVolumeConfiguration!: pulumi.Output<outputs.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
@@ -298,7 +297,7 @@ export interface OpenZfsFileSystemState {
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
@@ -330,7 +329,7 @@ export interface OpenZfsFileSystemState {
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
-    rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    rootVolumeConfiguration?: pulumi.Input<inputs.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
@@ -414,7 +413,7 @@ export interface OpenZfsFileSystemArgs {
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      */
@@ -430,7 +429,7 @@ export interface OpenZfsFileSystemArgs {
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
-    rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    rootVolumeConfiguration?: pulumi.Input<inputs.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */

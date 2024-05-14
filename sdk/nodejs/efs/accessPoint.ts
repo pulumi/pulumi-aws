@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,11 +70,11 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
+    public readonly posixUser!: pulumi.Output<outputs.AccessPointPosixUser | undefined>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
+    public readonly rootDirectory!: pulumi.Output<outputs.AccessPointRootDirectory>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
@@ -147,11 +146,11 @@ export interface AccessPointState {
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
+    posixUser?: pulumi.Input<inputs.AccessPointPosixUser>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
+    rootDirectory?: pulumi.Input<inputs.AccessPointRootDirectory>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
@@ -175,11 +174,11 @@ export interface AccessPointArgs {
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      */
-    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
+    posixUser?: pulumi.Input<inputs.AccessPointPosixUser>;
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      */
-    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
+    rootDirectory?: pulumi.Input<inputs.AccessPointRootDirectory>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

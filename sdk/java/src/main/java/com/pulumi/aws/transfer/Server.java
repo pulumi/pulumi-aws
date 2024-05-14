@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .tags(Map.of("Name", "Example"))
  *             .build());
  * 
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .securityPolicyName("TransferSecurityPolicy-2020-06")
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .addressAllocationIds(exampleAwsEip.id())
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("AWS_DIRECTORY_SERVICE")
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .build());
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("AWS_LAMBDA")
  *             .function(exampleAwsLambdaIdentityProvider.arn())
  *             .build());
@@ -239,7 +239,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .endpointType("VPC")
  *             .endpointDetails(ServerEndpointDetailsArgs.builder()
  *                 .subnetIds(exampleAwsSubnet.id())
@@ -290,7 +290,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var transfer = new LogGroup("transfer", LogGroupArgs.builder()        
+ *         var transfer = new LogGroup("transfer", LogGroupArgs.builder()
  *             .namePrefix("transfer_test_")
  *             .build());
  * 
@@ -305,13 +305,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamForTransfer = new Role("iamForTransfer", RoleArgs.builder()        
+ *         var iamForTransfer = new Role("iamForTransfer", RoleArgs.builder()
  *             .namePrefix("iam_for_transfer_")
  *             .assumeRolePolicy(transferAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .managedPolicyArns("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess")
  *             .build());
  * 
- *         var transferServer = new Server("transferServer", ServerArgs.builder()        
+ *         var transferServer = new Server("transferServer", ServerArgs.builder()
  *             .endpointType("PUBLIC")
  *             .loggingRole(iamForTransfer.arn())
  *             .protocols("SFTP")

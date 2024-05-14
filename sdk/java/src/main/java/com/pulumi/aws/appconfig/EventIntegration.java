@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventIntegration("example", EventIntegrationArgs.builder()        
+ *         var example = new EventIntegration("example", EventIntegrationArgs.builder()
  *             .name("example-name")
  *             .description("Example Description")
  *             .eventbridgeBus("default")

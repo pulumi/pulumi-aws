@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export class Environment extends pulumi.CustomResource {
      * Force update the environment even if applications are running.
      */
     public readonly forceUpdate!: pulumi.Output<boolean | undefined>;
-    public readonly highAvailabilityConfig!: pulumi.Output<outputs.m2.EnvironmentHighAvailabilityConfig | undefined>;
+    public readonly highAvailabilityConfig!: pulumi.Output<outputs.EnvironmentHighAvailabilityConfig | undefined>;
     /**
      * M2 Instance Type.
      *
@@ -101,7 +100,7 @@ export class Environment extends pulumi.CustomResource {
      * List of security group ids.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
-    public readonly storageConfiguration!: pulumi.Output<outputs.m2.EnvironmentStorageConfiguration | undefined>;
+    public readonly storageConfiguration!: pulumi.Output<outputs.EnvironmentStorageConfiguration | undefined>;
     /**
      * List of subnet ids to deploy environment to.
      */
@@ -114,7 +113,7 @@ export class Environment extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.m2.EnvironmentTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.EnvironmentTimeouts | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -209,7 +208,7 @@ export interface EnvironmentState {
      * Force update the environment even if applications are running.
      */
     forceUpdate?: pulumi.Input<boolean>;
-    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig>;
+    highAvailabilityConfig?: pulumi.Input<inputs.EnvironmentHighAvailabilityConfig>;
     /**
      * M2 Instance Type.
      *
@@ -240,7 +239,7 @@ export interface EnvironmentState {
      * List of security group ids.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.EnvironmentStorageConfiguration>;
     /**
      * List of subnet ids to deploy environment to.
      */
@@ -253,7 +252,7 @@ export interface EnvironmentState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts>;
+    timeouts?: pulumi.Input<inputs.EnvironmentTimeouts>;
 }
 
 /**
@@ -274,7 +273,7 @@ export interface EnvironmentArgs {
      * Force update the environment even if applications are running.
      */
     forceUpdate?: pulumi.Input<boolean>;
-    highAvailabilityConfig?: pulumi.Input<inputs.m2.EnvironmentHighAvailabilityConfig>;
+    highAvailabilityConfig?: pulumi.Input<inputs.EnvironmentHighAvailabilityConfig>;
     /**
      * M2 Instance Type.
      *
@@ -301,7 +300,7 @@ export interface EnvironmentArgs {
      * List of security group ids.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    storageConfiguration?: pulumi.Input<inputs.m2.EnvironmentStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.EnvironmentStorageConfiguration>;
     /**
      * List of subnet ids to deploy environment to.
      */
@@ -310,5 +309,5 @@ export interface EnvironmentArgs {
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.m2.EnvironmentTimeouts>;
+    timeouts?: pulumi.Input<inputs.EnvironmentTimeouts>;
 }

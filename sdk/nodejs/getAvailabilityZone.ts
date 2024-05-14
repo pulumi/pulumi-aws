@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
-import * as enums from "./types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "./utilities";
 
 /**
@@ -112,7 +112,7 @@ export interface GetAvailabilityZoneArgs {
  */
 export interface GetAvailabilityZoneResult {
     readonly allAvailabilityZones?: boolean;
-    readonly filters?: outputs.GetAvailabilityZoneFilter[];
+    readonly filters?: inputs.GetAvailabilityZoneFilter[];
     /**
      * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */

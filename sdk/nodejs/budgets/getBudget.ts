@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +61,7 @@ export interface GetBudgetResult {
     /**
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
-    readonly autoAdjustDatas: outputs.budgets.GetBudgetAutoAdjustData[];
+    readonly autoAdjustDatas: outputs.GetBudgetAutoAdjustData[];
     /**
      * Boolean indicating whether this budget has been exceeded.
      */
@@ -70,7 +69,7 @@ export interface GetBudgetResult {
     /**
      * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      */
-    readonly budgetLimits: outputs.budgets.GetBudgetBudgetLimit[];
+    readonly budgetLimits: outputs.GetBudgetBudgetLimit[];
     /**
      * Whether this budget tracks monetary cost or usage.
      */
@@ -78,15 +77,15 @@ export interface GetBudgetResult {
     /**
      * The spend objects that are associated with this budget. The actualSpend tracks how much you've used, cost, usage, RI units, or Savings Plans units and the forecastedSpend tracks how much that you're predicted to spend based on your historical usage profile.
      */
-    readonly calculatedSpends: outputs.budgets.GetBudgetCalculatedSpend[];
+    readonly calculatedSpends: outputs.GetBudgetCalculatedSpend[];
     /**
      * A list of CostFilter name/values pair to apply to budget.
      */
-    readonly costFilters: outputs.budgets.GetBudgetCostFilter[];
+    readonly costFilters: outputs.GetBudgetCostFilter[];
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
-    readonly costTypes: outputs.budgets.GetBudgetCostType[];
+    readonly costTypes: outputs.GetBudgetCostType[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -96,11 +95,11 @@ export interface GetBudgetResult {
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      */
-    readonly notifications: outputs.budgets.GetBudgetNotification[];
+    readonly notifications: outputs.GetBudgetNotification[];
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      */
-    readonly plannedLimits: outputs.budgets.GetBudgetPlannedLimit[];
+    readonly plannedLimits: outputs.GetBudgetPlannedLimit[];
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */

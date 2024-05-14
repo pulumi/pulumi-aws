@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +89,7 @@ export interface GetQuickConnectResult {
     /**
      * A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
      */
-    readonly quickConnectConfigs: outputs.connect.GetQuickConnectQuickConnectConfig[];
+    readonly quickConnectConfigs: outputs.GetQuickConnectQuickConnectConfig[];
     /**
      * Identifier for the Quick Connect.
      */

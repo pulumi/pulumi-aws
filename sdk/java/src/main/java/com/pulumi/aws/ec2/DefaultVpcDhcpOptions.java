@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DefaultVpcDhcpOptions("default", DefaultVpcDhcpOptionsArgs.builder()        
+ *         var default_ = new DefaultVpcDhcpOptions("default", DefaultVpcDhcpOptionsArgs.builder()
  *             .tags(Map.of("Name", "Default DHCP Option Set"))
  *             .build());
  * 

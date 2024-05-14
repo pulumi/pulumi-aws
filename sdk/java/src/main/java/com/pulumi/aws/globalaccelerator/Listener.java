@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Accelerator("example", AcceleratorArgs.builder()        
+ *         var example = new Accelerator("example", AcceleratorArgs.builder()
  *             .name("Example")
  *             .ipAddressType("IPV4")
  *             .enabled(true)
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
  *             .acceleratorArn(example.id())
  *             .clientAffinity("SOURCE_IP")
  *             .protocol("TCP")

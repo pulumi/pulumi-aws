@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -164,7 +164,7 @@ export class ObjectCopy extends pulumi.CustomResource {
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      */
-    public readonly grants!: pulumi.Output<outputs.s3.ObjectCopyGrant[] | undefined>;
+    public readonly grants!: pulumi.Output<outputs.ObjectCopyGrant[] | undefined>;
     /**
      * Name of the object once it is in the bucket.
      */
@@ -508,7 +508,7 @@ export interface ObjectCopyState {
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.ObjectCopyGrant>[]>;
     /**
      * Name of the object once it is in the bucket.
      */
@@ -691,7 +691,7 @@ export interface ObjectCopyArgs {
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.ObjectCopyGrant>[]>;
     /**
      * Name of the object once it is in the bucket.
      */

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -320,15 +320,15 @@ export class BucketNotification extends pulumi.CustomResource {
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    public readonly lambdaFunctions!: pulumi.Output<outputs.s3.BucketNotificationLambdaFunction[] | undefined>;
+    public readonly lambdaFunctions!: pulumi.Output<outputs.BucketNotificationLambdaFunction[] | undefined>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
+    public readonly queues!: pulumi.Output<outputs.BucketNotificationQueue[] | undefined>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    public readonly topics!: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
+    public readonly topics!: pulumi.Output<outputs.BucketNotificationTopic[] | undefined>;
 
     /**
      * Create a BucketNotification resource with the given unique name, arguments, and options.
@@ -381,15 +381,15 @@ export interface BucketNotificationState {
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.BucketNotificationLambdaFunction>[]>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.BucketNotificationQueue>[]>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.BucketNotificationTopic>[]>;
 }
 
 /**
@@ -409,13 +409,13 @@ export interface BucketNotificationArgs {
     /**
      * Used to configure notifications to a Lambda Function. See below.
      */
-    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.BucketNotificationLambdaFunction>[]>;
     /**
      * Notification configuration to SQS Queue. See below.
      */
-    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.BucketNotificationQueue>[]>;
     /**
      * Notification configuration to SNS Topic. See below.
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.BucketNotificationTopic>[]>;
 }

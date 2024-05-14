@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +55,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    public readonly addresses!: pulumi.Output<outputs.identitystore.UserAddresses | undefined>;
+    public readonly addresses!: pulumi.Output<outputs.UserAddresses | undefined>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
@@ -64,11 +63,11 @@ export class User extends pulumi.CustomResource {
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    public readonly emails!: pulumi.Output<outputs.identitystore.UserEmails | undefined>;
+    public readonly emails!: pulumi.Output<outputs.UserEmails | undefined>;
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      */
-    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.UserExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.UserExternalId[]>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
@@ -80,7 +79,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Details about the user's full name. Detailed below.
      */
-    public readonly name!: pulumi.Output<outputs.identitystore.UserName>;
+    public readonly name!: pulumi.Output<outputs.UserName>;
     /**
      * An alternate name for the user.
      */
@@ -88,7 +87,7 @@ export class User extends pulumi.CustomResource {
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    public readonly phoneNumbers!: pulumi.Output<outputs.identitystore.UserPhoneNumbers | undefined>;
+    public readonly phoneNumbers!: pulumi.Output<outputs.UserPhoneNumbers | undefined>;
     /**
      * The preferred language of the user.
      */
@@ -189,7 +188,7 @@ export interface UserState {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    addresses?: pulumi.Input<inputs.UserAddresses>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
@@ -197,11 +196,11 @@ export interface UserState {
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    emails?: pulumi.Input<inputs.UserEmails>;
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      */
-    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.UserExternalId>[]>;
+    externalIds?: pulumi.Input<pulumi.Input<inputs.UserExternalId>[]>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
@@ -213,7 +212,7 @@ export interface UserState {
     /**
      * Details about the user's full name. Detailed below.
      */
-    name?: pulumi.Input<inputs.identitystore.UserName>;
+    name?: pulumi.Input<inputs.UserName>;
     /**
      * An alternate name for the user.
      */
@@ -221,7 +220,7 @@ export interface UserState {
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    phoneNumbers?: pulumi.Input<inputs.UserPhoneNumbers>;
     /**
      * The preferred language of the user.
      */
@@ -261,7 +260,7 @@ export interface UserArgs {
     /**
      * Details about the user's address. At most 1 address is allowed. Detailed below.
      */
-    addresses?: pulumi.Input<inputs.identitystore.UserAddresses>;
+    addresses?: pulumi.Input<inputs.UserAddresses>;
     /**
      * The name that is typically displayed when the user is referenced.
      */
@@ -269,7 +268,7 @@ export interface UserArgs {
     /**
      * Details about the user's email. At most 1 email is allowed. Detailed below.
      */
-    emails?: pulumi.Input<inputs.identitystore.UserEmails>;
+    emails?: pulumi.Input<inputs.UserEmails>;
     /**
      * The globally unique identifier for the identity store that this user is in.
      */
@@ -281,7 +280,7 @@ export interface UserArgs {
     /**
      * Details about the user's full name. Detailed below.
      */
-    name?: pulumi.Input<inputs.identitystore.UserName>;
+    name?: pulumi.Input<inputs.UserName>;
     /**
      * An alternate name for the user.
      */
@@ -289,7 +288,7 @@ export interface UserArgs {
     /**
      * Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
      */
-    phoneNumbers?: pulumi.Input<inputs.identitystore.UserPhoneNumbers>;
+    phoneNumbers?: pulumi.Input<inputs.UserPhoneNumbers>;
     /**
      * The preferred language of the user.
      */

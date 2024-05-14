@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class OutboundConnection extends pulumi.CustomResource {
     /**
      * Configuration block for the outbound connection.
      */
-    public readonly connectionProperties!: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties>;
+    public readonly connectionProperties!: pulumi.Output<outputs.OutboundConnectionConnectionProperties>;
     /**
      * Status of the connection request.
      */
@@ -95,11 +94,11 @@ export class OutboundConnection extends pulumi.CustomResource {
     /**
      * Configuration block for the local Opensearch domain.
      */
-    public readonly localDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    public readonly localDomainInfo!: pulumi.Output<outputs.OutboundConnectionLocalDomainInfo>;
     /**
      * Configuration block for the remote Opensearch domain.
      */
-    public readonly remoteDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionRemoteDomainInfo>;
+    public readonly remoteDomainInfo!: pulumi.Output<outputs.OutboundConnectionRemoteDomainInfo>;
 
     /**
      * Create a OutboundConnection resource with the given unique name, arguments, and options.
@@ -164,7 +163,7 @@ export interface OutboundConnectionState {
     /**
      * Configuration block for the outbound connection.
      */
-    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
+    connectionProperties?: pulumi.Input<inputs.OutboundConnectionConnectionProperties>;
     /**
      * Status of the connection request.
      */
@@ -172,11 +171,11 @@ export interface OutboundConnectionState {
     /**
      * Configuration block for the local Opensearch domain.
      */
-    localDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    localDomainInfo?: pulumi.Input<inputs.OutboundConnectionLocalDomainInfo>;
     /**
      * Configuration block for the remote Opensearch domain.
      */
-    remoteDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionRemoteDomainInfo>;
+    remoteDomainInfo?: pulumi.Input<inputs.OutboundConnectionRemoteDomainInfo>;
 }
 
 /**
@@ -198,13 +197,13 @@ export interface OutboundConnectionArgs {
     /**
      * Configuration block for the outbound connection.
      */
-    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
+    connectionProperties?: pulumi.Input<inputs.OutboundConnectionConnectionProperties>;
     /**
      * Configuration block for the local Opensearch domain.
      */
-    localDomainInfo: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    localDomainInfo: pulumi.Input<inputs.OutboundConnectionLocalDomainInfo>;
     /**
      * Configuration block for the remote Opensearch domain.
      */
-    remoteDomainInfo: pulumi.Input<inputs.opensearch.OutboundConnectionRemoteDomainInfo>;
+    remoteDomainInfo: pulumi.Input<inputs.OutboundConnectionRemoteDomainInfo>;
 }

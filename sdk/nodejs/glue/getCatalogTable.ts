@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,11 +98,11 @@ export interface GetCatalogTableResult {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    readonly partitionIndices: outputs.glue.GetCatalogTablePartitionIndex[];
+    readonly partitionIndices: outputs.GetCatalogTablePartitionIndex[];
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    readonly partitionKeys: outputs.glue.GetCatalogTablePartitionKey[];
+    readonly partitionKeys: outputs.GetCatalogTablePartitionKey[];
     readonly queryAsOfTime?: string;
     /**
      * Retention time for this table.
@@ -112,7 +111,7 @@ export interface GetCatalogTableResult {
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    readonly storageDescriptors: outputs.glue.GetCatalogTableStorageDescriptor[];
+    readonly storageDescriptors: outputs.GetCatalogTableStorageDescriptor[];
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
@@ -120,7 +119,7 @@ export interface GetCatalogTableResult {
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    readonly targetTables: outputs.glue.GetCatalogTableTargetTable[];
+    readonly targetTables: outputs.GetCatalogTableTargetTable[];
     readonly transactionId?: number;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.

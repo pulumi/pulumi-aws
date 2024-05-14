@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityProfile("example", SecurityProfileArgs.builder()        
+ *         var example = new SecurityProfile("example", SecurityProfileArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("example")
  *             .description("example description")

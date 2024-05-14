@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +76,7 @@ export interface GetPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetPrefixListFilter[];
+    filters?: inputs.GetPrefixListFilter[];
     /**
      * Name of the prefix list to select.
      */
@@ -95,7 +95,7 @@ export interface GetPrefixListResult {
      * List of CIDR blocks for the AWS service associated with the prefix list.
      */
     readonly cidrBlocks: string[];
-    readonly filters?: outputs.ec2.GetPrefixListFilter[];
+    readonly filters?: inputs.GetPrefixListFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -168,7 +168,7 @@ export interface GetPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPrefixListFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetPrefixListFilterArgs>[]>;
     /**
      * Name of the prefix list to select.
      */

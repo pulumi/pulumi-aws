@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -98,11 +97,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
+    public readonly defaultSpaceSettings!: pulumi.Output<outputs.DomainDefaultSpaceSettings | undefined>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
-    public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultUserSettings>;
+    public readonly defaultUserSettings!: pulumi.Output<outputs.DomainDefaultUserSettings>;
     /**
      * The domain name.
      */
@@ -110,7 +109,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    public readonly domainSettings!: pulumi.Output<outputs.sagemaker.DomainDomainSettings | undefined>;
+    public readonly domainSettings!: pulumi.Output<outputs.DomainDomainSettings | undefined>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
@@ -122,7 +121,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
+    public readonly retentionPolicy!: pulumi.Output<outputs.DomainRetentionPolicy | undefined>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
@@ -257,11 +256,11 @@ export interface DomainState {
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
+    defaultSpaceSettings?: pulumi.Input<inputs.DomainDefaultSpaceSettings>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
-    defaultUserSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    defaultUserSettings?: pulumi.Input<inputs.DomainDefaultUserSettings>;
     /**
      * The domain name.
      */
@@ -269,7 +268,7 @@ export interface DomainState {
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
+    domainSettings?: pulumi.Input<inputs.DomainDomainSettings>;
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      */
@@ -281,7 +280,7 @@ export interface DomainState {
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.DomainRetentionPolicy>;
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      */
@@ -339,11 +338,11 @@ export interface DomainArgs {
     /**
      * The default space settings. See `defaultSpaceSettings` Block below.
      */
-    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettings>;
+    defaultSpaceSettings?: pulumi.Input<inputs.DomainDefaultSpaceSettings>;
     /**
      * The default user settings. See `defaultUserSettings` Block below.
      */
-    defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettings>;
+    defaultUserSettings: pulumi.Input<inputs.DomainDefaultUserSettings>;
     /**
      * The domain name.
      */
@@ -351,7 +350,7 @@ export interface DomainArgs {
     /**
      * The domain settings. See `domainSettings` Block below.
      */
-    domainSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettings>;
+    domainSettings?: pulumi.Input<inputs.DomainDomainSettings>;
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
@@ -359,7 +358,7 @@ export interface DomainArgs {
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
-    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.DomainRetentionPolicy>;
     /**
      * The VPC subnets that Studio uses for communication.
      */

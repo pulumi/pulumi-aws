@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -132,11 +131,11 @@ export class Recorder extends pulumi.CustomResource {
     /**
      * Recording group - see below.
      */
-    public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
+    public readonly recordingGroup!: pulumi.Output<outputs.RecorderRecordingGroup>;
     /**
      * Recording mode - see below.
      */
-    public readonly recordingMode!: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
+    public readonly recordingMode!: pulumi.Output<outputs.RecorderRecordingMode>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
@@ -185,11 +184,11 @@ export interface RecorderState {
     /**
      * Recording group - see below.
      */
-    recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
+    recordingGroup?: pulumi.Input<inputs.RecorderRecordingGroup>;
     /**
      * Recording mode - see below.
      */
-    recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
+    recordingMode?: pulumi.Input<inputs.RecorderRecordingMode>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
@@ -207,11 +206,11 @@ export interface RecorderArgs {
     /**
      * Recording group - see below.
      */
-    recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
+    recordingGroup?: pulumi.Input<inputs.RecorderRecordingGroup>;
     /**
      * Recording mode - see below.
      */
-    recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
+    recordingMode?: pulumi.Input<inputs.RecorderRecordingMode>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

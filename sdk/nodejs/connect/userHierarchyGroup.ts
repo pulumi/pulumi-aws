@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +99,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    public /*out*/ readonly hierarchyPaths!: pulumi.Output<outputs.connect.UserHierarchyGroupHierarchyPath[]>;
+    public /*out*/ readonly hierarchyPaths!: pulumi.Output<outputs.UserHierarchyGroupHierarchyPath[]>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */
@@ -186,7 +185,7 @@ export interface UserHierarchyGroupState {
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
      */
-    hierarchyPaths?: pulumi.Input<pulumi.Input<inputs.connect.UserHierarchyGroupHierarchyPath>[]>;
+    hierarchyPaths?: pulumi.Input<pulumi.Input<inputs.UserHierarchyGroupHierarchyPath>[]>;
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      */

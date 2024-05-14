@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +92,7 @@ export class Namespace extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.quicksight.NamespaceTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.NamespaceTimeouts | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -177,7 +176,7 @@ export interface NamespaceState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
+    timeouts?: pulumi.Input<inputs.NamespaceTimeouts>;
 }
 
 /**
@@ -202,5 +201,5 @@ export interface NamespaceArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.quicksight.NamespaceTimeouts>;
+    timeouts?: pulumi.Input<inputs.NamespaceTimeouts>;
 }

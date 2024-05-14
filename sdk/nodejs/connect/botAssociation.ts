@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -119,7 +118,7 @@ export class BotAssociation extends pulumi.CustomResource {
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    public readonly lexBot!: pulumi.Output<outputs.connect.BotAssociationLexBot>;
+    public readonly lexBot!: pulumi.Output<outputs.BotAssociationLexBot>;
 
     /**
      * Create a BotAssociation resource with the given unique name, arguments, and options.
@@ -163,7 +162,7 @@ export interface BotAssociationState {
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    lexBot?: pulumi.Input<inputs.connect.BotAssociationLexBot>;
+    lexBot?: pulumi.Input<inputs.BotAssociationLexBot>;
 }
 
 /**
@@ -177,5 +176,5 @@ export interface BotAssociationArgs {
     /**
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
-    lexBot: pulumi.Input<inputs.connect.BotAssociationLexBot>;
+    lexBot: pulumi.Input<inputs.BotAssociationLexBot>;
 }

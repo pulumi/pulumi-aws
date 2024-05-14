@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -321,11 +320,11 @@ export class Launch extends pulumi.CustomResource {
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      */
-    public /*out*/ readonly executions!: pulumi.Output<outputs.evidently.LaunchExecution[]>;
+    public /*out*/ readonly executions!: pulumi.Output<outputs.LaunchExecution[]>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
-    public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroup[]>;
+    public readonly groups!: pulumi.Output<outputs.LaunchGroup[]>;
     /**
      * The date and time that the launch was most recently updated.
      */
@@ -333,7 +332,7 @@ export class Launch extends pulumi.CustomResource {
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricMonitor[] | undefined>;
+    public readonly metricMonitors!: pulumi.Output<outputs.LaunchMetricMonitor[] | undefined>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
@@ -349,7 +348,7 @@ export class Launch extends pulumi.CustomResource {
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchScheduledSplitsConfig | undefined>;
+    public readonly scheduledSplitsConfig!: pulumi.Output<outputs.LaunchScheduledSplitsConfig | undefined>;
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      */
@@ -451,11 +450,11 @@ export interface LaunchState {
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      */
-    executions?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchExecution>[]>;
+    executions?: pulumi.Input<pulumi.Input<inputs.LaunchExecution>[]>;
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.LaunchGroup>[]>;
     /**
      * The date and time that the launch was most recently updated.
      */
@@ -463,7 +462,7 @@ export interface LaunchState {
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[]>;
+    metricMonitors?: pulumi.Input<pulumi.Input<inputs.LaunchMetricMonitor>[]>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
@@ -479,7 +478,7 @@ export interface LaunchState {
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
+    scheduledSplitsConfig?: pulumi.Input<inputs.LaunchScheduledSplitsConfig>;
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      */
@@ -515,11 +514,11 @@ export interface LaunchArgs {
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      */
-    groups: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroup>[]>;
+    groups: pulumi.Input<pulumi.Input<inputs.LaunchGroup>[]>;
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      */
-    metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricMonitor>[]>;
+    metricMonitors?: pulumi.Input<pulumi.Input<inputs.LaunchMetricMonitor>[]>;
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      */
@@ -535,7 +534,7 @@ export interface LaunchArgs {
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
-    scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
+    scheduledSplitsConfig?: pulumi.Input<inputs.LaunchScheduledSplitsConfig>;
     /**
      * Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

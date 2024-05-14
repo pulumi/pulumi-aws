@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -139,8 +138,8 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    public readonly signingAttributes!: pulumi.Output<outputs.route53domains.DelegationSignerRecordSigningAttributes | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.route53domains.DelegationSignerRecordTimeouts | undefined>;
+    public readonly signingAttributes!: pulumi.Output<outputs.DelegationSignerRecordSigningAttributes | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DelegationSignerRecordTimeouts | undefined>;
 
     /**
      * Create a DelegationSignerRecord resource with the given unique name, arguments, and options.
@@ -189,8 +188,8 @@ export interface DelegationSignerRecordState {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes>;
-    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts>;
+    signingAttributes?: pulumi.Input<inputs.DelegationSignerRecordSigningAttributes>;
+    timeouts?: pulumi.Input<inputs.DelegationSignerRecordTimeouts>;
 }
 
 /**
@@ -204,6 +203,6 @@ export interface DelegationSignerRecordArgs {
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      */
-    signingAttributes?: pulumi.Input<inputs.route53domains.DelegationSignerRecordSigningAttributes>;
-    timeouts?: pulumi.Input<inputs.route53domains.DelegationSignerRecordTimeouts>;
+    signingAttributes?: pulumi.Input<inputs.DelegationSignerRecordSigningAttributes>;
+    timeouts?: pulumi.Input<inputs.DelegationSignerRecordTimeouts>;
 }

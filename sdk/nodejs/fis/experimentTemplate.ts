@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * Action to be performed during an experiment. See below.
      */
-    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateAction[]>;
+    public readonly actions!: pulumi.Output<outputs.ExperimentTemplateAction[]>;
     /**
      * Description for the experiment template.
      */
@@ -93,7 +92,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * The configuration for experiment logging. See below.
      */
-    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    public readonly logConfiguration!: pulumi.Output<outputs.ExperimentTemplateLogConfiguration | undefined>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -103,7 +102,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
+    public readonly stopConditions!: pulumi.Output<outputs.ExperimentTemplateStopCondition[]>;
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -115,7 +114,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * Target of an action. See below.
      */
-    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.ExperimentTemplateTarget[] | undefined>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -173,7 +172,7 @@ export interface ExperimentTemplateState {
     /**
      * Action to be performed during an experiment. See below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateAction>[]>;
     /**
      * Description for the experiment template.
      */
@@ -181,7 +180,7 @@ export interface ExperimentTemplateState {
     /**
      * The configuration for experiment logging. See below.
      */
-    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.ExperimentTemplateLogConfiguration>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -191,7 +190,7 @@ export interface ExperimentTemplateState {
      *
      * The following arguments are optional:
      */
-    stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
+    stopConditions?: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateStopCondition>[]>;
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -203,7 +202,7 @@ export interface ExperimentTemplateState {
     /**
      * Target of an action. See below.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateTarget>[]>;
 }
 
 /**
@@ -213,7 +212,7 @@ export interface ExperimentTemplateArgs {
     /**
      * Action to be performed during an experiment. See below.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateAction>[]>;
     /**
      * Description for the experiment template.
      */
@@ -221,7 +220,7 @@ export interface ExperimentTemplateArgs {
     /**
      * The configuration for experiment logging. See below.
      */
-    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    logConfiguration?: pulumi.Input<inputs.ExperimentTemplateLogConfiguration>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -231,7 +230,7 @@ export interface ExperimentTemplateArgs {
      *
      * The following arguments are optional:
      */
-    stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
+    stopConditions: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateStopCondition>[]>;
     /**
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -239,5 +238,5 @@ export interface ExperimentTemplateArgs {
     /**
      * Target of an action. See below.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ExperimentTemplateTarget>[]>;
 }

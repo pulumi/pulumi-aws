@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +78,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
-    public readonly lockConfiguration!: pulumi.Output<outputs.rbin.RuleLockConfiguration | undefined>;
+    public readonly lockConfiguration!: pulumi.Output<outputs.RuleLockConfiguration | undefined>;
     /**
      * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      */
@@ -91,7 +90,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
-    public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[]>;
+    public readonly resourceTags!: pulumi.Output<outputs.RuleResourceTag[]>;
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      */
@@ -101,7 +100,7 @@ export class Rule extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly retentionPeriod!: pulumi.Output<outputs.rbin.RuleRetentionPeriod>;
+    public readonly retentionPeriod!: pulumi.Output<outputs.RuleRetentionPeriod>;
     /**
      * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      */
@@ -173,7 +172,7 @@ export interface RuleState {
     /**
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
-    lockConfiguration?: pulumi.Input<inputs.rbin.RuleLockConfiguration>;
+    lockConfiguration?: pulumi.Input<inputs.RuleLockConfiguration>;
     /**
      * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      */
@@ -185,7 +184,7 @@ export interface RuleState {
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTag>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.RuleResourceTag>[]>;
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      */
@@ -195,7 +194,7 @@ export interface RuleState {
      *
      * The following arguments are optional:
      */
-    retentionPeriod?: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
+    retentionPeriod?: pulumi.Input<inputs.RuleRetentionPeriod>;
     /**
      * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      */
@@ -218,11 +217,11 @@ export interface RuleArgs {
     /**
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
-    lockConfiguration?: pulumi.Input<inputs.rbin.RuleLockConfiguration>;
+    lockConfiguration?: pulumi.Input<inputs.RuleLockConfiguration>;
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTag>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.RuleResourceTag>[]>;
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      */
@@ -232,6 +231,6 @@ export interface RuleArgs {
      *
      * The following arguments are optional:
      */
-    retentionPeriod: pulumi.Input<inputs.rbin.RuleRetentionPeriod>;
+    retentionPeriod: pulumi.Input<inputs.RuleRetentionPeriod>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,11 +68,11 @@ export interface GetAccessPointResult {
     /**
      * Single element list containing operating system user and group applied to all file system requests made using the access point.
      */
-    readonly posixUsers: outputs.efs.GetAccessPointPosixUser[];
+    readonly posixUsers: outputs.GetAccessPointPosixUser[];
     /**
      * Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      */
-    readonly rootDirectories: outputs.efs.GetAccessPointRootDirectory[];
+    readonly rootDirectories: outputs.GetAccessPointRootDirectory[];
     /**
      * Key-value mapping of resource tags.
      */

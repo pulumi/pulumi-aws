@@ -46,6 +46,15 @@ export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
 utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

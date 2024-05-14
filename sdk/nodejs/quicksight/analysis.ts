@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,11 +98,11 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters>;
+    public readonly parameters!: pulumi.Output<outputs.AnalysisParameters>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisPermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.AnalysisPermission[] | undefined>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
@@ -111,7 +110,7 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.AnalysisSourceEntity | undefined>;
     /**
      * The analysis creation status.
      */
@@ -219,11 +218,11 @@ export interface AnalysisState {
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters>;
+    parameters?: pulumi.Input<inputs.AnalysisParameters>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.AnalysisPermission>[]>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
@@ -231,7 +230,7 @@ export interface AnalysisState {
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.AnalysisSourceEntity>;
     /**
      * The analysis creation status.
      */
@@ -273,11 +272,11 @@ export interface AnalysisArgs {
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      */
-    parameters?: pulumi.Input<inputs.quicksight.AnalysisParameters>;
+    parameters?: pulumi.Input<inputs.AnalysisParameters>;
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.AnalysisPermission>[]>;
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      */
@@ -285,7 +284,7 @@ export interface AnalysisArgs {
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntity>;
+    sourceEntity?: pulumi.Input<inputs.AnalysisSourceEntity>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

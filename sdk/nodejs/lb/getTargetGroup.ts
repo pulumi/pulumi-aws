@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly connectionTermination: boolean;
     readonly deregistrationDelay: string;
-    readonly healthCheck: outputs.lb.GetTargetGroupHealthCheck;
+    readonly healthCheck: outputs.GetTargetGroupHealthCheck;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -89,7 +88,7 @@ export interface GetTargetGroupResult {
     readonly protocolVersion: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
-    readonly stickiness: outputs.lb.GetTargetGroupStickiness;
+    readonly stickiness: outputs.GetTargetGroupStickiness;
     readonly tags: {[key: string]: string};
     readonly targetType: string;
     readonly vpcId: string;

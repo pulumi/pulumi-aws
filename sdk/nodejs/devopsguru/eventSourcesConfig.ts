@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +61,7 @@ export class EventSourcesConfig extends pulumi.CustomResource {
     /**
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
-    public readonly eventSources!: pulumi.Output<outputs.devopsguru.EventSourcesConfigEventSource[] | undefined>;
+    public readonly eventSources!: pulumi.Output<outputs.EventSourcesConfigEventSource[] | undefined>;
 
     /**
      * Create a EventSourcesConfig resource with the given unique name, arguments, and options.
@@ -94,7 +93,7 @@ export interface EventSourcesConfigState {
     /**
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
-    eventSources?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
+    eventSources?: pulumi.Input<pulumi.Input<inputs.EventSourcesConfigEventSource>[]>;
 }
 
 /**
@@ -104,5 +103,5 @@ export interface EventSourcesConfigArgs {
     /**
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
-    eventSources?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
+    eventSources?: pulumi.Input<pulumi.Input<inputs.EventSourcesConfigEventSource>[]>;
 }

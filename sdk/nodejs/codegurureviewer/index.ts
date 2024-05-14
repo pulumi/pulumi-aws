@@ -11,6 +11,15 @@ export const RepositoryAssociation: typeof import("./repositoryAssociation").Rep
 utilities.lazyLoad(exports, ["RepositoryAssociation"], () => require("./repositoryAssociation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +79,7 @@ export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly timeouts!: pulumi.Output<outputs.shield.DrtAccessRoleArnAssociationTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.DrtAccessRoleArnAssociationTimeouts | undefined>;
 
     /**
      * Create a DrtAccessRoleArnAssociation resource with the given unique name, arguments, and options.
@@ -118,7 +117,7 @@ export interface DrtAccessRoleArnAssociationState {
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     roleArn?: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.DrtAccessRoleArnAssociationTimeouts>;
 }
 
 /**
@@ -129,5 +128,5 @@ export interface DrtAccessRoleArnAssociationArgs {
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      */
     roleArn: pulumi.Input<string>;
-    timeouts?: pulumi.Input<inputs.shield.DrtAccessRoleArnAssociationTimeouts>;
+    timeouts?: pulumi.Input<inputs.DrtAccessRoleArnAssociationTimeouts>;
 }

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .assetType("S3_SNAPSHOT")
  *             .description("example")
  *             .name("example")

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -139,7 +138,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    public readonly openTableFormatInput!: pulumi.Output<outputs.glue.CatalogTableOpenTableFormatInput | undefined>;
+    public readonly openTableFormatInput!: pulumi.Output<outputs.CatalogTableOpenTableFormatInput | undefined>;
     /**
      * Owner of the table.
      */
@@ -151,11 +150,11 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[]>;
+    public readonly partitionIndices!: pulumi.Output<outputs.CatalogTablePartitionIndex[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
+    public readonly partitionKeys!: pulumi.Output<outputs.CatalogTablePartitionKey[] | undefined>;
     /**
      * Retention time for this table.
      */
@@ -163,7 +162,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    public readonly storageDescriptor!: pulumi.Output<outputs.glue.CatalogTableStorageDescriptor | undefined>;
+    public readonly storageDescriptor!: pulumi.Output<outputs.CatalogTableStorageDescriptor | undefined>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
@@ -171,7 +170,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    public readonly targetTable!: pulumi.Output<outputs.glue.CatalogTableTargetTable | undefined>;
+    public readonly targetTable!: pulumi.Output<outputs.CatalogTableTargetTable | undefined>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
@@ -266,7 +265,7 @@ export interface CatalogTableState {
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
+    openTableFormatInput?: pulumi.Input<inputs.CatalogTableOpenTableFormatInput>;
     /**
      * Owner of the table.
      */
@@ -278,11 +277,11 @@ export interface CatalogTableState {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.CatalogTablePartitionIndex>[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.CatalogTablePartitionKey>[]>;
     /**
      * Retention time for this table.
      */
@@ -290,7 +289,7 @@ export interface CatalogTableState {
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.CatalogTableStorageDescriptor>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
@@ -298,7 +297,7 @@ export interface CatalogTableState {
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.CatalogTableTargetTable>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
@@ -334,7 +333,7 @@ export interface CatalogTableArgs {
     /**
      * Configuration block for open table formats. See `openTableFormatInput` below.
      */
-    openTableFormatInput?: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInput>;
+    openTableFormatInput?: pulumi.Input<inputs.CatalogTableOpenTableFormatInput>;
     /**
      * Owner of the table.
      */
@@ -346,11 +345,11 @@ export interface CatalogTableArgs {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.CatalogTablePartitionIndex>[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.CatalogTablePartitionKey>[]>;
     /**
      * Retention time for this table.
      */
@@ -358,7 +357,7 @@ export interface CatalogTableArgs {
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.CatalogTableStorageDescriptor>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
@@ -366,7 +365,7 @@ export interface CatalogTableArgs {
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.CatalogTableTargetTable>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */

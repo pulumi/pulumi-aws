@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,7 +67,7 @@ export class AgentAgentAlias extends pulumi.CustomResource {
     /**
      * Routing configuration of the alias
      */
-    public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
+    public readonly routingConfigurations!: pulumi.Output<outputs.AgentAgentAliasRoutingConfiguration[]>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -79,7 +78,7 @@ export class AgentAgentAlias extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentAliasTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.AgentAgentAliasTimeouts | undefined>;
 
     /**
      * Create a AgentAgentAlias resource with the given unique name, arguments, and options.
@@ -150,7 +149,7 @@ export interface AgentAgentAliasState {
     /**
      * Routing configuration of the alias
      */
-    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
+    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.AgentAgentAliasRoutingConfiguration>[]>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
@@ -161,7 +160,7 @@ export interface AgentAgentAliasState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentAliasTimeouts>;
+    timeouts?: pulumi.Input<inputs.AgentAgentAliasTimeouts>;
 }
 
 /**
@@ -183,12 +182,12 @@ export interface AgentAgentAliasArgs {
     /**
      * Routing configuration of the alias
      */
-    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
+    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.AgentAgentAliasRoutingConfiguration>[]>;
     /**
      * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * The following arguments are optional:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentAliasTimeouts>;
+    timeouts?: pulumi.Input<inputs.AgentAgentAliasTimeouts>;
 }

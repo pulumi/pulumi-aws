@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Registry("test", RegistryArgs.builder()        
+ *         var test = new Registry("test", RegistryArgs.builder()
  *             .name("my_own_registry")
  *             .build());
  * 
- *         var testSchema = new Schema("testSchema", SchemaArgs.builder()        
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
  *             .name("my_schema")
  *             .registryName(test.name())
  *             .type("OpenApi3")

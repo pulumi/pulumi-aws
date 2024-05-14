@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +51,7 @@ export interface GetKeyPairArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetKeyPairFilter[];
+    filters?: inputs.GetKeyPairFilter[];
     /**
      * Whether to include the public key material in the response.
      */
@@ -82,7 +82,7 @@ export interface GetKeyPairResult {
      * Timestamp for when the key pair was created in ISO 8601 format.
      */
     readonly createTime: string;
-    readonly filters?: outputs.ec2.GetKeyPairFilter[];
+    readonly filters?: inputs.GetKeyPairFilter[];
     /**
      * SHA-1 digest of the DER encoded private key.
      */
@@ -142,7 +142,7 @@ export interface GetKeyPairOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetKeyPairFilterArgs>[]>;
     /**
      * Whether to include the public key material in the response.
      */

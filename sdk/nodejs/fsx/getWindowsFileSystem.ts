@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +64,7 @@ export interface GetWindowsFileSystemResult {
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
      */
-    readonly auditLogConfigurations: outputs.fsx.GetWindowsFileSystemAuditLogConfiguration[];
+    readonly auditLogConfigurations: outputs.GetWindowsFileSystemAuditLogConfiguration[];
     /**
      * The number of days to retain automatic backups.
      */
@@ -86,7 +85,7 @@ export interface GetWindowsFileSystemResult {
     /**
      * The SSD IOPS configuration for the file system.
      */
-    readonly diskIopsConfigurations: outputs.fsx.GetWindowsFileSystemDiskIopsConfiguration[];
+    readonly diskIopsConfigurations: outputs.GetWindowsFileSystemDiskIopsConfiguration[];
     /**
      * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      */

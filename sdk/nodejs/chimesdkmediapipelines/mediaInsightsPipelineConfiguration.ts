@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -320,7 +319,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */
-    public readonly elements!: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement[]>;
+    public readonly elements!: pulumi.Output<outputs.MediaInsightsPipelineConfigurationElement[]>;
     /**
      * Configuration name.
      */
@@ -328,7 +327,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    public readonly realTimeAlertConfiguration!: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
+    public readonly realTimeAlertConfiguration!: pulumi.Output<outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
@@ -394,7 +393,7 @@ export interface MediaInsightsPipelineConfigurationState {
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */
-    elements?: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[]>;
+    elements?: pulumi.Input<pulumi.Input<inputs.MediaInsightsPipelineConfigurationElement>[]>;
     /**
      * Configuration name.
      */
@@ -402,7 +401,7 @@ export interface MediaInsightsPipelineConfigurationState {
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
+    realTimeAlertConfiguration?: pulumi.Input<inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
@@ -424,7 +423,7 @@ export interface MediaInsightsPipelineConfigurationArgs {
     /**
      * Collection of processors and sinks to transform media and deliver data.
      */
-    elements: pulumi.Input<pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElement>[]>;
+    elements: pulumi.Input<pulumi.Input<inputs.MediaInsightsPipelineConfigurationElement>[]>;
     /**
      * Configuration name.
      */
@@ -432,7 +431,7 @@ export interface MediaInsightsPipelineConfigurationArgs {
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
-    realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
+    realTimeAlertConfiguration?: pulumi.Input<inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */

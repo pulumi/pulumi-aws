@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    public readonly byteMatchTuples!: pulumi.Output<outputs.waf.ByteMatchSetByteMatchTuple[] | undefined>;
+    public readonly byteMatchTuples!: pulumi.Output<outputs.ByteMatchSetByteMatchTuple[] | undefined>;
     /**
      * The name or description of the Byte Match Set.
      */
@@ -111,7 +110,7 @@ export interface ByteMatchSetState {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */
@@ -127,7 +126,7 @@ export interface ByteMatchSetArgs {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -94,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The execute command configuration for the cluster. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.ClusterConfiguration | undefined>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -102,11 +101,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configures a default Service Connect namespace. Detailed below.
      */
-    public readonly serviceConnectDefaults!: pulumi.Output<outputs.ecs.ClusterServiceConnectDefaults | undefined>;
+    public readonly serviceConnectDefaults!: pulumi.Output<outputs.ClusterServiceConnectDefaults | undefined>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    public readonly settings!: pulumi.Output<outputs.ecs.ClusterSetting[]>;
+    public readonly settings!: pulumi.Output<outputs.ClusterSetting[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -164,7 +163,7 @@ export interface ClusterState {
     /**
      * The execute command configuration for the cluster. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
+    configuration?: pulumi.Input<inputs.ClusterConfiguration>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -172,11 +171,11 @@ export interface ClusterState {
     /**
      * Configures a default Service Connect namespace. Detailed below.
      */
-    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ClusterServiceConnectDefaults>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ClusterSetting>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -196,7 +195,7 @@ export interface ClusterArgs {
     /**
      * The execute command configuration for the cluster. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
+    configuration?: pulumi.Input<inputs.ClusterConfiguration>;
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      */
@@ -204,11 +203,11 @@ export interface ClusterArgs {
     /**
      * Configures a default Service Connect namespace. Detailed below.
      */
-    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaults>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ClusterServiceConnectDefaults>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ClusterSetting>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -121,7 +120,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
-    public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetActionActionThreshold>;
+    public readonly actionThreshold!: pulumi.Output<outputs.BudgetActionActionThreshold>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
@@ -141,7 +140,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * Specifies all of the type-specific parameters. See Definition.
      */
-    public readonly definition!: pulumi.Output<outputs.budgets.BudgetActionDefinition>;
+    public readonly definition!: pulumi.Output<outputs.BudgetActionDefinition>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
@@ -157,7 +156,7 @@ export class BudgetAction extends pulumi.CustomResource {
     /**
      * A list of subscribers. See Subscriber.
      */
-    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetActionSubscriber[]>;
+    public readonly subscribers!: pulumi.Output<outputs.BudgetActionSubscriber[]>;
 
     /**
      * Create a BudgetAction resource with the given unique name, arguments, and options.
@@ -243,7 +242,7 @@ export interface BudgetActionState {
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
-    actionThreshold?: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
+    actionThreshold?: pulumi.Input<inputs.BudgetActionActionThreshold>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
@@ -263,7 +262,7 @@ export interface BudgetActionState {
     /**
      * Specifies all of the type-specific parameters. See Definition.
      */
-    definition?: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
+    definition?: pulumi.Input<inputs.BudgetActionDefinition>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
@@ -279,7 +278,7 @@ export interface BudgetActionState {
     /**
      * A list of subscribers. See Subscriber.
      */
-    subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
+    subscribers?: pulumi.Input<pulumi.Input<inputs.BudgetActionSubscriber>[]>;
 }
 
 /**
@@ -293,7 +292,7 @@ export interface BudgetActionArgs {
     /**
      * The trigger threshold of the action. See Action Threshold.
      */
-    actionThreshold: pulumi.Input<inputs.budgets.BudgetActionActionThreshold>;
+    actionThreshold: pulumi.Input<inputs.BudgetActionActionThreshold>;
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      */
@@ -309,7 +308,7 @@ export interface BudgetActionArgs {
     /**
      * Specifies all of the type-specific parameters. See Definition.
      */
-    definition: pulumi.Input<inputs.budgets.BudgetActionDefinition>;
+    definition: pulumi.Input<inputs.BudgetActionDefinition>;
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      */
@@ -321,5 +320,5 @@ export interface BudgetActionArgs {
     /**
      * A list of subscribers. See Subscriber.
      */
-    subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetActionSubscriber>[]>;
+    subscribers: pulumi.Input<pulumi.Input<inputs.BudgetActionSubscriber>[]>;
 }

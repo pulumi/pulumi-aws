@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export interface GetReplicationSetResult {
      * The ARN of the user who last modified the replication set.
      */
     readonly lastModifiedBy: string;
-    readonly regions: outputs.ssmincidents.GetReplicationSetRegion[];
+    readonly regions: outputs.GetReplicationSetRegion[];
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`

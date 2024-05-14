@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -183,7 +183,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The static routes associated with the VPN connection. Detailed below.
      */
-    public /*out*/ readonly routes!: pulumi.Output<outputs.ec2.VpnConnectionRoute[]>;
+    public /*out*/ readonly routes!: pulumi.Output<outputs.VpnConnectionRoute[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
@@ -253,7 +253,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    public readonly tunnel1LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
+    public readonly tunnel1LogOptions!: pulumi.Output<outputs.VpnConnectionTunnel1LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -353,7 +353,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    public readonly tunnel2LogOptions!: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
+    public readonly tunnel2LogOptions!: pulumi.Output<outputs.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -421,7 +421,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Telemetry for the VPN tunnels. Detailed below.
      */
-    public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.ec2.VpnConnectionVgwTelemetry[]>;
+    public /*out*/ readonly vgwTelemetries!: pulumi.Output<outputs.VpnConnectionVgwTelemetry[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
@@ -651,7 +651,7 @@ export interface VpnConnectionState {
     /**
      * The static routes associated with the VPN connection. Detailed below.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.VpnConnectionRoute>[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
@@ -721,7 +721,7 @@ export interface VpnConnectionState {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions>;
+    tunnel1LogOptions?: pulumi.Input<inputs.VpnConnectionTunnel1LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -821,7 +821,7 @@ export interface VpnConnectionState {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions>;
+    tunnel2LogOptions?: pulumi.Input<inputs.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -889,7 +889,7 @@ export interface VpnConnectionState {
     /**
      * Telemetry for the VPN tunnels. Detailed below.
      */
-    vgwTelemetries?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVgwTelemetry>[]>;
+    vgwTelemetries?: pulumi.Input<pulumi.Input<inputs.VpnConnectionVgwTelemetry>[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
@@ -971,7 +971,7 @@ export interface VpnConnectionArgs {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions>;
+    tunnel1LogOptions?: pulumi.Input<inputs.VpnConnectionTunnel1LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
@@ -1051,7 +1051,7 @@ export interface VpnConnectionArgs {
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      */
-    tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions>;
+    tunnel2LogOptions?: pulumi.Input<inputs.VpnConnectionTunnel2LogOptions>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */

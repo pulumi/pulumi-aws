@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -170,7 +169,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
+    public readonly cloudwatchLoggingOptions!: pulumi.Output<outputs.AnalyticsApplicationCloudwatchLoggingOptions | undefined>;
     /**
      * SQL Code to transform input data, and generate output.
      */
@@ -186,7 +185,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    public readonly inputs!: pulumi.Output<outputs.kinesis.AnalyticsApplicationInputs | undefined>;
+    public readonly inputs!: pulumi.Output<outputs.AnalyticsApplicationInputs | undefined>;
     /**
      * The Timestamp when the application was last updated.
      */
@@ -198,12 +197,12 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    public readonly outputs!: pulumi.Output<outputs.kinesis.AnalyticsApplicationOutput[] | undefined>;
+    public readonly outputs!: pulumi.Output<outputs.AnalyticsApplicationOutput[] | undefined>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    public readonly referenceDataSources!: pulumi.Output<outputs.kinesis.AnalyticsApplicationReferenceDataSources | undefined>;
+    public readonly referenceDataSources!: pulumi.Output<outputs.AnalyticsApplicationReferenceDataSources | undefined>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
@@ -291,7 +290,7 @@ export interface AnalyticsApplicationState {
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.AnalyticsApplicationCloudwatchLoggingOptions>;
     /**
      * SQL Code to transform input data, and generate output.
      */
@@ -307,7 +306,7 @@ export interface AnalyticsApplicationState {
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.AnalyticsApplicationInputs>;
     /**
      * The Timestamp when the application was last updated.
      */
@@ -319,12 +318,12 @@ export interface AnalyticsApplicationState {
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.AnalyticsApplicationOutput>[]>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.AnalyticsApplicationReferenceDataSources>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
@@ -358,7 +357,7 @@ export interface AnalyticsApplicationArgs {
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.AnalyticsApplicationCloudwatchLoggingOptions>;
     /**
      * SQL Code to transform input data, and generate output.
      */
@@ -370,7 +369,7 @@ export interface AnalyticsApplicationArgs {
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.AnalyticsApplicationInputs>;
     /**
      * Name of the Kinesis Analytics Application.
      */
@@ -378,12 +377,12 @@ export interface AnalyticsApplicationArgs {
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.AnalyticsApplicationOutput>[]>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.AnalyticsApplicationReferenceDataSources>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.

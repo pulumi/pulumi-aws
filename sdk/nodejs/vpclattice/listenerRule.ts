@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -123,7 +122,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * The action for the listener rule.
      */
-    public readonly action!: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
+    public readonly action!: pulumi.Output<outputs.ListenerRuleAction>;
     /**
      * The ARN for the listener rule.
      */
@@ -135,7 +134,7 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * The rule match.
      */
-    public readonly match!: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
+    public readonly match!: pulumi.Output<outputs.ListenerRuleMatch>;
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
@@ -228,7 +227,7 @@ export interface ListenerRuleState {
     /**
      * The action for the listener rule.
      */
-    action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
+    action?: pulumi.Input<inputs.ListenerRuleAction>;
     /**
      * The ARN for the listener rule.
      */
@@ -240,7 +239,7 @@ export interface ListenerRuleState {
     /**
      * The rule match.
      */
-    match?: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
+    match?: pulumi.Input<inputs.ListenerRuleMatch>;
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
@@ -278,7 +277,7 @@ export interface ListenerRuleArgs {
     /**
      * The action for the listener rule.
      */
-    action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
+    action: pulumi.Input<inputs.ListenerRuleAction>;
     /**
      * The ID or Amazon Resource Name (ARN) of the listener.
      */
@@ -286,7 +285,7 @@ export interface ListenerRuleArgs {
     /**
      * The rule match.
      */
-    match: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
+    match: pulumi.Input<inputs.ListenerRuleMatch>;
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */

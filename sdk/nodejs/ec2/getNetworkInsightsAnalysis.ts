@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export interface GetNetworkInsightsAnalysisArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: inputs.ec2.GetNetworkInsightsAnalysisFilter[];
+    filters?: inputs.GetNetworkInsightsAnalysisFilter[];
     /**
      * ID of the Network Insights Analysis to select.
      */
@@ -54,7 +54,7 @@ export interface GetNetworkInsightsAnalysisResult {
     /**
      * Potential intermediate components of a feasible path.
      */
-    readonly alternatePathHints: outputs.ec2.GetNetworkInsightsAnalysisAlternatePathHint[];
+    readonly alternatePathHints: outputs.GetNetworkInsightsAnalysisAlternatePathHint[];
     /**
      * ARN of the selected Network Insights Analysis.
      */
@@ -62,16 +62,16 @@ export interface GetNetworkInsightsAnalysisResult {
     /**
      * Explanation codes for an unreachable path.
      */
-    readonly explanations: outputs.ec2.GetNetworkInsightsAnalysisExplanation[];
+    readonly explanations: outputs.GetNetworkInsightsAnalysisExplanation[];
     /**
      * ARNs of the AWS resources that the path must traverse.
      */
     readonly filterInArns: string[];
-    readonly filters?: outputs.ec2.GetNetworkInsightsAnalysisFilter[];
+    readonly filters?: inputs.GetNetworkInsightsAnalysisFilter[];
     /**
      * The components in the path from source to destination.
      */
-    readonly forwardPathComponents: outputs.ec2.GetNetworkInsightsAnalysisForwardPathComponent[];
+    readonly forwardPathComponents: outputs.GetNetworkInsightsAnalysisForwardPathComponent[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -88,7 +88,7 @@ export interface GetNetworkInsightsAnalysisResult {
     /**
      * The components in the path from destination to source.
      */
-    readonly returnPathComponents: outputs.ec2.GetNetworkInsightsAnalysisReturnPathComponent[];
+    readonly returnPathComponents: outputs.GetNetworkInsightsAnalysisReturnPathComponent[];
     /**
      * Date/time the analysis was started.
      */
@@ -132,7 +132,7 @@ export interface GetNetworkInsightsAnalysisOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsAnalysisFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNetworkInsightsAnalysisFilterArgs>[]>;
     /**
      * ID of the Network Insights Analysis to select.
      */

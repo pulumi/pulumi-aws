@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +92,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    public readonly mediaConcurrencies!: pulumi.Output<outputs.connect.RoutingProfileMediaConcurrency[]>;
+    public readonly mediaConcurrencies!: pulumi.Output<outputs.RoutingProfileMediaConcurrency[]>;
     /**
      * Specifies the name of the Routing Profile.
      */
@@ -101,7 +100,7 @@ export class RoutingProfile extends pulumi.CustomResource {
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
+    public readonly queueConfigs!: pulumi.Output<outputs.RoutingProfileQueueConfig[] | undefined>;
     /**
      * The identifier for the Routing Profile.
      */
@@ -194,7 +193,7 @@ export interface RoutingProfileState {
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    mediaConcurrencies?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileMediaConcurrency>[]>;
+    mediaConcurrencies?: pulumi.Input<pulumi.Input<inputs.RoutingProfileMediaConcurrency>[]>;
     /**
      * Specifies the name of the Routing Profile.
      */
@@ -202,7 +201,7 @@ export interface RoutingProfileState {
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
+    queueConfigs?: pulumi.Input<pulumi.Input<inputs.RoutingProfileQueueConfig>[]>;
     /**
      * The identifier for the Routing Profile.
      */
@@ -239,7 +238,7 @@ export interface RoutingProfileArgs {
     /**
      * One or more `mediaConcurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `mediaConcurrencies` block is documented below.
      */
-    mediaConcurrencies: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileMediaConcurrency>[]>;
+    mediaConcurrencies: pulumi.Input<pulumi.Input<inputs.RoutingProfileMediaConcurrency>[]>;
     /**
      * Specifies the name of the Routing Profile.
      */
@@ -247,7 +246,7 @@ export interface RoutingProfileArgs {
     /**
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
-    queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
+    queueConfigs?: pulumi.Input<pulumi.Input<inputs.RoutingProfileQueueConfig>[]>;
     /**
      * Tags to apply to the Routing Profile. If configured with a provider
      * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     public readonly bundlerVersion!: pulumi.Output<string | undefined>;
-    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.RailsAppLayerCloudwatchConfiguration | undefined>;
+    public readonly cloudwatchConfiguration!: pulumi.Output<outputs.RailsAppLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
     /**
@@ -96,7 +95,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.RailsAppLayerEbsVolume[]>;
+    public readonly ebsVolumes!: pulumi.Output<outputs.RailsAppLayerEbsVolume[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -109,7 +108,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
-    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
+    public readonly loadBasedAutoScaling!: pulumi.Output<outputs.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */
@@ -271,7 +270,7 @@ export interface RailsAppLayerState {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     bundlerVersion?: pulumi.Input<string>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.RailsAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -296,7 +295,7 @@ export interface RailsAppLayerState {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.RailsAppLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.RailsAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -309,7 +308,7 @@ export interface RailsAppLayerState {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */
@@ -382,7 +381,7 @@ export interface RailsAppLayerArgs {
      * When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
      */
     bundlerVersion?: pulumi.Input<string>;
-    cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfiguration>;
+    cloudwatchConfiguration?: pulumi.Input<inputs.RailsAppLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -407,7 +406,7 @@ export interface RailsAppLayerArgs {
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.RailsAppLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.RailsAppLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
@@ -420,7 +419,7 @@ export interface RailsAppLayerArgs {
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
     instanceShutdownTimeout?: pulumi.Input<number>;
-    loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScaling>;
+    loadBasedAutoScaling?: pulumi.Input<inputs.RailsAppLayerLoadBasedAutoScaling>;
     /**
      * Whether OpsWorks should manage bundler. On by default.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +75,7 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
     /**
      * The permissions boundary policy. See below.
      */
-    public readonly permissionsBoundary!: pulumi.Output<outputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    public readonly permissionsBoundary!: pulumi.Output<outputs.PermissionsBoundaryAttachmentPermissionsBoundary>;
 
     /**
      * Create a PermissionsBoundaryAttachment resource with the given unique name, arguments, and options.
@@ -129,7 +128,7 @@ export interface PermissionsBoundaryAttachmentState {
     /**
      * The permissions boundary policy. See below.
      */
-    permissionsBoundary?: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    permissionsBoundary?: pulumi.Input<inputs.PermissionsBoundaryAttachmentPermissionsBoundary>;
 }
 
 /**
@@ -147,5 +146,5 @@ export interface PermissionsBoundaryAttachmentArgs {
     /**
      * The permissions boundary policy. See below.
      */
-    permissionsBoundary: pulumi.Input<inputs.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundary>;
+    permissionsBoundary: pulumi.Input<inputs.PermissionsBoundaryAttachmentPermissionsBoundary>;
 }

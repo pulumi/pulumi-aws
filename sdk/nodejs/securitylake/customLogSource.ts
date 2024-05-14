@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,11 +72,11 @@ export class CustomLogSource extends pulumi.CustomResource {
     /**
      * The attributes of a third-party custom source.
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.securitylake.CustomLogSourceAttribute[]>;
+    public /*out*/ readonly attributes!: pulumi.Output<outputs.CustomLogSourceAttribute[]>;
     /**
      * The configuration for the third-party custom source.
      */
-    public readonly configuration!: pulumi.Output<outputs.securitylake.CustomLogSourceConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.CustomLogSourceConfiguration | undefined>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
@@ -85,7 +84,7 @@ export class CustomLogSource extends pulumi.CustomResource {
     /**
      * The details of the log provider for a third-party custom source.
      */
-    public /*out*/ readonly providerDetails!: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
+    public /*out*/ readonly providerDetails!: pulumi.Output<outputs.CustomLogSourceProviderDetail[]>;
     /**
      * Specify the name for a third-party custom source. This must be a Regionally unique value.
      */
@@ -138,11 +137,11 @@ export interface CustomLogSourceState {
     /**
      * The attributes of a third-party custom source.
      */
-    attributes?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.CustomLogSourceAttribute>[]>;
     /**
      * The configuration for the third-party custom source.
      */
-    configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
+    configuration?: pulumi.Input<inputs.CustomLogSourceConfiguration>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
@@ -150,7 +149,7 @@ export interface CustomLogSourceState {
     /**
      * The details of the log provider for a third-party custom source.
      */
-    providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[]>;
+    providerDetails?: pulumi.Input<pulumi.Input<inputs.CustomLogSourceProviderDetail>[]>;
     /**
      * Specify the name for a third-party custom source. This must be a Regionally unique value.
      */
@@ -168,7 +167,7 @@ export interface CustomLogSourceArgs {
     /**
      * The configuration for the third-party custom source.
      */
-    configuration?: pulumi.Input<inputs.securitylake.CustomLogSourceConfiguration>;
+    configuration?: pulumi.Input<inputs.CustomLogSourceConfiguration>;
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class V2modelsBot extends pulumi.CustomResource {
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    public readonly dataPrivacies!: pulumi.Output<outputs.lex.V2modelsBotDataPrivacy[] | undefined>;
+    public readonly dataPrivacies!: pulumi.Output<outputs.V2modelsBotDataPrivacy[] | undefined>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
@@ -83,7 +82,7 @@ export class V2modelsBot extends pulumi.CustomResource {
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    public readonly members!: pulumi.Output<outputs.lex.V2modelsBotMember[] | undefined>;
+    public readonly members!: pulumi.Output<outputs.V2modelsBotMember[] | undefined>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
@@ -106,7 +105,7 @@ export class V2modelsBot extends pulumi.CustomResource {
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
     public readonly testBotAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.V2modelsBotTimeouts | undefined>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */
@@ -171,7 +170,7 @@ export interface V2modelsBotState {
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[]>;
+    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.V2modelsBotDataPrivacy>[]>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
@@ -183,7 +182,7 @@ export interface V2modelsBotState {
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.V2modelsBotMember>[]>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
@@ -206,7 +205,7 @@ export interface V2modelsBotState {
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    timeouts?: pulumi.Input<inputs.V2modelsBotTimeouts>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */
@@ -220,7 +219,7 @@ export interface V2modelsBotArgs {
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `dataPrivacy`
      */
-    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotDataPrivacy>[]>;
+    dataPrivacies?: pulumi.Input<pulumi.Input<inputs.V2modelsBotDataPrivacy>[]>;
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      */
@@ -232,7 +231,7 @@ export interface V2modelsBotArgs {
     /**
      * List of bot members in a network to be created. See `botMembers`.
      */
-    members?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsBotMember>[]>;
+    members?: pulumi.Input<pulumi.Input<inputs.V2modelsBotMember>[]>;
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      */
@@ -251,7 +250,7 @@ export interface V2modelsBotArgs {
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    timeouts?: pulumi.Input<inputs.V2modelsBotTimeouts>;
     /**
      * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
      */

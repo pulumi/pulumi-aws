@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      */
-    public readonly parallelismConfiguration!: pulumi.Output<outputs.sagemaker.PipelineParallelismConfiguration | undefined>;
+    public readonly parallelismConfiguration!: pulumi.Output<outputs.PipelineParallelismConfiguration | undefined>;
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      */
@@ -86,7 +85,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
-    public readonly pipelineDefinitionS3Location!: pulumi.Output<outputs.sagemaker.PipelinePipelineDefinitionS3Location | undefined>;
+    public readonly pipelineDefinitionS3Location!: pulumi.Output<outputs.PipelinePipelineDefinitionS3Location | undefined>;
     /**
      * A description of the pipeline.
      */
@@ -172,7 +171,7 @@ export interface PipelineState {
     /**
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      */
-    parallelismConfiguration?: pulumi.Input<inputs.sagemaker.PipelineParallelismConfiguration>;
+    parallelismConfiguration?: pulumi.Input<inputs.PipelineParallelismConfiguration>;
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      */
@@ -180,7 +179,7 @@ export interface PipelineState {
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
-    pipelineDefinitionS3Location?: pulumi.Input<inputs.sagemaker.PipelinePipelineDefinitionS3Location>;
+    pipelineDefinitionS3Location?: pulumi.Input<inputs.PipelinePipelineDefinitionS3Location>;
     /**
      * A description of the pipeline.
      */
@@ -216,7 +215,7 @@ export interface PipelineArgs {
     /**
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      */
-    parallelismConfiguration?: pulumi.Input<inputs.sagemaker.PipelineParallelismConfiguration>;
+    parallelismConfiguration?: pulumi.Input<inputs.PipelineParallelismConfiguration>;
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      */
@@ -224,7 +223,7 @@ export interface PipelineArgs {
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      */
-    pipelineDefinitionS3Location?: pulumi.Input<inputs.sagemaker.PipelinePipelineDefinitionS3Location>;
+    pipelineDefinitionS3Location?: pulumi.Input<inputs.PipelinePipelineDefinitionS3Location>;
     /**
      * A description of the pipeline.
      */

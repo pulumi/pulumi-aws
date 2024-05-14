@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +115,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.PhoneNumberStatus[]>;
     /**
      * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -213,7 +212,7 @@ export interface PhoneNumberState {
     /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
-    statuses?: pulumi.Input<pulumi.Input<inputs.connect.PhoneNumberStatus>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.PhoneNumberStatus>[]>;
     /**
      * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

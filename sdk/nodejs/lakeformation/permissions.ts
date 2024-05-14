@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -199,23 +198,23 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    public readonly dataCellsFilter!: pulumi.Output<outputs.lakeformation.PermissionsDataCellsFilter | undefined>;
+    public readonly dataCellsFilter!: pulumi.Output<outputs.PermissionsDataCellsFilter | undefined>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    public readonly dataLocation!: pulumi.Output<outputs.lakeformation.PermissionsDataLocation>;
+    public readonly dataLocation!: pulumi.Output<outputs.PermissionsDataLocation>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.PermissionsDatabase>;
+    public readonly database!: pulumi.Output<outputs.PermissionsDatabase>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    public readonly lfTag!: pulumi.Output<outputs.lakeformation.PermissionsLfTag>;
+    public readonly lfTag!: pulumi.Output<outputs.PermissionsLfTag>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    public readonly lfTagPolicy!: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy>;
+    public readonly lfTagPolicy!: pulumi.Output<outputs.PermissionsLfTagPolicy>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -235,13 +234,13 @@ export class Permissions extends pulumi.CustomResource {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable>;
+    public readonly table!: pulumi.Output<outputs.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns>;
+    public readonly tableWithColumns!: pulumi.Output<outputs.PermissionsTableWithColumns>;
 
     /**
      * Create a Permissions resource with the given unique name, arguments, and options.
@@ -309,23 +308,23 @@ export interface PermissionsState {
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
+    dataCellsFilter?: pulumi.Input<inputs.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation>;
+    dataLocation?: pulumi.Input<inputs.PermissionsDataLocation>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
+    database?: pulumi.Input<inputs.PermissionsDatabase>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    lfTag?: pulumi.Input<inputs.PermissionsLfTag>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    lfTagPolicy?: pulumi.Input<inputs.PermissionsLfTagPolicy>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -345,13 +344,13 @@ export interface PermissionsState {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
+    table?: pulumi.Input<inputs.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.PermissionsTableWithColumns>;
 }
 
 /**
@@ -369,23 +368,23 @@ export interface PermissionsArgs {
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
+    dataCellsFilter?: pulumi.Input<inputs.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.PermissionsDataLocation>;
+    dataLocation?: pulumi.Input<inputs.PermissionsDataLocation>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
+    database?: pulumi.Input<inputs.PermissionsDatabase>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    lfTag?: pulumi.Input<inputs.PermissionsLfTag>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    lfTagPolicy?: pulumi.Input<inputs.PermissionsLfTagPolicy>;
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -405,11 +404,11 @@ export interface PermissionsArgs {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
+    table?: pulumi.Input<inputs.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.PermissionsTableWithColumns>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -236,7 +235,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly artifacts!: pulumi.Output<outputs.codebuild.ProjectArtifacts>;
+    public readonly artifacts!: pulumi.Output<outputs.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -248,7 +247,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Defines the batch build options for the project.
      */
-    public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
+    public readonly buildBatchConfig!: pulumi.Output<outputs.ProjectBuildBatchConfig | undefined>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
@@ -256,7 +255,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly cache!: pulumi.Output<outputs.codebuild.ProjectCache | undefined>;
+    public readonly cache!: pulumi.Output<outputs.ProjectCache | undefined>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      */
@@ -272,15 +271,15 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly environment!: pulumi.Output<outputs.codebuild.ProjectEnvironment>;
+    public readonly environment!: pulumi.Output<outputs.ProjectEnvironment>;
     /**
      * A set of file system locations to mount inside the build. File system locations are documented below.
      */
-    public readonly fileSystemLocations!: pulumi.Output<outputs.codebuild.ProjectFileSystemLocation[] | undefined>;
+    public readonly fileSystemLocations!: pulumi.Output<outputs.ProjectFileSystemLocation[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly logsConfig!: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
+    public readonly logsConfig!: pulumi.Output<outputs.ProjectLogsConfig | undefined>;
     /**
      * Project's name.
      */
@@ -304,15 +303,15 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly secondaryArtifacts!: pulumi.Output<outputs.codebuild.ProjectSecondaryArtifact[] | undefined>;
+    public readonly secondaryArtifacts!: pulumi.Output<outputs.ProjectSecondaryArtifact[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly secondarySourceVersions!: pulumi.Output<outputs.codebuild.ProjectSecondarySourceVersion[] | undefined>;
+    public readonly secondarySourceVersions!: pulumi.Output<outputs.ProjectSecondarySourceVersion[] | undefined>;
     /**
      * Configuration block. Detailed below.
      */
-    public readonly secondarySources!: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
+    public readonly secondarySources!: pulumi.Output<outputs.ProjectSecondarySource[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -322,7 +321,7 @@ export class Project extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
+    public readonly source!: pulumi.Output<outputs.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
@@ -340,7 +339,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Configuration block. Detailed below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.codebuild.ProjectVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.ProjectVpcConfig | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -440,7 +439,7 @@ export interface ProjectState {
     /**
      * Configuration block. Detailed below.
      */
-    artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    artifacts?: pulumi.Input<inputs.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -452,7 +451,7 @@ export interface ProjectState {
     /**
      * Defines the batch build options for the project.
      */
-    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.ProjectBuildBatchConfig>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
@@ -460,7 +459,7 @@ export interface ProjectState {
     /**
      * Configuration block. Detailed below.
      */
-    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.ProjectCache>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      */
@@ -476,15 +475,15 @@ export interface ProjectState {
     /**
      * Configuration block. Detailed below.
      */
-    environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    environment?: pulumi.Input<inputs.ProjectEnvironment>;
     /**
      * A set of file system locations to mount inside the build. File system locations are documented below.
      */
-    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.ProjectLogsConfig>;
     /**
      * Project's name.
      */
@@ -508,15 +507,15 @@ export interface ProjectState {
     /**
      * Configuration block. Detailed below.
      */
-    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.ProjectSecondaryArtifact>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.ProjectSecondarySourceVersion>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.ProjectSecondarySource>[]>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -526,7 +525,7 @@ export interface ProjectState {
      *
      * The following arguments are optional:
      */
-    source?: pulumi.Input<inputs.codebuild.ProjectSource>;
+    source?: pulumi.Input<inputs.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
@@ -544,7 +543,7 @@ export interface ProjectState {
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ProjectVpcConfig>;
 }
 
 /**
@@ -554,7 +553,7 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    artifacts: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    artifacts: pulumi.Input<inputs.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
@@ -562,7 +561,7 @@ export interface ProjectArgs {
     /**
      * Defines the batch build options for the project.
      */
-    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.ProjectBuildBatchConfig>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
@@ -570,7 +569,7 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.ProjectCache>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      */
@@ -586,15 +585,15 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    environment: pulumi.Input<inputs.ProjectEnvironment>;
     /**
      * A set of file system locations to mount inside the build. File system locations are documented below.
      */
-    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.ProjectLogsConfig>;
     /**
      * Project's name.
      */
@@ -614,15 +613,15 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.ProjectSecondaryArtifact>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySourceVersion>[]>;
+    secondarySourceVersions?: pulumi.Input<pulumi.Input<inputs.ProjectSecondarySourceVersion>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.ProjectSecondarySource>[]>;
     /**
      * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
@@ -632,7 +631,7 @@ export interface ProjectArgs {
      *
      * The following arguments are optional:
      */
-    source: pulumi.Input<inputs.codebuild.ProjectSource>;
+    source: pulumi.Input<inputs.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
@@ -644,5 +643,5 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ProjectVpcConfig>;
 }

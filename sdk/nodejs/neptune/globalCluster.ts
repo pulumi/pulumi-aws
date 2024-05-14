@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -133,7 +132,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Set of objects containing Global Cluster members.
      */
-    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[]>;
+    public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.GlobalClusterGlobalClusterMember[]>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
@@ -220,7 +219,7 @@ export interface GlobalClusterState {
     /**
      * Set of objects containing Global Cluster members.
      */
-    globalClusterMembers?: pulumi.Input<pulumi.Input<inputs.neptune.GlobalClusterGlobalClusterMember>[]>;
+    globalClusterMembers?: pulumi.Input<pulumi.Input<inputs.GlobalClusterGlobalClusterMember>[]>;
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */

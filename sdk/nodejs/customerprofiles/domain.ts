@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -140,11 +139,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
+    public readonly matching!: pulumi.Output<outputs.DomainMatching | undefined>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
+    public readonly ruleBasedMatching!: pulumi.Output<outputs.DomainRuleBasedMatching | undefined>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -230,11 +229,11 @@ export interface DomainState {
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    matching?: pulumi.Input<inputs.DomainMatching>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
+    ruleBasedMatching?: pulumi.Input<inputs.DomainRuleBasedMatching>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -272,11 +271,11 @@ export interface DomainArgs {
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
-    matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    matching?: pulumi.Input<inputs.DomainMatching>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
-    ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
+    ruleBasedMatching?: pulumi.Input<inputs.DomainRuleBasedMatching>;
     /**
      * Tags to apply to the domain. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

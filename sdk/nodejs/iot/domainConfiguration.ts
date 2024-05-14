@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +66,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
-    public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
+    public readonly authorizerConfig!: pulumi.Output<outputs.DomainConfigurationAuthorizerConfig | undefined>;
     /**
      * Fully-qualified domain name.
      */
@@ -105,7 +104,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
-    public readonly tlsConfig!: pulumi.Output<outputs.iot.DomainConfigurationTlsConfig>;
+    public readonly tlsConfig!: pulumi.Output<outputs.DomainConfigurationTlsConfig>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      */
@@ -167,7 +166,7 @@ export interface DomainConfigurationState {
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
-    authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfig>;
+    authorizerConfig?: pulumi.Input<inputs.DomainConfigurationAuthorizerConfig>;
     /**
      * Fully-qualified domain name.
      */
@@ -205,7 +204,7 @@ export interface DomainConfigurationState {
     /**
      * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
-    tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.DomainConfigurationTlsConfig>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      */
@@ -219,7 +218,7 @@ export interface DomainConfigurationArgs {
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
-    authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfig>;
+    authorizerConfig?: pulumi.Input<inputs.DomainConfigurationAuthorizerConfig>;
     /**
      * Fully-qualified domain name.
      */
@@ -247,7 +246,7 @@ export interface DomainConfigurationArgs {
     /**
      * An object that specifies the TLS configuration for a domain. See the `tlsConfig` Block below for details.
      */
-    tlsConfig?: pulumi.Input<inputs.iot.DomainConfigurationTlsConfig>;
+    tlsConfig?: pulumi.Input<inputs.DomainConfigurationTlsConfig>;
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      */

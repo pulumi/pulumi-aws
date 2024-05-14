@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +47,7 @@ export interface GetProfilingGroupResult {
     /**
      * Profiling Group agent orchestration config
      */
-    readonly agentOrchestrationConfigs: outputs.codeguruprofiler.GetProfilingGroupAgentOrchestrationConfig[];
+    readonly agentOrchestrationConfigs: outputs.GetProfilingGroupAgentOrchestrationConfig[];
     /**
      * ARN of the Profiling Group.
      */
@@ -66,7 +65,7 @@ export interface GetProfilingGroupResult {
     /**
      * The status of the Profiling Group.
      */
-    readonly profilingStatuses: outputs.codeguruprofiler.GetProfilingGroupProfilingStatus[];
+    readonly profilingStatuses: outputs.GetProfilingGroupProfilingStatus[];
     /**
      * Mapping of Key-Value tags for the resource.
      */

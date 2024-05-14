@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -64,7 +63,7 @@ export interface GetSupportedInstanceTypesArgs {
     /**
      * List of supported instance types. See `supportedInstanceTypes` below.
      */
-    supportedInstanceTypes?: inputs.emr.GetSupportedInstanceTypesSupportedInstanceType[];
+    supportedInstanceTypes?: inputs.GetSupportedInstanceTypesSupportedInstanceType[];
 }
 
 /**
@@ -76,7 +75,7 @@ export interface GetSupportedInstanceTypesResult {
     /**
      * List of supported instance types. See `supportedInstanceTypes` below.
      */
-    readonly supportedInstanceTypes?: outputs.emr.GetSupportedInstanceTypesSupportedInstanceType[];
+    readonly supportedInstanceTypes?: inputs.GetSupportedInstanceTypesSupportedInstanceType[];
 }
 /**
  * Data source for managing AWS EMR Supported Instance Types.
@@ -130,5 +129,5 @@ export interface GetSupportedInstanceTypesOutputArgs {
     /**
      * List of supported instance types. See `supportedInstanceTypes` below.
      */
-    supportedInstanceTypes?: pulumi.Input<pulumi.Input<inputs.emr.GetSupportedInstanceTypesSupportedInstanceTypeArgs>[]>;
+    supportedInstanceTypes?: pulumi.Input<pulumi.Input<inputs.GetSupportedInstanceTypesSupportedInstanceTypeArgs>[]>;
 }

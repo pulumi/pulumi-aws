@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,11 +75,11 @@ export class IndexingConfiguration extends pulumi.CustomResource {
     /**
      * Thing group indexing configuration. See below.
      */
-    public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
+    public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.IndexingConfigurationThingGroupIndexingConfiguration>;
     /**
      * Thing indexing configuration. See below.
      */
-    public readonly thingIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
+    public readonly thingIndexingConfiguration!: pulumi.Output<outputs.IndexingConfigurationThingIndexingConfiguration>;
 
     /**
      * Create a IndexingConfiguration resource with the given unique name, arguments, and options.
@@ -114,11 +113,11 @@ export interface IndexingConfigurationState {
     /**
      * Thing group indexing configuration. See below.
      */
-    thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
+    thingGroupIndexingConfiguration?: pulumi.Input<inputs.IndexingConfigurationThingGroupIndexingConfiguration>;
     /**
      * Thing indexing configuration. See below.
      */
-    thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
+    thingIndexingConfiguration?: pulumi.Input<inputs.IndexingConfigurationThingIndexingConfiguration>;
 }
 
 /**
@@ -128,9 +127,9 @@ export interface IndexingConfigurationArgs {
     /**
      * Thing group indexing configuration. See below.
      */
-    thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
+    thingGroupIndexingConfiguration?: pulumi.Input<inputs.IndexingConfigurationThingGroupIndexingConfiguration>;
     /**
      * Thing indexing configuration. See below.
      */
-    thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
+    thingIndexingConfiguration?: pulumi.Input<inputs.IndexingConfigurationThingIndexingConfiguration>;
 }

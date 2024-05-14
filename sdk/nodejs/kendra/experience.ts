@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +77,7 @@ export class Experience extends pulumi.CustomResource {
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
      */
@@ -86,7 +85,7 @@ export class Experience extends pulumi.CustomResource {
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.ExperienceEndpoint[]>;
     /**
      * The unique identifier of the experience.
      */
@@ -166,7 +165,7 @@ export interface ExperienceState {
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
+    configuration?: pulumi.Input<inputs.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
      */
@@ -174,7 +173,7 @@ export interface ExperienceState {
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.kendra.ExperienceEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.ExperienceEndpoint>[]>;
     /**
      * The unique identifier of the experience.
      */
@@ -206,7 +205,7 @@ export interface ExperienceArgs {
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
+    configuration?: pulumi.Input<inputs.ExperienceConfiguration>;
     /**
      * A description for your Amazon Kendra experience.
      */

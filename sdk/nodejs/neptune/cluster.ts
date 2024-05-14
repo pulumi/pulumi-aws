@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -193,7 +192,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.neptune.ClusterServerlessV2ScalingConfiguration | undefined>;
+    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.ClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -443,7 +442,7 @@ export interface ClusterState {
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.ClusterServerlessV2ScalingConfiguration>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -575,7 +574,7 @@ export interface ClusterArgs {
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      */
-    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.neptune.ClusterServerlessV2ScalingConfiguration>;
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.ClusterServerlessV2ScalingConfiguration>;
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

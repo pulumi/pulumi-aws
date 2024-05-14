@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +116,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    public readonly targets!: pulumi.Output<outputs.ssm.MaintenanceWindowTargetTarget[]>;
+    public readonly targets!: pulumi.Output<outputs.MaintenanceWindowTargetTarget[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
@@ -188,7 +188,7 @@ export interface MaintenanceWindowTargetState {
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
@@ -219,7 +219,7 @@ export interface MaintenanceWindowTargetArgs {
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
+    targets: pulumi.Input<pulumi.Input<inputs.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */

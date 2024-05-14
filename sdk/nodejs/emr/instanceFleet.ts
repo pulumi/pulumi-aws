@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,11 +101,11 @@ export class InstanceFleet extends pulumi.CustomResource {
     /**
      * Configuration block for instance fleet
      */
-    public readonly instanceTypeConfigs!: pulumi.Output<outputs.emr.InstanceFleetInstanceTypeConfig[] | undefined>;
+    public readonly instanceTypeConfigs!: pulumi.Output<outputs.InstanceFleetInstanceTypeConfig[] | undefined>;
     /**
      * Configuration block for launch specification
      */
-    public readonly launchSpecifications!: pulumi.Output<outputs.emr.InstanceFleetLaunchSpecifications | undefined>;
+    public readonly launchSpecifications!: pulumi.Output<outputs.InstanceFleetLaunchSpecifications | undefined>;
     /**
      * Friendly name given to the instance fleet.
      */
@@ -181,11 +180,11 @@ export interface InstanceFleetState {
     /**
      * Configuration block for instance fleet
      */
-    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.InstanceFleetInstanceTypeConfig>[]>;
     /**
      * Configuration block for launch specification
      */
-    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.InstanceFleetLaunchSpecifications>;
     /**
      * Friendly name given to the instance fleet.
      */
@@ -221,11 +220,11 @@ export interface InstanceFleetArgs {
     /**
      * Configuration block for instance fleet
      */
-    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.InstanceFleetInstanceTypeConfig>[]>;
     /**
      * Configuration block for launch specification
      */
-    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.InstanceFleetLaunchSpecifications>;
     /**
      * Friendly name given to the instance fleet.
      */

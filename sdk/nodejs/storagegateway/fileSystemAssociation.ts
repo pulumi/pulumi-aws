@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -126,7 +125,7 @@ export class FileSystemAssociation extends pulumi.CustomResource {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.FileSystemAssociationCacheAttributes | undefined>;
+    public readonly cacheAttributes!: pulumi.Output<outputs.FileSystemAssociationCacheAttributes | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
@@ -222,7 +221,7 @@ export interface FileSystemAssociationState {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.FileSystemAssociationCacheAttributes>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
@@ -262,7 +261,7 @@ export interface FileSystemAssociationArgs {
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    cacheAttributes?: pulumi.Input<inputs.storagegateway.FileSystemAssociationCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.FileSystemAssociationCacheAttributes>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */

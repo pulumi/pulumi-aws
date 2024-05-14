@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -108,7 +107,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamStreamModeDetails>;
+    public readonly streamModeDetails!: pulumi.Output<outputs.StreamStreamModeDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -203,7 +202,7 @@ export interface StreamState {
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamStreamModeDetails>;
+    streamModeDetails?: pulumi.Input<inputs.StreamStreamModeDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -256,7 +255,7 @@ export interface StreamArgs {
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      */
-    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamStreamModeDetails>;
+    streamModeDetails?: pulumi.Input<inputs.StreamStreamModeDetails>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

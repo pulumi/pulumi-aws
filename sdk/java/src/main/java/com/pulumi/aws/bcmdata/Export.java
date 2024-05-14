@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Export("test", ExportArgs.builder()        
+ *         var test = new Export("test", ExportArgs.builder()
  *             .export(ExportExportArgs.builder()
  *                 .name("testexample")
  *                 .dataQueries(ExportExportDataQueryArgs.builder()

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,23 +101,23 @@ export interface GetPermissionsArgs {
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: inputs.lakeformation.GetPermissionsDataCellsFilter;
+    dataCellsFilter?: inputs.GetPermissionsDataCellsFilter;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: inputs.lakeformation.GetPermissionsDataLocation;
+    dataLocation?: inputs.GetPermissionsDataLocation;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: inputs.lakeformation.GetPermissionsDatabase;
+    database?: inputs.GetPermissionsDatabase;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: inputs.lakeformation.GetPermissionsLfTag;
+    lfTag?: inputs.GetPermissionsLfTag;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: inputs.lakeformation.GetPermissionsLfTagPolicy;
+    lfTagPolicy?: inputs.GetPermissionsLfTagPolicy;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      *
@@ -128,13 +127,13 @@ export interface GetPermissionsArgs {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: inputs.lakeformation.GetPermissionsTable;
+    table?: inputs.GetPermissionsTable;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: inputs.lakeformation.GetPermissionsTableWithColumns;
+    tableWithColumns?: inputs.GetPermissionsTableWithColumns;
 }
 
 /**
@@ -143,15 +142,15 @@ export interface GetPermissionsArgs {
 export interface GetPermissionsResult {
     readonly catalogId?: string;
     readonly catalogResource?: boolean;
-    readonly dataCellsFilter: outputs.lakeformation.GetPermissionsDataCellsFilter;
-    readonly dataLocation: outputs.lakeformation.GetPermissionsDataLocation;
-    readonly database: outputs.lakeformation.GetPermissionsDatabase;
+    readonly dataCellsFilter: inputs.GetPermissionsDataCellsFilter;
+    readonly dataLocation: inputs.GetPermissionsDataLocation;
+    readonly database: inputs.GetPermissionsDatabase;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly lfTag: outputs.lakeformation.GetPermissionsLfTag;
-    readonly lfTagPolicy: outputs.lakeformation.GetPermissionsLfTagPolicy;
+    readonly lfTag: inputs.GetPermissionsLfTag;
+    readonly lfTagPolicy: inputs.GetPermissionsLfTagPolicy;
     /**
      * List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -161,8 +160,8 @@ export interface GetPermissionsResult {
      */
     readonly permissionsWithGrantOptions: string[];
     readonly principal: string;
-    readonly table: outputs.lakeformation.GetPermissionsTable;
-    readonly tableWithColumns: outputs.lakeformation.GetPermissionsTableWithColumns;
+    readonly table: inputs.GetPermissionsTable;
+    readonly tableWithColumns: inputs.GetPermissionsTableWithColumns;
 }
 /**
  * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
@@ -246,23 +245,23 @@ export interface GetPermissionsOutputArgs {
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      */
-    dataCellsFilter?: pulumi.Input<inputs.lakeformation.GetPermissionsDataCellsFilterArgs>;
+    dataCellsFilter?: pulumi.Input<inputs.GetPermissionsDataCellsFilterArgs>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    dataLocation?: pulumi.Input<inputs.lakeformation.GetPermissionsDataLocationArgs>;
+    dataLocation?: pulumi.Input<inputs.GetPermissionsDataLocationArgs>;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    database?: pulumi.Input<inputs.lakeformation.GetPermissionsDatabaseArgs>;
+    database?: pulumi.Input<inputs.GetPermissionsDatabaseArgs>;
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagArgs>;
+    lfTag?: pulumi.Input<inputs.GetPermissionsLfTagArgs>;
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      */
-    lfTagPolicy?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagPolicyArgs>;
+    lfTagPolicy?: pulumi.Input<inputs.GetPermissionsLfTagPolicyArgs>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      *
@@ -272,11 +271,11 @@ export interface GetPermissionsOutputArgs {
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    table?: pulumi.Input<inputs.lakeformation.GetPermissionsTableArgs>;
+    table?: pulumi.Input<inputs.GetPermissionsTableArgs>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.GetPermissionsTableWithColumnsArgs>;
+    tableWithColumns?: pulumi.Input<inputs.GetPermissionsTableWithColumnsArgs>;
 }

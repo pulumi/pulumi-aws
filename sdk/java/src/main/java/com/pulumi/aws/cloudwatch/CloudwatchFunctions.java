@@ -714,7 +714,7 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
      *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
@@ -798,7 +798,7 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
      *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
@@ -882,7 +882,7 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
      *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());
@@ -966,7 +966,7 @@ public final class CloudwatchFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
+     *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
      *             .logGroupName(exampleAwsCloudwatchLogGroup.name())
      *             .policyDocument(example.applyValue(getLogDataProtectionPolicyDocumentResult -> getLogDataProtectionPolicyDocumentResult.json()))
      *             .build());

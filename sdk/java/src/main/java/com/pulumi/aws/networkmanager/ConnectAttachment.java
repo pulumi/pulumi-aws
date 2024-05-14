@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
  *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()        
+ *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
@@ -102,18 +102,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
  *             .subnetArns(exampleAwsSubnet.stream().map(element -> element.arn()).collect(toList()))
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
- *         var exampleAttachmentAccepter = new AttachmentAccepter("exampleAttachmentAccepter", AttachmentAccepterArgs.builder()        
+ *         var exampleAttachmentAccepter = new AttachmentAccepter("exampleAttachmentAccepter", AttachmentAccepterArgs.builder()
  *             .attachmentId(example.id())
  *             .attachmentType(example.attachmentType())
  *             .build());
  * 
- *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()        
+ *         var exampleConnectAttachment = new ConnectAttachment("exampleConnectAttachment", ConnectAttachmentArgs.builder()
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .transportAttachmentId(example.id())
  *             .edgeLocation(example.edgeLocation())
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(test)
  *                 .build());
  * 
- *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()        
+ *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()
  *             .attachmentId(exampleConnectAttachment.id())
  *             .attachmentType(exampleConnectAttachment.attachmentType())
  *             .build());

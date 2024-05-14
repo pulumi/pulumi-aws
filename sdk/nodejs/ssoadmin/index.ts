@@ -96,6 +96,15 @@ export const TrustedTokenIssuer: typeof import("./trustedTokenIssuer").TrustedTo
 utilities.lazyLoad(exports, ["TrustedTokenIssuer"], () => require("./trustedTokenIssuer"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

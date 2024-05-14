@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * Configuration block for the container provider associated with your cluster.
      */
-    public readonly containerProvider!: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
+    public readonly containerProvider!: pulumi.Output<outputs.VirtualClusterContainerProvider>;
     /**
      * Name of the virtual cluster.
      */
@@ -136,7 +135,7 @@ export interface VirtualClusterState {
     /**
      * Configuration block for the container provider associated with your cluster.
      */
-    containerProvider?: pulumi.Input<inputs.emrcontainers.VirtualClusterContainerProvider>;
+    containerProvider?: pulumi.Input<inputs.VirtualClusterContainerProvider>;
     /**
      * Name of the virtual cluster.
      */
@@ -160,7 +159,7 @@ export interface VirtualClusterArgs {
     /**
      * Configuration block for the container provider associated with your cluster.
      */
-    containerProvider: pulumi.Input<inputs.emrcontainers.VirtualClusterContainerProvider>;
+    containerProvider: pulumi.Input<inputs.VirtualClusterContainerProvider>;
     /**
      * Name of the virtual cluster.
      */

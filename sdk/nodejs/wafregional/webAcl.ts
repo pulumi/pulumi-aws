@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -141,11 +140,11 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    public readonly defaultAction!: pulumi.Output<outputs.wafregional.WebAclDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.wafregional.WebAclLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.WebAclLoggingConfiguration | undefined>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -157,7 +156,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    public readonly rules!: pulumi.Output<outputs.wafregional.WebAclRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.WebAclRule[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -223,11 +222,11 @@ export interface WebAclState {
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    defaultAction?: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -239,7 +238,7 @@ export interface WebAclState {
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -259,11 +258,11 @@ export interface WebAclArgs {
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    defaultAction: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
+    defaultAction: pulumi.Input<inputs.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
@@ -275,7 +274,7 @@ export interface WebAclArgs {
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    public readonly agentOrchestrationConfig!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig | undefined>;
+    public readonly agentOrchestrationConfig!: pulumi.Output<outputs.ProfilingGroupAgentOrchestrationConfig | undefined>;
     /**
      * ARN of the profiling group.
      */
@@ -132,7 +131,7 @@ export interface ProfilingGroupState {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    agentOrchestrationConfig?: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
+    agentOrchestrationConfig?: pulumi.Input<inputs.ProfilingGroupAgentOrchestrationConfig>;
     /**
      * ARN of the profiling group.
      */
@@ -166,7 +165,7 @@ export interface ProfilingGroupArgs {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    agentOrchestrationConfig?: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
+    agentOrchestrationConfig?: pulumi.Input<inputs.ProfilingGroupAgentOrchestrationConfig>;
     /**
      * Compute platform of the profiling group.
      */

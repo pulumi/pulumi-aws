@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetIndexResult {
     /**
      * Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
      */
-    readonly capacityUnits: outputs.kendra.GetIndexCapacityUnit[];
+    readonly capacityUnits: outputs.GetIndexCapacityUnit[];
     /**
      * Unix datetime that the index was created.
      */
@@ -67,7 +66,7 @@ export interface GetIndexResult {
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
      */
-    readonly documentMetadataConfigurationUpdates: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdate[];
+    readonly documentMetadataConfigurationUpdates: outputs.GetIndexDocumentMetadataConfigurationUpdate[];
     /**
      * Amazon Kendra edition for the index.
      */
@@ -83,7 +82,7 @@ export interface GetIndexResult {
     /**
      * Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
      */
-    readonly indexStatistics: outputs.kendra.GetIndexIndexStatistic[];
+    readonly indexStatistics: outputs.GetIndexIndexStatistic[];
     /**
      * Name of the index field. Minimum length of 1. Maximum length of 30.
      */
@@ -95,7 +94,7 @@ export interface GetIndexResult {
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
      */
-    readonly serverSideEncryptionConfigurations: outputs.kendra.GetIndexServerSideEncryptionConfiguration[];
+    readonly serverSideEncryptionConfigurations: outputs.GetIndexServerSideEncryptionConfiguration[];
     /**
      * Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      */
@@ -115,11 +114,11 @@ export interface GetIndexResult {
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
      */
-    readonly userGroupResolutionConfigurations: outputs.kendra.GetIndexUserGroupResolutionConfiguration[];
+    readonly userGroupResolutionConfigurations: outputs.GetIndexUserGroupResolutionConfiguration[];
     /**
      * A block that specifies the user token configuration. Documented below.
      */
-    readonly userTokenConfigurations: outputs.kendra.GetIndexUserTokenConfiguration[];
+    readonly userTokenConfigurations: outputs.GetIndexUserTokenConfiguration[];
 }
 /**
  * Provides details about a specific Amazon Kendra Index.

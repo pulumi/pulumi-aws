@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
-    public readonly rules!: pulumi.Output<outputs.s3control.BucketLifecycleConfigurationRule[]>;
+    public readonly rules!: pulumi.Output<outputs.BucketLifecycleConfigurationRule[]>;
 
     /**
      * Create a BucketLifecycleConfiguration resource with the given unique name, arguments, and options.
@@ -132,7 +131,7 @@ export interface BucketLifecycleConfigurationState {
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.BucketLifecycleConfigurationRule>[]>;
 }
 
 /**
@@ -146,5 +145,5 @@ export interface BucketLifecycleConfigurationArgs {
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.BucketLifecycleConfigurationRule>[]>;
 }

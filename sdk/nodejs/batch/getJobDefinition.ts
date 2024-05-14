@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -82,7 +81,7 @@ export interface GetJobDefinitionResult {
     /**
      * An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
      */
-    readonly eksProperties: outputs.batch.GetJobDefinitionEksProperty[];
+    readonly eksProperties: outputs.GetJobDefinitionEksProperty[];
     /**
      * The ARN
      */
@@ -94,11 +93,11 @@ export interface GetJobDefinitionResult {
     /**
      * An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
      */
-    readonly nodeProperties: outputs.batch.GetJobDefinitionNodeProperty[];
+    readonly nodeProperties: outputs.GetJobDefinitionNodeProperty[];
     /**
      * The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
      */
-    readonly retryStrategies: outputs.batch.GetJobDefinitionRetryStrategy[];
+    readonly retryStrategies: outputs.GetJobDefinitionRetryStrategy[];
     readonly revision?: number;
     /**
      * The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
@@ -109,7 +108,7 @@ export interface GetJobDefinitionResult {
     /**
      * The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
      */
-    readonly timeouts: outputs.batch.GetJobDefinitionTimeout[];
+    readonly timeouts: outputs.GetJobDefinitionTimeout[];
     /**
      * The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
      */

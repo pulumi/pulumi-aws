@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export interface GetThemeResult {
     /**
      * The theme configuration, which contains the theme display properties. See configuration.
      */
-    readonly configurations: outputs.quicksight.GetThemeConfiguration[];
+    readonly configurations: outputs.GetThemeConfiguration[];
     /**
      * The time that the theme was created.
      */
@@ -89,7 +88,7 @@ export interface GetThemeResult {
     /**
      * A set of resource permissions on the theme. See permissions.
      */
-    readonly permissions: outputs.quicksight.GetThemePermission[];
+    readonly permissions: outputs.GetThemePermission[];
     /**
      * The theme creation status.
      */

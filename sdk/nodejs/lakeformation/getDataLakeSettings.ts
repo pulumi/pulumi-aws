@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,11 +59,11 @@ export interface GetDataLakeSettingsResult {
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    readonly createDatabaseDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateDatabaseDefaultPermission[];
+    readonly createDatabaseDefaultPermissions: outputs.GetDataLakeSettingsCreateDatabaseDefaultPermission[];
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    readonly createTableDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateTableDefaultPermission[];
+    readonly createTableDefaultPermissions: outputs.GetDataLakeSettingsCreateTableDefaultPermission[];
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */

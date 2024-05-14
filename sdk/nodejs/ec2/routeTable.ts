@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -165,7 +165,7 @@ export class RouteTable extends pulumi.CustomResource {
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
-    public readonly routes!: pulumi.Output<outputs.ec2.RouteTableRoute[]>;
+    public readonly routes!: pulumi.Output<outputs.RouteTableRoute[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -239,7 +239,7 @@ export interface RouteTableState {
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.RouteTableRoute>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -268,7 +268,7 @@ export interface RouteTableArgs {
      * A list of route objects. Their keys are documented below.
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.RouteTableRoute>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +36,7 @@ export interface GetPipelineDefinitionArgs {
     /**
      * Parameter values used in the pipeline definition. See below
      */
-    parameterValues?: inputs.datapipeline.GetPipelineDefinitionParameterValue[];
+    parameterValues?: inputs.GetPipelineDefinitionParameterValue[];
     /**
      * ID of the pipeline.
      */
@@ -55,16 +54,16 @@ export interface GetPipelineDefinitionResult {
     /**
      * Parameter objects used in the pipeline definition. See below
      */
-    readonly parameterObjects: outputs.datapipeline.GetPipelineDefinitionParameterObject[];
+    readonly parameterObjects: outputs.GetPipelineDefinitionParameterObject[];
     /**
      * Parameter values used in the pipeline definition. See below
      */
-    readonly parameterValues?: outputs.datapipeline.GetPipelineDefinitionParameterValue[];
+    readonly parameterValues?: inputs.GetPipelineDefinitionParameterValue[];
     readonly pipelineId: string;
     /**
      * Objects defined in the pipeline. See below
      */
-    readonly pipelineObjects: outputs.datapipeline.GetPipelineDefinitionPipelineObject[];
+    readonly pipelineObjects: outputs.GetPipelineDefinitionPipelineObject[];
 }
 /**
  * Provides details about a specific DataPipeline Pipeline Definition.
@@ -91,7 +90,7 @@ export interface GetPipelineDefinitionOutputArgs {
     /**
      * Parameter values used in the pipeline definition. See below
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.GetPipelineDefinitionParameterValueArgs>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.GetPipelineDefinitionParameterValueArgs>[]>;
     /**
      * ID of the pipeline.
      */

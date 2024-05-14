@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -235,16 +234,16 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
-    public readonly accessConfig!: pulumi.Output<outputs.eks.ClusterAccessConfig>;
+    public readonly accessConfig!: pulumi.Output<outputs.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
+    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.ClusterCertificateAuthority[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.ClusterCertificateAuthority>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -261,7 +260,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
+    public readonly encryptionConfig!: pulumi.Output<outputs.ClusterEncryptionConfig | undefined>;
     /**
      * Endpoint for your Kubernetes API server.
      */
@@ -269,11 +268,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.eks.ClusterIdentity[]>;
+    public /*out*/ readonly identities!: pulumi.Output<outputs.ClusterIdentity[]>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.eks.ClusterKubernetesNetworkConfig>;
+    public readonly kubernetesNetworkConfig!: pulumi.Output<outputs.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
@@ -281,7 +280,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    public readonly outpostConfig!: pulumi.Output<outputs.ClusterOutpostConfig | undefined>;
     /**
      * Platform version for the cluster.
      */
@@ -313,7 +312,7 @@ export class Cluster extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.eks.ClusterVpcConfig>;
+    public readonly vpcConfig!: pulumi.Output<outputs.ClusterVpcConfig>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -391,16 +390,16 @@ export interface ClusterState {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
-    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    accessConfig?: pulumi.Input<inputs.ClusterAccessConfig>;
     /**
      * ARN of the cluster.
      */
     arn?: pulumi.Input<string>;
-    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
+    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.ClusterCertificateAuthority>[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<inputs.ClusterCertificateAuthority>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -417,7 +416,7 @@ export interface ClusterState {
     /**
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
-    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.ClusterEncryptionConfig>;
     /**
      * Endpoint for your Kubernetes API server.
      */
@@ -425,11 +424,11 @@ export interface ClusterState {
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
-    identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.ClusterIdentity>[]>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
@@ -437,7 +436,7 @@ export interface ClusterState {
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    outpostConfig?: pulumi.Input<inputs.ClusterOutpostConfig>;
     /**
      * Platform version for the cluster.
      */
@@ -469,7 +468,7 @@ export interface ClusterState {
      *
      * The following arguments are optional:
      */
-    vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ClusterVpcConfig>;
 }
 
 /**
@@ -479,7 +478,7 @@ export interface ClusterArgs {
     /**
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
-    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    accessConfig?: pulumi.Input<inputs.ClusterAccessConfig>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -488,11 +487,11 @@ export interface ClusterArgs {
     /**
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
-    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.ClusterEncryptionConfig>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      */
@@ -500,7 +499,7 @@ export interface ClusterArgs {
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
-    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    outpostConfig?: pulumi.Input<inputs.ClusterOutpostConfig>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `dependsOn` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      */
@@ -518,5 +517,5 @@ export interface ClusterArgs {
      *
      * The following arguments are optional:
      */
-    vpcConfig: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    vpcConfig: pulumi.Input<inputs.ClusterVpcConfig>;
 }

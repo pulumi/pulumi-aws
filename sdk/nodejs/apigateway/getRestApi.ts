@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +69,7 @@ export interface GetRestApiResult {
     /**
      * The endpoint configuration of this RestApi showing the endpoint types of the API.
      */
-    readonly endpointConfigurations: outputs.apigateway.GetRestApiEndpointConfiguration[];
+    readonly endpointConfigurations: outputs.GetRestApiEndpointConfiguration[];
     /**
      * Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */

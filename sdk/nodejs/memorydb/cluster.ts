@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class Cluster extends pulumi.CustomResource {
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.memorydb.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.ClusterClusterEndpoint[]>;
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      */
@@ -143,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Set of shards in this cluster.
      */
-    public /*out*/ readonly shards!: pulumi.Output<outputs.memorydb.ClusterShard[]>;
+    public /*out*/ readonly shards!: pulumi.Output<outputs.ClusterShard[]>;
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */
@@ -284,7 +283,7 @@ export interface ClusterState {
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
-    clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterClusterEndpoint>[]>;
+    clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.ClusterClusterEndpoint>[]>;
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      */
@@ -350,7 +349,7 @@ export interface ClusterState {
     /**
      * Set of shards in this cluster.
      */
-    shards?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterShard>[]>;
+    shards?: pulumi.Input<pulumi.Input<inputs.ClusterShard>[]>;
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      */

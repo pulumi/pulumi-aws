@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
@@ -113,7 +112,7 @@ export interface SecurityConfigurationState {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
@@ -127,7 +126,7 @@ export interface SecurityConfigurationArgs {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    encryptionConfiguration: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    encryptionConfiguration: pulumi.Input<inputs.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */

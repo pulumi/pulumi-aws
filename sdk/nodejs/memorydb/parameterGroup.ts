@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */
-    public readonly parameters!: pulumi.Output<outputs.memorydb.ParameterGroupParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.ParameterGroupParameter[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -170,7 +169,7 @@ export interface ParameterGroupState {
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -208,7 +207,7 @@ export interface ParameterGroupArgs {
     /**
      * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.memorydb.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

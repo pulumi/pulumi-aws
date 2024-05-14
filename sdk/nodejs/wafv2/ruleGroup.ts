@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 export class RuleGroup extends pulumi.CustomResource {
@@ -46,7 +45,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<outputs.RuleGroupCustomResponseBody[] | undefined>;
     /**
      * A friendly description of the rule group.
      */
@@ -60,7 +59,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.RuleGroupRule[] | undefined>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -78,7 +77,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -149,7 +148,7 @@ export interface RuleGroupState {
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.RuleGroupCustomResponseBody>[]>;
     /**
      * A friendly description of the rule group.
      */
@@ -163,7 +162,7 @@ export interface RuleGroupState {
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.RuleGroupRule>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -181,7 +180,7 @@ export interface RuleGroupState {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
+    visibilityConfig?: pulumi.Input<inputs.RuleGroupVisibilityConfig>;
 }
 
 /**
@@ -195,7 +194,7 @@ export interface RuleGroupArgs {
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.RuleGroupCustomResponseBody>[]>;
     /**
      * A friendly description of the rule group.
      */
@@ -208,7 +207,7 @@ export interface RuleGroupArgs {
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.RuleGroupRule>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -220,5 +219,5 @@ export interface RuleGroupArgs {
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      */
-    visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
+    visibilityConfig: pulumi.Input<inputs.RuleGroupVisibilityConfig>;
 }

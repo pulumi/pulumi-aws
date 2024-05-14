@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testFleet = new ImageBuilder("testFleet", ImageBuilderArgs.builder()        
+ *         var testFleet = new ImageBuilder("testFleet", ImageBuilderArgs.builder()
  *             .name("Name")
  *             .description("Description of a ImageBuilder")
  *             .displayName("Display name of a ImageBuilder")

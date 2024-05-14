@@ -36,6 +36,15 @@ export const TemplateAssociation: typeof import("./templateAssociation").Templat
 utilities.lazyLoad(exports, ["TemplateAssociation"], () => require("./templateAssociation"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

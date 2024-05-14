@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +70,7 @@ export class Site extends pulumi.CustomResource {
     /**
      * The site location as documented below.
      */
-    public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.SiteLocation | undefined>;
     /**
      * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -138,7 +137,7 @@ export interface SiteState {
     /**
      * The site location as documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    location?: pulumi.Input<inputs.SiteLocation>;
     /**
      * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -166,7 +165,7 @@ export interface SiteArgs {
     /**
      * The site location as documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
+    location?: pulumi.Input<inputs.SiteLocation>;
     /**
      * Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

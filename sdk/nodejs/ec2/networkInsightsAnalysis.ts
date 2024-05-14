@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +63,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Potential intermediate components of a feasible path. Described below.
      */
-    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.NetworkInsightsAnalysisAlternatePathHint[]>;
     /**
      * ARN of the Network Insights Analysis.
      */
@@ -71,7 +71,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      */
-    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
+    public /*out*/ readonly explanations!: pulumi.Output<outputs.NetworkInsightsAnalysisExplanation[]>;
     /**
      * A list of ARNs for resources the path must traverse.
      */
@@ -79,7 +79,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisForwardPathComponent[]>;
+    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.NetworkInsightsAnalysisForwardPathComponent[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
@@ -93,7 +93,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisReturnPathComponent[]>;
+    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.NetworkInsightsAnalysisReturnPathComponent[]>;
     /**
      * The date/time the analysis was started.
      */
@@ -186,7 +186,7 @@ export interface NetworkInsightsAnalysisState {
     /**
      * Potential intermediate components of a feasible path. Described below.
      */
-    alternatePathHints?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisAlternatePathHint>[]>;
+    alternatePathHints?: pulumi.Input<pulumi.Input<inputs.NetworkInsightsAnalysisAlternatePathHint>[]>;
     /**
      * ARN of the Network Insights Analysis.
      */
@@ -194,7 +194,7 @@ export interface NetworkInsightsAnalysisState {
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      */
-    explanations?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisExplanation>[]>;
+    explanations?: pulumi.Input<pulumi.Input<inputs.NetworkInsightsAnalysisExplanation>[]>;
     /**
      * A list of ARNs for resources the path must traverse.
      */
@@ -202,7 +202,7 @@ export interface NetworkInsightsAnalysisState {
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisForwardPathComponent>[]>;
+    forwardPathComponents?: pulumi.Input<pulumi.Input<inputs.NetworkInsightsAnalysisForwardPathComponent>[]>;
     /**
      * ID of the Network Insights Path to run an analysis on.
      *
@@ -216,7 +216,7 @@ export interface NetworkInsightsAnalysisState {
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      */
-    returnPathComponents?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisReturnPathComponent>[]>;
+    returnPathComponents?: pulumi.Input<pulumi.Input<inputs.NetworkInsightsAnalysisReturnPathComponent>[]>;
     /**
      * The date/time the analysis was started.
      */

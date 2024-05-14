@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +100,7 @@ export class SlotType extends pulumi.CustomResource {
      * train the machine learning model about the values that it resolves for a slot. Attributes are
      * documented under enumeration_value.
      */
-    public readonly enumerationValues!: pulumi.Output<outputs.lex.SlotTypeEnumerationValue[]>;
+    public readonly enumerationValues!: pulumi.Output<outputs.SlotTypeEnumerationValue[]>;
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      */
@@ -192,7 +191,7 @@ export interface SlotTypeState {
      * train the machine learning model about the values that it resolves for a slot. Attributes are
      * documented under enumeration_value.
      */
-    enumerationValues?: pulumi.Input<pulumi.Input<inputs.lex.SlotTypeEnumerationValue>[]>;
+    enumerationValues?: pulumi.Input<pulumi.Input<inputs.SlotTypeEnumerationValue>[]>;
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      */
@@ -233,7 +232,7 @@ export interface SlotTypeArgs {
      * train the machine learning model about the values that it resolves for a slot. Attributes are
      * documented under enumeration_value.
      */
-    enumerationValues: pulumi.Input<pulumi.Input<inputs.lex.SlotTypeEnumerationValue>[]>;
+    enumerationValues: pulumi.Input<pulumi.Input<inputs.SlotTypeEnumerationValue>[]>;
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      */

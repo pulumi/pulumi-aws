@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -108,7 +107,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
-    public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    public readonly auditLogConfiguration!: pulumi.Output<outputs.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
@@ -132,7 +131,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
      */
-    public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    public readonly diskIopsConfiguration!: pulumi.Output<outputs.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
@@ -168,7 +167,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
-    public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.fsx.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
+    public readonly selfManagedActiveDirectory!: pulumi.Output<outputs.WindowsFileSystemSelfManagedActiveDirectory | undefined>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -312,7 +311,7 @@ export interface WindowsFileSystemState {
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
-    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    auditLogConfiguration?: pulumi.Input<inputs.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
@@ -336,7 +335,7 @@ export interface WindowsFileSystemState {
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
@@ -372,7 +371,7 @@ export interface WindowsFileSystemState {
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
-    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    selfManagedActiveDirectory?: pulumi.Input<inputs.WindowsFileSystemSelfManagedActiveDirectory>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -430,7 +429,7 @@ export interface WindowsFileSystemArgs {
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
      */
-    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    auditLogConfiguration?: pulumi.Input<inputs.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
@@ -454,7 +453,7 @@ export interface WindowsFileSystemArgs {
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
      */
-    diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
+    diskIopsConfiguration?: pulumi.Input<inputs.WindowsFileSystemDiskIopsConfiguration>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      */
@@ -470,7 +469,7 @@ export interface WindowsFileSystemArgs {
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
      */
-    selfManagedActiveDirectory?: pulumi.Input<inputs.fsx.WindowsFileSystemSelfManagedActiveDirectory>;
+    selfManagedActiveDirectory?: pulumi.Input<inputs.WindowsFileSystemSelfManagedActiveDirectory>;
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */

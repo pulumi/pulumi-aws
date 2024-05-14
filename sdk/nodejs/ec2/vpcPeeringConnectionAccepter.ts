@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +92,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.VpcPeeringConnectionAccepterAccepter>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
@@ -113,7 +113,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    public readonly requester!: pulumi.Output<outputs.VpcPeeringConnectionAccepterRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -191,7 +191,7 @@ export interface VpcPeeringConnectionAccepterState {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.VpcPeeringConnectionAccepterAccepter>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
@@ -212,7 +212,7 @@ export interface VpcPeeringConnectionAccepterState {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.VpcPeeringConnectionAccepterRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -241,7 +241,7 @@ export interface VpcPeeringConnectionAccepterArgs {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.VpcPeeringConnectionAccepterAccepter>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
@@ -250,7 +250,7 @@ export interface VpcPeeringConnectionAccepterArgs {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.VpcPeeringConnectionAccepterRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

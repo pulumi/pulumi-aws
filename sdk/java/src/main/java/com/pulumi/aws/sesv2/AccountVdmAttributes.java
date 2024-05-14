@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountVdmAttributes("example", AccountVdmAttributesArgs.builder()        
+ *         var example = new AccountVdmAttributes("example", AccountVdmAttributesArgs.builder()
  *             .vdmEnabled("ENABLED")
  *             .dashboardAttributes(AccountVdmAttributesDashboardAttributesArgs.builder()
  *                 .engagementMetrics("ENABLED")

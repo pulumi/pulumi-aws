@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +71,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * A list of activated rules, see below
      */
-    public readonly activatedRules!: pulumi.Output<outputs.waf.RuleGroupActivatedRule[] | undefined>;
+    public readonly activatedRules!: pulumi.Output<outputs.RuleGroupActivatedRule[] | undefined>;
     /**
      * The ARN of the WAF rule group.
      */
@@ -139,7 +138,7 @@ export interface RuleGroupState {
     /**
      * A list of activated rules, see below
      */
-    activatedRules?: pulumi.Input<pulumi.Input<inputs.waf.RuleGroupActivatedRule>[]>;
+    activatedRules?: pulumi.Input<pulumi.Input<inputs.RuleGroupActivatedRule>[]>;
     /**
      * The ARN of the WAF rule group.
      */
@@ -171,7 +170,7 @@ export interface RuleGroupArgs {
     /**
      * A list of activated rules, see below
      */
-    activatedRules?: pulumi.Input<pulumi.Input<inputs.waf.RuleGroupActivatedRule>[]>;
+    activatedRules?: pulumi.Input<pulumi.Input<inputs.RuleGroupActivatedRule>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */

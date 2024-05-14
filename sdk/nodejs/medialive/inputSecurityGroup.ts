@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly whitelistRules!: pulumi.Output<outputs.medialive.InputSecurityGroupWhitelistRule[]>;
+    public readonly whitelistRules!: pulumi.Output<outputs.InputSecurityGroupWhitelistRule[]>;
 
     /**
      * Create a InputSecurityGroup resource with the given unique name, arguments, and options.
@@ -146,7 +145,7 @@ export interface InputSecurityGroupState {
      *
      * The following arguments are optional:
      */
-    whitelistRules?: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
+    whitelistRules?: pulumi.Input<pulumi.Input<inputs.InputSecurityGroupWhitelistRule>[]>;
 }
 
 /**
@@ -162,5 +161,5 @@ export interface InputSecurityGroupArgs {
      *
      * The following arguments are optional:
      */
-    whitelistRules: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
+    whitelistRules: pulumi.Input<pulumi.Input<inputs.InputSecurityGroupWhitelistRule>[]>;
 }

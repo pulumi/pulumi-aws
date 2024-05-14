@@ -111,6 +111,15 @@ export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as a
 utilities.lazyLoad(exports, ["VpcEndpoint"], () => require("./vpcEndpoint"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class SecretRotation extends pulumi.CustomResource {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRotationRules>;
+    public readonly rotationRules!: pulumi.Output<outputs.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
@@ -148,7 +147,7 @@ export interface SecretRotationState {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
+    rotationRules?: pulumi.Input<inputs.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
@@ -170,7 +169,7 @@ export interface SecretRotationArgs {
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    rotationRules: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
+    rotationRules: pulumi.Input<inputs.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */

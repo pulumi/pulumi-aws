@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -133,7 +132,7 @@ export interface GetKeyResult {
     /**
      * Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
      */
-    readonly multiRegionConfigurations: outputs.kms.GetKeyMultiRegionConfiguration[];
+    readonly multiRegionConfigurations: outputs.GetKeyMultiRegionConfiguration[];
     /**
      * When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
      */
@@ -149,7 +148,7 @@ export interface GetKeyResult {
     /**
      * Information about the external key that is associated with a KMS key in an external key store.
      */
-    readonly xksKeyConfigurations: outputs.kms.GetKeyXksKeyConfiguration[];
+    readonly xksKeyConfigurations: outputs.GetKeyXksKeyConfiguration[];
 }
 /**
  * Use this data source to get detailed information about

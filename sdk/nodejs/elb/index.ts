@@ -61,6 +61,15 @@ export const SslNegotiationPolicy: typeof import("./sslNegotiationPolicy").SslNe
 utilities.lazyLoad(exports, ["SslNegotiationPolicy"], () => require("./sslNegotiationPolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,7 +88,7 @@ export class TestGridProject extends pulumi.CustomResource {
     /**
      * The VPC security groups and subnets that are attached to a project. See VPC Config below.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.TestGridProjectVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.TestGridProjectVpcConfig | undefined>;
 
     /**
      * Create a TestGridProject resource with the given unique name, arguments, and options.
@@ -153,7 +152,7 @@ export interface TestGridProjectState {
     /**
      * The VPC security groups and subnets that are attached to a project. See VPC Config below.
      */
-    vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.TestGridProjectVpcConfig>;
 }
 
 /**
@@ -175,5 +174,5 @@ export interface TestGridProjectArgs {
     /**
      * The VPC security groups and subnets that are attached to a project. See VPC Config below.
      */
-    vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.TestGridProjectVpcConfig>;
 }

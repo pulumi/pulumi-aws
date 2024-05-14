@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +52,7 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**
      * A List of Role Mapping.
      */
-    public readonly roleMappings!: pulumi.Output<outputs.cognito.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
+    public readonly roleMappings!: pulumi.Output<outputs.IdentityPoolRoleAttachmentRoleMapping[] | undefined>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
@@ -103,7 +102,7 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * A List of Role Mapping.
      */
-    roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
+    roleMappings?: pulumi.Input<pulumi.Input<inputs.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
@@ -121,7 +120,7 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * A List of Role Mapping.
      */
-    roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
+    roleMappings?: pulumi.Input<pulumi.Input<inputs.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */

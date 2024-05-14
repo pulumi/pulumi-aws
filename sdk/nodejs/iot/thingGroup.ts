@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class ThingGroup extends pulumi.CustomResource {
      * The ARN of the Thing Group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly metadatas!: pulumi.Output<outputs.iot.ThingGroupMetadata[]>;
+    public /*out*/ readonly metadatas!: pulumi.Output<outputs.ThingGroupMetadata[]>;
     /**
      * The name of the Thing Group.
      */
@@ -87,7 +86,7 @@ export class ThingGroup extends pulumi.CustomResource {
     /**
      * The Thing Group properties. Defined below.
      */
-    public readonly properties!: pulumi.Output<outputs.iot.ThingGroupProperties | undefined>;
+    public readonly properties!: pulumi.Output<outputs.ThingGroupProperties | undefined>;
     /**
      * Key-value mapping of resource tags
      */
@@ -146,7 +145,7 @@ export interface ThingGroupState {
      * The ARN of the Thing Group.
      */
     arn?: pulumi.Input<string>;
-    metadatas?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupMetadata>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.ThingGroupMetadata>[]>;
     /**
      * The name of the Thing Group.
      */
@@ -158,7 +157,7 @@ export interface ThingGroupState {
     /**
      * The Thing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    properties?: pulumi.Input<inputs.ThingGroupProperties>;
     /**
      * Key-value mapping of resource tags
      */
@@ -188,7 +187,7 @@ export interface ThingGroupArgs {
     /**
      * The Thing Group properties. Defined below.
      */
-    properties?: pulumi.Input<inputs.iot.ThingGroupProperties>;
+    properties?: pulumi.Input<inputs.ThingGroupProperties>;
     /**
      * Key-value mapping of resource tags
      */

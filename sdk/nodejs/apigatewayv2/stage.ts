@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class Stage extends pulumi.CustomResource {
      * Settings for logging access in this stage.
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
-    public readonly accessLogSettings!: pulumi.Output<outputs.apigatewayv2.StageAccessLogSettings | undefined>;
+    public readonly accessLogSettings!: pulumi.Output<outputs.StageAccessLogSettings | undefined>;
     /**
      * API identifier.
      */
@@ -87,7 +86,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Default route settings for the stage.
      */
-    public readonly defaultRouteSettings!: pulumi.Output<outputs.apigatewayv2.StageDefaultRouteSettings | undefined>;
+    public readonly defaultRouteSettings!: pulumi.Output<outputs.StageDefaultRouteSettings | undefined>;
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
@@ -116,7 +115,7 @@ export class Stage extends pulumi.CustomResource {
     /**
      * Route settings for the stage.
      */
-    public readonly routeSettings!: pulumi.Output<outputs.apigatewayv2.StageRouteSetting[] | undefined>;
+    public readonly routeSettings!: pulumi.Output<outputs.StageRouteSetting[] | undefined>;
     /**
      * Map that defines the stage variables for the stage.
      */
@@ -194,7 +193,7 @@ export interface StageState {
      * Settings for logging access in this stage.
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
-    accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.StageAccessLogSettings>;
     /**
      * API identifier.
      */
@@ -215,7 +214,7 @@ export interface StageState {
     /**
      * Default route settings for the stage.
      */
-    defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageDefaultRouteSettings>;
+    defaultRouteSettings?: pulumi.Input<inputs.StageDefaultRouteSettings>;
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
@@ -244,7 +243,7 @@ export interface StageState {
     /**
      * Route settings for the stage.
      */
-    routeSettings?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.StageRouteSetting>[]>;
+    routeSettings?: pulumi.Input<pulumi.Input<inputs.StageRouteSetting>[]>;
     /**
      * Map that defines the stage variables for the stage.
      */
@@ -269,7 +268,7 @@ export interface StageArgs {
      * Settings for logging access in this stage.
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
-    accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.StageAccessLogSettings>;
     /**
      * API identifier.
      */
@@ -286,7 +285,7 @@ export interface StageArgs {
     /**
      * Default route settings for the stage.
      */
-    defaultRouteSettings?: pulumi.Input<inputs.apigatewayv2.StageDefaultRouteSettings>;
+    defaultRouteSettings?: pulumi.Input<inputs.StageDefaultRouteSettings>;
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      */
@@ -304,7 +303,7 @@ export interface StageArgs {
     /**
      * Route settings for the stage.
      */
-    routeSettings?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.StageRouteSetting>[]>;
+    routeSettings?: pulumi.Input<pulumi.Input<inputs.StageRouteSetting>[]>;
     /**
      * Map that defines the stage variables for the stage.
      */

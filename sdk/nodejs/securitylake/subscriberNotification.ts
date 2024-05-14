@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    public readonly configuration!: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.SubscriberNotificationConfiguration | undefined>;
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
     /**
      * The subscriber ID for the notification subscription.
@@ -99,7 +98,7 @@ export interface SubscriberNotificationState {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    configuration?: pulumi.Input<inputs.SubscriberNotificationConfiguration>;
     endpointId?: pulumi.Input<string>;
     /**
      * The subscriber ID for the notification subscription.
@@ -114,7 +113,7 @@ export interface SubscriberNotificationArgs {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    configuration?: pulumi.Input<inputs.SubscriberNotificationConfiguration>;
     /**
      * The subscriber ID for the notification subscription.
      */

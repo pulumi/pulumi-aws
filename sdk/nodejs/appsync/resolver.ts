@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -165,7 +164,7 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * The Caching Config. See Caching Config.
      */
-    public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    public readonly cachingConfig!: pulumi.Output<outputs.ResolverCachingConfig | undefined>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
@@ -189,7 +188,7 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      */
-    public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
+    public readonly pipelineConfig!: pulumi.Output<outputs.ResolverPipelineConfig | undefined>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
@@ -201,11 +200,11 @@ export class Resolver extends pulumi.CustomResource {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    public readonly runtime!: pulumi.Output<outputs.appsync.ResolverRuntime | undefined>;
+    public readonly runtime!: pulumi.Output<outputs.ResolverRuntime | undefined>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
+    public readonly syncConfig!: pulumi.Output<outputs.ResolverSyncConfig | undefined>;
     /**
      * Type name from the schema defined in the GraphQL API.
      */
@@ -284,7 +283,7 @@ export interface ResolverState {
     /**
      * The Caching Config. See Caching Config.
      */
-    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    cachingConfig?: pulumi.Input<inputs.ResolverCachingConfig>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
@@ -308,7 +307,7 @@ export interface ResolverState {
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      */
-    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    pipelineConfig?: pulumi.Input<inputs.ResolverPipelineConfig>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
@@ -320,11 +319,11 @@ export interface ResolverState {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    runtime?: pulumi.Input<inputs.appsync.ResolverRuntime>;
+    runtime?: pulumi.Input<inputs.ResolverRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
+    syncConfig?: pulumi.Input<inputs.ResolverSyncConfig>;
     /**
      * Type name from the schema defined in the GraphQL API.
      */
@@ -342,7 +341,7 @@ export interface ResolverArgs {
     /**
      * The Caching Config. See Caching Config.
      */
-    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    cachingConfig?: pulumi.Input<inputs.ResolverCachingConfig>;
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
@@ -366,7 +365,7 @@ export interface ResolverArgs {
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      */
-    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    pipelineConfig?: pulumi.Input<inputs.ResolverPipelineConfig>;
     /**
      * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
@@ -378,11 +377,11 @@ export interface ResolverArgs {
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
-    runtime?: pulumi.Input<inputs.appsync.ResolverRuntime>;
+    runtime?: pulumi.Input<inputs.ResolverRuntime>;
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
+    syncConfig?: pulumi.Input<inputs.ResolverSyncConfig>;
     /**
      * Type name from the schema defined in the GraphQL API.
      */

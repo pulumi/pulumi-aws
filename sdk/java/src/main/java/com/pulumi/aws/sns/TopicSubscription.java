@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()        
+ *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()
  *             .topic("arn:aws:sns:us-west-2:432981146916:user-updates-topic")
  *             .protocol("sqs")
  *             .endpoint("arn:aws:sqs:us-west-2:432981146916:queue-too")
@@ -97,15 +97,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic")
  *             .build());
  * 
- *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()        
+ *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()
  *             .name("user-updates-queue")
  *             .build());
  * 
- *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()        
+ *         var userUpdatesSqsTarget = new TopicSubscription("userUpdatesSqsTarget", TopicSubscriptionArgs.builder()
  *             .topic(userUpdates.arn())
  *             .protocol("sqs")
  *             .endpoint(userUpdatesQueue.arn())
@@ -215,18 +215,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var sns_topic = new Topic("sns-topic", TopicArgs.builder()        
+ *         var sns_topic = new Topic("sns-topic", TopicArgs.builder()
  *             .name(sns.name())
  *             .displayName(sns.display_name())
  *             .policy(sns_topic_policy.json())
  *             .build());
  * 
- *         var sqs_queue = new Queue("sqs-queue", QueueArgs.builder()        
+ *         var sqs_queue = new Queue("sqs-queue", QueueArgs.builder()
  *             .name(sqs.name())
  *             .policy(sqs_queue_policy.json())
  *             .build());
  * 
- *         var sns_topicTopicSubscription = new TopicSubscription("sns-topicTopicSubscription", TopicSubscriptionArgs.builder()        
+ *         var sns_topicTopicSubscription = new TopicSubscription("sns-topicTopicSubscription", TopicSubscriptionArgs.builder()
  *             .topic(sns_topic.arn())
  *             .protocol("sqs")
  *             .endpoint(sqs_queue.arn())

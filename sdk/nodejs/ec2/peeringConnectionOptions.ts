@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -130,11 +130,11 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.PeeringConnectionOptionsRequester>;
+    public readonly requester!: pulumi.Output<outputs.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */
@@ -177,11 +177,11 @@ export interface PeeringConnectionOptionsState {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */
@@ -195,11 +195,11 @@ export interface PeeringConnectionOptionsArgs {
     /**
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */

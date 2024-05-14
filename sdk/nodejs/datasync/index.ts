@@ -71,6 +71,15 @@ export const Task: typeof import("./task").Task = null as any;
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

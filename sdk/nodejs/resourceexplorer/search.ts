@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -48,11 +47,11 @@ export interface SearchArgs {
     /**
      * Number of resources that match the query. See `resourceCount` below.
      */
-    resourceCounts?: inputs.resourceexplorer.SearchResourceCount[];
+    resourceCounts?: inputs.SearchResourceCount[];
     /**
      * List of structures that describe the resources that match the query. See `resources` below.
      */
-    resources?: inputs.resourceexplorer.SearchResource[];
+    resources?: inputs.SearchResource[];
     /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      */
@@ -71,11 +70,11 @@ export interface SearchResult {
     /**
      * Number of resources that match the query. See `resourceCount` below.
      */
-    readonly resourceCounts?: outputs.resourceexplorer.SearchResourceCount[];
+    readonly resourceCounts?: inputs.SearchResourceCount[];
     /**
      * List of structures that describe the resources that match the query. See `resources` below.
      */
-    readonly resources?: outputs.resourceexplorer.SearchResource[];
+    readonly resources?: inputs.SearchResource[];
     readonly viewArn?: string;
 }
 /**
@@ -112,11 +111,11 @@ export interface SearchOutputArgs {
     /**
      * Number of resources that match the query. See `resourceCount` below.
      */
-    resourceCounts?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.SearchResourceCountArgs>[]>;
+    resourceCounts?: pulumi.Input<pulumi.Input<inputs.SearchResourceCountArgs>[]>;
     /**
      * List of structures that describe the resources that match the query. See `resources` below.
      */
-    resources?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.SearchResourceArgs>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.SearchResourceArgs>[]>;
     /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      */

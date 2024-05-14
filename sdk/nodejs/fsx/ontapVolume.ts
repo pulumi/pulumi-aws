@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +87,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
      */
-    public readonly aggregateConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
+    public readonly aggregateConfiguration!: pulumi.Output<outputs.OntapVolumeAggregateConfiguration | undefined>;
     /**
      * Amazon Resource Name of the volune.
      */
@@ -140,7 +139,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
      */
-    public readonly snaplockConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeSnaplockConfiguration | undefined>;
+    public readonly snaplockConfiguration!: pulumi.Output<outputs.OntapVolumeSnaplockConfiguration | undefined>;
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      */
@@ -166,7 +165,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
      */
-    public readonly tieringPolicy!: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
+    public readonly tieringPolicy!: pulumi.Output<outputs.OntapVolumeTieringPolicy | undefined>;
     /**
      * The Volume's UUID (universally unique identifier).
      */
@@ -257,7 +256,7 @@ export interface OntapVolumeState {
     /**
      * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
      */
-    aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
+    aggregateConfiguration?: pulumi.Input<inputs.OntapVolumeAggregateConfiguration>;
     /**
      * Amazon Resource Name of the volune.
      */
@@ -309,7 +308,7 @@ export interface OntapVolumeState {
     /**
      * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
      */
-    snaplockConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfiguration>;
+    snaplockConfiguration?: pulumi.Input<inputs.OntapVolumeSnaplockConfiguration>;
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      */
@@ -335,7 +334,7 @@ export interface OntapVolumeState {
     /**
      * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
      */
-    tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
+    tieringPolicy?: pulumi.Input<inputs.OntapVolumeTieringPolicy>;
     /**
      * The Volume's UUID (universally unique identifier).
      */
@@ -357,7 +356,7 @@ export interface OntapVolumeArgs {
     /**
      * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
      */
-    aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
+    aggregateConfiguration?: pulumi.Input<inputs.OntapVolumeAggregateConfiguration>;
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      */
@@ -397,7 +396,7 @@ export interface OntapVolumeArgs {
     /**
      * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
      */
-    snaplockConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfiguration>;
+    snaplockConfiguration?: pulumi.Input<inputs.OntapVolumeSnaplockConfiguration>;
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      */
@@ -417,7 +416,7 @@ export interface OntapVolumeArgs {
     /**
      * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
      */
-    tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
+    tieringPolicy?: pulumi.Input<inputs.OntapVolumeTieringPolicy>;
     /**
      * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      */

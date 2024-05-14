@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,11 +76,11 @@ export class View extends pulumi.CustomResource {
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    public readonly filters!: pulumi.Output<outputs.resourceexplorer.ViewFilters | undefined>;
+    public readonly filters!: pulumi.Output<outputs.ViewFilters | undefined>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer.ViewIncludedProperty[] | undefined>;
+    public readonly includedProperties!: pulumi.Output<outputs.ViewIncludedProperty[] | undefined>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
@@ -147,11 +146,11 @@ export interface ViewState {
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
+    filters?: pulumi.Input<inputs.ViewFilters>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
+    includedProperties?: pulumi.Input<pulumi.Input<inputs.ViewIncludedProperty>[]>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
@@ -179,11 +178,11 @@ export interface ViewArgs {
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      */
-    filters?: pulumi.Input<inputs.resourceexplorer.ViewFilters>;
+    filters?: pulumi.Input<inputs.ViewFilters>;
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      */
-    includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.ViewIncludedProperty>[]>;
+    includedProperties?: pulumi.Input<pulumi.Input<inputs.ViewIncludedProperty>[]>;
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */

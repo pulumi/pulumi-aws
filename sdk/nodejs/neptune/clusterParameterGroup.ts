@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     /**
      * A list of neptune parameters to apply.
      */
-    public readonly parameters!: pulumi.Output<outputs.neptune.ClusterParameterGroupParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.ClusterParameterGroupParameter[] | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -165,7 +164,7 @@ export interface ClusterParameterGroupState {
     /**
      * A list of neptune parameters to apply.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ClusterParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ClusterParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -201,7 +200,7 @@ export interface ClusterParameterGroupArgs {
     /**
      * A list of neptune parameters to apply.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ClusterParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ClusterParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

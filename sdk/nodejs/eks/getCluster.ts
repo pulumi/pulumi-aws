@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +57,7 @@ export interface GetClusterResult {
     /**
      * Configuration block for access config.
      */
-    readonly accessConfigs: outputs.eks.GetClusterAccessConfig[];
+    readonly accessConfigs: outputs.GetClusterAccessConfig[];
     /**
      * ARN of the cluster.
      */
@@ -66,7 +65,7 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing `certificate-authority-data` for your cluster.
      */
-    readonly certificateAuthorities: outputs.eks.GetClusterCertificateAuthority[];
+    readonly certificateAuthorities: outputs.GetClusterCertificateAuthority[];
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -90,16 +89,16 @@ export interface GetClusterResult {
     /**
      * Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `aws.eks.Cluster` resource documentation.
      */
-    readonly identities: outputs.eks.GetClusterIdentity[];
+    readonly identities: outputs.GetClusterIdentity[];
     /**
      * Nested list containing Kubernetes Network Configuration.
      */
-    readonly kubernetesNetworkConfigs: outputs.eks.GetClusterKubernetesNetworkConfig[];
+    readonly kubernetesNetworkConfigs: outputs.GetClusterKubernetesNetworkConfig[];
     readonly name: string;
     /**
      * Contains Outpost Configuration.
      */
-    readonly outpostConfigs: outputs.eks.GetClusterOutpostConfig[];
+    readonly outpostConfigs: outputs.GetClusterOutpostConfig[];
     /**
      * Platform version for the cluster.
      */
@@ -123,7 +122,7 @@ export interface GetClusterResult {
     /**
      * Nested list containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
+    readonly vpcConfig: outputs.GetClusterVpcConfig;
 }
 /**
  * Retrieve information about an EKS Cluster.

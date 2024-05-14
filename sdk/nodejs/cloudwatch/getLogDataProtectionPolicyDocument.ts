@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +89,7 @@ export interface GetLogDataProtectionPolicyDocumentArgs {
      *
      * The following arguments are optional:
      */
-    statements: inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
+    statements: inputs.GetLogDataProtectionPolicyDocumentStatement[];
     version?: string;
 }
 
@@ -108,7 +107,7 @@ export interface GetLogDataProtectionPolicyDocumentResult {
      */
     readonly json: string;
     readonly name: string;
-    readonly statements: outputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatement[];
+    readonly statements: inputs.GetLogDataProtectionPolicyDocumentStatement[];
     readonly version?: string;
 }
 /**
@@ -187,6 +186,6 @@ export interface GetLogDataProtectionPolicyDocumentOutputArgs {
      *
      * The following arguments are optional:
      */
-    statements: pulumi.Input<pulumi.Input<inputs.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs>[]>;
+    statements: pulumi.Input<pulumi.Input<inputs.GetLogDataProtectionPolicyDocumentStatementArgs>[]>;
     version?: pulumi.Input<string>;
 }

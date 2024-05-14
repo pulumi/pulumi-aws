@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +90,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    public readonly ebsBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEbsBlockDevice[]>;
+    public readonly ebsBlockDevices!: pulumi.Output<outputs.AmiFromInstanceEbsBlockDevice[]>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -99,7 +99,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEphemeralBlockDevice[]>;
+    public readonly ephemeralBlockDevices!: pulumi.Output<outputs.AmiFromInstanceEphemeralBlockDevice[]>;
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -286,7 +286,7 @@ export interface AmiFromInstanceState {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
@@ -295,7 +295,7 @@ export interface AmiFromInstanceState {
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiFromInstanceEphemeralBlockDevice>[]>;
     hypervisor?: pulumi.Input<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g., created
@@ -385,12 +385,12 @@ export interface AmiFromInstanceArgs {
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.AmiFromInstanceEphemeralBlockDevice>[]>;
     /**
      * Region-unique name for the AMI.
      */

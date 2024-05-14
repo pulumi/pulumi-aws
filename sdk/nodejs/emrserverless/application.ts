@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -112,23 +111,23 @@ export class Application extends pulumi.CustomResource {
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration>;
+    public readonly autoStartConfiguration!: pulumi.Output<outputs.ApplicationAutoStartConfiguration>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
+    public readonly autoStopConfiguration!: pulumi.Output<outputs.ApplicationAutoStopConfiguration>;
     /**
      * The image configuration applied to all worker types.
      */
-    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfiguration>;
+    public readonly imageConfiguration!: pulumi.Output<outputs.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */
-    public readonly initialCapacities!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
+    public readonly initialCapacities!: pulumi.Output<outputs.ApplicationInitialCapacity[] | undefined>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
+    public readonly maximumCapacity!: pulumi.Output<outputs.ApplicationMaximumCapacity>;
     /**
      * The name of the application.
      */
@@ -136,7 +135,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The network configuration for customer VPC connectivity.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ApplicationNetworkConfiguration | undefined>;
     /**
      * The EMR release version associated with the application.
      */
@@ -224,23 +223,23 @@ export interface ApplicationState {
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
+    autoStartConfiguration?: pulumi.Input<inputs.ApplicationAutoStartConfiguration>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    autoStopConfiguration?: pulumi.Input<inputs.ApplicationAutoStopConfiguration>;
     /**
      * The image configuration applied to all worker types.
      */
-    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
+    imageConfiguration?: pulumi.Input<inputs.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */
-    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    initialCapacities?: pulumi.Input<pulumi.Input<inputs.ApplicationInitialCapacity>[]>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
+    maximumCapacity?: pulumi.Input<inputs.ApplicationMaximumCapacity>;
     /**
      * The name of the application.
      */
@@ -248,7 +247,7 @@ export interface ApplicationState {
     /**
      * The network configuration for customer VPC connectivity.
      */
-    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.ApplicationNetworkConfiguration>;
     /**
      * The EMR release version associated with the application.
      */
@@ -280,23 +279,23 @@ export interface ApplicationArgs {
     /**
      * The configuration for an application to automatically start on job submission.
      */
-    autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
+    autoStartConfiguration?: pulumi.Input<inputs.ApplicationAutoStartConfiguration>;
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      */
-    autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
+    autoStopConfiguration?: pulumi.Input<inputs.ApplicationAutoStopConfiguration>;
     /**
      * The image configuration applied to all worker types.
      */
-    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfiguration>;
+    imageConfiguration?: pulumi.Input<inputs.ApplicationImageConfiguration>;
     /**
      * The capacity to initialize when the application is created.
      */
-    initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
+    initialCapacities?: pulumi.Input<pulumi.Input<inputs.ApplicationInitialCapacity>[]>;
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      */
-    maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
+    maximumCapacity?: pulumi.Input<inputs.ApplicationMaximumCapacity>;
     /**
      * The name of the application.
      */
@@ -304,7 +303,7 @@ export interface ApplicationArgs {
     /**
      * The network configuration for customer VPC connectivity.
      */
-    networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.ApplicationNetworkConfiguration>;
     /**
      * The EMR release version associated with the application.
      */

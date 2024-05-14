@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +74,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     /**
      * The DNS name of the service.
      */
-    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry[]>;
+    public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.ServiceNetworkServiceAssociationDnsEntry[]>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
@@ -164,7 +163,7 @@ export interface ServiceNetworkServiceAssociationState {
     /**
      * The DNS name of the service.
      */
-    dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[]>;
+    dnsEntries?: pulumi.Input<pulumi.Input<inputs.ServiceNetworkServiceAssociationDnsEntry>[]>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */

@@ -21,6 +21,15 @@ export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPol
 utilities.lazyLoad(exports, ["RepositoryPolicy"], () => require("./repositoryPolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

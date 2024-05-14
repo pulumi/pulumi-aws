@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,7 +62,7 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
     /**
      * Configuration block for SAML options.
      */
-    public readonly samlOptions!: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
+    public readonly samlOptions!: pulumi.Output<outputs.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
      * Type of configuration. Must be `saml`.
      *
@@ -124,7 +123,7 @@ export interface ServerlessSecurityConfigState {
     /**
      * Configuration block for SAML options.
      */
-    samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions>;
+    samlOptions?: pulumi.Input<inputs.ServerlessSecurityConfigSamlOptions>;
     /**
      * Type of configuration. Must be `saml`.
      *
@@ -148,7 +147,7 @@ export interface ServerlessSecurityConfigArgs {
     /**
      * Configuration block for SAML options.
      */
-    samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions>;
+    samlOptions?: pulumi.Input<inputs.ServerlessSecurityConfigSamlOptions>;
     /**
      * Type of configuration. Must be `saml`.
      *

@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -124,7 +124,7 @@ export class ResolverRule extends pulumi.CustomResource {
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      */
-    public readonly targetIps!: pulumi.Output<outputs.route53.ResolverRuleTargetIp[] | undefined>;
+    public readonly targetIps!: pulumi.Output<outputs.ResolverRuleTargetIp[] | undefined>;
 
     /**
      * Create a ResolverRule resource with the given unique name, arguments, and options.
@@ -221,7 +221,7 @@ export interface ResolverRuleState {
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      */
-    targetIps?: pulumi.Input<pulumi.Input<inputs.route53.ResolverRuleTargetIp>[]>;
+    targetIps?: pulumi.Input<pulumi.Input<inputs.ResolverRuleTargetIp>[]>;
 }
 
 /**
@@ -253,5 +253,5 @@ export interface ResolverRuleArgs {
      * Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
      * This argument should only be specified for `FORWARD` type rules.
      */
-    targetIps?: pulumi.Input<pulumi.Input<inputs.route53.ResolverRuleTargetIp>[]>;
+    targetIps?: pulumi.Input<pulumi.Input<inputs.ResolverRuleTargetIp>[]>;
 }

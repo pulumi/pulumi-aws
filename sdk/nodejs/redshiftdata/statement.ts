@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class Statement extends pulumi.CustomResource {
      * The database user name.
      */
     public readonly dbUser!: pulumi.Output<string | undefined>;
-    public readonly parameters!: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.StatementParameter[] | undefined>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
@@ -172,7 +171,7 @@ export interface StatementState {
      * The database user name.
      */
     dbUser?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.StatementParameter>[]>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */
@@ -213,7 +212,7 @@ export interface StatementArgs {
      * The database user name.
      */
     dbUser?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.StatementParameter>[]>;
     /**
      * The name or ARN of the secret that enables access to the database.
      */

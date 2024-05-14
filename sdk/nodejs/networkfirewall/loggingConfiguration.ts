@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +115,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.LoggingConfigurationLoggingConfiguration>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -160,7 +159,7 @@ export interface LoggingConfigurationState {
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.LoggingConfigurationLoggingConfiguration>;
 }
 
 /**
@@ -174,5 +173,5 @@ export interface LoggingConfigurationArgs {
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    loggingConfiguration: pulumi.Input<inputs.LoggingConfigurationLoggingConfiguration>;
 }

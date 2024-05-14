@@ -190,7 +190,16 @@ export * from "./routingRules";
 export * from "./s3Mixins";
 
 // Export enums:
-export * from "../types/enums/s3";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,11 +96,11 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      */
-    public readonly memberDefinitions!: pulumi.Output<outputs.sagemaker.WorkteamMemberDefinition[]>;
+    public readonly memberDefinitions!: pulumi.Output<outputs.WorkteamMemberDefinition[]>;
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
+    public readonly notificationConfiguration!: pulumi.Output<outputs.WorkteamNotificationConfiguration | undefined>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
@@ -191,11 +190,11 @@ export interface WorkteamState {
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      */
-    memberDefinitions?: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[]>;
+    memberDefinitions?: pulumi.Input<pulumi.Input<inputs.WorkteamMemberDefinition>[]>;
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    notificationConfiguration?: pulumi.Input<inputs.WorkteamNotificationConfiguration>;
     /**
      * The subdomain for your OIDC Identity Provider.
      */
@@ -231,11 +230,11 @@ export interface WorkteamArgs {
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      */
-    memberDefinitions: pulumi.Input<pulumi.Input<inputs.sagemaker.WorkteamMemberDefinition>[]>;
+    memberDefinitions: pulumi.Input<pulumi.Input<inputs.WorkteamMemberDefinition>[]>;
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
-    notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    notificationConfiguration?: pulumi.Input<inputs.WorkteamNotificationConfiguration>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

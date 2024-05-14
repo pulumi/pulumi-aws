@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -136,7 +135,7 @@ export class ResponsePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResponsePlan.__pulumiType;
     }
 
-    public readonly action!: pulumi.Output<outputs.ssmincidents.ResponsePlanAction | undefined>;
+    public readonly action!: pulumi.Output<outputs.ResponsePlanAction | undefined>;
     /**
      * The ARN of the response plan.
      */
@@ -144,8 +143,8 @@ export class ResponsePlan extends pulumi.CustomResource {
     public readonly chatChannels!: pulumi.Output<string[] | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
     public readonly engagements!: pulumi.Output<string[] | undefined>;
-    public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    public readonly integration!: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration | undefined>;
+    public readonly incidentTemplate!: pulumi.Output<outputs.ResponsePlanIncidentTemplate>;
+    public readonly integration!: pulumi.Output<outputs.ResponsePlanIntegration | undefined>;
     /**
      * The name of the response plan.
      */
@@ -206,7 +205,7 @@ export class ResponsePlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResponsePlan resources.
  */
 export interface ResponsePlanState {
-    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
+    action?: pulumi.Input<inputs.ResponsePlanAction>;
     /**
      * The ARN of the response plan.
      */
@@ -214,8 +213,8 @@ export interface ResponsePlanState {
     chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
     displayName?: pulumi.Input<string>;
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
-    incidentTemplate?: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
+    incidentTemplate?: pulumi.Input<inputs.ResponsePlanIncidentTemplate>;
+    integration?: pulumi.Input<inputs.ResponsePlanIntegration>;
     /**
      * The name of the response plan.
      */
@@ -233,12 +232,12 @@ export interface ResponsePlanState {
  * The set of arguments for constructing a ResponsePlan resource.
  */
 export interface ResponsePlanArgs {
-    action?: pulumi.Input<inputs.ssmincidents.ResponsePlanAction>;
+    action?: pulumi.Input<inputs.ResponsePlanAction>;
     chatChannels?: pulumi.Input<pulumi.Input<string>[]>;
     displayName?: pulumi.Input<string>;
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
-    incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplate>;
-    integration?: pulumi.Input<inputs.ssmincidents.ResponsePlanIntegration>;
+    incidentTemplate: pulumi.Input<inputs.ResponsePlanIncidentTemplate>;
+    integration?: pulumi.Input<inputs.ResponsePlanIntegration>;
     /**
      * The name of the response plan.
      */

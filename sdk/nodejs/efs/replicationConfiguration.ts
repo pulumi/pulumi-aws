@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +103,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * A destination configuration block (documented below).
      */
-    public readonly destination!: pulumi.Output<outputs.efs.ReplicationConfigurationDestination>;
+    public readonly destination!: pulumi.Output<outputs.ReplicationConfigurationDestination>;
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      */
@@ -172,7 +171,7 @@ export interface ReplicationConfigurationState {
     /**
      * A destination configuration block (documented below).
      */
-    destination?: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
+    destination?: pulumi.Input<inputs.ReplicationConfigurationDestination>;
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      */
@@ -198,7 +197,7 @@ export interface ReplicationConfigurationArgs {
     /**
      * A destination configuration block (documented below).
      */
-    destination: pulumi.Input<inputs.efs.ReplicationConfigurationDestination>;
+    destination: pulumi.Input<inputs.ReplicationConfigurationDestination>;
     /**
      * The ID of the file system that is to be replicated.
      */

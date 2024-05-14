@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {Topic} from "../sns";
@@ -268,7 +267,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    public readonly metricQueries!: pulumi.Output<outputs.cloudwatch.MetricAlarmMetricQuery[] | undefined>;
+    public readonly metricQueries!: pulumi.Output<outputs.MetricAlarmMetricQuery[] | undefined>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
@@ -455,7 +454,7 @@ export interface MetricAlarmState {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
+    metricQueries?: pulumi.Input<pulumi.Input<inputs.MetricAlarmMetricQuery>[]>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */
@@ -564,7 +563,7 @@ export interface MetricAlarmArgs {
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      */
-    metricQueries?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricAlarmMetricQuery>[]>;
+    metricQueries?: pulumi.Input<pulumi.Input<inputs.MetricAlarmMetricQuery>[]>;
     /**
      * The descriptive name for the alarm. This name must be unique within the user's AWS account
      */

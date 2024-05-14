@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export interface GetResourcesArgs {
     /**
      * Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
      */
-    tagFilters?: inputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
+    tagFilters?: inputs.GetResourcesTagFilter[];
 }
 
 /**
@@ -102,9 +101,9 @@ export interface GetResourcesResult {
     /**
      * List of objects matching the search criteria.
      */
-    readonly resourceTagMappingLists: outputs.resourcegroupstaggingapi.GetResourcesResourceTagMappingList[];
+    readonly resourceTagMappingLists: outputs.GetResourcesResourceTagMappingList[];
     readonly resourceTypeFilters?: string[];
-    readonly tagFilters?: outputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
+    readonly tagFilters?: inputs.GetResourcesTagFilter[];
 }
 /**
  * Provides details about resource tagging.
@@ -175,5 +174,5 @@ export interface GetResourcesOutputArgs {
     /**
      * Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
      */
-    tagFilters?: pulumi.Input<pulumi.Input<inputs.resourcegroupstaggingapi.GetResourcesTagFilterArgs>[]>;
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.GetResourcesTagFilterArgs>[]>;
 }

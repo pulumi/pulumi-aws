@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -421,7 +421,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
-    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.ClusterMasterUserSecret[]>;
+    public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.ClusterMasterUserSecret[]>;
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
@@ -454,16 +454,16 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
-    public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.ClusterRestoreToPointInTime | undefined>;
-    public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
+    public readonly restoreToPointInTime!: pulumi.Output<outputs.ClusterRestoreToPointInTime | undefined>;
+    public readonly s3Import!: pulumi.Output<outputs.ClusterS3Import | undefined>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    public readonly scalingConfiguration!: pulumi.Output<outputs.rds.ClusterScalingConfiguration | undefined>;
+    public readonly scalingConfiguration!: pulumi.Output<outputs.ClusterScalingConfiguration | undefined>;
     /**
      * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
      */
-    public readonly serverlessv2ScalingConfiguration!: pulumi.Output<outputs.rds.ClusterServerlessv2ScalingConfiguration | undefined>;
+    public readonly serverlessv2ScalingConfiguration!: pulumi.Output<outputs.ClusterServerlessv2ScalingConfiguration | undefined>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -768,11 +768,11 @@ export interface ClusterState {
     /**
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine?: pulumi.Input<string | enums.rds.EngineType>;
+    engine?: pulumi.Input<string | enums.EngineType>;
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
-    engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
+    engineMode?: pulumi.Input<string | enums.EngineMode>;
     /**
      * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      */
@@ -824,7 +824,7 @@ export interface ClusterState {
     /**
      * Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
-    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.ClusterMasterUserSecret>[]>;
+    masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.ClusterMasterUserSecret>[]>;
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
@@ -857,16 +857,16 @@ export interface ClusterState {
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
-    restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
-    s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
+    restoreToPointInTime?: pulumi.Input<inputs.ClusterRestoreToPointInTime>;
+    s3Import?: pulumi.Input<inputs.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
+    scalingConfiguration?: pulumi.Input<inputs.ClusterScalingConfiguration>;
     /**
      * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
      */
-    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.rds.ClusterServerlessv2ScalingConfiguration>;
+    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.ClusterServerlessv2ScalingConfiguration>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
@@ -1012,11 +1012,11 @@ export interface ClusterArgs {
     /**
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine: pulumi.Input<string | enums.rds.EngineType>;
+    engine: pulumi.Input<string | enums.EngineType>;
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
-    engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
+    engineMode?: pulumi.Input<string | enums.EngineMode>;
     /**
      * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      */
@@ -1084,16 +1084,16 @@ export interface ClusterArgs {
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
-    restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
-    s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
+    restoreToPointInTime?: pulumi.Input<inputs.ClusterRestoreToPointInTime>;
+    s3Import?: pulumi.Input<inputs.ClusterS3Import>;
     /**
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
-    scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
+    scalingConfiguration?: pulumi.Input<inputs.ClusterScalingConfiguration>;
     /**
      * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
      */
-    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.rds.ClusterServerlessv2ScalingConfiguration>;
+    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.ClusterServerlessv2ScalingConfiguration>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

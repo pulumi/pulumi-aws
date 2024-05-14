@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
@@ -412,7 +412,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    public readonly corsRules!: pulumi.Output<outputs.s3.BucketCorsRule[] | undefined>;
+    public readonly corsRules!: pulumi.Output<outputs.BucketCorsRule[] | undefined>;
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
@@ -420,7 +420,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      */
-    public readonly grants!: pulumi.Output<outputs.s3.BucketGrant[] | undefined>;
+    public readonly grants!: pulumi.Output<outputs.BucketGrant[] | undefined>;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
@@ -428,17 +428,17 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    public readonly lifecycleRules!: pulumi.Output<outputs.s3.BucketLifecycleRule[] | undefined>;
+    public readonly lifecycleRules!: pulumi.Output<outputs.BucketLifecycleRule[] | undefined>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    public readonly loggings!: pulumi.Output<outputs.s3.BucketLogging[] | undefined>;
+    public readonly loggings!: pulumi.Output<outputs.BucketLogging[] | undefined>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      *
      * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
-    public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
+    public readonly objectLockConfiguration!: pulumi.Output<outputs.BucketObjectLockConfiguration | undefined>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
      */
@@ -450,7 +450,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.s3.BucketReplicationConfiguration | undefined>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.BucketReplicationConfiguration | undefined>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -461,7 +461,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfiguration>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.BucketServerSideEncryptionConfiguration>;
     /**
      * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -475,11 +475,11 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    public readonly versioning!: pulumi.Output<outputs.s3.BucketVersioning>;
+    public readonly versioning!: pulumi.Output<outputs.BucketVersioning>;
     /**
      * A website object (documented below).
      */
-    public readonly website!: pulumi.Output<outputs.s3.BucketWebsite | undefined>;
+    public readonly website!: pulumi.Output<outputs.BucketWebsite | undefined>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
@@ -571,7 +571,7 @@ export interface BucketState {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
+    acl?: pulumi.Input<string | enums.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -595,7 +595,7 @@ export interface BucketState {
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.BucketCorsRule>[]>;
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
@@ -603,7 +603,7 @@ export interface BucketState {
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.BucketGrant>[]>;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
@@ -611,17 +611,17 @@ export interface BucketState {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.BucketLifecycleRule>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      *
      * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
-    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.BucketObjectLockConfiguration>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
      */
@@ -633,7 +633,7 @@ export interface BucketState {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -644,7 +644,7 @@ export interface BucketState {
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.BucketServerSideEncryptionConfiguration>;
     /**
      * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -658,11 +658,11 @@ export interface BucketState {
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
+    versioning?: pulumi.Input<inputs.BucketVersioning>;
     /**
      * A website object (documented below).
      */
-    website?: pulumi.Input<inputs.s3.BucketWebsite>;
+    website?: pulumi.Input<inputs.BucketWebsite>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
@@ -684,7 +684,7 @@ export interface BucketArgs {
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
+    acl?: pulumi.Input<string | enums.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
@@ -700,7 +700,7 @@ export interface BucketArgs {
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.BucketCorsRule>[]>;
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
@@ -708,7 +708,7 @@ export interface BucketArgs {
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      */
-    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.BucketGrant>[]>;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
@@ -716,17 +716,17 @@ export interface BucketArgs {
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.BucketLifecycleRule>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      *
      * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
-    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.BucketObjectLockConfiguration>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
      */
@@ -734,7 +734,7 @@ export interface BucketArgs {
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
@@ -745,7 +745,7 @@ export interface BucketArgs {
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.BucketServerSideEncryptionConfiguration>;
     /**
      * A map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -753,11 +753,11 @@ export interface BucketArgs {
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
+    versioning?: pulumi.Input<inputs.BucketVersioning>;
     /**
      * A website object (documented below).
      */
-    website?: pulumi.Input<inputs.s3.BucketWebsite>;
+    website?: pulumi.Input<inputs.BucketWebsite>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +68,7 @@ export interface GetOntapFileSystemResult {
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      */
-    readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
+    readonly diskIopsConfigurations: outputs.GetOntapFileSystemDiskIopsConfiguration[];
     /**
      * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
      */
@@ -81,7 +80,7 @@ export interface GetOntapFileSystemResult {
     /**
      * The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      */
-    readonly endpoints: outputs.fsx.GetOntapFileSystemEndpoint[];
+    readonly endpoints: outputs.GetOntapFileSystemEndpoint[];
     /**
      * The number of HA pairs for the file system.
      */

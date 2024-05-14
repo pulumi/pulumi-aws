@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +57,7 @@ export interface GetEmailIdentityResult {
     /**
      * A list of objects that contains at most one element with information about the private key and selector that you want to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or, configures the key length to be used for Easy DKIM.
      */
-    readonly dkimSigningAttributes: outputs.sesv2.GetEmailIdentityDkimSigningAttribute[];
+    readonly dkimSigningAttributes: outputs.GetEmailIdentityDkimSigningAttribute[];
     readonly emailIdentity: string;
     /**
      * The provider-assigned unique ID for this managed resource.

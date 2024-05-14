@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Agent("example", AgentArgs.builder()        
+ *         var example = new Agent("example", AgentArgs.builder()
  *             .ipAddress("1.2.3.4")
  *             .name("example")
  *             .build());

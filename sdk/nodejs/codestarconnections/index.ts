@@ -21,6 +21,15 @@ export const Host: typeof import("./host").Host = null as any;
 utilities.lazyLoad(exports, ["Host"], () => require("./host"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

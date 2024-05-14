@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
@@ -116,11 +115,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    public readonly excludes!: pulumi.Output<outputs.datasync.TaskExcludes | undefined>;
+    public readonly excludes!: pulumi.Output<outputs.TaskExcludes | undefined>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    public readonly includes!: pulumi.Output<outputs.datasync.TaskIncludes | undefined>;
+    public readonly includes!: pulumi.Output<outputs.TaskIncludes | undefined>;
     /**
      * Name of the DataSync Task.
      */
@@ -128,11 +127,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.TaskOptions | undefined>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.TaskSchedule | undefined>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -150,7 +149,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskTaskReportConfig | undefined>;
+    public readonly taskReportConfig!: pulumi.Output<outputs.TaskTaskReportConfig | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -222,11 +221,11 @@ export interface TaskState {
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.TaskExcludes>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    includes?: pulumi.Input<inputs.TaskIncludes>;
     /**
      * Name of the DataSync Task.
      */
@@ -234,11 +233,11 @@ export interface TaskState {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.TaskOptions>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -256,7 +255,7 @@ export interface TaskState {
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
+    taskReportConfig?: pulumi.Input<inputs.TaskTaskReportConfig>;
 }
 
 /**
@@ -274,11 +273,11 @@ export interface TaskArgs {
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.TaskExcludes>;
     /**
      * Filter rules that determines which files to include in a task.
      */
-    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    includes?: pulumi.Input<inputs.TaskIncludes>;
     /**
      * Name of the DataSync Task.
      */
@@ -286,11 +285,11 @@ export interface TaskArgs {
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.TaskOptions>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
@@ -302,5 +301,5 @@ export interface TaskArgs {
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
      */
-    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
+    taskReportConfig?: pulumi.Input<inputs.TaskTaskReportConfig>;
 }

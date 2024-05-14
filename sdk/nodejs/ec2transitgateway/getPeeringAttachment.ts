@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -55,7 +54,7 @@ export interface GetPeeringAttachmentArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: inputs.ec2transitgateway.GetPeeringAttachmentFilter[];
+    filters?: inputs.GetPeeringAttachmentFilter[];
     /**
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
@@ -74,7 +73,7 @@ export interface GetPeeringAttachmentArgs {
  * A collection of values returned by getPeeringAttachment.
  */
 export interface GetPeeringAttachmentResult {
-    readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
+    readonly filters?: inputs.GetPeeringAttachmentFilter[];
     readonly id: string;
     /**
      * Identifier of the peer AWS account
@@ -136,7 +135,7 @@ export interface GetPeeringAttachmentOutputArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetPeeringAttachmentFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetPeeringAttachmentFilterArgs>[]>;
     /**
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */

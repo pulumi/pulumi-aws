@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +57,7 @@ export class Tag extends pulumi.CustomResource {
     /**
      * Tag to create. The `tag` block is documented below.
      */
-    public readonly tag!: pulumi.Output<outputs.autoscaling.TagTag>;
+    public readonly tag!: pulumi.Output<outputs.TagTag>;
 
     /**
      * Create a Tag resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ export interface TagState {
     /**
      * Tag to create. The `tag` block is documented below.
      */
-    tag?: pulumi.Input<inputs.autoscaling.TagTag>;
+    tag?: pulumi.Input<inputs.TagTag>;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface TagArgs {
     /**
      * Tag to create. The `tag` block is documented below.
      */
-    tag: pulumi.Input<inputs.autoscaling.TagTag>;
+    tag: pulumi.Input<inputs.TagTag>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +86,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    public readonly containers!: pulumi.Output<outputs.sagemaker.ModelContainer[] | undefined>;
+    public readonly containers!: pulumi.Output<outputs.ModelContainer[] | undefined>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -99,7 +98,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      */
-    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
+    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
@@ -107,7 +106,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
+    public readonly primaryContainer!: pulumi.Output<outputs.ModelPrimaryContainer | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -121,7 +120,7 @@ export class Model extends pulumi.CustomResource {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.ModelVpcConfig | undefined>;
 
     /**
      * Create a Model resource with the given unique name, arguments, and options.
@@ -178,7 +177,7 @@ export interface ModelState {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -190,7 +189,7 @@ export interface ModelState {
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      */
-    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
+    inferenceExecutionConfig?: pulumi.Input<inputs.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
@@ -198,7 +197,7 @@ export interface ModelState {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
+    primaryContainer?: pulumi.Input<inputs.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -212,7 +211,7 @@ export interface ModelState {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ModelVpcConfig>;
 }
 
 /**
@@ -222,7 +221,7 @@ export interface ModelArgs {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
@@ -234,7 +233,7 @@ export interface ModelArgs {
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      */
-    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
+    inferenceExecutionConfig?: pulumi.Input<inputs.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
@@ -242,7 +241,7 @@ export interface ModelArgs {
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
+    primaryContainer?: pulumi.Input<inputs.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -250,5 +249,5 @@ export interface ModelArgs {
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.ModelVpcConfig>;
 }

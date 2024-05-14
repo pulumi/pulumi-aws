@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
-    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * Name of the capacity provider.
      */
@@ -142,7 +141,7 @@ export interface CapacityProviderState {
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
-    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    autoScalingGroupProvider?: pulumi.Input<inputs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * Name of the capacity provider.
      */
@@ -166,7 +165,7 @@ export interface CapacityProviderArgs {
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
-    autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    autoScalingGroupProvider: pulumi.Input<inputs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * Name of the capacity provider.
      */

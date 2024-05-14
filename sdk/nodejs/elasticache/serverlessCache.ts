@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -109,7 +108,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
      */
-    public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    public readonly cacheUsageLimits!: pulumi.Output<outputs.ServerlessCacheCacheUsageLimits | undefined>;
     /**
      * Timestamp of when the serverless cache was created.
      */
@@ -125,7 +124,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.ServerlessCacheEndpoint[]>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
@@ -152,7 +151,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
+    public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.ServerlessCacheReaderEndpoint[]>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
@@ -181,7 +180,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    public readonly timeouts!: pulumi.Output<outputs.elasticache.ServerlessCacheTimeouts | undefined>;
+    public readonly timeouts!: pulumi.Output<outputs.ServerlessCacheTimeouts | undefined>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      */
@@ -264,7 +263,7 @@ export interface ServerlessCacheState {
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
      */
-    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
+    cacheUsageLimits?: pulumi.Input<inputs.ServerlessCacheCacheUsageLimits>;
     /**
      * Timestamp of when the serverless cache was created.
      */
@@ -280,7 +279,7 @@ export interface ServerlessCacheState {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.ServerlessCacheEndpoint>[]>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
@@ -307,7 +306,7 @@ export interface ServerlessCacheState {
     /**
      * Represents the information required for client programs to connect to a cache node. See config below for details.
      */
-    readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
+    readerEndpoints?: pulumi.Input<pulumi.Input<inputs.ServerlessCacheReaderEndpoint>[]>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
@@ -336,7 +335,7 @@ export interface ServerlessCacheState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
+    timeouts?: pulumi.Input<inputs.ServerlessCacheTimeouts>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      */
@@ -350,7 +349,7 @@ export interface ServerlessCacheArgs {
     /**
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
      */
-    cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
+    cacheUsageLimits?: pulumi.Input<inputs.ServerlessCacheCacheUsageLimits>;
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
      */
@@ -398,7 +397,7 @@ export interface ServerlessCacheArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
+    timeouts?: pulumi.Input<inputs.ServerlessCacheTimeouts>;
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      */

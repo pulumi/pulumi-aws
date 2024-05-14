@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -119,11 +118,11 @@ export class CostCategory extends pulumi.CustomResource {
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
-    public readonly rules!: pulumi.Output<outputs.costexplorer.CostCategoryRule[]>;
+    public readonly rules!: pulumi.Output<outputs.CostCategoryRule[]>;
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    public readonly splitChargeRules!: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
+    public readonly splitChargeRules!: pulumi.Output<outputs.CostCategorySplitChargeRule[] | undefined>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -215,11 +214,11 @@ export interface CostCategoryState {
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.CostCategoryRule>[]>;
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.CostCategorySplitChargeRule>[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -257,11 +256,11 @@ export interface CostCategoryArgs {
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
-    rules: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.CostCategoryRule>[]>;
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
-    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    splitChargeRules?: pulumi.Input<pulumi.Input<inputs.CostCategorySplitChargeRule>[]>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

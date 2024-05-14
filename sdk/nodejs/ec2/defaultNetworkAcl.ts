@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -154,11 +154,11 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    public readonly egress!: pulumi.Output<outputs.ec2.DefaultNetworkAclEgress[] | undefined>;
+    public readonly egress!: pulumi.Output<outputs.DefaultNetworkAclEgress[] | undefined>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    public readonly ingress!: pulumi.Output<outputs.ec2.DefaultNetworkAclIngress[] | undefined>;
+    public readonly ingress!: pulumi.Output<outputs.DefaultNetworkAclIngress[] | undefined>;
     /**
      * ID of the AWS account that owns the Default Network ACL
      */
@@ -241,11 +241,11 @@ export interface DefaultNetworkAclState {
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.DefaultNetworkAclEgress>[]>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.DefaultNetworkAclIngress>[]>;
     /**
      * ID of the AWS account that owns the Default Network ACL
      */
@@ -283,11 +283,11 @@ export interface DefaultNetworkAclArgs {
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.DefaultNetworkAclEgress>[]>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.DefaultNetworkAclIngress>[]>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */

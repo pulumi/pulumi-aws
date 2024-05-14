@@ -71,6 +71,15 @@ export const ThreatIntelSet: typeof import("./threatIntelSet").ThreatIntelSet = 
 utilities.lazyLoad(exports, ["ThreatIntelSet"], () => require("./threatIntelSet"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

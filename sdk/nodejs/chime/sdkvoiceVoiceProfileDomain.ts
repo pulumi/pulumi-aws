@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +84,7 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
     /**
      * Configuration for server side encryption.
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -147,7 +146,7 @@ export interface SdkvoiceVoiceProfileDomainState {
     /**
      * Configuration for server side encryption.
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -170,6 +169,6 @@ export interface SdkvoiceVoiceProfileDomainArgs {
     /**
      * Configuration for server side encryption.
      */
-    serverSideEncryptionConfiguration: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration: pulumi.Input<inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +39,7 @@ export interface GetNotificationChannelArgs {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
      */
-    filters?: inputs.devopsguru.GetNotificationChannelFilter[];
+    filters?: inputs.GetNotificationChannelFilter[];
     /**
      * Unique identifier for the notification channel.
      */
@@ -48,7 +47,7 @@ export interface GetNotificationChannelArgs {
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
-    sns?: inputs.devopsguru.GetNotificationChannelSn[];
+    sns?: inputs.GetNotificationChannelSn[];
 }
 
 /**
@@ -58,12 +57,12 @@ export interface GetNotificationChannelResult {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
      */
-    readonly filters?: outputs.devopsguru.GetNotificationChannelFilter[];
+    readonly filters?: inputs.GetNotificationChannelFilter[];
     readonly id: string;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
-    readonly sns?: outputs.devopsguru.GetNotificationChannelSn[];
+    readonly sns?: inputs.GetNotificationChannelSn[];
 }
 /**
  * Data source for managing an AWS DevOps Guru Notification Channel.
@@ -92,7 +91,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetNotificationChannelFilterArgs>[]>;
     /**
      * Unique identifier for the notification channel.
      */
@@ -100,5 +99,5 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
-    sns?: pulumi.Input<pulumi.Input<inputs.devopsguru.GetNotificationChannelSnArgs>[]>;
+    sns?: pulumi.Input<pulumi.Input<inputs.GetNotificationChannelSnArgs>[]>;
 }

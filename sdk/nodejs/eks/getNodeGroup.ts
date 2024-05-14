@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +85,7 @@ export interface GetNodeGroupResult {
     /**
      * Nested attribute containing information about the launch template used to create the EKS Node Group.
      */
-    readonly launchTemplates: outputs.eks.GetNodeGroupLaunchTemplate[];
+    readonly launchTemplates: outputs.GetNodeGroupLaunchTemplate[];
     readonly nodeGroupName: string;
     /**
      * ARN of the IAM Role that provides permissions for the EKS Node Group.
@@ -99,15 +98,15 @@ export interface GetNodeGroupResult {
     /**
      * Configuration block with remote access settings.
      */
-    readonly remoteAccesses: outputs.eks.GetNodeGroupRemoteAccess[];
+    readonly remoteAccesses: outputs.GetNodeGroupRemoteAccess[];
     /**
      * List of objects containing information about underlying resources.
      */
-    readonly resources: outputs.eks.GetNodeGroupResource[];
+    readonly resources: outputs.GetNodeGroupResource[];
     /**
      * Configuration block with scaling settings.
      */
-    readonly scalingConfigs: outputs.eks.GetNodeGroupScalingConfig[];
+    readonly scalingConfigs: outputs.GetNodeGroupScalingConfig[];
     /**
      * Status of the EKS Node Group.
      */
@@ -123,7 +122,7 @@ export interface GetNodeGroupResult {
     /**
      * List of objects containing information about taints applied to the nodes in the EKS Node Group.
      */
-    readonly taints: outputs.eks.GetNodeGroupTaint[];
+    readonly taints: outputs.GetNodeGroupTaint[];
     /**
      * Kubernetes version.
      */

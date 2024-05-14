@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +47,7 @@ export interface GetInternetGatewayArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetInternetGatewayFilter[];
+    filters?: inputs.GetInternetGatewayFilter[];
     /**
      * ID of the specific Internet Gateway to retrieve.
      */
@@ -67,8 +67,8 @@ export interface GetInternetGatewayResult {
      * ARN of the Internet Gateway.
      */
     readonly arn: string;
-    readonly attachments: outputs.ec2.GetInternetGatewayAttachment[];
-    readonly filters?: outputs.ec2.GetInternetGatewayFilter[];
+    readonly attachments: outputs.GetInternetGatewayAttachment[];
+    readonly filters?: inputs.GetInternetGatewayFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -113,7 +113,7 @@ export interface GetInternetGatewayOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInternetGatewayFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetInternetGatewayFilterArgs>[]>;
     /**
      * ID of the specific Internet Gateway to retrieve.
      */

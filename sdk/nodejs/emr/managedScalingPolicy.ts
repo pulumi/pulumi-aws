@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +80,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    public readonly computeLimits!: pulumi.Output<outputs.emr.ManagedScalingPolicyComputeLimit[]>;
+    public readonly computeLimits!: pulumi.Output<outputs.ManagedScalingPolicyComputeLimit[]>;
 
     /**
      * Create a ManagedScalingPolicy resource with the given unique name, arguments, and options.
@@ -125,7 +124,7 @@ export interface ManagedScalingPolicyState {
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    computeLimits?: pulumi.Input<pulumi.Input<inputs.ManagedScalingPolicyComputeLimit>[]>;
 }
 
 /**
@@ -139,5 +138,5 @@ export interface ManagedScalingPolicyArgs {
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    computeLimits: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    computeLimits: pulumi.Input<pulumi.Input<inputs.ManagedScalingPolicyComputeLimit>[]>;
 }

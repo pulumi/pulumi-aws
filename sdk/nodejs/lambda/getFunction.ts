@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +67,7 @@ export interface GetFunctionResult {
     /**
      * Configure the function's *dead letter queue*.
      */
-    readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
+    readonly deadLetterConfig: outputs.GetFunctionDeadLetterConfig;
     /**
      * Description of what your Lambda Function does.
      */
@@ -75,15 +75,15 @@ export interface GetFunctionResult {
     /**
      * Lambda environment's configuration settings.
      */
-    readonly environment: outputs.lambda.GetFunctionEnvironment;
+    readonly environment: outputs.GetFunctionEnvironment;
     /**
      * Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      */
-    readonly ephemeralStorages: outputs.lambda.GetFunctionEphemeralStorage[];
+    readonly ephemeralStorages: outputs.GetFunctionEphemeralStorage[];
     /**
      * Connection settings for an Amazon EFS file system.
      */
-    readonly fileSystemConfigs: outputs.lambda.GetFunctionFileSystemConfig[];
+    readonly fileSystemConfigs: outputs.GetFunctionFileSystemConfig[];
     readonly functionName: string;
     /**
      * Function entrypoint in your code.
@@ -116,7 +116,7 @@ export interface GetFunctionResult {
     /**
      * Advanced logging settings.
      */
-    readonly loggingConfigs: outputs.lambda.GetFunctionLoggingConfig[];
+    readonly loggingConfigs: outputs.GetFunctionLoggingConfig[];
     /**
      * Amount of memory in MB your Lambda Function can use at runtime.
      */
@@ -166,7 +166,7 @@ export interface GetFunctionResult {
     /**
      * Tracing settings of the function.
      */
-    readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
+    readonly tracingConfig: outputs.GetFunctionTracingConfig;
     /**
      * The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      */
@@ -174,7 +174,7 @@ export interface GetFunctionResult {
     /**
      * VPC configuration associated with your Lambda function.
      */
-    readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
+    readonly vpcConfig: outputs.GetFunctionVpcConfig;
 }
 /**
  * Provides information about a Lambda Function.

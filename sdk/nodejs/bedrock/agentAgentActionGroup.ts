@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +73,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
     /**
      * Configuration of the executor for the Action Group.
      */
-    public readonly actionGroupExecutor!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupActionGroupExecutor | undefined>;
+    public readonly actionGroupExecutor!: pulumi.Output<outputs.AgentAgentActionGroupActionGroupExecutor | undefined>;
     public /*out*/ readonly actionGroupId!: pulumi.Output<string>;
     /**
      * Name of the Agent Action Group.
@@ -92,7 +91,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
     /**
      * Configuration of the API Schema for the Action Group.
      */
-    public readonly apiSchema!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupApiSchema | undefined>;
+    public readonly apiSchema!: pulumi.Output<outputs.AgentAgentActionGroupApiSchema | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly parentActionGroupSignature!: pulumi.Output<string | undefined>;
     public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
@@ -154,7 +153,7 @@ export interface AgentAgentActionGroupState {
     /**
      * Configuration of the executor for the Action Group.
      */
-    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor>;
+    actionGroupExecutor?: pulumi.Input<inputs.AgentAgentActionGroupActionGroupExecutor>;
     actionGroupId?: pulumi.Input<string>;
     /**
      * Name of the Agent Action Group.
@@ -172,7 +171,7 @@ export interface AgentAgentActionGroupState {
     /**
      * Configuration of the API Schema for the Action Group.
      */
-    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema>;
+    apiSchema?: pulumi.Input<inputs.AgentAgentActionGroupApiSchema>;
     description?: pulumi.Input<string>;
     parentActionGroupSignature?: pulumi.Input<string>;
     skipResourceInUseCheck?: pulumi.Input<boolean>;
@@ -185,7 +184,7 @@ export interface AgentAgentActionGroupArgs {
     /**
      * Configuration of the executor for the Action Group.
      */
-    actionGroupExecutor?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupActionGroupExecutor>;
+    actionGroupExecutor?: pulumi.Input<inputs.AgentAgentActionGroupActionGroupExecutor>;
     /**
      * Name of the Agent Action Group.
      */
@@ -202,7 +201,7 @@ export interface AgentAgentActionGroupArgs {
     /**
      * Configuration of the API Schema for the Action Group.
      */
-    apiSchema?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchema>;
+    apiSchema?: pulumi.Input<inputs.AgentAgentActionGroupApiSchema>;
     description?: pulumi.Input<string>;
     parentActionGroupSignature?: pulumi.Input<string>;
     skipResourceInUseCheck?: pulumi.Input<boolean>;

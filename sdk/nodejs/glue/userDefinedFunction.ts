@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +101,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    public readonly resourceUris!: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
+    public readonly resourceUris!: pulumi.Output<outputs.UserDefinedFunctionResourceUri[] | undefined>;
 
     /**
      * Create a UserDefinedFunction resource with the given unique name, arguments, and options.
@@ -194,7 +193,7 @@ export interface UserDefinedFunctionState {
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
+    resourceUris?: pulumi.Input<pulumi.Input<inputs.UserDefinedFunctionResourceUri>[]>;
 }
 
 /**
@@ -228,5 +227,5 @@ export interface UserDefinedFunctionArgs {
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
-    resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
+    resourceUris?: pulumi.Input<pulumi.Input<inputs.UserDefinedFunctionResourceUri>[]>;
 }

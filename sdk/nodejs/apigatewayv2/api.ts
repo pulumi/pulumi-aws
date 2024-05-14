@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +95,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
+    public readonly corsConfiguration!: pulumi.Output<outputs.ApiCorsConfiguration | undefined>;
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      */
@@ -244,7 +243,7 @@ export interface ApiState {
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
-    corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.ApiCorsConfiguration>;
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      */
@@ -325,7 +324,7 @@ export interface ApiArgs {
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      */
-    corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.ApiCorsConfiguration>;
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      */

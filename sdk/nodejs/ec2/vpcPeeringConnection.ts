@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -141,7 +141,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    public readonly accepter!: pulumi.Output<outputs.ec2.VpcPeeringConnectionAccepter>;
+    public readonly accepter!: pulumi.Output<outputs.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      */
@@ -164,7 +164,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    public readonly requester!: pulumi.Output<outputs.ec2.VpcPeeringConnectionRequester>;
+    public readonly requester!: pulumi.Output<outputs.VpcPeeringConnectionRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -239,7 +239,7 @@ export interface VpcPeeringConnectionState {
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
+    accepter?: pulumi.Input<inputs.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      */
@@ -262,7 +262,7 @@ export interface VpcPeeringConnectionState {
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
+    requester?: pulumi.Input<inputs.VpcPeeringConnectionRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -287,7 +287,7 @@ export interface VpcPeeringConnectionArgs {
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepter>;
+    accepter?: pulumi.Input<inputs.VpcPeeringConnectionAccepter>;
     /**
      * Accept the peering (both VPCs need to be in the same AWS account and region).
      */
@@ -310,7 +310,7 @@ export interface VpcPeeringConnectionArgs {
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionRequester>;
+    requester?: pulumi.Input<inputs.VpcPeeringConnectionRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

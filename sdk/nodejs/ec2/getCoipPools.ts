@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -30,7 +30,7 @@ export interface GetCoipPoolsArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: inputs.ec2.GetCoipPoolsFilter[];
+    filters?: inputs.GetCoipPoolsFilter[];
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
@@ -42,7 +42,7 @@ export interface GetCoipPoolsArgs {
  * A collection of values returned by getCoipPools.
  */
 export interface GetCoipPoolsResult {
-    readonly filters?: outputs.ec2.GetCoipPoolsFilter[];
+    readonly filters?: inputs.GetCoipPoolsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -70,7 +70,7 @@ export interface GetCoipPoolsOutputArgs {
      * More complex filters can be expressed using one or more `filter` sub-blocks,
      * which take the following arguments:
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetCoipPoolsFilterArgs>[]>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.

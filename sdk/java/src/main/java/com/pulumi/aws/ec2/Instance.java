@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .owners("099720109477")
  *             .build());
  * 
- *         var web = new Instance("web", InstanceArgs.builder()        
+ *         var web = new Instance("web", InstanceArgs.builder()
  *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var thisInstance = new Instance("thisInstance", InstanceArgs.builder()        
+ *         var thisInstance = new Instance("thisInstance", InstanceArgs.builder()
  *             .ami(this_.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
@@ -182,25 +182,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myVpc = new Vpc("myVpc", VpcArgs.builder()        
+ *         var myVpc = new Vpc("myVpc", VpcArgs.builder()
  *             .cidrBlock("172.16.0.0/16")
  *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var mySubnet = new Subnet("mySubnet", SubnetArgs.builder()        
+ *         var mySubnet = new Subnet("mySubnet", SubnetArgs.builder()
  *             .vpcId(myVpc.id())
  *             .cidrBlock("172.16.10.0/24")
  *             .availabilityZone("us-west-2a")
  *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var foo = new NetworkInterface("foo", NetworkInterfaceArgs.builder()        
+ *         var foo = new NetworkInterface("foo", NetworkInterfaceArgs.builder()
  *             .subnetId(mySubnet.id())
  *             .privateIps("172.16.10.100")
  *             .tags(Map.of("Name", "primary_network_interface"))
  *             .build());
  * 
- *         var fooInstance = new Instance("fooInstance", InstanceArgs.builder()        
+ *         var fooInstance = new Instance("fooInstance", InstanceArgs.builder()
  *             .ami("ami-005e54dee72cc1d00")
  *             .instanceType("t2.micro")
  *             .networkInterfaces(InstanceNetworkInterfaceArgs.builder()
@@ -250,12 +250,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("172.16.0.0/16")
  *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .vpcId(example.id())
  *             .cidrBlock("172.16.10.0/24")
  *             .availabilityZone("us-east-2a")
@@ -271,7 +271,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .ami(amzn_linux_2023_ami.id())
  *             .instanceType("c6a.2xlarge")
  *             .subnetId(exampleSubnet.id())
@@ -317,7 +317,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new Instance("this", InstanceArgs.builder()        
+ *         var this_ = new Instance("this", InstanceArgs.builder()
  *             .ami("ami-0dcc1e21636832c5d")
  *             .instanceType("m5.large")
  *             .hostResourceGroupArn("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost")

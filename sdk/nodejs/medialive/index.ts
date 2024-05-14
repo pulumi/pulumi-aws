@@ -15,15 +15,15 @@ export const getInput: typeof import("./getInput").getInput = null as any;
 export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
 utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
 
-export { InputArgs, InputState } from "./input";
-export type Input = import("./input").Input;
-export const Input: typeof import("./input").Input = null as any;
-utilities.lazyLoad(exports, ["Input"], () => require("./input"));
-
 export { InputSecurityGroupArgs, InputSecurityGroupState } from "./inputSecurityGroup";
 export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
 export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
+
+export { InputArgs, InputState } from "./input_";
+export type Input = import("./input_").Input;
+export const Input: typeof import("./input_").Input = null as any;
+utilities.lazyLoad(exports, ["Input"], () => require("./input_"));
 
 export { MultiplexArgs, MultiplexState } from "./multiplex";
 export type Multiplex = import("./multiplex").Multiplex;
@@ -35,6 +35,15 @@ export type MultiplexProgram = import("./multiplexProgram").MultiplexProgram;
 export const MultiplexProgram: typeof import("./multiplexProgram").MultiplexProgram = null as any;
 utilities.lazyLoad(exports, ["MultiplexProgram"], () => require("./multiplexProgram"));
 
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

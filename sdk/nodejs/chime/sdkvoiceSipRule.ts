@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,7 +76,7 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
-    public readonly targetApplications!: pulumi.Output<outputs.chime.SdkvoiceSipRuleTargetApplication[]>;
+    public readonly targetApplications!: pulumi.Output<outputs.SdkvoiceSipRuleTargetApplication[]>;
     /**
      * The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      */
@@ -144,7 +143,7 @@ export interface SdkvoiceSipRuleState {
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
-    targetApplications?: pulumi.Input<pulumi.Input<inputs.chime.SdkvoiceSipRuleTargetApplication>[]>;
+    targetApplications?: pulumi.Input<pulumi.Input<inputs.SdkvoiceSipRuleTargetApplication>[]>;
     /**
      * The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      */
@@ -172,7 +171,7 @@ export interface SdkvoiceSipRuleArgs {
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
-    targetApplications: pulumi.Input<pulumi.Input<inputs.chime.SdkvoiceSipRuleTargetApplication>[]>;
+    targetApplications: pulumi.Input<pulumi.Input<inputs.SdkvoiceSipRuleTargetApplication>[]>;
     /**
      * The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      */

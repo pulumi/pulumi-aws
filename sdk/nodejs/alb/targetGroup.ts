@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -144,7 +144,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Health Check configuration block. Detailed below.
      */
-    public readonly healthCheck!: pulumi.Output<outputs.alb.TargetGroupHealthCheck>;
+    public readonly healthCheck!: pulumi.Output<outputs.TargetGroupHealthCheck>;
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      */
@@ -207,7 +207,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Stickiness configuration block. Detailed below.
      */
-    public readonly stickiness!: pulumi.Output<outputs.alb.TargetGroupStickiness>;
+    public readonly stickiness!: pulumi.Output<outputs.TargetGroupStickiness>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -221,11 +221,11 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
-    public readonly targetFailovers!: pulumi.Output<outputs.alb.TargetGroupTargetFailover[]>;
+    public readonly targetFailovers!: pulumi.Output<outputs.TargetGroupTargetFailover[]>;
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */
-    public readonly targetHealthStates!: pulumi.Output<outputs.alb.TargetGroupTargetHealthState[]>;
+    public readonly targetHealthStates!: pulumi.Output<outputs.TargetGroupTargetHealthState[]>;
     /**
      * Type of target that you must specify when registering targets with this target group.
      * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -343,7 +343,7 @@ export interface TargetGroupState {
     /**
      * Health Check configuration block. Detailed below.
      */
-    healthCheck?: pulumi.Input<inputs.alb.TargetGroupHealthCheck>;
+    healthCheck?: pulumi.Input<inputs.TargetGroupHealthCheck>;
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      */
@@ -406,7 +406,7 @@ export interface TargetGroupState {
     /**
      * Stickiness configuration block. Detailed below.
      */
-    stickiness?: pulumi.Input<inputs.alb.TargetGroupStickiness>;
+    stickiness?: pulumi.Input<inputs.TargetGroupStickiness>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -420,11 +420,11 @@ export interface TargetGroupState {
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
-    targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
+    targetFailovers?: pulumi.Input<pulumi.Input<inputs.TargetGroupTargetFailover>[]>;
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */
-    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
+    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.TargetGroupTargetHealthState>[]>;
     /**
      * Type of target that you must specify when registering targets with this target group.
      * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -460,7 +460,7 @@ export interface TargetGroupArgs {
     /**
      * Health Check configuration block. Detailed below.
      */
-    healthCheck?: pulumi.Input<inputs.alb.TargetGroupHealthCheck>;
+    healthCheck?: pulumi.Input<inputs.TargetGroupHealthCheck>;
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      */
@@ -519,7 +519,7 @@ export interface TargetGroupArgs {
     /**
      * Stickiness configuration block. Detailed below.
      */
-    stickiness?: pulumi.Input<inputs.alb.TargetGroupStickiness>;
+    stickiness?: pulumi.Input<inputs.TargetGroupStickiness>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -527,11 +527,11 @@ export interface TargetGroupArgs {
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
-    targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
+    targetFailovers?: pulumi.Input<pulumi.Input<inputs.TargetGroupTargetFailover>[]>;
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
      */
-    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
+    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.TargetGroupTargetHealthState>[]>;
     /**
      * Type of target that you must specify when registering targets with this target group.
      * See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.

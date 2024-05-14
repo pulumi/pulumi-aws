@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +60,7 @@ export class DetectorFeature extends pulumi.CustomResource {
     /**
      * Additional feature configuration block. See below.
      */
-    public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.DetectorFeatureAdditionalConfiguration[] | undefined>;
+    public readonly additionalConfigurations!: pulumi.Output<outputs.DetectorFeatureAdditionalConfiguration[] | undefined>;
     /**
      * Amazon GuardDuty detector ID.
      */
@@ -117,7 +116,7 @@ export interface DetectorFeatureState {
     /**
      * Additional feature configuration block. See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.DetectorFeatureAdditionalConfiguration>[]>;
     /**
      * Amazon GuardDuty detector ID.
      */
@@ -139,7 +138,7 @@ export interface DetectorFeatureArgs {
     /**
      * Additional feature configuration block. See below.
      */
-    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorFeatureAdditionalConfiguration>[]>;
+    additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.DetectorFeatureAdditionalConfiguration>[]>;
     /**
      * Amazon GuardDuty detector ID.
      */

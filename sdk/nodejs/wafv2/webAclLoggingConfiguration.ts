@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,11 +115,11 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      */
-    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
+    public readonly loggingFilter!: pulumi.Output<outputs.WebAclLoggingConfigurationLoggingFilter | undefined>;
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    public readonly redactedFields!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
+    public readonly redactedFields!: pulumi.Output<outputs.WebAclLoggingConfigurationRedactedField[] | undefined>;
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
@@ -172,11 +171,11 @@ export interface WebAclLoggingConfigurationState {
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      */
-    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    loggingFilter?: pulumi.Input<inputs.WebAclLoggingConfigurationLoggingFilter>;
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.WebAclLoggingConfigurationRedactedField>[]>;
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
@@ -194,11 +193,11 @@ export interface WebAclLoggingConfigurationArgs {
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      */
-    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    loggingFilter?: pulumi.Input<inputs.WebAclLoggingConfigurationLoggingFilter>;
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.WebAclLoggingConfigurationRedactedField>[]>;
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +58,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      */
-    public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
+    public /*out*/ readonly externalIds!: pulumi.Output<outputs.GroupExternalId[]>;
     /**
      * The identifier of the newly created group in the identity store.
      */
@@ -123,7 +122,7 @@ export interface GroupState {
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      */
-    externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.GroupExternalId>[]>;
+    externalIds?: pulumi.Input<pulumi.Input<inputs.GroupExternalId>[]>;
     /**
      * The identifier of the newly created group in the identity store.
      */

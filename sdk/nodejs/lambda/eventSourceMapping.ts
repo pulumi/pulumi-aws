@@ -2,9 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
+import * as enums from "./enums";
 import * as utilities from "../utilities";
 
 /**
@@ -211,7 +211,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
      */
-    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
@@ -223,11 +223,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
-    public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
+    public readonly destinationConfig!: pulumi.Output<outputs.EventSourceMappingDestinationConfig | undefined>;
     /**
      * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
      */
-    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
+    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
     /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
@@ -239,7 +239,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      */
-    public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
+    public readonly filterCriteria!: pulumi.Output<outputs.EventSourceMappingFilterCriteria | undefined>;
     /**
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
@@ -283,19 +283,19 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
-    public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
+    public readonly scalingConfig!: pulumi.Output<outputs.EventSourceMappingScalingConfig | undefined>;
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
-    public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    public readonly selfManagedEventSource!: pulumi.Output<outputs.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
      */
-    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    public readonly selfManagedKafkaEventSourceConfig!: pulumi.Output<outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
-    public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
+    public readonly sourceAccessConfigurations!: pulumi.Output<outputs.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
@@ -414,7 +414,7 @@ export interface EventSourceMappingState {
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
      */
-    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
@@ -426,11 +426,11 @@ export interface EventSourceMappingState {
     /**
      * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.EventSourceMappingDestinationConfig>;
     /**
      * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
      */
-    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
+    documentDbEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
@@ -442,7 +442,7 @@ export interface EventSourceMappingState {
     /**
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      */
-    filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
+    filterCriteria?: pulumi.Input<inputs.EventSourceMappingFilterCriteria>;
     /**
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
@@ -486,19 +486,19 @@ export interface EventSourceMappingState {
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
-    scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
+    scalingConfig?: pulumi.Input<inputs.EventSourceMappingScalingConfig>;
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
-    selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    selfManagedEventSource?: pulumi.Input<inputs.EventSourceMappingSelfManagedEventSource>;
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
      */
-    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
-    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.EventSourceMappingSourceAccessConfiguration>[]>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */
@@ -536,7 +536,7 @@ export interface EventSourceMappingArgs {
     /**
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
      */
-    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
@@ -548,11 +548,11 @@ export interface EventSourceMappingArgs {
     /**
      * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      */
-    destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.EventSourceMappingDestinationConfig>;
     /**
      * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
      */
-    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
+    documentDbEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingDocumentDbEventSourceConfig>;
     /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
@@ -564,7 +564,7 @@ export interface EventSourceMappingArgs {
     /**
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      */
-    filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
+    filterCriteria?: pulumi.Input<inputs.EventSourceMappingFilterCriteria>;
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      */
@@ -596,19 +596,19 @@ export interface EventSourceMappingArgs {
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
-    scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
+    scalingConfig?: pulumi.Input<inputs.EventSourceMappingScalingConfig>;
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
-    selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSource>;
+    selfManagedEventSource?: pulumi.Input<inputs.EventSourceMappingSelfManagedEventSource>;
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
      */
-    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
+    selfManagedKafkaEventSourceConfig?: pulumi.Input<inputs.EventSourceMappingSelfManagedKafkaEventSourceConfig>;
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `selfManagedEventSource`. Detailed below.
      */
-    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfiguration>[]>;
+    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.EventSourceMappingSourceAccessConfiguration>[]>;
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      */

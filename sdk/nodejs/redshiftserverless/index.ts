@@ -56,6 +56,15 @@ export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
 utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

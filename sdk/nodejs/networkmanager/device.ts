@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +65,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The AWS location of the device. Documented below.
      */
-    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAwsLocation | undefined>;
+    public readonly awsLocation!: pulumi.Output<outputs.DeviceAwsLocation | undefined>;
     /**
      * A description of the device.
      */
@@ -78,7 +77,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The location of the device. Documented below.
      */
-    public readonly location!: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.DeviceLocation | undefined>;
     /**
      * The model of device.
      */
@@ -169,7 +168,7 @@ export interface DeviceState {
     /**
      * The AWS location of the device. Documented below.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
+    awsLocation?: pulumi.Input<inputs.DeviceAwsLocation>;
     /**
      * A description of the device.
      */
@@ -181,7 +180,7 @@ export interface DeviceState {
     /**
      * The location of the device. Documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
+    location?: pulumi.Input<inputs.DeviceLocation>;
     /**
      * The model of device.
      */
@@ -221,7 +220,7 @@ export interface DeviceArgs {
     /**
      * The AWS location of the device. Documented below.
      */
-    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAwsLocation>;
+    awsLocation?: pulumi.Input<inputs.DeviceAwsLocation>;
     /**
      * A description of the device.
      */
@@ -233,7 +232,7 @@ export interface DeviceArgs {
     /**
      * The location of the device. Documented below.
      */
-    location?: pulumi.Input<inputs.networkmanager.DeviceLocation>;
+    location?: pulumi.Input<inputs.DeviceLocation>;
     /**
      * The model of device.
      */

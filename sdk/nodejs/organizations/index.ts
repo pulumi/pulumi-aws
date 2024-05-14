@@ -96,6 +96,15 @@ export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = 
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

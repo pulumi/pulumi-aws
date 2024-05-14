@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var cis = new StandardsSubscription("cis", StandardsSubscriptionArgs.builder()        
+ *         var cis = new StandardsSubscription("cis", StandardsSubscriptionArgs.builder()
  *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()        
+ *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()
  *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

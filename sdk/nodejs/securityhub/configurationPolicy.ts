@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -163,7 +162,7 @@ export class ConfigurationPolicy extends pulumi.CustomResource {
     /**
      * Defines how Security Hub is configured. See below.
      */
-    public readonly configurationPolicy!: pulumi.Output<outputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
+    public readonly configurationPolicy!: pulumi.Output<outputs.ConfigurationPolicyConfigurationPolicy>;
     /**
      * The description of the configuration policy.
      */
@@ -213,7 +212,7 @@ export interface ConfigurationPolicyState {
     /**
      * Defines how Security Hub is configured. See below.
      */
-    configurationPolicy?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
+    configurationPolicy?: pulumi.Input<inputs.ConfigurationPolicyConfigurationPolicy>;
     /**
      * The description of the configuration policy.
      */
@@ -231,7 +230,7 @@ export interface ConfigurationPolicyArgs {
     /**
      * Defines how Security Hub is configured. See below.
      */
-    configurationPolicy: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicy>;
+    configurationPolicy: pulumi.Input<inputs.ConfigurationPolicyConfigurationPolicy>;
     /**
      * The description of the configuration policy.
      */

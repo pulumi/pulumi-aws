@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
  *             .name("test-foobar5")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bat = new Policy("bat", PolicyArgs.builder()        
+ *         var bat = new Policy("bat", PolicyArgs.builder()
  *             .name("foobar3-test")
  *             .scalingAdjustment(4)
  *             .adjustmentType("ChangeInCapacity")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .autoscalingGroupName(bar.name())
  *             .build());
  * 
- *         var batMetricAlarm = new MetricAlarm("batMetricAlarm", MetricAlarmArgs.builder()        
+ *         var batMetricAlarm = new MetricAlarm("batMetricAlarm", MetricAlarmArgs.builder()
  *             .name("test-foobar5")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
  *             .name("test-foobar")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods(2)
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var xxAnomalyDetection = new MetricAlarm("xxAnomalyDetection", MetricAlarmArgs.builder()        
+ *         var xxAnomalyDetection = new MetricAlarm("xxAnomalyDetection", MetricAlarmArgs.builder()
  *             .name("test-foobar")
  *             .comparisonOperator("GreaterThanUpperThreshold")
  *             .evaluationPeriods(2)
@@ -277,7 +277,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nlbHealthyhosts = new MetricAlarm("nlbHealthyhosts", MetricAlarmArgs.builder()        
+ *         var nlbHealthyhosts = new MetricAlarm("nlbHealthyhosts", MetricAlarmArgs.builder()
  *             .name("alarmname")
  *             .comparisonOperator("LessThanThreshold")
  *             .evaluationPeriods(1)

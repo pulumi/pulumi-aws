@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +51,7 @@ export interface GetVolumeArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    filters?: inputs.ebs.GetVolumeFilter[];
+    filters?: inputs.GetVolumeFilter[];
     /**
      * If more than one result is returned, use the most
      * recent Volume.
@@ -80,7 +79,7 @@ export interface GetVolumeResult {
      * Whether the disk is encrypted.
      */
     readonly encrypted: boolean;
-    readonly filters?: outputs.ebs.GetVolumeFilter[];
+    readonly filters?: inputs.GetVolumeFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -165,7 +164,7 @@ export interface GetVolumeOutputArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.GetVolumeFilterArgs>[]>;
     /**
      * If more than one result is returned, use the most
      * recent Volume.

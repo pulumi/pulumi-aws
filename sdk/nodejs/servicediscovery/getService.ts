@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,15 +71,15 @@ export interface GetServiceResult {
     /**
      * Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfigs: outputs.servicediscovery.GetServiceDnsConfig[];
+    readonly dnsConfigs: outputs.GetServiceDnsConfig[];
     /**
      * Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfigs: outputs.servicediscovery.GetServiceHealthCheckConfig[];
+    readonly healthCheckConfigs: outputs.GetServiceHealthCheckConfig[];
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfigs: outputs.servicediscovery.GetServiceHealthCheckCustomConfig[];
+    readonly healthCheckCustomConfigs: outputs.GetServiceHealthCheckCustomConfig[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

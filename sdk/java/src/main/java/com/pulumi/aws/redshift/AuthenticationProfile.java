@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AuthenticationProfile("example", AuthenticationProfileArgs.builder()        
+ *         var example = new AuthenticationProfile("example", AuthenticationProfileArgs.builder()
  *             .authenticationProfileName("example")
  *             .authenticationProfileContent(serializeJson(
  *                 jsonObject(

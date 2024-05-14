@@ -46,6 +46,15 @@ export const SchedulingPolicy: typeof import("./schedulingPolicy").SchedulingPol
 utilities.lazyLoad(exports, ["SchedulingPolicy"], () => require("./schedulingPolicy"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +100,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
-    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyExcludeMap | undefined>;
+    public readonly excludeMap!: pulumi.Output<outputs.PolicyExcludeMap | undefined>;
     /**
      * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      */
@@ -109,7 +108,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A map of lists of accounts and OU's to include in the policy.
      */
-    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIncludeMap | undefined>;
+    public readonly includeMap!: pulumi.Output<outputs.PolicyIncludeMap | undefined>;
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      */
@@ -137,7 +136,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The objects to include in Security Service Policy Data. Documented below.
      */
-    public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
+    public readonly securityServicePolicyData!: pulumi.Output<outputs.PolicySecurityServicePolicyData>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
@@ -228,7 +227,7 @@ export interface PolicyState {
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
-    excludeMap?: pulumi.Input<inputs.fms.PolicyExcludeMap>;
+    excludeMap?: pulumi.Input<inputs.PolicyExcludeMap>;
     /**
      * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      */
@@ -236,7 +235,7 @@ export interface PolicyState {
     /**
      * A map of lists of accounts and OU's to include in the policy.
      */
-    includeMap?: pulumi.Input<inputs.fms.PolicyIncludeMap>;
+    includeMap?: pulumi.Input<inputs.PolicyIncludeMap>;
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      */
@@ -264,7 +263,7 @@ export interface PolicyState {
     /**
      * The objects to include in Security Service Policy Data. Documented below.
      */
-    securityServicePolicyData?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
+    securityServicePolicyData?: pulumi.Input<inputs.PolicySecurityServicePolicyData>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
@@ -296,7 +295,7 @@ export interface PolicyArgs {
     /**
      * A map of lists of accounts and OU's to exclude from the policy.
      */
-    excludeMap?: pulumi.Input<inputs.fms.PolicyExcludeMap>;
+    excludeMap?: pulumi.Input<inputs.PolicyExcludeMap>;
     /**
      * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
      */
@@ -304,7 +303,7 @@ export interface PolicyArgs {
     /**
      * A map of lists of accounts and OU's to include in the policy.
      */
-    includeMap?: pulumi.Input<inputs.fms.PolicyIncludeMap>;
+    includeMap?: pulumi.Input<inputs.PolicyIncludeMap>;
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      */
@@ -328,7 +327,7 @@ export interface PolicyArgs {
     /**
      * The objects to include in Security Service Policy Data. Documented below.
      */
-    securityServicePolicyData: pulumi.Input<inputs.fms.PolicySecurityServicePolicyData>;
+    securityServicePolicyData: pulumi.Input<inputs.PolicySecurityServicePolicyData>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

@@ -16,6 +16,15 @@ export const ApplicationSnapshot: typeof import("./applicationSnapshot").Applica
 utilities.lazyLoad(exports, ["ApplicationSnapshot"], () => require("./applicationSnapshot"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

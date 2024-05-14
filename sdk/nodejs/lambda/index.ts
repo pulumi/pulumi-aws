@@ -99,7 +99,16 @@ utilities.lazyLoad(exports, ["ProvisionedConcurrencyConfig"], () => require("./p
 export * from "./runtimes";
 
 // Export enums:
-export * from "../types/enums/lambda";
+export * from "./enums";
+
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
 
 const _module = {
     version: utilities.getVersion(),

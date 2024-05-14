@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -125,23 +124,23 @@ export class ResourceLfTags extends pulumi.CustomResource {
     /**
      * Configuration block for a database resource. See below.
      */
-    public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
+    public readonly database!: pulumi.Output<outputs.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
      * Exactly one of the following is required:
      */
-    public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
+    public readonly lfTags!: pulumi.Output<outputs.ResourceLfTagsLfTag[]>;
     /**
      * Configuration block for a table resource. See below.
      */
-    public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
+    public readonly table!: pulumi.Output<outputs.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    public readonly tableWithColumns!: pulumi.Output<outputs.ResourceLfTagsTableWithColumns>;
 
     /**
      * Create a ResourceLfTags resource with the given unique name, arguments, and options.
@@ -188,23 +187,23 @@ export interface ResourceLfTagsState {
     /**
      * Configuration block for a database resource. See below.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
+    database?: pulumi.Input<inputs.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
      * Exactly one of the following is required:
      */
-    lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
+    lfTags?: pulumi.Input<pulumi.Input<inputs.ResourceLfTagsLfTag>[]>;
     /**
      * Configuration block for a table resource. See below.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
+    table?: pulumi.Input<inputs.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.ResourceLfTagsTableWithColumns>;
 }
 
 /**
@@ -218,21 +217,21 @@ export interface ResourceLfTagsArgs {
     /**
      * Configuration block for a database resource. See below.
      */
-    database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
+    database?: pulumi.Input<inputs.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
      *
      * Exactly one of the following is required:
      */
-    lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
+    lfTags: pulumi.Input<pulumi.Input<inputs.ResourceLfTagsLfTag>[]>;
     /**
      * Configuration block for a table resource. See below.
      */
-    table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
+    table?: pulumi.Input<inputs.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
      *
      * The following arguments are optional:
      */
-    tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
+    tableWithColumns?: pulumi.Input<inputs.ResourceLfTagsTableWithColumns>;
 }

@@ -71,12 +71,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()        
+ *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()
  *             .name("example")
  *             .role(exampleRole.id())
  *             .policy(serializeJson(
@@ -93,18 +93,18 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example-transcribe")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()        
+ *         var object = new BucketObjectv2("object", BucketObjectv2Args.builder()
  *             .bucket(exampleBucketV2.id())
  *             .key("transcribe/test1.txt")
  *             .source(new FileAsset("test1.txt"))
  *             .build());
  * 
- *         var exampleLanguageModel = new LanguageModel("exampleLanguageModel", LanguageModelArgs.builder()        
+ *         var exampleLanguageModel = new LanguageModel("exampleLanguageModel", LanguageModelArgs.builder()
  *             .modelName("example")
  *             .baseModelName("NarrowBand")
  *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()

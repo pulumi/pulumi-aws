@@ -56,6 +56,15 @@ export const StudioSessionMapping: typeof import("./studioSessionMapping").Studi
 utilities.lazyLoad(exports, ["StudioSessionMapping"], () => require("./studioSessionMapping"));
 
 
+// Export sub-modules:
+import * as input from "./input";
+import * as output from "./output";
+
+export {
+    input,
+    output,
+};
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

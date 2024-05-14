@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +105,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * Configuration block for safety rule criteria. See below.
      */
-    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    public readonly ruleConfig!: pulumi.Output<outputs.SafetyRuleRuleConfig>;
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
@@ -197,7 +196,7 @@ export interface SafetyRuleState {
     /**
      * Configuration block for safety rule criteria. See below.
      */
-    ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    ruleConfig?: pulumi.Input<inputs.SafetyRuleRuleConfig>;
     /**
      * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      */
@@ -237,7 +236,7 @@ export interface SafetyRuleArgs {
     /**
      * Configuration block for safety rule criteria. See below.
      */
-    ruleConfig: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
+    ruleConfig: pulumi.Input<inputs.SafetyRuleRuleConfig>;
     /**
      * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
      */

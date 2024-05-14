@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -115,7 +114,7 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * New minimum and maximum capacity. You can set both values or just one. See below
      */
-    public readonly scalableTargetAction!: pulumi.Output<outputs.appautoscaling.ScheduledActionScalableTargetAction>;
+    public readonly scalableTargetAction!: pulumi.Output<outputs.ScheduledActionScalableTargetAction>;
     /**
      * Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      */
@@ -216,7 +215,7 @@ export interface ScheduledActionState {
     /**
      * New minimum and maximum capacity. You can set both values or just one. See below
      */
-    scalableTargetAction?: pulumi.Input<inputs.appautoscaling.ScheduledActionScalableTargetAction>;
+    scalableTargetAction?: pulumi.Input<inputs.ScheduledActionScalableTargetAction>;
     /**
      * Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      */
@@ -258,7 +257,7 @@ export interface ScheduledActionArgs {
     /**
      * New minimum and maximum capacity. You can set both values or just one. See below
      */
-    scalableTargetAction: pulumi.Input<inputs.appautoscaling.ScheduledActionScalableTargetAction>;
+    scalableTargetAction: pulumi.Input<inputs.ScheduledActionScalableTargetAction>;
     /**
      * Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
      */

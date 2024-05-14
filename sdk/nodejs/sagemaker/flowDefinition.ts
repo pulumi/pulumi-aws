@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -152,19 +151,19 @@ export class FlowDefinition extends pulumi.CustomResource {
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    public readonly humanLoopActivationConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopActivationConfig | undefined>;
+    public readonly humanLoopActivationConfig!: pulumi.Output<outputs.FlowDefinitionHumanLoopActivationConfig | undefined>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
-    public readonly humanLoopConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopConfig>;
+    public readonly humanLoopConfig!: pulumi.Output<outputs.FlowDefinitionHumanLoopConfig>;
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    public readonly humanLoopRequestSource!: pulumi.Output<outputs.sagemaker.FlowDefinitionHumanLoopRequestSource | undefined>;
+    public readonly humanLoopRequestSource!: pulumi.Output<outputs.FlowDefinitionHumanLoopRequestSource | undefined>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
-    public readonly outputConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionOutputConfig>;
+    public readonly outputConfig!: pulumi.Output<outputs.FlowDefinitionOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
@@ -246,19 +245,19 @@ export interface FlowDefinitionState {
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
+    humanLoopActivationConfig?: pulumi.Input<inputs.FlowDefinitionHumanLoopActivationConfig>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
-    humanLoopConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig>;
+    humanLoopConfig?: pulumi.Input<inputs.FlowDefinitionHumanLoopConfig>;
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
+    humanLoopRequestSource?: pulumi.Input<inputs.FlowDefinitionHumanLoopRequestSource>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
+    outputConfig?: pulumi.Input<inputs.FlowDefinitionOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
@@ -286,19 +285,19 @@ export interface FlowDefinitionArgs {
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      */
-    humanLoopActivationConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfig>;
+    humanLoopActivationConfig?: pulumi.Input<inputs.FlowDefinitionHumanLoopActivationConfig>;
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      */
-    humanLoopConfig: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfig>;
+    humanLoopConfig: pulumi.Input<inputs.FlowDefinitionHumanLoopConfig>;
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      */
-    humanLoopRequestSource?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopRequestSource>;
+    humanLoopRequestSource?: pulumi.Input<inputs.FlowDefinitionHumanLoopRequestSource>;
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
-    outputConfig: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
+    outputConfig: pulumi.Input<inputs.FlowDefinitionOutputConfig>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */

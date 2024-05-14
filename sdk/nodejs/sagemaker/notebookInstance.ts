@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -111,7 +110,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      */
-    public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
+    public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
     /**
      * The name of ML compute instance type.
      */
@@ -266,7 +265,7 @@ export interface NotebookInstanceState {
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      */
-    instanceMetadataServiceConfiguration?: pulumi.Input<inputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration>;
+    instanceMetadataServiceConfiguration?: pulumi.Input<inputs.NotebookInstanceInstanceMetadataServiceConfiguration>;
     /**
      * The name of ML compute instance type.
      */
@@ -351,7 +350,7 @@ export interface NotebookInstanceArgs {
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
      */
-    instanceMetadataServiceConfiguration?: pulumi.Input<inputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration>;
+    instanceMetadataServiceConfiguration?: pulumi.Input<inputs.NotebookInstanceInstanceMetadataServiceConfiguration>;
     /**
      * The name of ML compute instance type.
      */

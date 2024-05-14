@@ -2,9 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
+import * as inputs from "./input";
+import * as outputs from "./output";
 import * as utilities from "../utilities";
 
 /**
@@ -373,7 +372,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
-    public readonly configuration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.DataSourceConfiguration | undefined>;
     /**
      * The Unix timestamp of when the Data Source was created.
      */
@@ -381,7 +380,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
-    public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
+    public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
      * The unique identifiers of the Data Source.
      */
@@ -511,7 +510,7 @@ export interface DataSourceState {
     /**
      * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
+    configuration?: pulumi.Input<inputs.DataSourceConfiguration>;
     /**
      * The Unix timestamp of when the Data Source was created.
      */
@@ -519,7 +518,7 @@ export interface DataSourceState {
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
-    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration>;
+    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.DataSourceCustomDocumentEnrichmentConfiguration>;
     /**
      * The unique identifiers of the Data Source.
      */
@@ -585,11 +584,11 @@ export interface DataSourceArgs {
     /**
      * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
-    configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
+    configuration?: pulumi.Input<inputs.DataSourceConfiguration>;
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
-    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration>;
+    customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.DataSourceCustomDocumentEnrichmentConfiguration>;
     /**
      * A description for the Data Source connector.
      */
