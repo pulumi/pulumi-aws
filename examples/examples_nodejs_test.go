@@ -468,10 +468,6 @@ func TestAccWafV2(t *testing.T) {
 		})
 	skipRefresh(&test)
 
-	// TODO[pulumi/pulumi-aws#3190] there is a bug with non-empty diff after pulumi up.
-	test.AllowEmptyPreviewChanges = true
-	test.AllowEmptyUpdateChanges = true
-
 	integration.ProgramTest(t, &test)
 }
 
