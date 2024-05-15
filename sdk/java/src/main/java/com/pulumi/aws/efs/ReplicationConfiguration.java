@@ -162,6 +162,8 @@ import javax.annotation.Nullable;
 public class ReplicationConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
@@ -169,6 +171,8 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
 
     /**
      * @return When the replication configuration was created.
+     * * `destination[0].file_system_id` - The fs ID of the replica.
+     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Output<String> creationTime() {

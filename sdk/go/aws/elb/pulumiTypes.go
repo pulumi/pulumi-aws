@@ -214,6 +214,8 @@ type LoadBalancerHealthCheck struct {
 	Interval int `pulumi:"interval"`
 	// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 	// values are:
+	// * `HTTP`, `HTTPS` - PORT and PATH are required
+	// * `TCP`, `SSL` - PORT is required, PATH is not supported
 	Target string `pulumi:"target"`
 	// The length of time before the check times out.
 	Timeout int `pulumi:"timeout"`
@@ -239,6 +241,8 @@ type LoadBalancerHealthCheckArgs struct {
 	Interval pulumi.IntInput `pulumi:"interval"`
 	// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 	// values are:
+	// * `HTTP`, `HTTPS` - PORT and PATH are required
+	// * `TCP`, `SSL` - PORT is required, PATH is not supported
 	Target pulumi.StringInput `pulumi:"target"`
 	// The length of time before the check times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
@@ -335,6 +339,8 @@ func (o LoadBalancerHealthCheckOutput) Interval() pulumi.IntOutput {
 
 // The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 // values are:
+// * `HTTP`, `HTTPS` - PORT and PATH are required
+// * `TCP`, `SSL` - PORT is required, PATH is not supported
 func (o LoadBalancerHealthCheckOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -395,6 +401,8 @@ func (o LoadBalancerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 
 // The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
 // values are:
+// * `HTTP`, `HTTPS` - PORT and PATH are required
+// * `TCP`, `SSL` - PORT is required, PATH is not supported
 func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *string {
 		if v == nil {

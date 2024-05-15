@@ -1202,6 +1202,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) TerminateBlueInstance
 
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption struct {
 	// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+	// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+	// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 	ActionOnTimeout *string `pulumi:"actionOnTimeout"`
 	// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
 	WaitTimeInMinutes *int `pulumi:"waitTimeInMinutes"`
@@ -1220,6 +1222,8 @@ type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionInput interfac
 
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs struct {
 	// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+	// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+	// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 	ActionOnTimeout pulumi.StringPtrInput `pulumi:"actionOnTimeout"`
 	// The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `actionOnTimeout`.
 	WaitTimeInMinutes pulumi.IntPtrInput `pulumi:"waitTimeInMinutes"`
@@ -1303,6 +1307,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToD
 }
 
 // When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ActionOnTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string {
 		return v.ActionOnTimeout
@@ -1339,6 +1345,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) 
 }
 
 // When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+// * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+// * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) ActionOnTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *string {
 		if v == nil {
@@ -1360,6 +1368,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) 
 
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption struct {
 	// The method used to add instances to a replacement environment.
+	// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+	// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 	Action *string `pulumi:"action"`
 }
 
@@ -1376,6 +1386,8 @@ type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionInput i
 
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs struct {
 	// The method used to add instances to a replacement environment.
+	// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+	// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 }
 
@@ -1457,6 +1469,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutp
 }
 
 // The method used to add instances to a replacement environment.
+// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -1486,6 +1500,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrO
 }
 
 // The method used to add instances to a replacement environment.
+// * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+// * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string {
 		if v == nil {
@@ -1497,6 +1513,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrO
 
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess struct {
 	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 	Action *string `pulumi:"action"`
 	// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 	TerminationWaitTimeInMinutes *int `pulumi:"terminationWaitTimeInMinutes"`
@@ -1515,6 +1533,8 @@ type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentS
 
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs struct {
 	// The action to take on instances in the original environment after a successful blue/green deployment.
+	// * `TERMINATE`: Instances are terminated after a specified wait time.
+	// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
 	TerminationWaitTimeInMinutes pulumi.IntPtrInput `pulumi:"terminationWaitTimeInMinutes"`
@@ -1598,6 +1618,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 }
 
 // The action to take on instances in the original environment after a successful blue/green deployment.
+// * `TERMINATE`: Instances are terminated after a specified wait time.
+// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string {
 		return v.Action
@@ -1636,6 +1658,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 }
 
 // The action to take on instances in the original environment after a successful blue/green deployment.
+// * `TERMINATE`: Instances are terminated after a specified wait time.
+// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *string {
 		if v == nil {

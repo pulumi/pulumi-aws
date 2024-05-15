@@ -68,6 +68,7 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
      * Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      * 
      * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
     @Import(name="localeSpecification", required=true)
@@ -77,6 +78,7 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
      * @return Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
      * 
      * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+     * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
     public Output<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification() {
@@ -185,6 +187,7 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
          * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
          * 
          * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+         * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
          * 
          * @return builder
          * 
@@ -198,6 +201,7 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.ResourceA
          * @param localeSpecification Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
          * 
          * The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+         * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
          * 
          * @return builder
          * 

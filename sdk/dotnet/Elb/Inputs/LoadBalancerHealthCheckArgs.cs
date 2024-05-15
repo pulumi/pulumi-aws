@@ -27,6 +27,8 @@ namespace Pulumi.Aws.Elb.Inputs
         /// <summary>
         /// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
         /// values are:
+        /// * `HTTP`, `HTTPS` - PORT and PATH are required
+        /// * `TCP`, `SSL` - PORT is required, PATH is not supported
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

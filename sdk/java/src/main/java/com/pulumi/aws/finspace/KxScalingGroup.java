@@ -188,6 +188,14 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * The status of scaling group.
+     * * `CREATING` – The scaling group creation is in progress.
+     * * `CREATE_FAILED` – The scaling group creation has failed.
+     * * `ACTIVE` – The scaling group is active.
+     * * `UPDATING` – The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `DELETING` – The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the scaling group.
+     * * `DELETED` – The scaling group is successfully deleted.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
@@ -195,6 +203,14 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The status of scaling group.
+     * * `CREATING` – The scaling group creation is in progress.
+     * * `CREATE_FAILED` – The scaling group creation has failed.
+     * * `ACTIVE` – The scaling group is active.
+     * * `UPDATING` – The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `DELETING` – The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the scaling group.
+     * * `DELETED` – The scaling group is successfully deleted.
      * 
      */
     public Output<String> status() {

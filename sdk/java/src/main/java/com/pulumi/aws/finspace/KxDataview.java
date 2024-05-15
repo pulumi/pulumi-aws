@@ -124,6 +124,8 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
     }
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
     @Export(name="azMode", refs={String.class}, tree="[0]")
@@ -131,6 +133,8 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
     public Output<String> azMode() {

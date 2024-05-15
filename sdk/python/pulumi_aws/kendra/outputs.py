@@ -640,6 +640,9 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(dic
         """
         :param Sequence[str] seed_urls: The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
         :param str web_crawler_mode: The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+               * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+               * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+               * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
         """
         pulumi.set(__self__, "seed_urls", seed_urls)
         if web_crawler_mode is not None:
@@ -658,6 +661,9 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(dic
     def web_crawler_mode(self) -> Optional[str]:
         """
         The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+        * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+        * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+        * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
         """
         return pulumi.get(self, "web_crawler_mode")
 
