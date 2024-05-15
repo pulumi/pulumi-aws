@@ -17,6 +17,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// A list of column names and/or nested column attributes.
         /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
+        /// <summary>
+        /// A wildcard with exclusions. See Column Wildcard below for details.
+        /// </summary>
         public readonly Outputs.DataCellsFilterTableDataColumnWildcard? ColumnWildcard;
         /// <summary>
         /// The name of the database.

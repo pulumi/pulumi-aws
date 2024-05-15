@@ -849,6 +849,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Workspaces *string `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
+	Workspacesweb *string `pulumi:"workspacesweb"`
+	// Use this to override the default service endpoint URL
 	Xray *string `pulumi:"xray"`
 }
 
@@ -1422,6 +1424,8 @@ type EndpointsArgs struct {
 	Worklink pulumi.StringPtrInput `pulumi:"worklink"`
 	// Use this to override the default service endpoint URL
 	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
+	// Use this to override the default service endpoint URL
+	Workspacesweb pulumi.StringPtrInput `pulumi:"workspacesweb"`
 	// Use this to override the default service endpoint URL
 	Xray pulumi.StringPtrInput `pulumi:"xray"`
 }
@@ -2870,6 +2874,11 @@ func (o EndpointsOutput) Worklink() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Workspaces() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Workspaces }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Workspacesweb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Workspacesweb }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

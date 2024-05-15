@@ -19,6 +19,7 @@ public final class SubscriberNotificationConfiguration {
     private @Nullable SubscriberNotificationConfigurationHttpsNotificationConfiguration httpsNotificationConfiguration;
     /**
      * @return The configurations for SQS subscriber notification.
+     * There are no parameters within `sqs_notification_configuration`.
      * 
      */
     private @Nullable SubscriberNotificationConfigurationSqsNotificationConfiguration sqsNotificationConfiguration;
@@ -33,6 +34,7 @@ public final class SubscriberNotificationConfiguration {
     }
     /**
      * @return The configurations for SQS subscriber notification.
+     * There are no parameters within `sqs_notification_configuration`.
      * 
      */
     public Optional<SubscriberNotificationConfigurationSqsNotificationConfiguration> sqsNotificationConfiguration() {

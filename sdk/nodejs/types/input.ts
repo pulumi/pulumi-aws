@@ -1267,6 +1267,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    workspacesweb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     xray?: pulumi.Input<string>;
 }
 
@@ -9247,6 +9251,46 @@ export namespace bedrock {
         update?: pulumi.Input<string>;
     }
 
+    export interface AgentDataSourceDataSourceConfiguration {
+        s3Configuration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationS3Configuration>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface AgentDataSourceDataSourceConfigurationS3Configuration {
+        bucketArn: pulumi.Input<string>;
+        bucketOwnerAccountId?: pulumi.Input<string>;
+        inclusionPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentDataSourceServerSideEncryptionConfiguration {
+        kmsKeyArn?: pulumi.Input<string>;
+    }
+
+    export interface AgentDataSourceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfiguration {
+        chunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
+        chunkingStrategy: pulumi.Input<string>;
+        fixedSizeChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
+        maxTokens: pulumi.Input<number>;
+        overlapPercentage: pulumi.Input<number>;
+    }
+
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
         /**
          * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
@@ -16797,6 +16841,24 @@ export namespace datasync {
          * Specifies a bucket prefix for your report.
          */
         subdirectory?: pulumi.Input<string>;
+    }
+}
+
+export namespace datazone {
+    export interface DomainSingleSignOn {
+        type?: pulumi.Input<string>;
+        userAssignment?: pulumi.Input<string>;
+    }
+
+    export interface DomainTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 }
 
@@ -28830,7 +28892,7 @@ export namespace glue {
 
     export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
         /**
-         * The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+         * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          */
         catalogEncryptionMode: pulumi.Input<string>;
         /**
@@ -35128,6 +35190,9 @@ export namespace lakeformation {
          * A list of column names and/or nested column attributes.
          */
         columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A wildcard with exclusions. See Column Wildcard below for details.
+         */
         columnWildcard?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableDataColumnWildcard>;
         /**
          * The name of the database.
@@ -55121,7 +55186,7 @@ export namespace pipes {
         endpointId?: pulumi.Input<string>;
         resources?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Source resource of the pipe (typically an ARN).
+         * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
          */
         source?: pulumi.Input<string>;
         time?: pulumi.Input<string>;
@@ -57592,114 +57657,6 @@ export namespace resourceexplorer {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string>;
-    }
-
-    export interface SearchResource {
-        /**
-         * Amazon resource name of resource.
-         */
-        arn?: string;
-        /**
-         * The date and time that the information about this resource property was last updated.
-         */
-        lastReportedAt?: string;
-        /**
-         * Amazon Web Services account that owns the resource.
-         */
-        owningAccountId?: string;
-        /**
-         * Amazon Web Services Region in which the resource was created and exists.
-         */
-        region?: string;
-        /**
-         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
-         */
-        resourceProperties?: inputs.resourceexplorer.SearchResourceResourceProperty[];
-        /**
-         * Type of the resource.
-         */
-        resourceType?: string;
-        /**
-         * Amazon Web Service that owns the resource and is responsible for creating and updating it.
-         */
-        service?: string;
-    }
-
-    export interface SearchResourceArgs {
-        /**
-         * Amazon resource name of resource.
-         */
-        arn?: pulumi.Input<string>;
-        /**
-         * The date and time that the information about this resource property was last updated.
-         */
-        lastReportedAt?: pulumi.Input<string>;
-        /**
-         * Amazon Web Services account that owns the resource.
-         */
-        owningAccountId?: pulumi.Input<string>;
-        /**
-         * Amazon Web Services Region in which the resource was created and exists.
-         */
-        region?: pulumi.Input<string>;
-        /**
-         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
-         */
-        resourceProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.SearchResourceResourcePropertyArgs>[]>;
-        /**
-         * Type of the resource.
-         */
-        resourceType?: pulumi.Input<string>;
-        /**
-         * Amazon Web Service that owns the resource and is responsible for creating and updating it.
-         */
-        service?: pulumi.Input<string>;
-    }
-
-    export interface SearchResourceCount {
-        completed: boolean;
-        /**
-         * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-         */
-        totalResources?: number;
-    }
-
-    export interface SearchResourceCountArgs {
-        completed: pulumi.Input<boolean>;
-        /**
-         * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
-         */
-        totalResources?: pulumi.Input<number>;
-    }
-
-    export interface SearchResourceResourceProperty {
-        /**
-         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
-         */
-        data?: string;
-        /**
-         * The date and time that the information about this resource property was last updated.
-         */
-        lastReportedAt?: string;
-        /**
-         * Name of this property of the resource.
-         */
-        name?: string;
-    }
-
-    export interface SearchResourceResourcePropertyArgs {
-        /**
-         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
-         */
-        data?: pulumi.Input<string>;
-        /**
-         * The date and time that the information about this resource property was last updated.
-         */
-        lastReportedAt?: pulumi.Input<string>;
-        /**
-         * Name of this property of the resource.
-         */
-        name?: pulumi.Input<string>;
     }
 
     export interface ViewFilters {
@@ -65337,6 +65294,7 @@ export namespace securitylake {
     export interface AwsLogSourceSource {
         /**
          * Specify the AWS account information where you want to enable Security Lake.
+         * If not specified, uses all accounts included in the Security Lake.
          */
         accounts?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -65348,7 +65306,9 @@ export namespace securitylake {
          */
         sourceName: pulumi.Input<string>;
         /**
-         * The version for a AWS source. This must be a Regionally unique value.
+         * The version for a AWS source.
+         * If not specified, the version will be the default.
+         * This must be a Regionally unique value.
          */
         sourceVersion?: pulumi.Input<string>;
     }
@@ -65490,31 +65450,35 @@ export namespace securitylake {
         httpsNotificationConfiguration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfiguration>;
         /**
          * The configurations for SQS subscriber notification.
+         * There are no parameters within `sqsNotificationConfiguration`.
          */
         sqsNotificationConfiguration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfigurationSqsNotificationConfiguration>;
     }
 
     export interface SubscriberNotificationConfigurationHttpsNotificationConfiguration {
         /**
-         * The key name for the notification subscription.
+         * The API key name for the notification subscription.
          */
         authorizationApiKeyName?: pulumi.Input<string>;
         /**
-         * The key value for the notification subscription.
+         * The API key value for the notification subscription.
          */
         authorizationApiKeyValue?: pulumi.Input<string>;
         /**
-         * The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+         * The subscription endpoint in Security Lake.
+         * If you prefer notification with an HTTPS endpoint, populate this field.
          */
-        endpoint?: pulumi.Input<string>;
+        endpoint: pulumi.Input<string>;
         /**
-         * The HTTPS method used for the notification subscription.
+         * The HTTP method used for the notification subscription.
+         * Valid values are `POST` and `PUT`.
          */
         httpMethod?: pulumi.Input<string>;
         /**
-         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+         * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
          */
-        targetRoleArn?: pulumi.Input<string>;
+        targetRoleArn: pulumi.Input<string>;
     }
 
     export interface SubscriberNotificationConfigurationSqsNotificationConfiguration {
@@ -65535,7 +65499,7 @@ export namespace securitylake {
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceName?: pulumi.Input<string>;
+        sourceName: pulumi.Input<string>;
         /**
          * The version for a third-party custom source. This must be a Regionally unique value.
          */
@@ -65551,7 +65515,7 @@ export namespace securitylake {
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
          */
-        sourceName?: pulumi.Input<string>;
+        sourceName: pulumi.Input<string>;
         /**
          * The version for a third-party custom source. This must be a Regionally unique value.
          */

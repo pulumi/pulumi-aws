@@ -2219,7 +2219,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
                  source: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
+        :param pulumi.Input[str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         if detail_type is not None:
             pulumi.set(__self__, "detail_type", detail_type)
@@ -2263,7 +2263,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source resource of the pipe (typically an ARN).
+        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 

@@ -12,6 +12,10 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an Amazon Security Lake AWS Log Source.
     /// 
+    /// &gt; **NOTE:** A single `aws.securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
+    /// 
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.AwsLogSource`. Use a `depends_on` statement.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -24,7 +28,7 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.SecurityLake.AwsLogSource("test", new()
+    ///     var example = new Aws.SecurityLake.AwsLogSource("example", new()
     ///     {
     ///         Source = new Aws.SecurityLake.Inputs.AwsLogSourceSourceArgs
     ///         {
@@ -37,7 +41,12 @@ namespace Pulumi.Aws.SecurityLake
     ///                 "eu-west-1",
     ///             },
     ///             SourceName = "ROUTE53",
-    ///             SourceVersion = "1.0",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSecuritylakeDataLake,
     ///         },
     ///     });
     /// 

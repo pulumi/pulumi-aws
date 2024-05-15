@@ -128,6 +128,12 @@ namespace Pulumi.Aws.Kms
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        /// </summary>
+        [Output("rotationPeriodInDays")]
+        public Output<int> RotationPeriodInDays { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.Kms
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        /// </summary>
+        [Input("rotationPeriodInDays")]
+        public Input<int>? RotationPeriodInDays { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -366,6 +378,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        /// </summary>
+        [Input("rotationPeriodInDays")]
+        public Input<int>? RotationPeriodInDays { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

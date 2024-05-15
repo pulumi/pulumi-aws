@@ -588,6 +588,7 @@ class ProviderEndpointArgs:
                  wellarchitected: Optional[pulumi.Input[str]] = None,
                  worklink: Optional[pulumi.Input[str]] = None,
                  workspaces: Optional[pulumi.Input[str]] = None,
+                 workspacesweb: Optional[pulumi.Input[str]] = None,
                  xray: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] accessanalyzer: Use this to override the default service endpoint URL
@@ -869,6 +870,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] wellarchitected: Use this to override the default service endpoint URL
         :param pulumi.Input[str] worklink: Use this to override the default service endpoint URL
         :param pulumi.Input[str] workspaces: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] workspacesweb: Use this to override the default service endpoint URL
         :param pulumi.Input[str] xray: Use this to override the default service endpoint URL
         """
         if accessanalyzer is not None:
@@ -1429,6 +1431,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
+        if workspacesweb is not None:
+            pulumi.set(__self__, "workspacesweb", workspacesweb)
         if xray is not None:
             pulumi.set(__self__, "xray", xray)
 
@@ -4779,6 +4783,18 @@ class ProviderEndpointArgs:
     @workspaces.setter
     def workspaces(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspaces", value)
+
+    @property
+    @pulumi.getter
+    def workspacesweb(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "workspacesweb")
+
+    @workspacesweb.setter
+    def workspacesweb(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspacesweb", value)
 
     @property
     @pulumi.getter

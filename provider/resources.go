@@ -108,6 +108,7 @@ const (
 	dataexchangeMod             = "DataExchange"             // Data exchange
 	datapipelineMod             = "DataPipeline"             // Data Pipeline
 	datasyncMod                 = "DataSync"                 // DataSync
+	datazoneMod                 = "DataZone"                 // DataZone
 	daxMod                      = "Dax"                      // DynamoDB Accelerator
 	devopsGuruMod               = "DevOpsGuru"               // DevOps Guru
 	dlmMod                      = "Dlm"                      // Data Lifecycle Manager
@@ -322,6 +323,7 @@ var moduleMap = map[string]string{
 	"dataexchange":                    dataexchangeMod,
 	"datapipeline":                    datapipelineMod,
 	"datasync":                        datasyncMod,
+	"datazone":                        datazoneMod,
 	"dax":                             daxMod,
 	"devopsguru":                      devopsGuruMod,
 	"db":                              rdsMod,

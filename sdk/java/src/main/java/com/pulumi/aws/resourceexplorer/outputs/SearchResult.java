@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class SearchResult {
@@ -25,13 +23,13 @@ public final class SearchResult {
      * @return Number of resources that match the query. See `resource_count` below.
      * 
      */
-    private @Nullable List<SearchResourceCount> resourceCounts;
+    private List<SearchResourceCount> resourceCounts;
     /**
      * @return List of structures that describe the resources that match the query. See `resources` below.
      * 
      */
-    private @Nullable List<SearchResource> resources;
-    private @Nullable String viewArn;
+    private List<SearchResource> resources;
+    private String viewArn;
 
     private SearchResult() {}
     /**
@@ -49,17 +47,17 @@ public final class SearchResult {
      * 
      */
     public List<SearchResourceCount> resourceCounts() {
-        return this.resourceCounts == null ? List.of() : this.resourceCounts;
+        return this.resourceCounts;
     }
     /**
      * @return List of structures that describe the resources that match the query. See `resources` below.
      * 
      */
     public List<SearchResource> resources() {
-        return this.resources == null ? List.of() : this.resources;
+        return this.resources;
     }
-    public Optional<String> viewArn() {
-        return Optional.ofNullable(this.viewArn);
+    public String viewArn() {
+        return this.viewArn;
     }
 
     public static Builder builder() {
@@ -73,9 +71,9 @@ public final class SearchResult {
     public static final class Builder {
         private String id;
         private String queryString;
-        private @Nullable List<SearchResourceCount> resourceCounts;
-        private @Nullable List<SearchResource> resources;
-        private @Nullable String viewArn;
+        private List<SearchResourceCount> resourceCounts;
+        private List<SearchResource> resources;
+        private String viewArn;
         public Builder() {}
         public Builder(SearchResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -103,8 +101,10 @@ public final class SearchResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceCounts(@Nullable List<SearchResourceCount> resourceCounts) {
-
+        public Builder resourceCounts(List<SearchResourceCount> resourceCounts) {
+            if (resourceCounts == null) {
+              throw new MissingRequiredPropertyException("SearchResult", "resourceCounts");
+            }
             this.resourceCounts = resourceCounts;
             return this;
         }
@@ -112,8 +112,10 @@ public final class SearchResult {
             return resourceCounts(List.of(resourceCounts));
         }
         @CustomType.Setter
-        public Builder resources(@Nullable List<SearchResource> resources) {
-
+        public Builder resources(List<SearchResource> resources) {
+            if (resources == null) {
+              throw new MissingRequiredPropertyException("SearchResult", "resources");
+            }
             this.resources = resources;
             return this;
         }
@@ -121,8 +123,10 @@ public final class SearchResult {
             return resources(List.of(resources));
         }
         @CustomType.Setter
-        public Builder viewArn(@Nullable String viewArn) {
-
+        public Builder viewArn(String viewArn) {
+            if (viewArn == null) {
+              throw new MissingRequiredPropertyException("SearchResult", "viewArn");
+            }
             this.viewArn = viewArn;
             return this;
         }

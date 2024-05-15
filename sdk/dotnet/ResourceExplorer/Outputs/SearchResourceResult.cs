@@ -26,13 +26,13 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
         /// </summary>
         public readonly string OwningAccountId;
         /// <summary>
+        /// Structure with additional type-specific details about the resource.  See `properties` below.
+        /// </summary>
+        public readonly ImmutableArray<object> Properties;
+        /// <summary>
         /// Amazon Web Services Region in which the resource was created and exists.
         /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Structure with additional type-specific details about the resource.  See `resource_property` below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SearchResourceResourcePropertyResult> ResourceProperties;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -50,9 +50,9 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
 
             string owningAccountId,
 
-            string region,
+            ImmutableArray<object> properties,
 
-            ImmutableArray<Outputs.SearchResourceResourcePropertyResult> resourceProperties,
+            string region,
 
             string resourceType,
 
@@ -61,8 +61,8 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
             Arn = arn;
             LastReportedAt = lastReportedAt;
             OwningAccountId = owningAccountId;
+            Properties = properties;
             Region = region;
-            ResourceProperties = resourceProperties;
             ResourceType = resourceType;
             Service = service;
         }

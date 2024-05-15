@@ -272,7 +272,7 @@ type Pipe struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersOutput `pulumi:"sourceParameters"`
@@ -345,7 +345,7 @@ type pipeState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn *string `pulumi:"roleArn"`
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source *string `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
@@ -380,7 +380,7 @@ type PipeState struct {
 	NamePrefix pulumi.StringPtrInput
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringPtrInput
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringPtrInput
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersPtrInput
@@ -417,7 +417,7 @@ type pipeArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn string `pulumi:"roleArn"`
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source string `pulumi:"source"`
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
@@ -447,7 +447,7 @@ type PipeArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// ARN of the role that allows the pipe to send data to the target.
 	RoleArn pulumi.StringInput
-	// Source resource of the pipe (typically an ARN).
+	// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringInput
 	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersPtrInput
@@ -588,7 +588,7 @@ func (o PipeOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Source resource of the pipe (typically an ARN).
+// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 func (o PipeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
         /// <summary>
         /// The name for a third-party custom source. This must be a Regionally unique value.
         /// </summary>
-        public readonly string? SourceName;
+        public readonly string SourceName;
         /// <summary>
         /// The version for a third-party custom source. This must be a Regionally unique value.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
 
         [OutputConstructor]
         private SubscriberSourceAwsLogSourceResource(
-            string? sourceName,
+            string sourceName,
 
             string? sourceVersion)
         {

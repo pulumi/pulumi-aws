@@ -15,12 +15,15 @@ var _ = internal.GetEnvOrDefault
 
 type AwsLogSourceSource struct {
 	// Specify the AWS account information where you want to enable Security Lake.
+	// If not specified, uses all accounts included in the Security Lake.
 	Accounts []string `pulumi:"accounts"`
 	// Specify the Regions where you want to enable Security Lake.
 	Regions []string `pulumi:"regions"`
 	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
 	SourceName string `pulumi:"sourceName"`
-	// The version for a AWS source. This must be a Regionally unique value.
+	// The version for a AWS source.
+	// If not specified, the version will be the default.
+	// This must be a Regionally unique value.
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
 
@@ -37,12 +40,15 @@ type AwsLogSourceSourceInput interface {
 
 type AwsLogSourceSourceArgs struct {
 	// Specify the AWS account information where you want to enable Security Lake.
+	// If not specified, uses all accounts included in the Security Lake.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// Specify the Regions where you want to enable Security Lake.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
 	SourceName pulumi.StringInput `pulumi:"sourceName"`
-	// The version for a AWS source. This must be a Regionally unique value.
+	// The version for a AWS source.
+	// If not specified, the version will be the default.
+	// This must be a Regionally unique value.
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
 
@@ -124,6 +130,7 @@ func (o AwsLogSourceSourceOutput) ToAwsLogSourceSourcePtrOutputWithContext(ctx c
 }
 
 // Specify the AWS account information where you want to enable Security Lake.
+// If not specified, uses all accounts included in the Security Lake.
 func (o AwsLogSourceSourceOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
@@ -138,7 +145,9 @@ func (o AwsLogSourceSourceOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
-// The version for a AWS source. This must be a Regionally unique value.
+// The version for a AWS source.
+// If not specified, the version will be the default.
+// This must be a Regionally unique value.
 func (o AwsLogSourceSourceOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AwsLogSourceSource) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
@@ -168,6 +177,7 @@ func (o AwsLogSourceSourcePtrOutput) Elem() AwsLogSourceSourceOutput {
 }
 
 // Specify the AWS account information where you want to enable Security Lake.
+// If not specified, uses all accounts included in the Security Lake.
 func (o AwsLogSourceSourcePtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) []string {
 		if v == nil {
@@ -197,7 +207,9 @@ func (o AwsLogSourceSourcePtrOutput) SourceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version for a AWS source. This must be a Regionally unique value.
+// The version for a AWS source.
+// If not specified, the version will be the default.
+// This must be a Regionally unique value.
 func (o AwsLogSourceSourcePtrOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsLogSourceSource) *string {
 		if v == nil {
@@ -1908,6 +1920,7 @@ type SubscriberNotificationConfiguration struct {
 	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration *SubscriberNotificationConfigurationHttpsNotificationConfiguration `pulumi:"httpsNotificationConfiguration"`
 	// The configurations for SQS subscriber notification.
+	// There are no parameters within `sqsNotificationConfiguration`.
 	SqsNotificationConfiguration *SubscriberNotificationConfigurationSqsNotificationConfiguration `pulumi:"sqsNotificationConfiguration"`
 }
 
@@ -1926,6 +1939,7 @@ type SubscriberNotificationConfigurationArgs struct {
 	// The configurations for HTTPS subscriber notification.
 	HttpsNotificationConfiguration SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrInput `pulumi:"httpsNotificationConfiguration"`
 	// The configurations for SQS subscriber notification.
+	// There are no parameters within `sqsNotificationConfiguration`.
 	SqsNotificationConfiguration SubscriberNotificationConfigurationSqsNotificationConfigurationPtrInput `pulumi:"sqsNotificationConfiguration"`
 }
 
@@ -2014,6 +2028,7 @@ func (o SubscriberNotificationConfigurationOutput) HttpsNotificationConfiguratio
 }
 
 // The configurations for SQS subscriber notification.
+// There are no parameters within `sqsNotificationConfiguration`.
 func (o SubscriberNotificationConfigurationOutput) SqsNotificationConfiguration() SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationSqsNotificationConfiguration {
 		return v.SqsNotificationConfiguration
@@ -2055,6 +2070,7 @@ func (o SubscriberNotificationConfigurationPtrOutput) HttpsNotificationConfigura
 }
 
 // The configurations for SQS subscriber notification.
+// There are no parameters within `sqsNotificationConfiguration`.
 func (o SubscriberNotificationConfigurationPtrOutput) SqsNotificationConfiguration() SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfiguration) *SubscriberNotificationConfigurationSqsNotificationConfiguration {
 		if v == nil {
@@ -2065,16 +2081,19 @@ func (o SubscriberNotificationConfigurationPtrOutput) SqsNotificationConfigurati
 }
 
 type SubscriberNotificationConfigurationHttpsNotificationConfiguration struct {
-	// The key name for the notification subscription.
+	// The API key name for the notification subscription.
 	AuthorizationApiKeyName *string `pulumi:"authorizationApiKeyName"`
-	// The key value for the notification subscription.
+	// The API key value for the notification subscription.
 	AuthorizationApiKeyValue *string `pulumi:"authorizationApiKeyValue"`
-	// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
-	Endpoint *string `pulumi:"endpoint"`
-	// The HTTPS method used for the notification subscription.
+	// The subscription endpoint in Security Lake.
+	// If you prefer notification with an HTTPS endpoint, populate this field.
+	Endpoint string `pulumi:"endpoint"`
+	// The HTTP method used for the notification subscription.
+	// Valid values are `POST` and `PUT`.
 	HttpMethod *string `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-	TargetRoleArn *string `pulumi:"targetRoleArn"`
+	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+	TargetRoleArn string `pulumi:"targetRoleArn"`
 }
 
 // SubscriberNotificationConfigurationHttpsNotificationConfigurationInput is an input type that accepts SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs and SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput values.
@@ -2089,16 +2108,19 @@ type SubscriberNotificationConfigurationHttpsNotificationConfigurationInput inte
 }
 
 type SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs struct {
-	// The key name for the notification subscription.
+	// The API key name for the notification subscription.
 	AuthorizationApiKeyName pulumi.StringPtrInput `pulumi:"authorizationApiKeyName"`
-	// The key value for the notification subscription.
+	// The API key value for the notification subscription.
 	AuthorizationApiKeyValue pulumi.StringPtrInput `pulumi:"authorizationApiKeyValue"`
-	// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The HTTPS method used for the notification subscription.
+	// The subscription endpoint in Security Lake.
+	// If you prefer notification with an HTTPS endpoint, populate this field.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The HTTP method used for the notification subscription.
+	// Valid values are `POST` and `PUT`.
 	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-	TargetRoleArn pulumi.StringPtrInput `pulumi:"targetRoleArn"`
+	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+	TargetRoleArn pulumi.StringInput `pulumi:"targetRoleArn"`
 }
 
 func (SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2178,35 +2200,38 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput)
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput)
 }
 
-// The key name for the notification subscription.
+// The API key name for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		return v.AuthorizationApiKeyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key value for the notification subscription.
+// The API key value for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		return v.AuthorizationApiKeyValue
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
-func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+// The subscription endpoint in Security Lake.
+// If you prefer notification with an HTTPS endpoint, populate this field.
+func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The HTTPS method used for the notification subscription.
+// The HTTP method used for the notification subscription.
+// Valid values are `POST` and `PUT`.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
-func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) TargetRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
+// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) TargetRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) string {
 		return v.TargetRoleArn
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2233,7 +2258,7 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput)
 }
 
-// The key name for the notification subscription.
+// The API key name for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2243,7 +2268,7 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key value for the notification subscription.
+// The API key value for the notification subscription.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) AuthorizationApiKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2253,17 +2278,19 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+// The subscription endpoint in Security Lake.
+// If you prefer notification with an HTTPS endpoint, populate this field.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Endpoint
+		return &v.Endpoint
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTPS method used for the notification subscription.
+// The HTTP method used for the notification subscription.
+// Valid values are `POST` and `PUT`.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) HttpMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
@@ -2273,13 +2300,14 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.TargetRoleArn
+		return &v.TargetRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2559,7 +2587,7 @@ func (o SubscriberSourcePtrOutput) CustomLogSourceResource() SubscriberSourceCus
 
 type SubscriberSourceAwsLogSourceResource struct {
 	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName *string `pulumi:"sourceName"`
+	SourceName string `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
@@ -2577,7 +2605,7 @@ type SubscriberSourceAwsLogSourceResourceInput interface {
 
 type SubscriberSourceAwsLogSourceResourceArgs struct {
 	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
@@ -2660,8 +2688,8 @@ func (o SubscriberSourceAwsLogSourceResourceOutput) ToSubscriberSourceAwsLogSour
 }
 
 // The name for a third-party custom source. This must be a Regionally unique value.
-func (o SubscriberSourceAwsLogSourceResourceOutput) SourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+func (o SubscriberSourceAwsLogSourceResourceOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberSourceAwsLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
 // The version for a third-party custom source. This must be a Regionally unique value.
@@ -2699,7 +2727,7 @@ func (o SubscriberSourceAwsLogSourceResourcePtrOutput) SourceName() pulumi.Strin
 		if v == nil {
 			return nil
 		}
-		return v.SourceName
+		return &v.SourceName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2718,7 +2746,7 @@ type SubscriberSourceCustomLogSourceResource struct {
 	Attributes []SubscriberSourceCustomLogSourceResourceAttribute `pulumi:"attributes"`
 	Providers  []SubscriberSourceCustomLogSourceResourceProvider  `pulumi:"providers"`
 	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName *string `pulumi:"sourceName"`
+	SourceName string `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
 	SourceVersion *string `pulumi:"sourceVersion"`
 }
@@ -2739,7 +2767,7 @@ type SubscriberSourceCustomLogSourceResourceArgs struct {
 	Attributes SubscriberSourceCustomLogSourceResourceAttributeArrayInput `pulumi:"attributes"`
 	Providers  SubscriberSourceCustomLogSourceResourceProviderArrayInput  `pulumi:"providers"`
 	// The name for a third-party custom source. This must be a Regionally unique value.
-	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
 	// The version for a third-party custom source. This must be a Regionally unique value.
 	SourceVersion pulumi.StringPtrInput `pulumi:"sourceVersion"`
 }
@@ -2835,8 +2863,8 @@ func (o SubscriberSourceCustomLogSourceResourceOutput) Providers() SubscriberSou
 }
 
 // The name for a third-party custom source. This must be a Regionally unique value.
-func (o SubscriberSourceCustomLogSourceResourceOutput) SourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+func (o SubscriberSourceCustomLogSourceResourceOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriberSourceCustomLogSourceResource) string { return v.SourceName }).(pulumi.StringOutput)
 }
 
 // The version for a third-party custom source. This must be a Regionally unique value.
@@ -2893,7 +2921,7 @@ func (o SubscriberSourceCustomLogSourceResourcePtrOutput) SourceName() pulumi.St
 		if v == nil {
 			return nil
 		}
-		return v.SourceName
+		return &v.SourceName
 	}).(pulumi.StringPtrOutput)
 }
 

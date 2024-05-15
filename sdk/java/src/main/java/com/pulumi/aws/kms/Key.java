@@ -258,6 +258,20 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
+     * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+     * 
+     */
+    @Export(name="rotationPeriodInDays", refs={Integer.class}, tree="[0]")
+    private Output<Integer> rotationPeriodInDays;
+
+    /**
+     * @return Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+     * 
+     */
+    public Output<Integer> rotationPeriodInDays() {
+        return this.rotationPeriodInDays;
+    }
+    /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

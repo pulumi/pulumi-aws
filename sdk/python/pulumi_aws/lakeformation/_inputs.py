@@ -62,6 +62,7 @@ class DataCellsFilterTableDataArgs:
         :param pulumi.Input[str] table_catalog_id: The ID of the Data Catalog.
         :param pulumi.Input[str] table_name: The name of the table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: A list of column names and/or nested column attributes.
+        :param pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs'] column_wildcard: A wildcard with exclusions. See Column Wildcard below for details.
         :param pulumi.Input['DataCellsFilterTableDataRowFilterArgs'] row_filter: A PartiQL predicate. See Row Filter below for details.
         :param pulumi.Input[str] version_id: ID of the data cells filter version.
         """
@@ -141,6 +142,9 @@ class DataCellsFilterTableDataArgs:
     @property
     @pulumi.getter(name="columnWildcard")
     def column_wildcard(self) -> Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']]:
+        """
+        A wildcard with exclusions. See Column Wildcard below for details.
+        """
         return pulumi.get(self, "column_wildcard")
 
     @column_wildcard.setter

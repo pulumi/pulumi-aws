@@ -71,6 +71,10 @@ class AwsLogSource(pulumi.CustomResource):
         """
         Resource for managing an Amazon Security Lake AWS Log Source.
 
+        > **NOTE:** A single `securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
+
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.AwsLogSource`. Use a `depends_on` statement.
+
         ## Example Usage
 
         ### Basic Usage
@@ -79,12 +83,12 @@ class AwsLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.AwsLogSource("test", source=aws.securitylake.AwsLogSourceSourceArgs(
+        example = aws.securitylake.AwsLogSource("example", source=aws.securitylake.AwsLogSourceSourceArgs(
             accounts=["123456789012"],
             regions=["eu-west-1"],
             source_name="ROUTE53",
-            source_version="1.0",
-        ))
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import
@@ -108,6 +112,10 @@ class AwsLogSource(pulumi.CustomResource):
         """
         Resource for managing an Amazon Security Lake AWS Log Source.
 
+        > **NOTE:** A single `securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
+
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.AwsLogSource`. Use a `depends_on` statement.
+
         ## Example Usage
 
         ### Basic Usage
@@ -116,12 +124,12 @@ class AwsLogSource(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.AwsLogSource("test", source=aws.securitylake.AwsLogSourceSourceArgs(
+        example = aws.securitylake.AwsLogSource("example", source=aws.securitylake.AwsLogSourceSourceArgs(
             accounts=["123456789012"],
             regions=["eu-west-1"],
             source_name="ROUTE53",
-            source_version="1.0",
-        ))
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import

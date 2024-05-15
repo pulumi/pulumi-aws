@@ -516,6 +516,7 @@ class Endpoints(dict):
                  wellarchitected: Optional[str] = None,
                  worklink: Optional[str] = None,
                  workspaces: Optional[str] = None,
+                 workspacesweb: Optional[str] = None,
                  xray: Optional[str] = None):
         """
         :param str accessanalyzer: Use this to override the default service endpoint URL
@@ -797,6 +798,7 @@ class Endpoints(dict):
         :param str wellarchitected: Use this to override the default service endpoint URL
         :param str worklink: Use this to override the default service endpoint URL
         :param str workspaces: Use this to override the default service endpoint URL
+        :param str workspacesweb: Use this to override the default service endpoint URL
         :param str xray: Use this to override the default service endpoint URL
         """
         if accessanalyzer is not None:
@@ -1357,6 +1359,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
+        if workspacesweb is not None:
+            pulumi.set(__self__, "workspacesweb", workspacesweb)
         if xray is not None:
             pulumi.set(__self__, "xray", xray)
 
@@ -3591,6 +3595,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "workspaces")
+
+    @property
+    @pulumi.getter
+    def workspacesweb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "workspacesweb")
 
     @property
     @pulumi.getter

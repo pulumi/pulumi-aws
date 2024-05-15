@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### SQS Notification
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -45,10 +47,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SubscriberNotification("test", SubscriberNotificationArgs.builder()        
- *             .subscriberId(testAwsSecuritylakeSubscriber.id())
+ *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()        
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .sqsNotificationConfiguration()
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### HTTPS Notification
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securitylake.SubscriberNotification;
+ * import com.pulumi.aws.securitylake.SubscriberNotificationArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()        
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
+ *             .configuration(SubscriberNotificationConfigurationArgs.builder()
+ *                 .httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.builder()
+ *                     .endpoint(test.apiEndpoint())
+ *                     .targetRoleArn(eventBridge.arn())
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -75,11 +120,37 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
     public Output<Optional<SubscriberNotificationConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
+    /**
+     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     * 
+     * @deprecated
+     * Use subscriber_endpoint instead
+     * 
+     */
+    @Deprecated /* Use subscriber_endpoint instead */
     @Export(name="endpointId", refs={String.class}, tree="[0]")
     private Output<String> endpointId;
 
+    /**
+     * @return (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     * 
+     */
     public Output<String> endpointId() {
         return this.endpointId;
+    }
+    /**
+     * The subscriber endpoint to which exception messages are posted.
+     * 
+     */
+    @Export(name="subscriberEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> subscriberEndpoint;
+
+    /**
+     * @return The subscriber endpoint to which exception messages are posted.
+     * 
+     */
+    public Output<String> subscriberEndpoint() {
+        return this.subscriberEndpoint;
     }
     /**
      * The subscriber ID for the notification subscription.

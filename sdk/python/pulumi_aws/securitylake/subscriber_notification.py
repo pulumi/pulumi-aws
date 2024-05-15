@@ -57,16 +57,24 @@ class _SubscriberNotificationState:
     def __init__(__self__, *,
                  configuration: Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
+                 subscriber_endpoint: Optional[pulumi.Input[str]] = None,
                  subscriber_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriberNotification resources.
         :param pulumi.Input['SubscriberNotificationConfigurationArgs'] configuration: Specify the configuration using which you want to create the subscriber notification..
+        :param pulumi.Input[str] endpoint_id: (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        :param pulumi.Input[str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.
         :param pulumi.Input[str] subscriber_id: The subscriber ID for the notification subscription.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if endpoint_id is not None:
+            warnings.warn("""Use subscriber_endpoint instead""", DeprecationWarning)
+            pulumi.log.warn("""endpoint_id is deprecated: Use subscriber_endpoint instead""")
+        if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if subscriber_endpoint is not None:
+            pulumi.set(__self__, "subscriber_endpoint", subscriber_endpoint)
         if subscriber_id is not None:
             pulumi.set(__self__, "subscriber_id", subscriber_id)
 
@@ -85,11 +93,29 @@ class _SubscriberNotificationState:
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        """
+        warnings.warn("""Use subscriber_endpoint instead""", DeprecationWarning)
+        pulumi.log.warn("""endpoint_id is deprecated: Use subscriber_endpoint instead""")
+
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
     def endpoint_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="subscriberEndpoint")
+    def subscriber_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscriber endpoint to which exception messages are posted.
+        """
+        return pulumi.get(self, "subscriber_endpoint")
+
+    @subscriber_endpoint.setter
+    def subscriber_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscriber_endpoint", value)
 
     @property
     @pulumi.getter(name="subscriberId")
@@ -117,14 +143,32 @@ class SubscriberNotification(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### SQS Notification
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.SubscriberNotification("test",
-            subscriber_id=test_aws_securitylake_subscriber["id"],
+        example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration=aws.securitylake.SubscriberNotificationConfigurationArgs(
                 sqs_notification_configuration=aws.securitylake.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs(),
+            ))
+        ```
+
+        ### HTTPS Notification
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
+            configuration=aws.securitylake.SubscriberNotificationConfigurationArgs(
+                https_notification_configuration=aws.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs(
+                    endpoint=test["apiEndpoint"],
+                    target_role_arn=event_bridge["arn"],
+                ),
             ))
         ```
 
@@ -144,14 +188,32 @@ class SubscriberNotification(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### SQS Notification
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.securitylake.SubscriberNotification("test",
-            subscriber_id=test_aws_securitylake_subscriber["id"],
+        example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration=aws.securitylake.SubscriberNotificationConfigurationArgs(
                 sqs_notification_configuration=aws.securitylake.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs(),
+            ))
+        ```
+
+        ### HTTPS Notification
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.securitylake.SubscriberNotification("example",
+            subscriber_id=example_aws_securitylake_subscriber["id"],
+            configuration=aws.securitylake.SubscriberNotificationConfigurationArgs(
+                https_notification_configuration=aws.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs(
+                    endpoint=test["apiEndpoint"],
+                    target_role_arn=event_bridge["arn"],
+                ),
             ))
         ```
 
@@ -186,6 +248,7 @@ class SubscriberNotification(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscriber_id'")
             __props__.__dict__["subscriber_id"] = subscriber_id
             __props__.__dict__["endpoint_id"] = None
+            __props__.__dict__["subscriber_endpoint"] = None
         super(SubscriberNotification, __self__).__init__(
             'aws:securitylake/subscriberNotification:SubscriberNotification',
             resource_name,
@@ -198,6 +261,7 @@ class SubscriberNotification(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration: Optional[pulumi.Input[pulumi.InputType['SubscriberNotificationConfigurationArgs']]] = None,
             endpoint_id: Optional[pulumi.Input[str]] = None,
+            subscriber_endpoint: Optional[pulumi.Input[str]] = None,
             subscriber_id: Optional[pulumi.Input[str]] = None) -> 'SubscriberNotification':
         """
         Get an existing SubscriberNotification resource's state with the given name, id, and optional extra
@@ -207,6 +271,8 @@ class SubscriberNotification(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubscriberNotificationConfigurationArgs']] configuration: Specify the configuration using which you want to create the subscriber notification..
+        :param pulumi.Input[str] endpoint_id: (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        :param pulumi.Input[str] subscriber_endpoint: The subscriber endpoint to which exception messages are posted.
         :param pulumi.Input[str] subscriber_id: The subscriber ID for the notification subscription.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -215,6 +281,7 @@ class SubscriberNotification(pulumi.CustomResource):
 
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["endpoint_id"] = endpoint_id
+        __props__.__dict__["subscriber_endpoint"] = subscriber_endpoint
         __props__.__dict__["subscriber_id"] = subscriber_id
         return SubscriberNotification(resource_name, opts=opts, __props__=__props__)
 
@@ -229,7 +296,21 @@ class SubscriberNotification(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Output[str]:
+        """
+        (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+        """
+        warnings.warn("""Use subscriber_endpoint instead""", DeprecationWarning)
+        pulumi.log.warn("""endpoint_id is deprecated: Use subscriber_endpoint instead""")
+
         return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter(name="subscriberEndpoint")
+    def subscriber_endpoint(self) -> pulumi.Output[str]:
+        """
+        The subscriber endpoint to which exception messages are posted.
+        """
+        return pulumi.get(self, "subscriber_endpoint")
 
     @property
     @pulumi.getter(name="subscriberId")

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Security Lake Custom Log Source.
  *
+ * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.CustomLogSource`. Use a `dependsOn` statement.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -31,6 +33,8 @@ import * as utilities from "../utilities";
  *             principal: "123456789012",
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });
  * ```
  *
@@ -87,7 +91,9 @@ export class CustomLogSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerDetails!: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
     /**
-     * Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      */
     public readonly sourceName!: pulumi.Output<string>;
     /**
@@ -152,7 +158,9 @@ export interface CustomLogSourceState {
      */
     providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[]>;
     /**
-     * Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      */
     sourceName?: pulumi.Input<string>;
     /**
@@ -174,7 +182,9 @@ export interface CustomLogSourceArgs {
      */
     eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      */
     sourceName: pulumi.Input<string>;
     /**

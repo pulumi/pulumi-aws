@@ -1663,6 +1663,10 @@ namespace Pulumi.Aws.Iam
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
         public readonly string Json;
+        /// <summary>
+        /// Minified JSON policy document rendered based on the arguments above.
+        /// </summary>
+        public readonly string MinifiedJson;
         public readonly string? OverrideJson;
         public readonly ImmutableArray<string> OverridePolicyDocuments;
         public readonly string? PolicyId;
@@ -1676,6 +1680,8 @@ namespace Pulumi.Aws.Iam
             string id,
 
             string json,
+
+            string minifiedJson,
 
             string? overrideJson,
 
@@ -1693,6 +1699,7 @@ namespace Pulumi.Aws.Iam
         {
             Id = id;
             Json = json;
+            MinifiedJson = minifiedJson;
             OverrideJson = overrideJson;
             OverridePolicyDocuments = overridePolicyDocuments;
             PolicyId = policyId;

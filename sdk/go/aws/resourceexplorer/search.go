@@ -57,10 +57,6 @@ type SearchArgs struct {
 	//
 	// The following arguments are optional:
 	QueryString string `pulumi:"queryString"`
-	// Number of resources that match the query. See `resourceCount` below.
-	ResourceCounts []SearchResourceCount `pulumi:"resourceCounts"`
-	// List of structures that describe the resources that match the query. See `resources` below.
-	Resources []SearchResource `pulumi:"resources"`
 	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn *string `pulumi:"viewArn"`
 }
@@ -74,7 +70,7 @@ type SearchResult struct {
 	ResourceCounts []SearchResourceCount `pulumi:"resourceCounts"`
 	// List of structures that describe the resources that match the query. See `resources` below.
 	Resources []SearchResource `pulumi:"resources"`
-	ViewArn   *string          `pulumi:"viewArn"`
+	ViewArn   string           `pulumi:"viewArn"`
 }
 
 func SearchOutput(ctx *pulumi.Context, args SearchOutputArgs, opts ...pulumi.InvokeOption) SearchResultOutput {
@@ -96,10 +92,6 @@ type SearchOutputArgs struct {
 	//
 	// The following arguments are optional:
 	QueryString pulumi.StringInput `pulumi:"queryString"`
-	// Number of resources that match the query. See `resourceCount` below.
-	ResourceCounts SearchResourceCountArrayInput `pulumi:"resourceCounts"`
-	// List of structures that describe the resources that match the query. See `resources` below.
-	Resources SearchResourceArrayInput `pulumi:"resources"`
 	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn pulumi.StringPtrInput `pulumi:"viewArn"`
 }
@@ -142,8 +134,8 @@ func (o SearchResultOutput) Resources() SearchResourceArrayOutput {
 	return o.ApplyT(func(v SearchResult) []SearchResource { return v.Resources }).(SearchResourceArrayOutput)
 }
 
-func (o SearchResultOutput) ViewArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SearchResult) *string { return v.ViewArn }).(pulumi.StringPtrOutput)
+func (o SearchResultOutput) ViewArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResult) string { return v.ViewArn }).(pulumi.StringOutput)
 }
 
 func init() {

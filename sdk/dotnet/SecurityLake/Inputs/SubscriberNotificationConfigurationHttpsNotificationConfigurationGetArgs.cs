@@ -13,34 +13,47 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     public sealed class SubscriberNotificationConfigurationHttpsNotificationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key name for the notification subscription.
+        /// The API key name for the notification subscription.
         /// </summary>
         [Input("authorizationApiKeyName")]
         public Input<string>? AuthorizationApiKeyName { get; set; }
 
-        /// <summary>
-        /// The key value for the notification subscription.
-        /// </summary>
         [Input("authorizationApiKeyValue")]
-        public Input<string>? AuthorizationApiKeyValue { get; set; }
+        private Input<string>? _authorizationApiKeyValue;
 
         /// <summary>
-        /// The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+        /// The API key value for the notification subscription.
         /// </summary>
-        [Input("endpoint")]
-        public Input<string>? Endpoint { get; set; }
+        public Input<string>? AuthorizationApiKeyValue
+        {
+            get => _authorizationApiKeyValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationApiKeyValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
-        /// The HTTPS method used for the notification subscription.
+        /// The subscription endpoint in Security Lake.
+        /// If you prefer notification with an HTTPS endpoint, populate this field.
+        /// </summary>
+        [Input("endpoint", required: true)]
+        public Input<string> Endpoint { get; set; } = null!;
+
+        /// <summary>
+        /// The HTTP method used for the notification subscription.
+        /// Valid values are `POST` and `PUT`.
         /// </summary>
         [Input("httpMethod")]
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        /// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         /// </summary>
-        [Input("targetRoleArn")]
-        public Input<string>? TargetRoleArn { get; set; }
+        [Input("targetRoleArn", required: true)]
+        public Input<string> TargetRoleArn { get; set; } = null!;
 
         public SubscriberNotificationConfigurationHttpsNotificationConfigurationGetArgs()
         {

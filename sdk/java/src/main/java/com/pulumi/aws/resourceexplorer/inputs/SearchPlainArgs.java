@@ -3,12 +3,9 @@
 
 package com.pulumi.aws.resourceexplorer.inputs;
 
-import com.pulumi.aws.resourceexplorer.inputs.SearchResource;
-import com.pulumi.aws.resourceexplorer.inputs.SearchResourceCount;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -38,36 +35,6 @@ public final class SearchPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Number of resources that match the query. See `resource_count` below.
-     * 
-     */
-    @Import(name="resourceCounts")
-    private @Nullable List<SearchResourceCount> resourceCounts;
-
-    /**
-     * @return Number of resources that match the query. See `resource_count` below.
-     * 
-     */
-    public Optional<List<SearchResourceCount>> resourceCounts() {
-        return Optional.ofNullable(this.resourceCounts);
-    }
-
-    /**
-     * List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
-    @Import(name="resources")
-    private @Nullable List<SearchResource> resources;
-
-    /**
-     * @return List of structures that describe the resources that match the query. See `resources` below.
-     * 
-     */
-    public Optional<List<SearchResource>> resources() {
-        return Optional.ofNullable(this.resources);
-    }
-
-    /**
      * Specifies the Amazon resource name (ARN) of the view to use for the query. If you don&#39;t specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn&#39;t have a default view or if you don&#39;t have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
      * 
      */
@@ -86,8 +53,6 @@ public final class SearchPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private SearchPlainArgs(SearchPlainArgs $) {
         this.queryString = $.queryString;
-        this.resourceCounts = $.resourceCounts;
-        this.resources = $.resources;
         this.viewArn = $.viewArn;
     }
 
@@ -120,48 +85,6 @@ public final class SearchPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder queryString(String queryString) {
             $.queryString = queryString;
             return this;
-        }
-
-        /**
-         * @param resourceCounts Number of resources that match the query. See `resource_count` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceCounts(@Nullable List<SearchResourceCount> resourceCounts) {
-            $.resourceCounts = resourceCounts;
-            return this;
-        }
-
-        /**
-         * @param resourceCounts Number of resources that match the query. See `resource_count` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceCounts(SearchResourceCount... resourceCounts) {
-            return resourceCounts(List.of(resourceCounts));
-        }
-
-        /**
-         * @param resources List of structures that describe the resources that match the query. See `resources` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resources(@Nullable List<SearchResource> resources) {
-            $.resources = resources;
-            return this;
-        }
-
-        /**
-         * @param resources List of structures that describe the resources that match the query. See `resources` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resources(SearchResource... resources) {
-            return resources(List.of(resources));
         }
 
         /**

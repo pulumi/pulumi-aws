@@ -31,11 +31,42 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.configuration);
     }
 
+    /**
+     * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     * 
+     * @deprecated
+     * Use subscriber_endpoint instead
+     * 
+     */
+    @Deprecated /* Use subscriber_endpoint instead */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
+    /**
+     * @return (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+     * 
+     * @deprecated
+     * Use subscriber_endpoint instead
+     * 
+     */
+    @Deprecated /* Use subscriber_endpoint instead */
     public Optional<Output<String>> endpointId() {
         return Optional.ofNullable(this.endpointId);
+    }
+
+    /**
+     * The subscriber endpoint to which exception messages are posted.
+     * 
+     */
+    @Import(name="subscriberEndpoint")
+    private @Nullable Output<String> subscriberEndpoint;
+
+    /**
+     * @return The subscriber endpoint to which exception messages are posted.
+     * 
+     */
+    public Optional<Output<String>> subscriberEndpoint() {
+        return Optional.ofNullable(this.subscriberEndpoint);
     }
 
     /**
@@ -58,6 +89,7 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
     private SubscriberNotificationState(SubscriberNotificationState $) {
         this.configuration = $.configuration;
         this.endpointId = $.endpointId;
+        this.subscriberEndpoint = $.subscriberEndpoint;
         this.subscriberId = $.subscriberId;
     }
 
@@ -100,13 +132,54 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
             return configuration(Output.of(configuration));
         }
 
+        /**
+         * @param endpointId (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use subscriber_endpoint instead
+         * 
+         */
+        @Deprecated /* Use subscriber_endpoint instead */
         public Builder endpointId(@Nullable Output<String> endpointId) {
             $.endpointId = endpointId;
             return this;
         }
 
+        /**
+         * @param endpointId (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use subscriber_endpoint instead
+         * 
+         */
+        @Deprecated /* Use subscriber_endpoint instead */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
+        }
+
+        /**
+         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriberEndpoint(@Nullable Output<String> subscriberEndpoint) {
+            $.subscriberEndpoint = subscriberEndpoint;
+            return this;
+        }
+
+        /**
+         * @param subscriberEndpoint The subscriber endpoint to which exception messages are posted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriberEndpoint(String subscriberEndpoint) {
+            return subscriberEndpoint(Output.of(subscriberEndpoint));
         }
 
         /**

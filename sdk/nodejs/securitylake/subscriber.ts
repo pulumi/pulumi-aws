@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Security Lake Subscriber.
  *
+ * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `dependsOn` statement.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.securitylake.Subscriber("example", {
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
+ *     source: {
+ *         awsLogSourceResource: {
+ *             sourceName: "ROUTE53",
+ *             sourceVersion: "1.0",
+ *         },
+ *     },
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
+ * }, {
+ *     dependsOn: [exampleAwsSecuritylakeDataLake],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:

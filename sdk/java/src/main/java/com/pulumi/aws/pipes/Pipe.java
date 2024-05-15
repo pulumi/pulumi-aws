@@ -414,14 +414,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * Source resource of the pipe (typically an ARN).
+     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return Source resource of the pipe (typically an ARN).
+     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     public Output<String> source() {

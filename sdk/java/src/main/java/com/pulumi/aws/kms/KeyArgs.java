@@ -187,6 +187,21 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+     * 
+     */
+    @Import(name="rotationPeriodInDays")
+    private @Nullable Output<Integer> rotationPeriodInDays;
+
+    /**
+     * @return Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+     * 
+     */
+    public Optional<Output<Integer>> rotationPeriodInDays() {
+        return Optional.ofNullable(this.rotationPeriodInDays);
+    }
+
+    /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -229,6 +244,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         this.keyUsage = $.keyUsage;
         this.multiRegion = $.multiRegion;
         this.policy = $.policy;
+        this.rotationPeriodInDays = $.rotationPeriodInDays;
         this.tags = $.tags;
         this.xksKeyId = $.xksKeyId;
     }
@@ -477,6 +493,27 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param rotationPeriodInDays Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPeriodInDays(@Nullable Output<Integer> rotationPeriodInDays) {
+            $.rotationPeriodInDays = rotationPeriodInDays;
+            return this;
+        }
+
+        /**
+         * @param rotationPeriodInDays Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rotationPeriodInDays(Integer rotationPeriodInDays) {
+            return rotationPeriodInDays(Output.of(rotationPeriodInDays));
         }
 
         /**

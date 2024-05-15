@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+        /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
         /// </summary>
         [Input("catalogEncryptionMode", required: true)]
         public Input<string> CatalogEncryptionMode { get; set; } = null!;

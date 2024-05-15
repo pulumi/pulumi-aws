@@ -7,6 +7,7 @@ import com.pulumi.aws.securitylake.inputs.SubscriberSourceCustomLogSourceResourc
 import com.pulumi.aws.securitylake.inputs.SubscriberSourceCustomLogSourceResourceProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -44,15 +45,15 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
      * The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    @Import(name="sourceName")
-    private @Nullable Output<String> sourceName;
+    @Import(name="sourceName", required=true)
+    private Output<String> sourceName;
 
     /**
      * @return The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    public Optional<Output<String>> sourceName() {
-        return Optional.ofNullable(this.sourceName);
+    public Output<String> sourceName() {
+        return this.sourceName;
     }
 
     /**
@@ -147,7 +148,7 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder sourceName(@Nullable Output<String> sourceName) {
+        public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
@@ -184,6 +185,9 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
         }
 
         public SubscriberSourceCustomLogSourceResourceArgs build() {
+            if ($.sourceName == null) {
+                throw new MissingRequiredPropertyException("SubscriberSourceCustomLogSourceResourceArgs", "sourceName");
+            }
             return $;
         }
     }

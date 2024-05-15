@@ -49,14 +49,18 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      * 
      */
     @Import(name="sourceName", required=true)
     private Output<String> sourceName;
 
     /**
-     * @return Specify the name for a third-party custom source. This must be a Regionally unique value.
+     * @return Specify the name for a third-party custom source.
+     * This must be a Regionally unique value.
+     * Has a maximum length of 20.
      * 
      */
     public Output<String> sourceName() {
@@ -158,7 +162,9 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceName Specify the name for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceName Specify the name for a third-party custom source.
+         * This must be a Regionally unique value.
+         * Has a maximum length of 20.
          * 
          * @return builder
          * 
@@ -169,7 +175,9 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceName Specify the name for a third-party custom source. This must be a Regionally unique value.
+         * @param sourceName Specify the name for a third-party custom source.
+         * This must be a Regionally unique value.
+         * Has a maximum length of 20.
          * 
          * @return builder
          * 

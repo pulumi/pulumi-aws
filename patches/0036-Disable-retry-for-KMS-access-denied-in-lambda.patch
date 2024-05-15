@@ -6,10 +6,10 @@ Subject: [PATCH] Disable retry for KMS access denied in lambda
 
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
 new file mode 100644
-index 0000000000..6f36351b82
+index 0000000000..54f6aac15a
 --- /dev/null
 +++ b/internal/service/lambda/service_package_extra.go
-@@ -0,0 +1,38 @@
+@@ -0,0 +1,39 @@
 +package lambda
 +
 +import (
@@ -20,6 +20,7 @@ index 0000000000..6f36351b82
 +	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
 +	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
 +	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/names"
 +)
 +
 +// Customize lambda retries.
@@ -42,14 +43,14 @@ index 0000000000..6f36351b82
 +		return aws_sdkv2.UnknownTernary // Delegate
 +	})
 +	return lambda_sdkv2.NewFromConfig(cfg, func(o *lambda_sdkv2.Options) {
-+		if endpoint := config["endpoint"].(string); endpoint != "" {
++		if endpoint := config[names.AttrEndpoint].(string); endpoint != "" {
 +			o.BaseEndpoint = aws_sdkv2.String(endpoint)
 +		}
 +		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
 +	}), nil
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index 9437623666..741067f98f 100644
+index c127b05200..0f67e0aa4c 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
 @@ -5,8 +5,6 @@ package lambda
@@ -70,7 +71,7 @@ index 9437623666..741067f98f 100644
 -	cfg := *(config["aws_sdkv2_config"].(*aws_sdkv2.Config))
 -
 -	return lambda_sdkv2.NewFromConfig(cfg, func(o *lambda_sdkv2.Options) {
--		if endpoint := config["endpoint"].(string); endpoint != "" {
+-		if endpoint := config[names.AttrEndpoint].(string); endpoint != "" {
 -			o.BaseEndpoint = aws_sdkv2.String(endpoint)
 -		}
 -	}), nil
@@ -80,12 +81,12 @@ index 9437623666..741067f98f 100644
  	return &servicePackage{}
  }
 diff --git a/names/data/names_data.csv b/names/data/names_data.csv
-index c0ee031d37..a573761b55 100644
+index 3d567e120f..fae484a898 100644
 --- a/names/data/names_data.csv
 +++ b/names/data/names_data.csv
 @@ -218,7 +218,7 @@ kinesis-video-media,kinesisvideomedia,kinesisvideomedia,kinesisvideomedia,,kines
  kinesis-video-signaling,kinesisvideosignaling,kinesisvideosignalingchannels,kinesisvideosignaling,,kinesisvideosignaling,,kinesisvideosignalingchannels,KinesisVideoSignaling,KinesisVideoSignalingChannels,,1,,,aws_kinesisvideosignaling_,,kinesisvideosignaling_,Kinesis Video Signaling,Amazon,,x,,,,,Kinesis Video Signaling,,,
- kms,kms,kms,kms,,kms,,,KMS,KMS,,1,,,aws_kms_,,kms_,KMS (Key Management),AWS,,,,,,,KMS,ListKeys,,
+ kms,kms,kms,kms,,kms,,,KMS,KMS,,,2,,aws_kms_,,kms_,KMS (Key Management),AWS,,,,,,,KMS,ListKeys,,
  lakeformation,lakeformation,lakeformation,lakeformation,,lakeformation,,,LakeFormation,LakeFormation,,,2,,aws_lakeformation_,,lakeformation_,Lake Formation,AWS,,,,,,,LakeFormation,ListResources,,
 -lambda,lambda,lambda,lambda,,lambda,,,Lambda,Lambda,,,2,,aws_lambda_,,lambda_,Lambda,AWS,,,,,,,Lambda,ListFunctions,,
 +lambda,lambda,lambda,lambda,,lambda,,,Lambda,Lambda,x,,2,,aws_lambda_,,lambda_,Lambda,AWS,,,,,,,Lambda,ListFunctions,,

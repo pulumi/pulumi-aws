@@ -140,14 +140,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Source resource of the pipe (typically an ARN).
+     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return Source resource of the pipe (typically an ARN).
+     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     public Optional<Output<String>> source() {
@@ -447,7 +447,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source resource of the pipe (typically an ARN).
+         * @param source Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Source resource of the pipe (typically an ARN).
+         * @param source Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
          * 
          * @return builder
          * 

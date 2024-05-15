@@ -19,6 +19,7 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
     /**
      * Specify the AWS account information where you want to enable Security Lake.
+     * If not specified, uses all accounts included in the Security Lake.
      * 
      */
     @Import(name="accounts")
@@ -26,6 +27,7 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @return Specify the AWS account information where you want to enable Security Lake.
+     * If not specified, uses all accounts included in the Security Lake.
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -63,14 +65,18 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The version for a AWS source. This must be a Regionally unique value.
+     * The version for a AWS source.
+     * If not specified, the version will be the default.
+     * This must be a Regionally unique value.
      * 
      */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
     /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
+     * @return The version for a AWS source.
+     * If not specified, the version will be the default.
+     * This must be a Regionally unique value.
      * 
      */
     public Optional<Output<String>> sourceVersion() {
@@ -106,6 +112,7 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param accounts Specify the AWS account information where you want to enable Security Lake.
+         * If not specified, uses all accounts included in the Security Lake.
          * 
          * @return builder
          * 
@@ -117,6 +124,7 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param accounts Specify the AWS account information where you want to enable Security Lake.
+         * If not specified, uses all accounts included in the Security Lake.
          * 
          * @return builder
          * 
@@ -127,6 +135,7 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param accounts Specify the AWS account information where you want to enable Security Lake.
+         * If not specified, uses all accounts included in the Security Lake.
          * 
          * @return builder
          * 
@@ -188,7 +197,9 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
+         * @param sourceVersion The version for a AWS source.
+         * If not specified, the version will be the default.
+         * This must be a Regionally unique value.
          * 
          * @return builder
          * 
@@ -199,7 +210,9 @@ public final class AwsLogSourceSourceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sourceVersion The version for a AWS source. This must be a Regionally unique value.
+         * @param sourceVersion The version for a AWS source.
+         * If not specified, the version will be the default.
+         * This must be a Regionally unique value.
          * 
          * @return builder
          * 

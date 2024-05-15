@@ -5,7 +5,7 @@ Subject: [PATCH] Patch osis_pipeline tags flags
 
 
 diff --git a/internal/service/osis/pipeline.go b/internal/service/osis/pipeline.go
-index 1ea6d661dd..1bbc11eaf9 100644
+index 96f9722fca..fc44162dfb 100644
 --- a/internal/service/osis/pipeline.go
 +++ b/internal/service/osis/pipeline.go
 @@ -100,7 +100,7 @@ func (r *pipelineResource) Schema(ctx context.Context, request resource.SchemaRe

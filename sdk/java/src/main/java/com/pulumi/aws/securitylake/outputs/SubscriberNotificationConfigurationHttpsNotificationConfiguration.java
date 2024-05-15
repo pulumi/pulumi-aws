@@ -4,6 +4,7 @@
 package com.pulumi.aws.securitylake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,66 +13,72 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubscriberNotificationConfigurationHttpsNotificationConfiguration {
     /**
-     * @return The key name for the notification subscription.
+     * @return The API key name for the notification subscription.
      * 
      */
     private @Nullable String authorizationApiKeyName;
     /**
-     * @return The key value for the notification subscription.
+     * @return The API key value for the notification subscription.
      * 
      */
     private @Nullable String authorizationApiKeyValue;
     /**
-     * @return The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+     * @return The subscription endpoint in Security Lake.
+     * If you prefer notification with an HTTPS endpoint, populate this field.
      * 
      */
-    private @Nullable String endpoint;
+    private String endpoint;
     /**
-     * @return The HTTPS method used for the notification subscription.
+     * @return The HTTP method used for the notification subscription.
+     * Valid values are `POST` and `PUT`.
      * 
      */
     private @Nullable String httpMethod;
     /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
-    private @Nullable String targetRoleArn;
+    private String targetRoleArn;
 
     private SubscriberNotificationConfigurationHttpsNotificationConfiguration() {}
     /**
-     * @return The key name for the notification subscription.
+     * @return The API key name for the notification subscription.
      * 
      */
     public Optional<String> authorizationApiKeyName() {
         return Optional.ofNullable(this.authorizationApiKeyName);
     }
     /**
-     * @return The key value for the notification subscription.
+     * @return The API key value for the notification subscription.
      * 
      */
     public Optional<String> authorizationApiKeyValue() {
         return Optional.ofNullable(this.authorizationApiKeyValue);
     }
     /**
-     * @return The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+     * @return The subscription endpoint in Security Lake.
+     * If you prefer notification with an HTTPS endpoint, populate this field.
      * 
      */
-    public Optional<String> endpoint() {
-        return Optional.ofNullable(this.endpoint);
+    public String endpoint() {
+        return this.endpoint;
     }
     /**
-     * @return The HTTPS method used for the notification subscription.
+     * @return The HTTP method used for the notification subscription.
+     * Valid values are `POST` and `PUT`.
      * 
      */
     public Optional<String> httpMethod() {
         return Optional.ofNullable(this.httpMethod);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
-    public Optional<String> targetRoleArn() {
-        return Optional.ofNullable(this.targetRoleArn);
+    public String targetRoleArn() {
+        return this.targetRoleArn;
     }
 
     public static Builder builder() {
@@ -85,9 +92,9 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
     public static final class Builder {
         private @Nullable String authorizationApiKeyName;
         private @Nullable String authorizationApiKeyValue;
-        private @Nullable String endpoint;
+        private String endpoint;
         private @Nullable String httpMethod;
-        private @Nullable String targetRoleArn;
+        private String targetRoleArn;
         public Builder() {}
         public Builder(SubscriberNotificationConfigurationHttpsNotificationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -111,8 +118,10 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
             return this;
         }
         @CustomType.Setter
-        public Builder endpoint(@Nullable String endpoint) {
-
+        public Builder endpoint(String endpoint) {
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("SubscriberNotificationConfigurationHttpsNotificationConfiguration", "endpoint");
+            }
             this.endpoint = endpoint;
             return this;
         }
@@ -123,8 +132,10 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
             return this;
         }
         @CustomType.Setter
-        public Builder targetRoleArn(@Nullable String targetRoleArn) {
-
+        public Builder targetRoleArn(String targetRoleArn) {
+            if (targetRoleArn == null) {
+              throw new MissingRequiredPropertyException("SubscriberNotificationConfigurationHttpsNotificationConfiguration", "targetRoleArn");
+            }
             this.targetRoleArn = targetRoleArn;
             return this;
         }

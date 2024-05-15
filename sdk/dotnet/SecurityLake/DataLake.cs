@@ -12,6 +12,8 @@ namespace Pulumi.Aws.SecurityLake
     /// <summary>
     /// Resource for managing an AWS Security Lake Data Lake.
     /// 
+    /// &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `depends_on` statement.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

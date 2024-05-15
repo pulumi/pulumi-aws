@@ -5,6 +5,7 @@ package com.pulumi.aws.securitylake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,15 +20,15 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
      * The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    @Import(name="sourceName")
-    private @Nullable Output<String> sourceName;
+    @Import(name="sourceName", required=true)
+    private Output<String> sourceName;
 
     /**
      * @return The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    public Optional<Output<String>> sourceName() {
-        return Optional.ofNullable(this.sourceName);
+    public Output<String> sourceName() {
+        return this.sourceName;
     }
 
     /**
@@ -76,7 +77,7 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder sourceName(@Nullable Output<String> sourceName) {
+        public Builder sourceName(Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
@@ -113,6 +114,9 @@ public final class SubscriberSourceAwsLogSourceResourceArgs extends com.pulumi.r
         }
 
         public SubscriberSourceAwsLogSourceResourceArgs build() {
+            if ($.sourceName == null) {
+                throw new MissingRequiredPropertyException("SubscriberSourceAwsLogSourceResourceArgs", "sourceName");
+            }
             return $;
         }
     }

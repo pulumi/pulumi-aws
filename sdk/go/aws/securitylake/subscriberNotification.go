@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### SQS Notification
+//
 // ```go
 // package main
 //
@@ -28,10 +30,42 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewSubscriberNotification(ctx, "test", &securitylake.SubscriberNotificationArgs{
-//				SubscriberId: pulumi.Any(testAwsSecuritylakeSubscriber.Id),
+//			_, err := securitylake.NewSubscriberNotification(ctx, "example", &securitylake.SubscriberNotificationArgs{
+//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //				Configuration: &securitylake.SubscriberNotificationConfigurationArgs{
 //					SqsNotificationConfiguration: nil,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### HTTPS Notification
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitylake.NewSubscriberNotification(ctx, "example", &securitylake.SubscriberNotificationArgs{
+//				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
+//				Configuration: &securitylake.SubscriberNotificationConfigurationArgs{
+//					HttpsNotificationConfiguration: &securitylake.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs{
+//						Endpoint:      pulumi.Any(test.ApiEndpoint),
+//						TargetRoleArn: pulumi.Any(eventBridge.Arn),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -47,7 +81,12 @@ type SubscriberNotification struct {
 
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration SubscriberNotificationConfigurationPtrOutput `pulumi:"configuration"`
-	EndpointId    pulumi.StringOutput                          `pulumi:"endpointId"`
+	// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+	//
+	// Deprecated: Use subscriberEndpoint instead
+	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
+	// The subscriber endpoint to which exception messages are posted.
+	SubscriberEndpoint pulumi.StringOutput `pulumi:"subscriberEndpoint"`
 	// The subscriber ID for the notification subscription.
 	SubscriberId pulumi.StringOutput `pulumi:"subscriberId"`
 }
@@ -87,7 +126,12 @@ func GetSubscriberNotification(ctx *pulumi.Context,
 type subscriberNotificationState struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration *SubscriberNotificationConfiguration `pulumi:"configuration"`
-	EndpointId    *string                              `pulumi:"endpointId"`
+	// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+	//
+	// Deprecated: Use subscriberEndpoint instead
+	EndpointId *string `pulumi:"endpointId"`
+	// The subscriber endpoint to which exception messages are posted.
+	SubscriberEndpoint *string `pulumi:"subscriberEndpoint"`
 	// The subscriber ID for the notification subscription.
 	SubscriberId *string `pulumi:"subscriberId"`
 }
@@ -95,7 +139,12 @@ type subscriberNotificationState struct {
 type SubscriberNotificationState struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration SubscriberNotificationConfigurationPtrInput
-	EndpointId    pulumi.StringPtrInput
+	// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+	//
+	// Deprecated: Use subscriberEndpoint instead
+	EndpointId pulumi.StringPtrInput
+	// The subscriber endpoint to which exception messages are posted.
+	SubscriberEndpoint pulumi.StringPtrInput
 	// The subscriber ID for the notification subscription.
 	SubscriberId pulumi.StringPtrInput
 }
@@ -211,8 +260,16 @@ func (o SubscriberNotificationOutput) Configuration() SubscriberNotificationConf
 	return o.ApplyT(func(v *SubscriberNotification) SubscriberNotificationConfigurationPtrOutput { return v.Configuration }).(SubscriberNotificationConfigurationPtrOutput)
 }
 
+// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
+//
+// Deprecated: Use subscriberEndpoint instead
 func (o SubscriberNotificationOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
+}
+
+// The subscriber endpoint to which exception messages are posted.
+func (o SubscriberNotificationOutput) SubscriberEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.SubscriberEndpoint }).(pulumi.StringOutput)
 }
 
 // The subscriber ID for the notification subscription.

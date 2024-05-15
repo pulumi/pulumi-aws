@@ -122,10 +122,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+// $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
 // ```
 type AgentAgent struct {
 	pulumi.CustomResourceState
@@ -151,9 +151,10 @@ type AgentAgent struct {
 	// TTL in seconds for the agent to idle.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions to tell agent what it should do.
-	Instruction  pulumi.StringOutput `pulumi:"instruction"`
-	PrepareAgent pulumi.BoolOutput   `pulumi:"prepareAgent"`
-	// Prompt Override Configuration
+	Instruction pulumi.StringOutput `pulumi:"instruction"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
+	// Prompt override configuration.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -222,9 +223,10 @@ type agentAgentState struct {
 	// TTL in seconds for the agent to idle.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions to tell agent what it should do.
-	Instruction  *string `pulumi:"instruction"`
-	PrepareAgent *bool   `pulumi:"prepareAgent"`
-	// Prompt Override Configuration
+	Instruction *string `pulumi:"instruction"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// Prompt override configuration.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -255,9 +257,10 @@ type AgentAgentState struct {
 	// TTL in seconds for the agent to idle.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions to tell agent what it should do.
-	Instruction  pulumi.StringPtrInput
+	Instruction pulumi.StringPtrInput
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// Prompt Override Configuration
+	// Prompt override configuration.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -286,9 +289,10 @@ type agentAgentArgs struct {
 	// TTL in seconds for the agent to idle.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions to tell agent what it should do.
-	Instruction  *string `pulumi:"instruction"`
-	PrepareAgent *bool   `pulumi:"prepareAgent"`
-	// Prompt Override Configuration
+	Instruction *string `pulumi:"instruction"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// Prompt override configuration.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string   `pulumi:"tags"`
@@ -312,9 +316,10 @@ type AgentAgentArgs struct {
 	// TTL in seconds for the agent to idle.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions to tell agent what it should do.
-	Instruction  pulumi.StringPtrInput
+	Instruction pulumi.StringPtrInput
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// Prompt Override Configuration
+	// Prompt override configuration.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -460,11 +465,12 @@ func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }
 
+// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
-// Prompt Override Configuration
+// Prompt override configuration.
 func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrideConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentPromptOverrideConfigurationArrayOutput {
 		return v.PromptOverrideConfigurations

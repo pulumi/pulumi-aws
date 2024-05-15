@@ -6,6 +6,7 @@ package com.pulumi.aws.securitylake.outputs;
 import com.pulumi.aws.securitylake.outputs.SubscriberSourceCustomLogSourceResourceAttribute;
 import com.pulumi.aws.securitylake.outputs.SubscriberSourceCustomLogSourceResourceProvider;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +25,7 @@ public final class SubscriberSourceCustomLogSourceResource {
      * @return The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    private @Nullable String sourceName;
+    private String sourceName;
     /**
      * @return The version for a third-party custom source. This must be a Regionally unique value.
      * 
@@ -46,8 +47,8 @@ public final class SubscriberSourceCustomLogSourceResource {
      * @return The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    public Optional<String> sourceName() {
-        return Optional.ofNullable(this.sourceName);
+    public String sourceName() {
+        return this.sourceName;
     }
     /**
      * @return The version for a third-party custom source. This must be a Regionally unique value.
@@ -68,7 +69,7 @@ public final class SubscriberSourceCustomLogSourceResource {
     public static final class Builder {
         private @Nullable List<SubscriberSourceCustomLogSourceResourceAttribute> attributes;
         private @Nullable List<SubscriberSourceCustomLogSourceResourceProvider> providers;
-        private @Nullable String sourceName;
+        private String sourceName;
         private @Nullable String sourceVersion;
         public Builder() {}
         public Builder(SubscriberSourceCustomLogSourceResource defaults) {
@@ -98,8 +99,10 @@ public final class SubscriberSourceCustomLogSourceResource {
             return providers(List.of(providers));
         }
         @CustomType.Setter
-        public Builder sourceName(@Nullable String sourceName) {
-
+        public Builder sourceName(String sourceName) {
+            if (sourceName == null) {
+              throw new MissingRequiredPropertyException("SubscriberSourceCustomLogSourceResource", "sourceName");
+            }
             this.sourceName = sourceName;
             return this;
         }

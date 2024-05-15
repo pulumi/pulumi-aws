@@ -13,6 +13,10 @@ import (
 
 // Resource for managing an Amazon Security Lake AWS Log Source.
 //
+// > **NOTE:** A single `securitylake.AwsLogSource` should be used to configure a log source across all regions and accounts.
+//
+// > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.AwsLogSource`. Use a `dependsOn` statement.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -29,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securitylake.NewAwsLogSource(ctx, "test", &securitylake.AwsLogSourceArgs{
+//			_, err := securitylake.NewAwsLogSource(ctx, "example", &securitylake.AwsLogSourceArgs{
 //				Source: &securitylake.AwsLogSourceSourceArgs{
 //					Accounts: pulumi.StringArray{
 //						pulumi.String("123456789012"),
@@ -37,10 +41,11 @@ import (
 //					Regions: pulumi.StringArray{
 //						pulumi.String("eu-west-1"),
 //					},
-//					SourceName:    pulumi.String("ROUTE53"),
-//					SourceVersion: pulumi.String("1.0"),
+//					SourceName: pulumi.String("ROUTE53"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSecuritylakeDataLake,
+//			}))
 //			if err != nil {
 //				return err
 //			}

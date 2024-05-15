@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS Security Lake Subscriber.
  * 
+ * &gt; **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating the `aws.securitylake.Subscriber`. Use a `depends_on` statement.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -36,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +54,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Subscriber("example", SubscriberArgs.builder()        
  *             .subscriberName("example-name")
- *             .sourceVersion("1.0")
  *             .accessType("S3")
  *             .source(SubscriberSourceArgs.builder()
  *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
@@ -63,7 +65,9 @@ import javax.annotation.Nullable;
  *                 .externalId("example")
  *                 .principal("1234567890")
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSecuritylakeDataLake)
+ *                 .build());
  * 
  *     }
  * }

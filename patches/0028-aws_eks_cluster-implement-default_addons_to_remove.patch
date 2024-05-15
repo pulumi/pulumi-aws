@@ -5,7 +5,7 @@ Subject: [PATCH] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index 6f4ddd9ea4..79110331b4 100644
+index 6a9b729b3b..9f440d5c82 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -118,6 +118,13 @@ func resourceCluster() *schema.Resource {

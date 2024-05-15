@@ -142,7 +142,7 @@ class InstanceArgs:
         :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -740,7 +740,7 @@ class InstanceArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1401,7 +1401,7 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -2060,7 +2060,7 @@ class _InstanceState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 
@@ -2822,11 +2822,11 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             username="foo",
             password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
+            parameter_group_name="default.mysql8.0",
             skip_final_snapshot=True)
         ```
 
@@ -2987,11 +2987,11 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             username="foo",
-            parameter_group_name="default.mysql5.7")
+            parameter_group_name="default.mysql8.0")
         ```
 
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
@@ -3009,12 +3009,12 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
             username="foo",
-            parameter_group_name="default.mysql5.7")
+            parameter_group_name="default.mysql8.0")
         ```
 
         ## Import
@@ -3082,7 +3082,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -3232,11 +3232,11 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             username="foo",
             password="foobarbaz",
-            parameter_group_name="default.mysql5.7",
+            parameter_group_name="default.mysql8.0",
             skip_final_snapshot=True)
         ```
 
@@ -3397,11 +3397,11 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             username="foo",
-            parameter_group_name="default.mysql5.7")
+            parameter_group_name="default.mysql8.0")
         ```
 
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
@@ -3419,12 +3419,12 @@ class Instance(pulumi.CustomResource):
             allocated_storage=10,
             db_name="mydb",
             engine="mysql",
-            engine_version="5.7",
+            engine_version="8.0",
             instance_class=aws.rds.InstanceType.T3_MICRO,
             manage_master_user_password=True,
             master_user_secret_kms_key_id=example.key_id,
             username="foo",
-            parameter_group_name="default.mysql5.7")
+            parameter_group_name="default.mysql8.0")
         ```
 
         ## Import
@@ -3763,7 +3763,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -4222,7 +4222,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 

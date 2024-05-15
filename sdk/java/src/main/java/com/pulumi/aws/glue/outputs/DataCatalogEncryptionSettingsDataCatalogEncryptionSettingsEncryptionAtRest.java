@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     private String catalogEncryptionMode;
@@ -30,7 +30,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
 
     private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest() {}
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     public String catalogEncryptionMode() {

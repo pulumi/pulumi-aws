@@ -17,14 +17,14 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     public static final DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs Empty = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs();
 
     /**
-     * The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+     * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     @Import(name="catalogEncryptionMode", required=true)
     private Output<String> catalogEncryptionMode;
 
     /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+     * @return The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
     public Output<String> catalogEncryptionMode() {
@@ -88,7 +88,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         }
 
         /**
-         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+         * @param catalogEncryptionMode The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
          * 
          * @return builder
          * 

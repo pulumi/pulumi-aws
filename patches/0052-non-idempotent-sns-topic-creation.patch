@@ -5,7 +5,7 @@ Subject: [PATCH] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 17c78c35c1..5ee99c0c44 100644
+index b9a8e0b2f7..95ab8db8c9 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -9,6 +9,7 @@ import (

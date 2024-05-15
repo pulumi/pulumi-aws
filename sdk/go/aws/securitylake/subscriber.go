@@ -13,6 +13,47 @@ import (
 
 // Resource for managing an AWS Security Lake Subscriber.
 //
+// > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.Subscriber`. Use a `dependsOn` statement.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
+//				Source: &securitylake.SubscriberSourceArgs{
+//					AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
+//						SourceName:    pulumi.String("ROUTE53"),
+//						SourceVersion: pulumi.String("1.0"),
+//					},
+//				},
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSecuritylakeDataLake,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:

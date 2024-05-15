@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
     {
         /// <summary>
-        /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+        /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
         /// </summary>
         public readonly string CatalogEncryptionMode;
         /// <summary>

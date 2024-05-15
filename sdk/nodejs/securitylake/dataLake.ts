@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Security Lake Data Lake.
  *
+ * > **NOTE:** The underlying `aws.securitylake.DataLake` must be configured before creating other Security Lake resources. Use a `dependsOn` statement.
+ *
  * ## Example Usage
  *
  * ```typescript

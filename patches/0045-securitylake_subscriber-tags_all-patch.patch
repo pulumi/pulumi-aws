@@ -5,10 +5,10 @@ Subject: [PATCH] securitylake_subscriber tags_all patch
 
 
 diff --git a/internal/service/securitylake/subscriber.go b/internal/service/securitylake/subscriber.go
-index 39cd7b84ed..5dc325333a 100644
+index 7e0abbcd26..27f0f7b033 100644
 --- a/internal/service/securitylake/subscriber.go
 +++ b/internal/service/securitylake/subscriber.go
-@@ -96,7 +96,7 @@ func (r *subscriberResource) Schema(ctx context.Context, request resource.Schema
+@@ -99,7 +99,7 @@ func (r *subscriberResource) Schema(ctx context.Context, request resource.Schema
  			},
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -16,4 +16,4 @@ index 39cd7b84ed..5dc325333a 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			"source": schema.ListNestedBlock{
+ 			"source": schema.SetNestedBlock{

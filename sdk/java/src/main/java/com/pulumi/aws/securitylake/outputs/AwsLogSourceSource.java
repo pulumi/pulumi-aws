@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 public final class AwsLogSourceSource {
     /**
      * @return Specify the AWS account information where you want to enable Security Lake.
+     * If not specified, uses all accounts included in the Security Lake.
      * 
      */
     private @Nullable List<String> accounts;
@@ -29,7 +30,9 @@ public final class AwsLogSourceSource {
      */
     private String sourceName;
     /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
+     * @return The version for a AWS source.
+     * If not specified, the version will be the default.
+     * This must be a Regionally unique value.
      * 
      */
     private @Nullable String sourceVersion;
@@ -37,6 +40,7 @@ public final class AwsLogSourceSource {
     private AwsLogSourceSource() {}
     /**
      * @return Specify the AWS account information where you want to enable Security Lake.
+     * If not specified, uses all accounts included in the Security Lake.
      * 
      */
     public List<String> accounts() {
@@ -57,7 +61,9 @@ public final class AwsLogSourceSource {
         return this.sourceName;
     }
     /**
-     * @return The version for a AWS source. This must be a Regionally unique value.
+     * @return The version for a AWS source.
+     * If not specified, the version will be the default.
+     * This must be a Regionally unique value.
      * 
      */
     public Optional<String> sourceVersion() {

@@ -116,10 +116,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `abcdef1234`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentAgent:AgentAgent example abcdef1234
+ * $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
  * ```
  * 
  */
@@ -269,21 +269,29 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
     public Output<String> instruction() {
         return this.instruction;
     }
+    /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
     @Export(name="prepareAgent", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> prepareAgent;
 
+    /**
+     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
     public Output<Boolean> prepareAgent() {
         return this.prepareAgent;
     }
     /**
-     * Prompt Override Configuration
+     * Prompt override configuration.
      * 
      */
     @Export(name="promptOverrideConfigurations", refs={List.class,AgentAgentPromptOverrideConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
     /**
-     * @return Prompt Override Configuration
+     * @return Prompt override configuration.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations() {

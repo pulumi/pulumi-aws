@@ -23,13 +23,16 @@ class GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
     """
-    def __init__(__self__, id=None, json=None, override_json=None, override_policy_documents=None, policy_id=None, source_json=None, source_policy_documents=None, statements=None, version=None):
+    def __init__(__self__, id=None, json=None, minified_json=None, override_json=None, override_policy_documents=None, policy_id=None, source_json=None, source_policy_documents=None, statements=None, version=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if json and not isinstance(json, str):
             raise TypeError("Expected argument 'json' to be a str")
         pulumi.set(__self__, "json", json)
+        if minified_json and not isinstance(minified_json, str):
+            raise TypeError("Expected argument 'minified_json' to be a str")
+        pulumi.set(__self__, "minified_json", minified_json)
         if override_json and not isinstance(override_json, str):
             raise TypeError("Expected argument 'override_json' to be a str")
         pulumi.set(__self__, "override_json", override_json)
@@ -67,6 +70,14 @@ class GetPolicyDocumentResult:
         Standard JSON policy document rendered based on the arguments above.
         """
         return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter(name="minifiedJson")
+    def minified_json(self) -> str:
+        """
+        Minified JSON policy document rendered based on the arguments above.
+        """
+        return pulumi.get(self, "minified_json")
 
     @property
     @pulumi.getter(name="overrideJson")
@@ -118,6 +129,7 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
         return GetPolicyDocumentResult(
             id=self.id,
             json=self.json,
+            minified_json=self.minified_json,
             override_json=self.override_json,
             override_policy_documents=self.override_policy_documents,
             policy_id=self.policy_id,
@@ -442,6 +454,7 @@ def get_policy_document(override_json: Optional[str] = None,
     return AwaitableGetPolicyDocumentResult(
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
+        minified_json=pulumi.get(__ret__, 'minified_json'),
         override_json=pulumi.get(__ret__, 'override_json'),
         override_policy_documents=pulumi.get(__ret__, 'override_policy_documents'),
         policy_id=pulumi.get(__ret__, 'policy_id'),

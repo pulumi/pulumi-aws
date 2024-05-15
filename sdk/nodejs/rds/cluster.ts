@@ -347,7 +347,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
      */
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
     /**
@@ -750,7 +750,7 @@ export interface ClusterState {
      */
     enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
-     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
      */
     enableHttpEndpoint?: pulumi.Input<boolean>;
     /**
@@ -998,7 +998,7 @@ export interface ClusterArgs {
      */
     enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
-     * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
+     * Enable HTTP endpoint (data API). Only valid for some combinations of `engineMode`, `engine` and `engineVersion` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshotIdentifier`, `replicationSourceIdentifier`, `s3Import`.
      */
     enableHttpEndpoint?: pulumi.Input<boolean>;
     /**

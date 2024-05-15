@@ -441,7 +441,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> EnableGlobalWriteForwarding { get; private set; } = null!;
 
         /// <summary>
-        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         /// </summary>
         [Output("enableHttpEndpoint")]
         public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
@@ -861,7 +861,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? EnableGlobalWriteForwarding { get; set; }
 
         /// <summary>
-        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         /// </summary>
         [Input("enableHttpEndpoint")]
         public Input<bool>? EnableHttpEndpoint { get; set; }
@@ -1248,7 +1248,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? EnableGlobalWriteForwarding { get; set; }
 
         /// <summary>
-        /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        /// Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         /// </summary>
         [Input("enableHttpEndpoint")]
         public Input<bool>? EnableHttpEndpoint { get; set; }

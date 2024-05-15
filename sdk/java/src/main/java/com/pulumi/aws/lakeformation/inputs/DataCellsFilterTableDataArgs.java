@@ -34,9 +34,17 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.columnNames);
     }
 
+    /**
+     * A wildcard with exclusions. See Column Wildcard below for details.
+     * 
+     */
     @Import(name="columnWildcard")
     private @Nullable Output<DataCellsFilterTableDataColumnWildcardArgs> columnWildcard;
 
+    /**
+     * @return A wildcard with exclusions. See Column Wildcard below for details.
+     * 
+     */
     public Optional<Output<DataCellsFilterTableDataColumnWildcardArgs>> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
@@ -193,11 +201,23 @@ public final class DataCellsFilterTableDataArgs extends com.pulumi.resources.Res
             return columnNames(List.of(columnNames));
         }
 
+        /**
+         * @param columnWildcard A wildcard with exclusions. See Column Wildcard below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnWildcard(@Nullable Output<DataCellsFilterTableDataColumnWildcardArgs> columnWildcard) {
             $.columnWildcard = columnWildcard;
             return this;
         }
 
+        /**
+         * @param columnWildcard A wildcard with exclusions. See Column Wildcard below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder columnWildcard(DataCellsFilterTableDataColumnWildcardArgs columnWildcard) {
             return columnWildcard(Output.of(columnWildcard));
         }

@@ -31,7 +31,7 @@ class PipeArgs:
         """
         The set of arguments for constructing a Pipe resource.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
+        :param pulumi.Input[str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
                
                The following arguments are optional:
@@ -83,7 +83,7 @@ class PipeArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        Source resource of the pipe (typically an ARN).
+        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 
@@ -241,7 +241,7 @@ class _PipeState:
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
+        :param pulumi.Input[str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -382,7 +382,7 @@ class _PipeState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source resource of the pipe (typically an ARN).
+        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 
@@ -612,7 +612,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
+        :param pulumi.Input[str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
@@ -850,7 +850,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
+        :param pulumi.Input[str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -947,7 +947,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
         """
-        Source resource of the pipe (typically an ARN).
+        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 

@@ -137,6 +137,7 @@ import * as customerprofiles from "./customerprofiles";
 import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
+import * as datazone from "./datazone";
 import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
@@ -345,6 +346,7 @@ export {
     dataexchange,
     datapipeline,
     datasync,
+    datazone,
     dax,
     detective,
     devicefarm,

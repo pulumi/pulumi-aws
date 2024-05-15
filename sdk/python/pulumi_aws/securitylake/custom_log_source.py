@@ -22,7 +22,9 @@ class CustomLogSourceArgs:
                  source_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomLogSource resource.
-        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
+               This must be a Regionally unique value.
+               Has a maximum length of 20.
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
@@ -39,7 +41,9 @@ class CustomLogSourceArgs:
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Input[str]:
         """
-        Specify the name for a third-party custom source. This must be a Regionally unique value.
+        Specify the name for a third-party custom source.
+        This must be a Regionally unique value.
+        Has a maximum length of 20.
         """
         return pulumi.get(self, "source_name")
 
@@ -99,7 +103,9 @@ class _CustomLogSourceState:
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]] provider_details: The details of the log provider for a third-party custom source.
-        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
+               This must be a Regionally unique value.
+               Has a maximum length of 20.
         :param pulumi.Input[str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         if attributes is not None:
@@ -167,7 +173,9 @@ class _CustomLogSourceState:
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the name for a third-party custom source. This must be a Regionally unique value.
+        Specify the name for a third-party custom source.
+        This must be a Regionally unique value.
+        Has a maximum length of 20.
         """
         return pulumi.get(self, "source_name")
 
@@ -201,6 +209,8 @@ class CustomLogSource(pulumi.CustomResource):
         """
         Resource for managing an AWS Security Lake Custom Log Source.
 
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.CustomLogSource`. Use a `depends_on` statement.
+
         ## Example Usage
 
         ### Basic Usage
@@ -221,7 +231,8 @@ class CustomLogSource(pulumi.CustomResource):
                     external_id="example-id",
                     principal="123456789012",
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import
@@ -236,7 +247,9 @@ class CustomLogSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
+               This must be a Regionally unique value.
+               Has a maximum length of 20.
         :param pulumi.Input[str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         ...
@@ -247,6 +260,8 @@ class CustomLogSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Security Lake Custom Log Source.
+
+        > **NOTE:** The underlying `securitylake.DataLake` must be configured before creating the `securitylake.CustomLogSource`. Use a `depends_on` statement.
 
         ## Example Usage
 
@@ -268,7 +283,8 @@ class CustomLogSource(pulumi.CustomResource):
                     external_id="example-id",
                     principal="123456789012",
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import
@@ -342,7 +358,9 @@ class CustomLogSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLogSourceProviderDetailArgs']]]] provider_details: The details of the log provider for a third-party custom source.
-        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
+               This must be a Regionally unique value.
+               Has a maximum length of 20.
         :param pulumi.Input[str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -393,7 +411,9 @@ class CustomLogSource(pulumi.CustomResource):
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Output[str]:
         """
-        Specify the name for a third-party custom source. This must be a Regionally unique value.
+        Specify the name for a third-party custom source.
+        This must be a Regionally unique value.
+        Has a maximum length of 20.
         """
         return pulumi.get(self, "source_name")
 
