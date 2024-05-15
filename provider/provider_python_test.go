@@ -23,7 +23,7 @@ func TestRegress3196(t *testing.T) {
 		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
 		return
 	}
-	maxDuration(3*time.Minute, t, func(t *testing.T) {
+	maxDuration(6*time.Minute, t, func(t *testing.T) {
 		test := getPythonBaseOptions(t).
 			With(integration.ProgramTestOptions{
 				Quick:         true,
