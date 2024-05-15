@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()        
+ *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()
  *             .name("example-app")
  *             .build());
  * 
@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()        
+ *         var example = new AppregistryApplication("example", AppregistryApplicationArgs.builder()
  *             .name("example-app")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("example-bucket")
  *             .tags(example.applicationTag())
  *             .build());

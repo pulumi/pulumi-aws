@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VpcConnection("test", VpcConnectionArgs.builder()        
+ *         var test = new VpcConnection("test", VpcConnectionArgs.builder()
  *             .authentication("SASL_IAM")
  *             .targetClusterArn("aws_msk_cluster.arn")
  *             .vpcId(testAwsVpc.id())

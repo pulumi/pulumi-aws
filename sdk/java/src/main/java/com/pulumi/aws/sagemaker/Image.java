@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image("example", ImageArgs.builder()        
+ *         var example = new Image("example", ImageArgs.builder()
  *             .imageName("example")
  *             .roleArn(test.arn())
  *             .build());

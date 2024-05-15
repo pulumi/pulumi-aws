@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubnetGroup("example", SubnetGroupArgs.builder()        
+ *         var example = new SubnetGroup("example", SubnetGroupArgs.builder()
  *             .name("example")
  *             .subnetIds(            
  *                 example1.id(),

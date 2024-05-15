@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()        
+ *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
  *             .name("example_api")
  *             .build());
  * 
- *         var exampleDocumentationPart = new DocumentationPart("exampleDocumentationPart", DocumentationPartArgs.builder()        
+ *         var exampleDocumentationPart = new DocumentationPart("exampleDocumentationPart", DocumentationPartArgs.builder()
  *             .location(DocumentationPartLocationArgs.builder()
  *                 .type("API")
  *                 .build())
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .restApiId(exampleRestApi.id())
  *             .build());
  * 
- *         var example = new DocumentationVersion("example", DocumentationVersionArgs.builder()        
+ *         var example = new DocumentationVersion("example", DocumentationVersionArgs.builder()
  *             .version("example_version")
  *             .restApiId(exampleRestApi.id())
  *             .description("Example description")

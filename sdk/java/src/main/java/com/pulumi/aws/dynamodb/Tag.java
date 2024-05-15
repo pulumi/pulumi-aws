@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .replicas(TableReplicaArgs.builder()
  *                 .regionName(replica.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var test = new Tag("test", TagArgs.builder()        
+ *         var test = new Tag("test", TagArgs.builder()
  *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
  *             .key("testkey")
  *             .value("testvalue")

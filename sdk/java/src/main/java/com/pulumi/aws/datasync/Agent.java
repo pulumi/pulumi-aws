@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Agent("example", AgentArgs.builder()        
+ *         var example = new Agent("example", AgentArgs.builder()
  *             .ipAddress("1.2.3.4")
  *             .name("example")
  *             .build());
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .serviceName(String.format("com.amazonaws.%s.datasync", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .vpcId(exampleAwsVpc.id())
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .id(exampleVpcEndpoint.networkInterfaceIds().applyValue(networkInterfaceIds -> networkInterfaceIds[0]))
  *             .build());
  * 
- *         var exampleAgent = new Agent("exampleAgent", AgentArgs.builder()        
+ *         var exampleAgent = new Agent("exampleAgent", AgentArgs.builder()
  *             .ipAddress("1.2.3.4")
  *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .subnetArns(exampleAwsSubnet.arn())

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Rule("example", RuleArgs.builder()        
+ *         var example = new Rule("example", RuleArgs.builder()
  *             .description("example_rule")
  *             .resourceType("EBS_SNAPSHOT")
  *             .resourceTags(RuleResourceTagArgs.builder()

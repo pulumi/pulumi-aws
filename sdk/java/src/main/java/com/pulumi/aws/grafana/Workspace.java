@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var assume = new Role("assume", RoleArgs.builder()        
+ *         var assume = new Role("assume", RoleArgs.builder()
  *             .name("grafana-assume")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
  *             .accountAccessType("CURRENT_ACCOUNT")
  *             .authenticationProviders("SAML")
  *             .permissionType("SERVICE_MANAGED")

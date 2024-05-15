@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()        
+ *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()
  *             .name("client")
  *             .userPoolId(pool.id())
  *             .build());
@@ -96,11 +96,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()        
+ *         var client = new UserPoolClient("client", UserPoolClientArgs.builder()
  *             .name("client")
  *             .userPoolId(pool.id())
  *             .generateSecret(true)
@@ -151,11 +151,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testUserPool = new UserPool("testUserPool", UserPoolArgs.builder()        
+ *         var testUserPool = new UserPool("testUserPool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var testApp = new App("testApp", AppArgs.builder()        
+ *         var testApp = new App("testApp", AppArgs.builder()
  *             .name("pinpoint")
  *             .build());
  * 
@@ -170,12 +170,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testUserPoolClient = new UserPoolClient("testUserPoolClient", UserPoolClientArgs.builder()        
+ *         var testUserPoolClient = new UserPoolClient("testUserPoolClient", UserPoolClientArgs.builder()
  *             .name("pool_client")
  *             .userPoolId(testUserPool.id())
  *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRolePolicy = new RolePolicy("testRolePolicy", RolePolicyArgs.builder()        
+ *         var testRolePolicy = new RolePolicy("testRolePolicy", RolePolicyArgs.builder()
  *             .name("role_policy")
  *             .role(testRole.id())
  *             .policy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(test -> test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
@@ -237,11 +237,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var userpoolClient = new UserPoolClient("userpoolClient", UserPoolClientArgs.builder()        
+ *         var userpoolClient = new UserPoolClient("userpoolClient", UserPoolClientArgs.builder()
  *             .name("client")
  *             .userPoolId(pool.id())
  *             .callbackUrls("https://example.com")

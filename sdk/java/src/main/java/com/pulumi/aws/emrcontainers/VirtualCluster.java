@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualCluster("example", VirtualClusterArgs.builder()        
+ *         var example = new VirtualCluster("example", VirtualClusterArgs.builder()
  *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
  *                 .id(exampleAwsEksCluster.name())
  *                 .type("EKS")

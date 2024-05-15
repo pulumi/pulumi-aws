@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AccessGrantsInstance("example");
  * 
- *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()        
+ *         var exampleAccessGrantsInstanceResourcePolicy = new AccessGrantsInstanceResourcePolicy("exampleAccessGrantsInstanceResourcePolicy", AccessGrantsInstanceResourcePolicyArgs.builder()
  *             .policy(example.accessGrantsInstanceArn().applyValue(accessGrantsInstanceArn -> """
  * {
  *   "Version": "2012-10-17",

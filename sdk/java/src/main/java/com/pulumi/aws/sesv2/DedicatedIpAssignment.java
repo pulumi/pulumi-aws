@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpAssignment("example", DedicatedIpAssignmentArgs.builder()        
+ *         var example = new DedicatedIpAssignment("example", DedicatedIpAssignmentArgs.builder()
  *             .ip("0.0.0.0")
  *             .destinationPoolName("my-pool")
  *             .build());

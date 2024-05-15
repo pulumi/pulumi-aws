@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Group("example", GroupArgs.builder()        
+ *         var example = new Group("example", GroupArgs.builder()
  *             .verifiedaccessInstanceId(exampleAwsVerifiedaccessInstance.id())
  *             .build());
  * 
@@ -59,43 +59,6 @@ import javax.annotation.Nullable;
  * ### Usage with KMS Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.verifiedaccess.Group;
- * import com.pulumi.aws.verifiedaccess.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testKey = new Key("testKey", KeyArgs.builder()        
- *             .description("KMS key for Verified Access Group test")
- *             .build());
- * 
- *         var test = new Group("test", GroupArgs.builder()        
- *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
- *             .serverSideEncryptionConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

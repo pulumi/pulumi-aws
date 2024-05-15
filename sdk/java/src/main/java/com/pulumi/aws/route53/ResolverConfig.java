@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var exampleResolverConfig = new ResolverConfig("exampleResolverConfig", ResolverConfigArgs.builder()        
+ *         var exampleResolverConfig = new ResolverConfig("exampleResolverConfig", ResolverConfigArgs.builder()
  *             .resourceId(example.id())
  *             .autodefinedReverseFlag("DISABLE")
  *             .build());

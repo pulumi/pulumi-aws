@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCatalogDatabase = new CatalogDatabase("testCatalogDatabase", CatalogDatabaseArgs.builder()        
+ *         var testCatalogDatabase = new CatalogDatabase("testCatalogDatabase", CatalogDatabaseArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var testCatalogTable = new CatalogTable("testCatalogTable", CatalogTableArgs.builder()        
+ *         var testCatalogTable = new CatalogTable("testCatalogTable", CatalogTableArgs.builder()
  *             .name("example")
  *             .databaseName(testCatalogDatabase.name())
  *             .owner("my_owner")
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *             .parameters(Map.of("param1", "param1_val"))
  *             .build());
  * 
- *         var test = new MLTransform("test", MLTransformArgs.builder()        
+ *         var test = new MLTransform("test", MLTransformArgs.builder()
  *             .name("example")
  *             .roleArn(testAwsIamRole.arn())
  *             .inputRecordTables(MLTransformInputRecordTableArgs.builder()

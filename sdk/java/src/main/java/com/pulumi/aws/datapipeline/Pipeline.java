@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline("default", PipelineArgs.builder()        
+ *         var default_ = new Pipeline("default", PipelineArgs.builder()
  *             .name("tf-pipeline-default")
  *             .build());
  * 

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()        
+ *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()
  *             .clusterId(cluster.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()

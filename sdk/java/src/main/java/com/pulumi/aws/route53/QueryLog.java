@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Route53 zone with query logging
- *         var exampleCom = new Zone("exampleCom", ZoneArgs.builder()        
+ *         var exampleCom = new Zone("exampleCom", ZoneArgs.builder()
  *             .name("example.com")
  *             .build());
  * 
- *         var awsRoute53ExampleCom = new LogGroup("awsRoute53ExampleCom", LogGroupArgs.builder()        
+ *         var awsRoute53ExampleCom = new LogGroup("awsRoute53ExampleCom", LogGroupArgs.builder()
  *             .name(exampleCom.name().applyValue(name -> String.format("/aws/route53/%s", name)))
  *             .retentionInDays(30)
  *             .build());
@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyDocument(route53_query_logging_policy.json())
  *             .policyName("route53-query-logging-policy")
  *             .build());
  * 
- *         var exampleComQueryLog = new QueryLog("exampleComQueryLog", QueryLogArgs.builder()        
+ *         var exampleComQueryLog = new QueryLog("exampleComQueryLog", QueryLogArgs.builder()
  *             .cloudwatchLogGroupArn(awsRoute53ExampleCom.arn())
  *             .zoneId(exampleCom.zoneId())
  *             .build(), CustomResourceOptions.builder()

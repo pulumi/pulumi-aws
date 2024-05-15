@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Instance("example", InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .engine("mysql")
  *             .engineVersion("5.6.21")
@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .dbInstanceIdentifier(example.identifier())
  *             .dbSnapshotIdentifier("testsnapshot1234")
  *             .build());
  * 
- *         var exampleSnapshotCopy = new SnapshotCopy("exampleSnapshotCopy", SnapshotCopyArgs.builder()        
+ *         var exampleSnapshotCopy = new SnapshotCopy("exampleSnapshotCopy", SnapshotCopyArgs.builder()
  *             .sourceDbSnapshotIdentifier(exampleSnapshot.dbSnapshotArn())
  *             .targetDbSnapshotIdentifier("testsnapshot1234-copy")
  *             .build());

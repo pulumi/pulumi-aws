@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem("fs", FileSystemArgs.builder()        
+ *         var fs = new FileSystem("fs", FileSystemArgs.builder()
  *             .creationToken("my-product")
  *             .build());
  * 
- *         var policy = new BackupPolicy("policy", BackupPolicyArgs.builder()        
+ *         var policy = new BackupPolicy("policy", BackupPolicyArgs.builder()
  *             .fileSystemId(fs.id())
  *             .backupPolicy(BackupPolicyBackupPolicyArgs.builder()
  *                 .status("ENABLED")

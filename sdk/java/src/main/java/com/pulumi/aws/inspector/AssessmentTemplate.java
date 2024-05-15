@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AssessmentTemplate("example", AssessmentTemplateArgs.builder()        
+ *         var example = new AssessmentTemplate("example", AssessmentTemplateArgs.builder()
  *             .name("example")
  *             .targetArn(exampleAwsInspectorAssessmentTarget.arn())
  *             .duration(3600)

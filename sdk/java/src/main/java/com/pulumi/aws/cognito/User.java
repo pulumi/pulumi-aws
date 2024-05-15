@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("MyExamplePool")
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userPoolId(example.id())
  *             .username("example")
  *             .build());
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("mypool")
  *             .schemas(            
  *                 UserPoolSchemaArgs.builder()
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userPoolId(example.id())
  *             .username("example")
  *             .attributes(Map.ofEntries(

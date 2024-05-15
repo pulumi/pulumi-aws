@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(                    
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = AwsFunctions.getRegions();
  * 
- *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()        
+ *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()

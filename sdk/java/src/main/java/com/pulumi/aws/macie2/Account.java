@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Account("test", AccountArgs.builder()        
+ *         var test = new Account("test", AccountArgs.builder()
  *             .findingPublishingFrequency("FIFTEEN_MINUTES")
  *             .status("ENABLED")
  *             .build());

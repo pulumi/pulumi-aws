@@ -53,16 +53,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new BucketV2("hoge", BucketV2Args.builder()        
+ *         var hoge = new BucketV2("hoge", BucketV2Args.builder()
  *             .bucket("tf-test")
  *             .build());
  * 
- *         var test = new Key("test", KeyArgs.builder()        
+ *         var test = new Key("test", KeyArgs.builder()
  *             .deletionWindowInDays(7)
  *             .description("Athena KMS Key")
  *             .build());
  * 
- *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()        
+ *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()
  *             .name("example")
  *             .configuration(WorkgroupConfigurationArgs.builder()
  *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
@@ -74,12 +74,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var hogeDatabase = new Database("hogeDatabase", DatabaseArgs.builder()        
+ *         var hogeDatabase = new Database("hogeDatabase", DatabaseArgs.builder()
  *             .name("users")
  *             .bucket(hoge.id())
  *             .build());
  * 
- *         var foo = new NamedQuery("foo", NamedQueryArgs.builder()        
+ *         var foo = new NamedQuery("foo", NamedQueryArgs.builder()
  *             .name("bar")
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())

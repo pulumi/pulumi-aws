@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()        
+ *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
  *             .name("wu-tang")
  *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "wu-tang"))
  *             .build());
  * 
- *         var wu_tang_ca_pubkey_policy = new LoadBalancerPolicy("wu-tang-ca-pubkey-policy", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_ca_pubkey_policy = new LoadBalancerPolicy("wu-tang-ca-pubkey-policy", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-ca-pubkey-policy")
  *             .policyTypeName("PublicKeyPolicyType")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-root-ca-backend-auth-policy")
  *             .policyTypeName("BackendServerAuthenticationPolicyType")
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wu_tang_ssl = new LoadBalancerPolicy("wu-tang-ssl", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_ssl = new LoadBalancerPolicy("wu-tang-ssl", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-ssl")
  *             .policyTypeName("SSLNegotiationPolicyType")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy("wu-tang-ssl-tls-1-1", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_ssl_tls_1_1 = new LoadBalancerPolicy("wu-tang-ssl-tls-1-1", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-ssl")
  *             .policyTypeName("SSLNegotiationPolicyType")
@@ -112,13 +112,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wu_tang_backend_auth_policies_443 = new LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", LoadBalancerBackendServerPolicyArgs.builder()        
+ *         var wu_tang_backend_auth_policies_443 = new LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", LoadBalancerBackendServerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .instancePort(443)
  *             .policyNames(wu_tang_root_ca_backend_auth_policy.policyName())
  *             .build());
  * 
- *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()        
+ *         var wu_tang_listener_policies_443 = new ListenerPolicy("wu-tang-listener-policies-443", ListenerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .loadBalancerPort(443)
  *             .policyNames(wu_tang_ssl.policyName())

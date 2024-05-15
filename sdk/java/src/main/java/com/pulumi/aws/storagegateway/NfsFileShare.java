@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NfsFileShare("example", NfsFileShareArgs.builder()        
+ *         var example = new NfsFileShare("example", NfsFileShareArgs.builder()
  *             .clientLists("0.0.0.0/0")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())

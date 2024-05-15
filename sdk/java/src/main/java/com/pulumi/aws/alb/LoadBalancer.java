@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
  *             .name("example")
  *             .loadBalancerType("network")
  *             .subnetMappings(            
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
  *             .name("example")
  *             .loadBalancerType("network")
  *             .subnetMappings(            

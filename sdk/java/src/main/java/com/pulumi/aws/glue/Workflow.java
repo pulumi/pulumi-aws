@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow("example", WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var example_start = new Trigger("example-start", TriggerArgs.builder()        
+ *         var example_start = new Trigger("example-start", TriggerArgs.builder()
  *             .name("trigger-start")
  *             .type("ON_DEMAND")
  *             .workflowName(example.name())
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_inner = new Trigger("example-inner", TriggerArgs.builder()        
+ *         var example_inner = new Trigger("example-inner", TriggerArgs.builder()
  *             .name("trigger-inner")
  *             .type("CONDITIONAL")
  *             .workflowName(example.name())

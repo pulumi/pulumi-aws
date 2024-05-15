@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisionedModelThroughput("example", ProvisionedModelThroughputArgs.builder()        
+ *         var example = new ProvisionedModelThroughput("example", ProvisionedModelThroughputArgs.builder()
  *             .provisionedModelName("example-model")
  *             .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-v2")
  *             .commitmentDuration("SixMonths")

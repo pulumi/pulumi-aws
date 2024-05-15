@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example")
  *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
  *                 .temporaryPasswordValidityDays(7)
@@ -59,17 +59,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userPoolId(example.id())
  *             .username("example")
  *             .build());
  * 
- *         var exampleUserGroup = new UserGroup("exampleUserGroup", UserGroupArgs.builder()        
+ *         var exampleUserGroup = new UserGroup("exampleUserGroup", UserGroupArgs.builder()
  *             .userPoolId(example.id())
  *             .name("example")
  *             .build());
  * 
- *         var exampleUserInGroup = new UserInGroup("exampleUserInGroup", UserInGroupArgs.builder()        
+ *         var exampleUserInGroup = new UserInGroup("exampleUserInGroup", UserInGroupArgs.builder()
  *             .userPoolId(example.id())
  *             .groupName(exampleUserGroup.name())
  *             .username(exampleUser.username())

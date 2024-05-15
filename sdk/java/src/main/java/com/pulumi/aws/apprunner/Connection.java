@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .connectionName("example")
  *             .providerType("GITHUB")
  *             .tags(Map.of("Name", "example-apprunner-connection"))

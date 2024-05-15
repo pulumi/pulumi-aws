@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
  *                 "us-west-2a",
@@ -71,18 +71,18 @@ import javax.annotation.Nullable;
  *             .engineVersion("13.4")
  *             .build());
  * 
- *         var defaultClusterInstance = new ClusterInstance("defaultClusterInstance", ClusterInstanceArgs.builder()        
+ *         var defaultClusterInstance = new ClusterInstance("defaultClusterInstance", ClusterInstanceArgs.builder()
  *             .identifier("aurora-instance-demo")
  *             .clusterIdentifier(default_.clusterIdentifier())
  *             .engine(default_.engine())
  *             .instanceClass("db.r6g.large")
  *             .build());
  * 
- *         var defaultKey = new Key("defaultKey", KeyArgs.builder()        
+ *         var defaultKey = new Key("defaultKey", KeyArgs.builder()
  *             .description("AWS KMS Key to encrypt Database Activity Stream")
  *             .build());
  * 
- *         var defaultClusterActivityStream = new ClusterActivityStream("defaultClusterActivityStream", ClusterActivityStreamArgs.builder()        
+ *         var defaultClusterActivityStream = new ClusterActivityStream("defaultClusterActivityStream", ClusterActivityStreamArgs.builder()
  *             .resourceArn(default_.arn())
  *             .mode("async")
  *             .kmsKeyId(defaultKey.keyId())

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Access("example", AccessArgs.builder()        
+ *         var example = new Access("example", AccessArgs.builder()
  *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
  *             .serverId(exampleAwsTransferServer.id())
  *             .role(exampleAwsIamRole.arn())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Access("test", AccessArgs.builder()        
+ *         var test = new Access("test", AccessArgs.builder()
  *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
  *             .serverId(testAwsTransferServer.id())
  *             .role(testAwsIamRole.arn())

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()        
+ *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()
  *             .maxCapacity(100)
  *             .minCapacity(5)
  *             .resourceId("table/tableName")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .serviceNamespace("dynamodb")
  *             .build());
  * 
- *         var dynamodbTableReadPolicy = new Policy("dynamodbTableReadPolicy", PolicyArgs.builder()        
+ *         var dynamodbTableReadPolicy = new Policy("dynamodbTableReadPolicy", PolicyArgs.builder()
  *             .name(dynamodbTableReadTarget.resourceId().applyValue(resourceId -> String.format("DynamoDBReadCapacityUtilization:%s", resourceId)))
  *             .policyType("TargetTrackingScaling")
  *             .resourceId(dynamodbTableReadTarget.resourceId())
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsService = new Service("ecsService", ServiceArgs.builder()        
+ *         var ecsService = new Service("ecsService", ServiceArgs.builder()
  *             .name("serviceName")
  *             .cluster("clusterName")
  *             .taskDefinition("taskDefinitionFamily:1")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicas = new Target("replicas", TargetArgs.builder()        
+ *         var replicas = new Target("replicas", TargetArgs.builder()
  *             .serviceNamespace("rds")
  *             .scalableDimension("rds:cluster:ReadReplicaCount")
  *             .resourceId(String.format("cluster:%s", example.id()))
@@ -159,7 +159,7 @@ import javax.annotation.Nullable;
  *             .maxCapacity(15)
  *             .build());
  * 
- *         var replicasPolicy = new Policy("replicasPolicy", PolicyArgs.builder()        
+ *         var replicasPolicy = new Policy("replicasPolicy", PolicyArgs.builder()
  *             .name("cpu-auto-scaling")
  *             .serviceNamespace(replicas.serviceNamespace())
  *             .scalableDimension(replicas.scalableDimension())
@@ -210,7 +210,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()
  *             .maxCapacity(4)
  *             .minCapacity(1)
  *             .resourceId("service/clusterName/serviceName")
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *             .serviceNamespace("ecs")
  *             .build());
  * 
- *         var example = new Policy("example", PolicyArgs.builder()        
+ *         var example = new Policy("example", PolicyArgs.builder()
  *             .name("foo")
  *             .policyType("TargetTrackingScaling")
  *             .resourceId(ecsTarget.resourceId())
@@ -310,7 +310,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mskTarget = new Target("mskTarget", TargetArgs.builder()        
+ *         var mskTarget = new Target("mskTarget", TargetArgs.builder()
  *             .serviceNamespace("kafka")
  *             .scalableDimension("kafka:broker-storage:VolumeSize")
  *             .resourceId(example.arn())
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  *             .maxCapacity(8)
  *             .build());
  * 
- *         var targets = new Policy("targets", PolicyArgs.builder()        
+ *         var targets = new Policy("targets", PolicyArgs.builder()
  *             .name("storage-size-auto-scaling")
  *             .serviceNamespace(mskTarget.serviceNamespace())
  *             .scalableDimension(mskTarget.scalableDimension())

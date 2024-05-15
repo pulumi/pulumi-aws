@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Topic("test", TopicArgs.builder()        
+ *         var test = new Topic("test", TopicArgs.builder()
  *             .name("my-topic-with-policy")
  *             .build());
  * 
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(test.arn())
  *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

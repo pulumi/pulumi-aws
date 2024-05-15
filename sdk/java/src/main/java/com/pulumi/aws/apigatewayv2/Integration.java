@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration("example", IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationType("MOCK")
  *             .build());
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Function("example", FunctionArgs.builder()        
+ *         var example = new Function("example", FunctionArgs.builder()
  *             .code(new FileArchive("example.zip"))
  *             .name("Example")
  *             .role(exampleAwsIamRole.arn())
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .runtime("nodejs16.x")
  *             .build());
  * 
- *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()        
+ *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationType("AWS_PROXY")
  *             .connectionType("INTERNET")
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration("example", IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .credentialsArn(exampleAwsIamRole.arn())
  *             .description("SQS example")
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Integration("example", IntegrationArgs.builder()        
+ *         var example = new Integration("example", IntegrationArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .credentialsArn(exampleAwsIamRole.arn())
  *             .description("Example with a load balancer")

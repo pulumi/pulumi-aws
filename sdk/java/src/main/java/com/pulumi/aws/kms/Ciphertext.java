@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+ *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
  *             .description("oauth config")
  *             .isEnabled(true)
  *             .build());
  * 
- *         var oauth = new Ciphertext("oauth", CiphertextArgs.builder()        
+ *         var oauth = new Ciphertext("oauth", CiphertextArgs.builder()
  *             .keyId(oauthConfig.keyId())
  *             .plaintext("""
  * {
