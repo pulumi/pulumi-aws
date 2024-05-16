@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()        
+ *         var filter = new TrafficMirrorFilter("filter", TrafficMirrorFilterArgs.builder()
  *             .description("traffic mirror filter - example")
  *             .networkServices("amazon-dns")
  *             .build());
  * 
- *         var target = new TrafficMirrorTarget("target", TrafficMirrorTargetArgs.builder()        
+ *         var target = new TrafficMirrorTarget("target", TrafficMirrorTargetArgs.builder()
  *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
- *         var session = new TrafficMirrorSession("session", TrafficMirrorSessionArgs.builder()        
+ *         var session = new TrafficMirrorSession("session", TrafficMirrorSessionArgs.builder()
  *             .description("traffic mirror session - example")
  *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .sessionNumber(1)

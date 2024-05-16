@@ -50,14 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()        
+ *         var example = new ManagedPrefixList("example", ManagedPrefixListArgs.builder()
  *             .name("All VPC CIDR-s")
  *             .addressFamily("IPv4")
  *             .maxEntries(5)
  *             .tags(Map.of("Env", "live"))
  *             .build());
  * 
- *         var entry1 = new ManagedPrefixListEntry("entry1", ManagedPrefixListEntryArgs.builder()        
+ *         var entry1 = new ManagedPrefixListEntry("entry1", ManagedPrefixListEntryArgs.builder()
  *             .cidr(exampleAwsVpc.cidrBlock())
  *             .description("Primary")
  *             .prefixListId(example.id())

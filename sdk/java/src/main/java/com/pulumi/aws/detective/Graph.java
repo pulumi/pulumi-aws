@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Graph("example", GraphArgs.builder()        
+ *         var example = new Graph("example", GraphArgs.builder()
  *             .tags(Map.of("Name", "example-detective-graph"))
  *             .build());
  * 

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxVolume("example", KxVolumeArgs.builder()        
+ *         var example = new KxVolume("example", KxVolumeArgs.builder()
  *             .name("my-tf-kx-volume")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .availabilityZones("use1-az2")

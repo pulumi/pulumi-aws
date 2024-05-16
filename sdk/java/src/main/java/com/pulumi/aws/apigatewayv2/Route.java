@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()        
+ *         var example = new Api("example", ApiArgs.builder()
  *             .name("example-websocket-api")
  *             .protocolType("WEBSOCKET")
  *             .routeSelectionExpression("$request.body.action")
  *             .build());
  * 
- *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()
  *             .apiId(example.id())
  *             .routeKey("$default")
  *             .build());
@@ -97,19 +97,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()        
+ *         var example = new Api("example", ApiArgs.builder()
  *             .name("example-http-api")
  *             .protocolType("HTTP")
  *             .build());
  * 
- *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()        
+ *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
  *             .apiId(example.id())
  *             .integrationType("HTTP_PROXY")
  *             .integrationMethod("ANY")
  *             .integrationUri("https://example.com/{proxy}")
  *             .build());
  * 
- *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()        
+ *         var exampleRoute = new Route("exampleRoute", RouteArgs.builder()
  *             .apiId(example.id())
  *             .routeKey("ANY /example/{proxy+}")
  *             .target(exampleIntegration.id().applyValue(id -> String.format("integrations/%s", id)))

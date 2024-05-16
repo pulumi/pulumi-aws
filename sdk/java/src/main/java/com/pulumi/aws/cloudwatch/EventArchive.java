@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var order = new EventBus("order", EventBusArgs.builder()        
+ *         var order = new EventBus("order", EventBusArgs.builder()
  *             .name("orders")
  *             .build());
  * 
- *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()        
+ *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()
  *             .name("order-archive")
  *             .eventSourceArn(order.arn())
  *             .build());
@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var order = new EventBus("order", EventBusArgs.builder()        
+ *         var order = new EventBus("order", EventBusArgs.builder()
  *             .name("orders")
  *             .build());
  * 
- *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()        
+ *         var orderEventArchive = new EventArchive("orderEventArchive", EventArchiveArgs.builder()
  *             .name("order-archive")
  *             .description("Archived events from order service")
  *             .eventSourceArn(order.arn())

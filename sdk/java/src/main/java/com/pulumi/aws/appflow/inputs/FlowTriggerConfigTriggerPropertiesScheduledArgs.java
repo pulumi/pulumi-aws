@@ -134,7 +134,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()        
+     *         var example = new Flow("example", FlowArgs.builder()
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
      *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *                 .build())
@@ -177,7 +177,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()        
+     *         var example = new Flow("example", FlowArgs.builder()
      *             .triggerConfig(FlowTriggerConfigArgs.builder()
      *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *                 .build())
@@ -377,7 +377,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Flow("example", FlowArgs.builder()        
+         *         var example = new Flow("example", FlowArgs.builder()
          *             .triggerConfig(FlowTriggerConfigArgs.builder()
          *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *                 .build())
@@ -424,7 +424,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Flow("example", FlowArgs.builder()        
+         *         var example = new Flow("example", FlowArgs.builder()
          *             .triggerConfig(FlowTriggerConfigArgs.builder()
          *                 .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
          *                 .build())

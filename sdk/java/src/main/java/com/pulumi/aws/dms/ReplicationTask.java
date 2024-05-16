@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new replication task
- *         var test = new ReplicationTask("test", ReplicationTaskArgs.builder()        
+ *         var test = new ReplicationTask("test", ReplicationTaskArgs.builder()
  *             .cdcStartTime("1993-05-21T05:50:00Z")
  *             .migrationType("full-load")
  *             .replicationInstanceArn(test_dms_replication_instance_tf.replicationInstanceArn())

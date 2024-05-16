@@ -2012,7 +2012,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -2523,7 +2523,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -3034,7 +3034,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -3545,7 +3545,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -4056,7 +4056,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -4567,7 +4567,7 @@ public final class IamFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+     *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
      *             .name("example_policy")
      *             .path("/")
      *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -5097,7 +5097,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -5149,15 +5149,15 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User("example", UserArgs.builder()        
+     *         var example = new User("example", UserArgs.builder()
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
@@ -5171,7 +5171,7 @@ public final class IamFunctions {
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
      *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
@@ -5295,7 +5295,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -5347,15 +5347,15 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User("example", UserArgs.builder()        
+     *         var example = new User("example", UserArgs.builder()
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
@@ -5369,7 +5369,7 @@ public final class IamFunctions {
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
      *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
@@ -5493,7 +5493,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -5545,15 +5545,15 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User("example", UserArgs.builder()        
+     *         var example = new User("example", UserArgs.builder()
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
@@ -5567,7 +5567,7 @@ public final class IamFunctions {
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
      *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
@@ -5691,7 +5691,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new BucketObject("example", BucketObjectArgs.builder()        
+     *         var example = new BucketObject("example", BucketObjectArgs.builder()
      *             .bucket("my-test-bucket")
      *             .build(), CustomResourceOptions.builder()
      *                 .dependsOn(s3ObjectAccess)
@@ -5743,15 +5743,15 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getCallerIdentity();
      * 
-     *         var example = new User("example", UserArgs.builder()        
+     *         var example = new User("example", UserArgs.builder()
      *             .name("example")
      *             .build());
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("my-test-bucket")
      *             .build());
      * 
-     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()        
+     *         var s3Access = new UserPolicy("s3Access", UserPolicyArgs.builder()
      *             .name("example_s3_access")
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -> serializeJson(
@@ -5765,7 +5765,7 @@ public final class IamFunctions {
      *                 ))))
      *             .build());
      * 
-     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()        
+     *         var accountAccess = new BucketPolicy("accountAccess", BucketPolicyArgs.builder()
      *             .bucket(exampleBucketV2.bucket())
      *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
      *                 var exampleBucketV2Arn = values.t1;
@@ -7317,7 +7317,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
@@ -7374,7 +7374,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
@@ -7431,7 +7431,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
@@ -7488,7 +7488,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
@@ -7545,7 +7545,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
@@ -7602,7 +7602,7 @@ public final class IamFunctions {
      *             .latest(true)
      *             .build());
      * 
-     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()        
+     *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
      *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)

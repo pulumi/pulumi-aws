@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType("CONTACT_TRACE_RECORDS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType("MEDIA_STREAMS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
@@ -185,7 +185,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType("CHAT_TRANSCRIPTS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()        
+ *         var example = new InstanceStorageConfig("example", InstanceStorageConfigArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .resourceType("CHAT_TRANSCRIPTS")
  *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()

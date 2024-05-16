@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecretVersion("example", SecretVersionArgs.builder()        
+ *         var example = new SecretVersion("example", SecretVersionArgs.builder()
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .secretString("example-string-to-protect")
  *             .build());
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var example = config.get("example").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
  *             .secretId(exampleAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(
  *                 example))

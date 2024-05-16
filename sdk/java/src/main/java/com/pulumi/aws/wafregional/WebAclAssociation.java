@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()
  *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foo = new Rule("foo", RuleArgs.builder()        
+ *         var foo = new Rule("foo", RuleArgs.builder()
  *             .name("tfWAFRule")
  *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooWebAcl = new WebAcl("fooWebAcl", WebAclArgs.builder()        
+ *         var fooWebAcl = new WebAcl("fooWebAcl", WebAclArgs.builder()
  *             .name("foo")
  *             .metricName("foo")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
@@ -97,32 +97,32 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
  *         final var available = AwsFunctions.getAvailabilityZones();
  * 
- *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()        
+ *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()
  *             .vpcId(fooVpc.id())
  *             .cidrBlock("10.1.1.0/24")
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
- *         var bar = new Subnet("bar", SubnetArgs.builder()        
+ *         var bar = new Subnet("bar", SubnetArgs.builder()
  *             .vpcId(fooVpc.id())
  *             .cidrBlock("10.1.2.0/24")
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
  *             .build());
  * 
- *         var fooLoadBalancer = new LoadBalancer("fooLoadBalancer", LoadBalancerArgs.builder()        
+ *         var fooLoadBalancer = new LoadBalancer("fooLoadBalancer", LoadBalancerArgs.builder()
  *             .internal(true)
  *             .subnets(            
  *                 fooSubnet.id(),
  *                 bar.id())
  *             .build());
  * 
- *         var fooWebAclAssociation = new WebAclAssociation("fooWebAclAssociation", WebAclAssociationArgs.builder()        
+ *         var fooWebAclAssociation = new WebAclAssociation("fooWebAclAssociation", WebAclAssociationArgs.builder()
  *             .resourceArn(fooLoadBalancer.arn())
  *             .webAclId(fooWebAcl.id())
  *             .build());

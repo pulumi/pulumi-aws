@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TapePool("example", TapePoolArgs.builder()        
+ *         var example = new TapePool("example", TapePoolArgs.builder()
  *             .poolName("example")
  *             .storageClass("GLACIER")
  *             .build());

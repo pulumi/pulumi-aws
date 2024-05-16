@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Experience("example", ExperienceArgs.builder()        
+ *         var example = new Experience("example", ExperienceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .description("My Kendra Experience")
  *             .name("example")

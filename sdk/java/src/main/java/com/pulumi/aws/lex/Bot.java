@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderFlowersBot = new Bot("orderFlowersBot", BotArgs.builder()        
+ *         var orderFlowersBot = new Bot("orderFlowersBot", BotArgs.builder()
  *             .abortStatement(BotAbortStatementArgs.builder()
  *                 .messages(BotAbortStatementMessageArgs.builder()
  *                     .content("Sorry, I am not able to assist at this time")

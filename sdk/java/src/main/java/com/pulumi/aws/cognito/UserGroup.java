@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new UserPool("main", UserPoolArgs.builder()        
+ *         var main = new UserPool("main", UserPoolArgs.builder()
  *             .name("identity pool")
  *             .build());
  * 
@@ -75,12 +75,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var groupRoleRole = new Role("groupRoleRole", RoleArgs.builder()        
+ *         var groupRoleRole = new Role("groupRoleRole", RoleArgs.builder()
  *             .name("user-group-role")
  *             .assumeRolePolicy(groupRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var mainUserGroup = new UserGroup("mainUserGroup", UserGroupArgs.builder()        
+ *         var mainUserGroup = new UserGroup("mainUserGroup", UserGroupArgs.builder()
  *             .name("user-group")
  *             .userPoolId(main.id())
  *             .description("Managed by Pulumi")

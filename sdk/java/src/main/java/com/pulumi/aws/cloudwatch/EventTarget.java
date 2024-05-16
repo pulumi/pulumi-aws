@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var console = new EventRule("console", EventRuleArgs.builder()        
+ *         var console = new EventRule("console", EventRuleArgs.builder()
  *             .name("capture-ec2-scaling-events")
  *             .description("Capture all EC2 scaling events")
  *             .eventPattern(serializeJson(
@@ -80,12 +80,12 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *         var testStream = new Stream("testStream", StreamArgs.builder()
  *             .name("kinesis-test")
  *             .shardCount(1)
  *             .build());
  * 
- *         var yada = new EventTarget("yada", EventTargetArgs.builder()        
+ *         var yada = new EventTarget("yada", EventTargetArgs.builder()
  *             .targetId("Yada")
  *             .rule(console.name())
  *             .arn(testStream.arn())
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var stopInstance = new Document("stopInstance", DocumentArgs.builder()        
+ *         var stopInstance = new Document("stopInstance", DocumentArgs.builder()
  *             .name("stop_instance")
  *             .documentType("Command")
  *             .content(serializeJson(
@@ -195,28 +195,28 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var ssmLifecycleRole = new Role("ssmLifecycleRole", RoleArgs.builder()        
+ *         var ssmLifecycleRole = new Role("ssmLifecycleRole", RoleArgs.builder()
  *             .name("SSMLifecycle")
  *             .assumeRolePolicy(ssmLifecycleTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ssmLifecyclePolicy = new Policy("ssmLifecyclePolicy", PolicyArgs.builder()        
+ *         var ssmLifecyclePolicy = new Policy("ssmLifecyclePolicy", PolicyArgs.builder()
  *             .name("SSMLifecycle")
  *             .policy(ssmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(ssmLifecycle -> ssmLifecycle.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var ssmLifecycleRolePolicyAttachment = new RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var ssmLifecycleRolePolicyAttachment = new RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .policyArn(ssmLifecyclePolicy.arn())
  *             .role(ssmLifecycleRole.name())
  *             .build());
  * 
- *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()        
+ *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()
  *             .name("StopInstance")
  *             .description("Stop instances nightly")
  *             .scheduleExpression("cron(0 0 * * ? *)")
  *             .build());
  * 
- *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()        
+ *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()
  *             .targetId("StopInstance")
  *             .arn(stopInstance.arn())
  *             .rule(stopInstances.name())
@@ -261,13 +261,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()        
+ *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()
  *             .name("StopInstance")
  *             .description("Stop instances nightly")
  *             .scheduleExpression("cron(0 0 * * ? *)")
  *             .build());
  * 
- *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()        
+ *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()
  *             .targetId("StopInstance")
  *             .arn(String.format("arn:aws:ssm:%s::document/AWS-RunShellScript", awsRegion))
  *             .input("{\"commands\":[\"halt\"]}")
@@ -329,7 +329,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ecsEvents = new Role("ecsEvents", RoleArgs.builder()        
+ *         var ecsEvents = new Role("ecsEvents", RoleArgs.builder()
  *             .name("ecs_events")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -352,13 +352,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var ecsEventsRunTaskWithAnyRoleRolePolicy = new RolePolicy("ecsEventsRunTaskWithAnyRoleRolePolicy", RolePolicyArgs.builder()        
+ *         var ecsEventsRunTaskWithAnyRoleRolePolicy = new RolePolicy("ecsEventsRunTaskWithAnyRoleRolePolicy", RolePolicyArgs.builder()
  *             .name("ecs_events_run_task_with_any_role")
  *             .role(ecsEvents.id())
  *             .policy(ecsEventsRunTaskWithAnyRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ecsScheduledTask = new EventTarget("ecsScheduledTask", EventTargetArgs.builder()        
+ *         var ecsScheduledTask = new EventTarget("ecsScheduledTask", EventTargetArgs.builder()
  *             .targetId("run-scheduled-task-every-hour")
  *             .arn(clusterName.arn())
  *             .rule(everyHour.name())
@@ -418,16 +418,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
- *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()        
+ *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
  *             .restApi(exampleAwsApiGatewayRestApi.id())
  *             .build());
  * 
- *         var exampleStage = new Stage("exampleStage", StageArgs.builder()        
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
  *             .restApi(exampleAwsApiGatewayRestApi.id())
  *             .deployment(exampleDeployment.id())
  *             .build());
  * 
- *         var example = new EventTarget("example", EventTargetArgs.builder()        
+ *         var example = new EventTarget("example", EventTargetArgs.builder()
  *             .arn(exampleStage.executionArn().applyValue(executionArn -> String.format("%s/GET", executionArn)))
  *             .rule(exampleEventRule.id())
  *             .httpTarget(EventTargetHttpTargetArgs.builder()
@@ -488,7 +488,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var eventBusInvokeRemoteEventBusRole = new Role("eventBusInvokeRemoteEventBusRole", RoleArgs.builder()        
+ *         var eventBusInvokeRemoteEventBusRole = new Role("eventBusInvokeRemoteEventBusRole", RoleArgs.builder()
  *             .name("event-bus-invoke-remote-event-bus")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -501,23 +501,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var eventBusInvokeRemoteEventBusPolicy = new Policy("eventBusInvokeRemoteEventBusPolicy", PolicyArgs.builder()        
+ *         var eventBusInvokeRemoteEventBusPolicy = new Policy("eventBusInvokeRemoteEventBusPolicy", PolicyArgs.builder()
  *             .name("event_bus_invoke_remote_event_bus")
  *             .policy(eventBusInvokeRemoteEventBus.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(eventBusInvokeRemoteEventBusRole.name())
  *             .policyArn(eventBusInvokeRemoteEventBusPolicy.arn())
  *             .build());
  * 
- *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()        
+ *         var stopInstances = new EventRule("stopInstances", EventRuleArgs.builder()
  *             .name("StopInstance")
  *             .description("Stop instances nightly")
  *             .scheduleExpression("cron(0 0 * * ? *)")
  *             .build());
  * 
- *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()        
+ *         var stopInstancesEventTarget = new EventTarget("stopInstancesEventTarget", EventTargetArgs.builder()
  *             .targetId("StopInstance")
  *             .arn("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus")
  *             .rule(stopInstances.name())
@@ -559,7 +559,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
- *         var example = new EventTarget("example", EventTargetArgs.builder()        
+ *         var example = new EventTarget("example", EventTargetArgs.builder()
  *             .arn(exampleAwsLambdaFunction.arn())
  *             .rule(exampleEventRule.id())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
@@ -611,7 +611,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleEventRule = new EventRule("exampleEventRule");
  * 
- *         var example = new EventTarget("example", EventTargetArgs.builder()        
+ *         var example = new EventTarget("example", EventTargetArgs.builder()
  *             .arn(exampleAwsLambdaFunction.arn())
  *             .rule(exampleEventRule.id())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
@@ -663,12 +663,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("/aws/events/guardduty/logs")
  *             .retentionInDays(1)
  *             .build());
  * 
- *         var exampleEventRule = new EventRule("exampleEventRule", EventRuleArgs.builder()        
+ *         var exampleEventRule = new EventRule("exampleEventRule", EventRuleArgs.builder()
  *             .name("guard-duty_event_rule")
  *             .description("GuardDuty Findings")
  *             .eventPattern(serializeJson(
@@ -709,12 +709,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyDocument(exampleLogPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleLogPolicy -> exampleLogPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .policyName("guardduty-log-publishing-policy")
  *             .build());
  * 
- *         var exampleEventTarget = new EventTarget("exampleEventTarget", EventTargetArgs.builder()        
+ *         var exampleEventTarget = new EventTarget("exampleEventTarget", EventTargetArgs.builder()
  *             .rule(exampleEventRule.name())
  *             .arn(example.arn())
  *             .build());

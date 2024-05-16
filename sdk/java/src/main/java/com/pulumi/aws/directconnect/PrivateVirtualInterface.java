@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new PrivateVirtualInterface("foo", PrivateVirtualInterfaceArgs.builder()        
+ *         var foo = new PrivateVirtualInterface("foo", PrivateVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
  *             .name("vif-foo")
  *             .vlan(4094)

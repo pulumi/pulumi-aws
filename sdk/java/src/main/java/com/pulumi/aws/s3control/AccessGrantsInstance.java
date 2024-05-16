@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessGrantsInstance("example", AccessGrantsInstanceArgs.builder()        
+ *         var example = new AccessGrantsInstance("example", AccessGrantsInstanceArgs.builder()
  *             .identityCenterArn("arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
  *             .build());
  * 

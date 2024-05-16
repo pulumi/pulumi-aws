@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var testUploadBuffer = new UploadBuffer("testUploadBuffer", UploadBufferArgs.builder()        
+ *         var testUploadBuffer = new UploadBuffer("testUploadBuffer", UploadBufferArgs.builder()
  *             .diskPath(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskPath()))
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var example = new UploadBuffer("example", UploadBufferArgs.builder()        
+ *         var example = new UploadBuffer("example", UploadBufferArgs.builder()
  *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .build());

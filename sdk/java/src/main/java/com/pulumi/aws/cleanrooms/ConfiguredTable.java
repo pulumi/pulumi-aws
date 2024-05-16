@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testConfiguredTable = new ConfiguredTable("testConfiguredTable", ConfiguredTableArgs.builder()        
+ *         var testConfiguredTable = new ConfiguredTable("testConfiguredTable", ConfiguredTableArgs.builder()
  *             .name("pulumi-example-table")
  *             .description("I made this table with Pulumi!")
  *             .analysisMethod("DIRECT_QUERY")

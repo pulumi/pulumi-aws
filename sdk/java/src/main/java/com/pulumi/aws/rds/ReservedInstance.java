@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .productDescription("mysql")
  *             .build());
  * 
- *         var example = new ReservedInstance("example", ReservedInstanceArgs.builder()        
+ *         var example = new ReservedInstance("example", ReservedInstanceArgs.builder()
  *             .offeringId(test.applyValue(getReservedInstanceOfferingResult -> getReservedInstanceOfferingResult.offeringId()))
  *             .reservationId("optionalCustomReservationID")
  *             .instanceCount(3)

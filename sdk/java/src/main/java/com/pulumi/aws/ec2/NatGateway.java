@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .allocationId(exampleAwsEip.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .tags(Map.of("Name", "gw NAT"))
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .allocationId(exampleAwsEip.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryAllocationIds(secondary.id())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .connectivityType("private")
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NatGateway("example", NatGatewayArgs.builder()        
+ *         var example = new NatGateway("example", NatGatewayArgs.builder()
  *             .connectivityType("private")
  *             .subnetId(exampleAwsSubnet.id())
  *             .secondaryPrivateIpAddressCount(7)

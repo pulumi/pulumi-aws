@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var postgres_rotator = new CloudFormationStack("postgres-rotator", CloudFormationStackArgs.builder()        
+ *         var postgres_rotator = new CloudFormationStack("postgres-rotator", CloudFormationStackArgs.builder()
  *             .name("postgres-rotator")
  *             .applicationId("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser")
  *             .capabilities(            

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DataSource("default", DataSourceArgs.builder()        
+ *         var default_ = new DataSource("default", DataSourceArgs.builder()
  *             .dataSourceId("example-id")
  *             .name("My Cool Data in S3")
  *             .parameters(DataSourceParametersArgs.builder()

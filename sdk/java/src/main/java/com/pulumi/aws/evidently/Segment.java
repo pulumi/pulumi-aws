@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment("example", SegmentArgs.builder()        
+ *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
  *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
  *             .tags(Map.of("Key1", "example Segment"))
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment("example", SegmentArgs.builder()        
+ *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
  *             .pattern("""
  *   {
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Segment("example", SegmentArgs.builder()        
+ *         var example = new Segment("example", SegmentArgs.builder()
  *             .name("example")
  *             .pattern("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}")
  *             .description("example")

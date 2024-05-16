@@ -20,45 +20,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.licensemanager.LicenseGrant;
- * import com.pulumi.aws.licensemanager.LicenseGrantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new LicenseGrant("test", LicenseGrantArgs.builder()        
- *             .name("share-license-with-account")
- *             .allowedOperations(            
- *                 "ListPurchasedLicenses",
- *                 "CheckoutLicense",
- *                 "CheckInLicense",
- *                 "ExtendConsumptionLicense",
- *                 "CreateToken")
- *             .licenseArn("arn:aws:license-manager::111111111111:license:l-exampleARN")
- *             .principal("arn:aws:iam::111111111112:root")
- *             .homeRegion("us-east-1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

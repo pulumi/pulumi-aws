@@ -48,16 +48,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
  *             .bucket(example.id())
  *             .name("example")
  *             .build());
  * 
- *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()        
+ *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()
  *             .name("example")
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
  *                 .supportingAccessPoint(exampleAccessPoint.arn())

@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CostAllocationTag("example", CostAllocationTagArgs.builder()        
+ *         var example = new CostAllocationTag("example", CostAllocationTagArgs.builder()
  *             .tagKey("example")
  *             .status("Active")
  *             .build());
