@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessLifecyclePolicy("example", ServerlessLifecyclePolicyArgs.builder()        
+ *         var example = new ServerlessLifecyclePolicy("example", ServerlessLifecyclePolicyArgs.builder()
  *             .name("example")
  *             .type("retention")
  *             .policy(serializeJson(

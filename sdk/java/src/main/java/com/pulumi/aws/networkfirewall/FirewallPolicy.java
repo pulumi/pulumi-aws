@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()        
+ *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
  *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .statelessDefaultActions("aws:pass")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()        
+ *         var example = new FirewallPolicy("example", FirewallPolicyArgs.builder()
  *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new FirewallPolicy("test", FirewallPolicyArgs.builder()        
+ *         var test = new FirewallPolicy("test", FirewallPolicyArgs.builder()
  *             .name("example")
  *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
  *                 .statelessDefaultActions(                

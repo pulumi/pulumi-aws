@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()        
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
  *             .engine("memcached")
  *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()        
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
  *             .engine("redis")
  *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()

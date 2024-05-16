@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new DefaultVpc("default", DefaultVpcArgs.builder()        
+ *         var default_ = new DefaultVpc("default", DefaultVpcArgs.builder()
  *             .tags(Map.of("Name", "Default VPC"))
  *             .build());
  * 

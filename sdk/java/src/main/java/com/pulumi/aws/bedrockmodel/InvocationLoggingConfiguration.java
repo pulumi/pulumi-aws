@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.bucket())
  *             .policy(example.arn().applyValue(arn -> """
  * {
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * ", arn,current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))))
  *             .build());
  * 
- *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration("exampleInvocationLoggingConfiguration", InvocationLoggingConfigurationArgs.builder()        
+ *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration("exampleInvocationLoggingConfiguration", InvocationLoggingConfigurationArgs.builder()
  *             .loggingConfig(InvocationLoggingConfigurationLoggingConfigArgs.builder()
  *                 .embeddingDataDeliveryEnabled(true)
  *                 .imageDataDeliveryEnabled(true)

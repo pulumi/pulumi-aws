@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Pipeline("bar", PipelineArgs.builder()        
+ *         var bar = new Pipeline("bar", PipelineArgs.builder()
  *             .inputBucket(inputBucket.id())
  *             .name("aws_elastictranscoder_pipeline_my_test_")
  *             .role(testRole.arn())

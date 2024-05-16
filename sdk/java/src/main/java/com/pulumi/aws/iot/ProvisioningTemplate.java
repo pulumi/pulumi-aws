@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iotFleetProvisioning = new Role("iotFleetProvisioning", RoleArgs.builder()        
+ *         var iotFleetProvisioning = new Role("iotFleetProvisioning", RoleArgs.builder()
  *             .name("IoTProvisioningServiceRole")
  *             .path("/service-role/")
  *             .assumeRolePolicy(iotAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var iotFleetProvisioningRegistration = new RolePolicyAttachment("iotFleetProvisioningRegistration", RolePolicyAttachmentArgs.builder()        
+ *         var iotFleetProvisioningRegistration = new RolePolicyAttachment("iotFleetProvisioningRegistration", RolePolicyAttachmentArgs.builder()
  *             .role(iotFleetProvisioning.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
  *             .build());
@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var devicePolicyPolicy = new Policy("devicePolicyPolicy", PolicyArgs.builder()        
+ *         var devicePolicyPolicy = new Policy("devicePolicyPolicy", PolicyArgs.builder()
  *             .name("DevicePolicy")
  *             .policy(devicePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fleet = new ProvisioningTemplate("fleet", ProvisioningTemplateArgs.builder()        
+ *         var fleet = new ProvisioningTemplate("fleet", ProvisioningTemplateArgs.builder()
  *             .name("FleetTemplate")
  *             .description("My provisioning template")
  *             .provisioningRoleArn(iotFleetProvisioning.arn())

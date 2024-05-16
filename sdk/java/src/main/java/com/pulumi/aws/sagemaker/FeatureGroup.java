@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FeatureGroup("example", FeatureGroupArgs.builder()        
+ *         var example = new FeatureGroup("example", FeatureGroupArgs.builder()
  *             .featureGroupName("example")
  *             .recordIdentifierFeatureName("example")
  *             .eventTimeFeatureName("example")

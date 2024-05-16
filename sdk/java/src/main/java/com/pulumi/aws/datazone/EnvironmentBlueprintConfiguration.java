@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .name("example_domain")
  *             .domainExecutionRole(domainExecutionRole.arn())
  *             .build());
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .managed(true)
  *             .build());
  * 
- *         var exampleEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("exampleEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()        
+ *         var exampleEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("exampleEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()
  *             .domainId(example.id())
  *             .environmentBlueprintId(defaultDataLake.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult).applyValue(defaultDataLake -> defaultDataLake.applyValue(getEnvironmentBlueprintResult -> getEnvironmentBlueprintResult.id())))
  *             .enabledRegions("us-east-1")

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Directory("example", DirectoryArgs.builder()        
+ *         var example = new Directory("example", DirectoryArgs.builder()
  *             .name("tf-example")
  *             .password("SuperSecretPassw0rd")
  *             .type("MicrosoftAD")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSharedDirectory = new SharedDirectory("exampleSharedDirectory", SharedDirectoryArgs.builder()        
+ *         var exampleSharedDirectory = new SharedDirectory("exampleSharedDirectory", SharedDirectoryArgs.builder()
  *             .directoryId(example.id())
  *             .notes("You wanna have a catch?")
  *             .target(SharedDirectoryTargetArgs.builder()

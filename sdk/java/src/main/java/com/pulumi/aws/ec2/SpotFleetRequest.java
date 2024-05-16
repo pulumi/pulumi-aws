@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Request a Spot fleet
- *         var cheapCompute = new SpotFleetRequest("cheapCompute", SpotFleetRequestArgs.builder()        
+ *         var cheapCompute = new SpotFleetRequest("cheapCompute", SpotFleetRequestArgs.builder()
  *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
  *             .spotPrice("0.03")
  *             .allocationStrategy("diversified")
@@ -124,14 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()        
+ *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()
  *             .name("launch-template")
  *             .imageId("ami-516b9131")
  *             .instanceType("m1.small")
  *             .keyName("some-key")
  *             .build());
  * 
- *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()        
+ *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()
  *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
  *             .spotPrice("0.005")
  *             .targetCapacity(2)
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new SpotFleetRequest("foo", SpotFleetRequestArgs.builder()        
+ *         var foo = new SpotFleetRequest("foo", SpotFleetRequestArgs.builder()
  *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
  *             .spotPrice("0.005")
  *             .targetCapacity(2)
@@ -251,14 +251,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()        
+ *         var foo = new LaunchTemplate("foo", LaunchTemplateArgs.builder()
  *             .name("launch-template")
  *             .imageId("ami-516b9131")
  *             .instanceType("m1.small")
  *             .keyName("some-key")
  *             .build());
  * 
- *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()        
+ *         var fooSpotFleetRequest = new SpotFleetRequest("fooSpotFleetRequest", SpotFleetRequestArgs.builder()
  *             .iamFleetRole("arn:aws:iam::12345678:role/spot-fleet")
  *             .spotPrice("0.005")
  *             .targetCapacity(2)

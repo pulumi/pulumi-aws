@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutomationRule("example", AutomationRuleArgs.builder()        
+ *         var example = new AutomationRule("example", AutomationRuleArgs.builder()
  *             .description("Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk")
  *             .ruleName("Elevate severity of findings that relate to important resources")
  *             .ruleOrder(1)

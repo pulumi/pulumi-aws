@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var gcm = new GcmChannel("gcm", GcmChannelArgs.builder()        
+ *         var gcm = new GcmChannel("gcm", GcmChannelArgs.builder()
  *             .applicationId(app.applicationId())
  *             .apiKey("api_key")
  *             .build());

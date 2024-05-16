@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Script("example", ScriptArgs.builder()        
+ *         var example = new Script("example", ScriptArgs.builder()
  *             .name("example-script")
  *             .storageLocation(ScriptStorageLocationArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())

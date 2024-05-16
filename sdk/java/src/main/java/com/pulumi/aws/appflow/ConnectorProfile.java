@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .name("AmazonRedshiftAllCommandsFullAccess")
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example_role")
  *             .managedPolicyArns(test.arn())
  *             .assumeRolePolicy(serializeJson(
@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example_bucket")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .clusterIdentifier("example_cluster")
  *             .databaseName("example_db")
  *             .masterUsername("exampleuser")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .clusterType("single-node")
  *             .build());
  * 
- *         var exampleConnectorProfile = new ConnectorProfile("exampleConnectorProfile", ConnectorProfileArgs.builder()        
+ *         var exampleConnectorProfile = new ConnectorProfile("exampleConnectorProfile", ConnectorProfileArgs.builder()
  *             .name("example_profile")
  *             .connectorType("Redshift")
  *             .connectionMode("Public")

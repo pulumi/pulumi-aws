@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AgentKnowledgeBase("test", AgentKnowledgeBaseArgs.builder()        
+ *         var test = new AgentKnowledgeBase("test", AgentKnowledgeBaseArgs.builder()
  *             .name("example")
  *             .roleArn(example.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()

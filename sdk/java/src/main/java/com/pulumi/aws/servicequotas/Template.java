@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Template("example", TemplateArgs.builder()        
+ *         var example = new Template("example", TemplateArgs.builder()
  *             .region("us-east-1")
  *             .quotaCode("L-2ACBD22F")
  *             .serviceCode("lambda")

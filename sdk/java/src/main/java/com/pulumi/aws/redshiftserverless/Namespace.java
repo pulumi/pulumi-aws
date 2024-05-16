@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Namespace("example", NamespaceArgs.builder()        
+ *         var example = new Namespace("example", NamespaceArgs.builder()
  *             .namespaceName("concurrency-scaling")
  *             .build());
  * 

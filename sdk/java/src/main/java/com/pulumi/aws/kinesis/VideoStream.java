@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VideoStream("default", VideoStreamArgs.builder()        
+ *         var default_ = new VideoStream("default", VideoStreamArgs.builder()
  *             .name("kinesis-video-stream")
  *             .dataRetentionInHours(1)
  *             .deviceName("kinesis-video-device-name")

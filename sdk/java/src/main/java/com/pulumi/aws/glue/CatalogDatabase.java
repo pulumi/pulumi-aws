@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
  *             .name("MyCatalogDatabase")
  *             .build());
  * 
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
  *             .name("MyCatalogDatabase")
  *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
  *                 .permissions("SELECT")

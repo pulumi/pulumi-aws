@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("tf-test")
  *             .elasticsearchVersion("2.3")
  *             .build());
  * 
- *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()        
+ *         var main = new DomainPolicy("main", DomainPolicyArgs.builder()
  *             .domainName(example.domainName())
  *             .accessPolicies(example.arn().applyValue(arn -> """
  * {

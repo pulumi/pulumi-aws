@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example-vpclattice-service")
  *             .authType("AWS_IAM")
  *             .customDomainName("example.com")
  *             .build());
  * 
- *         var exampleAuthPolicy = new AuthPolicy("exampleAuthPolicy", AuthPolicyArgs.builder()        
+ *         var exampleAuthPolicy = new AuthPolicy("exampleAuthPolicy", AuthPolicyArgs.builder()
  *             .resourceIdentifier(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(

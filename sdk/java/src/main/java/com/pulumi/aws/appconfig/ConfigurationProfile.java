@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationProfile("example", ConfigurationProfileArgs.builder()        
+ *         var example = new ConfigurationProfile("example", ConfigurationProfileArgs.builder()
  *             .applicationId(exampleAwsAppconfigApplication.id())
  *             .description("Example Configuration Profile")
  *             .name("example-configuration-profile-tf")

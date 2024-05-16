@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IamPolicyAssignment("example", IamPolicyAssignmentArgs.builder()        
+ *         var example = new IamPolicyAssignment("example", IamPolicyAssignmentArgs.builder()
  *             .assignmentName("example")
  *             .assignmentStatus("ENABLED")
  *             .policyArn(exampleAwsIamPolicy.arn())

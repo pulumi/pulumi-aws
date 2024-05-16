@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www = new Record("www", RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()
  *             .zoneId(primary.zoneId())
  *             .name("www.example.com")
  *             .type("A")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www_dev = new Record("www-dev", RecordArgs.builder()        
+ *         var www_dev = new Record("www-dev", RecordArgs.builder()
  *             .zoneId(primary.zoneId())
  *             .name("www")
  *             .type("CNAME")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .records("dev.example.com")
  *             .build());
  * 
- *         var www_live = new Record("www-live", RecordArgs.builder()        
+ *         var www_live = new Record("www-live", RecordArgs.builder()
  *             .zoneId(primary.zoneId())
  *             .name("www")
  *             .type("CNAME")
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var www = new Record("www", RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()
  *             .zoneId(primary.zoneId())
  *             .name("www.example.com")
  *             .type("CNAME")
@@ -208,7 +208,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()        
+ *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
  *             .name("foobar-elb")
  *             .availabilityZones("us-east-1c")
  *             .listeners(LoadBalancerListenerArgs.builder()
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var www = new Record("www", RecordArgs.builder()        
+ *         var www = new Record("www", RecordArgs.builder()
  *             .zoneId(primary.zoneId())
  *             .name("example.com")
  *             .type("A")
@@ -265,11 +265,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Zone("example", ZoneArgs.builder()        
+ *         var example = new Zone("example", ZoneArgs.builder()
  *             .name("test.example.com")
  *             .build());
  * 
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
  *             .allowOverwrite(true)
  *             .name("test.example.com")
  *             .ttl(172800)

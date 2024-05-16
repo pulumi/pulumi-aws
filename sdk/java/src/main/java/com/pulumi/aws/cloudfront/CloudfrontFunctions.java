@@ -904,11 +904,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -967,11 +967,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -1030,11 +1030,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -1093,11 +1093,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -1156,11 +1156,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
@@ -1219,11 +1219,11 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
-     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+     *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
      *             .build());
      * 
-     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+     *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
      *             .bucket(exampleBucketV2.id())
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ObservabilityConfiguration("example", ObservabilityConfigurationArgs.builder()        
+ *         var example = new ObservabilityConfiguration("example", ObservabilityConfigurationArgs.builder()
  *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor("AWSXRAY")

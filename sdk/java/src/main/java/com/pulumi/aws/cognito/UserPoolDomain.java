@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example-pool")
  *             .build());
  * 
- *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()        
+ *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()
  *             .domain("example-domain")
  *             .userPoolId(example.id())
  *             .build());
@@ -93,11 +93,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()        
+ *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()
  *             .name("example-pool")
  *             .build());
  * 
- *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()        
+ *         var main = new UserPoolDomain("main", UserPoolDomainArgs.builder()
  *             .domain("example-domain")
  *             .certificateArn(cert.arn())
  *             .userPoolId(exampleUserPool.id())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .name("example.com")
  *             .build());
  * 
- *         var auth_cognito_A = new Record("auth-cognito-A", RecordArgs.builder()        
+ *         var auth_cognito_A = new Record("auth-cognito-A", RecordArgs.builder()
  *             .name(main.domain())
  *             .type("A")
  *             .zoneId(example.applyValue(getZoneResult -> getZoneResult.zoneId()))

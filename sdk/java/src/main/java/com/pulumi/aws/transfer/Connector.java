@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector("example", ConnectorArgs.builder()        
+ *         var example = new Connector("example", ConnectorArgs.builder()
  *             .accessRole(test.arn())
  *             .as2Config(ConnectorAs2ConfigArgs.builder()
  *                 .compression("DISABLED")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector("example", ConnectorArgs.builder()        
+ *         var example = new Connector("example", ConnectorArgs.builder()
  *             .accessRole(test.arn())
  *             .sftpConfig(ConnectorSftpConfigArgs.builder()
  *                 .trustedHostKeys("ssh-rsa AAAAB3NYourKeysHere")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
  *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .build());
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
  *             .description("example")
  *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
  *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .tags(Map.of("hello", "world"))
@@ -157,7 +157,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()        
+ *         var example = new DataQualityRuleset("example", DataQualityRulesetArgs.builder()
  *             .name("example")
  *             .ruleset("Rules = [Completeness \"colA\" between 0.4 and 0.8]")
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()

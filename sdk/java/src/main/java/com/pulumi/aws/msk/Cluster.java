@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()
  *             .cidrBlock("192.168.0.0/22")
  *             .build());
  * 
@@ -98,41 +98,41 @@ import javax.annotation.Nullable;
  *             .state("available")
  *             .build());
  * 
- *         var subnetAz1 = new Subnet("subnetAz1", SubnetArgs.builder()        
+ *         var subnetAz1 = new Subnet("subnetAz1", SubnetArgs.builder()
  *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .cidrBlock("192.168.0.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var subnetAz2 = new Subnet("subnetAz2", SubnetArgs.builder()        
+ *         var subnetAz2 = new Subnet("subnetAz2", SubnetArgs.builder()
  *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
  *             .cidrBlock("192.168.1.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var subnetAz3 = new Subnet("subnetAz3", SubnetArgs.builder()        
+ *         var subnetAz3 = new Subnet("subnetAz3", SubnetArgs.builder()
  *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[2]))
  *             .cidrBlock("192.168.2.0/24")
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var sg = new SecurityGroup("sg", SecurityGroupArgs.builder()        
+ *         var sg = new SecurityGroup("sg", SecurityGroupArgs.builder()
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var kms = new Key("kms", KeyArgs.builder()        
+ *         var kms = new Key("kms", KeyArgs.builder()
  *             .description("example")
  *             .build());
  * 
- *         var test = new LogGroup("test", LogGroupArgs.builder()        
+ *         var test = new LogGroup("test", LogGroupArgs.builder()
  *             .name("msk_broker_logs")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("msk-broker-logs-bucket")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
@@ -148,12 +148,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()        
+ *         var firehoseRole = new Role("firehoseRole", RoleArgs.builder()
  *             .name("firehose_test_role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("kinesis-firehose-msk-broker-logs-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("LogDeliveryEnabled", "placeholder"))
  *             .build());
  * 
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterName("example")
  *             .kafkaVersion("3.2.0")
  *             .numberOfBrokerNodes(3)
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterName("example")
  *             .kafkaVersion("2.7.1")
  *             .numberOfBrokerNodes(3)

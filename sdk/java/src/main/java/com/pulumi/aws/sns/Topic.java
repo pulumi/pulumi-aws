@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic")
  *             .build());
  * 
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic")
  *             .deliveryPolicy("""
  * {
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic")
  *             .kmsMasterKeyId("alias/aws/sns")
  *             .build());
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()        
+ *         var userUpdates = new Topic("userUpdates", TopicArgs.builder()
  *             .name("user-updates-topic.fifo")
  *             .fifoTopic(true)
  *             .contentBasedDeduplication(true)

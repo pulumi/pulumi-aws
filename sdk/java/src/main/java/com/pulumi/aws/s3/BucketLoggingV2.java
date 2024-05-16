@@ -55,25 +55,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build());
  * 
- *         var logBucket = new BucketV2("logBucket", BucketV2Args.builder()        
+ *         var logBucket = new BucketV2("logBucket", BucketV2Args.builder()
  *             .bucket("my-tf-log-bucket")
  *             .build());
  * 
- *         var logBucketAcl = new BucketAclV2("logBucketAcl", BucketAclV2Args.builder()        
+ *         var logBucketAcl = new BucketAclV2("logBucketAcl", BucketAclV2Args.builder()
  *             .bucket(logBucket.id())
  *             .acl("log-delivery-write")
  *             .build());
  * 
- *         var exampleBucketLoggingV2 = new BucketLoggingV2("exampleBucketLoggingV2", BucketLoggingV2Args.builder()        
+ *         var exampleBucketLoggingV2 = new BucketLoggingV2("exampleBucketLoggingV2", BucketLoggingV2Args.builder()
  *             .bucket(example.id())
  *             .targetBucket(logBucket.id())
  *             .targetPrefix("log/")

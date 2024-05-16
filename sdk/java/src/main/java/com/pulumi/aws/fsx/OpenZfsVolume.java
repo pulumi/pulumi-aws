@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OpenZfsVolume("test", OpenZfsVolumeArgs.builder()        
+ *         var test = new OpenZfsVolume("test", OpenZfsVolumeArgs.builder()
  *             .name("testvolume")
  *             .parentVolumeId(testAwsFsxOpenzfsFileSystem.rootVolumeId())
  *             .build());

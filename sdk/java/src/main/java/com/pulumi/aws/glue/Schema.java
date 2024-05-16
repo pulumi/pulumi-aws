@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schema("example", SchemaArgs.builder()        
+ *         var example = new Schema("example", SchemaArgs.builder()
  *             .schemaName("example")
  *             .registryArn(test.arn())
  *             .dataFormat("AVRO")

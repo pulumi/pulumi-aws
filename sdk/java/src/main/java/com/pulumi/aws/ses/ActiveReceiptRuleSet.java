@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new ActiveReceiptRuleSet("main", ActiveReceiptRuleSetArgs.builder()        
+ *         var main = new ActiveReceiptRuleSet("main", ActiveReceiptRuleSetArgs.builder()
  *             .ruleSetName("primary-rules")
  *             .build());
  * 

@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()        
+ *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()
  *             .linkingMode("ALL_REGIONS")
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnable(false)
  *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()        
+ *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()
  *             .name("Example")
  *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()        
+ *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()
  *             .name("Disabled")
  *             .description("This is an example of disabled configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()        
+ *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()
  *             .name("Custom Controls")
  *             .description("This is an example of configuration policy with custom control settings")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()

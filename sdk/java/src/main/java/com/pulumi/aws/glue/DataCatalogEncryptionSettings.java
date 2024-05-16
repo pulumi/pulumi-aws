@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalogEncryptionSettings("example", DataCatalogEncryptionSettingsArgs.builder()        
+ *         var example = new DataCatalogEncryptionSettings("example", DataCatalogEncryptionSettingsArgs.builder()
  *             .dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.builder()
  *                 .connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.builder()
  *                     .awsKmsKeyId(test.arn())

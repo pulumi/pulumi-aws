@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .dataSetId("example-id")
  *             .name("example-name")
  *             .importMode("SPICE")
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .dataSetId("example-id")
  *             .name("example-name")
  *             .importMode("SPICE")
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .dataSetId("example-id")
  *             .name("example-name")
  *             .importMode("SPICE")
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .dataSetId("example-id")
  *             .name("example-name")
  *             .importMode("SPICE")
@@ -294,7 +294,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSet("example", DataSetArgs.builder()        
+ *         var example = new DataSet("example", DataSetArgs.builder()
  *             .dataSetId("example-id")
  *             .name("example-name")
  *             .importMode("SPICE")

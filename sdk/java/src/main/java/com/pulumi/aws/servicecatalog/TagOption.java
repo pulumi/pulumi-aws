@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TagOption("example", TagOptionArgs.builder()        
+ *         var example = new TagOption("example", TagOptionArgs.builder()
  *             .key("nyckel")
  *             .value("värde")
  *             .build());

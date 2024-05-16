@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationFsxLustre("example", LocationFsxLustreArgs.builder()        
+ *         var example = new LocationFsxLustre("example", LocationFsxLustreArgs.builder()
  *             .fsxFilesystemArn(exampleAwsFsxLustreFileSystem.arn())
  *             .securityGroupArns(exampleAwsSecurityGroup.arn())
  *             .build());

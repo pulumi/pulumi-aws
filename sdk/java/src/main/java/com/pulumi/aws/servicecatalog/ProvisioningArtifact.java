@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProvisioningArtifact("example", ProvisioningArtifactArgs.builder()        
+ *         var example = new ProvisioningArtifact("example", ProvisioningArtifactArgs.builder()
  *             .name("example")
  *             .productId(exampleAwsServicecatalogProduct.id())
  *             .type("CLOUD_FORMATION_TEMPLATE")

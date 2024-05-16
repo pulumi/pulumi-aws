@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Assessment("test", AssessmentArgs.builder()        
+ *         var test = new Assessment("test", AssessmentArgs.builder()
  *             .name("example")
  *             .assessmentReportsDestination(AssessmentAssessmentReportsDestinationArgs.builder()
  *                 .destination(String.format("s3://%s", testAwsS3Bucket.id()))
