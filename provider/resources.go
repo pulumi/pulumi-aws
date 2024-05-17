@@ -522,22 +522,23 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 }
 
 // boolValue gets a bool value from a property map if present, else false
-func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) bool {
+func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) (*bool, error) {
 	val, ok := vars[prop]
 	if ok && val.IsBool() {
-		return val.BoolValue()
+		result := val.BoolValue()
+		return &result, nil
 	}
 	for _, env := range envs {
 		val, ok := os.LookupEnv(env)
 		if ok {
 			boolValue, err := strconv.ParseBool(val)
 			if err != nil {
-				return false
+				return nil, err
 			}
-			return boolValue
+			return &boolValue, nil
 		}
 	}
-	return false
+	return nil, nil
 }
 
 func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
@@ -646,10 +647,16 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 	// will specify that skipMetadataApiCheck: false
 	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
 	config.EC2MetadataServiceEnableState = imds.ClientDisabled
-	skipMetadataApiCheck := boolValue(vars, "skipMetadataApiCheck",
+	skipMetadataApiCheck, err := boolValue(vars, "skipMetadataApiCheck",
 		[]string{"AWS_SKIP_METADATA_API_CHECK"})
-	if !skipMetadataApiCheck {
-		config.EC2MetadataServiceEnableState = imds.ClientEnabled
+
+	contract.AssertNoErrorf(err, "Failed to parse skipMetadataApiCheck configuration")
+	if skipMetadataApiCheck != nil {
+		if *skipMetadataApiCheck {
+			config.EC2MetadataServiceEnableState = imds.ClientEnabled
+		} else {
+			config.EC2MetadataServiceEnableState = imds.ClientDisabled
+		}
 	}
 
 	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
@@ -751,17 +758,21 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	return func(vars resource.PropertyMap, c shim.ResourceConfig) error {
-		skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+		var err error
+		skipCredentialsValidation, err := boolValue(vars, "skipCredentialsValidation",
 			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+
+		if err != nil {
+			return err
+		}
 
 		// if we skipCredentialsValidation then we don't need to do anything in
 		// preConfigureCallback as this is an explicit operation
-		if skipCredentialsValidation {
+		if skipCredentialsValidation != nil && *skipCredentialsValidation {
 			log.Printf("[INFO] pulumi-aws: skip credentials validation")
 			return nil
 		}
 
-		var err error
 		if alreadyRun.CompareAndSwap(false, true) {
 			log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
 				"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
