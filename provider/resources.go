@@ -642,14 +642,9 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
-	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
-	// if we want to authenticate against the AWS API Metadata Service then the user
-	// will specify that skipMetadataApiCheck: false
-	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
-	config.EC2MetadataServiceEnableState = imds.ClientDisabled
+	// Only set non-default EC2MetadataServiceEnableState if requested by skipMetadataApiCheck.
 	skipMetadataApiCheck, err := boolValue(vars, "skipMetadataApiCheck",
 		[]string{"AWS_SKIP_METADATA_API_CHECK"})
-
 	contract.AssertNoErrorf(err, "Failed to parse skipMetadataApiCheck configuration")
 	if skipMetadataApiCheck != nil {
 		if *skipMetadataApiCheck {
