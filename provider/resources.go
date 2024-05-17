@@ -647,7 +647,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		[]string{"AWS_SKIP_METADATA_API_CHECK"})
 	contract.AssertNoErrorf(err, "Failed to parse skipMetadataApiCheck configuration")
 	if skipMetadataApiCheck != nil {
-		if *skipMetadataApiCheck {
+		if !*skipMetadataApiCheck {
 			config.EC2MetadataServiceEnableState = imds.ClientEnabled
 		} else {
 			config.EC2MetadataServiceEnableState = imds.ClientDisabled
