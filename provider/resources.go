@@ -872,9 +872,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"skip_metadata_api_check": {
 				Type: "boolean",
-				Default: &tfbridge.DefaultInfo{
-					Value: true,
-				},
 			},
 			"access_key": {
 				Secret: tfbridge.True(),
