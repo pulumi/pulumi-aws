@@ -60,7 +60,7 @@ resources:
     type: aws:ec2/instance:Instance
     properties:
       ami: ${ec2ami}
-      instanceType: t2.micro
+      instanceType: t2.medium
       keyName: ${key-pair.keyName}
       metadataOptions:
         httpTokens: required
@@ -70,11 +70,15 @@ resources:
         - ${segroup}
       userData: |
         #!/bin/bash
+
+        # Reconfigure SSHD
         cat /etc/ssh/ssh_config >/tmp/sshd_config
         echo "AcceptEnv PULUMI_COMMAND_STDOUT" >> /tmp/sshd_config
         echo "AcceptEnv PULUMI_COMMAND_STDERR" >> /tmp/sshd_config
         sudo cp /tmp/sshd_config /etc/ssh/sshd_config || echo "FAILED to set sshd_config"
         rm /tmp/sshd_config
+
+
         # sudo systemctl restart sshd.service
 
   file-copy:
@@ -87,19 +91,30 @@ resources:
       localPath: ./Pulumi.yaml
       remotePath: "/tmp/Pulumi.yaml"
 
-  init-cmd:
+  install-cmd:
     type: command:remote:Command
     properties:
       create: |
+
+        echo "===="
+
+        # Upgrade from AWS CLI v1 to AWS CLI v2
+        sudo yum remove awscli
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+
+        echo "====="
+
+        # Install Pulumi
         curl -fsSL https://get.pulumi.com | sh
         export PATH="/home/ec2-user/.pulumi/bin:$PATH"
-        cd /tmp
-        mkdir ./pulumi-state
-        export PULUMI_CONFIG_PASSPHRASE=123456
-        pulumi stack init dev
-        pulumi stack select dev
-        pulumi preview
-      # SSH connection details to the remote machine
+
+        echo "======"
+        pulumi version
+        echo "======"
+        aws --version
+        echo "======"
       connection:
         host: ${inst.publicIp}
         user: ec2-user # The default user for Amazon Linux AMI
@@ -108,7 +123,33 @@ resources:
       dependsOn:
         - ${file-copy}
 
+  init-cmd:
+    type: command:remote:Command
+    properties:
+      create: |
+        echo "+++++"
+        aws --version
+        aws s3 ls
+        echo "+++++"
+        cd /tmp
+        mkdir ./pulumi-state
+        export PULUMI_CONFIG_PASSPHRASE=123456
+        pulumi stack init dev
+        pulumi stack select dev
+        pulumi config set aws:skipMetadataApiCheck false
+        pulumi config
+        pulumi preview
+      # SSH connection details to the remote machine
+      connection:
+        host: ${inst.publicIp}
+        user: ec2-user # The default user for Amazon Linux AMI
+        privateKey: ${priv-key.privateKeyOpenssh}
+    options:
+      dependsOn:
+        - ${install-cmd}
+
 outputs:
   instanceId: ${inst.id}
   publicIp: ${inst.publicIp}
+  installOut: ${install-cmd.stdout}
   commandOut: ${init-cmd.stdout}
