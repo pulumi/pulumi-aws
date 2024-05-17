@@ -1,0 +1,92 @@
+name: imds-v2
+runtime: yaml
+description: Test the ability of pulumi-aws to authenticate on an EC2 instance with IMDSv2 enabled
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-yaml
+
+variables:
+  ec2ami:
+    fn::invoke:
+      function: aws:ec2:getAmi
+      arguments:
+        filters:
+          - name: name
+            values: ["amzn2-ami-hvm-*-x86_64-*"]
+        owners:
+          - amazon
+        mostRecent: true
+      return: id
+
+resources:
+
+  segroup:
+    type: aws:ec2:SecurityGroup
+    properties:
+      ingress:
+        - protocol: tcp
+          fromPort: 80
+          toPort: 80
+          cidrBlocks: ["0.0.0.0/0"]
+        - protocol: tcp
+          fromPort: 22
+          toPort: 22
+          cidrBlocks: ["0.0.0.0/0"]
+      egress:
+        - fromPort: 0
+          toPort: 0
+          protocol: '-1'
+          cidrBlocks:
+            - 0.0.0.0/0
+          ipv6CidrBlocks:
+            - ::/0
+  priv-key:
+    type: tls:PrivateKey
+    properties:
+      algorithm: RSA
+      rsaBits: 2048
+
+  key-pair:
+    type: aws:ec2/keyPair:KeyPair
+    properties:
+      publicKey: ${priv-key.publicKeyOpenssh}
+
+  inst:
+    type: aws:ec2/instance:Instance
+    properties:
+      ami: ${ec2ami}
+      instanceType: t2.micro
+      keyName: ${key-pair.keyName}
+      metadataOptions:
+        httpTokens: required
+        httpEndpoint: enabled
+        httpPutResponseHopLimit: 1
+      vpcSecurityGroupIds:
+        - ${segroup}
+      userData: |
+        #!/bin/bash
+        cat /etc/ssh/ssh_config >/tmp/sshd_config
+        echo "AcceptEnv PULUMI_COMMAND_STDOUT" >> /tmp/sshd_config
+        echo "AcceptEnv PULUMI_COMMAND_STDERR" >> /tmp/sshd_config
+        sudo cp /tmp/sshd_config /etc/ssh/sshd_config || echo "FAILED to set sshd_config"
+        rm /tmp/sshd_config
+        # sudo systemctl restart sshd.service
+
+  init-cmd:
+    type: command:remote:Command
+    properties:
+      create: |
+        curl -fsSL https://get.pulumi.com | sh
+        export PATH="/home/ec2-user/.pulumi/bin:$PATH"
+        pulumi version
+      # SSH connection details to the remote machine
+      connection:
+        host: ${inst.publicIp}
+        user: ec2-user # The default user for Amazon Linux AMI
+        privateKey: ${priv-key.privateKeyOpenssh}
+
+outputs:
+  instanceId: ${inst.id}
+  publicIp: ${inst.publicIp}
+  commandOut: ${init-cmd.stdout}
