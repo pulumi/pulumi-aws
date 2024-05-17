@@ -19,15 +19,14 @@ variables:
       function: aws:ec2:getAmi
       arguments:
         filters:
-          # TODO can get a better AMI that has AWS CLI v2 like al2023
           - name: name
-            values: ["amzn2-ami-hvm-*-x86_64-*"]
+            values: ["al2023*x86_64*"]
         owners:
           - amazon
         mostRecent: true
       return: id
 
-  instanceType: t2.micro
+  instanceType: t2.medium
   policyArn: "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess" # example policy
 
 resources:
@@ -144,17 +143,6 @@ resources:
     type: command:remote:Command
     properties:
       create: |
-        # Upgrade from AWS CLI v1 to AWS CLI v2
-        echo "========"
-        sudo yum remove awscli
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install
-        echo "========"
-        aws --version
-        echo "========"
-
-        # Install Pulumi
         echo "========"
         curl -fsSL https://get.pulumi.com | sh
         export PATH="/home/ec2-user/.pulumi/bin:$PATH"
