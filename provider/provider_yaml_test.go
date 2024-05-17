@@ -6,12 +6,15 @@
 package provider
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"math/rand"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"runtime"
+	"strings"
 	"testing"
 
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -318,16 +321,44 @@ func TestRegress3674(t *testing.T) {
 
 // Ensure that pulumi-aws can authenticate using IMDS API when Pulumi is running in a context where that is made
 // available such as an EC2 instance.
-func TestIMSDAuth(t *testing.T) {
+func TestIMDSAuth(t *testing.T) {
+	var localProviderBuild string
 	actual := fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH)
 	expected := "linux/amd64"
-	if fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH) != "" {
-		t.Skipf("This test requires %q but running on %q", expected, actual)
-	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
-	localProviderBuild, err := filepath.Abs(filepath.Join(cwd, "..", "bin", "pulumi-resource-aws"))
-	require.NoError(t, err)
+	if actual == expected {
+		currentBinary, err := filepath.Abs(filepath.Join(cwd, "..", "bin", "pulumi-resource-aws"))
+		require.NoError(t, err)
+		t.Logf("Reusing prebuilt binary from %s to test %q", currentBinary, expected)
+		localProviderBuild = currentBinary
+	} else {
+		t.Logf("Cross-compiling provider-resource-aws under test to %q", expected)
+		localProviderBuild = filepath.Join(os.TempDir(), "pulumi-resource-aws")
+		ldFlags := []string{
+			"-X", "github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version=6.0.0-alpha.0+dev",
+			"-X", "github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev",
+		}
+		args := []string{
+			"build", "-o", localProviderBuild,
+			"-ldflags", strings.Join(ldFlags, " "),
+		}
+		cmd := exec.Command("go", args...)
+		cmd.Dir = filepath.Join(cwd, "cmd", "pulumi-resource-aws")
+		cmd.Env = os.Environ()
+		cmd.Env = append(cmd.Env,
+			fmt.Sprintf("GOOS=linux"),
+			fmt.Sprintf("GOARCH=amd64"),
+		)
+		var stderr, stdout bytes.Buffer
+		cmd.Stderr = &stderr
+		cmd.Stdout = &stdout
+		if err := cmd.Run(); err != nil {
+			t.Logf("go %s failed\nStdout:\n%s\nStderr:\n%s\n", strings.Join(args, " "),
+				stdout.String(), stderr.String())
+			require.NoError(t, err)
+		}
+	}
 	t.Run("IDMSv2", func(t *testing.T) {
 		ptest := pulumiTest(t, filepath.Join("test-programs", "imds-auth", "imds-v2"), opttest.SkipInstall())
 		ptest.SetConfig("localProviderBuild", localProviderBuild)

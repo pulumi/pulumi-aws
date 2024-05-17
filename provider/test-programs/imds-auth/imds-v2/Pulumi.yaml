@@ -180,9 +180,9 @@ resources:
         export PULUMI_CONFIG_PASSPHRASE=123456
         export PATH="/tmp:$PATH"
         export PATH="/home/ec2-user/.pulumi/bin:$PATH"
+        chmod a+x /tmp/pulumi-resource-aws
         pulumi version # ensure in PATH
         pulumi-resource-aws --help # ensure in PATH
-
         pulumi stack init dev
         pulumi stack select dev
         pulumi config
