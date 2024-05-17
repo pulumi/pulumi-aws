@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
-Date: Fri, 29 Mar 2024 10:29:15 -0400
+Date: Fri, 17 May 2024 14:05:41 -0400
 Subject: [PATCH] Revert "rds/engine_version: Fix bugs with default only flag"
 
 
 diff --git a/internal/service/rds/engine_version_data_source.go b/internal/service/rds/engine_version_data_source.go
-index 9a8404e8f8..925fd1f341 100644
+index d825e13714..e3ef66e45f 100644
 --- a/internal/service/rds/engine_version_data_source.go
 +++ b/internal/service/rds/engine_version_data_source.go
 @@ -11,7 +11,6 @@ import (
@@ -16,40 +16,28 @@ index 9a8404e8f8..925fd1f341 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-@@ -216,27 +215,37 @@ func dataSourceEngineVersionRead(ctx context.Context, d *schema.ResourceData, me
+@@ -216,27 +215,20 @@ func dataSourceEngineVersionRead(ctx context.Context, d *schema.ResourceData, me
  		input.EngineVersion = aws.String(v.(string))
  	}
  
+-	if v, ok := d.GetOk("include_all"); ok {
+-		input.IncludeAll = aws.Bool(v.(bool))
+-	}
 +	input.DefaultOnly = aws.Bool(true)
 +	defaultOnlySet := false
-+
-+	if v, ok := d.GetOk("default_only"); ok {
-+		input.DefaultOnly = aws.Bool(v.(bool))
+ 
+ 	if v, ok := d.GetOk("default_only"); ok {
+ 		input.DefaultOnly = aws.Bool(v.(bool))
 +		defaultOnlySet = true
 +	}
 +
- 	if v, ok := d.GetOk("include_all"); ok {
- 		input.IncludeAll = aws.Bool(v.(bool))
-+		input.DefaultOnly = nil
- 	}
- 
--	if v, ok := d.GetOk("default_only"); ok {
--		input.DefaultOnly = aws.Bool(v.(bool))
-+	if _, ok := d.GetOk(names.AttrVersion); ok && !defaultOnlySet {
-+		input.DefaultOnly = nil
-+	}
-+
-+	if _, ok := d.GetOk("preferred_major_targets"); ok && !defaultOnlySet {
-+		input.DefaultOnly = nil
-+	}
-+
-+	if _, ok := d.GetOk("preferred_upgrade_targets"); ok && !defaultOnlySet {
++	if _, ok := d.GetOk("preferred_versions"); ok && !defaultOnlySet {
 +		input.DefaultOnly = nil
  	}
  
 -	// Make sure any optional arguments in the schema are in this list except for "default_only"
 -	if _, ok := d.GetOk("default_only"); !ok && !criteriaSet(d, []string{
--		"filter",
+-		names.AttrFilter,
 -		"has_major_target",
 -		"has_minor_target",
 -		"include_all",
@@ -60,16 +48,12 @@ index 9a8404e8f8..925fd1f341 100644
 -		names.AttrVersion,
 -	}) {
 -		input.DefaultOnly = aws.Bool(true)
-+	if _, ok := d.GetOk("preferred_versions"); ok && !defaultOnlySet {
-+		input.DefaultOnly = nil
-+	}
-+
 +	if v, ok := d.GetOk("latest"); ok && v.(bool) && !defaultOnlySet {
 +		input.DefaultOnly = nil
  	}
  
  	log.Printf("[DEBUG] Reading RDS engine versions: %v", input)
-@@ -474,25 +483,3 @@ func sortEngineVersions(engineVersions []*rds.DBEngineVersion) {
+@@ -474,25 +466,3 @@ func sortEngineVersions(engineVersions []*rds.DBEngineVersion) {
  		return version.LessThanWithTime(engineVersions[i].CreateTime, engineVersions[j].CreateTime, aws.StringValue(engineVersions[i].EngineVersion), aws.StringValue(engineVersions[j].EngineVersion))
  	})
  }

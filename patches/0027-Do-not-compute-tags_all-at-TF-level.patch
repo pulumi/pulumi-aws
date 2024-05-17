@@ -49,7 +49,7 @@ index a6bf0eb823..8eebe8e047 100644
  		Blocks: map[string]schema.Block{
  			"monitor": schema.SetNestedBlock{
 diff --git a/internal/service/auditmanager/assessment.go b/internal/service/auditmanager/assessment.go
-index 075d3b1d92..96ba1964f3 100644
+index 633319638e..323cd0f205 100644
 --- a/internal/service/auditmanager/assessment.go
 +++ b/internal/service/auditmanager/assessment.go
 @@ -95,7 +95,7 @@ func (r *resourceAssessment) Schema(ctx context.Context, req resource.SchemaRequ
@@ -62,7 +62,7 @@ index 075d3b1d92..96ba1964f3 100644
  		Blocks: map[string]schema.Block{
  			"assessment_reports_destination": schema.ListNestedBlock{
 diff --git a/internal/service/auditmanager/control.go b/internal/service/auditmanager/control.go
-index 854451a990..be2c1d6f99 100644
+index 818a884c4b..26342bdb52 100644
 --- a/internal/service/auditmanager/control.go
 +++ b/internal/service/auditmanager/control.go
 @@ -67,7 +67,7 @@ func (r *resourceControl) Schema(ctx context.Context, req resource.SchemaRequest
@@ -88,7 +88,7 @@ index ffa236c568..5733dd6110 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 0ed0652413..2d331ac4ed 100644
+index 9e41a479d9..98ca3ae16c 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
 @@ -109,7 +109,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
@@ -101,7 +101,7 @@ index 0ed0652413..2d331ac4ed 100644
  	}
  
 diff --git a/internal/service/batch/job_queue_schema.go b/internal/service/batch/job_queue_schema.go
-index b9291e0ff2..47ef9307a3 100644
+index e8e1a272eb..a4a1625554 100644
 --- a/internal/service/batch/job_queue_schema.go
 +++ b/internal/service/batch/job_queue_schema.go
 @@ -58,7 +58,7 @@ func jobQueueSchema0(ctx context.Context) schema.Schema {
@@ -114,7 +114,7 @@ index b9291e0ff2..47ef9307a3 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index 8ea4e9e322..e2a85fb87a 100644
+index 06ac90e481..088c7dcf98 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
 @@ -117,7 +117,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
@@ -166,7 +166,7 @@ index ecec56b129..637bbc3595 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/quicksight/namespace.go b/internal/service/quicksight/namespace.go
-index 32592f6895..99110518cf 100644
+index 777329f8ae..4aff3c790d 100644
 --- a/internal/service/quicksight/namespace.go
 +++ b/internal/service/quicksight/namespace.go
 @@ -93,7 +93,7 @@ func (r *resourceNamespace) Schema(ctx context.Context, req resource.SchemaReque

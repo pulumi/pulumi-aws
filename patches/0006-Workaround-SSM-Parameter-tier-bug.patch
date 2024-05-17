@@ -1,33 +1,33 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Daniel Bradley <daniel@pulumi.com>
-Date: Fri, 4 Nov 2022 17:24:42 +0000
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Fri, 17 May 2024 13:41:45 -0400
 Subject: [PATCH] Workaround SSM Parameter tier bug
 
 - Disable "computed".
 - Disable diff suppression & counteractions
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index e63aea86d0..9ea46bb099 100644
+index 7fd23f6b57..ffa7fb4254 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
-@@ -95,15 +95,17 @@ func ResourceParameter() *schema.Resource {
+@@ -92,15 +92,17 @@ func resourceParameter() *schema.Resource {
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
  			"tier": {
--				Type:         schema.TypeString,
--				Optional:     true,
--				Computed:     true,
+-				Type:             schema.TypeString,
+-				Optional:         true,
+-				Computed:         true,
 +				Type:     schema.TypeString,
 +				Optional: true,
 +				//Computed:     true,
-+				Default:      ssm.ParameterTierStandard,
- 				ValidateFunc: validation.StringInSlice(ssm.ParameterTier_Values(), false),
++				Default:          awstypes.ParameterTierStandard,
+ 				ValidateDiagFunc: enum.Validate[awstypes.ParameterTier](),
  				DiffSuppressFunc: func(k, old, new string, d *schema.ResourceData) bool {
 -					if old != "" {
--						return new == ssm.ParameterTierIntelligentTiering
+-						return awstypes.ParameterTier(new) == awstypes.ParameterTierIntelligentTiering
 -					}
 -					return false
-+					return d.Get("tier").(string) == ssm.ParameterTierIntelligentTiering
++					return d.Get("tier").(awstypes.ParameterTier) == awstypes.ParameterTierIntelligentTiering
 +					//if old != "" {
 +					//	return new == ssm.ParameterTierIntelligentTiering
 +					//}
@@ -35,21 +35,18 @@ index e63aea86d0..9ea46bb099 100644
  				},
  			},
  			names.AttrType: {
-@@ -319,11 +321,13 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
- 			AllowedPattern: aws.String(d.Get("allowed_pattern").(string)),
+@@ -297,6 +299,14 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
+ 			Value:          aws.String(value),
  		}
  
 +		// FORK: Stack72 to undo this Tier comment out below when associated bridge issue is solved
 +
- 		// Retrieve the value set in the config directly to counteract the DiffSuppressFunc above
--		tier := d.GetRawConfig().GetAttr("tier")
--		if tier.IsKnown() && !tier.IsNull() {
--			paramInput.Tier = aws.String(tier.AsString())
--		}
++		// Retrieve the value set in the config directly to counteract the DiffSuppressFunc above
 +		//tier := d.GetRawConfig().GetAttr("tier")
 +		//if tier.IsKnown() && !tier.IsNull() {
 +		//	paramInput.Tier = aws.String(tier.AsString())
 +		//}
- 
++
  		if d.HasChange("data_type") {
- 			paramInput.DataType = aws.String(d.Get("data_type").(string))
+ 			input.DataType = aws.String(d.Get("data_type").(string))
+ 		}

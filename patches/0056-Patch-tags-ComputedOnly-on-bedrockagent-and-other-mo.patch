@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags ComputedOnly on bedrockagent and other modules
 
 
 diff --git a/internal/service/bcmdataexports/export.go b/internal/service/bcmdataexports/export.go
-index 0055c1bb19..c3d5cd90b2 100644
+index 5e4ffa7b43..8e770f9fef 100644
 --- a/internal/service/bcmdataexports/export.go
 +++ b/internal/service/bcmdataexports/export.go
 @@ -168,7 +168,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
@@ -44,7 +44,7 @@ index 193035bbd0..a87fbfd16c 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/knowledge_base.go b/internal/service/bedrockagent/knowledge_base.go
-index 47f166f409..3136f1be3a 100644
+index 4c026280ed..99b1694b82 100644
 --- a/internal/service/bedrockagent/knowledge_base.go
 +++ b/internal/service/bedrockagent/knowledge_base.go
 @@ -88,7 +88,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
@@ -57,7 +57,7 @@ index 47f166f409..3136f1be3a 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/globalaccelerator/cross_account_attachment.go b/internal/service/globalaccelerator/cross_account_attachment.go
-index dbeaa5d05a..b193b6a5a8 100644
+index c6204cfc63..f0d1a055dd 100644
 --- a/internal/service/globalaccelerator/cross_account_attachment.go
 +++ b/internal/service/globalaccelerator/cross_account_attachment.go
 @@ -72,7 +72,7 @@ func (r *crossAccountAttachmentResource) Schema(ctx context.Context, request res

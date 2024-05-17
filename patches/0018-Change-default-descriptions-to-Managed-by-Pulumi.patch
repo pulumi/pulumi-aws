@@ -44,7 +44,7 @@ index 837e79c057..8fc8280900 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 959a97abd7..f7587ff9ab 100644
+index 31466da183..d36339e1dc 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -54,7 +54,7 @@ index 959a97abd7..f7587ff9ab 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
 index 333fe4befa..b706339eea 100644
@@ -83,7 +83,7 @@ index d2f71a3305..c650bee4bf 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index efd59ed47e..dfe5a0f410 100644
+index 28dbb026be..15decf8ed9 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -49,7 +49,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -93,7 +93,7 @@ index efd59ed47e..dfe5a0f410 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/security_group.go b/internal/service/elasticache/security_group.go
 new file mode 100644
@@ -242,7 +242,7 @@ index b00bb973e4..daa2df4791 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index cec42b0ab5..e1ce46856e 100644
+index 961d1f0438..710fd0b998 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -51,7 +51,7 @@ func ResourceChannel() *schema.Resource {
@@ -255,7 +255,7 @@ index cec42b0ab5..e1ce46856e 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 55d3637a4e..465e394512 100644
+index fe65b679fa..2a31c3f3ce 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
 @@ -73,7 +73,7 @@ func ResourceCluster() *schema.Resource {
@@ -268,7 +268,7 @@ index 55d3637a4e..465e394512 100644
  			"engine_patch_version": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index 877c845404..5be6fa78a8 100644
+index ca5f2daae9..ae4c0946b3 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
 @@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -278,7 +278,7 @@ index 877c845404..5be6fa78a8 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
 index 314802c87e..9bd9633a92 100644
@@ -294,7 +294,7 @@ index 314802c87e..9bd9633a92 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index 2807e14fea..18be05a952 100644
+index e87f859edf..23da80a091 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -304,10 +304,10 @@ index 2807e14fea..18be05a952 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index e438ed4cb6..95d1b3f345 100644
+index 1850017051..963b73dbbd 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -317,7 +317,7 @@ index e438ed4cb6..95d1b3f345 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
 index fc60010e7d..0b213b1bf7 100644
@@ -333,7 +333,7 @@ index fc60010e7d..0b213b1bf7 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index f116ad37e4..c8b59e9363 100644
+index ee5f978ef7..a9a5d5d082 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -343,7 +343,7 @@ index f116ad37e4..c8b59e9363 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
 index 76678ca094..774986d77b 100644
@@ -359,7 +359,7 @@ index 76678ca094..774986d77b 100644
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 546903e074..fcdea229c6 100644
+index 1495ef44cf..82d6784aba 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -369,7 +369,7 @@ index 546903e074..fcdea229c6 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
 new file mode 100644
@@ -707,7 +707,7 @@ index dfc4040034..e044b6a8cf 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index 32c6f92b44..aa4eda9830 100644
+index 1a1a3536eb..8901974885 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -50,7 +50,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -717,7 +717,7 @@ index 32c6f92b44..aa4eda9830 100644
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"family": {
+ 			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/redshift/security_group.go b/internal/service/redshift/security_group.go
 new file mode 100644
@@ -1030,7 +1030,7 @@ index 2d1a8f8bcb..47c939f356 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index c46f2480be..99b65c9466 100644
+index b11895007a..99e20aa518 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
 @@ -361,7 +361,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
@@ -1061,11 +1061,11 @@ index c46f2480be..99b65c9466 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 3ffc464eae..55d4aa852c 100644
+index 188382487b..27b22fbad1 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -59,7 +59,7 @@ func ResourceZone() *schema.Resource {
- 			"comment": {
+ 			names.AttrComment: {
  				Type:         schema.TypeString,
  				Optional:     true,
 -				Default:      "Managed by Terraform",
