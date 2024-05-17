@@ -343,6 +343,10 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -576,6 +580,10 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
         /// </summary>
         public InputList<string> Protocols
         {
@@ -792,6 +800,10 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
+        /// * `SFTP`: File transfer over SSH
+        /// * `FTPS`: File transfer with TLS encryption
+        /// * `FTP`: Unencrypted file transfer
         /// </summary>
         public InputList<string> Protocols
         {

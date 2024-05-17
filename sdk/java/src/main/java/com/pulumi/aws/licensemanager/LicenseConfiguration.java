@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LicenseConfiguration("example", LicenseConfigurationArgs.builder()        
+ *         var example = new LicenseConfiguration("example", LicenseConfigurationArgs.builder()
  *             .name("Example")
  *             .description("Example")
  *             .licenseCount(10)

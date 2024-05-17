@@ -47,21 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGateway("example", TransitGatewayArgs.builder()        
+ *         var example = new TransitGateway("example", TransitGatewayArgs.builder()
  *             .multicastSupport("enable")
  *             .build());
  * 
- *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()        
+ *         var exampleVpcAttachment = new VpcAttachment("exampleVpcAttachment", VpcAttachmentArgs.builder()
  *             .subnetIds(exampleAwsSubnet.id())
  *             .transitGatewayId(example.id())
  *             .vpcId(exampleAwsVpc.id())
  *             .build());
  * 
- *         var exampleMulticastDomain = new MulticastDomain("exampleMulticastDomain", MulticastDomainArgs.builder()        
+ *         var exampleMulticastDomain = new MulticastDomain("exampleMulticastDomain", MulticastDomainArgs.builder()
  *             .transitGatewayId(example.id())
  *             .build());
  * 
- *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation("exampleMulticastDomainAssociation", MulticastDomainAssociationArgs.builder()        
+ *         var exampleMulticastDomainAssociation = new MulticastDomainAssociation("exampleMulticastDomainAssociation", MulticastDomainAssociationArgs.builder()
  *             .subnetId(exampleAwsSubnet.id())
  *             .transitGatewayAttachmentId(exampleVpcAttachment.id())
  *             .transitGatewayMulticastDomainId(exampleMulticastDomain.id())

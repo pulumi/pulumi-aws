@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Instance("example");
  * 
- *         var exampleTrustProvider = new TrustProvider("exampleTrustProvider", TrustProviderArgs.builder()        
+ *         var exampleTrustProvider = new TrustProvider("exampleTrustProvider", TrustProviderArgs.builder()
  *             .deviceTrustProviderType("jamf")
  *             .policyReferenceName("example")
  *             .trustProviderType("device")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", InstanceTrustProviderAttachmentArgs.builder()        
+ *         var exampleInstanceTrustProviderAttachment = new InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", InstanceTrustProviderAttachmentArgs.builder()
  *             .verifiedaccessInstanceId(example.id())
  *             .verifiedaccessTrustProviderId(exampleTrustProvider.id())
  *             .build());

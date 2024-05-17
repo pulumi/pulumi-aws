@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RetentionConfiguration("example", RetentionConfigurationArgs.builder()        
+ *         var example = new RetentionConfiguration("example", RetentionConfigurationArgs.builder()
  *             .retentionPeriodInDays(90)
  *             .build());
  * 

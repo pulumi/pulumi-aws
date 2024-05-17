@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DistributionConfiguration("example", DistributionConfigurationArgs.builder()        
+ *         var example = new DistributionConfiguration("example", DistributionConfigurationArgs.builder()
  *             .name("example")
  *             .distributions(DistributionConfigurationDistributionArgs.builder()
  *                 .amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs.builder()

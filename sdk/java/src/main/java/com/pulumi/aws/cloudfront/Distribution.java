@@ -79,19 +79,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2("b", BucketV2Args.builder()        
+ *         var b = new BucketV2("b", BucketV2Args.builder()
  *             .bucket("mybucket")
  *             .tags(Map.of("Name", "My bucket"))
  *             .build());
  * 
- *         var bAcl = new BucketAclV2("bAcl", BucketAclV2Args.builder()        
+ *         var bAcl = new BucketAclV2("bAcl", BucketAclV2Args.builder()
  *             .bucket(b.id())
  *             .acl("private")
  *             .build());
  * 
  *         final var s3OriginId = "myS3Origin";
  * 
- *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(b.bucketRegionalDomainName())
  *                 .originAccessControlId(default_.id())
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
  *             .originGroups(DistributionOriginGroupArgs.builder()
  *                 .originId("groupS3")
  *                 .failoverCriteria(DistributionOriginGroupFailoverCriteriaArgs.builder()
@@ -314,7 +314,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var s3OriginId = "myS3Origin";
  * 
- *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()        
+ *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
  *             .origins(DistributionOriginArgs.builder()
  *                 .domainName(primary.bucketRegionalDomainName())
  *                 .originId("myS3Origin")

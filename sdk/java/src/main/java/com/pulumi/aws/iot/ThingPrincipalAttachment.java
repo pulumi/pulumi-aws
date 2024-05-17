@@ -45,18 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thing("example", ThingArgs.builder()        
+ *         var example = new Thing("example", ThingArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .csr(StdFunctions.file(FileArgs.builder()
  *                 .input("csr.pem")
  *                 .build()).result())
  *             .active(true)
  *             .build());
  * 
- *         var att = new ThingPrincipalAttachment("att", ThingPrincipalAttachmentArgs.builder()        
+ *         var att = new ThingPrincipalAttachment("att", ThingPrincipalAttachmentArgs.builder()
  *             .principal(cert.arn())
  *             .thing(example.name())
  *             .build());

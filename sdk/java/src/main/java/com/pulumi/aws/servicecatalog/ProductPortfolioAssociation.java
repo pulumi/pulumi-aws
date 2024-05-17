@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProductPortfolioAssociation("example", ProductPortfolioAssociationArgs.builder()        
+ *         var example = new ProductPortfolioAssociation("example", ProductPortfolioAssociationArgs.builder()
  *             .portfolioId("port-68656c6c6f")
  *             .productId("prod-dnigbtea24ste")
  *             .build());

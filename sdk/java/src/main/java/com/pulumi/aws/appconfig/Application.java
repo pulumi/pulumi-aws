@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()        
+ *         var example = new Application("example", ApplicationArgs.builder()
  *             .name("example-application-tf")
  *             .description("Example AppConfig Application")
  *             .tags(Map.of("Type", "AppConfig Application"))

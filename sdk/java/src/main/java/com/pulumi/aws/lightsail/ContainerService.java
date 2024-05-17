@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()        
+ *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()
  *             .name("container-service-1")
  *             .power("nano")
  *             .scale(1)
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()        
+ *         var myContainerService = new ContainerService("myContainerService", ContainerServiceArgs.builder()
  *             .publicDomainNames(ContainerServicePublicDomainNamesArgs.builder()
  *                 .certificates(ContainerServicePublicDomainNamesCertificateArgs.builder()
  *                     .certificateName("example-certificate")
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultContainerService = new ContainerService("defaultContainerService", ContainerServiceArgs.builder()        
+ *         var defaultContainerService = new ContainerService("defaultContainerService", ContainerServiceArgs.builder()
  *             .privateRegistryAccess(ContainerServicePrivateRegistryAccessArgs.builder()
  *                 .ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs.builder()
  *                     .isActive(true)
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var defaultRepositoryPolicy = new RepositoryPolicy("defaultRepositoryPolicy", RepositoryPolicyArgs.builder()        
+ *         var defaultRepositoryPolicy = new RepositoryPolicy("defaultRepositoryPolicy", RepositoryPolicyArgs.builder()
  *             .repository(defaultAwsEcrRepository.name())
  *             .policy(default_.applyValue(default_ -> default_.json()))
  *             .build());

@@ -235,6 +235,10 @@ export class Server extends pulumi.CustomResource {
     public readonly protocolDetails!: pulumi.Output<outputs.transfer.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
@@ -431,6 +435,10 @@ export interface ServerState {
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -541,6 +549,10 @@ export interface ServerArgs {
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetails>;
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**

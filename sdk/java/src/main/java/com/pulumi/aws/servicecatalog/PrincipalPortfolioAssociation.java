@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrincipalPortfolioAssociation("example", PrincipalPortfolioAssociationArgs.builder()        
+ *         var example = new PrincipalPortfolioAssociation("example", PrincipalPortfolioAssociationArgs.builder()
  *             .portfolioId("port-68656c6c6f")
  *             .principalArn("arn:aws:iam::123456789012:user/Eleanor")
  *             .build());

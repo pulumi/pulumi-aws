@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var object = new BucketObject("object", BucketObjectArgs.builder()        
+ *         var object = new BucketObject("object", BucketObjectArgs.builder()
  *             .bucket("your_bucket_name")
  *             .key("new_object_key")
  *             .source(new FileAsset("path/to/file"))
@@ -95,21 +95,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplekms = new Key("examplekms", KeyArgs.builder()        
+ *         var examplekms = new Key("examplekms", KeyArgs.builder()
  *             .description("KMS key 1")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()        
+ *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()
  *             .key("someobject")
  *             .bucket(examplebucket.id())
  *             .source(new FileAsset("index.html"))
@@ -152,16 +152,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()        
+ *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()
  *             .key("someobject")
  *             .bucket(examplebucket.id())
  *             .source(new FileAsset("index.html"))
@@ -204,16 +204,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()        
+ *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()
  *             .key("someobject")
  *             .bucket(examplebucket.id())
  *             .source(new FileAsset("index.html"))
@@ -260,24 +260,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()        
+ *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
  *             .bucket("examplebuckettftest")
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()        
+ *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(examplebucket.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()        
+ *         var exampleBucketObject = new BucketObject("exampleBucketObject", BucketObjectArgs.builder()
  *             .key("someobject")
  *             .bucket(examplebucket.id())
  *             .source(new FileAsset("important.txt"))

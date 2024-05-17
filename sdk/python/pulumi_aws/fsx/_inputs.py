@@ -1751,6 +1751,7 @@ class OpenZfsVolumeUserAndGroupQuotaArgs:
         """
         :param pulumi.Input[int] id: The ID of the user or group. Valid values between `0` and `2147483647`
         :param pulumi.Input[int] storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+               * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -1773,6 +1774,7 @@ class OpenZfsVolumeUserAndGroupQuotaArgs:
     def storage_capacity_quota_gib(self) -> pulumi.Input[int]:
         """
         The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         return pulumi.get(self, "storage_capacity_quota_gib")
 

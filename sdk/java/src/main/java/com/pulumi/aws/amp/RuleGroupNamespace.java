@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var demo = new Workspace("demo");
  * 
- *         var demoRuleGroupNamespace = new RuleGroupNamespace("demoRuleGroupNamespace", RuleGroupNamespaceArgs.builder()        
+ *         var demoRuleGroupNamespace = new RuleGroupNamespace("demoRuleGroupNamespace", RuleGroupNamespaceArgs.builder()
  *             .name("rules")
  *             .workspaceId(demo.id())
  *             .data("""

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Cluster("bar", ClusterArgs.builder()        
+ *         var bar = new Cluster("bar", ClusterArgs.builder()
  *             .clusterName("cluster-example")
  *             .iamRoleArn(example.arn())
  *             .nodeType("dax.r4.large")

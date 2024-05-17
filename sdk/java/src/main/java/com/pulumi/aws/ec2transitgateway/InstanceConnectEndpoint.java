@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InstanceConnectEndpoint("example", InstanceConnectEndpointArgs.builder()        
+ *         var example = new InstanceConnectEndpoint("example", InstanceConnectEndpointArgs.builder()
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 

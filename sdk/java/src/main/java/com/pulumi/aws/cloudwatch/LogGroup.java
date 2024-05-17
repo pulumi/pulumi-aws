@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup("yada", LogGroupArgs.builder()        
+ *         var yada = new LogGroup("yada", LogGroupArgs.builder()
  *             .name("Yada")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),

@@ -20,6 +20,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
     private List<String> seedUrls;
     /**
      * @return The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+     * * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
+     * * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
+     * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
      * 
      */
     private @Nullable String webCrawlerMode;
@@ -34,6 +37,9 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
     }
     /**
      * @return The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+     * * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
+     * * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
+     * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
      * 
      */
     public Optional<String> webCrawlerMode() {

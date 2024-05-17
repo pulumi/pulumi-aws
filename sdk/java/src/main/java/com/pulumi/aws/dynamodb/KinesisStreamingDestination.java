@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .name("orders")
  *             .hashKey("id")
  *             .attributes(TableAttributeArgs.builder()
@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
  *             .name("order_item_changes")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination("exampleKinesisStreamingDestination", KinesisStreamingDestinationArgs.builder()        
+ *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination("exampleKinesisStreamingDestination", KinesisStreamingDestinationArgs.builder()
  *             .streamArn(exampleStream.arn())
  *             .tableName(example.name())
  *             .build());

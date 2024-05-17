@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()
  *             .name("athena-data-catalog")
  *             .description("Example Athena data catalog")
  *             .type("LAMBDA")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()
  *             .name("hive-data-catalog")
  *             .description("Hive based Data Catalog")
  *             .type("HIVE")
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()
  *             .name("glue-data-catalog")
  *             .description("Glue based Data Catalog")
  *             .type("GLUE")
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCatalog("example", DataCatalogArgs.builder()        
+ *         var example = new DataCatalog("example", DataCatalogArgs.builder()
  *             .name("lambda-data-catalog")
  *             .description("Lambda based Data Catalog")
  *             .type("LAMBDA")

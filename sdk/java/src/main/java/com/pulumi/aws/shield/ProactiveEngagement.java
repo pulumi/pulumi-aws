@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name(awsShieldDrtAccessRoleArn)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -74,22 +74,22 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(example.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
  *             .build());
  * 
- *         var exampleDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("exampleDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()        
+ *         var exampleDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("exampleDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()
  *             .roleArn(example.arn())
  *             .build());
  * 
- *         var test = new ProtectionGroup("test", ProtectionGroupArgs.builder()        
+ *         var test = new ProtectionGroup("test", ProtectionGroupArgs.builder()
  *             .protectionGroupId("example")
  *             .aggregation("MAX")
  *             .pattern("ALL")
  *             .build());
  * 
- *         var testProactiveEngagement = new ProactiveEngagement("testProactiveEngagement", ProactiveEngagementArgs.builder()        
+ *         var testProactiveEngagement = new ProactiveEngagement("testProactiveEngagement", ProactiveEngagementArgs.builder()
  *             .enabled(true)
  *             .emergencyContacts(            
  *                 ProactiveEngagementEmergencyContactArgs.builder()

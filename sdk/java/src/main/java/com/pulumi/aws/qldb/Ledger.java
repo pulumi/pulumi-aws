@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample_ledger = new Ledger("sample-ledger", LedgerArgs.builder()        
+ *         var sample_ledger = new Ledger("sample-ledger", LedgerArgs.builder()
  *             .name("sample-ledger")
  *             .permissionsMode("STANDARD")
  *             .build());

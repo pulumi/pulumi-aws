@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Build("test", BuildArgs.builder()        
+ *         var test = new Build("test", BuildArgs.builder()
  *             .name("example-build")
  *             .operatingSystem("WINDOWS_2012")
  *             .storageLocation(BuildStorageLocationArgs.builder()

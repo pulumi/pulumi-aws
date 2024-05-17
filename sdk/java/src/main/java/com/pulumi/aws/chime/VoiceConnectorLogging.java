@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
  *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging("defaultVoiceConnectorLogging", VoiceConnectorLoggingArgs.builder()        
+ *         var defaultVoiceConnectorLogging = new VoiceConnectorLogging("defaultVoiceConnectorLogging", VoiceConnectorLoggingArgs.builder()
  *             .enableSipLogs(true)
  *             .enableMediaMetricLogs(true)
  *             .voiceConnectorId(default_.id())

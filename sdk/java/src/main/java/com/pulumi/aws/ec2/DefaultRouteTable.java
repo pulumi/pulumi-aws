@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()        
+ *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()
  *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes(            
  *                 DefaultRouteTableRouteArgs.builder()
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()        
+ *         var example = new DefaultRouteTable("example", DefaultRouteTableArgs.builder()
  *             .defaultRouteTableId(exampleAwsVpc.defaultRouteTableId())
  *             .routes()
  *             .tags(Map.of("Name", "example"))

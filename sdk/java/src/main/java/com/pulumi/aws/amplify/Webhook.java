@@ -46,16 +46,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .build());
  * 
- *         var master = new Branch("master", BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()
  *             .appId(example.id())
  *             .branchName("master")
  *             .build());
  * 
- *         var masterWebhook = new Webhook("masterWebhook", WebhookArgs.builder()        
+ *         var masterWebhook = new Webhook("masterWebhook", WebhookArgs.builder()
  *             .appId(example.id())
  *             .branchName(master.branchName())
  *             .description("triggermaster")

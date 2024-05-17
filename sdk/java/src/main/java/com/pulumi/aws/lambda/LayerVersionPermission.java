@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lambdaLayerPermission = new LayerVersionPermission("lambdaLayerPermission", LayerVersionPermissionArgs.builder()        
+ *         var lambdaLayerPermission = new LayerVersionPermission("lambdaLayerPermission", LayerVersionPermissionArgs.builder()
  *             .layerName("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1")
  *             .versionNumber(1)
  *             .principal("111111111111")

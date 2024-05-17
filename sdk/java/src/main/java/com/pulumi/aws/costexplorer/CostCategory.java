@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new CostCategory("test", CostCategoryArgs.builder()        
+ *         var test = new CostCategory("test", CostCategoryArgs.builder()
  *             .name("NAME")
  *             .ruleVersion("CostCategoryExpression.v1")
  *             .rules(            

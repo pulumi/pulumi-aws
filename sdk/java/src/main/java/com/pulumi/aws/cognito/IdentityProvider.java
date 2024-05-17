@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example-pool")
  *             .autoVerifiedAttributes("email")
  *             .build());
  * 
- *         var exampleProvider = new IdentityProvider("exampleProvider", IdentityProviderArgs.builder()        
+ *         var exampleProvider = new IdentityProvider("exampleProvider", IdentityProviderArgs.builder()
  *             .userPoolId(example.id())
  *             .providerName("Google")
  *             .providerType("Google")

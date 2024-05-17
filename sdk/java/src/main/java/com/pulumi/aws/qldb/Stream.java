@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()        
+ *         var example = new Stream("example", StreamArgs.builder()
  *             .ledgerName("existing-ledger-name")
  *             .streamName("sample-ledger-stream")
  *             .roleArn("sample-role-arn")

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExperimentTemplate("example", ExperimentTemplateArgs.builder()        
+ *         var example = new ExperimentTemplate("example", ExperimentTemplateArgs.builder()
  *             .description("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()

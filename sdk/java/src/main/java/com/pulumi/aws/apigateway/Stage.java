@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *         final var stageName = config.get("stageName").orElse("example");
  *         var example = new RestApi("example");
  * 
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
  *             .name(example.id().applyValue(id -> String.format("API-Gateway-Execution-Logs_%s/%s", id,stageName)))
  *             .retentionInDays(7)
  *             .build());
  * 
- *         var exampleStage = new Stage("exampleStage", StageArgs.builder()        
+ *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
  *             .stageName(stageName)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleLogGroup)

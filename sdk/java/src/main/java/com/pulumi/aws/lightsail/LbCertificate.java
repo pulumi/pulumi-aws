@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()        
+ *         var test = new Lb("test", LbArgs.builder()
  *             .name("test-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort("80")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()        
+ *         var testLbCertificate = new LbCertificate("testLbCertificate", LbCertificateArgs.builder()
  *             .name("test-load-balancer-certificate")
  *             .lbName(test.id())
  *             .domainName("test.com")

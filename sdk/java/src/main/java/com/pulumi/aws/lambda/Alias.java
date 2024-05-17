@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLambdaAlias = new Alias("testLambdaAlias", AliasArgs.builder()        
+ *         var testLambdaAlias = new Alias("testLambdaAlias", AliasArgs.builder()
  *             .name("my_alias")
  *             .description("a sample description")
  *             .functionName(lambdaFunctionTest.arn())

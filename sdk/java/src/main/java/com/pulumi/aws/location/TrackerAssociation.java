@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GeofenceCollection("example", GeofenceCollectionArgs.builder()        
+ *         var example = new GeofenceCollection("example", GeofenceCollectionArgs.builder()
  *             .collectionName("example")
  *             .build());
  * 
- *         var exampleTracker = new Tracker("exampleTracker", TrackerArgs.builder()        
+ *         var exampleTracker = new Tracker("exampleTracker", TrackerArgs.builder()
  *             .trackerName("example")
  *             .build());
  * 
- *         var exampleTrackerAssociation = new TrackerAssociation("exampleTrackerAssociation", TrackerAssociationArgs.builder()        
+ *         var exampleTrackerAssociation = new TrackerAssociation("exampleTrackerAssociation", TrackerAssociationArgs.builder()
  *             .consumerArn(example.collectionArn())
  *             .trackerName(exampleTracker.trackerName())
  *             .build());

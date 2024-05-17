@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRuleGroup = new RuleGroup("exampleRuleGroup", RuleGroupArgs.builder()        
+ *         var exampleRuleGroup = new RuleGroup("exampleRuleGroup", RuleGroupArgs.builder()
  *             .metricName("WAFRuleGroupExample")
  *             .name("WAF-Rule-Group-Example")
  *             .build());
  * 
- *         var example = new Policy("example", PolicyArgs.builder()        
+ *         var example = new Policy("example", PolicyArgs.builder()
  *             .name("FMS-Policy-Example")
  *             .excludeResourceTags(false)
  *             .remediationEnabled(false)

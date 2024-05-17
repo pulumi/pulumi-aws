@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .owners("099720109477")
  *             .build());
  * 
- *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()        
+ *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()
  *             .name("web_config")
  *             .imageId(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t2.micro")

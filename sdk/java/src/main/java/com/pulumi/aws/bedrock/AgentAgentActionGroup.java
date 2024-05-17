@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()        
+ *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
  *             .actionGroupName("example")
  *             .agentId("ABDJFOWER1")
  *             .agentVersion("DRAFT")

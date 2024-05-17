@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var key = new WorkspaceApiKey("key", WorkspaceApiKeyArgs.builder()        
+ *         var key = new WorkspaceApiKey("key", WorkspaceApiKeyArgs.builder()
  *             .keyName("test-key")
  *             .keyRole("VIEWER")
  *             .secondsToLive(3600)

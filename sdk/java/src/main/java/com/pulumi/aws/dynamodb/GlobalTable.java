@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var us_east_1 = new Table("us-east-1", TableArgs.builder()        
+ *         var us_east_1 = new Table("us-east-1", TableArgs.builder()
  *             .hashKey("myAttribute")
  *             .name("myTable")
  *             .streamEnabled(true)
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var us_west_2 = new Table("us-west-2", TableArgs.builder()        
+ *         var us_west_2 = new Table("us-west-2", TableArgs.builder()
  *             .hashKey("myAttribute")
  *             .name("myTable")
  *             .streamEnabled(true)
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myTable = new GlobalTable("myTable", GlobalTableArgs.builder()        
+ *         var myTable = new GlobalTable("myTable", GlobalTableArgs.builder()
  *             .name("myTable")
  *             .replicas(            
  *                 GlobalTableReplicaArgs.builder()

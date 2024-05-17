@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume("example", VolumeArgs.builder()        
+ *         var example = new Volume("example", VolumeArgs.builder()
  *             .availabilityZone("us-west-2a")
  *             .size(40)
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .volumeId(example.id())
  *             .tags(Map.of("Name", "HelloWorld_snap"))
  *             .build());
  * 
- *         var exampleCopy = new SnapshotCopy("exampleCopy", SnapshotCopyArgs.builder()        
+ *         var exampleCopy = new SnapshotCopy("exampleCopy", SnapshotCopyArgs.builder()
  *             .sourceSnapshotId(exampleSnapshot.id())
  *             .sourceRegion("us-west-2")
  *             .tags(Map.of("Name", "HelloWorld_copy_snap"))

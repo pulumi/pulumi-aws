@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+ *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
  *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title("title")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()        
+ *         var example = new ResponsePlan("example", ResponsePlanArgs.builder()
  *             .name("name")
  *             .incidentTemplate(ResponsePlanIncidentTemplateArgs.builder()
  *                 .title("title")

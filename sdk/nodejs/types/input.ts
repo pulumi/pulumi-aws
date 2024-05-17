@@ -6649,6 +6649,10 @@ export namespace apprunner {
         codeConfigurationValues?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues>;
         /**
          * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
+         * source code repository and ignores the CodeConfigurationValues parameter.
+         * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
+         * parameter and ignores the apprunner.yaml file in the source code repository.
          */
         configurationSource: pulumi.Input<string>;
     }
@@ -10021,6 +10025,10 @@ export namespace cfg {
         maximumExecutionFrequency?: pulumi.Input<string>;
         /**
          * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+         * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+         * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
+         * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
          */
         messageType?: pulumi.Input<string>;
     }
@@ -12846,6 +12854,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
         /**
          * When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+         * * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+         * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
          */
         actionOnTimeout?: pulumi.Input<string>;
         /**
@@ -12857,6 +12867,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
         /**
          * The method used to add instances to a replacement environment.
+         * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+         * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
          */
         action?: pulumi.Input<string>;
     }
@@ -12864,6 +12876,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
         /**
          * The action to take on instances in the original environment after a successful blue/green deployment.
+         * * `TERMINATE`: Instances are terminated after a specified wait time.
+         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          */
         action?: pulumi.Input<string>;
         /**
@@ -25742,6 +25756,8 @@ export namespace elb {
         /**
          * The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
          * values are:
+         * * `HTTP`, `HTTPS` - PORT and PATH are required
+         * * `TCP`, `SSL` - PORT is required, PATH is not supported
          */
         target: pulumi.Input<string>;
         /**
@@ -27935,6 +27951,7 @@ export namespace fsx {
         id: pulumi.Input<number>;
         /**
          * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          */
         storageCapacityQuotaGib: pulumi.Input<number>;
         type: pulumi.Input<string>;
@@ -32020,6 +32037,9 @@ export namespace kendra {
         seedUrls: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+         * * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+         * * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+         * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
          */
         webCrawlerMode?: pulumi.Input<string>;
     }
@@ -59353,6 +59373,9 @@ export namespace s3 {
     export interface BucketOwnershipControlsRule {
         /**
          * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
+         * * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
          */
         objectOwnership: pulumi.Input<string>;
     }

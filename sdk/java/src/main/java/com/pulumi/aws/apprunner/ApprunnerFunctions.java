@@ -48,7 +48,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -103,7 +103,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -158,7 +158,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -213,7 +213,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -268,7 +268,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -323,7 +323,7 @@ public final class ApprunnerFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ApprunnerFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
