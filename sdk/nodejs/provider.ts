@@ -132,7 +132,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
             resourceInputs["sharedCredentialsFiles"] = pulumi.output(args ? args.sharedCredentialsFiles : undefined).apply(JSON.stringify);
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
+            resourceInputs["skipMetadataApiCheck"] = pulumi.output(args ? args.skipMetadataApiCheck : undefined).apply(JSON.stringify);
             resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             resourceInputs["stsRegion"] = args ? args.stsRegion : undefined;

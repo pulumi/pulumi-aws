@@ -132,7 +132,7 @@ Skip the credentials validation via STS API. Used for AWS API implementations th
 available/implemented.
 """
 
-skipMetadataApiCheck: bool
+skipMetadataApiCheck: Optional[bool]
 """
 Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 """

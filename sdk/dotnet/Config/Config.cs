@@ -279,7 +279,7 @@ namespace Pulumi.Aws
             set => _skipCredentialsValidation.Set(value);
         }
 
-        private static readonly __Value<bool?> _skipMetadataApiCheck = new __Value<bool?>(() => __config.GetBoolean("skipMetadataApiCheck") ?? true);
+        private static readonly __Value<bool?> _skipMetadataApiCheck = new __Value<bool?>(() => __config.GetBoolean("skipMetadataApiCheck"));
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         /// </summary>

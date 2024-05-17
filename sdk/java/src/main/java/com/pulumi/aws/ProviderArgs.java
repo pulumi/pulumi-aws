@@ -1255,7 +1255,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         public ProviderArgs build() {
             $.region = Codegen.stringProp("region").output().arg($.region).env("AWS_REGION", "AWS_DEFAULT_REGION").getNullable();
             $.skipCredentialsValidation = Codegen.booleanProp("skipCredentialsValidation").output().arg($.skipCredentialsValidation).def(false).getNullable();
-            $.skipMetadataApiCheck = Codegen.booleanProp("skipMetadataApiCheck").output().arg($.skipMetadataApiCheck).def(true).getNullable();
             $.skipRegionValidation = Codegen.booleanProp("skipRegionValidation").output().arg($.skipRegionValidation).def(true).getNullable();
             return $;
         }

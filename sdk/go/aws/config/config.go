@@ -154,13 +154,7 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 
 // Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
-	v, err := config.TryBool(ctx, "aws:skipMetadataApiCheck")
-	if err == nil {
-		return v
-	}
-	var value bool
-	value = true
-	return value
+	return config.GetBool(ctx, "aws:skipMetadataApiCheck")
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are

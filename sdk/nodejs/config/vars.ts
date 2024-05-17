@@ -287,10 +287,10 @@ Object.defineProperty(exports, "skipCredentialsValidation", {
 /**
  * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
  */
-export declare const skipMetadataApiCheck: boolean;
+export declare const skipMetadataApiCheck: boolean | undefined;
 Object.defineProperty(exports, "skipMetadataApiCheck", {
     get() {
-        return __config.getObject<boolean>("skipMetadataApiCheck") ?? true;
+        return __config.getObject<boolean>("skipMetadataApiCheck");
     },
     enumerable: true,
 });

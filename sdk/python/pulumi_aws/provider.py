@@ -146,8 +146,6 @@ class ProviderArgs:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
             pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
-        if skip_metadata_api_check is None:
-            skip_metadata_api_check = True
         if skip_metadata_api_check is not None:
             pulumi.set(__self__, "skip_metadata_api_check", skip_metadata_api_check)
         if skip_region_validation is None:
@@ -749,8 +747,6 @@ class Provider(pulumi.ProviderResource):
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
-            if skip_metadata_api_check is None:
-                skip_metadata_api_check = True
             __props__.__dict__["skip_metadata_api_check"] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
             if skip_region_validation is None:
                 skip_region_validation = True
