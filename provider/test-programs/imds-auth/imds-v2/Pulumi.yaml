@@ -1,6 +1,10 @@
 name: imds-v2
 runtime: yaml
 description: Test the ability of pulumi-aws to authenticate on an EC2 instance with IMDSv2 enabled
+
+backend:
+  url: file://./pulumi-state
+
 config:
   pulumi:tags:
     value:
@@ -73,18 +77,36 @@ resources:
         rm /tmp/sshd_config
         # sudo systemctl restart sshd.service
 
+  file-copy:
+    type: command:remote:CopyFile
+    properties:
+      connection:
+        host: ${inst.publicIp}
+        user: ec2-user # The default user for Amazon Linux AMI
+        privateKey: ${priv-key.privateKeyOpenssh}
+      localPath: ./Pulumi.yaml
+      remotePath: "/tmp/Pulumi.yaml"
+
   init-cmd:
     type: command:remote:Command
     properties:
       create: |
         curl -fsSL https://get.pulumi.com | sh
         export PATH="/home/ec2-user/.pulumi/bin:$PATH"
-        pulumi version
+        cd /tmp
+        mkdir ./pulumi-state
+        export PULUMI_CONFIG_PASSPHRASE=123456
+        pulumi stack init dev
+        pulumi stack select dev
+        pulumi preview
       # SSH connection details to the remote machine
       connection:
         host: ${inst.publicIp}
         user: ec2-user # The default user for Amazon Linux AMI
         privateKey: ${priv-key.privateKeyOpenssh}
+    options:
+      dependsOn:
+        - ${file-copy}
 
 outputs:
   instanceId: ${inst.id}
