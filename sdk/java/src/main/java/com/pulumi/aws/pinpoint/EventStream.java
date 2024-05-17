@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *         var testStream = new Stream("testStream", StreamArgs.builder()
  *             .name("pinpoint-kinesis-test")
  *             .shardCount(1)
  *             .build());
@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var stream = new EventStream("stream", EventStreamArgs.builder()        
+ *         var stream = new EventStream("stream", EventStreamArgs.builder()
  *             .applicationId(app.applicationId())
  *             .destinationStreamArn(testStream.arn())
  *             .roleArn(testRole.arn())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRolePolicyRolePolicy = new RolePolicy("testRolePolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var testRolePolicyRolePolicy = new RolePolicy("testRolePolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("test_policy")
  *             .role(testRole.id())
  *             .policy(testRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))

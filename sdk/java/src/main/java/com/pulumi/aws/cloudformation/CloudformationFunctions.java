@@ -315,7 +315,7 @@ public final class CloudformationFunctions {
      *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
@@ -368,7 +368,7 @@ public final class CloudformationFunctions {
      *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
@@ -421,7 +421,7 @@ public final class CloudformationFunctions {
      *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
@@ -474,7 +474,7 @@ public final class CloudformationFunctions {
      *             .name("mySubnetIdExportName")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(subnetId.applyValue(getExportResult -> getExportResult.value()))
@@ -525,7 +525,7 @@ public final class CloudformationFunctions {
      *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
@@ -577,7 +577,7 @@ public final class CloudformationFunctions {
      *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
@@ -629,7 +629,7 @@ public final class CloudformationFunctions {
      *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))
@@ -681,7 +681,7 @@ public final class CloudformationFunctions {
      *             .name("my-network-stack")
      *             .build());
      * 
-     *         var web = new Instance("web", InstanceArgs.builder()        
+     *         var web = new Instance("web", InstanceArgs.builder()
      *             .ami("ami-abb07bcb")
      *             .instanceType("t2.micro")
      *             .subnetId(network.applyValue(getStackResult -> getStackResult.outputs().SubnetId()))

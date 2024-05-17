@@ -96,7 +96,7 @@ public final class AuditmanagerFunctions {
      *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
      *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
@@ -202,7 +202,7 @@ public final class AuditmanagerFunctions {
      *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
      *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
@@ -308,7 +308,7 @@ public final class AuditmanagerFunctions {
      *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
      *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
@@ -414,7 +414,7 @@ public final class AuditmanagerFunctions {
      *             .type("Standard")
      *             .build());
      * 
-     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()        
+     *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
      *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()

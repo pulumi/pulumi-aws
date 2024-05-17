@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooBucket = new BucketV2("fooBucket", BucketV2Args.builder()        
+ *         var fooBucket = new BucketV2("fooBucket", BucketV2Args.builder()
  *             .bucket("example-bucket-foo")
  *             .build());
  * 
- *         var barBucket = new BucketV2("barBucket", BucketV2Args.builder()        
+ *         var barBucket = new BucketV2("barBucket", BucketV2Args.builder()
  *             .bucket("example-bucket-bar")
  *             .build());
  * 
- *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()        
+ *         var example = new MultiRegionAccessPoint("example", MultiRegionAccessPointArgs.builder()
  *             .details(MultiRegionAccessPointDetailsArgs.builder()
  *                 .name("example")
  *                 .regions(                

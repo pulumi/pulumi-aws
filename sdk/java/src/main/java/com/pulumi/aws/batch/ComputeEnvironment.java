@@ -84,17 +84,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ecsInstanceRole = new Role("ecsInstanceRole", RoleArgs.builder()        
+ *         var ecsInstanceRole = new Role("ecsInstanceRole", RoleArgs.builder()
  *             .name("ecs_instance_role")
  *             .assumeRolePolicy(ec2AssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var ecsInstanceRoleRolePolicyAttachment = new RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(ecsInstanceRole.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
  *             .build());
  * 
- *         var ecsInstanceRoleInstanceProfile = new InstanceProfile("ecsInstanceRoleInstanceProfile", InstanceProfileArgs.builder()        
+ *         var ecsInstanceRoleInstanceProfile = new InstanceProfile("ecsInstanceRoleInstanceProfile", InstanceProfileArgs.builder()
  *             .name("ecs_instance_role")
  *             .role(ecsInstanceRole.name())
  *             .build());
@@ -110,17 +110,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var awsBatchServiceRole = new Role("awsBatchServiceRole", RoleArgs.builder()        
+ *         var awsBatchServiceRole = new Role("awsBatchServiceRole", RoleArgs.builder()
  *             .name("aws_batch_service_role")
  *             .assumeRolePolicy(batchAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var awsBatchServiceRoleRolePolicyAttachment = new RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(awsBatchServiceRole.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
  *             .build());
  * 
- *         var sample = new SecurityGroup("sample", SecurityGroupArgs.builder()        
+ *         var sample = new SecurityGroup("sample", SecurityGroupArgs.builder()
  *             .name("aws_batch_compute_environment_security_group")
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
@@ -130,21 +130,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var sampleVpc = new Vpc("sampleVpc", VpcArgs.builder()        
+ *         var sampleVpc = new Vpc("sampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var sampleSubnet = new Subnet("sampleSubnet", SubnetArgs.builder()        
+ *         var sampleSubnet = new Subnet("sampleSubnet", SubnetArgs.builder()
  *             .vpcId(sampleVpc.id())
  *             .cidrBlock("10.1.1.0/24")
  *             .build());
  * 
- *         var samplePlacementGroup = new PlacementGroup("samplePlacementGroup", PlacementGroupArgs.builder()        
+ *         var samplePlacementGroup = new PlacementGroup("samplePlacementGroup", PlacementGroupArgs.builder()
  *             .name("sample")
  *             .strategy("cluster")
  *             .build());
  * 
- *         var sampleComputeEnvironment = new ComputeEnvironment("sampleComputeEnvironment", ComputeEnvironmentArgs.builder()        
+ *         var sampleComputeEnvironment = new ComputeEnvironment("sampleComputeEnvironment", ComputeEnvironmentArgs.builder()
  *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .instanceRole(ecsInstanceRoleInstanceProfile.arn())
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()        
+ *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
  *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .maxVcpus(16)
@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()        
+ *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
  *             .computeEnvironmentName("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .allocationStrategy("BEST_FIT_PROGRESSIVE")

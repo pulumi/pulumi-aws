@@ -1112,7 +1112,7 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
      *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
@@ -1169,7 +1169,7 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
      *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
@@ -1226,7 +1226,7 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
      *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
@@ -1283,7 +1283,7 @@ public final class CognitoFunctions {
      *             .name(cognitoUserPoolName)
      *             .build());
      * 
-     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()        
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
      *             .name("cognito")
      *             .type("COGNITO_USER_POOLS")
      *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))

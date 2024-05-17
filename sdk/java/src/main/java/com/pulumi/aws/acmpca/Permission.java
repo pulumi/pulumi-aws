@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
  *                 .signingAlgorithm("SHA512WITHRSA")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Permission("example", PermissionArgs.builder()        
+ *         var example = new Permission("example", PermissionArgs.builder()
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .actions(            
  *                 "IssueCertificate",

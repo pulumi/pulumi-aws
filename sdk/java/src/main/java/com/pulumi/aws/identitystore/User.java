@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new User("example", UserArgs.builder()        
+ *         var example = new User("example", UserArgs.builder()
  *             .identityStoreId(exampleAwsSsoadminInstances.identityStoreIds()[0])
  *             .displayName("John Doe")
  *             .userName("johndoe")

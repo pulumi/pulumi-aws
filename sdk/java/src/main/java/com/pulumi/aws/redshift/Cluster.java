@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("tf-redshift-cluster")
  *             .databaseName("mydb")
  *             .masterUsername("exampleuser")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("tf-redshift-cluster")
  *             .databaseName("mydb")
  *             .masterUsername("exampleuser")

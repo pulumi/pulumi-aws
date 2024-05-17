@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()        
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()        
+ *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()
  *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
  *             .build());
  * 

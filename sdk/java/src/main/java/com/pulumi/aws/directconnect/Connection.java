@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new Connection("hoge", ConnectionArgs.builder()        
+ *         var hoge = new Connection("hoge", ConnectionArgs.builder()
  *             .name("tf-dx-connection")
  *             .bandwidth("1Gbps")
  *             .location("EqDC2")
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .name("tf-dx-connection")
  *             .bandwidth("10Gbps")
  *             .location("EqDA2")
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .name("tf-dx-connection")
  *             .bandwidth("10Gbps")
  *             .location("EqDC2")

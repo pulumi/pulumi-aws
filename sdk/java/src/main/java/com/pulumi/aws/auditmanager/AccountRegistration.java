@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountRegistration("example", AccountRegistrationArgs.builder()        
+ *         var example = new AccountRegistration("example", AccountRegistrationArgs.builder()
  *             .deregisterOnDestroy(true)
  *             .build());
  * 

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
  *             .name("example")
  *             .protocol("HTTPS")
  *             .serviceIdentifier(example.id())
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()        
+ *         var exampleTargetGroup = new TargetGroup("exampleTargetGroup", TargetGroupArgs.builder()
  *             .name("example-target-group-1")
  *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
  *             .name("example")
  *             .protocol("HTTP")
  *             .serviceIdentifier(example.id())
@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var example1 = new TargetGroup("example1", TargetGroupArgs.builder()        
+ *         var example1 = new TargetGroup("example1", TargetGroupArgs.builder()
  *             .name("example-target-group-1")
  *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example2 = new TargetGroup("example2", TargetGroupArgs.builder()        
+ *         var example2 = new TargetGroup("example2", TargetGroupArgs.builder()
  *             .name("example-target-group-2")
  *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()        
+ *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
  *             .name("example")
  *             .protocol("HTTP")
  *             .serviceIdentifier(example.id())

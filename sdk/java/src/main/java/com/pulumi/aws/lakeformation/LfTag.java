@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()        
+ *         var example = new LfTag("example", LfTagArgs.builder()
  *             .key("module")
  *             .values(            
  *                 "Orders",

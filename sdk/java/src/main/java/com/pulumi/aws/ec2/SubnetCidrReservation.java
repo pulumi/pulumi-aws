@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubnetCidrReservation("example", SubnetCidrReservationArgs.builder()        
+ *         var example = new SubnetCidrReservation("example", SubnetCidrReservationArgs.builder()
  *             .cidrBlock("10.0.0.16/28")
  *             .reservationType("prefix")
  *             .subnetId(exampleAwsSubnet.id())

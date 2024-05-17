@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TrafficPolicyInstance("test", TrafficPolicyInstanceArgs.builder()        
+ *         var test = new TrafficPolicyInstance("test", TrafficPolicyInstanceArgs.builder()
  *             .name("test.example.com")
  *             .trafficPolicyId("b3gb108f-ea6f-45a5-baab-9d112d8b4037")
  *             .trafficPolicyVersion(1)

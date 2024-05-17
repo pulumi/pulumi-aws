@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test_role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()        
+ *         var testPolicy = new RolePolicy("testPolicy", RolePolicyArgs.builder()
  *             .name("test_policy")
  *             .role(testRole.id())
  *             .policy(serializeJson(

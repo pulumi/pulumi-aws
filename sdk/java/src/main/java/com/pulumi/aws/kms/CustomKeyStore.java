@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new CustomKeyStore("test", CustomKeyStoreArgs.builder()        
+ *         var test = new CustomKeyStore("test", CustomKeyStoreArgs.builder()
  *             .cloudHsmClusterId(cloudHsmClusterId)
  *             .customKeyStoreName("kms-custom-key-store-test")
  *             .keyStorePassword("noplaintextpasswords1")

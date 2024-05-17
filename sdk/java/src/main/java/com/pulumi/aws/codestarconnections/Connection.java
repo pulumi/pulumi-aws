@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .name("example-connection")
  *             .providerType("Bitbucket")
  *             .build());
  * 
- *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .artifactStores()
  *             .stages(            
  *                 PipelineStageArgs.builder()

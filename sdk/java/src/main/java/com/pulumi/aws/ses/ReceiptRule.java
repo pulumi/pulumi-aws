@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Add a header to the email and store it in S3
- *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()        
+ *         var store = new ReceiptRule("store", ReceiptRuleArgs.builder()
  *             .name("store")
  *             .ruleSetName("default-rule-set")
  *             .recipients("karen{@literal @}example.com")

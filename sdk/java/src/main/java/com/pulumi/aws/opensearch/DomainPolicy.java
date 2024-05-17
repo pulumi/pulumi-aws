@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("tf-test")
  *             .engineVersion("OpenSearch_1.1")
  *             .build());
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mainDomainPolicy = new DomainPolicy("mainDomainPolicy", DomainPolicyArgs.builder()        
+ *         var mainDomainPolicy = new DomainPolicy("mainDomainPolicy", DomainPolicyArgs.builder()
  *             .domainName(example.domainName())
  *             .accessPolicies(main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(main -> main.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

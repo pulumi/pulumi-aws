@@ -76,15 +76,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mytopic = new Topic("mytopic", TopicArgs.builder()        
+ *         var mytopic = new Topic("mytopic", TopicArgs.builder()
  *             .name("mytopic")
  *             .build());
  * 
- *         var myerrortopic = new Topic("myerrortopic", TopicArgs.builder()        
+ *         var myerrortopic = new Topic("myerrortopic", TopicArgs.builder()
  *             .name("myerrortopic")
  *             .build());
  * 
- *         var rule = new TopicRule("rule", TopicRuleArgs.builder()        
+ *         var rule = new TopicRule("rule", TopicRuleArgs.builder()
  *             .name("MyRule")
  *             .description("Example rule")
  *             .enabled(true)
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myrole = new Role("myrole", RoleArgs.builder()        
+ *         var myrole = new Role("myrole", RoleArgs.builder()
  *             .name("myrole")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var mypolicyRolePolicy = new RolePolicy("mypolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("mypolicy")
  *             .role(myrole.id())
  *             .policy(mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(mypolicy -> mypolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

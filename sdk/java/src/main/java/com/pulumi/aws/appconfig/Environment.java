@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-application-tf")
  *             .description("Example AppConfig Application")
  *             .tags(Map.of("Type", "AppConfig Application"))
  *             .build());
  * 
- *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .name("example-environment-tf")
  *             .description("Example AppConfig Environment")
  *             .applicationId(exampleApplication.id())

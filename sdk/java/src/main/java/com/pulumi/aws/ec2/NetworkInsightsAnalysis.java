@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var path = new NetworkInsightsPath("path", NetworkInsightsPathArgs.builder()        
+ *         var path = new NetworkInsightsPath("path", NetworkInsightsPathArgs.builder()
  *             .source(source.id())
  *             .destination(destination.id())
  *             .protocol("tcp")
  *             .build());
  * 
- *         var analysis = new NetworkInsightsAnalysis("analysis", NetworkInsightsAnalysisArgs.builder()        
+ *         var analysis = new NetworkInsightsAnalysis("analysis", NetworkInsightsAnalysisArgs.builder()
  *             .networkInsightsPathId(path.id())
  *             .build());
  * 

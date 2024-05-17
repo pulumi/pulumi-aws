@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TopicRuleDestination("example", TopicRuleDestinationArgs.builder()        
+ *         var example = new TopicRuleDestination("example", TopicRuleDestinationArgs.builder()
  *             .vpcConfiguration(TopicRuleDestinationVpcConfigurationArgs.builder()
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .securityGroups(exampleAwsSecurityGroup.id())

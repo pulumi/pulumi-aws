@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .clusterName("example")
  *             .clientAuthentication(ClusterClientAuthenticationArgs.builder()
  *                 .sasl(ClusterClientAuthenticationSaslArgs.builder()
@@ -77,16 +77,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("Example Key for MSK Cluster Scram Secret Association")
  *             .build());
  * 
- *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()        
+ *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
  *             .name("AmazonMSK_example")
  *             .kmsKeyId(exampleKey.keyId())
  *             .build());
  * 
- *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()        
+ *         var exampleSecretVersion = new SecretVersion("exampleSecretVersion", SecretVersionArgs.builder()
  *             .secretId(exampleSecret.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleScramSecretAssociation = new ScramSecretAssociation("exampleScramSecretAssociation", ScramSecretAssociationArgs.builder()        
+ *         var exampleScramSecretAssociation = new ScramSecretAssociation("exampleScramSecretAssociation", ScramSecretAssociationArgs.builder()
  *             .clusterArn(exampleCluster.arn())
  *             .secretArnLists(exampleSecret.arn())
  *             .build(), CustomResourceOptions.builder()
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSecretPolicy = new SecretPolicy("exampleSecretPolicy", SecretPolicyArgs.builder()        
+ *         var exampleSecretPolicy = new SecretPolicy("exampleSecretPolicy", SecretPolicyArgs.builder()
  *             .secretArn(exampleSecret.arn())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

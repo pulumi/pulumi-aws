@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()        
+ *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
  *             .botId(exampleAwsLexv2modelsBot.id())
  *             .botVersion("DRAFT")
  *             .localeId("en_US")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()        
+ *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
  *             .botId(exampleAwsLexv2modelsBot.id())
  *             .botVersion("DRAFT")
  *             .localeId("en_US")

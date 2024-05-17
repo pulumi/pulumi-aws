@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyStore("example", PolicyStoreArgs.builder()        
+ *         var example = new PolicyStore("example", PolicyStoreArgs.builder()
  *             .validationSettings(PolicyStoreValidationSettingsArgs.builder()
  *                 .mode("STRICT")
  *                 .build())

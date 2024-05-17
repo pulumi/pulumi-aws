@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NetworkAssociation("example", NetworkAssociationArgs.builder()        
+ *         var example = new NetworkAssociation("example", NetworkAssociationArgs.builder()
  *             .clientVpnEndpointId(exampleAwsEc2ClientVpnEndpoint.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());

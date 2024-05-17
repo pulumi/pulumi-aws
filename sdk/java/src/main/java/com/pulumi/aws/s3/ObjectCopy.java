@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ObjectCopy("test", ObjectCopyArgs.builder()        
+ *         var test = new ObjectCopy("test", ObjectCopyArgs.builder()
  *             .bucket("destination_bucket")
  *             .key("destination_key")
  *             .source("source_bucket/source_key")

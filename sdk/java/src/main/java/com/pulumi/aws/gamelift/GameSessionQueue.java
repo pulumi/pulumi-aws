@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new GameSessionQueue("test", GameSessionQueueArgs.builder()        
+ *         var test = new GameSessionQueue("test", GameSessionQueueArgs.builder()
  *             .name("example-session-queue")
  *             .destinations(            
  *                 usWest2Fleet.arn(),

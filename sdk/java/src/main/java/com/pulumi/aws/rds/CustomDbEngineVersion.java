@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("KMS symmetric key for RDS Custom for Oracle")
  *             .build());
  * 
- *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()        
+ *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()
  *             .databaseInstallationFilesS3BucketName("DOC-EXAMPLE-BUCKET")
  *             .databaseInstallationFilesS3Prefix("1915_GI/")
  *             .engine("custom-oracle-ee-cdb")
@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("KMS symmetric key for RDS Custom for Oracle")
  *             .build());
  * 
- *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()        
+ *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()
  *             .databaseInstallationFilesS3BucketName("DOC-EXAMPLE-BUCKET")
  *             .databaseInstallationFilesS3Prefix("1915_GI/")
  *             .engine("custom-oracle-ee-cdb")
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // CEV creation requires an AMI owned by the operator
- *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()        
+ *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()
  *             .engine("custom-sqlserver-se")
  *             .engineVersion("15.00.4249.2.cev-1")
  *             .sourceImageId("ami-0aa12345678a12ab1")
@@ -192,7 +192,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiCopy("example", AmiCopyArgs.builder()        
+ *         var example = new AmiCopy("example", AmiCopyArgs.builder()
  *             .name("sqlserver-se-2019-15.00.4249.2")
  *             .description("A copy of ami-xxxxxxxx")
  *             .sourceAmiId("ami-xxxxxxxx")
@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // CEV creation requires an AMI owned by the operator
- *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()        
+ *         var test = new CustomDbEngineVersion("test", CustomDbEngineVersionArgs.builder()
  *             .engine("custom-sqlserver-se")
  *             .engineVersion("15.00.4249.2.cev-1")
  *             .sourceImageId(example.id())

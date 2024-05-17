@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Stack("network", StackArgs.builder()        
+ *         var network = new Stack("network", StackArgs.builder()
  *             .name("networking-stack")
  *             .parameters(Map.of("VPCCidr", "10.0.0.0/16"))
  *             .templateBody(serializeJson(

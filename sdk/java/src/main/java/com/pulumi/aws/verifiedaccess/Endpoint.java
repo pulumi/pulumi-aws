@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Endpoint("example", EndpointArgs.builder()        
+ *         var example = new Endpoint("example", EndpointArgs.builder()
  *             .applicationDomain("example.com")
  *             .attachmentType("vpc")
  *             .description("example")

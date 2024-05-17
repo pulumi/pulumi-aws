@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var main = new VpcIpam("main", VpcIpamArgs.builder()        
+ *         var main = new VpcIpam("main", VpcIpamArgs.builder()
  *             .description("My IPAM")
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))

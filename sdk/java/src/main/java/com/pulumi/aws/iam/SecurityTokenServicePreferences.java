@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityTokenServicePreferences("example", SecurityTokenServicePreferencesArgs.builder()        
+ *         var example = new SecurityTokenServicePreferences("example", SecurityTokenServicePreferencesArgs.builder()
  *             .globalEndpointTokenVersion("v2Token")
  *             .build());
  * 

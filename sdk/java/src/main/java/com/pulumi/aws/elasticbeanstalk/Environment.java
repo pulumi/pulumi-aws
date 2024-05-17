@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .build());
  * 
- *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()        
+ *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()
  *             .name("tf-test-name")
  *             .application(tftest.name())
  *             .solutionStackName("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .build());
  * 
- *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()        
+ *         var tfenvtest = new Environment("tfenvtest", EnvironmentArgs.builder()
  *             .name("tf-test-name")
  *             .application(tftest.name())
  *             .solutionStackName("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")

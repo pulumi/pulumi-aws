@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Statement("example", StatementArgs.builder()        
+ *         var example = new Statement("example", StatementArgs.builder()
  *             .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *             .database(exampleAwsRedshiftCluster.databaseName())
  *             .dbUser(exampleAwsRedshiftCluster.masterUsername())
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Statement("example", StatementArgs.builder()        
+ *         var example = new Statement("example", StatementArgs.builder()
  *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
  *             .database("dev")
  *             .sql("CREATE GROUP group_name;")

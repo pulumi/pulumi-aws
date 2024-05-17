@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()        
+ *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
  *             .name("test-lb")
  *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var foo = new AppCookieStickinessPolicy("foo", AppCookieStickinessPolicyArgs.builder()        
+ *         var foo = new AppCookieStickinessPolicy("foo", AppCookieStickinessPolicyArgs.builder()
  *             .name("foo_policy")
  *             .loadBalancer(lb.name())
  *             .lbPort(80)

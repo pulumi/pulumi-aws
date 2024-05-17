@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  *         var entities = new BucketObjectv2("entities");
  * 
- *         var example = new EntityRecognizer("example", EntityRecognizerArgs.builder()        
+ *         var example = new EntityRecognizer("example", EntityRecognizerArgs.builder()
  *             .name("example")
  *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode("en")

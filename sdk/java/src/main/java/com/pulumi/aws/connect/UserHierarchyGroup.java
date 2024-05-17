@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyGroup("example", UserHierarchyGroupArgs.builder()        
+ *         var example = new UserHierarchyGroup("example", UserHierarchyGroupArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("example")
  *             .tags(Map.of("Name", "Example User Hierarchy Group"))
@@ -87,13 +87,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new UserHierarchyGroup("parent", UserHierarchyGroupArgs.builder()        
+ *         var parent = new UserHierarchyGroup("parent", UserHierarchyGroupArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("parent")
  *             .tags(Map.of("Name", "Example User Hierarchy Group Parent"))
  *             .build());
  * 
- *         var child = new UserHierarchyGroup("child", UserHierarchyGroupArgs.builder()        
+ *         var child = new UserHierarchyGroup("child", UserHierarchyGroupArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("child")
  *             .parentGroupId(parent.hierarchyGroupId())

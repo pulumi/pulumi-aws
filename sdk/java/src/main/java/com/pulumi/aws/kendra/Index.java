@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .description("example")
  *             .edition("DEVELOPER_EDITION")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .edition("DEVELOPER_EDITION")
  *             .roleArn(this_.arn())
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .roleArn(thisAwsIamRole.arn())
  *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .roleArn(this_.arn())
  *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
@@ -461,7 +461,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .roleArn(this_.arn())
  *             .documentMetadataConfigurationUpdates(            
@@ -756,7 +756,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .name("example")
  *             .roleArn(this_.arn())
  *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()

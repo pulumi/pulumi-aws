@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("aurora-cluster-demo")
  *             .engine("aurora-mysql")
  *             .engineVersion("5.7.mysql_aurora.2.03.2")
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
  *                 "us-west-2a",
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var postgresql = new Cluster("postgresql", ClusterArgs.builder()        
+ *         var postgresql = new Cluster("postgresql", ClusterArgs.builder()
  *             .clusterIdentifier("aurora-cluster-demo")
  *             .engine("aurora-postgresql")
  *             .availabilityZones(            
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .availabilityZones(            
  *                 "us-west-2a",
@@ -259,7 +259,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .engine("aurora-postgresql")
  *             .engineMode("provisioned")
@@ -274,7 +274,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleClusterInstance = new ClusterInstance("exampleClusterInstance", ClusterInstanceArgs.builder()        
+ *         var exampleClusterInstance = new ClusterInstance("exampleClusterInstance", ClusterInstanceArgs.builder()
  *             .clusterIdentifier(example.id())
  *             .instanceClass("db.serverless")
  *             .engine(example.engine())
@@ -316,7 +316,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Cluster("test", ClusterArgs.builder()        
+ *         var test = new Cluster("test", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .databaseName("test")
  *             .manageMasterUserPassword(true)
@@ -360,11 +360,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Example KMS Key")
  *             .build());
  * 
- *         var test = new Cluster("test", ClusterArgs.builder()        
+ *         var test = new Cluster("test", ClusterArgs.builder()
  *             .clusterIdentifier("example")
  *             .databaseName("test")
  *             .manageMasterUserPassword(true)
@@ -412,14 +412,14 @@ import javax.annotation.Nullable;
  *             .mostRecent(true)
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .engine("aurora")
  *             .engineVersion("5.6.mysql_aurora.1.22.4")
  *             .clusterIdentifier("example")
  *             .snapshotIdentifier(example.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
  *             .build());
  * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(exampleCluster.arn())
  *             .forceDestroy(true)

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooAwsVpc.id())
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooAwsVpc.id())
@@ -144,15 +144,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *         var bar = new Vpc("bar", VpcArgs.builder()
  *             .cidrBlock("10.2.0.0/16")
  *             .build());
  * 
- *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
@@ -193,15 +193,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()        
+ *         var fooVpc = new Vpc("fooVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *         var bar = new Vpc("bar", VpcArgs.builder()
  *             .cidrBlock("10.2.0.0/16")
  *             .build());
  * 
- *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()        
+ *         var foo = new VpcPeeringConnection("foo", VpcPeeringConnectionArgs.builder()
  *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())

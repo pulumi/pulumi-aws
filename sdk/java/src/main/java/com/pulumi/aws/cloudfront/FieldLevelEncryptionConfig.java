@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new FieldLevelEncryptionConfig("test", FieldLevelEncryptionConfigArgs.builder()        
+ *         var test = new FieldLevelEncryptionConfig("test", FieldLevelEncryptionConfigArgs.builder()
  *             .comment("test comment")
  *             .contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs.builder()
  *                 .forwardWhenContentTypeIsUnknown(true)

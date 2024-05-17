@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .domainName("ws-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainName("example", DomainNameArgs.builder()        
+ *         var example = new DomainName("example", DomainNameArgs.builder()
  *             .domainName("http-api.example.com")
  *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
  *                 .certificateArn(exampleAwsAcmCertificate.arn())
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
  *             .name(example.domainName())
  *             .type("A")
  *             .zoneId(exampleAwsRoute53Zone.zoneId())

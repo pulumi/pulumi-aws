@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Folder("example", FolderArgs.builder()        
+ *         var example = new Folder("example", FolderArgs.builder()
  *             .folderId("example-id")
  *             .name("example-name")
  *             .build());
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Folder("example", FolderArgs.builder()        
+ *         var example = new Folder("example", FolderArgs.builder()
  *             .folderId("example-id")
  *             .name("example-name")
  *             .permissions(FolderPermissionArgs.builder()
@@ -132,12 +132,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new Folder("parent", FolderArgs.builder()        
+ *         var parent = new Folder("parent", FolderArgs.builder()
  *             .folderId("parent-id")
  *             .name("parent-name")
  *             .build());
  * 
- *         var example = new Folder("example", FolderArgs.builder()        
+ *         var example = new Folder("example", FolderArgs.builder()
  *             .folderId("example-id")
  *             .name("example-name")
  *             .parentFolderArn(parent.arn())
