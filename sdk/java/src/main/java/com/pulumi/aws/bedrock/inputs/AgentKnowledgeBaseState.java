@@ -21,36 +21,44 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     public static final AgentKnowledgeBaseState Empty = new AgentKnowledgeBaseState();
 
     /**
-     * ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the knowledge base.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the knowledge base.
      * 
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Time at which the knowledge base was created.
+     * 
+     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
+    /**
+     * @return Time at which the knowledge base was created.
+     * 
+     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the knowledge base.
+     * @return Description of the knowledge base.
      * 
      */
     public Optional<Output<String>> description() {
@@ -65,14 +73,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     @Import(name="knowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
-     * @return Contains details about the embeddings model used for the knowledge base.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
@@ -80,14 +88,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the knowledge base.
+     * @return Name of the knowledge base.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +103,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role with permissions to create the knowledge base.
+     * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -110,14 +118,18 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Contains details about the configuration of the vector database used for the knowledge base.
+     * @return Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
@@ -125,14 +137,14 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -140,6 +152,8 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -149,6 +163,8 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -165,9 +181,17 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * Time at which the knowledge base was last updated.
+     * 
+     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
+    /**
+     * @return Time at which the knowledge base was last updated.
+     * 
+     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -208,7 +232,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the knowledge base.
          * 
          * @return builder
          * 
@@ -219,7 +243,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+         * @param arn ARN of the knowledge base.
          * 
          * @return builder
          * 
@@ -228,17 +252,29 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param createdAt Time at which the knowledge base was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * @param createdAt Time at which the knowledge base was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
         /**
-         * @param description A description of the knowledge base.
+         * @param description Description of the knowledge base.
          * 
          * @return builder
          * 
@@ -249,7 +285,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description A description of the knowledge base.
+         * @param description Description of the knowledge base.
          * 
          * @return builder
          * 
@@ -272,7 +308,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param knowledgeBaseConfiguration Contains details about the embeddings model used for the knowledge base.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 
@@ -283,7 +319,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param knowledgeBaseConfiguration Contains details about the embeddings model used for the knowledge base.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 
@@ -293,7 +329,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A name for the knowledge base.
+         * @param name Name of the knowledge base.
          * 
          * @return builder
          * 
@@ -304,7 +340,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name A name for the knowledge base.
+         * @param name Name of the knowledge base.
          * 
          * @return builder
          * 
@@ -314,7 +350,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param roleArn The ARN of the IAM role with permissions to create the knowledge base.
+         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
          * @return builder
          * 
@@ -325,7 +361,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param roleArn The ARN of the IAM role with permissions to create the knowledge base.
+         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
          * @return builder
          * 
@@ -335,7 +371,9 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Contains details about the configuration of the vector database used for the knowledge base.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -346,7 +384,9 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageConfiguration Contains details about the configuration of the vector database used for the knowledge base.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -356,7 +396,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -367,7 +407,7 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -377,6 +417,8 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -390,6 +432,8 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -410,11 +454,23 @@ public final class AgentKnowledgeBaseState extends com.pulumi.resources.Resource
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param updatedAt Time at which the knowledge base was last updated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
+        /**
+         * @param updatedAt Time at which the knowledge base was last updated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

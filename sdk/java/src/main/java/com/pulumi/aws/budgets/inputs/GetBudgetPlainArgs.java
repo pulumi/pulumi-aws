@@ -6,6 +6,7 @@ package com.pulumi.aws.budgets.inputs;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -64,12 +65,28 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetBudgetPlainArgs() {}
 
     private GetBudgetPlainArgs(GetBudgetPlainArgs $) {
         this.accountId = $.accountId;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -122,6 +139,17 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder namePrefix(@Nullable String namePrefix) {
             $.namePrefix = namePrefix;
+            return this;
+        }
+
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

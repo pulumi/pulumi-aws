@@ -72,7 +72,7 @@ type EnvironmentMembership struct {
 	Permissions pulumi.StringOutput `pulumi:"permissions"`
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
-	// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
@@ -121,7 +121,7 @@ type environmentMembershipState struct {
 	Permissions *string `pulumi:"permissions"`
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn *string `pulumi:"userArn"`
-	// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -132,7 +132,7 @@ type EnvironmentMembershipState struct {
 	Permissions pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the environment member you want to add.
 	UserArn pulumi.StringPtrInput
-	// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId pulumi.StringPtrInput
 }
 
@@ -261,7 +261,7 @@ func (o EnvironmentMembershipOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
 }
 
-// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 func (o EnvironmentMembershipOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

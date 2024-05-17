@@ -60,6 +60,8 @@ type LookupBudgetArgs struct {
 	Name string `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getBudget.
@@ -88,6 +90,8 @@ type LookupBudgetResult struct {
 	Notifications []GetBudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []GetBudgetPlannedLimit `pulumi:"plannedLimits"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
@@ -119,6 +123,8 @@ type LookupBudgetOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The prefix of the name of a budget. Unique within accounts.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupBudgetOutputArgs) ElementType() reflect.Type {
@@ -204,6 +210,11 @@ func (o LookupBudgetResultOutput) Notifications() GetBudgetNotificationArrayOutp
 // Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 func (o LookupBudgetResultOutput) PlannedLimits() GetBudgetPlannedLimitArrayOutput {
 	return o.ApplyT(func(v LookupBudgetResult) []GetBudgetPlannedLimit { return v.PlannedLimits }).(GetBudgetPlannedLimitArrayOutput)
+}
+
+// Map of tags assigned to the resource.
+func (o LookupBudgetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBudgetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.

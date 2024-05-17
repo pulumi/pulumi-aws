@@ -537,14 +537,14 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
     @Import(name="tagSpecifications")
     private @Nullable Output<List<LaunchTemplateTagSpecificationArgs>> tagSpecifications;
 
     /**
-     * @return The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * @return The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
     public Optional<Output<List<LaunchTemplateTagSpecificationArgs>>> tagSpecifications() {
@@ -1416,7 +1416,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details.
+         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
          * 
          * @return builder
          * 
@@ -1427,7 +1427,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details.
+         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
          * 
          * @return builder
          * 
@@ -1437,7 +1437,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details.
+         * @param tagSpecifications The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
          * 
          * @return builder
          * 

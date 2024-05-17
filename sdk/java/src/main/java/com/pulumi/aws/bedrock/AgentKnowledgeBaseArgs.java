@@ -21,14 +21,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     public static final AgentKnowledgeBaseArgs Empty = new AgentKnowledgeBaseArgs();
 
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the knowledge base.
+     * @return Description of the knowledge base.
      * 
      */
     public Optional<Output<String>> description() {
@@ -36,14 +36,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     @Import(name="knowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
 
     /**
-     * @return Contains details about the embeddings model used for the knowledge base.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>> knowledgeBaseConfiguration() {
@@ -51,14 +51,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the knowledge base.
+     * @return Name of the knowledge base.
      * 
      */
     public Optional<Output<String>> name() {
@@ -66,14 +66,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role with permissions to create the knowledge base.
+     * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     public Output<String> roleArn() {
@@ -81,14 +81,18 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="storageConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
 
     /**
-     * @return Contains details about the configuration of the vector database used for the knowledge base.
+     * @return Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationArgs>> storageConfiguration() {
@@ -96,14 +100,14 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -148,7 +152,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A description of the knowledge base.
+         * @param description Description of the knowledge base.
          * 
          * @return builder
          * 
@@ -159,7 +163,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param description A description of the knowledge base.
+         * @param description Description of the knowledge base.
          * 
          * @return builder
          * 
@@ -169,7 +173,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param knowledgeBaseConfiguration Contains details about the embeddings model used for the knowledge base.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 
@@ -180,7 +184,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param knowledgeBaseConfiguration Contains details about the embeddings model used for the knowledge base.
+         * @param knowledgeBaseConfiguration Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 
@@ -190,7 +194,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name A name for the knowledge base.
+         * @param name Name of the knowledge base.
          * 
          * @return builder
          * 
@@ -201,7 +205,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name A name for the knowledge base.
+         * @param name Name of the knowledge base.
          * 
          * @return builder
          * 
@@ -211,7 +215,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param roleArn The ARN of the IAM role with permissions to create the knowledge base.
+         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
          * @return builder
          * 
@@ -222,7 +226,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param roleArn The ARN of the IAM role with permissions to create the knowledge base.
+         * @param roleArn ARN of the IAM role with permissions to invoke API operations on the knowledge base.
          * 
          * @return builder
          * 
@@ -232,7 +236,9 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageConfiguration Contains details about the configuration of the vector database used for the knowledge base.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -243,7 +249,9 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageConfiguration Contains details about the configuration of the vector database used for the knowledge base.
+         * @param storageConfiguration Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -253,7 +261,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -264,7 +272,7 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     public static final AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs();
 
     /**
-     * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     @Import(name="metadataField", required=true)
     private Output<String> metadataField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     public Output<String> metadataField() {
@@ -30,14 +30,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     }
 
     /**
-     * The name of the field in which Amazon Bedrock stores the ID for each entry.
+     * Name of the field in which Amazon Bedrock stores the ID for each entry.
      * 
      */
     @Import(name="primaryKeyField", required=true)
     private Output<String> primaryKeyField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores the ID for each entry.
+     * @return Name of the field in which Amazon Bedrock stores the ID for each entry.
      * 
      */
     public Output<String> primaryKeyField() {
@@ -45,14 +45,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     }
 
     /**
-     * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     @Import(name="textField", required=true)
     private Output<String> textField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     public Output<String> textField() {
@@ -60,14 +60,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
     }
 
     /**
-     * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+     * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
     @Import(name="vectorField", required=true)
     private Output<String> vectorField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
     public Output<String> vectorField() {
@@ -102,7 +102,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param metadataField The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param metadataField The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param primaryKeyField The name of the field in which Amazon Bedrock stores the ID for each entry.
+         * @param primaryKeyField Name of the field in which Amazon Bedrock stores the ID for each entry.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param primaryKeyField The name of the field in which Amazon Bedrock stores the ID for each entry.
+         * @param primaryKeyField Name of the field in which Amazon Bedrock stores the ID for each entry.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param textField The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param textField The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param vectorField The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
         }
 
         /**
-         * @param vectorField The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * @param vectorField Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          * 
          * @return builder
          * 

@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
      * 
      */
     private String credentialsSecretArn;
     /**
-     * @return The endpoint URL of the Redis Enterprise Cloud database.
+     * @return Endpoint URL of the Redis Enterprise Cloud database.
      * 
      */
     private String endpoint;
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping;
     /**
-     * @return The name of the vector store.
+     * @return Name of the vector index.
      * 
      */
     private String vectorIndexName;
 
     private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration() {}
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
      * 
      */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
     /**
-     * @return The endpoint URL of the Redis Enterprise Cloud database.
+     * @return Endpoint URL of the Redis Enterprise Cloud database.
      * 
      */
     public String endpoint() {
         return this.endpoint;
     }
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
     /**
-     * @return The name of the vector store.
+     * @return Name of the vector index.
      * 
      */
     public String vectorIndexName() {

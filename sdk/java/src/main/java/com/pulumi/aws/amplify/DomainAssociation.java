@@ -125,14 +125,14 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The DNS record for certificate verification.
+     * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
     @Export(name="certificateVerificationDnsRecord", refs={String.class}, tree="[0]")
     private Output<String> certificateVerificationDnsRecord;
 
     /**
-     * @return The DNS record for certificate verification.
+     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
     public Output<String> certificateVerificationDnsRecord() {

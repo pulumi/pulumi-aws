@@ -15,14 +15,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs();
 
     /**
-     * The ARN of the model used to create vector embeddings for the knowledge base.
+     * ARN of the model used to create vector embeddings for the knowledge base.
      * 
      */
     @Import(name="embeddingModelArn", required=true)
     private Output<String> embeddingModelArn;
 
     /**
-     * @return The ARN of the model used to create vector embeddings for the knowledge base.
+     * @return ARN of the model used to create vector embeddings for the knowledge base.
      * 
      */
     public Output<String> embeddingModelArn() {
@@ -54,7 +54,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param embeddingModelArn The ARN of the model used to create vector embeddings for the knowledge base.
+         * @param embeddingModelArn ARN of the model used to create vector embeddings for the knowledge base.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         /**
-         * @param embeddingModelArn The ARN of the model used to create vector embeddings for the knowledge base.
+         * @param embeddingModelArn ARN of the model used to create vector embeddings for the knowledge base.
          * 
          * @return builder
          * 

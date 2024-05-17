@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration
     {
+        /// <summary>
+        /// Maximum number of tokens to include in a chunk.
+        /// </summary>
         public readonly int MaxTokens;
+        /// <summary>
+        /// Percentage of overlap between adjacent chunks of a data source.
+        /// </summary>
         public readonly int OverlapPercentage;
 
         [OutputConstructor]

@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
      * 
      */
     private String type;
     /**
-     * @return Contains details about the embeddings model that&#39;sused to   convert the data source.
+     * @return Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration vectorKnowledgeBaseConfiguration;
 
     private AgentKnowledgeBaseKnowledgeBaseConfiguration() {}
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return Contains details about the embeddings model that&#39;sused to   convert the data source.
+     * @return Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration> vectorKnowledgeBaseConfiguration() {

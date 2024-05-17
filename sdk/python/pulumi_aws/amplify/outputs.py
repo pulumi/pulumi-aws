@@ -332,7 +332,7 @@ class DomainAssociationSubDomain(dict):
         """
         :param str branch_name: Branch name setting for the subdomain.
         :param str prefix: Prefix setting for the subdomain.
-        :param str dns_record: DNS record for the subdomain.
+        :param str dns_record: DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
         :param bool verified: Verified status of the subdomain.
         """
         pulumi.set(__self__, "branch_name", branch_name)
@@ -362,7 +362,7 @@ class DomainAssociationSubDomain(dict):
     @pulumi.getter(name="dnsRecord")
     def dns_record(self) -> Optional[str]:
         """
-        DNS record for the subdomain.
+        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
         """
         return pulumi.get(self, "dns_record")
 

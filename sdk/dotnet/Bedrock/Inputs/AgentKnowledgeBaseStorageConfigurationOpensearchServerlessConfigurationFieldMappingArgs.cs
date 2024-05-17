@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+        /// Name of the field in which Amazon Bedrock stores metadata about the vector store.
         /// </summary>
         [Input("metadataField")]
         public Input<string>? MetadataField { get; set; }
 
         /// <summary>
-        /// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        /// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
         /// </summary>
         [Input("textField")]
         public Input<string>? TextField { get; set; }
 
         /// <summary>
-        /// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        /// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
         /// </summary>
         [Input("vectorField")]
         public Input<string>? VectorField { get; set; }

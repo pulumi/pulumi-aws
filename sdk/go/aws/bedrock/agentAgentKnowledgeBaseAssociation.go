@@ -31,9 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentAgentKnowledgeBaseAssociation(ctx, "example", &bedrock.AgentAgentKnowledgeBaseAssociationArgs{
-//				AgentId:            pulumi.String("012EXAMPLE"),
+//				AgentId:            pulumi.String("GGRRAED6JP"),
 //				Description:        pulumi.String("Example Knowledge base"),
-//				KnowledgeBaseId:    pulumi.String("345EXAMPLE"),
+//				KnowledgeBaseId:    pulumi.String("EMDPPAYPZI"),
 //				KnowledgeBaseState: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
@@ -47,23 +47,23 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the `012AGENTID-DRAFT-345678KBID`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example 012AGENTID-DRAFT-345678KBID
+// $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
 // ```
 type AgentAgentKnowledgeBaseAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the agent to associate.
+	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Agent version to associate the Knowledge Base to, currently only DRAFT.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// Description of the association.
+	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The ID of the Knowledge Base to associate.
+	// Unique identifier of the knowledge base to associate with the agent.
 	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
-	// State of the association ENABLED or DISABLED.
+	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringOutput `pulumi:"knowledgeBaseState"`
@@ -111,30 +111,30 @@ func GetAgentAgentKnowledgeBaseAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
 type agentAgentKnowledgeBaseAssociationState struct {
-	// The ID of the agent to associate.
+	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId *string `pulumi:"agentId"`
-	// Agent version to associate the Knowledge Base to, currently only DRAFT.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Description of the association.
+	// Description of what the agent should use the knowledge base for.
 	Description *string `pulumi:"description"`
-	// The ID of the Knowledge Base to associate.
+	// Unique identifier of the knowledge base to associate with the agent.
 	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
-	// State of the association ENABLED or DISABLED.
+	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState *string `pulumi:"knowledgeBaseState"`
 }
 
 type AgentAgentKnowledgeBaseAssociationState struct {
-	// The ID of the agent to associate.
+	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringPtrInput
-	// Agent version to associate the Knowledge Base to, currently only DRAFT.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
-	// Description of the association.
+	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringPtrInput
-	// The ID of the Knowledge Base to associate.
+	// Unique identifier of the knowledge base to associate with the agent.
 	KnowledgeBaseId pulumi.StringPtrInput
-	// State of the association ENABLED or DISABLED.
+	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringPtrInput
@@ -145,15 +145,15 @@ func (AgentAgentKnowledgeBaseAssociationState) ElementType() reflect.Type {
 }
 
 type agentAgentKnowledgeBaseAssociationArgs struct {
-	// The ID of the agent to associate.
+	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId string `pulumi:"agentId"`
-	// Agent version to associate the Knowledge Base to, currently only DRAFT.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Description of the association.
+	// Description of what the agent should use the knowledge base for.
 	Description string `pulumi:"description"`
-	// The ID of the Knowledge Base to associate.
+	// Unique identifier of the knowledge base to associate with the agent.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
-	// State of the association ENABLED or DISABLED.
+	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState string `pulumi:"knowledgeBaseState"`
@@ -161,15 +161,15 @@ type agentAgentKnowledgeBaseAssociationArgs struct {
 
 // The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
 type AgentAgentKnowledgeBaseAssociationArgs struct {
-	// The ID of the agent to associate.
+	// Unique identifier of the agent with which you want to associate the knowledge base.
 	AgentId pulumi.StringInput
-	// Agent version to associate the Knowledge Base to, currently only DRAFT.
+	// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
-	// Description of the association.
+	// Description of what the agent should use the knowledge base for.
 	Description pulumi.StringInput
-	// The ID of the Knowledge Base to associate.
+	// Unique identifier of the knowledge base to associate with the agent.
 	KnowledgeBaseId pulumi.StringInput
-	// State of the association ENABLED or DISABLED.
+	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringInput
@@ -262,27 +262,27 @@ func (o AgentAgentKnowledgeBaseAssociationOutput) ToAgentAgentKnowledgeBaseAssoc
 	return o
 }
 
-// The ID of the agent to associate.
+// Unique identifier of the agent with which you want to associate the knowledge base.
 func (o AgentAgentKnowledgeBaseAssociationOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Agent version to associate the Knowledge Base to, currently only DRAFT.
+// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
 func (o AgentAgentKnowledgeBaseAssociationOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// Description of the association.
+// Description of what the agent should use the knowledge base for.
 func (o AgentAgentKnowledgeBaseAssociationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The ID of the Knowledge Base to associate.
+// Unique identifier of the knowledge base to associate with the agent.
 func (o AgentAgentKnowledgeBaseAssociationOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
-// State of the association ENABLED or DISABLED.
+// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 //
 // The following arguments are optional:
 func (o AgentAgentKnowledgeBaseAssociationOutput) KnowledgeBaseState() pulumi.StringOutput {

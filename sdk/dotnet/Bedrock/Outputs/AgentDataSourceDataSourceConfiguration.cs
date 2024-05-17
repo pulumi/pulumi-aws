@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentDataSourceDataSourceConfiguration
     {
+        /// <summary>
+        /// Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration;
+        /// <summary>
+        /// Type of storage for the data source. Valid values: `S3`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

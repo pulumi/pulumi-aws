@@ -16,14 +16,14 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     public static final AgentAgentKnowledgeBaseAssociationState Empty = new AgentAgentKnowledgeBaseAssociationState();
 
     /**
-     * The ID of the agent to associate.
+     * Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
 
     /**
-     * @return The ID of the agent to associate.
+     * @return Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
     public Optional<Output<String>> agentId() {
@@ -31,14 +31,14 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     }
 
     /**
-     * Agent version to associate the Knowledge Base to, currently only DRAFT.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
-     * @return Agent version to associate the Knowledge Base to, currently only DRAFT.
+     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -46,14 +46,14 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     }
 
     /**
-     * Description of the association.
+     * Description of what the agent should use the knowledge base for.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the association.
+     * @return Description of what the agent should use the knowledge base for.
      * 
      */
     public Optional<Output<String>> description() {
@@ -61,14 +61,14 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     }
 
     /**
-     * The ID of the Knowledge Base to associate.
+     * Unique identifier of the knowledge base to associate with the agent.
      * 
      */
     @Import(name="knowledgeBaseId")
     private @Nullable Output<String> knowledgeBaseId;
 
     /**
-     * @return The ID of the Knowledge Base to associate.
+     * @return Unique identifier of the knowledge base to associate with the agent.
      * 
      */
     public Optional<Output<String>> knowledgeBaseId() {
@@ -76,7 +76,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     }
 
     /**
-     * State of the association ENABLED or DISABLED.
+     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -85,7 +85,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
     private @Nullable Output<String> knowledgeBaseState;
 
     /**
-     * @return State of the association ENABLED or DISABLED.
+     * @return Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -123,7 +123,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param agentId The ID of the agent to associate.
+         * @param agentId Unique identifier of the agent with which you want to associate the knowledge base.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param agentId The ID of the agent to associate.
+         * @param agentId Unique identifier of the agent with which you want to associate the knowledge base.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param agentVersion Agent version to associate the Knowledge Base to, currently only DRAFT.
+         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param agentVersion Agent version to associate the Knowledge Base to, currently only DRAFT.
+         * @param agentVersion Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param description Description of the association.
+         * @param description Description of what the agent should use the knowledge base for.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param description Description of the association.
+         * @param description Description of what the agent should use the knowledge base for.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param knowledgeBaseId The ID of the Knowledge Base to associate.
+         * @param knowledgeBaseId Unique identifier of the knowledge base to associate with the agent.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param knowledgeBaseId The ID of the Knowledge Base to associate.
+         * @param knowledgeBaseId Unique identifier of the knowledge base to associate with the agent.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param knowledgeBaseState State of the association ENABLED or DISABLED.
+         * @param knowledgeBaseState Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
          * 
          * The following arguments are optional:
          * 
@@ -220,7 +220,7 @@ public final class AgentAgentKnowledgeBaseAssociationState extends com.pulumi.re
         }
 
         /**
-         * @param knowledgeBaseState State of the association ENABLED or DISABLED.
+         * @param knowledgeBaseState Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
          * 
          * The following arguments are optional:
          * 

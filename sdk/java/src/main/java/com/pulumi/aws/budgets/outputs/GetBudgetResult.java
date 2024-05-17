@@ -15,6 +15,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -75,6 +76,11 @@ public final class GetBudgetResult {
      * 
      */
     private List<GetBudgetPlannedLimit> plannedLimits;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
     /**
      * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
@@ -175,6 +181,13 @@ public final class GetBudgetResult {
         return this.plannedLimits;
     }
     /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
@@ -219,6 +232,7 @@ public final class GetBudgetResult {
         private @Nullable String namePrefix;
         private List<GetBudgetNotification> notifications;
         private List<GetBudgetPlannedLimit> plannedLimits;
+        private Map<String,String> tags;
         private String timePeriodEnd;
         private String timePeriodStart;
         private String timeUnit;
@@ -239,6 +253,7 @@ public final class GetBudgetResult {
     	      this.namePrefix = defaults.namePrefix;
     	      this.notifications = defaults.notifications;
     	      this.plannedLimits = defaults.plannedLimits;
+    	      this.tags = defaults.tags;
     	      this.timePeriodEnd = defaults.timePeriodEnd;
     	      this.timePeriodStart = defaults.timePeriodStart;
     	      this.timeUnit = defaults.timeUnit;
@@ -376,6 +391,14 @@ public final class GetBudgetResult {
             return plannedLimits(List.of(plannedLimits));
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timePeriodEnd(String timePeriodEnd) {
             if (timePeriodEnd == null) {
               throw new MissingRequiredPropertyException("GetBudgetResult", "timePeriodEnd");
@@ -415,6 +438,7 @@ public final class GetBudgetResult {
             _resultValue.namePrefix = namePrefix;
             _resultValue.notifications = notifications;
             _resultValue.plannedLimits = plannedLimits;
+            _resultValue.tags = tags;
             _resultValue.timePeriodEnd = timePeriodEnd;
             _resultValue.timePeriodStart = timePeriodStart;
             _resultValue.timeUnit = timeUnit;

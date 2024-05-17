@@ -2266,7 +2266,7 @@ export namespace amplify {
          */
         branchName: pulumi.Input<string>;
         /**
-         * DNS record for the subdomain.
+         * DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
          */
         dnsRecord?: pulumi.Input<string>;
         /**
@@ -9172,38 +9172,36 @@ export namespace bcmdata {
 export namespace bedrock {
     export interface AgentAgentActionGroupActionGroupExecutor {
         /**
-         * ARN of the Lambda that defines the business logic for the action group.
+         * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
          */
         lambda?: pulumi.Input<string>;
     }
 
     export interface AgentAgentActionGroupApiSchema {
         /**
-         * YAML or JSON OpenAPI Schema.
+         * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
          */
         payload?: pulumi.Input<string>;
         /**
-         * Configuration of S3 schema location
+         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchemaS3>;
     }
 
     export interface AgentAgentActionGroupApiSchemaS3 {
         /**
-         * The S3 bucket name that contains the OpenAPI Schema.
+         * Name of the S3 bucket.
          */
         s3BucketName?: pulumi.Input<string>;
         /**
-         * The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-         *
-         * The following arguments are optional:
+         * S3 object key containing the resource.
          */
         s3ObjectKey?: pulumi.Input<string>;
     }
 
     export interface AgentAgentAliasRoutingConfiguration {
         /**
-         * Version of the agent the alias routes to.
+         * Version of the agent with which the alias is associated.
          */
         agentVersion: pulumi.Input<string>;
     }
@@ -9225,13 +9223,11 @@ export namespace bedrock {
 
     export interface AgentAgentPromptOverrideConfiguration {
         /**
-         * ARN of Lambda to use when parsing the raw foundation model output.
+         * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
          */
         overrideLambda: pulumi.Input<string>;
         /**
-         * List of prompt configurations.
-         *
-         * The following arguments are optional:
+         * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
          */
         promptConfigurations: pulumi.Input<any[]>;
     }
@@ -9252,7 +9248,13 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceDataSourceConfiguration {
+        /**
+         * Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
+         */
         s3Configuration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfigurationS3Configuration>;
+        /**
+         * Type of storage for the data source. Valid values: `S3`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -9263,6 +9265,9 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceServerSideEncryptionConfiguration {
+        /**
+         * ARN of the AWS KMS key used to encrypt the resource.
+         */
         kmsKeyArn?: pulumi.Input<string>;
     }
 
@@ -9278,192 +9283,207 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceVectorIngestionConfiguration {
+        /**
+         * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
+         */
         chunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
+        /**
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         */
         chunkingStrategy: pulumi.Input<string>;
+        /**
+         * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+         */
         fixedSizeChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
+        /**
+         * Maximum number of tokens to include in a chunk.
+         */
         maxTokens: pulumi.Input<number>;
+        /**
+         * Percentage of overlap between adjacent chunks of a data source.
+         */
         overlapPercentage: pulumi.Input<number>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
         /**
-         * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
          */
         type: pulumi.Input<string>;
         /**
-         * Contains details about the embeddings model that'sused to   convert the data source.
+         * Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
          */
         vectorKnowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
         /**
-         * The ARN of the model used to create vector embeddings for the knowledge base.
+         * ARN of the model used to create vector embeddings for the knowledge base.
          */
         embeddingModelArn: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfiguration {
         /**
-         * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+         * The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
          */
         opensearchServerlessConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration>;
         /**
-         * Contains the storage configuration of the knowledge base in Pinecone.
+         * The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
          */
         pineconeConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfiguration>;
         /**
-         * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+         * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
          */
         rdsConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfiguration>;
         /**
-         * Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+         * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
          */
         redisEnterpriseCloudConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration>;
         /**
-         * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
         /**
-         * The ARN of the OpenSearch Service vector store.
+         * ARN of the OpenSearch Service vector store.
          */
         collectionArn: pulumi.Input<string>;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
          */
         fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping>;
         /**
-         * The name of the vector store.
+         * Name of the vector store.
          */
         vectorIndexName: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField?: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField?: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          */
         vectorField?: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
         /**
-         * The endpoint URL for your index management page.
+         * Endpoint URL for your index management page.
          */
         connectionString: pulumi.Input<string>;
         /**
-         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
          */
         fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping>;
         /**
-         * The namespace to be used to write new data to your database.
+         * Namespace to be used to write new data to your database.
          */
         namespace?: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField?: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField?: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
         /**
-         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The name of your Amazon RDS database.
+         * Name of your Amazon RDS database.
          */
         databaseName: pulumi.Input<string>;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * Names of the fields to which to map information about the vector store. This block supports the following arguments:
          */
         fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping>;
         /**
-         * The namespace to be used to write new data to your database.
+         * ARN of the vector store.
          */
         resourceArn: pulumi.Input<string>;
         /**
-         * The name of the table in the database.
+         * Name of the table in the database.
          */
         tableName: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the ID for each entry.
+         * Name of the field in which Amazon Bedrock stores the ID for each entry.
          */
         primaryKeyField: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          */
         vectorField: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
         /**
-         * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
          */
         credentialsSecretArn: pulumi.Input<string>;
         /**
-         * The endpoint URL of the Redis Enterprise Cloud database.
+         * Endpoint URL of the Redis Enterprise Cloud database.
          */
         endpoint: pulumi.Input<string>;
         /**
-         * Contains the names of the fields to which to map information about the vector store.
+         * The names of the fields to which to map information about the vector store. This block supports the following arguments:
          */
         fieldMapping?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping>;
         /**
-         * The name of the vector store.
+         * Name of the vector index.
          */
         vectorIndexName: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
         /**
-         * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * Name of the field in which Amazon Bedrock stores metadata about the vector store.
          */
         metadataField?: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          */
         textField?: pulumi.Input<string>;
         /**
-         * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+         * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
          */
         vectorField?: pulumi.Input<string>;
     }
@@ -9680,13 +9700,28 @@ export namespace budgets {
     }
 
     export interface BudgetAutoAdjustData {
+        /**
+         * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         */
         autoAdjustType: pulumi.Input<string>;
+        /**
+         * (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         */
         historicalOptions?: pulumi.Input<inputs.budgets.BudgetAutoAdjustDataHistoricalOptions>;
+        /**
+         * (Optional) - The last time that your budget was auto-adjusted.
+         */
         lastAutoAdjustTime?: pulumi.Input<string>;
     }
 
     export interface BudgetAutoAdjustDataHistoricalOptions {
+        /**
+         * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+         */
         budgetAdjustmentPeriod: pulumi.Input<number>;
+        /**
+         * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
+         */
         lookbackAvailablePeriods?: pulumi.Input<number>;
     }
 

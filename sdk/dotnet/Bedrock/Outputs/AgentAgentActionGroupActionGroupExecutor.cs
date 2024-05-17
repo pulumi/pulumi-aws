@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentAgentActionGroupActionGroupExecutor
     {
         /// <summary>
-        /// ARN of the Lambda that defines the business logic for the action group.
+        /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
         /// </summary>
         public readonly string? Lambda;
 

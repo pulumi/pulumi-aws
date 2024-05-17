@@ -32,11 +32,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
 //				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("ABDJFOWER1"),
+//				AgentId:                pulumi.String("GGRRAED6JP"),
 //				AgentVersion:           pulumi.String("DRAFT"),
 //				SkipResourceInUseCheck: pulumi.Bool(true),
 //				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
-//					Lambda: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:example-function"),
+//					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
 //				},
 //				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
 //					S3: &bedrock.AgentAgentActionGroupApiSchemaS3Args{
@@ -56,29 +56,36 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the `example_id_arg`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example ABDJFOWER1,HSKTNKANI4,DRAFT
+// $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
 // ```
 type AgentAgentActionGroup struct {
 	pulumi.CustomResourceState
 
-	// Configuration of the executor for the Action Group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 	ActionGroupExecutor AgentAgentActionGroupActionGroupExecutorPtrOutput `pulumi:"actionGroupExecutor"`
-	ActionGroupId       pulumi.StringOutput                               `pulumi:"actionGroupId"`
-	// Name of the Agent Action Group.
-	ActionGroupName  pulumi.StringOutput `pulumi:"actionGroupName"`
+	// Unique identifier of the action group.
+	ActionGroupId pulumi.StringOutput `pulumi:"actionGroupId"`
+	// Name of the action group.
+	ActionGroupName pulumi.StringOutput `pulumi:"actionGroupName"`
+	// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	ActionGroupState pulumi.StringOutput `pulumi:"actionGroupState"`
-	// Id of the Agent for the Action Group.
+	// The unique identifier of the agent for which to create the action group.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Version of the Agent to attach the Action Group to.
+	// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// Configuration of the API Schema for the Action Group.
-	ApiSchema                  AgentAgentActionGroupApiSchemaPtrOutput `pulumi:"apiSchema"`
-	Description                pulumi.StringPtrOutput                  `pulumi:"description"`
-	ParentActionGroupSignature pulumi.StringPtrOutput                  `pulumi:"parentActionGroupSignature"`
-	SkipResourceInUseCheck     pulumi.BoolOutput                       `pulumi:"skipResourceInUseCheck"`
+	// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+	//
+	// The following arguments are optional:
+	ApiSchema AgentAgentActionGroupApiSchemaPtrOutput `pulumi:"apiSchema"`
+	// Description of the action group.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+	ParentActionGroupSignature pulumi.StringPtrOutput `pulumi:"parentActionGroupSignature"`
+	// Whether the in-use check is skipped when deleting the action group.
+	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
 }
 
 // NewAgentAgentActionGroup registers a new resource with the given unique name, arguments, and options.
@@ -120,39 +127,53 @@ func GetAgentAgentActionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgentActionGroup resources.
 type agentAgentActionGroupState struct {
-	// Configuration of the executor for the Action Group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 	ActionGroupExecutor *AgentAgentActionGroupActionGroupExecutor `pulumi:"actionGroupExecutor"`
-	ActionGroupId       *string                                   `pulumi:"actionGroupId"`
-	// Name of the Agent Action Group.
-	ActionGroupName  *string `pulumi:"actionGroupName"`
+	// Unique identifier of the action group.
+	ActionGroupId *string `pulumi:"actionGroupId"`
+	// Name of the action group.
+	ActionGroupName *string `pulumi:"actionGroupName"`
+	// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	ActionGroupState *string `pulumi:"actionGroupState"`
-	// Id of the Agent for the Action Group.
+	// The unique identifier of the agent for which to create the action group.
 	AgentId *string `pulumi:"agentId"`
-	// Version of the Agent to attach the Action Group to.
+	// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// Configuration of the API Schema for the Action Group.
-	ApiSchema                  *AgentAgentActionGroupApiSchema `pulumi:"apiSchema"`
-	Description                *string                         `pulumi:"description"`
-	ParentActionGroupSignature *string                         `pulumi:"parentActionGroupSignature"`
-	SkipResourceInUseCheck     *bool                           `pulumi:"skipResourceInUseCheck"`
+	// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+	//
+	// The following arguments are optional:
+	ApiSchema *AgentAgentActionGroupApiSchema `pulumi:"apiSchema"`
+	// Description of the action group.
+	Description *string `pulumi:"description"`
+	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
+	// Whether the in-use check is skipped when deleting the action group.
+	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 }
 
 type AgentAgentActionGroupState struct {
-	// Configuration of the executor for the Action Group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 	ActionGroupExecutor AgentAgentActionGroupActionGroupExecutorPtrInput
-	ActionGroupId       pulumi.StringPtrInput
-	// Name of the Agent Action Group.
-	ActionGroupName  pulumi.StringPtrInput
+	// Unique identifier of the action group.
+	ActionGroupId pulumi.StringPtrInput
+	// Name of the action group.
+	ActionGroupName pulumi.StringPtrInput
+	// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	ActionGroupState pulumi.StringPtrInput
-	// Id of the Agent for the Action Group.
+	// The unique identifier of the agent for which to create the action group.
 	AgentId pulumi.StringPtrInput
-	// Version of the Agent to attach the Action Group to.
+	// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringPtrInput
-	// Configuration of the API Schema for the Action Group.
-	ApiSchema                  AgentAgentActionGroupApiSchemaPtrInput
-	Description                pulumi.StringPtrInput
+	// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+	//
+	// The following arguments are optional:
+	ApiSchema AgentAgentActionGroupApiSchemaPtrInput
+	// Description of the action group.
+	Description pulumi.StringPtrInput
+	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
-	SkipResourceInUseCheck     pulumi.BoolPtrInput
+	// Whether the in-use check is skipped when deleting the action group.
+	SkipResourceInUseCheck pulumi.BoolPtrInput
 }
 
 func (AgentAgentActionGroupState) ElementType() reflect.Type {
@@ -160,38 +181,50 @@ func (AgentAgentActionGroupState) ElementType() reflect.Type {
 }
 
 type agentAgentActionGroupArgs struct {
-	// Configuration of the executor for the Action Group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 	ActionGroupExecutor *AgentAgentActionGroupActionGroupExecutor `pulumi:"actionGroupExecutor"`
-	// Name of the Agent Action Group.
-	ActionGroupName  string  `pulumi:"actionGroupName"`
+	// Name of the action group.
+	ActionGroupName string `pulumi:"actionGroupName"`
+	// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	ActionGroupState *string `pulumi:"actionGroupState"`
-	// Id of the Agent for the Action Group.
+	// The unique identifier of the agent for which to create the action group.
 	AgentId string `pulumi:"agentId"`
-	// Version of the Agent to attach the Action Group to.
+	// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 	AgentVersion string `pulumi:"agentVersion"`
-	// Configuration of the API Schema for the Action Group.
-	ApiSchema                  *AgentAgentActionGroupApiSchema `pulumi:"apiSchema"`
-	Description                *string                         `pulumi:"description"`
-	ParentActionGroupSignature *string                         `pulumi:"parentActionGroupSignature"`
-	SkipResourceInUseCheck     *bool                           `pulumi:"skipResourceInUseCheck"`
+	// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+	//
+	// The following arguments are optional:
+	ApiSchema *AgentAgentActionGroupApiSchema `pulumi:"apiSchema"`
+	// Description of the action group.
+	Description *string `pulumi:"description"`
+	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
+	// Whether the in-use check is skipped when deleting the action group.
+	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
 }
 
 // The set of arguments for constructing a AgentAgentActionGroup resource.
 type AgentAgentActionGroupArgs struct {
-	// Configuration of the executor for the Action Group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 	ActionGroupExecutor AgentAgentActionGroupActionGroupExecutorPtrInput
-	// Name of the Agent Action Group.
-	ActionGroupName  pulumi.StringInput
+	// Name of the action group.
+	ActionGroupName pulumi.StringInput
+	// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	ActionGroupState pulumi.StringPtrInput
-	// Id of the Agent for the Action Group.
+	// The unique identifier of the agent for which to create the action group.
 	AgentId pulumi.StringInput
-	// Version of the Agent to attach the Action Group to.
+	// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 	AgentVersion pulumi.StringInput
-	// Configuration of the API Schema for the Action Group.
-	ApiSchema                  AgentAgentActionGroupApiSchemaPtrInput
-	Description                pulumi.StringPtrInput
+	// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+	//
+	// The following arguments are optional:
+	ApiSchema AgentAgentActionGroupApiSchemaPtrInput
+	// Description of the action group.
+	Description pulumi.StringPtrInput
+	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
-	SkipResourceInUseCheck     pulumi.BoolPtrInput
+	// Whether the in-use check is skipped when deleting the action group.
+	SkipResourceInUseCheck pulumi.BoolPtrInput
 }
 
 func (AgentAgentActionGroupArgs) ElementType() reflect.Type {
@@ -281,49 +314,56 @@ func (o AgentAgentActionGroupOutput) ToAgentAgentActionGroupOutputWithContext(ct
 	return o
 }
 
-// Configuration of the executor for the Action Group.
+// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `actionGroupExecutor` block for details.
 func (o AgentAgentActionGroupOutput) ActionGroupExecutor() AgentAgentActionGroupActionGroupExecutorPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) AgentAgentActionGroupActionGroupExecutorPtrOutput {
 		return v.ActionGroupExecutor
 	}).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
 }
 
+// Unique identifier of the action group.
 func (o AgentAgentActionGroupOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// Name of the Agent Action Group.
+// Name of the action group.
 func (o AgentAgentActionGroupOutput) ActionGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.ActionGroupName }).(pulumi.StringOutput)
 }
 
+// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 func (o AgentAgentActionGroupOutput) ActionGroupState() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.ActionGroupState }).(pulumi.StringOutput)
 }
 
-// Id of the Agent for the Action Group.
+// The unique identifier of the agent for which to create the action group.
 func (o AgentAgentActionGroupOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Version of the Agent to attach the Action Group to.
+// Version of the agent for which to create the action group. Valid values: `DRAFT`.
 func (o AgentAgentActionGroupOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// Configuration of the API Schema for the Action Group.
+// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `apiSchema` block for details.
+//
+// The following arguments are optional:
 func (o AgentAgentActionGroupOutput) ApiSchema() AgentAgentActionGroupApiSchemaPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) AgentAgentActionGroupApiSchemaPtrOutput { return v.ApiSchema }).(AgentAgentActionGroupApiSchemaPtrOutput)
 }
 
+// Description of the action group.
 func (o AgentAgentActionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 func (o AgentAgentActionGroupOutput) ParentActionGroupSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringPtrOutput { return v.ParentActionGroupSignature }).(pulumi.StringPtrOutput)
 }
 
+// Whether the in-use check is skipped when deleting the action group.
 func (o AgentAgentActionGroupOutput) SkipResourceInUseCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.SkipResourceInUseCheck }).(pulumi.BoolOutput)
 }

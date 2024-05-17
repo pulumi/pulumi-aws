@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
@@ -61,6 +62,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
+ *         final var currentGetPartition = AwsFunctions.getPartition();
+ * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
  *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -78,9 +81,16 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnLike")
- *                         .values(String.format("arn:aws:bedrock:%s:%s:agent/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         .variable("AWS:SourceArn")
  *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("bedrock:InvokeModel")
+ *                 .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
  *                 .build())
  *             .build());
  * 
@@ -89,19 +99,12 @@ import javax.annotation.Nullable;
  *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
  *             .build());
  * 
- *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("bedrock:InvokeModel")
- *                 .resources(String.format("arn:aws:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
- *                 .build())
- *             .build());
- * 
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
  *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(example.id())
  *             .build());
  * 
- *         var test = new AgentAgent("test", AgentAgentArgs.builder()        
+ *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()        
  *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
  *             .idleTtl(500)
@@ -110,8 +113,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAgentAgentAlias = new AgentAgentAlias("exampleAgentAgentAlias", AgentAgentAliasArgs.builder()        
  *             .agentAliasName("my-agent-alias")
- *             .agentId(test.agentId())
- *             .description("Test ALias")
+ *             .agentId(exampleAgentAgent.agentId())
+ *             .description("Test Alias")
  *             .build());
  * 
  *     }
@@ -122,32 +125,40 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the `AGENT_ID,ALIAS_ID`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example AGENT_ID,ALIAS_ID
+ * $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentAgentAlias:AgentAgentAlias")
 public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Agent Alias.
+     * ARN of the alias.
      * 
      */
     @Export(name="agentAliasArn", refs={String.class}, tree="[0]")
     private Output<String> agentAliasArn;
 
     /**
-     * @return ARN of the Agent Alias.
+     * @return ARN of the alias.
      * 
      */
     public Output<String> agentAliasArn() {
         return this.agentAliasArn;
     }
+    /**
+     * Unique identifier of the alias.
+     * 
+     */
     @Export(name="agentAliasId", refs={String.class}, tree="[0]")
     private Output<String> agentAliasId;
 
+    /**
+     * @return Unique identifier of the alias.
+     * 
+     */
     public Output<String> agentAliasId() {
         return this.agentAliasId;
     }
@@ -168,6 +179,8 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
@@ -175,57 +188,57 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
     /**
      * @return Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
     /**
-     * Description of the alias of the agent.
+     * Description of the alias.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the alias of the agent.
+     * @return Description of the alias.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Routing configuration of the alias
+     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     @Export(name="routingConfigurations", refs={List.class,AgentAgentAliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
 
     /**
-     * @return Routing configuration of the alias
+     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     public Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations() {
         return this.routingConfigurations;
     }
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -234,6 +247,10 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

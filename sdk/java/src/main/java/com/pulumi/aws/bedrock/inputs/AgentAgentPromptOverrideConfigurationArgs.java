@@ -17,14 +17,14 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
     public static final AgentAgentPromptOverrideConfigurationArgs Empty = new AgentAgentPromptOverrideConfigurationArgs();
 
     /**
-     * ARN of Lambda to use when parsing the raw foundation model output.
+     * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
      * 
      */
     @Import(name="overrideLambda", required=true)
     private Output<String> overrideLambda;
 
     /**
-     * @return ARN of Lambda to use when parsing the raw foundation model output.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
      * 
      */
     public Output<String> overrideLambda() {
@@ -32,18 +32,14 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * List of prompt configurations.
-     * 
-     * The following arguments are optional:
+     * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
      * 
      */
     @Import(name="promptConfigurations", required=true)
     private Output<List<Object>> promptConfigurations;
 
     /**
-     * @return List of prompt configurations.
-     * 
-     * The following arguments are optional:
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
      * 
      */
     public Output<List<Object>> promptConfigurations() {
@@ -76,7 +72,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param overrideLambda ARN of Lambda to use when parsing the raw foundation model output.
+         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
          * 
          * @return builder
          * 
@@ -87,7 +83,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param overrideLambda ARN of Lambda to use when parsing the raw foundation model output.
+         * @param overrideLambda ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
          * 
          * @return builder
          * 
@@ -97,9 +93,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations List of prompt configurations.
-         * 
-         * The following arguments are optional:
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations List of prompt configurations.
-         * 
-         * The following arguments are optional:
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
          * 
          * @return builder
          * 
@@ -122,9 +114,7 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations List of prompt configurations.
-         * 
-         * The following arguments are optional:
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
          * 
          * @return builder
          * 

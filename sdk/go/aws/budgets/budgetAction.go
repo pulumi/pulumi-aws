@@ -123,6 +123,10 @@ import (
 //						SubscriptionType: pulumi.String("EMAIL"),
 //					},
 //				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -167,6 +171,12 @@ type BudgetAction struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of subscribers. See Subscriber.
 	Subscribers BudgetActionSubscriberArrayOutput `pulumi:"subscribers"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewBudgetAction registers a new resource with the given unique name, arguments, and options.
@@ -247,6 +257,12 @@ type budgetActionState struct {
 	Status *string `pulumi:"status"`
 	// A list of subscribers. See Subscriber.
 	Subscribers []BudgetActionSubscriber `pulumi:"subscribers"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type BudgetActionState struct {
@@ -274,6 +290,12 @@ type BudgetActionState struct {
 	Status pulumi.StringPtrInput
 	// A list of subscribers. See Subscriber.
 	Subscribers BudgetActionSubscriberArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (BudgetActionState) ElementType() reflect.Type {
@@ -299,6 +321,8 @@ type budgetActionArgs struct {
 	NotificationType string `pulumi:"notificationType"`
 	// A list of subscribers. See Subscriber.
 	Subscribers []BudgetActionSubscriber `pulumi:"subscribers"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BudgetAction resource.
@@ -321,6 +345,8 @@ type BudgetActionArgs struct {
 	NotificationType pulumi.StringInput
 	// A list of subscribers. See Subscriber.
 	Subscribers BudgetActionSubscriberArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (BudgetActionArgs) ElementType() reflect.Type {
@@ -468,6 +494,18 @@ func (o BudgetActionOutput) Status() pulumi.StringOutput {
 // A list of subscribers. See Subscriber.
 func (o BudgetActionOutput) Subscribers() BudgetActionSubscriberArrayOutput {
 	return o.ApplyT(func(v *BudgetAction) BudgetActionSubscriberArrayOutput { return v.Subscribers }).(BudgetActionSubscriberArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetActionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o BudgetActionOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type BudgetActionArrayOutput struct{ *pulumi.OutputState }

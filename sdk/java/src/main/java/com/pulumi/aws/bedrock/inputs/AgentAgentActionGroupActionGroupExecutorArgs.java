@@ -16,14 +16,14 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
     public static final AgentAgentActionGroupActionGroupExecutorArgs Empty = new AgentAgentActionGroupActionGroupExecutorArgs();
 
     /**
-     * ARN of the Lambda that defines the business logic for the action group.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
      * 
      */
     @Import(name="lambda")
     private @Nullable Output<String> lambda;
 
     /**
-     * @return ARN of the Lambda that defines the business logic for the action group.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
      * 
      */
     public Optional<Output<String>> lambda() {
@@ -55,7 +55,7 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
         }
 
         /**
-         * @param lambda ARN of the Lambda that defines the business logic for the action group.
+         * @param lambda ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentAgentActionGroupActionGroupExecutorArgs extends com.pulu
         }
 
         /**
-         * @param lambda ARN of the Lambda that defines the business logic for the action group.
+         * @param lambda ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
          * 
          * @return builder
          * 

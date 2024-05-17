@@ -16,14 +16,14 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
     public static final AgentAgentActionGroupApiSchemaS3Args Empty = new AgentAgentActionGroupApiSchemaS3Args();
 
     /**
-     * The S3 bucket name that contains the OpenAPI Schema.
+     * Name of the S3 bucket.
      * 
      */
     @Import(name="s3BucketName")
     private @Nullable Output<String> s3BucketName;
 
     /**
-     * @return The S3 bucket name that contains the OpenAPI Schema.
+     * @return Name of the S3 bucket.
      * 
      */
     public Optional<Output<String>> s3BucketName() {
@@ -31,18 +31,14 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
     }
 
     /**
-     * The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-     * 
-     * The following arguments are optional:
+     * S3 object key containing the resource.
      * 
      */
     @Import(name="s3ObjectKey")
     private @Nullable Output<String> s3ObjectKey;
 
     /**
-     * @return The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-     * 
-     * The following arguments are optional:
+     * @return S3 object key containing the resource.
      * 
      */
     public Optional<Output<String>> s3ObjectKey() {
@@ -75,7 +71,7 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
         }
 
         /**
-         * @param s3BucketName The S3 bucket name that contains the OpenAPI Schema.
+         * @param s3BucketName Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -86,7 +82,7 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
         }
 
         /**
-         * @param s3BucketName The S3 bucket name that contains the OpenAPI Schema.
+         * @param s3BucketName Name of the S3 bucket.
          * 
          * @return builder
          * 
@@ -96,9 +92,7 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
         }
 
         /**
-         * @param s3ObjectKey The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-         * 
-         * The following arguments are optional:
+         * @param s3ObjectKey S3 object key containing the resource.
          * 
          * @return builder
          * 
@@ -109,9 +103,7 @@ public final class AgentAgentActionGroupApiSchemaS3Args extends com.pulumi.resou
         }
 
         /**
-         * @param s3ObjectKey The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-         * 
-         * The following arguments are optional:
+         * @param s3ObjectKey S3 object key containing the resource.
          * 
          * @return builder
          * 

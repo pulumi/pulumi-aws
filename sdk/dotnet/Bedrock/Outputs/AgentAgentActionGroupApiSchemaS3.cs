@@ -14,13 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentAgentActionGroupApiSchemaS3
     {
         /// <summary>
-        /// The S3 bucket name that contains the OpenAPI Schema.
+        /// Name of the S3 bucket.
         /// </summary>
         public readonly string? S3BucketName;
         /// <summary>
-        /// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-        /// 
-        /// The following arguments are optional:
+        /// S3 object key containing the resource.
         /// </summary>
         public readonly string? S3ObjectKey;
 

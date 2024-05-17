@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Amplify.Outputs
         /// </summary>
         public readonly string BranchName;
         /// <summary>
-        /// DNS record for the subdomain.
+        /// DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME &lt;target&gt;`).
         /// </summary>
         public readonly string? DnsRecord;
         /// <summary>

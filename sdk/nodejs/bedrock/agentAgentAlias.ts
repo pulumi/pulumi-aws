@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the `AGENT_ID,ALIAS_ID`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example AGENT_ID,ALIAS_ID
+ * $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
  * ```
  */
 export class AgentAgentAlias extends pulumi.CustomResource {
@@ -49,9 +49,12 @@ export class AgentAgentAlias extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the Agent Alias.
+     * ARN of the alias.
      */
     public /*out*/ readonly agentAliasArn!: pulumi.Output<string>;
+    /**
+     * Unique identifier of the alias.
+     */
     public /*out*/ readonly agentAliasId!: pulumi.Output<string>;
     /**
      * Name of the alias.
@@ -59,23 +62,25 @@ export class AgentAgentAlias extends pulumi.CustomResource {
     public readonly agentAliasName!: pulumi.Output<string>;
     /**
      * Identifier of the agent to create an alias for.
-     */
-    public readonly agentId!: pulumi.Output<string>;
-    /**
-     * Description of the alias of the agent.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Routing configuration of the alias
-     */
-    public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * The following arguments are optional:
      */
+    public readonly agentId!: pulumi.Output<string>;
+    /**
+     * Description of the alias.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+     */
+    public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
+    /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -131,9 +136,12 @@ export class AgentAgentAlias extends pulumi.CustomResource {
  */
 export interface AgentAgentAliasState {
     /**
-     * ARN of the Agent Alias.
+     * ARN of the alias.
      */
     agentAliasArn?: pulumi.Input<string>;
+    /**
+     * Unique identifier of the alias.
+     */
     agentAliasId?: pulumi.Input<string>;
     /**
      * Name of the alias.
@@ -141,23 +149,25 @@ export interface AgentAgentAliasState {
     agentAliasName?: pulumi.Input<string>;
     /**
      * Identifier of the agent to create an alias for.
-     */
-    agentId?: pulumi.Input<string>;
-    /**
-     * Description of the alias of the agent.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Routing configuration of the alias
-     */
-    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
-    /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * The following arguments are optional:
      */
+    agentId?: pulumi.Input<string>;
+    /**
+     * Description of the alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+     */
+    routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
+    /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -174,20 +184,20 @@ export interface AgentAgentAliasArgs {
     agentAliasName: pulumi.Input<string>;
     /**
      * Identifier of the agent to create an alias for.
+     *
+     * The following arguments are optional:
      */
     agentId: pulumi.Input<string>;
     /**
-     * Description of the alias of the agent.
+     * Description of the alias.
      */
     description?: pulumi.Input<string>;
     /**
-     * Routing configuration of the alias
+     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
     /**
-     * Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * The following arguments are optional:
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentAliasTimeouts>;

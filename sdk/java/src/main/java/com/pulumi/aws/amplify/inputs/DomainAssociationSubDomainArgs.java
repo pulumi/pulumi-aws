@@ -33,14 +33,14 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
     }
 
     /**
-     * DNS record for the subdomain.
+     * DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
      * 
      */
     @Import(name="dnsRecord")
     private @Nullable Output<String> dnsRecord;
 
     /**
-     * @return DNS record for the subdomain.
+     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
      * 
      */
     public Optional<Output<String>> dnsRecord() {
@@ -126,7 +126,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dnsRecord DNS record for the subdomain.
+         * @param dnsRecord DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DomainAssociationSubDomainArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dnsRecord DNS record for the subdomain.
+         * @param dnsRecord DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
          * 
          * @return builder
          * 

@@ -982,9 +982,12 @@ func (o BudgetActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetAction
 }
 
 type BudgetAutoAdjustData struct {
-	AutoAdjustType     string                                 `pulumi:"autoAdjustType"`
-	HistoricalOptions  *BudgetAutoAdjustDataHistoricalOptions `pulumi:"historicalOptions"`
-	LastAutoAdjustTime *string                                `pulumi:"lastAutoAdjustTime"`
+	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+	AutoAdjustType string `pulumi:"autoAdjustType"`
+	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	HistoricalOptions *BudgetAutoAdjustDataHistoricalOptions `pulumi:"historicalOptions"`
+	// (Optional) - The last time that your budget was auto-adjusted.
+	LastAutoAdjustTime *string `pulumi:"lastAutoAdjustTime"`
 }
 
 // BudgetAutoAdjustDataInput is an input type that accepts BudgetAutoAdjustDataArgs and BudgetAutoAdjustDataOutput values.
@@ -999,9 +1002,12 @@ type BudgetAutoAdjustDataInput interface {
 }
 
 type BudgetAutoAdjustDataArgs struct {
-	AutoAdjustType     pulumi.StringInput                            `pulumi:"autoAdjustType"`
-	HistoricalOptions  BudgetAutoAdjustDataHistoricalOptionsPtrInput `pulumi:"historicalOptions"`
-	LastAutoAdjustTime pulumi.StringPtrInput                         `pulumi:"lastAutoAdjustTime"`
+	// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+	AutoAdjustType pulumi.StringInput `pulumi:"autoAdjustType"`
+	// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+	HistoricalOptions BudgetAutoAdjustDataHistoricalOptionsPtrInput `pulumi:"historicalOptions"`
+	// (Optional) - The last time that your budget was auto-adjusted.
+	LastAutoAdjustTime pulumi.StringPtrInput `pulumi:"lastAutoAdjustTime"`
 }
 
 func (BudgetAutoAdjustDataArgs) ElementType() reflect.Type {
@@ -1081,14 +1087,17 @@ func (o BudgetAutoAdjustDataOutput) ToBudgetAutoAdjustDataPtrOutputWithContext(c
 	}).(BudgetAutoAdjustDataPtrOutput)
 }
 
+// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
 func (o BudgetAutoAdjustDataOutput) AutoAdjustType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) string { return v.AutoAdjustType }).(pulumi.StringOutput)
 }
 
+// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
 func (o BudgetAutoAdjustDataOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions { return v.HistoricalOptions }).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
+// (Optional) - The last time that your budget was auto-adjusted.
 func (o BudgetAutoAdjustDataOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustData) *string { return v.LastAutoAdjustTime }).(pulumi.StringPtrOutput)
 }
@@ -1117,6 +1126,7 @@ func (o BudgetAutoAdjustDataPtrOutput) Elem() BudgetAutoAdjustDataOutput {
 	}).(BudgetAutoAdjustDataOutput)
 }
 
+// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
 func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
 		if v == nil {
@@ -1126,6 +1136,7 @@ func (o BudgetAutoAdjustDataPtrOutput) AutoAdjustType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) - Configuration block of Historical Options. Required for `autoAdjustType` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
 func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetAutoAdjustDataHistoricalOptionsPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *BudgetAutoAdjustDataHistoricalOptions {
 		if v == nil {
@@ -1135,6 +1146,7 @@ func (o BudgetAutoAdjustDataPtrOutput) HistoricalOptions() BudgetAutoAdjustDataH
 	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
+// (Optional) - The last time that your budget was auto-adjusted.
 func (o BudgetAutoAdjustDataPtrOutput) LastAutoAdjustTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustData) *string {
 		if v == nil {
@@ -1145,7 +1157,9 @@ func (o BudgetAutoAdjustDataPtrOutput) LastAutoAdjustTime() pulumi.StringPtrOutp
 }
 
 type BudgetAutoAdjustDataHistoricalOptions struct {
-	BudgetAdjustmentPeriod   int  `pulumi:"budgetAdjustmentPeriod"`
+	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	BudgetAdjustmentPeriod int `pulumi:"budgetAdjustmentPeriod"`
+	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 	LookbackAvailablePeriods *int `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -1161,7 +1175,9 @@ type BudgetAutoAdjustDataHistoricalOptionsInput interface {
 }
 
 type BudgetAutoAdjustDataHistoricalOptionsArgs struct {
-	BudgetAdjustmentPeriod   pulumi.IntInput    `pulumi:"budgetAdjustmentPeriod"`
+	// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+	BudgetAdjustmentPeriod pulumi.IntInput `pulumi:"budgetAdjustmentPeriod"`
+	// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 	LookbackAvailablePeriods pulumi.IntPtrInput `pulumi:"lookbackAvailablePeriods"`
 }
 
@@ -1242,10 +1258,12 @@ func (o BudgetAutoAdjustDataHistoricalOptionsOutput) ToBudgetAutoAdjustDataHisto
 	}).(BudgetAutoAdjustDataHistoricalOptionsPtrOutput)
 }
 
+// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 func (o BudgetAutoAdjustDataHistoricalOptionsOutput) BudgetAdjustmentPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) int { return v.BudgetAdjustmentPeriod }).(pulumi.IntOutput)
 }
 
+// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 func (o BudgetAutoAdjustDataHistoricalOptionsOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BudgetAutoAdjustDataHistoricalOptions) *int { return v.LookbackAvailablePeriods }).(pulumi.IntPtrOutput)
 }
@@ -1274,6 +1292,7 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) Elem() BudgetAutoAdjustD
 	}).(BudgetAutoAdjustDataHistoricalOptionsOutput)
 }
 
+// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
 func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
 		if v == nil {
@@ -1283,6 +1302,7 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) BudgetAdjustmentPeriod()
 	}).(pulumi.IntPtrOutput)
 }
 
+// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budgetAdjustmentPeriod` and your historical cost data.
 func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BudgetAutoAdjustDataHistoricalOptions) *int {
 		if v == nil {

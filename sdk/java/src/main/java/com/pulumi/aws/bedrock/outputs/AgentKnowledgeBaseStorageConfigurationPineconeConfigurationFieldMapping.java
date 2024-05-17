@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     private @Nullable String metadataField;
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     private @Nullable String textField;
 
     private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping() {}
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     public Optional<String> metadataField() {
         return Optional.ofNullable(this.metadataField);
     }
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     public Optional<String> textField() {

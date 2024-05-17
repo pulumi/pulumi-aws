@@ -14,13 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentAgentPromptOverrideConfiguration
     {
         /// <summary>
-        /// ARN of Lambda to use when parsing the raw foundation model output.
+        /// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
         /// </summary>
         public readonly string OverrideLambda;
         /// <summary>
-        /// List of prompt configurations.
-        /// 
-        /// The following arguments are optional:
+        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         /// </summary>
         public readonly ImmutableArray<object> PromptConfigurations;
 

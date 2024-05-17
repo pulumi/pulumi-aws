@@ -87,6 +87,18 @@ namespace Pulumi.Aws.Budgets
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetBudgetArgs()
         {
         }
@@ -114,6 +126,18 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetBudgetInvokeArgs()
         {
@@ -170,6 +194,10 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetPlannedLimitResult> PlannedLimits;
         /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         public readonly string TimePeriodEnd;
@@ -212,6 +240,8 @@ namespace Pulumi.Aws.Budgets
 
             ImmutableArray<Outputs.GetBudgetPlannedLimitResult> plannedLimits,
 
+            ImmutableDictionary<string, string> tags,
+
             string timePeriodEnd,
 
             string timePeriodStart,
@@ -232,6 +262,7 @@ namespace Pulumi.Aws.Budgets
             NamePrefix = namePrefix;
             Notifications = notifications;
             PlannedLimits = plannedLimits;
+            Tags = tags;
             TimePeriodEnd = timePeriodEnd;
             TimePeriodStart = timePeriodStart;
             TimeUnit = timeUnit;

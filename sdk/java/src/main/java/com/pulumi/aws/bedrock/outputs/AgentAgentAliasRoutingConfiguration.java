@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentAgentAliasRoutingConfiguration {
     /**
-     * @return Version of the agent the alias routes to.
+     * @return Version of the agent with which the alias is associated.
      * 
      */
     private String agentVersion;
 
     private AgentAgentAliasRoutingConfiguration() {}
     /**
-     * @return Version of the agent the alias routes to.
+     * @return Version of the agent with which the alias is associated.
      * 
      */
     public String agentVersion() {

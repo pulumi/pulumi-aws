@@ -216,12 +216,10 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
     }
     /**
      * The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
-     * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
-     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -233,12 +231,10 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
-     * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
      * * `ubuntu-22.04-x86_64`
-     * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`

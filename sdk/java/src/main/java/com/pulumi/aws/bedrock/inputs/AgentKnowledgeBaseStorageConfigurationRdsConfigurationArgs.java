@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     public static final AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs();
 
     /**
-     * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
      * 
      */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
      * 
      */
     public Output<String> credentialsSecretArn() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     }
 
     /**
-     * The name of your Amazon RDS database.
+     * Name of your Amazon RDS database.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of your Amazon RDS database.
+     * @return Name of your Amazon RDS database.
      * 
      */
     public Output<String> databaseName() {
@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     }
 
     /**
-     * Contains the names of the fields to which to map information about the vector store.
+     * Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs>> fieldMapping() {
@@ -63,14 +63,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     }
 
     /**
-     * The namespace to be used to write new data to your database.
+     * ARN of the vector store.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return ARN of the vector store.
      * 
      */
     public Output<String> resourceArn() {
@@ -78,14 +78,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
     }
 
     /**
-     * The name of the table in the database.
+     * Name of the table in the database.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name of the table in the database.
+     * @return Name of the table in the database.
      * 
      */
     public Output<String> tableName() {
@@ -121,7 +121,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param databaseName The name of your Amazon RDS database.
+         * @param databaseName Name of your Amazon RDS database.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param databaseName The name of your Amazon RDS database.
+         * @param databaseName Name of your Amazon RDS database.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping Names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param resourceArn The namespace to be used to write new data to your database.
+         * @param resourceArn ARN of the vector store.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param resourceArn The namespace to be used to write new data to your database.
+         * @param resourceArn ARN of the vector store.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param tableName The name of the table in the database.
+         * @param tableName Name of the table in the database.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs ex
         }
 
         /**
-         * @param tableName The name of the table in the database.
+         * @param tableName Name of the table in the database.
          * 
          * @return builder
          * 

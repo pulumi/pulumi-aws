@@ -38,6 +38,8 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="agentId", required=true)
     private Output<String> agentId;
@@ -45,20 +47,22 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
 
     /**
-     * Description of the alias of the agent.
+     * Description of the alias.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the alias of the agent.
+     * @return Description of the alias.
      * 
      */
     public Optional<Output<String>> description() {
@@ -66,14 +70,14 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Routing configuration of the alias
+     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     @Import(name="routingConfigurations")
     private @Nullable Output<List<AgentAgentAliasRoutingConfigurationArgs>> routingConfigurations;
 
     /**
-     * @return Routing configuration of the alias
+     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     public Optional<Output<List<AgentAgentAliasRoutingConfigurationArgs>>> routingConfigurations() {
@@ -81,18 +85,14 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -159,6 +159,8 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param agentId Identifier of the agent to create an alias for.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -170,6 +172,8 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param agentId Identifier of the agent to create an alias for.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -178,7 +182,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the alias of the agent.
+         * @param description Description of the alias.
          * 
          * @return builder
          * 
@@ -189,7 +193,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the alias of the agent.
+         * @param description Description of the alias.
          * 
          * @return builder
          * 
@@ -199,7 +203,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -210,7 +214,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -220,7 +224,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -230,9 +234,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * The following arguments are optional:
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -243,9 +245,7 @@ public final class AgentAgentAliasArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * The following arguments are optional:
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

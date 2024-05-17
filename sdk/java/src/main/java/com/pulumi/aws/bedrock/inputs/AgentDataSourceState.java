@@ -19,51 +19,111 @@ public final class AgentDataSourceState extends com.pulumi.resources.ResourceArg
 
     public static final AgentDataSourceState Empty = new AgentDataSourceState();
 
+    /**
+     * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+     * 
+     */
     @Import(name="dataDeletionPolicy")
     private @Nullable Output<String> dataDeletionPolicy;
 
+    /**
+     * @return Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+     * 
+     */
     public Optional<Output<String>> dataDeletionPolicy() {
         return Optional.ofNullable(this.dataDeletionPolicy);
     }
 
+    /**
+     * Details about how the data source is stored. See `data_source_configuration` block for details.
+     * 
+     */
     @Import(name="dataSourceConfiguration")
     private @Nullable Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration;
 
+    /**
+     * @return Details about how the data source is stored. See `data_source_configuration` block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceDataSourceConfigurationArgs>> dataSourceConfiguration() {
         return Optional.ofNullable(this.dataSourceConfiguration);
     }
 
+    /**
+     * Unique identifier of the data source.
+     * 
+     */
     @Import(name="dataSourceId")
     private @Nullable Output<String> dataSourceId;
 
+    /**
+     * @return Unique identifier of the data source.
+     * 
+     */
     public Optional<Output<String>> dataSourceId() {
         return Optional.ofNullable(this.dataSourceId);
     }
 
+    /**
+     * Description of the data source.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the data source.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Unique identifier of the knowledge base to which the data source belongs.
+     * 
+     */
     @Import(name="knowledgeBaseId")
     private @Nullable Output<String> knowledgeBaseId;
 
+    /**
+     * @return Unique identifier of the knowledge base to which the data source belongs.
+     * 
+     */
     public Optional<Output<String>> knowledgeBaseId() {
         return Optional.ofNullable(this.knowledgeBaseId);
     }
 
+    /**
+     * Name of the data source.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the data source.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+     * 
+     */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<AgentDataSourceServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
+    /**
+     * @return Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
         return Optional.ofNullable(this.serverSideEncryptionConfiguration);
     }
@@ -75,9 +135,17 @@ public final class AgentDataSourceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+     * 
+     */
     @Import(name="vectorIngestionConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationArgs> vectorIngestionConfiguration;
 
+    /**
+     * @return Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationArgs>> vectorIngestionConfiguration() {
         return Optional.ofNullable(this.vectorIngestionConfiguration);
     }
@@ -114,65 +182,153 @@ public final class AgentDataSourceState extends com.pulumi.resources.ResourceArg
             $ = new AgentDataSourceState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataDeletionPolicy Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDeletionPolicy(@Nullable Output<String> dataDeletionPolicy) {
             $.dataDeletionPolicy = dataDeletionPolicy;
             return this;
         }
 
+        /**
+         * @param dataDeletionPolicy Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDeletionPolicy(String dataDeletionPolicy) {
             return dataDeletionPolicy(Output.of(dataDeletionPolicy));
         }
 
+        /**
+         * @param dataSourceConfiguration Details about how the data source is stored. See `data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration) {
             $.dataSourceConfiguration = dataSourceConfiguration;
             return this;
         }
 
+        /**
+         * @param dataSourceConfiguration Details about how the data source is stored. See `data_source_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs dataSourceConfiguration) {
             return dataSourceConfiguration(Output.of(dataSourceConfiguration));
         }
 
+        /**
+         * @param dataSourceId Unique identifier of the data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceId(@Nullable Output<String> dataSourceId) {
             $.dataSourceId = dataSourceId;
             return this;
         }
 
+        /**
+         * @param dataSourceId Unique identifier of the data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceId(String dataSourceId) {
             return dataSourceId(Output.of(dataSourceId));
         }
 
+        /**
+         * @param description Description of the data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param knowledgeBaseId Unique identifier of the knowledge base to which the data source belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knowledgeBaseId(@Nullable Output<String> knowledgeBaseId) {
             $.knowledgeBaseId = knowledgeBaseId;
             return this;
         }
 
+        /**
+         * @param knowledgeBaseId Unique identifier of the knowledge base to which the data source belongs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder knowledgeBaseId(String knowledgeBaseId) {
             return knowledgeBaseId(Output.of(knowledgeBaseId));
         }
 
+        /**
+         * @param name Name of the data source.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the data source.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverSideEncryptionConfiguration(@Nullable Output<AgentDataSourceServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration) {
             $.serverSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             return this;
         }
 
+        /**
+         * @param serverSideEncryptionConfiguration Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverSideEncryptionConfiguration(AgentDataSourceServerSideEncryptionConfigurationArgs serverSideEncryptionConfiguration) {
             return serverSideEncryptionConfiguration(Output.of(serverSideEncryptionConfiguration));
         }
@@ -186,11 +342,23 @@ public final class AgentDataSourceState extends com.pulumi.resources.ResourceArg
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vectorIngestionConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationArgs> vectorIngestionConfiguration) {
             $.vectorIngestionConfiguration = vectorIngestionConfiguration;
             return this;
         }
 
+        /**
+         * @param vectorIngestionConfiguration Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs vectorIngestionConfiguration) {
             return vectorIngestionConfiguration(Output.of(vectorIngestionConfiguration));
         }

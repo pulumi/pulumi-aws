@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentKnowledgeBaseAssociation("example", AgentAgentKnowledgeBaseAssociationArgs.builder()        
- *             .agentId("012EXAMPLE")
+ *             .agentId("GGRRAED6JP")
  *             .description("Example Knowledge base")
- *             .knowledgeBaseId("345EXAMPLE")
+ *             .knowledgeBaseId("EMDPPAYPZI")
  *             .knowledgeBaseState("ENABLED")
  *             .build());
  * 
@@ -58,73 +58,73 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the `012AGENTID-DRAFT-345678KBID`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example 012AGENTID-DRAFT-345678KBID
+ * $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")
 public class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the agent to associate.
+     * Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
 
     /**
-     * @return The ID of the agent to associate.
+     * @return Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
     /**
-     * Agent version to associate the Knowledge Base to, currently only DRAFT.
+     * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
-     * @return Agent version to associate the Knowledge Base to, currently only DRAFT.
+     * @return Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
     /**
-     * Description of the association.
+     * Description of what the agent should use the knowledge base for.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Description of the association.
+     * @return Description of what the agent should use the knowledge base for.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The ID of the Knowledge Base to associate.
+     * Unique identifier of the knowledge base to associate with the agent.
      * 
      */
     @Export(name="knowledgeBaseId", refs={String.class}, tree="[0]")
     private Output<String> knowledgeBaseId;
 
     /**
-     * @return The ID of the Knowledge Base to associate.
+     * @return Unique identifier of the knowledge base to associate with the agent.
      * 
      */
     public Output<String> knowledgeBaseId() {
         return this.knowledgeBaseId;
     }
     /**
-     * State of the association ENABLED or DISABLED.
+     * Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -133,7 +133,7 @@ public class AgentAgentKnowledgeBaseAssociation extends com.pulumi.resources.Cus
     private Output<String> knowledgeBaseState;
 
     /**
-     * @return State of the association ENABLED or DISABLED.
+     * @return Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      * The following arguments are optional:
      * 

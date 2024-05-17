@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Budgets.Inputs
 
     public sealed class BudgetAutoAdjustDataGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+        /// </summary>
         [Input("autoAdjustType", required: true)]
         public Input<string> AutoAdjustType { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        /// </summary>
         [Input("historicalOptions")]
         public Input<Inputs.BudgetAutoAdjustDataHistoricalOptionsGetArgs>? HistoricalOptions { get; set; }
 
+        /// <summary>
+        /// (Optional) - The last time that your budget was auto-adjusted.
+        /// </summary>
         [Input("lastAutoAdjustTime")]
         public Input<string>? LastAutoAdjustTime { get; set; }
 

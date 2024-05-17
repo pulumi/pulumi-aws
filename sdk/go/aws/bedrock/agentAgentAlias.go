@@ -18,29 +18,32 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the `AGENT_ID,ALIAS_ID`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example AGENT_ID,ALIAS_ID
+// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
 // ```
 type AgentAgentAlias struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Agent Alias.
+	// ARN of the alias.
 	AgentAliasArn pulumi.StringOutput `pulumi:"agentAliasArn"`
-	AgentAliasId  pulumi.StringOutput `pulumi:"agentAliasId"`
+	// Unique identifier of the alias.
+	AgentAliasId pulumi.StringOutput `pulumi:"agentAliasId"`
 	// Name of the alias.
 	AgentAliasName pulumi.StringOutput `pulumi:"agentAliasName"`
 	// Identifier of the agent to create an alias for.
-	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Description of the alias of the agent.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Routing configuration of the alias
-	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are optional:
+	AgentId pulumi.StringOutput `pulumi:"agentId"`
+	// Description of the alias.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts AgentAgentAliasTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -82,42 +85,48 @@ func GetAgentAgentAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgentAlias resources.
 type agentAgentAliasState struct {
-	// ARN of the Agent Alias.
+	// ARN of the alias.
 	AgentAliasArn *string `pulumi:"agentAliasArn"`
-	AgentAliasId  *string `pulumi:"agentAliasId"`
+	// Unique identifier of the alias.
+	AgentAliasId *string `pulumi:"agentAliasId"`
 	// Name of the alias.
 	AgentAliasName *string `pulumi:"agentAliasName"`
 	// Identifier of the agent to create an alias for.
-	AgentId *string `pulumi:"agentId"`
-	// Description of the alias of the agent.
-	Description *string `pulumi:"description"`
-	// Routing configuration of the alias
-	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are optional:
+	AgentId *string `pulumi:"agentId"`
+	// Description of the alias.
+	Description *string `pulumi:"description"`
+	// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *AgentAgentAliasTimeouts `pulumi:"timeouts"`
 }
 
 type AgentAgentAliasState struct {
-	// ARN of the Agent Alias.
+	// ARN of the alias.
 	AgentAliasArn pulumi.StringPtrInput
-	AgentAliasId  pulumi.StringPtrInput
+	// Unique identifier of the alias.
+	AgentAliasId pulumi.StringPtrInput
 	// Name of the alias.
 	AgentAliasName pulumi.StringPtrInput
 	// Identifier of the agent to create an alias for.
-	AgentId pulumi.StringPtrInput
-	// Description of the alias of the agent.
-	Description pulumi.StringPtrInput
-	// Routing configuration of the alias
-	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are optional:
+	AgentId pulumi.StringPtrInput
+	// Description of the alias.
+	Description pulumi.StringPtrInput
+	// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentAgentAliasTimeoutsPtrInput
@@ -131,14 +140,14 @@ type agentAgentAliasArgs struct {
 	// Name of the alias.
 	AgentAliasName string `pulumi:"agentAliasName"`
 	// Identifier of the agent to create an alias for.
-	AgentId string `pulumi:"agentId"`
-	// Description of the alias of the agent.
-	Description *string `pulumi:"description"`
-	// Routing configuration of the alias
-	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are optional:
+	AgentId string `pulumi:"agentId"`
+	// Description of the alias.
+	Description *string `pulumi:"description"`
+	// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *AgentAgentAliasTimeouts `pulumi:"timeouts"`
 }
@@ -148,14 +157,14 @@ type AgentAgentAliasArgs struct {
 	// Name of the alias.
 	AgentAliasName pulumi.StringInput
 	// Identifier of the agent to create an alias for.
-	AgentId pulumi.StringInput
-	// Description of the alias of the agent.
-	Description pulumi.StringPtrInput
-	// Routing configuration of the alias
-	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// The following arguments are optional:
+	AgentId pulumi.StringInput
+	// Description of the alias.
+	Description pulumi.StringPtrInput
+	// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts AgentAgentAliasTimeoutsPtrInput
 }
@@ -247,11 +256,12 @@ func (o AgentAgentAliasOutput) ToAgentAgentAliasOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Agent Alias.
+// ARN of the alias.
 func (o AgentAgentAliasOutput) AgentAliasArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentAliasArn }).(pulumi.StringOutput)
 }
 
+// Unique identifier of the alias.
 func (o AgentAgentAliasOutput) AgentAliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentAliasId }).(pulumi.StringOutput)
 }
@@ -262,29 +272,31 @@ func (o AgentAgentAliasOutput) AgentAliasName() pulumi.StringOutput {
 }
 
 // Identifier of the agent to create an alias for.
+//
+// The following arguments are optional:
 func (o AgentAgentAliasOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Description of the alias of the agent.
+// Description of the alias.
 func (o AgentAgentAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Routing configuration of the alias
+// Details about the routing configuration of the alias. See `routingConfiguration` block for details.
 func (o AgentAgentAliasOutput) RoutingConfigurations() AgentAgentAliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) AgentAgentAliasRoutingConfigurationArrayOutput {
 		return v.RoutingConfigurations
 	}).(AgentAgentAliasRoutingConfigurationArrayOutput)
 }
 
-// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// The following arguments are optional:
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentAgentAliasOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o AgentAgentAliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

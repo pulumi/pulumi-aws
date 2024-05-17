@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration
     {
         /// <summary>
-        /// The ARN of the OpenSearch Service vector store.
+        /// ARN of the OpenSearch Service vector store.
         /// </summary>
         public readonly string CollectionArn;
         /// <summary>
-        /// Contains the names of the fields to which to map information about the vector store.
+        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping? FieldMapping;
         /// <summary>
-        /// The name of the vector store.
+        /// Name of the vector store.
         /// </summary>
         public readonly string VectorIndexName;
 

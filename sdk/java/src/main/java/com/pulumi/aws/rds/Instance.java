@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * By default, RDS applies updates to DB Instances in-place, which can lead to service interruptions.
  * Low-downtime updates minimize service interruptions by performing the updates with an [RDS Blue/Green deployment][blue-green] and switching over the instances when complete.
  * 
- * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
+ * Low-downtime updates are only available for DB Instances using MySQL, MariaDB and PostgreSQL,
  * as other engines are not supported by RDS Blue/Green deployments.
  * They cannot be used with DB Instances with replicas.
  * 

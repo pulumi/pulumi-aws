@@ -15,9 +15,17 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
 
     public static final AgentDataSourceVectorIngestionConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationArgs();
 
+    /**
+     * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+     * 
+     */
     @Import(name="chunkingConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs> chunkingConfiguration;
 
+    /**
+     * @return Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs>> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
     }
@@ -46,11 +54,23 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
             $ = new AgentDataSourceVectorIngestionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param chunkingConfiguration Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chunkingConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs> chunkingConfiguration) {
             $.chunkingConfiguration = chunkingConfiguration;
             return this;
         }
 
+        /**
+         * @param chunkingConfiguration Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs chunkingConfiguration) {
             return chunkingConfiguration(Output.of(chunkingConfiguration));
         }

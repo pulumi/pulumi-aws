@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfiguration
     {
         /// <summary>
-        /// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Contains details about the embeddings model that'sused to   convert the data source.
+        /// Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration;
 

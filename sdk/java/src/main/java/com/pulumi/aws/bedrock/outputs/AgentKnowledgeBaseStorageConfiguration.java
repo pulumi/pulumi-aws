@@ -17,62 +17,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfiguration {
     /**
-     * @return Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration opensearchServerlessConfiguration;
     /**
-     * @return Contains the storage configuration of the knowledge base in Pinecone.
+     * @return The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfiguration pineconeConfiguration;
     /**
-     * @return Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfiguration rdsConfiguration;
     /**
-     * @return Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration redisEnterpriseCloudConfiguration;
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
      * 
      */
     private String type;
 
     private AgentKnowledgeBaseStorageConfiguration() {}
     /**
-     * @return Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration> opensearchServerlessConfiguration() {
         return Optional.ofNullable(this.opensearchServerlessConfiguration);
     }
     /**
-     * @return Contains the storage configuration of the knowledge base in Pinecone.
+     * @return The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationPineconeConfiguration> pineconeConfiguration() {
         return Optional.ofNullable(this.pineconeConfiguration);
     }
     /**
-     * @return Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRdsConfiguration> rdsConfiguration() {
         return Optional.ofNullable(this.rdsConfiguration);
     }
     /**
-     * @return Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration> redisEnterpriseCloudConfiguration() {
         return Optional.ofNullable(this.redisEnterpriseCloudConfiguration);
     }
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
      * 
      */
     public String type() {

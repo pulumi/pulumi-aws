@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationArgs();
 
     /**
-     * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
      * 
      */
     public Output<String> type() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Contains details about the embeddings model that&#39;sused to   convert the data source.
+     * Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
      * 
      */
     @Import(name="vectorKnowledgeBaseConfiguration")
     private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration;
 
     /**
-     * @return Contains details about the embeddings model that&#39;sused to   convert the data source.
+     * @return Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>> vectorKnowledgeBaseConfiguration() {
@@ -73,7 +73,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param type The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param type The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Contains details about the embeddings model that&#39;sused to   convert the data source.
+         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param vectorKnowledgeBaseConfiguration Contains details about the embeddings model that&#39;sused to   convert the data source.
+         * @param vectorKnowledgeBaseConfiguration Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
          * 
          * @return builder
          * 

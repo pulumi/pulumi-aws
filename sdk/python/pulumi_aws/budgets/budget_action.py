@@ -24,7 +24,8 @@ class BudgetActionArgs:
                  execution_role_arn: pulumi.Input[str],
                  notification_type: pulumi.Input[str],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]],
-                 account_id: Optional[pulumi.Input[str]] = None):
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BudgetAction resource.
         :param pulumi.Input['BudgetActionActionThresholdArgs'] action_threshold: The trigger threshold of the action. See Action Threshold.
@@ -36,6 +37,7 @@ class BudgetActionArgs:
         :param pulumi.Input[str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action_threshold", action_threshold)
         pulumi.set(__self__, "action_type", action_type)
@@ -47,6 +49,8 @@ class BudgetActionArgs:
         pulumi.set(__self__, "subscribers", subscribers)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -156,6 +160,18 @@ class BudgetActionArgs:
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _BudgetActionState:
@@ -171,7 +187,9 @@ class _BudgetActionState:
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]] = None):
+                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering BudgetAction resources.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -186,6 +204,8 @@ class _BudgetActionState:
         :param pulumi.Input[str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         :param pulumi.Input[str] status: The status of the budget action.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -211,6 +231,13 @@ class _BudgetActionState:
             pulumi.set(__self__, "status", status)
         if subscribers is not None:
             pulumi.set(__self__, "subscribers", subscribers)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountId")
@@ -356,6 +383,33 @@ class _BudgetActionState:
     def subscribers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]]):
         pulumi.set(self, "subscribers", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class BudgetAction(pulumi.CustomResource):
     @overload
@@ -371,6 +425,7 @@ class BudgetAction(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input[str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
@@ -428,7 +483,11 @@ class BudgetAction(pulumi.CustomResource):
             subscribers=[aws.budgets.BudgetActionSubscriberArgs(
                 address="example@example.example",
                 subscription_type="EMAIL",
-            )])
+            )],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
         ```
 
         ## Import
@@ -450,6 +509,7 @@ class BudgetAction(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The role passed for action execution and reversion. Roles and actions must be in the same account.
         :param pulumi.Input[str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -513,7 +573,11 @@ class BudgetAction(pulumi.CustomResource):
             subscribers=[aws.budgets.BudgetActionSubscriberArgs(
                 address="example@example.example",
                 subscription_type="EMAIL",
-            )])
+            )],
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
         ```
 
         ## Import
@@ -548,6 +612,7 @@ class BudgetAction(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input[str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -582,9 +647,11 @@ class BudgetAction(pulumi.CustomResource):
             if subscribers is None and not opts.urn:
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["action_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(BudgetAction, __self__).__init__(
             'aws:budgets/budgetAction:BudgetAction',
             resource_name,
@@ -606,7 +673,9 @@ class BudgetAction(pulumi.CustomResource):
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             notification_type: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]]] = None) -> 'BudgetAction':
+            subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'BudgetAction':
         """
         Get an existing BudgetAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -626,6 +695,8 @@ class BudgetAction(pulumi.CustomResource):
         :param pulumi.Input[str] notification_type: The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         :param pulumi.Input[str] status: The status of the budget action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetActionSubscriberArgs']]]] subscribers: A list of subscribers. See Subscriber.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -643,6 +714,8 @@ class BudgetAction(pulumi.CustomResource):
         __props__.__dict__["notification_type"] = notification_type
         __props__.__dict__["status"] = status
         __props__.__dict__["subscribers"] = subscribers
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return BudgetAction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -740,4 +813,23 @@ class BudgetAction(pulumi.CustomResource):
         A list of subscribers. See Subscriber.
         """
         return pulumi.get(self, "subscribers")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
+        return pulumi.get(self, "tags_all")
 

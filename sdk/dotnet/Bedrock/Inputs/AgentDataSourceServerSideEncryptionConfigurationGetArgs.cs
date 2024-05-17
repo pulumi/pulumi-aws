@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceServerSideEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the AWS KMS key used to encrypt the resource.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

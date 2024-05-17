@@ -170,6 +170,10 @@ export interface GetInstanceResult {
      */
     readonly keyName: string;
     /**
+     * Time the instance was launched.
+     */
+    readonly launchTime: string;
+    /**
      * Maintenance and recovery options for the instance.
      */
     readonly maintenanceOptions: outputs.ec2.GetInstanceMaintenanceOption[];

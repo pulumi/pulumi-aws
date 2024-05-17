@@ -18,15 +18,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.bedrock.AgentDataSource("example", {});
+ * const example = new aws.bedrock.AgentDataSource("example", {
+ *     knowledgeBaseId: "EMDPPAYPZI",
+ *     name: "example",
+ *     dataSourceConfiguration: {
+ *         type: "S3",
+ *         s3Configuration: {
+ *             bucketArn: "arn:aws:s3:::example-bucket",
+ *         },
+ *     },
+ * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example data_source-id-12345678
+ * $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
  * ```
  */
 export class AgentDataSource extends pulumi.CustomResource {
@@ -57,14 +66,40 @@ export class AgentDataSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === AgentDataSource.__pulumiType;
     }
 
+    /**
+     * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+     */
     public readonly dataDeletionPolicy!: pulumi.Output<string>;
+    /**
+     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceDataSourceConfiguration | undefined>;
+    /**
+     * Unique identifier of the data source.
+     */
     public /*out*/ readonly dataSourceId!: pulumi.Output<string>;
+    /**
+     * Description of the data source.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Unique identifier of the knowledge base to which the data source belongs.
+     */
     public readonly knowledgeBaseId!: pulumi.Output<string>;
+    /**
+     * Name of the data source.
+     *
+     * The following arguments are optional:
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentDataSourceTimeouts | undefined>;
+    /**
+     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     */
     public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceVectorIngestionConfiguration | undefined>;
 
     /**
@@ -113,14 +148,40 @@ export class AgentDataSource extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentDataSource resources.
  */
 export interface AgentDataSourceState {
+    /**
+     * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+     */
     dataDeletionPolicy?: pulumi.Input<string>;
+    /**
+     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     */
     dataSourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration>;
+    /**
+     * Unique identifier of the data source.
+     */
     dataSourceId?: pulumi.Input<string>;
+    /**
+     * Description of the data source.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Unique identifier of the knowledge base to which the data source belongs.
+     */
     knowledgeBaseId?: pulumi.Input<string>;
+    /**
+     * Name of the data source.
+     *
+     * The following arguments are optional:
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentDataSourceTimeouts>;
+    /**
+     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfiguration>;
 }
 
@@ -128,12 +189,35 @@ export interface AgentDataSourceState {
  * The set of arguments for constructing a AgentDataSource resource.
  */
 export interface AgentDataSourceArgs {
+    /**
+     * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+     */
     dataDeletionPolicy?: pulumi.Input<string>;
+    /**
+     * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
+     */
     dataSourceConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceDataSourceConfiguration>;
+    /**
+     * Description of the data source.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Unique identifier of the knowledge base to which the data source belongs.
+     */
     knowledgeBaseId: pulumi.Input<string>;
+    /**
+     * Name of the data source.
+     *
+     * The following arguments are optional:
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
+     */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentDataSourceTimeouts>;
+    /**
+     * Details about the configuration of the server-side encryption. See `vectorIngestionConfiguration` block for details.
+     */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfiguration>;
 }

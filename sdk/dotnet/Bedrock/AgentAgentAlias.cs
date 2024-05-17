@@ -16,21 +16,24 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the `AGENT_ID,ALIAS_ID`. For example:
+    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Alias using the alias ID and the agent ID separated by `,`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example AGENT_ID,ALIAS_ID
+    /// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentAgentAlias:AgentAgentAlias")]
     public partial class AgentAgentAlias : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the Agent Alias.
+        /// ARN of the alias.
         /// </summary>
         [Output("agentAliasArn")]
         public Output<string> AgentAliasArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the alias.
+        /// </summary>
         [Output("agentAliasId")]
         public Output<string> AgentAliasId { get; private set; } = null!;
 
@@ -42,30 +45,33 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the alias of the agent.
+        /// Description of the alias.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Routing configuration of the alias
+        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
         /// </summary>
         [Output("routingConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentAliasRoutingConfiguration>> RoutingConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -126,12 +132,14 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
         /// <summary>
-        /// Description of the alias of the agent.
+        /// Description of the alias.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -140,7 +148,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Routing configuration of the alias
+        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationArgs> RoutingConfigurations
         {
@@ -152,9 +160,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -174,11 +180,14 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentAliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Agent Alias.
+        /// ARN of the alias.
         /// </summary>
         [Input("agentAliasArn")]
         public Input<string>? AgentAliasArn { get; set; }
 
+        /// <summary>
+        /// Unique identifier of the alias.
+        /// </summary>
         [Input("agentAliasId")]
         public Input<string>? AgentAliasId { get; set; }
 
@@ -190,12 +199,14 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
-        /// Description of the alias of the agent.
+        /// Description of the alias.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -204,7 +215,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs>? _routingConfigurations;
 
         /// <summary>
-        /// Routing configuration of the alias
+        /// Details about the routing configuration of the alias. See `routing_configuration` block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentAliasRoutingConfigurationGetArgs> RoutingConfigurations
         {
@@ -216,9 +227,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// The following arguments are optional:
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -228,6 +237,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {

@@ -192,7 +192,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
     /**
-     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
     /**
@@ -469,7 +469,7 @@ export interface LaunchTemplateState {
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**
@@ -638,7 +638,7 @@ export interface LaunchTemplateArgs {
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecification>[]>;
     /**

@@ -15,9 +15,17 @@ public final class AgentDataSourceServerSideEncryptionConfigurationArgs extends 
 
     public static final AgentDataSourceServerSideEncryptionConfigurationArgs Empty = new AgentDataSourceServerSideEncryptionConfigurationArgs();
 
+    /**
+     * ARN of the AWS KMS key used to encrypt the resource.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return ARN of the AWS KMS key used to encrypt the resource.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -46,11 +54,23 @@ public final class AgentDataSourceServerSideEncryptionConfigurationArgs extends 
             $ = new AgentDataSourceServerSideEncryptionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS KMS key used to encrypt the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn ARN of the AWS KMS key used to encrypt the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

@@ -126,6 +126,11 @@ public final class GetInstanceResult {
      */
     private String keyName;
     /**
+     * @return Time the instance was launched.
+     * 
+     */
+    private String launchTime;
+    /**
      * @return Maintenance and recovery options for the instance.
      * 
      */
@@ -391,6 +396,13 @@ public final class GetInstanceResult {
         return this.keyName;
     }
     /**
+     * @return Time the instance was launched.
+     * 
+     */
+    public String launchTime() {
+        return this.launchTime;
+    }
+    /**
      * @return Maintenance and recovery options for the instance.
      * 
      */
@@ -585,6 +597,7 @@ public final class GetInstanceResult {
         private String instanceType;
         private List<String> ipv6Addresses;
         private String keyName;
+        private String launchTime;
         private List<GetInstanceMaintenanceOption> maintenanceOptions;
         private List<GetInstanceMetadataOption> metadataOptions;
         private Boolean monitoring;
@@ -635,6 +648,7 @@ public final class GetInstanceResult {
     	      this.instanceType = defaults.instanceType;
     	      this.ipv6Addresses = defaults.ipv6Addresses;
     	      this.keyName = defaults.keyName;
+    	      this.launchTime = defaults.launchTime;
     	      this.maintenanceOptions = defaults.maintenanceOptions;
     	      this.metadataOptions = defaults.metadataOptions;
     	      this.monitoring = defaults.monitoring;
@@ -860,6 +874,14 @@ public final class GetInstanceResult {
               throw new MissingRequiredPropertyException("GetInstanceResult", "keyName");
             }
             this.keyName = keyName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder launchTime(String launchTime) {
+            if (launchTime == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "launchTime");
+            }
+            this.launchTime = launchTime;
             return this;
         }
         @CustomType.Setter
@@ -1093,6 +1115,7 @@ public final class GetInstanceResult {
             _resultValue.instanceType = instanceType;
             _resultValue.ipv6Addresses = ipv6Addresses;
             _resultValue.keyName = keyName;
+            _resultValue.launchTime = launchTime;
             _resultValue.maintenanceOptions = maintenanceOptions;
             _resultValue.metadataOptions = metadataOptions;
             _resultValue.monitoring = monitoring;

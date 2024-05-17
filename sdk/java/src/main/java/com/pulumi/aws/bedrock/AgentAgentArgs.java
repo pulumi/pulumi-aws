@@ -23,14 +23,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     public static final AgentAgentArgs Empty = new AgentAgentArgs();
 
     /**
-     * Name for the agent.
+     * Name of the agent.
      * 
      */
     @Import(name="agentName", required=true)
     private Output<String> agentName;
 
     /**
-     * @return Name for the agent.
+     * @return Name of the agent.
      * 
      */
     public Output<String> agentName() {
@@ -38,14 +38,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the Role for the agent.
+     * ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
     @Import(name="agentResourceRoleArn", required=true)
     private Output<String> agentResourceRoleArn;
 
     /**
-     * @return ARN of the Role for the agent.
+     * @return ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
     public Output<String> agentResourceRoleArn() {
@@ -53,14 +53,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of customer manager key to use for encryption.
+     * ARN of the AWS KMS key that encrypts the agent.
      * 
      */
     @Import(name="customerEncryptionKeyArn")
     private @Nullable Output<String> customerEncryptionKeyArn;
 
     /**
-     * @return ARN of customer manager key to use for encryption.
+     * @return ARN of the AWS KMS key that encrypts the agent.
      * 
      */
     public Optional<Output<String>> customerEncryptionKeyArn() {
@@ -83,7 +83,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Foundation model for the agent to use.
+     * Foundation model used for orchestration by the agent.
      * 
      * The following arguments are optional:
      * 
@@ -92,7 +92,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> foundationModel;
 
     /**
-     * @return Foundation model for the agent to use.
+     * @return Foundation model used for orchestration by the agent.
      * 
      * The following arguments are optional:
      * 
@@ -102,14 +102,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * TTL in seconds for the agent to idle.
+     * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
     @Import(name="idleSessionTtlInSeconds")
     private @Nullable Output<Integer> idleSessionTtlInSeconds;
 
     /**
-     * @return TTL in seconds for the agent to idle.
+     * @return Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
     public Optional<Output<Integer>> idleSessionTtlInSeconds() {
@@ -117,14 +117,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instructions to tell agent what it should do.
+     * Instructions that tell the agent what it should do and how it should interact with users.
      * 
      */
     @Import(name="instruction")
     private @Nullable Output<String> instruction;
 
     /**
-     * @return Instructions to tell agent what it should do.
+     * @return Instructions that tell the agent what it should do and how it should interact with users.
      * 
      */
     public Optional<Output<String>> instruction() {
@@ -132,14 +132,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     @Import(name="prepareAgent")
     private @Nullable Output<Boolean> prepareAgent;
 
     /**
-     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> prepareAgent() {
@@ -147,14 +147,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Prompt override configuration.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
      * 
      */
     @Import(name="promptOverrideConfigurations")
     private @Nullable Output<List<AgentAgentPromptOverrideConfigurationArgs>> promptOverrideConfigurations;
 
     /**
-     * @return Prompt override configuration.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
      * 
      */
     public Optional<Output<List<AgentAgentPromptOverrideConfigurationArgs>>> promptOverrideConfigurations() {
@@ -162,14 +162,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -218,7 +218,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentName Name for the agent.
+         * @param agentName Name of the agent.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentName Name for the agent.
+         * @param agentName Name of the agent.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentResourceRoleArn ARN of the Role for the agent.
+         * @param agentResourceRoleArn ARN of the IAM role with permissions to invoke API operations on the agent.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentResourceRoleArn ARN of the Role for the agent.
+         * @param agentResourceRoleArn ARN of the IAM role with permissions to invoke API operations on the agent.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn ARN of customer manager key to use for encryption.
+         * @param customerEncryptionKeyArn ARN of the AWS KMS key that encrypts the agent.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn ARN of customer manager key to use for encryption.
+         * @param customerEncryptionKeyArn ARN of the AWS KMS key that encrypts the agent.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param foundationModel Foundation model for the agent to use.
+         * @param foundationModel Foundation model used for orchestration by the agent.
          * 
          * The following arguments are optional:
          * 
@@ -315,7 +315,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param foundationModel Foundation model for the agent to use.
+         * @param foundationModel Foundation model used for orchestration by the agent.
          * 
          * The following arguments are optional:
          * 
@@ -327,7 +327,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleSessionTtlInSeconds TTL in seconds for the agent to idle.
+         * @param idleSessionTtlInSeconds Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleSessionTtlInSeconds TTL in seconds for the agent to idle.
+         * @param idleSessionTtlInSeconds Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions to tell agent what it should do.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions to tell agent what it should do.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * @param prepareAgent Whether to prepare the agent after creation or modification. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt override configuration.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt override configuration.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param promptOverrideConfigurations Prompt override configuration.
+         * @param promptOverrideConfigurations Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

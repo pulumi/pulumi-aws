@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs>? S3Configuration { get; set; }
 
+        /// <summary>
+        /// Type of storage for the data source. Valid values: `S3`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

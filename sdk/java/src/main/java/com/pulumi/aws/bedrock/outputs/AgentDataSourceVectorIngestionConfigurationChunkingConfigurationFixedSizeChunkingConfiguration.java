@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
+    /**
+     * @return Maximum number of tokens to include in a chunk.
+     * 
+     */
     private Integer maxTokens;
+    /**
+     * @return Percentage of overlap between adjacent chunks of a data source.
+     * 
+     */
     private Integer overlapPercentage;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration() {}
+    /**
+     * @return Maximum number of tokens to include in a chunk.
+     * 
+     */
     public Integer maxTokens() {
         return this.maxTokens;
     }
+    /**
+     * @return Percentage of overlap between adjacent chunks of a data source.
+     * 
+     */
     public Integer overlapPercentage() {
         return this.overlapPercentage;
     }

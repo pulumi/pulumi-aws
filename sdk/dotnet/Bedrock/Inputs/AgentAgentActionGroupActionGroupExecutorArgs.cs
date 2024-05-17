@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentAgentActionGroupActionGroupExecutorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Lambda that defines the business logic for the action group.
+        /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
         /// </summary>
         [Input("lambda")]
         public Input<string>? Lambda { get; set; }

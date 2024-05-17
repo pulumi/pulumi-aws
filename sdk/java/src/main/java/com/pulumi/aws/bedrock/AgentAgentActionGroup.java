@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()        
  *             .actionGroupName("example")
- *             .agentId("ABDJFOWER1")
+ *             .agentId("GGRRAED6JP")
  *             .agentVersion("DRAFT")
  *             .skipResourceInUseCheck(true)
  *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
- *                 .lambda("arn:aws:lambda:us-east-1:123456789012:function:example-function")
+ *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
  *                 .build())
  *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
  *                 .s3(AgentAgentActionGroupApiSchemaS3Args.builder()
@@ -74,112 +74,156 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example ABDJFOWER1,HSKTNKANI4,DRAFT
+ * $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")
 public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration of the executor for the Action Group.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
      * 
      */
     @Export(name="actionGroupExecutor", refs={AgentAgentActionGroupActionGroupExecutor.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupActionGroupExecutor> actionGroupExecutor;
 
     /**
-     * @return Configuration of the executor for the Action Group.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
      * 
      */
     public Output<Optional<AgentAgentActionGroupActionGroupExecutor>> actionGroupExecutor() {
         return Codegen.optional(this.actionGroupExecutor);
     }
+    /**
+     * Unique identifier of the action group.
+     * 
+     */
     @Export(name="actionGroupId", refs={String.class}, tree="[0]")
     private Output<String> actionGroupId;
 
+    /**
+     * @return Unique identifier of the action group.
+     * 
+     */
     public Output<String> actionGroupId() {
         return this.actionGroupId;
     }
     /**
-     * Name of the Agent Action Group.
+     * Name of the action group.
      * 
      */
     @Export(name="actionGroupName", refs={String.class}, tree="[0]")
     private Output<String> actionGroupName;
 
     /**
-     * @return Name of the Agent Action Group.
+     * @return Name of the action group.
      * 
      */
     public Output<String> actionGroupName() {
         return this.actionGroupName;
     }
+    /**
+     * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Export(name="actionGroupState", refs={String.class}, tree="[0]")
     private Output<String> actionGroupState;
 
+    /**
+     * @return Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Output<String> actionGroupState() {
         return this.actionGroupState;
     }
     /**
-     * Id of the Agent for the Action Group.
+     * The unique identifier of the agent for which to create the action group.
      * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
 
     /**
-     * @return Id of the Agent for the Action Group.
+     * @return The unique identifier of the agent for which to create the action group.
      * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
     /**
-     * Version of the Agent to attach the Action Group to.
+     * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
-     * @return Version of the Agent to attach the Action Group to.
+     * @return Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
     /**
-     * Configuration of the API Schema for the Action Group.
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="apiSchema", refs={AgentAgentActionGroupApiSchema.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupApiSchema> apiSchema;
 
     /**
-     * @return Configuration of the API Schema for the Action Group.
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<AgentAgentActionGroupApiSchema>> apiSchema() {
         return Codegen.optional(this.apiSchema);
     }
+    /**
+     * Description of the action group.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description of the action group.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * 
+     */
     @Export(name="parentActionGroupSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentActionGroupSignature;
 
+    /**
+     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * 
+     */
     public Output<Optional<String>> parentActionGroupSignature() {
         return Codegen.optional(this.parentActionGroupSignature);
     }
+    /**
+     * Whether the in-use check is skipped when deleting the action group.
+     * 
+     */
     @Export(name="skipResourceInUseCheck", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> skipResourceInUseCheck;
 
+    /**
+     * @return Whether the in-use check is skipped when deleting the action group.
+     * 
+     */
     public Output<Boolean> skipResourceInUseCheck() {
         return this.skipResourceInUseCheck;
     }

@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BudgetAutoAdjustData {
+    /**
+     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * 
+     */
     private String autoAdjustType;
+    /**
+     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * 
+     */
     private @Nullable BudgetAutoAdjustDataHistoricalOptions historicalOptions;
+    /**
+     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * 
+     */
     private @Nullable String lastAutoAdjustTime;
 
     private BudgetAutoAdjustData() {}
+    /**
+     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * 
+     */
     public String autoAdjustType() {
         return this.autoAdjustType;
     }
+    /**
+     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * 
+     */
     public Optional<BudgetAutoAdjustDataHistoricalOptions> historicalOptions() {
         return Optional.ofNullable(this.historicalOptions);
     }
+    /**
+     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * 
+     */
     public Optional<String> lastAutoAdjustTime() {
         return Optional.ofNullable(this.lastAutoAdjustTime);
     }

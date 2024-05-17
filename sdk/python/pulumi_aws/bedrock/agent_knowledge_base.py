@@ -25,12 +25,14 @@ class AgentKnowledgeBaseArgs:
                  timeouts: Optional[pulumi.Input['AgentKnowledgeBaseTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentKnowledgeBase resource.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to create the knowledge base.
-        :param pulumi.Input[str] description: A description of the knowledge base.
-        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings model used for the knowledge base.
-        :param pulumi.Input[str] name: A name for the knowledge base.
-        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains details about the configuration of the vector database used for the knowledge base.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+        :param pulumi.Input[str] description: Description of the knowledge base.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[str] name: Name of the knowledge base.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if description is not None:
@@ -50,7 +52,7 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the IAM role with permissions to create the knowledge base.
+        ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         """
         return pulumi.get(self, "role_arn")
 
@@ -62,7 +64,7 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the knowledge base.
+        Description of the knowledge base.
         """
         return pulumi.get(self, "description")
 
@@ -74,7 +76,7 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter(name="knowledgeBaseConfiguration")
     def knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]:
         """
-        Contains details about the embeddings model used for the knowledge base.
+        Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "knowledge_base_configuration")
 
@@ -86,7 +88,7 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the knowledge base.
+        Name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
@@ -98,7 +100,9 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]:
         """
-        Contains details about the configuration of the vector database used for the knowledge base.
+        Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_configuration")
 
@@ -110,7 +114,7 @@ class AgentKnowledgeBaseArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -145,13 +149,18 @@ class _AgentKnowledgeBaseState:
                  updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AgentKnowledgeBase resources.
-        :param pulumi.Input[str] arn: ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        :param pulumi.Input[str] description: A description of the knowledge base.
-        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings model used for the knowledge base.
-        :param pulumi.Input[str] name: A name for the knowledge base.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to create the knowledge base.
-        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains details about the configuration of the vector database used for the knowledge base.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] arn: ARN of the knowledge base.
+        :param pulumi.Input[str] created_at: Time at which the knowledge base was created.
+        :param pulumi.Input[str] description: Description of the knowledge base.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[str] name: Name of the knowledge base.
+        :param pulumi.Input[str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs'] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] updated_at: Time at which the knowledge base was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -185,7 +194,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        ARN of the knowledge base.
         """
         return pulumi.get(self, "arn")
 
@@ -196,6 +205,9 @@ class _AgentKnowledgeBaseState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time at which the knowledge base was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -206,7 +218,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the knowledge base.
+        Description of the knowledge base.
         """
         return pulumi.get(self, "description")
 
@@ -227,7 +239,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter(name="knowledgeBaseConfiguration")
     def knowledge_base_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']]:
         """
-        Contains details about the embeddings model used for the knowledge base.
+        Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "knowledge_base_configuration")
 
@@ -239,7 +251,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the knowledge base.
+        Name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
@@ -251,7 +263,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the IAM role with permissions to create the knowledge base.
+        ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         """
         return pulumi.get(self, "role_arn")
 
@@ -263,7 +275,9 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationArgs']]:
         """
-        Contains details about the configuration of the vector database used for the knowledge base.
+        Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_configuration")
 
@@ -275,7 +289,7 @@ class _AgentKnowledgeBaseState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -286,6 +300,9 @@ class _AgentKnowledgeBaseState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
@@ -307,6 +324,9 @@ class _AgentKnowledgeBaseState:
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time at which the knowledge base was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
     @updated_at.setter
@@ -336,9 +356,9 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.bedrock.AgentKnowledgeBase("test",
+        example = aws.bedrock.AgentKnowledgeBase("example",
             name="example",
-            role_arn=example["arn"],
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration=aws.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs(
                 vector_knowledge_base_configuration=aws.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs(
                     embedding_model_arn="arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
@@ -348,7 +368,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             storage_configuration=aws.bedrock.AgentKnowledgeBaseStorageConfigurationArgs(
                 type="OPENSEARCH_SERVERLESS",
                 opensearch_serverless_configuration=aws.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs(
-                    collection_arn="arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf",
+                    collection_arn="arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
                     vector_index_name="bedrock-knowledge-base-default-index",
                     field_mapping=aws.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs(
                         vector_field="bedrock-knowledge-base-default-vector",
@@ -361,20 +381,22 @@ class AgentKnowledgeBase(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the `Q1IYMH6GQG`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the knowledge base ID. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example Q1IYMH6GQG
+        $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the knowledge base.
-        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Contains details about the embeddings model used for the knowledge base.
-        :param pulumi.Input[str] name: A name for the knowledge base.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to create the knowledge base.
-        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains details about the configuration of the vector database used for the knowledge base.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] description: Description of the knowledge base.
+        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[str] name: Name of the knowledge base.
+        :param pulumi.Input[str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseStorageConfigurationArgs']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -391,9 +413,9 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.bedrock.AgentKnowledgeBase("test",
+        example = aws.bedrock.AgentKnowledgeBase("example",
             name="example",
-            role_arn=example["arn"],
+            role_arn=example_aws_iam_role["arn"],
             knowledge_base_configuration=aws.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs(
                 vector_knowledge_base_configuration=aws.bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs(
                     embedding_model_arn="arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
@@ -403,7 +425,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
             storage_configuration=aws.bedrock.AgentKnowledgeBaseStorageConfigurationArgs(
                 type="OPENSEARCH_SERVERLESS",
                 opensearch_serverless_configuration=aws.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs(
-                    collection_arn="arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf",
+                    collection_arn="arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
                     vector_index_name="bedrock-knowledge-base-default-index",
                     field_mapping=aws.bedrock.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs(
                         vector_field="bedrock-knowledge-base-default-vector",
@@ -416,10 +438,10 @@ class AgentKnowledgeBase(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the `Q1IYMH6GQG`. For example:
+        Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the knowledge base ID. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example Q1IYMH6GQG
+        $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
         ```
 
         :param str resource_name: The name of the resource.
@@ -496,13 +518,18 @@ class AgentKnowledgeBase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        :param pulumi.Input[str] description: A description of the knowledge base.
-        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Contains details about the embeddings model used for the knowledge base.
-        :param pulumi.Input[str] name: A name for the knowledge base.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to create the knowledge base.
-        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains details about the configuration of the vector database used for the knowledge base.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] arn: ARN of the knowledge base.
+        :param pulumi.Input[str] created_at: Time at which the knowledge base was created.
+        :param pulumi.Input[str] description: Description of the knowledge base.
+        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseKnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        :param pulumi.Input[str] name: Name of the knowledge base.
+        :param pulumi.Input[str] role_arn: ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+        :param pulumi.Input[pulumi.InputType['AgentKnowledgeBaseStorageConfigurationArgs']] storage_configuration: Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] updated_at: Time at which the knowledge base was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -526,20 +553,23 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        ARN of the knowledge base.
         """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Time at which the knowledge base was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the knowledge base.
+        Description of the knowledge base.
         """
         return pulumi.get(self, "description")
 
@@ -552,7 +582,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="knowledgeBaseConfiguration")
     def knowledge_base_configuration(self) -> pulumi.Output[Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration']]:
         """
-        Contains details about the embeddings model used for the knowledge base.
+        Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "knowledge_base_configuration")
 
@@ -560,7 +590,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A name for the knowledge base.
+        Name of the knowledge base.
         """
         return pulumi.get(self, "name")
 
@@ -568,7 +598,7 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the IAM role with permissions to create the knowledge base.
+        ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         """
         return pulumi.get(self, "role_arn")
 
@@ -576,7 +606,9 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Output[Optional['outputs.AgentKnowledgeBaseStorageConfiguration']]:
         """
-        Contains details about the configuration of the vector database used for the knowledge base.
+        Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_configuration")
 
@@ -584,13 +616,16 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
@@ -604,5 +639,8 @@ class AgentKnowledgeBase(pulumi.CustomResource):
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        Time at which the knowledge base was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

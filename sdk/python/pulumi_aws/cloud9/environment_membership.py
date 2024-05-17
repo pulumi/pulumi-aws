@@ -76,7 +76,7 @@ class _EnvironmentMembershipState:
         :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
-        :param pulumi.Input[str] user_id: he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        :param pulumi.Input[str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
@@ -127,7 +127,7 @@ class _EnvironmentMembershipState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         return pulumi.get(self, "user_id")
 
@@ -272,7 +272,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
-        :param pulumi.Input[str] user_id: he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        :param pulumi.Input[str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,7 +312,7 @@ class EnvironmentMembership(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         return pulumi.get(self, "user_id")
 

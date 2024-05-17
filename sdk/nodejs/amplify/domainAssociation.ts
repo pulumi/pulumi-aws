@@ -89,7 +89,7 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The DNS record for certificate verification.
+     * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
     public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export interface DomainAssociationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The DNS record for certificate verification.
+     * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
     certificateVerificationDnsRecord?: pulumi.Input<string>;
     /**

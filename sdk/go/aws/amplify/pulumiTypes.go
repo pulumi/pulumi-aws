@@ -572,7 +572,7 @@ func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBr
 type DomainAssociationSubDomain struct {
 	// Branch name setting for the subdomain.
 	BranchName string `pulumi:"branchName"`
-	// DNS record for the subdomain.
+	// DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
 	DnsRecord *string `pulumi:"dnsRecord"`
 	// Prefix setting for the subdomain.
 	Prefix string `pulumi:"prefix"`
@@ -594,7 +594,7 @@ type DomainAssociationSubDomainInput interface {
 type DomainAssociationSubDomainArgs struct {
 	// Branch name setting for the subdomain.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// DNS record for the subdomain.
+	// DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
 	DnsRecord pulumi.StringPtrInput `pulumi:"dnsRecord"`
 	// Prefix setting for the subdomain.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
@@ -658,7 +658,7 @@ func (o DomainAssociationSubDomainOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// DNS record for the subdomain.
+// DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
 func (o DomainAssociationSubDomainOutput) DnsRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAssociationSubDomain) *string { return v.DnsRecord }).(pulumi.StringPtrOutput)
 }

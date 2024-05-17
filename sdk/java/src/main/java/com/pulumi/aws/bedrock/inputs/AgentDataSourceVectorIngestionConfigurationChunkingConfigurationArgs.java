@@ -17,16 +17,32 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs();
 
+    /**
+     * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+     * 
+     */
     @Import(name="chunkingStrategy", required=true)
     private Output<String> chunkingStrategy;
 
+    /**
+     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+     * 
+     */
     public Output<String> chunkingStrategy() {
         return this.chunkingStrategy;
     }
 
+    /**
+     * Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+     * 
+     */
     @Import(name="fixedSizeChunkingConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs> fixedSizeChunkingConfiguration;
 
+    /**
+     * @return Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+     * 
+     */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs>> fixedSizeChunkingConfiguration() {
         return Optional.ofNullable(this.fixedSizeChunkingConfiguration);
     }
@@ -56,20 +72,44 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             $ = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param chunkingStrategy Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chunkingStrategy(Output<String> chunkingStrategy) {
             $.chunkingStrategy = chunkingStrategy;
             return this;
         }
 
+        /**
+         * @param chunkingStrategy Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder chunkingStrategy(String chunkingStrategy) {
             return chunkingStrategy(Output.of(chunkingStrategy));
         }
 
+        /**
+         * @param fixedSizeChunkingConfiguration Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fixedSizeChunkingConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs> fixedSizeChunkingConfiguration) {
             $.fixedSizeChunkingConfiguration = fixedSizeChunkingConfiguration;
             return this;
         }
 
+        /**
+         * @param fixedSizeChunkingConfiguration Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fixedSizeChunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs fixedSizeChunkingConfiguration) {
             return fixedSizeChunkingConfiguration(Output.of(fixedSizeChunkingConfiguration));
         }

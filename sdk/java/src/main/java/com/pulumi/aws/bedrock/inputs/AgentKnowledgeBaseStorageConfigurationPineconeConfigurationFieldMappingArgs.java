@@ -16,14 +16,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
     public static final AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs Empty = new AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs();
 
     /**
-     * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     @Import(name="metadataField")
     private @Nullable Output<String> metadataField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     public Optional<Output<String>> metadataField() {
@@ -31,14 +31,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
     }
 
     /**
-     * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     @Import(name="textField")
     private @Nullable Output<String> textField;
 
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     public Optional<Output<String>> textField() {
@@ -71,7 +71,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         /**
-         * @param metadataField The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         /**
-         * @param metadataField The name of the field in which Amazon Bedrock stores metadata about the vector store.
+         * @param metadataField Name of the field in which Amazon Bedrock stores metadata about the vector store.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         /**
-         * @param textField The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
         }
 
         /**
-         * @param textField The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+         * @param textField Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
          * 
          * @return builder
          * 
