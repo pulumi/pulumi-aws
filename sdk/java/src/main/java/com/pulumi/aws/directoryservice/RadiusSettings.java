@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RadiusSettings("example", RadiusSettingsArgs.builder()        
+ *         var example = new RadiusSettings("example", RadiusSettingsArgs.builder()
  *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .authenticationProtocol("PAP")
  *             .displayLabel("example")

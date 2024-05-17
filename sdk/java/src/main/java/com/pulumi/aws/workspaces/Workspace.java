@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .keyId("alias/aws/workspaces")
  *             .build());
  * 
- *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
  *             .directoryId(exampleAwsWorkspacesDirectory.id())
  *             .bundleId(valueWindows10.applyValue(getBundleResult -> getBundleResult.id()))
  *             .userName("john.doe")

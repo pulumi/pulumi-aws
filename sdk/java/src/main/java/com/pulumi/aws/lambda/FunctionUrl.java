@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLatest = new FunctionUrl("testLatest", FunctionUrlArgs.builder()        
+ *         var testLatest = new FunctionUrl("testLatest", FunctionUrlArgs.builder()
  *             .functionName(test.functionName())
  *             .authorizationType("NONE")
  *             .build());
  * 
- *         var testLive = new FunctionUrl("testLive", FunctionUrlArgs.builder()        
+ *         var testLive = new FunctionUrl("testLive", FunctionUrlArgs.builder()
  *             .functionName(test.functionName())
  *             .qualifier("my_alias")
  *             .authorizationType("AWS_IAM")

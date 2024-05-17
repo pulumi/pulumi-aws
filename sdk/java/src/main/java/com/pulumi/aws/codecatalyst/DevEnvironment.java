@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new DevEnvironment("test", DevEnvironmentArgs.builder()        
+ *         var test = new DevEnvironment("test", DevEnvironmentArgs.builder()
  *             .alias("devenv")
  *             .spaceName("myspace")
  *             .projectName("myproject")

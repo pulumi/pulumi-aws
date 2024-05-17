@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Invocation("example", InvocationArgs.builder()        
+ *         var example = new Invocation("example", InvocationArgs.builder()
  *             .functionName(lambdaFunctionTest.functionName())
  *             .triggers(Map.of("redeployment", StdFunctions.sha1(Sha1Args.builder()
  *                 .input(serializeJson(
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Invocation("example", InvocationArgs.builder()        
+ *         var example = new Invocation("example", InvocationArgs.builder()
  *             .functionName(lambdaFunctionTest.functionName())
  *             .input(serializeJson(
  *                 jsonObject(

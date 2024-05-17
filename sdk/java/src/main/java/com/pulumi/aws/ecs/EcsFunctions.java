@@ -585,7 +585,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
@@ -610,11 +610,11 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *         var foo = new Cluster("foo", ClusterArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
@@ -666,7 +666,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
@@ -691,11 +691,11 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *         var foo = new Cluster("foo", ClusterArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
@@ -747,7 +747,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
@@ -772,11 +772,11 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *         var foo = new Cluster("foo", ClusterArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)
@@ -828,7 +828,7 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()        
+     *         var mongoTaskDefinition = new TaskDefinition("mongoTaskDefinition", TaskDefinitionArgs.builder()
      *             .family("mongodb")
      *             .containerDefinitions("""
      * [
@@ -853,11 +853,11 @@ public final class EcsFunctions {
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
      * 
-     *         var foo = new Cluster("foo", ClusterArgs.builder()        
+     *         var foo = new Cluster("foo", ClusterArgs.builder()
      *             .name("foo")
      *             .build());
      * 
-     *         var mongoService = new Service("mongoService", ServiceArgs.builder()        
+     *         var mongoService = new Service("mongoService", ServiceArgs.builder()
      *             .name("mongo")
      *             .cluster(foo.id())
      *             .desiredCount(2)

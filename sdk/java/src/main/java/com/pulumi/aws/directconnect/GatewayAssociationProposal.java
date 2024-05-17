@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GatewayAssociationProposal("example", GatewayAssociationProposalArgs.builder()        
+ *         var example = new GatewayAssociationProposal("example", GatewayAssociationProposalArgs.builder()
  *             .dxGatewayId(exampleAwsDxGateway.id())
  *             .dxGatewayOwnerAccountId(exampleAwsDxGateway.ownerAccountId())
  *             .associatedGatewayId(exampleAwsVpnGateway.id())

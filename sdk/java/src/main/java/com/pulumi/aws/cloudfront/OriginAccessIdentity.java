@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginAccessIdentity("example", OriginAccessIdentityArgs.builder()        
+ *         var example = new OriginAccessIdentity("example", OriginAccessIdentityArgs.builder()
  *             .comment("Some comment")
  *             .build());
  * 
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Distribution("example", DistributionArgs.builder()        
+ *         var example = new Distribution("example", DistributionArgs.builder()
  *             .origins(DistributionOriginArgs.builder()
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                     .originAccessIdentity(exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath())
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()        
+ *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .policy(s3Policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

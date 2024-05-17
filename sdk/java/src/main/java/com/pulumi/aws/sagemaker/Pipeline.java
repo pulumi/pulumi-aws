@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipeline("example", PipelineArgs.builder()        
+ *         var example = new Pipeline("example", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineDisplayName("example")
  *             .roleArn(exampleAwsIamRole.arn())

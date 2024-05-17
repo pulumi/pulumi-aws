@@ -80,16 +80,16 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var replicationRole = new Role("replicationRole", RoleArgs.builder()        
+ *         var replicationRole = new Role("replicationRole", RoleArgs.builder()
  *             .name("tf-iam-role-replication-12345")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var destination = new BucketV2("destination", BucketV2Args.builder()        
+ *         var destination = new BucketV2("destination", BucketV2Args.builder()
  *             .bucket("tf-test-bucket-destination-12345")
  *             .build());
  * 
- *         var source = new BucketV2("source", BucketV2Args.builder()        
+ *         var source = new BucketV2("source", BucketV2Args.builder()
  *             .bucket("tf-test-bucket-source-12345")
  *             .build());
  * 
@@ -120,36 +120,36 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()        
+ *         var replicationPolicy = new Policy("replicationPolicy", PolicyArgs.builder()
  *             .name("tf-iam-role-policy-replication-12345")
  *             .policy(replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(replication -> replication.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var replicationRolePolicyAttachment = new RolePolicyAttachment("replicationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(replicationRole.name())
  *             .policyArn(replicationPolicy.arn())
  *             .build());
  * 
- *         var destinationBucketVersioningV2 = new BucketVersioningV2("destinationBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var destinationBucketVersioningV2 = new BucketVersioningV2("destinationBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(destination.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var sourceBucketAcl = new BucketAclV2("sourceBucketAcl", BucketAclV2Args.builder()        
+ *         var sourceBucketAcl = new BucketAclV2("sourceBucketAcl", BucketAclV2Args.builder()
  *             .bucket(source.id())
  *             .acl("private")
  *             .build());
  * 
- *         var sourceBucketVersioningV2 = new BucketVersioningV2("sourceBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var sourceBucketVersioningV2 = new BucketVersioningV2("sourceBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(source.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var replicationBucketReplicationConfig = new BucketReplicationConfig("replicationBucketReplicationConfig", BucketReplicationConfigArgs.builder()        
+ *         var replicationBucketReplicationConfig = new BucketReplicationConfig("replicationBucketReplicationConfig", BucketReplicationConfigArgs.builder()
  *             .role(replicationRole.arn())
  *             .bucket(source.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
@@ -208,29 +208,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // ... other configuration ...
- *         var east = new BucketV2("east", BucketV2Args.builder()        
+ *         var east = new BucketV2("east", BucketV2Args.builder()
  *             .bucket("tf-test-bucket-east-12345")
  *             .build());
  * 
- *         var eastBucketVersioningV2 = new BucketVersioningV2("eastBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var eastBucketVersioningV2 = new BucketVersioningV2("eastBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(east.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var west = new BucketV2("west", BucketV2Args.builder()        
+ *         var west = new BucketV2("west", BucketV2Args.builder()
  *             .bucket("tf-test-bucket-west-12345")
  *             .build());
  * 
- *         var westBucketVersioningV2 = new BucketVersioningV2("westBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var westBucketVersioningV2 = new BucketVersioningV2("westBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(west.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var eastToWest = new BucketReplicationConfig("eastToWest", BucketReplicationConfigArgs.builder()        
+ *         var eastToWest = new BucketReplicationConfig("eastToWest", BucketReplicationConfigArgs.builder()
  *             .role(eastReplication.arn())
  *             .bucket(east.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
@@ -248,7 +248,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(eastBucketVersioningV2)
  *                 .build());
  * 
- *         var westToEast = new BucketReplicationConfig("westToEast", BucketReplicationConfigArgs.builder()        
+ *         var westToEast = new BucketReplicationConfig("westToEast", BucketReplicationConfigArgs.builder()
  *             .role(westReplication.arn())
  *             .bucket(west.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()

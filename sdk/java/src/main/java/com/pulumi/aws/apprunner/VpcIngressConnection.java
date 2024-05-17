@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcIngressConnection("example", VpcIngressConnectionArgs.builder()        
+ *         var example = new VpcIngressConnection("example", VpcIngressConnectionArgs.builder()
  *             .name("example")
  *             .serviceArn(exampleAwsApprunnerService.arn())
  *             .ingressVpcConfiguration(VpcIngressConnectionIngressVpcConfigurationArgs.builder()

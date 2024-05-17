@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector("primary", DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
- *         var member = new Detector("member", DetectorArgs.builder()        
+ *         var member = new Detector("member", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
- *         var memberMember = new Member("memberMember", MemberArgs.builder()        
+ *         var memberMember = new Member("memberMember", MemberArgs.builder()
  *             .accountId(member.accountId())
  *             .detectorId(primary.id())
  *             .email("required{@literal @}example.com")

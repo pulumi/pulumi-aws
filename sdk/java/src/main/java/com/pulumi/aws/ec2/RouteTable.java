@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTable("example", RouteTableArgs.builder()        
+ *         var example = new RouteTable("example", RouteTableArgs.builder()
  *             .vpcId(exampleAwsVpc.id())
  *             .routes(            
  *                 RouteTableRouteArgs.builder()
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTable("example", RouteTableArgs.builder()        
+ *         var example = new RouteTable("example", RouteTableArgs.builder()
  *             .vpcId(exampleAwsVpc.id())
  *             .routes()
  *             .tags(Map.of("Name", "example"))
@@ -156,11 +156,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Vpc("test", VpcArgs.builder()        
+ *         var test = new Vpc("test", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()        
+ *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()
  *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock("10.1.0.0/16")
@@ -206,20 +206,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Vpc("test", VpcArgs.builder()        
+ *         var test = new Vpc("test", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var testSubnet = new Subnet("testSubnet", SubnetArgs.builder()        
+ *         var testSubnet = new Subnet("testSubnet", SubnetArgs.builder()
  *             .cidrBlock("10.1.1.0/24")
  *             .vpcId(test.id())
  *             .build());
  * 
- *         var testNetworkInterface = new NetworkInterface("testNetworkInterface", NetworkInterfaceArgs.builder()        
+ *         var testNetworkInterface = new NetworkInterface("testNetworkInterface", NetworkInterfaceArgs.builder()
  *             .subnetId(testSubnet.id())
  *             .build());
  * 
- *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()        
+ *         var testRouteTable = new RouteTable("testRouteTable", RouteTableArgs.builder()
  *             .vpcId(test.id())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .cidrBlock(test.cidrBlock())

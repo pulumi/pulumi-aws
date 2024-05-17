@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketRequestPaymentConfigurationV2("example", BucketRequestPaymentConfigurationV2Args.builder()        
+ *         var example = new BucketRequestPaymentConfigurationV2("example", BucketRequestPaymentConfigurationV2Args.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .payer("Requester")
  *             .build());

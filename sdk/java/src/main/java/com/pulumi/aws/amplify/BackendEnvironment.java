@@ -43,11 +43,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleBackendEnvironment = new BackendEnvironment("exampleBackendEnvironment", BackendEnvironmentArgs.builder()        
+ *         var exampleBackendEnvironment = new BackendEnvironment("exampleBackendEnvironment", BackendEnvironmentArgs.builder()
  *             .appId(example.id())
  *             .environmentName("example")
  *             .deploymentArtifacts("app-example-deployment")

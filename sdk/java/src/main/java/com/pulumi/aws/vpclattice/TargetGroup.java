@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()
  *             .name("example")
  *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()
  *             .name("example")
  *             .type("IP")
  *             .config(TargetGroupConfigArgs.builder()
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()
  *             .name("example")
  *             .type("ALB")
  *             .config(TargetGroupConfigArgs.builder()
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TargetGroup("example", TargetGroupArgs.builder()        
+ *         var example = new TargetGroup("example", TargetGroupArgs.builder()
  *             .name("example")
  *             .type("LAMBDA")
  *             .build());

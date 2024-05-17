@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Subscriber("example", SubscriberArgs.builder()        
+ *         var example = new Subscriber("example", SubscriberArgs.builder()
  *             .subscriberName("example-name")
  *             .accessType("S3")
  *             .source(SubscriberSourceArgs.builder()

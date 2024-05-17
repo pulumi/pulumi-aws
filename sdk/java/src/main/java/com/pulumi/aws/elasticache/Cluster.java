@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .engine("memcached")
  *             .nodeType("cache.m4.large")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .engine("redis")
  *             .nodeType("cache.m4.large")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replica = new Cluster("replica", ClusterArgs.builder()        
+ *         var replica = new Cluster("replica", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .replicationGroupId(example.id())
  *             .build());
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Cluster("test", ClusterArgs.builder()        
+ *         var test = new Cluster("test", ClusterArgs.builder()
  *             .clusterId("mycluster")
  *             .engine("redis")
  *             .nodeType("cache.t3.micro")
@@ -256,22 +256,22 @@ import javax.annotation.Nullable;
  *             .id(example.applyValue(getOutpostsResult -> getOutpostsResult.ids()[0]))
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .cidrBlock("10.0.1.0/24")
  *             .tags(Map.of("Name", "my-subnet"))
  *             .build());
  * 
- *         var exampleSubnetGroup = new SubnetGroup("exampleSubnetGroup", SubnetGroupArgs.builder()        
+ *         var exampleSubnetGroup = new SubnetGroup("exampleSubnetGroup", SubnetGroupArgs.builder()
  *             .name("my-cache-subnet")
  *             .subnetIds(exampleSubnet.id())
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .clusterId("cluster-example")
  *             .outpostMode("single-outpost")
  *             .preferredOutpostArn(exampleGetOutpost.applyValue(getOutpostResult -> getOutpostResult.arn()))

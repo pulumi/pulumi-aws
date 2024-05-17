@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AvailabilityZoneGroup("example", AvailabilityZoneGroupArgs.builder()        
+ *         var example = new AvailabilityZoneGroup("example", AvailabilityZoneGroupArgs.builder()
  *             .groupName("us-west-2-lax-1")
  *             .optInStatus("opted-in")
  *             .build());

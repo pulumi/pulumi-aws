@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverFirewallRuleGroup("example", ResolverFirewallRuleGroupArgs.builder()        
+ *         var example = new ResolverFirewallRuleGroup("example", ResolverFirewallRuleGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleResolverFirewallRuleGroupAssociation = new ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", ResolverFirewallRuleGroupAssociationArgs.builder()        
+ *         var exampleResolverFirewallRuleGroupAssociation = new ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", ResolverFirewallRuleGroupAssociationArgs.builder()
  *             .name("example")
  *             .firewallRuleGroupId(example.id())
  *             .priority(100)

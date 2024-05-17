@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus("messenger", EventBusArgs.builder()        
+ *         var messenger = new EventBus("messenger", EventBusArgs.builder()
  *             .name("chat-messages")
  *             .build());
  * 
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .namePrefix("aws.partner/examplepartner.com")
  *             .build());
  * 
- *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()        
+ *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()
  *             .name(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
  *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
  *             .build());

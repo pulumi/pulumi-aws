@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Framework("example", FrameworkArgs.builder()        
+ *         var example = new Framework("example", FrameworkArgs.builder()
  *             .name("exampleFramework")
  *             .description("this is an example framework")
  *             .controls(            

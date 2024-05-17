@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IpSet("example", IpSetArgs.builder()        
+ *         var example = new IpSet("example", IpSetArgs.builder()
  *             .name("example")
  *             .description("Example IP set")
  *             .scope("REGIONAL")

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("docdb-cluster-demo")
  *             .availabilityZones(            
  *                 "us-west-2a",
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 2; i++) {
- *             new ClusterInstance("clusterInstances-" + i, ClusterInstanceArgs.builder()            
+ *             new ClusterInstance("clusterInstances-" + i, ClusterInstanceArgs.builder()
  *                 .identifier(String.format("docdb-cluster-demo-%s", range.value()))
  *                 .clusterIdentifier(default_.id())
  *                 .instanceClass("db.r5.large")

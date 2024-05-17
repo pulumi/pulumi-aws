@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stack("example", StackArgs.builder()        
+ *         var example = new Stack("example", StackArgs.builder()
  *             .name("stack name")
  *             .description("stack description")
  *             .displayName("stack display name")

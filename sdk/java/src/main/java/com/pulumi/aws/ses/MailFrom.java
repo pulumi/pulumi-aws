@@ -51,17 +51,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example SES Domain Identity
- *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()        
+ *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
- *         var example = new MailFrom("example", MailFromArgs.builder()        
+ *         var example = new MailFrom("example", MailFromArgs.builder()
  *             .domain(exampleDomainIdentity.domain())
  *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -> String.format("bounce.%s", domain)))
  *             .build());
  * 
  *         // Example Route53 MX record
- *         var exampleSesDomainMailFromMx = new Record("exampleSesDomainMailFromMx", RecordArgs.builder()        
+ *         var exampleSesDomainMailFromMx = new Record("exampleSesDomainMailFromMx", RecordArgs.builder()
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
  *             .type("MX")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example Route53 TXT record for SPF
- *         var exampleSesDomainMailFromTxt = new Record("exampleSesDomainMailFromTxt", RecordArgs.builder()        
+ *         var exampleSesDomainMailFromTxt = new Record("exampleSesDomainMailFromTxt", RecordArgs.builder()
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
  *             .type("TXT")
@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example SES Email Identity
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
  *             .email("user{@literal @}example.com")
  *             .build());
  * 
- *         var exampleMailFrom = new MailFrom("exampleMailFrom", MailFromArgs.builder()        
+ *         var exampleMailFrom = new MailFrom("exampleMailFrom", MailFromArgs.builder()
  *             .domain(example.email())
  *             .mailFromDomain("mail.example.com")
  *             .build());

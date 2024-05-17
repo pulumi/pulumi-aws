@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Replicator("test", ReplicatorArgs.builder()        
+ *         var test = new Replicator("test", ReplicatorArgs.builder()
  *             .replicatorName("test-name")
  *             .description("test-description")
  *             .serviceExecutionRoleArn(sourceAwsIamRole.arn())

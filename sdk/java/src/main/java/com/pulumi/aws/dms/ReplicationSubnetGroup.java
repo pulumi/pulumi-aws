@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new replication subnet group
- *         var example = new ReplicationSubnetGroup("example", ReplicationSubnetGroupArgs.builder()        
+ *         var example = new ReplicationSubnetGroup("example", ReplicationSubnetGroupArgs.builder()
  *             .replicationSubnetGroupDescription("Example replication subnet group")
  *             .replicationSubnetGroupId("example-dms-replication-subnet-group-tf")
  *             .subnetIds(            
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()        
+ *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()
  *             .name("dms-vpc-role")
  *             .description("Allows DMS to manage VPC")
  *             .assumeRolePolicy(serializeJson(
@@ -113,12 +113,12 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var example = new RolePolicyAttachment("example", RolePolicyAttachmentArgs.builder()        
+ *         var example = new RolePolicyAttachment("example", RolePolicyAttachmentArgs.builder()
  *             .role(dms_vpc_role.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
  *             .build());
  * 
- *         var exampleReplicationSubnetGroup = new ReplicationSubnetGroup("exampleReplicationSubnetGroup", ReplicationSubnetGroupArgs.builder()        
+ *         var exampleReplicationSubnetGroup = new ReplicationSubnetGroup("exampleReplicationSubnetGroup", ReplicationSubnetGroupArgs.builder()
  *             .replicationSubnetGroupDescription("Example")
  *             .replicationSubnetGroupId("example-id")
  *             .subnetIds(            

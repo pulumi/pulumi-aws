@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new Eip("lb", EipArgs.builder()        
+ *         var lb = new Eip("lb", EipArgs.builder()
  *             .instance(web.id())
  *             .domain("vpc")
  *             .build());
@@ -88,20 +88,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var multi_ip = new NetworkInterface("multi-ip", NetworkInterfaceArgs.builder()        
+ *         var multi_ip = new NetworkInterface("multi-ip", NetworkInterfaceArgs.builder()
  *             .subnetId(main.id())
  *             .privateIps(            
  *                 "10.0.0.10",
  *                 "10.0.0.11")
  *             .build());
  * 
- *         var one = new Eip("one", EipArgs.builder()        
+ *         var one = new Eip("one", EipArgs.builder()
  *             .domain("vpc")
  *             .networkInterface(multi_ip.id())
  *             .associateWithPrivateIp("10.0.0.10")
  *             .build());
  * 
- *         var two = new Eip("two", EipArgs.builder()        
+ *         var two = new Eip("two", EipArgs.builder()
  *             .domain("vpc")
  *             .networkInterface(multi_ip.id())
  *             .associateWithPrivateIp("10.0.0.11")
@@ -147,16 +147,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Vpc("default", VpcArgs.builder()        
+ *         var default_ = new Vpc("default", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()        
+ *         var gw = new InternetGateway("gw", InternetGatewayArgs.builder()
  *             .vpcId(default_.id())
  *             .build());
  * 
- *         var myTestSubnet = new Subnet("myTestSubnet", SubnetArgs.builder()        
+ *         var myTestSubnet = new Subnet("myTestSubnet", SubnetArgs.builder()
  *             .vpcId(default_.id())
  *             .cidrBlock("10.0.0.0/24")
  *             .mapPublicIpOnLaunch(true)
@@ -164,14 +164,14 @@ import javax.annotation.Nullable;
  *                 .dependsOn(gw)
  *                 .build());
  * 
- *         var foo = new Instance("foo", InstanceArgs.builder()        
+ *         var foo = new Instance("foo", InstanceArgs.builder()
  *             .ami("ami-5189a661")
  *             .instanceType("t2.micro")
  *             .privateIp("10.0.0.12")
  *             .subnetId(myTestSubnet.id())
  *             .build());
  * 
- *         var bar = new Eip("bar", EipArgs.builder()        
+ *         var bar = new Eip("bar", EipArgs.builder()
  *             .domain("vpc")
  *             .instance(foo.id())
  *             .associateWithPrivateIp("10.0.0.12")
@@ -210,7 +210,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var byoip_ip = new Eip("byoip-ip", EipArgs.builder()        
+ *         var byoip_ip = new Eip("byoip-ip", EipArgs.builder()
  *             .domain("vpc")
  *             .publicIpv4Pool("ipv4pool-ec2-012345")
  *             .build());

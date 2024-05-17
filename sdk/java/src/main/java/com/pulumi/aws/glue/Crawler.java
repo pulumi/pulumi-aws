@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Crawler("example", CrawlerArgs.builder()        
+ *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .databaseName(exampleAwsGlueCatalogDatabase.name())
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Crawler("example", CrawlerArgs.builder()        
+ *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .databaseName(exampleAwsGlueCatalogDatabase.name())
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Crawler("example", CrawlerArgs.builder()        
+ *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .databaseName(exampleAwsGlueCatalogDatabase.name())
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Crawler("example", CrawlerArgs.builder()        
+ *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .databaseName(exampleAwsGlueCatalogDatabase.name())
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -237,7 +237,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Crawler("example", CrawlerArgs.builder()        
+ *         var example = new Crawler("example", CrawlerArgs.builder()
  *             .databaseName(exampleAwsGlueCatalogDatabase.name())
  *             .name("example")
  *             .role(exampleAwsIamRole.arn())
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var eventsCrawler = new Crawler("eventsCrawler", CrawlerArgs.builder()        
+ *         var eventsCrawler = new Crawler("eventsCrawler", CrawlerArgs.builder()
  *             .databaseName(glueDatabase.name())
  *             .schedule("cron(0 1 * * ? *)")
  *             .name(String.format("events_crawler_%s", environmentName))

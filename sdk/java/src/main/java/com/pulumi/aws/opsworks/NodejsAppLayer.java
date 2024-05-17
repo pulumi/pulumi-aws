@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new NodejsAppLayer("app", NodejsAppLayerArgs.builder()        
+ *         var app = new NodejsAppLayer("app", NodejsAppLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

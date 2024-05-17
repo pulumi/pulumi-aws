@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .name("example-domain")
  *             .scalingParameters(DomainScalingParametersArgs.builder()
  *                 .desiredInstanceType("search.medium")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VocabularyFilter("example", VocabularyFilterArgs.builder()        
+ *         var example = new VocabularyFilter("example", VocabularyFilterArgs.builder()
  *             .vocabularyFilterName("example")
  *             .languageCode("en-US")
  *             .words(            

@@ -54,16 +54,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mykey = new Key("mykey", KeyArgs.builder()        
+ *         var mykey = new Key("mykey", KeyArgs.builder()
  *             .description("This key is used to encrypt bucket objects")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()        
+ *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketServerSideEncryptionConfigurationV2("example", BucketServerSideEncryptionConfigurationV2Args.builder()        
+ *         var example = new BucketServerSideEncryptionConfigurationV2("example", BucketServerSideEncryptionConfigurationV2Args.builder()
  *             .bucket(mybucket.id())
  *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
  *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()

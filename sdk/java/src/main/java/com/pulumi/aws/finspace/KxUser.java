@@ -52,17 +52,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Example KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()
  *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleKxUser = new KxUser("exampleKxUser", KxUserArgs.builder()        
+ *         var exampleKxUser = new KxUser("exampleKxUser", KxUserArgs.builder()
  *             .name("my-tf-kx-user")
  *             .environmentId(exampleKxEnvironment.id())
  *             .iamRole(exampleRole.arn())

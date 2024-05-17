@@ -54,7 +54,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -109,7 +109,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -164,7 +164,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -219,7 +219,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -274,7 +274,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -329,7 +329,7 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getHostedZoneId();
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(primary.zoneId())
      *             .name("example.com")
      *             .type("A")
@@ -595,11 +595,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -616,12 +616,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
@@ -691,11 +691,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -712,12 +712,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
@@ -787,11 +787,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -808,12 +808,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
@@ -883,11 +883,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -904,12 +904,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
@@ -979,11 +979,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -1000,12 +1000,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
@@ -1075,11 +1075,11 @@ public final class ElbFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = ElbFunctions.getServiceAccount();
      * 
-     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()        
+     *         var elbLogs = new BucketV2("elbLogs", BucketV2Args.builder()
      *             .bucket("my-elb-tf-test-bucket")
      *             .build());
      * 
-     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()        
+     *         var elbLogsAcl = new BucketAclV2("elbLogsAcl", BucketAclV2Args.builder()
      *             .bucket(elbLogs.id())
      *             .acl("private")
      *             .build());
@@ -1096,12 +1096,12 @@ public final class ElbFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowElbLoggingBucketPolicy = new BucketPolicy("allowElbLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(elbLogs.id())
      *             .policy(allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowElbLogging -> allowElbLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
      * 
-     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()        
+     *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
      *             .name("my-foobar-elb")
      *             .availabilityZones("us-west-2a")
      *             .accessLogs(LoadBalancerAccessLogsArgs.builder()

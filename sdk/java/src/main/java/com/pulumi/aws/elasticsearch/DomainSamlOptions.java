@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("example")
  *             .elasticsearchVersion("1.5")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build());
  * 
- *         var exampleDomainSamlOptions = new DomainSamlOptions("exampleDomainSamlOptions", DomainSamlOptionsArgs.builder()        
+ *         var exampleDomainSamlOptions = new DomainSamlOptions("exampleDomainSamlOptions", DomainSamlOptionsArgs.builder()
  *             .domainName(example.domainName())
  *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
  *                 .enabled(true)

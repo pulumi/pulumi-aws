@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpcConnectionRole = new Role("vpcConnectionRole", RoleArgs.builder()        
+ *         var vpcConnectionRole = new Role("vpcConnectionRole", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new VpcConnection("example", VpcConnectionArgs.builder()        
+ *         var example = new VpcConnection("example", VpcConnectionArgs.builder()
  *             .vpcConnectionId("example-connection-id")
  *             .name("Example Connection")
  *             .roleArn(vpcConnectionRole.arn())

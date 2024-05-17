@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("neptune-cluster-demo")
  *             .engine("neptune")
  *             .backupRetentionPeriod(5)
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 2; i++) {
- *             new ClusterInstance("example-" + i, ClusterInstanceArgs.builder()            
+ *             new ClusterInstance("example-" + i, ClusterInstanceArgs.builder()
  *                 .clusterIdentifier(default_.id())
  *                 .engine("neptune")
  *                 .instanceClass("db.r4.large")

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GatewayRoute("example", GatewayRouteArgs.builder()        
+ *         var example = new GatewayRoute("example", GatewayRouteArgs.builder()
  *             .name("example-gateway-route")
  *             .meshName("example-service-mesh")
  *             .virtualGatewayName(exampleAwsAppmeshVirtualGateway.name())

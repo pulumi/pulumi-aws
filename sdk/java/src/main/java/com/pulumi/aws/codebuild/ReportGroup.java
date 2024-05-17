@@ -70,17 +70,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("my test kms key")
  *             .deletionWindowInDays(7)
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("my-test")
  *             .build());
  * 
- *         var exampleReportGroup = new ReportGroup("exampleReportGroup", ReportGroupArgs.builder()        
+ *         var exampleReportGroup = new ReportGroup("exampleReportGroup", ReportGroupArgs.builder()
  *             .name("my test report group")
  *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
