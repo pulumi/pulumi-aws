@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *         var example = new Configuration("example", ConfigurationArgs.builder()
  *             .kafkaVersions("2.1.0")
  *             .name("example")
  *             .serverProperties("""

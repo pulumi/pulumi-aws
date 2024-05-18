@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Document("foo", DocumentArgs.builder()        
+ *         var foo = new Document("foo", DocumentArgs.builder()
  *             .name("test_document")
  *             .documentType("Command")
  *             .content("""
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Document("foo", DocumentArgs.builder()        
+ *         var foo = new Document("foo", DocumentArgs.builder()
  *             .name("test_document")
  *             .documentFormat("YAML")
  *             .documentType("Command")

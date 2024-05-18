@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cell("example", CellArgs.builder()        
+ *         var example = new Cell("example", CellArgs.builder()
  *             .cellName("us-west-2-failover-cell")
  *             .build());
  * 

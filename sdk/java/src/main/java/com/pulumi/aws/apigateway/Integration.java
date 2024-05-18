@@ -52,25 +52,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
  *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod("GET")
  *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
@@ -136,17 +136,17 @@ import javax.annotation.Nullable;
  *         final var myregion = config.get("myregion");
  *         final var accountId = config.get("accountId");
  *         // API Gateway
- *         var api = new RestApi("api", RestApiArgs.builder()        
+ *         var api = new RestApi("api", RestApiArgs.builder()
  *             .name("myapi")
  *             .build());
  * 
- *         var resource = new Resource("resource", ResourceArgs.builder()        
+ *         var resource = new Resource("resource", ResourceArgs.builder()
  *             .pathPart("resource")
  *             .parentId(api.rootResourceId())
  *             .restApi(api.id())
  *             .build());
  * 
- *         var method = new Method("method", MethodArgs.builder()        
+ *         var method = new Method("method", MethodArgs.builder()
  *             .restApi(api.id())
  *             .resourceId(resource.id())
  *             .httpMethod("GET")
@@ -165,12 +165,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("myrole")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var lambda = new Function("lambda", FunctionArgs.builder()        
+ *         var lambda = new Function("lambda", FunctionArgs.builder()
  *             .code(new FileArchive("lambda.zip"))
  *             .name("mylambda")
  *             .role(role.arn())
@@ -181,7 +181,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var integration = new Integration("integration", IntegrationArgs.builder()        
+ *         var integration = new Integration("integration", IntegrationArgs.builder()
  *             .restApi(api.id())
  *             .resourceId(resource.id())
  *             .httpMethod(method.httpMethod())
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Lambda
- *         var apigwLambda = new Permission("apigwLambda", PermissionArgs.builder()        
+ *         var apigwLambda = new Permission("apigwLambda", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromAPIGateway")
  *             .action("lambda:InvokeFunction")
  *             .function(lambda.name())
@@ -248,29 +248,29 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var name = config.get("name");
  *         final var subnetId = config.get("subnetId");
- *         var test = new LoadBalancer("test", LoadBalancerArgs.builder()        
+ *         var test = new LoadBalancer("test", LoadBalancerArgs.builder()
  *             .name(name)
  *             .internal(true)
  *             .loadBalancerType("network")
  *             .subnets(subnetId)
  *             .build());
  * 
- *         var testVpcLink = new VpcLink("testVpcLink", VpcLinkArgs.builder()        
+ *         var testVpcLink = new VpcLink("testVpcLink", VpcLinkArgs.builder()
  *             .name(name)
  *             .targetArn(test.arn())
  *             .build());
  * 
- *         var testRestApi = new RestApi("testRestApi", RestApiArgs.builder()        
+ *         var testRestApi = new RestApi("testRestApi", RestApiArgs.builder()
  *             .name(name)
  *             .build());
  * 
- *         var testResource = new Resource("testResource", ResourceArgs.builder()        
+ *         var testResource = new Resource("testResource", ResourceArgs.builder()
  *             .restApi(testRestApi.id())
  *             .parentId(testRestApi.rootResourceId())
  *             .pathPart("test")
  *             .build());
  * 
- *         var testMethod = new Method("testMethod", MethodArgs.builder()        
+ *         var testMethod = new Method("testMethod", MethodArgs.builder()
  *             .restApi(testRestApi.id())
  *             .resourceId(testResource.id())
  *             .httpMethod("GET")
@@ -278,7 +278,7 @@ import javax.annotation.Nullable;
  *             .requestModels(Map.of("application/json", "Error"))
  *             .build());
  * 
- *         var testIntegration = new Integration("testIntegration", IntegrationArgs.builder()        
+ *         var testIntegration = new Integration("testIntegration", IntegrationArgs.builder()
  *             .restApi(testRestApi.id())
  *             .resourceId(testResource.id())
  *             .httpMethod(testMethod.httpMethod())

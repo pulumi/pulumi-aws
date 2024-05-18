@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()        
+ *         var examplePrivateDnsNamespace = new PrivateDnsNamespace("examplePrivateDnsNamespace", PrivateDnsNamespaceArgs.builder()
  *             .name("example.domain.local")
  *             .description("example")
  *             .vpc(example.id())
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example")
  *             .dnsConfig(ServiceDnsConfigArgs.builder()
  *                 .namespaceId(examplePrivateDnsNamespace.id())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .instanceId("example-instance-id")
  *             .serviceId(exampleService.id())
  *             .attributes(Map.ofEntries(
@@ -119,17 +119,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()        
+ *         var example = new HttpNamespace("example", HttpNamespaceArgs.builder()
  *             .name("example.domain.test")
  *             .description("example")
  *             .build());
  * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()        
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example")
  *             .namespaceId(example.id())
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .instanceId("example-instance-id")
  *             .serviceId(exampleService.id())
  *             .attributes(Map.of("AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl"))

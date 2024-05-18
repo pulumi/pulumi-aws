@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("test-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -75,13 +75,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()        
+ *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()
  *             .name("test-policy")
  *             .description("A test policy")
  *             .policy(policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var test_attach = new RolePolicyAttachment("test-attach", RolePolicyAttachmentArgs.builder()        
+ *         var test_attach = new RolePolicyAttachment("test-attach", RolePolicyAttachmentArgs.builder()
  *             .role(role.name())
  *             .policyArn(policyPolicy.arn())
  *             .build());

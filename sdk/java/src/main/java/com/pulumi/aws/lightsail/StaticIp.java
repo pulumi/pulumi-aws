@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new StaticIp("test", StaticIpArgs.builder()        
+ *         var test = new StaticIp("test", StaticIpArgs.builder()
  *             .name("example")
  *             .build());
  * 

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()        
+ *         var name = new ReplicationConfig("name", ReplicationConfigArgs.builder()
  *             .replicationConfigIdentifier("test-dms-serverless-replication-tf")
  *             .resourceIdentifier("test-dms-serverless-replication-tf")
  *             .replicationType("cdc")

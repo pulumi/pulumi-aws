@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ModelPackageGroup("example", ModelPackageGroupArgs.builder()        
+ *         var example = new ModelPackageGroup("example", ModelPackageGroupArgs.builder()
  *             .modelPackageGroupName("example")
  *             .build());
  * 

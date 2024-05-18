@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
@@ -80,11 +80,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
- *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()        
+ *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()
  *             .zoneId("ABCDEFGHIJ123")
  *             .name("_amazonses.example.com")
  *             .type("TXT")

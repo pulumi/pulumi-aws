@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .bucket("an-example-bucket")
  *             .build());
  * 
- *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
  *             .arn(example.applyValue(getBucketResult -> getBucketResult.arn()))
  *             .build());
  * 

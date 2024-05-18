@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()        
+ *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()
  *             .family("docdb3.6")
  *             .name("example")
  *             .description("docdb cluster parameter group")

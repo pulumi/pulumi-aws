@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()        
+ *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
  *             .family("neptune1")
  *             .name("example")
  *             .parameters(ParameterGroupParameterArgs.builder()

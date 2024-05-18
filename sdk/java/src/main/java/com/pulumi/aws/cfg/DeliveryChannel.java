@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2("b", BucketV2Args.builder()        
+ *         var b = new BucketV2("b", BucketV2Args.builder()
  *             .bucket("example-awsconfig")
  *             .forceDestroy(true)
  *             .build());
@@ -72,17 +72,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var r = new Role("r", RoleArgs.builder()        
+ *         var r = new Role("r", RoleArgs.builder()
  *             .name("awsconfig-example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()        
+ *         var fooRecorder = new Recorder("fooRecorder", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(r.arn())
  *             .build());
  * 
- *         var foo = new DeliveryChannel("foo", DeliveryChannelArgs.builder()        
+ *         var foo = new DeliveryChannel("foo", DeliveryChannelArgs.builder()
  *             .name("example")
  *             .s3BucketName(b.bucket())
  *             .build(), CustomResourceOptions.builder()
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()        
+ *         var pRolePolicy = new RolePolicy("pRolePolicy", RolePolicyArgs.builder()
  *             .name("awsconfig-example")
  *             .role(r.id())
  *             .policy(p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(p -> p.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

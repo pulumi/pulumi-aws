@@ -53,7 +53,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -82,7 +82,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -136,7 +136,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -165,7 +165,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -219,7 +219,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -248,7 +248,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -302,7 +302,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -331,7 +331,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -385,7 +385,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -414,7 +414,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -468,7 +468,7 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-cloudtrail-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -497,7 +497,7 @@ public final class CloudtrailFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowCloudtrailLogging -> allowCloudtrailLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VoiceConnector("test", VoiceConnectorArgs.builder()        
+ *         var test = new VoiceConnector("test", VoiceConnectorArgs.builder()
  *             .name("connector-test-1")
  *             .requireEncryption(true)
  *             .awsRegion("us-east-1")

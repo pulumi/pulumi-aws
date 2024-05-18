@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .maximumEventAgeInSeconds(60)
  *             .maximumRetryAttempts(0)
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaAlias.functionName())
  *             .qualifier(exampleAwsLambdaAlias.name())
  *             .build());
@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .qualifier("$LATEST")
  *             .build());
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()        
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .qualifier(exampleAwsLambdaFunction.version())
  *             .build());

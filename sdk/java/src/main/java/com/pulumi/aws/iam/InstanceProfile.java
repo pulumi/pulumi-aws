@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("test_role")
  *             .path("/")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testProfile = new InstanceProfile("testProfile", InstanceProfileArgs.builder()        
+ *         var testProfile = new InstanceProfile("testProfile", InstanceProfileArgs.builder()
  *             .name("test_profile")
  *             .role(role.name())
  *             .build());

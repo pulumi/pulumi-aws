@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule("test", ListenerRuleArgs.builder()        
+ *         var test = new ListenerRule("test", ListenerRuleArgs.builder()
  *             .name("example")
  *             .listenerIdentifier(exampleAwsVpclatticeListener.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ListenerRule("test", ListenerRuleArgs.builder()        
+ *         var test = new ListenerRule("test", ListenerRuleArgs.builder()
  *             .name("example")
  *             .listenerIdentifier(example.listenerId())
  *             .serviceIdentifier(exampleAwsVpclatticeService.id())

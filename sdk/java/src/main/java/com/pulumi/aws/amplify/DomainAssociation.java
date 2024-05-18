@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .customRules(AppCustomRuleArgs.builder()
  *                 .source("https://example.com")
@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var master = new Branch("master", BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()
  *             .appId(example.id())
  *             .branchName("master")
  *             .build());
  * 
- *         var exampleDomainAssociation = new DomainAssociation("exampleDomainAssociation", DomainAssociationArgs.builder()        
+ *         var exampleDomainAssociation = new DomainAssociation("exampleDomainAssociation", DomainAssociationArgs.builder()
  *             .appId(example.id())
  *             .domainName("example.com")
  *             .subDomains(            

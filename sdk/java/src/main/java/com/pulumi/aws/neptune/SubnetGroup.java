@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new SubnetGroup("default", SubnetGroupArgs.builder()        
+ *         var default_ = new SubnetGroup("default", SubnetGroupArgs.builder()
  *             .name("main")
  *             .subnetIds(            
  *                 frontend.id(),

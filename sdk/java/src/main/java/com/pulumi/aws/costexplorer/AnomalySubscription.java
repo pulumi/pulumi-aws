@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()        
+ *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .monitorType("DIMENSIONAL")
  *             .monitorDimension("SERVICE")
  *             .build());
  * 
- *         var testAnomalySubscription = new AnomalySubscription("testAnomalySubscription", AnomalySubscriptionArgs.builder()        
+ *         var testAnomalySubscription = new AnomalySubscription("testAnomalySubscription", AnomalySubscriptionArgs.builder()
  *             .name("DAILYSUBSCRIPTION")
  *             .frequency("DAILY")
  *             .monitorArnLists(test.arn())
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()        
+ *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()        
+ *         var test = new AnomalySubscription("test", AnomalySubscriptionArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .frequency("DAILY")
  *             .monitorArnLists(testAwsCeAnomalyMonitor.arn())
@@ -230,7 +230,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var costAnomalyUpdates = new Topic("costAnomalyUpdates", TopicArgs.builder()        
+ *         var costAnomalyUpdates = new Topic("costAnomalyUpdates", TopicArgs.builder()
  *             .name("CostAnomalyUpdates")
  *             .build());
  * 
@@ -273,18 +273,18 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(costAnomalyUpdates.arn())
  *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var anomalyMonitor = new AnomalyMonitor("anomalyMonitor", AnomalyMonitorArgs.builder()        
+ *         var anomalyMonitor = new AnomalyMonitor("anomalyMonitor", AnomalyMonitorArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .monitorType("DIMENSIONAL")
  *             .monitorDimension("SERVICE")
  *             .build());
  * 
- *         var realtimeSubscription = new AnomalySubscription("realtimeSubscription", AnomalySubscriptionArgs.builder()        
+ *         var realtimeSubscription = new AnomalySubscription("realtimeSubscription", AnomalySubscriptionArgs.builder()
  *             .name("RealtimeAnomalySubscription")
  *             .frequency("IMMEDIATE")
  *             .monitorArnLists(anomalyMonitor.arn())

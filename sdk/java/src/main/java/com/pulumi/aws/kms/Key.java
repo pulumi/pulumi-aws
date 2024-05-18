@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new Key("a", KeyArgs.builder()        
+ *         var a = new Key("a", KeyArgs.builder()
  *             .description("KMS key 1")
  *             .deletionWindowInDays(10)
  *             .build());

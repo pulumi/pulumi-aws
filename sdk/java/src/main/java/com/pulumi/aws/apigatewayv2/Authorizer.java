@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Authorizer("example", AuthorizerArgs.builder()        
+ *         var example = new Authorizer("example", AuthorizerArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .authorizerType("REQUEST")
  *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Authorizer("example", AuthorizerArgs.builder()        
+ *         var example = new Authorizer("example", AuthorizerArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .authorizerType("REQUEST")
  *             .authorizerUri(exampleAwsLambdaFunction.invokeArn())

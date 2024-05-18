@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderFlowersIntent = new Intent("orderFlowersIntent", IntentArgs.builder()        
+ *         var orderFlowersIntent = new Intent("orderFlowersIntent", IntentArgs.builder()
  *             .confirmationPrompt(IntentConfirmationPromptArgs.builder()
  *                 .maxAttempts(2)
  *                 .messages(IntentConfirmationPromptMessageArgs.builder()

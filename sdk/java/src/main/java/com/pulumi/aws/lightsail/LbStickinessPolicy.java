@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Lb("test", LbArgs.builder()        
+ *         var test = new Lb("test", LbArgs.builder()
  *             .name("test-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort("80")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testLbStickinessPolicy = new LbStickinessPolicy("testLbStickinessPolicy", LbStickinessPolicyArgs.builder()        
+ *         var testLbStickinessPolicy = new LbStickinessPolicy("testLbStickinessPolicy", LbStickinessPolicyArgs.builder()
  *             .lbName(test.name())
  *             .cookieDuration(900)
  *             .enabled(true)

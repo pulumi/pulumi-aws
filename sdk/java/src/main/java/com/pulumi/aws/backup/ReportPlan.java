@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReportPlan("example", ReportPlanArgs.builder()        
+ *         var example = new ReportPlan("example", ReportPlanArgs.builder()
  *             .name("example_name")
  *             .description("example description")
  *             .reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs.builder()

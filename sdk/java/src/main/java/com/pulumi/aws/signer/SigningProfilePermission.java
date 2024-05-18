@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()        
+ *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()
  *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .namePrefix("prod_sp_")
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
@@ -57,20 +57,20 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var spPermission1 = new SigningProfilePermission("spPermission1", SigningProfilePermissionArgs.builder()        
+ *         var spPermission1 = new SigningProfilePermission("spPermission1", SigningProfilePermissionArgs.builder()
  *             .profileName(prodSp.name())
  *             .action("signer:StartSigningJob")
  *             .principal(awsAccount)
  *             .build());
  * 
- *         var spPermission2 = new SigningProfilePermission("spPermission2", SigningProfilePermissionArgs.builder()        
+ *         var spPermission2 = new SigningProfilePermission("spPermission2", SigningProfilePermissionArgs.builder()
  *             .profileName(prodSp.name())
  *             .action("signer:GetSigningProfile")
  *             .principal(awsTeamRoleArn)
  *             .statementId("ProdAccountStartSigningJob_StatementId")
  *             .build());
  * 
- *         var spPermission3 = new SigningProfilePermission("spPermission3", SigningProfilePermissionArgs.builder()        
+ *         var spPermission3 = new SigningProfilePermission("spPermission3", SigningProfilePermissionArgs.builder()
  *             .profileName(prodSp.name())
  *             .action("signer:RevokeSignature")
  *             .principal("123456789012")

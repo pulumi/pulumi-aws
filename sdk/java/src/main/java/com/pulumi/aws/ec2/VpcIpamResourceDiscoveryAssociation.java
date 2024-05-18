@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VpcIpamResourceDiscoveryAssociation("test", VpcIpamResourceDiscoveryAssociationArgs.builder()        
+ *         var test = new VpcIpamResourceDiscoveryAssociation("test", VpcIpamResourceDiscoveryAssociationArgs.builder()
  *             .ipamId(testAwsVpcIpam.id())
  *             .ipamResourceDiscoveryId(testAwsVpcIpamResourceDiscovery.id())
  *             .tags(Map.of("Name", "test"))

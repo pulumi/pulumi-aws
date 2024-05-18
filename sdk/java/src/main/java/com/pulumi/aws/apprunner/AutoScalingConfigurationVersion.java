@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()        
+ *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()
  *             .autoScalingConfigurationName("example")
  *             .maxConcurrency(50)
  *             .maxSize(10)

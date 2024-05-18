@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()        
+ *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("example")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("string")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .keyPairName("some_key_name")
  *             .build());
  * 
- *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()        
+ *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()
  *             .staticIpName(testStaticIp.id())
  *             .instanceName(testInstance.id())
  *             .build());

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("example")
  *             .build());
  * 
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Queue("example", QueueArgs.builder()        
+ *         var example = new Queue("example", QueueArgs.builder()
  *             .name("example")
  *             .policy(serializeJson(
  *                 jsonObject(
@@ -108,17 +108,17 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("example")
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucketV2.id())
  *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
  *                 var exampleBucketV2Arn = values.t1;
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *             }))
  *             .build());
  * 
- *         var test = new Domain("test", DomainArgs.builder()        
+ *         var test = new Domain("test", DomainArgs.builder()
  *             .domainName(example)
  *             .deadLetterQueueUrl(example.id())
  *             .defaultEncryptionKey(exampleKey.arn())

@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TransitGateway("example");
  * 
- *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
  *             .bgpAsn(65000)
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
  *             .build());
  * 
- *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
  *             .resourceId(exampleVpnConnection.transitGatewayAttachmentId())
  *             .key("Name")
  *             .value("Hello World")

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hosted = new HostedConnection("hosted", HostedConnectionArgs.builder()        
+ *         var hosted = new HostedConnection("hosted", HostedConnectionArgs.builder()
  *             .connectionId("dxcon-ffabc123")
  *             .bandwidth("100Mbps")
  *             .name("tf-dx-hosted-connection")

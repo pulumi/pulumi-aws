@@ -49,18 +49,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
  *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod("GET")
@@ -112,24 +112,24 @@ import javax.annotation.Nullable;
  *             .name(cognitoUserPoolName)
  *             .build());
  * 
- *         var thisRestApi = new RestApi("thisRestApi", RestApiArgs.builder()        
+ *         var thisRestApi = new RestApi("thisRestApi", RestApiArgs.builder()
  *             .name("with-authorizer")
  *             .build());
  * 
- *         var thisResource = new Resource("thisResource", ResourceArgs.builder()        
+ *         var thisResource = new Resource("thisResource", ResourceArgs.builder()
  *             .restApi(thisRestApi.id())
  *             .parentId(thisRestApi.rootResourceId())
  *             .pathPart("{proxy+}")
  *             .build());
  * 
- *         var thisAuthorizer = new Authorizer("thisAuthorizer", AuthorizerArgs.builder()        
+ *         var thisAuthorizer = new Authorizer("thisAuthorizer", AuthorizerArgs.builder()
  *             .name("CognitoUserPoolAuthorizer")
  *             .type("COGNITO_USER_POOLS")
  *             .restApi(thisRestApi.id())
  *             .providerArns(this_.arns())
  *             .build());
  * 
- *         var any = new Method("any", MethodArgs.builder()        
+ *         var any = new Method("any", MethodArgs.builder()
  *             .restApi(thisRestApi.id())
  *             .resourceId(thisResource.id())
  *             .httpMethod("ANY")

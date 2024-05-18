@@ -76,12 +76,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var metricStreamToFirehoseRole = new Role("metricStreamToFirehoseRole", RoleArgs.builder()        
+ *         var metricStreamToFirehoseRole = new Role("metricStreamToFirehoseRole", RoleArgs.builder()
  *             .name("metric_stream_to_firehose_role")
  *             .assumeRolePolicy(streamsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("metric-stream-test-bucket")
  *             .build());
  * 
@@ -96,11 +96,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehoseToS3Role = new Role("firehoseToS3Role", RoleArgs.builder()        
+ *         var firehoseToS3Role = new Role("firehoseToS3Role", RoleArgs.builder()
  *             .assumeRolePolicy(firehoseAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var s3Stream = new FirehoseDeliveryStream("s3Stream", FirehoseDeliveryStreamArgs.builder()        
+ *         var s3Stream = new FirehoseDeliveryStream("s3Stream", FirehoseDeliveryStreamArgs.builder()
  *             .name("metric-stream-test-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var main = new MetricStream("main", MetricStreamArgs.builder()        
+ *         var main = new MetricStream("main", MetricStreamArgs.builder()
  *             .name("my-metric-stream")
  *             .roleArn(metricStreamToFirehoseRole.arn())
  *             .firehoseArn(s3Stream.arn())
@@ -138,13 +138,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var metricStreamToFirehoseRolePolicy = new RolePolicy("metricStreamToFirehoseRolePolicy", RolePolicyArgs.builder()        
+ *         var metricStreamToFirehoseRolePolicy = new RolePolicy("metricStreamToFirehoseRolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(metricStreamToFirehoseRole.id())
  *             .policy(metricStreamToFirehose.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(metricStreamToFirehose -> metricStreamToFirehose.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var firehoseToS3RolePolicy = new RolePolicy("firehoseToS3RolePolicy", RolePolicyArgs.builder()        
+ *         var firehoseToS3RolePolicy = new RolePolicy("firehoseToS3RolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(firehoseToS3Role.id())
  *             .policy(firehoseToS3.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(firehoseToS3 -> firehoseToS3.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
@@ -203,7 +203,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new MetricStream("main", MetricStreamArgs.builder()        
+ *         var main = new MetricStream("main", MetricStreamArgs.builder()
  *             .name("my-metric-stream")
  *             .roleArn(metricStreamToFirehose.arn())
  *             .firehoseArn(s3Stream.arn())

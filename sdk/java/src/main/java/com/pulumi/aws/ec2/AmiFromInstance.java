@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiFromInstance("example", AmiFromInstanceArgs.builder()        
+ *         var example = new AmiFromInstance("example", AmiFromInstanceArgs.builder()
  *             .name("example")
  *             .sourceInstanceId("i-xxxxxxxx")
  *             .build());
