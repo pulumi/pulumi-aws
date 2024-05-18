@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Server("example", ServerArgs.builder()        
+ *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("SERVICE_MANAGED")
  *             .build());
  * 
- *         var zoneId = new Tag("zoneId", TagArgs.builder()        
+ *         var zoneId = new Tag("zoneId", TagArgs.builder()
  *             .resourceArn(example.arn())
  *             .key("aws:transfer:route53HostedZoneId")
  *             .value("/hostedzone/MyHostedZoneId")
  *             .build());
  * 
- *         var hostname = new Tag("hostname", TagArgs.builder()        
+ *         var hostname = new Tag("hostname", TagArgs.builder()
  *             .resourceArn(example.arn())
  *             .key("aws:transfer:customHostname")
  *             .value("example.com")

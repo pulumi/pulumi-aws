@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Zone("primary", ZoneArgs.builder()        
+ *         var primary = new Zone("primary", ZoneArgs.builder()
  *             .name("example.com")
  *             .build());
  * 
@@ -89,16 +89,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Zone("main", ZoneArgs.builder()        
+ *         var main = new Zone("main", ZoneArgs.builder()
  *             .name("example.com")
  *             .build());
  * 
- *         var dev = new Zone("dev", ZoneArgs.builder()        
+ *         var dev = new Zone("dev", ZoneArgs.builder()
  *             .name("dev.example.com")
  *             .tags(Map.of("Environment", "dev"))
  *             .build());
  * 
- *         var dev_ns = new Record("dev-ns", RecordArgs.builder()        
+ *         var dev_ns = new Record("dev-ns", RecordArgs.builder()
  *             .zoneId(main.zoneId())
  *             .name("dev.example.com")
  *             .type("NS")
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var private_ = new Zone("private", ZoneArgs.builder()        
+ *         var private_ = new Zone("private", ZoneArgs.builder()
  *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(example.id())

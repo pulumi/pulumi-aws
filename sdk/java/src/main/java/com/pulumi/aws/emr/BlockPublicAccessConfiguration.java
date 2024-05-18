@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
  *             .blockPublicSecurityGroupRules(true)
  *             .build());
  * 
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
  *                 .minRange(22)
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
  *             .blockPublicSecurityGroupRules(true)
  *             .permittedPublicSecurityGroupRuleRanges(            
  *                 BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.builder()
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()        
+ *         var example = new BlockPublicAccessConfiguration("example", BlockPublicAccessConfigurationArgs.builder()
  *             .blockPublicSecurityGroupRules(false)
  *             .build());
  * 

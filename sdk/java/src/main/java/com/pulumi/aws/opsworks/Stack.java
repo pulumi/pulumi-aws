@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Stack("main", StackArgs.builder()        
+ *         var main = new Stack("main", StackArgs.builder()
  *             .name("awesome-stack")
  *             .region("us-west-1")
  *             .serviceRoleArn(opsworksAwsIamRole.arn())

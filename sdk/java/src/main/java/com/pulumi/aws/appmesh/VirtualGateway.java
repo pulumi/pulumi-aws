@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()        
+ *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()
  *             .name("example-virtual-gateway")
  *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()        
+ *         var example = new VirtualGateway("example", VirtualGatewayArgs.builder()
  *             .name("example-virtual-gateway")
  *             .meshName("example-service-mesh")
  *             .spec(VirtualGatewaySpecArgs.builder()

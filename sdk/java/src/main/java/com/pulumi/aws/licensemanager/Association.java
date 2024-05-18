@@ -58,17 +58,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .ami(example.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t2.micro")
  *             .build());
  * 
- *         var exampleLicenseConfiguration = new LicenseConfiguration("exampleLicenseConfiguration", LicenseConfigurationArgs.builder()        
+ *         var exampleLicenseConfiguration = new LicenseConfiguration("exampleLicenseConfiguration", LicenseConfigurationArgs.builder()
  *             .name("Example")
  *             .licenseCountingType("Instance")
  *             .build());
  * 
- *         var exampleAssociation = new Association("exampleAssociation", AssociationArgs.builder()        
+ *         var exampleAssociation = new Association("exampleAssociation", AssociationArgs.builder()
  *             .licenseConfigurationArn(exampleLicenseConfiguration.arn())
  *             .resourceArn(exampleInstance.arn())
  *             .build());

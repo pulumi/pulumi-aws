@@ -427,7 +427,7 @@ public final class EksFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()        
+     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
@@ -486,7 +486,7 @@ public final class EksFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()        
+     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
@@ -545,7 +545,7 @@ public final class EksFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()        
+     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))
@@ -604,7 +604,7 @@ public final class EksFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
-     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()        
+     *         var vpcCni = new Addon("vpcCni", AddonArgs.builder()
      *             .clusterName(example.name())
      *             .addonName("vpc-cni")
      *             .addonVersion(latest.applyValue(getAddonVersionResult -> getAddonVersionResult.version()))

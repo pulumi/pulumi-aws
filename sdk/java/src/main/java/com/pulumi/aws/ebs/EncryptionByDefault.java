@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EncryptionByDefault("example", EncryptionByDefaultArgs.builder()        
+ *         var example = new EncryptionByDefault("example", EncryptionByDefaultArgs.builder()
  *             .enabled(true)
  *             .build());
  * 

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()
  *             .imageId("ami-12345678")
  *             .accountId("123456789012")
  *             .build());
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()
  *             .imageId("ami-12345678")
  *             .group("all")
  *             .build());
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = OrganizationsFunctions.getOrganization();
  * 
- *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()        
+ *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()
  *             .imageId("ami-12345678")
  *             .organizationArn(current.applyValue(getOrganizationResult -> getOrganizationResult.arn()))
  *             .build());

@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permission("example", PermissionArgs.builder()        
+ *         var example = new Permission("example", PermissionArgs.builder()
  *             .action("lambda:InvokeFunction")
  *             .function(exampleAwsLambdaFunction.arn())
  *             .principal("config.amazonaws.com")
  *             .statementId("AllowExecutionFromConfig")
  *             .build());
  * 
- *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationCustomRule = new OrganizationCustomRule("exampleOrganizationCustomRule", OrganizationCustomRuleArgs.builder()        
+ *         var exampleOrganizationCustomRule = new OrganizationCustomRule("exampleOrganizationCustomRule", OrganizationCustomRuleArgs.builder()
  *             .lambdaFunctionArn(exampleAwsLambdaFunction.arn())
  *             .name("example")
  *             .triggerTypes("ConfigurationItemChangeNotification")

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var serviceMonitor = new AnomalyMonitor("serviceMonitor", AnomalyMonitorArgs.builder()        
+ *         var serviceMonitor = new AnomalyMonitor("serviceMonitor", AnomalyMonitorArgs.builder()
  *             .name("AWSServiceMonitor")
  *             .monitorType("DIMENSIONAL")
  *             .monitorDimension("SERVICE")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()        
+ *         var test = new AnomalyMonitor("test", AnomalyMonitorArgs.builder()
  *             .name("AWSCustomAnomalyMonitor")
  *             .monitorType("CUSTOM")
  *             .monitorSpecification(serializeJson(

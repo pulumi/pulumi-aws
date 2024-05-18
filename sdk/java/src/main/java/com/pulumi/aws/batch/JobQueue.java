@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testQueue = new JobQueue("testQueue", JobQueueArgs.builder()        
+ *         var testQueue = new JobQueue("testQueue", JobQueueArgs.builder()
  *             .name("tf-test-batch-job-queue")
  *             .state("ENABLED")
  *             .priority(1)
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()        
+ *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
  *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleJobQueue = new JobQueue("exampleJobQueue", JobQueueArgs.builder()        
+ *         var exampleJobQueue = new JobQueue("exampleJobQueue", JobQueueArgs.builder()
  *             .name("tf-test-batch-job-queue")
  *             .schedulingPolicyArn(example.arn())
  *             .state("ENABLED")

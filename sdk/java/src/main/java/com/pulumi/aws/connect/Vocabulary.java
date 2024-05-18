@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vocabulary("example", VocabularyArgs.builder()        
+ *         var example = new Vocabulary("example", VocabularyArgs.builder()
  *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
  *             .name("example")
  *             .content("""

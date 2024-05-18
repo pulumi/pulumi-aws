@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition("LATEST")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .eventSourceArn(exampleAwsKinesisStream.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition("LATEST")
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .eventSourceArn(exampleAwsMskCluster.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics("Example")
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics("Example")
  *             .startingPosition("TRIM_HORIZON")
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .eventSourceArn(sqsQueueTest.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .build());
@@ -263,7 +263,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .eventSourceArn(sqsQueueTest.arn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .filterCriteria(EventSourceMappingFilterCriteriaArgs.builder()
@@ -318,7 +318,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .batchSize(10)
  *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)
@@ -362,7 +362,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()        
+ *         var example = new EventSourceMapping("example", EventSourceMappingArgs.builder()
  *             .batchSize(1)
  *             .eventSourceArn(exampleAwsMqBroker.arn())
  *             .enabled(true)

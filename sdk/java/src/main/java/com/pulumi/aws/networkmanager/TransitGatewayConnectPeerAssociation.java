@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TransitGatewayConnectPeerAssociation("example", TransitGatewayConnectPeerAssociationArgs.builder()        
+ *         var example = new TransitGatewayConnectPeerAssociation("example", TransitGatewayConnectPeerAssociationArgs.builder()
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .deviceId(exampleAwsNetworkmanagerDevice.id())
  *             .transitGatewayConnectPeerArn(exampleAwsEc2TransitGatewayConnectPeer.arn())

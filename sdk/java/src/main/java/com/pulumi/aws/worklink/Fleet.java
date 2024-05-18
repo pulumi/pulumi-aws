@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .name("example")
  *             .network(FleetNetworkArgs.builder()
  *                 .vpcId(testAwsVpc.id())
@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Fleet("test", FleetArgs.builder()        
+ *         var test = new Fleet("test", FleetArgs.builder()
  *             .name("tf-worklink-fleet")
  *             .identityProvider(FleetIdentityProviderArgs.builder()
  *                 .type("SAML")

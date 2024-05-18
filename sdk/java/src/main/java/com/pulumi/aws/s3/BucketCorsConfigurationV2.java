@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", BucketCorsConfigurationV2Args.builder()        
+ *         var exampleBucketCorsConfigurationV2 = new BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", BucketCorsConfigurationV2Args.builder()
  *             .bucket(example.id())
  *             .corsRules(            
  *                 BucketCorsConfigurationV2CorsRuleArgs.builder()

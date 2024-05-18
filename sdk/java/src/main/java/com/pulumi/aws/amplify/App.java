@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .repository("https://github.com/example/app")
  *             .buildSpec("""
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .repository("https://github.com/example/app")
  *             .accessToken("...")
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .enableAutoBranchCreation(true)
  *             .autoBranchCreationPatterns(            
@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .enableBasicAuth(true)
  *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .customRules(            
  *                 AppCustomRuleArgs.builder()
@@ -281,7 +281,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .environmentVariables(Map.of("_CUSTOM_IMAGE", "node:16"))
  *             .build());
@@ -317,7 +317,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("example")
  *             .customHeaders("""
  * customHeaders:

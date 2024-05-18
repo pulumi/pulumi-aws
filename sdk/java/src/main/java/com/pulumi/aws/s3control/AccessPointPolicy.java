@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
  *             .bucket(example.id())
  *             .name("example")
  *             .publicAccessBlockConfiguration(AccessPointPublicAccessBlockConfigurationArgs.builder()
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccessPointPolicy = new AccessPointPolicy("exampleAccessPointPolicy", AccessPointPolicyArgs.builder()        
+ *         var exampleAccessPointPolicy = new AccessPointPolicy("exampleAccessPointPolicy", AccessPointPolicyArgs.builder()
  *             .accessPointArn(exampleAccessPoint.arn())
  *             .policy(exampleAccessPoint.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(

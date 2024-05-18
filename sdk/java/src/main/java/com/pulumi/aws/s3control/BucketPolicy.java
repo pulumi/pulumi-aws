@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()        
+ *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
  *             .bucket(exampleAwsS3controlBucket.arn())
  *             .policy(serializeJson(
  *                 jsonObject(

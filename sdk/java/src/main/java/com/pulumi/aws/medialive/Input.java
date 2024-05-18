@@ -54,14 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()        
+ *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
  *                 .cidr("10.0.0.8/32")
  *                 .build())
  *             .tags(Map.of("ENVIRONMENT", "prod"))
  *             .build());
  * 
- *         var exampleInput = new Input("exampleInput", InputArgs.builder()        
+ *         var exampleInput = new Input("exampleInput", InputArgs.builder()
  *             .name("example-input")
  *             .inputSecurityGroups(example.id())
  *             .type("UDP_PUSH")

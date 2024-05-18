@@ -50,15 +50,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var peer = AwsFunctions.getRegion();
  * 
- *         var local = new TransitGateway("local", TransitGatewayArgs.builder()        
+ *         var local = new TransitGateway("local", TransitGatewayArgs.builder()
  *             .tags(Map.of("Name", "Local TGW"))
  *             .build());
  * 
- *         var peerTransitGateway = new TransitGateway("peerTransitGateway", TransitGatewayArgs.builder()        
+ *         var peerTransitGateway = new TransitGateway("peerTransitGateway", TransitGatewayArgs.builder()
  *             .tags(Map.of("Name", "Peer TGW"))
  *             .build());
  * 
- *         var example = new PeeringAttachment("example", PeeringAttachmentArgs.builder()        
+ *         var example = new PeeringAttachment("example", PeeringAttachmentArgs.builder()
  *             .peerAccountId(peerTransitGateway.ownerId())
  *             .peerRegion(peer.applyValue(getRegionResult -> getRegionResult.name()))
  *             .peerTransitGatewayId(peerTransitGateway.id())

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccountPublicAccessBlock("example", AccountPublicAccessBlockArgs.builder()        
+ *         var example = new AccountPublicAccessBlock("example", AccountPublicAccessBlockArgs.builder()
  *             .blockPublicAcls(true)
  *             .blockPublicPolicy(true)
  *             .build());

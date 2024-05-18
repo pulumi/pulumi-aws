@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()
  *             .filters(InsightFiltersArgs.builder()
  *                 .awsAccountIds(                
  *                     InsightFiltersAwsAccountIdArgs.builder()
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()
  *             .filters(InsightFiltersArgs.builder()
  *                 .createdAts(InsightFiltersCreatedAtArgs.builder()
  *                     .dateRange(InsightFiltersCreatedAtDateRangeArgs.builder()
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()
  *             .filters(InsightFiltersArgs.builder()
  *                 .networkDestinationIpv4s(InsightFiltersNetworkDestinationIpv4Args.builder()
  *                     .cidr("10.0.0.0/16")
@@ -202,7 +202,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()
  *             .filters(InsightFiltersArgs.builder()
  *                 .confidences(InsightFiltersConfidenceArgs.builder()
  *                     .gte("80")
@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()        
+ *         var exampleInsight = new Insight("exampleInsight", InsightArgs.builder()
  *             .filters(InsightFiltersArgs.builder()
  *                 .resourceTags(InsightFiltersResourceTagArgs.builder()
  *                     .comparison("EQUALS")

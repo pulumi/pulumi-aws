@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new GangliaLayer("monitor", GangliaLayerArgs.builder()        
+ *         var monitor = new GangliaLayer("monitor", GangliaLayerArgs.builder()
  *             .stackId(main.id())
  *             .password("foobarbaz")
  *             .build());

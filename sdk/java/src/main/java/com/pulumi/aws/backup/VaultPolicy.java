@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()        
+ *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()
  *             .backupVaultName(exampleVault.name())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .name("example-connection")
  *             .providerType("GitHub")
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2("codepipelineBucket", BucketV2Args.builder()        
+ *         var codepipelineBucket = new BucketV2("codepipelineBucket", BucketV2Args.builder()
  *             .bucket("test-bucket")
  *             .build());
  * 
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var codepipelineRole = new Role("codepipelineRole", RoleArgs.builder()        
+ *         var codepipelineRole = new Role("codepipelineRole", RoleArgs.builder()
  *             .name("test-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .name("alias/myKmsKey")
  *             .build());
  * 
- *         var codepipeline = new Pipeline("codepipeline", PipelineArgs.builder()        
+ *         var codepipeline = new Pipeline("codepipeline", PipelineArgs.builder()
  *             .name("tf-test-pipeline")
  *             .roleArn(codepipelineRole.arn())
  *             .artifactStores(PipelineArtifactStoreArgs.builder()
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var codepipelineBucketPab = new BucketPublicAccessBlock("codepipelineBucketPab", BucketPublicAccessBlockArgs.builder()        
+ *         var codepipelineBucketPab = new BucketPublicAccessBlock("codepipelineBucketPab", BucketPublicAccessBlockArgs.builder()
  *             .bucket(codepipelineBucket.id())
  *             .blockPublicAcls(true)
  *             .blockPublicPolicy(true)
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var codepipelinePolicyRolePolicy = new RolePolicy("codepipelinePolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var codepipelinePolicyRolePolicy = new RolePolicy("codepipelinePolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("codepipeline_policy")
  *             .role(codepipelineRole.id())
  *             .policy(codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(codepipelinePolicy -> codepipelinePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

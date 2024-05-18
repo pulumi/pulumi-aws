@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var delegated = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new VpcIpamOrganizationAdminAccount("example", VpcIpamOrganizationAdminAccountArgs.builder()        
+ *         var example = new VpcIpamOrganizationAdminAccount("example", VpcIpamOrganizationAdminAccountArgs.builder()
  *             .delegatedAdminAccountId(delegated.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .build());
  * 

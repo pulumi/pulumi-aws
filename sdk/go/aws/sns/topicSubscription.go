@@ -240,7 +240,7 @@ import (
 // }
 // _, err = sns.NewTopic(ctx, "sns-topic", &sns.TopicArgs{
 // Name: pulumi.Any(sns.Name),
-// DisplayName: pulumi.Any(sns.Display_name),
+// DisplayName: pulumi.Any(sns.DisplayName),
 // Policy: pulumi.String(sns_topic_policy.Json),
 // })
 // if err != nil {

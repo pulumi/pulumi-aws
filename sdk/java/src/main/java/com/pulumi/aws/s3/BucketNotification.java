@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()        
+ *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()
  *             .name("s3-event-notification-topic")
  *             .policy(topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(topic -> topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .topics(BucketNotificationTopicArgs.builder()
  *                 .topicArn(topicTopic.arn())
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
@@ -154,12 +154,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()        
+ *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()
  *             .name("s3-event-notification-queue")
  *             .policy(queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(queue -> queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .queues(BucketNotificationQueueArgs.builder()
  *                 .queueArn(queueQueue.arn())
@@ -223,12 +223,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var func = new Function("func", FunctionArgs.builder()        
+ *         var func = new Function("func", FunctionArgs.builder()
  *             .code(new FileArchive("your-function.zip"))
  *             .name("example_lambda_name")
  *             .role(iamForLambda.arn())
@@ -236,11 +236,11 @@ import javax.annotation.Nullable;
  *             .runtime("go1.x")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
- *         var allowBucket = new Permission("allowBucket", PermissionArgs.builder()        
+ *         var allowBucket = new Permission("allowBucket", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromS3Bucket")
  *             .action("lambda:InvokeFunction")
  *             .function(func.arn())
@@ -248,7 +248,7 @@ import javax.annotation.Nullable;
  *             .sourceArn(bucket.arn())
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
  *                 .lambdaFunctionArn(func.arn())
@@ -315,12 +315,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var func1 = new Function("func1", FunctionArgs.builder()        
+ *         var func1 = new Function("func1", FunctionArgs.builder()
  *             .code(new FileArchive("your-function1.zip"))
  *             .name("example_lambda_name1")
  *             .role(iamForLambda.arn())
@@ -328,11 +328,11 @@ import javax.annotation.Nullable;
  *             .runtime("go1.x")
  *             .build());
  * 
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
- *         var allowBucket1 = new Permission("allowBucket1", PermissionArgs.builder()        
+ *         var allowBucket1 = new Permission("allowBucket1", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromS3Bucket1")
  *             .action("lambda:InvokeFunction")
  *             .function(func1.arn())
@@ -340,14 +340,14 @@ import javax.annotation.Nullable;
  *             .sourceArn(bucket.arn())
  *             .build());
  * 
- *         var func2 = new Function("func2", FunctionArgs.builder()        
+ *         var func2 = new Function("func2", FunctionArgs.builder()
  *             .code(new FileArchive("your-function2.zip"))
  *             .name("example_lambda_name2")
  *             .role(iamForLambda.arn())
  *             .handler("exports.example")
  *             .build());
  * 
- *         var allowBucket2 = new Permission("allowBucket2", PermissionArgs.builder()        
+ *         var allowBucket2 = new Permission("allowBucket2", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromS3Bucket2")
  *             .action("lambda:InvokeFunction")
  *             .function(func2.arn())
@@ -355,7 +355,7 @@ import javax.annotation.Nullable;
  *             .sourceArn(bucket.arn())
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .lambdaFunctions(            
  *                 BucketNotificationLambdaFunctionArgs.builder()
@@ -414,7 +414,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
@@ -435,12 +435,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()        
+ *         var queueQueue = new Queue("queueQueue", QueueArgs.builder()
  *             .name("s3-event-notification-queue")
  *             .policy(queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(queue -> queue.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .queues(            
  *                 BucketNotificationQueueArgs.builder()
@@ -492,11 +492,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("your-bucket-name")
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()        
+ *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
  *             .bucket(bucket.id())
  *             .eventbridge(true)
  *             .build());

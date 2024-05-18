@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Plan("example", PlanArgs.builder()        
+ *         var example = new Plan("example", PlanArgs.builder()
  *             .name("my_example_backup_plan")
  *             .rules(PlanRuleArgs.builder()
  *                 .ruleName("my_example_backup_rule")

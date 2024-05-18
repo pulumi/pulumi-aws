@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()        
+ *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
  *             .policy(glue_example_policy.json())
  *             .build());
  * 

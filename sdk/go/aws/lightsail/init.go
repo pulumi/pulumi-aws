@@ -38,7 +38,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "aws:lightsail/disk:Disk":
 		r = &Disk{}
 	case "aws:lightsail/disk_attachment:Disk_attachment":
-		r = &Disk_attachment{}
+		r = &DiskAttachment{}
 	case "aws:lightsail/distribution:Distribution":
 		r = &Distribution{}
 	case "aws:lightsail/domain:Domain":

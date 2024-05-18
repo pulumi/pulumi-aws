@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrafficSourceAttachment("example", TrafficSourceAttachmentArgs.builder()        
+ *         var example = new TrafficSourceAttachment("example", TrafficSourceAttachmentArgs.builder()
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .trafficSource(TrafficSourceAttachmentTrafficSourceArgs.builder()
  *                 .identifier(exampleAwsLbTargetGroup.arn())

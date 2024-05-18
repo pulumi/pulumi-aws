@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()        
+ *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
  *             .dataSetId("dataset-id")
  *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()        
+ *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
  *             .dataSetId("dataset-id")
  *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()        
+ *         var example = new RefreshSchedule("example", RefreshScheduleArgs.builder()
  *             .dataSetId("dataset-id")
  *             .scheduleId("schedule-id")
  *             .schedule(RefreshScheduleScheduleArgs.builder()

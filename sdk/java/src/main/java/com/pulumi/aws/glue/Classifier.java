@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *         var example = new Classifier("example", ClassifierArgs.builder()
  *             .name("example")
  *             .csvClassifier(ClassifierCsvClassifierArgs.builder()
  *                 .allowSingleColumn(false)
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *         var example = new Classifier("example", ClassifierArgs.builder()
  *             .name("example")
  *             .grokClassifier(ClassifierGrokClassifierArgs.builder()
  *                 .classification("example")
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *         var example = new Classifier("example", ClassifierArgs.builder()
  *             .name("example")
  *             .jsonClassifier(ClassifierJsonClassifierArgs.builder()
  *                 .jsonPath("example")
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Classifier("example", ClassifierArgs.builder()        
+ *         var example = new Classifier("example", ClassifierArgs.builder()
  *             .name("example")
  *             .xmlClassifier(ClassifierXmlClassifierArgs.builder()
  *                 .classification("example")

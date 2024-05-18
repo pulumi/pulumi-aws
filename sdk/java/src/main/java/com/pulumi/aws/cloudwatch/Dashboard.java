@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Dashboard("main", DashboardArgs.builder()        
+ *         var main = new Dashboard("main", DashboardArgs.builder()
  *             .dashboardName("my-dashboard")
  *             .dashboardBody(serializeJson(
  *                 jsonObject(

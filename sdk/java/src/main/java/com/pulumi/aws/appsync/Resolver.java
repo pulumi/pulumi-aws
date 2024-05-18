@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new GraphQLApi("test", GraphQLApiArgs.builder()        
+ *         var test = new GraphQLApi("test", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("tf-example")
  *             .schema("""
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var testDataSource = new DataSource("testDataSource", DataSourceArgs.builder()        
+ *         var testDataSource = new DataSource("testDataSource", DataSourceArgs.builder()
  *             .apiId(test.id())
  *             .name("my_example")
  *             .type("HTTP")
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // UNIT type resolver (default)
- *         var testResolver = new Resolver("testResolver", ResolverArgs.builder()        
+ *         var testResolver = new Resolver("testResolver", ResolverArgs.builder()
  *             .apiId(test.id())
  *             .field("singlePost")
  *             .type("Query")
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // PIPELINE type resolver
- *         var mutationPipelineTest = new Resolver("mutationPipelineTest", ResolverArgs.builder()        
+ *         var mutationPipelineTest = new Resolver("mutationPipelineTest", ResolverArgs.builder()
  *             .type("Mutation")
  *             .apiId(test.id())
  *             .field("pipelineTest")
@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Resolver("example", ResolverArgs.builder()        
+ *         var example = new Resolver("example", ResolverArgs.builder()
  *             .type("Query")
  *             .apiId(testAwsAppsyncGraphqlApi.id())
  *             .field("pipelineTest")

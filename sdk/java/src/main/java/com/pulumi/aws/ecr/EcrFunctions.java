@@ -500,7 +500,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
@@ -560,7 +560,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
@@ -620,7 +620,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
@@ -680,7 +680,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
@@ -740,7 +740,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());
@@ -800,7 +800,7 @@ public final class EcrFunctions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()        
+     *         var exampleLifecyclePolicy = new LifecyclePolicy("exampleLifecyclePolicy", LifecyclePolicyArgs.builder()
      *             .repository(exampleAwsEcrRepository.name())
      *             .policy(example.applyValue(getLifecyclePolicyDocumentResult -> getLifecyclePolicyDocumentResult.json()))
      *             .build());

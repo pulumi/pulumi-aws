@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataIntegration("example", DataIntegrationArgs.builder()        
+ *         var example = new DataIntegration("example", DataIntegrationArgs.builder()
  *             .name("example")
  *             .description("example")
  *             .kmsKey(test.arn())

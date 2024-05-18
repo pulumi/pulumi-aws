@@ -148,7 +148,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -205,7 +205,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -827,7 +827,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+         *         var cluster = new Cluster("cluster", ClusterArgs.builder()
          *             .configurationsJson("""
          * [
          * {
@@ -888,7 +888,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+         *         var cluster = new Cluster("cluster", ClusterArgs.builder()
          *             .configurationsJson("""
          * [
          * {

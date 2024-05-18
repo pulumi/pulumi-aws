@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .name("example")
  *             .resourceQuery(GroupResourceQueryArgs.builder()
  *                 .query(serializeJson(
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Application("example", ApplicationArgs.builder()        
+ *         var example = new Application("example", ApplicationArgs.builder()
  *             .resourceGroupName(exampleGroup.name())
  *             .build());
  * 

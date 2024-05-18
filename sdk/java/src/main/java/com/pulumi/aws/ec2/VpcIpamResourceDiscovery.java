@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var main = new VpcIpamResourceDiscovery("main", VpcIpamResourceDiscoveryArgs.builder()        
+ *         var main = new VpcIpamResourceDiscovery("main", VpcIpamResourceDiscoveryArgs.builder()
  *             .description("My IPAM Resource Discovery")
  *             .operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))

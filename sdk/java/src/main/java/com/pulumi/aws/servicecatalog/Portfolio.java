@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var portfolio = new Portfolio("portfolio", PortfolioArgs.builder()        
+ *         var portfolio = new Portfolio("portfolio", PortfolioArgs.builder()
  *             .name("My App Portfolio")
  *             .description("List of my organizations apps")
  *             .providerName("Brett")

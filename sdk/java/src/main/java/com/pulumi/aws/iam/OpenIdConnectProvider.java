@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new OpenIdConnectProvider("default", OpenIdConnectProviderArgs.builder()        
+ *         var default_ = new OpenIdConnectProvider("default", OpenIdConnectProviderArgs.builder()
  *             .url("https://accounts.google.com")
  *             .clientIdLists("266362248691-342342xasdasdasda-apps.googleusercontent.com")
  *             .thumbprintLists("cf23df2207d99a74fbe169e3eba035e633b65d94")
