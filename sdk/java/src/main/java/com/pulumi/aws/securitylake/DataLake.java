@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLake("example", DataLakeArgs.builder()        
+ *         var example = new DataLake("example", DataLakeArgs.builder()
  *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
  *                 .region("eu-west-1")
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLake("example", DataLakeArgs.builder()        
+ *         var example = new DataLake("example", DataLakeArgs.builder()
  *             .metaStoreManagerRoleArn(metaStoreManager.arn())
  *             .configuration(DataLakeConfigurationArgs.builder()
  *                 .region("eu-west-1")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PolicyTemplate("example", PolicyTemplateArgs.builder()        
+ *         var example = new PolicyTemplate("example", PolicyTemplateArgs.builder()
  *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.id())
  *             .statement("permit (principal in ?principal, action in PhotoFlash::Action::\"FullPhotoAccess\", resource == ?resource) unless { resource.IsPrivate };")
  *             .build());

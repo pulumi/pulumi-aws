@@ -49,16 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("default")
  *             .databaseName("default")
  *             .build());
  * 
- *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()
  *             .name("redshift-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()
  *             .name("redshift-event-sub")
  *             .snsTopicArn(defaultTopic.arn())
  *             .sourceType("cluster")

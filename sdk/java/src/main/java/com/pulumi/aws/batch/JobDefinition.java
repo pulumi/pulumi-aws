@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
  *             .name("my_test_batch_job_definition")
  *             .type("container")
  *             .containerProperties(serializeJson(
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
  *             .name("tf_test_batch_job_definition_multinode")
  *             .type("multinode")
  *             .nodeProperties(serializeJson(
@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
  *             .name(" tf_test_batch_job_definition_eks")
  *             .type("container")
  *             .eksProperties(JobDefinitionEksPropertiesArgs.builder()
@@ -272,17 +272,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var ecsTaskExecutionRole = new Role("ecsTaskExecutionRole", RoleArgs.builder()        
+ *         var ecsTaskExecutionRole = new Role("ecsTaskExecutionRole", RoleArgs.builder()
  *             .name("my_test_batch_exec_role")
  *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment("ecsTaskExecutionRolePolicy", RolePolicyAttachmentArgs.builder()        
+ *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment("ecsTaskExecutionRolePolicy", RolePolicyAttachmentArgs.builder()
  *             .role(ecsTaskExecutionRole.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
  *             .build());
  * 
- *         var test = new JobDefinition("test", JobDefinitionArgs.builder()        
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
  *             .name("my_test_batch_job_definition")
  *             .type("container")
  *             .platformCapabilities("FARGATE")

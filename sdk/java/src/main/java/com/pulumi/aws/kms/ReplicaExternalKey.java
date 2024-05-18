@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ExternalKey("primary", ExternalKeyArgs.builder()        
+ *         var primary = new ExternalKey("primary", ExternalKeyArgs.builder()
  *             .description("Multi-Region primary key")
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .keyMaterialBase64("...")
  *             .build());
  * 
- *         var replica = new ReplicaExternalKey("replica", ReplicaExternalKeyArgs.builder()        
+ *         var replica = new ReplicaExternalKey("replica", ReplicaExternalKeyArgs.builder()
  *             .description("Multi-Region replica key")
  *             .deletionWindowInDays(7)
  *             .primaryKeyArn(primaryAwsKmsExternal.arn())

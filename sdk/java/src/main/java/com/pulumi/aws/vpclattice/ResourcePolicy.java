@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()        
+ *         var example = new ServiceNetwork("example", ServiceNetworkArgs.builder()
  *             .name("example-vpclattice-service-network")
  *             .build());
  * 
- *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()        
+ *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
  *             .policy(example.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(

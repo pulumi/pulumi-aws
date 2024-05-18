@@ -47,17 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group("group", GroupArgs.builder()        
+ *         var group = new Group("group", GroupArgs.builder()
  *             .name("test-group")
  *             .build());
  * 
- *         var policy = new Policy("policy", PolicyArgs.builder()        
+ *         var policy = new Policy("policy", PolicyArgs.builder()
  *             .name("test-policy")
  *             .description("A test policy")
  *             .policy("{ ... policy JSON ... }")
  *             .build());
  * 
- *         var test_attach = new GroupPolicyAttachment("test-attach", GroupPolicyAttachmentArgs.builder()        
+ *         var test_attach = new GroupPolicyAttachment("test-attach", GroupPolicyAttachmentArgs.builder()
  *             .group(group.name())
  *             .policyArn(policy.arn())
  *             .build());

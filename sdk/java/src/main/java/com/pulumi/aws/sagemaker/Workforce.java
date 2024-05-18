@@ -55,22 +55,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()        
+ *         var exampleUserPool = new UserPool("exampleUserPool", UserPoolArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()        
+ *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
  *             .name("example")
  *             .generateSecret(true)
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()
  *             .domain("example")
  *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
- *         var example = new Workforce("example", WorkforceArgs.builder()        
+ *         var example = new Workforce("example", WorkforceArgs.builder()
  *             .workforceName("example")
  *             .cognitoConfig(WorkforceCognitoConfigArgs.builder()
  *                 .clientId(exampleUserPoolClient.id())
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workforce("example", WorkforceArgs.builder()        
+ *         var example = new Workforce("example", WorkforceArgs.builder()
  *             .workforceName("example")
  *             .oidcConfig(WorkforceOidcConfigArgs.builder()
  *                 .authorizationEndpoint("https://example.com")

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workteam("example", WorkteamArgs.builder()        
+ *         var example = new Workteam("example", WorkteamArgs.builder()
  *             .workteamName("example")
  *             .workforceName(exampleAwsSagemakerWorkforce.id())
  *             .description("example")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workteam("example", WorkteamArgs.builder()        
+ *         var example = new Workteam("example", WorkteamArgs.builder()
  *             .workteamName("example")
  *             .workforceName(exampleAwsSagemakerWorkforce.id())
  *             .description("example")

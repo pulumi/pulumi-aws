@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  *             .outpostArn("arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", LocalGatewayRouteTableVpcAssociationArgs.builder()        
+ *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", LocalGatewayRouteTableVpcAssociationArgs.builder()
  *             .localGatewayRouteTableId(example.applyValue(getLocalGatewayRouteTableResult -> getLocalGatewayRouteTableResult.id()))
  *             .vpcId(exampleVpc.id())
  *             .build());

@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
- *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()        
+ *         var exampleAmazonsesVerificationRecord = new Record("exampleAmazonsesVerificationRecord", RecordArgs.builder()
  *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .name(example.id().applyValue(id -> String.format("_amazonses.%s", id)))
  *             .type("TXT")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .records(example.verificationToken())
  *             .build());
  * 
- *         var exampleVerification = new DomainIdentityVerification("exampleVerification", DomainIdentityVerificationArgs.builder()        
+ *         var exampleVerification = new DomainIdentityVerification("exampleVerification", DomainIdentityVerificationArgs.builder()
  *             .domain(example.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAmazonsesVerificationRecord)

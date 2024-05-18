@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()        
+ *         var example = new ClusterPolicy("example", ClusterPolicyArgs.builder()
  *             .clusterArn(exampleAwsMskCluster.arn())
  *             .policy(serializeJson(
  *                 jsonObject(

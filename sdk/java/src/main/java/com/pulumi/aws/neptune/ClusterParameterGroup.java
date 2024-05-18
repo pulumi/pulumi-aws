@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()        
+ *         var example = new ClusterParameterGroup("example", ClusterParameterGroupArgs.builder()
  *             .family("neptune1")
  *             .name("example")
  *             .description("neptune cluster parameter group")

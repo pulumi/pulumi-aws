@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .name("TestTable")
  *             .hashKey("BrodoBaggins")
  *             .billingMode("PAY_PER_REQUEST")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleTableReplica = new TableReplica("exampleTableReplica", TableReplicaArgs.builder()        
+ *         var exampleTableReplica = new TableReplica("exampleTableReplica", TableReplicaArgs.builder()
  *             .globalTableArn(example.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "IZPAWS"),

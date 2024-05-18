@@ -321,7 +321,7 @@ public final class S3Functions {
      *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record("example", RecordArgs.builder()        
+     *         var example = new Record("example", RecordArgs.builder()
      *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
      *             .name("bucket")
      *             .type("A")
@@ -369,7 +369,7 @@ public final class S3Functions {
      *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution("test", DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
      *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
      *                 .originId("s3-selected-bucket")
@@ -432,7 +432,7 @@ public final class S3Functions {
      *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record("example", RecordArgs.builder()        
+     *         var example = new Record("example", RecordArgs.builder()
      *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
      *             .name("bucket")
      *             .type("A")
@@ -480,7 +480,7 @@ public final class S3Functions {
      *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution("test", DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
      *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
      *                 .originId("s3-selected-bucket")
@@ -543,7 +543,7 @@ public final class S3Functions {
      *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record("example", RecordArgs.builder()        
+     *         var example = new Record("example", RecordArgs.builder()
      *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
      *             .name("bucket")
      *             .type("A")
@@ -591,7 +591,7 @@ public final class S3Functions {
      *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution("test", DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
      *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
      *                 .originId("s3-selected-bucket")
@@ -654,7 +654,7 @@ public final class S3Functions {
      *             .name("test.com.")
      *             .build());
      * 
-     *         var example = new Record("example", RecordArgs.builder()        
+     *         var example = new Record("example", RecordArgs.builder()
      *             .zoneId(testZone.applyValue(getZoneResult -> getZoneResult.id()))
      *             .name("bucket")
      *             .type("A")
@@ -702,7 +702,7 @@ public final class S3Functions {
      *             .bucket("a-test-bucket")
      *             .build());
      * 
-     *         var test = new Distribution("test", DistributionArgs.builder()        
+     *         var test = new Distribution("test", DistributionArgs.builder()
      *             .origins(DistributionOriginArgs.builder()
      *                 .domainName(selected.applyValue(getBucketResult -> getBucketResult.bucketDomainName()))
      *                 .originId("s3-selected-bucket")
@@ -762,7 +762,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
@@ -810,7 +810,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
@@ -872,7 +872,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
@@ -920,7 +920,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
@@ -982,7 +982,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
@@ -1030,7 +1030,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
@@ -1092,7 +1092,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getBucketObjectResult -> getBucketObjectResult.body()))
@@ -1140,7 +1140,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.id()))
      *             .s3Key(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -> getBucketObjectResult.versionId()))
@@ -1916,7 +1916,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
@@ -1964,7 +1964,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
@@ -2024,7 +2024,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
@@ -2072,7 +2072,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
@@ -2132,7 +2132,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
@@ -2180,7 +2180,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))
@@ -2240,7 +2240,7 @@ public final class S3Functions {
      *             .key("ec2-bootstrap-script.sh")
      *             .build());
      * 
-     *         var example = new Instance("example", InstanceArgs.builder()        
+     *         var example = new Instance("example", InstanceArgs.builder()
      *             .instanceType("t2.micro")
      *             .ami("ami-2757f631")
      *             .userData(bootstrapScript.applyValue(getObjectResult -> getObjectResult.body()))
@@ -2288,7 +2288,7 @@ public final class S3Functions {
      *             .key("hello-world.zip")
      *             .build());
      * 
-     *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+     *         var testLambda = new Function("testLambda", FunctionArgs.builder()
      *             .s3Bucket(lambda.applyValue(getObjectResult -> getObjectResult.bucket()))
      *             .s3Key(lambda.applyValue(getObjectResult -> getObjectResult.key()))
      *             .s3ObjectVersion(lambda.applyValue(getObjectResult -> getObjectResult.versionId()))

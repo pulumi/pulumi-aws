@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TagOptionResourceAssociation("example", TagOptionResourceAssociationArgs.builder()        
+ *         var example = new TagOptionResourceAssociation("example", TagOptionResourceAssociationArgs.builder()
  *             .resourceId("prod-dnigbtea24ste")
  *             .tagOptionId("tag-pjtvyakdlyo3m")
  *             .build());

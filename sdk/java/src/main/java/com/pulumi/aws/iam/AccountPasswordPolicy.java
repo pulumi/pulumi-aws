@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var strict = new AccountPasswordPolicy("strict", AccountPasswordPolicyArgs.builder()        
+ *         var strict = new AccountPasswordPolicy("strict", AccountPasswordPolicyArgs.builder()
  *             .minimumPasswordLength(8)
  *             .requireLowercaseCharacters(true)
  *             .requireNumbers(true)

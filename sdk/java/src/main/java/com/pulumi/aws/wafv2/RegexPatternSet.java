@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()        
+ *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()
  *             .name("example")
  *             .description("Example regex pattern set")
  *             .scope("REGIONAL")

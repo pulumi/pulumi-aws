@@ -62,17 +62,17 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new Eip("example", EipArgs.builder()        
+ *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
- *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example-protection")
  *             .resourceArn(example.id().applyValue(id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
- *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()        
+ *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()
  *             .ipAddress(example.publicIp())
  *             .port(80)
  *             .type("HTTP")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "tf-example-health-check"))
  *             .build());
  * 
- *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", ProtectionHealthCheckAssociationArgs.builder()        
+ *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", ProtectionHealthCheckAssociationArgs.builder()
  *             .healthCheckArn(exampleHealthCheck.arn())
  *             .shieldProtectionId(exampleProtection.id())
  *             .build());

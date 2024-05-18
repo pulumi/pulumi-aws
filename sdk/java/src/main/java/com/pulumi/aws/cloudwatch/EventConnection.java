@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()
  *             .name("ngrok-connection")
  *             .description("A connection description")
  *             .authorizationType("API_KEY")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()
  *             .name("ngrok-connection")
  *             .description("A connection description")
  *             .authorizationType("BASIC")
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()
  *             .name("ngrok-connection")
  *             .description("A connection description")
  *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventConnection("test", EventConnectionArgs.builder()        
+ *         var test = new EventConnection("test", EventConnectionArgs.builder()
  *             .name("ngrok-connection")
  *             .description("A connection description")
  *             .authorizationType("BASIC")

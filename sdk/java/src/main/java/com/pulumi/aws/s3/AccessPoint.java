@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
  *             .bucket(example.id())
  *             .name("example")
  *             .build());
@@ -101,15 +101,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Bucket("example", BucketArgs.builder()        
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()        
+ *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
  *             .bucket(example.arn())
  *             .name("example")
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()

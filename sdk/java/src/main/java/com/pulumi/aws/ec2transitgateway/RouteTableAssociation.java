@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()        
+ *         var example = new RouteTableAssociation("example", RouteTableAssociationArgs.builder()
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
  *             .build());

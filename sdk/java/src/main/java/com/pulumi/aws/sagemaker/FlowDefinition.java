@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()        
+ *         var example = new FlowDefinition("example", FlowDefinitionArgs.builder()
  *             .flowDefinitionName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .humanLoopConfig(FlowDefinitionHumanLoopConfigArgs.builder()

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow("example", WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()
  *             .name("example")
  *             .version("1.0.0")
  *             .type("TEST")

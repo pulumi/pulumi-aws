@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+ *         var cluster = new Cluster("cluster", ClusterArgs.builder()
  *             .name("emr-test-arn")
  *             .releaseLabel("emr-4.6.0")
  *             .applications("Spark")
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .masterInstanceFleet(ClusterMasterInstanceFleetArgs.builder()
  *                 .instanceTypeConfigs(ClusterMasterInstanceFleetInstanceTypeConfigArgs.builder()
  *                     .instanceType("m4.xlarge")
@@ -266,7 +266,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()        
+ *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()
  *             .clusterId(example.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
@@ -337,7 +337,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .steps(ClusterStepArgs.builder()
  *                 .actionOnFailure("TERMINATE_CLUSTER")
  *                 .name("Setup Hadoop Debugging")
@@ -389,11 +389,11 @@ import javax.annotation.Nullable;
  *         // This configuration is for illustrative purposes and highlights
  *         // only relevant configurations for working with this functionality.
  *         // Map public IP on launch must be enabled for public (Internet accessible) subnets
- *         var example = new Subnet("example", SubnetArgs.builder()        
+ *         var example = new Subnet("example", SubnetArgs.builder()
  *             .mapPublicIpOnLaunch(true)
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .releaseLabel("emr-5.24.1")
  *             .terminationProtection(true)
  *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
@@ -555,7 +555,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -612,7 +612,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var cluster = new Cluster("cluster", ClusterArgs.builder()        
+     *         var cluster = new Cluster("cluster", ClusterArgs.builder()
      *             .configurationsJson("""
      * [
      * {

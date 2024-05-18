@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schedule("example", ScheduleArgs.builder()        
+ *         var example = new Schedule("example", ScheduleArgs.builder()
  *             .name("my-schedule")
  *             .groupName("default")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Queue("example");
  * 
- *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()        
+ *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()
  *             .name("my-schedule")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode("OFF")

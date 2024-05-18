@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
  *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination("defaultVoiceConnectorTermination", VoiceConnectorTerminationArgs.builder()        
+ *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination("defaultVoiceConnectorTermination", VoiceConnectorTerminationArgs.builder()
  *             .disabled(false)
  *             .cpsLimit(1)
  *             .cidrAllowLists("50.35.78.96/31")

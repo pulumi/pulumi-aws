@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
- *         var test = new ImageBlockPublicAccess("test", ImageBlockPublicAccessArgs.builder()        
+ *         var test = new ImageBlockPublicAccess("test", ImageBlockPublicAccessArgs.builder()
  *             .state("block-new-sharing")
  *             .build());
  * 

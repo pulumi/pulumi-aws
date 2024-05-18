@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()        
+ *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
  *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
  *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()        
+ *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
  *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
  *             .subnetIds(exampleAwsSubnet.id())

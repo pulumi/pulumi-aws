@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new Rule("this", RuleArgs.builder()        
+ *         var this_ = new Rule("this", RuleArgs.builder()
  *             .name("example")
  *             .source(RuleSourceArgs.builder()
  *                 .owner("AWS")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var thisRemediationConfiguration = new RemediationConfiguration("thisRemediationConfiguration", RemediationConfigurationArgs.builder()        
+ *         var thisRemediationConfiguration = new RemediationConfiguration("thisRemediationConfiguration", RemediationConfigurationArgs.builder()
  *             .configRuleName(this_.name())
  *             .resourceType("AWS::S3::Bucket")
  *             .targetType("SSM_DOCUMENT")

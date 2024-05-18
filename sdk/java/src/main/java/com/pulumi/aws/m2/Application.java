@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()        
+ *         var example = new Application("example", ApplicationArgs.builder()
  *             .name("Example")
  *             .engineType("bluage")
  *             .definition(ApplicationDefinitionArgs.builder()

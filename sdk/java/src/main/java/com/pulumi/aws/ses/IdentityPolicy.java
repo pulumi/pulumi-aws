@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()        
+ *         var exampleDomainIdentity = new DomainIdentity("exampleDomainIdentity", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleIdentityPolicy = new IdentityPolicy("exampleIdentityPolicy", IdentityPolicyArgs.builder()        
+ *         var exampleIdentityPolicy = new IdentityPolicy("exampleIdentityPolicy", IdentityPolicyArgs.builder()
  *             .identity(exampleDomainIdentity.arn())
  *             .name("example")
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

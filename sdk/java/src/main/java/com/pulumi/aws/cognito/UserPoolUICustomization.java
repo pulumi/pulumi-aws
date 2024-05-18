@@ -52,21 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()
  *             .domain("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()        
+ *         var exampleUserPoolClient = new UserPoolClient("exampleUserPoolClient", UserPoolClientArgs.builder()
  *             .name("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()        
+ *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()
  *             .clientId(exampleUserPoolClient.id())
  *             .css(".label-customizable {font-weight: 400;}")
  *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
@@ -110,16 +110,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()        
+ *         var exampleUserPoolDomain = new UserPoolDomain("exampleUserPoolDomain", UserPoolDomainArgs.builder()
  *             .domain("example")
  *             .userPoolId(example.id())
  *             .build());
  * 
- *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()        
+ *         var exampleUserPoolUICustomization = new UserPoolUICustomization("exampleUserPoolUICustomization", UserPoolUICustomizationArgs.builder()
  *             .css(".label-customizable {font-weight: 400;}")
  *             .imageFile(StdFunctions.filebase64(Filebase64Args.builder()
  *                 .input("logo.png")

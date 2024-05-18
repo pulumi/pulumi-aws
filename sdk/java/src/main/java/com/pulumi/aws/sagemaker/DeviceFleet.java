@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeviceFleet("example", DeviceFleetArgs.builder()        
+ *         var example = new DeviceFleet("example", DeviceFleetArgs.builder()
  *             .deviceFleetName("example")
  *             .roleArn(test.arn())
  *             .outputConfig(DeviceFleetOutputConfigArgs.builder()

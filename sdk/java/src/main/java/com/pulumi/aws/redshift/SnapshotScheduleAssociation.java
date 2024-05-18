@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("tf-redshift-cluster")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *             .clusterType("single-node")
  *             .build());
  * 
- *         var defaultSnapshotSchedule = new SnapshotSchedule("defaultSnapshotSchedule", SnapshotScheduleArgs.builder()        
+ *         var defaultSnapshotSchedule = new SnapshotSchedule("defaultSnapshotSchedule", SnapshotScheduleArgs.builder()
  *             .identifier("tf-redshift-snapshot-schedule")
  *             .definitions("rate(12 hours)")
  *             .build());
  * 
- *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", SnapshotScheduleAssociationArgs.builder()        
+ *         var defaultSnapshotScheduleAssociation = new SnapshotScheduleAssociation("defaultSnapshotScheduleAssociation", SnapshotScheduleAssociationArgs.builder()
  *             .clusterIdentifier(default_.id())
  *             .scheduleIdentifier(defaultSnapshotSchedule.id())
  *             .build());

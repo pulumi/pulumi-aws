@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connector("example", ConnectorArgs.builder()        
+ *         var example = new Connector("example", ConnectorArgs.builder()
  *             .name("example")
  *             .kafkaconnectVersion("2.7.1")
  *             .capacity(ConnectorCapacityArgs.builder()

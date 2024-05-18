@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+ *         var testLambda = new Function("testLambda", FunctionArgs.builder()
  *             .code(new FileArchive("lambdatest.zip"))
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
  *             .runtime("nodejs16.x")
  *             .build());
  * 
- *         var testAlias = new Alias("testAlias", AliasArgs.builder()        
+ *         var testAlias = new Alias("testAlias", AliasArgs.builder()
  *             .name("testalias")
  *             .description("a sample description")
  *             .functionName(testLambda.name())
  *             .functionVersion("$LATEST")
  *             .build());
  * 
- *         var allowCloudwatch = new Permission("allowCloudwatch", PermissionArgs.builder()        
+ *         var allowCloudwatch = new Permission("allowCloudwatch", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromCloudWatch")
  *             .action("lambda:InvokeFunction")
  *             .function(testLambda.name())
@@ -133,11 +133,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Topic("default", TopicArgs.builder()        
+ *         var default_ = new Topic("default", TopicArgs.builder()
  *             .name("call-lambda-maybe")
  *             .build());
  * 
- *         var defaultRole = new Role("defaultRole", RoleArgs.builder()        
+ *         var defaultRole = new Role("defaultRole", RoleArgs.builder()
  *             .name("iam_for_lambda_with_sns")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -153,7 +153,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var func = new Function("func", FunctionArgs.builder()        
+ *         var func = new Function("func", FunctionArgs.builder()
  *             .code(new FileArchive("lambdatest.zip"))
  *             .name("lambda_called_from_sns")
  *             .role(defaultRole.arn())
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *             .runtime("python3.7")
  *             .build());
  * 
- *         var withSns = new Permission("withSns", PermissionArgs.builder()        
+ *         var withSns = new Permission("withSns", PermissionArgs.builder()
  *             .statementId("AllowExecutionFromSNS")
  *             .action("lambda:InvokeFunction")
  *             .function(func.name())
@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  *             .sourceArn(default_.arn())
  *             .build());
  * 
- *         var lambda = new TopicSubscription("lambda", TopicSubscriptionArgs.builder()        
+ *         var lambda = new TopicSubscription("lambda", TopicSubscriptionArgs.builder()
  *             .topic(default_.arn())
  *             .protocol("lambda")
  *             .endpoint(func.arn())
@@ -208,12 +208,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var lambdaPermission = new Permission("lambdaPermission", PermissionArgs.builder()        
+ *         var lambdaPermission = new Permission("lambdaPermission", PermissionArgs.builder()
  *             .statementId("AllowMyDemoAPIInvoke")
  *             .action("lambda:InvokeFunction")
  *             .function("MyDemoFunction")
@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new LogGroup("default", LogGroupArgs.builder()        
+ *         var default_ = new LogGroup("default", LogGroupArgs.builder()
  *             .name("/default")
  *             .build());
  * 
@@ -279,12 +279,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var defaultRole = new Role("defaultRole", RoleArgs.builder()        
+ *         var defaultRole = new Role("defaultRole", RoleArgs.builder()
  *             .name("iam_for_lambda_called_from_cloudwatch_logs")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var loggingFunction = new Function("loggingFunction", FunctionArgs.builder()        
+ *         var loggingFunction = new Function("loggingFunction", FunctionArgs.builder()
  *             .code(new FileArchive("lamba_logging.zip"))
  *             .name("lambda_called_from_cloudwatch_logs")
  *             .handler("exports.handler")
@@ -292,14 +292,14 @@ import javax.annotation.Nullable;
  *             .runtime("python3.7")
  *             .build());
  * 
- *         var logging = new Permission("logging", PermissionArgs.builder()        
+ *         var logging = new Permission("logging", PermissionArgs.builder()
  *             .action("lambda:InvokeFunction")
  *             .function(loggingFunction.name())
  *             .principal("logs.eu-west-1.amazonaws.com")
  *             .sourceArn(default_.arn().applyValue(arn -> String.format("%s:*", arn)))
  *             .build());
  * 
- *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter("loggingLogSubscriptionFilter", LogSubscriptionFilterArgs.builder()        
+ *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter("loggingLogSubscriptionFilter", LogSubscriptionFilterArgs.builder()
  *             .destinationArn(loggingFunction.arn())
  *             .filterPattern("")
  *             .logGroup(default_.name())
@@ -341,12 +341,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var url = new FunctionUrl("url", FunctionUrlArgs.builder()        
+ *         var url = new FunctionUrl("url", FunctionUrlArgs.builder()
  *             .functionName(example.functionName())
  *             .authorizationType("AWS_IAM")
  *             .build());
  * 
- *         var urlPermission = new Permission("urlPermission", PermissionArgs.builder()        
+ *         var urlPermission = new Permission("urlPermission", PermissionArgs.builder()
  *             .action("lambda:InvokeFunctionUrl")
  *             .function(example.functionName())
  *             .principal("arn:aws:iam::444455556666:role/example")

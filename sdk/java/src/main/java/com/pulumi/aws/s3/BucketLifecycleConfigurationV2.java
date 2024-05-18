@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -304,7 +304,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -356,7 +356,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -408,7 +408,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -455,7 +455,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()        
+ *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("rule-1")
@@ -514,16 +514,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
  *             .bucket("my-bucket")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var bucket_config = new BucketLifecycleConfigurationV2("bucket-config", BucketLifecycleConfigurationV2Args.builder()        
+ *         var bucket_config = new BucketLifecycleConfigurationV2("bucket-config", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(            
  *                 BucketLifecycleConfigurationV2RuleArgs.builder()
@@ -563,23 +563,23 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var versioningBucket = new BucketV2("versioningBucket", BucketV2Args.builder()        
+ *         var versioningBucket = new BucketV2("versioningBucket", BucketV2Args.builder()
  *             .bucket("my-versioning-bucket")
  *             .build());
  * 
- *         var versioningBucketAcl = new BucketAclV2("versioningBucketAcl", BucketAclV2Args.builder()        
+ *         var versioningBucketAcl = new BucketAclV2("versioningBucketAcl", BucketAclV2Args.builder()
  *             .bucket(versioningBucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var versioning = new BucketVersioningV2("versioning", BucketVersioningV2Args.builder()        
+ *         var versioning = new BucketVersioningV2("versioning", BucketVersioningV2Args.builder()
  *             .bucket(versioningBucket.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var versioning_bucket_config = new BucketLifecycleConfigurationV2("versioning-bucket-config", BucketLifecycleConfigurationV2Args.builder()        
+ *         var versioning_bucket_config = new BucketLifecycleConfigurationV2("versioning-bucket-config", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(versioningBucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
  *                 .id("config")

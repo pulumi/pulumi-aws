@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .name("tf-dx-connection")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()        
+ *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
  *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
  *             .ckn("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .cak("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .name("directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
  *             .build());
  * 
- *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()        
+ *         var test = new MacsecKeyAssociation("test", MacsecKeyAssociationArgs.builder()
  *             .connectionId(example.applyValue(getConnectionResult -> getConnectionResult.id()))
  *             .secretArn(exampleGetSecret.applyValue(getSecretResult -> getSecretResult.arn()))
  *             .build());

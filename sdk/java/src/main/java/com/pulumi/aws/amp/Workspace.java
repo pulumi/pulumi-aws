@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
  *             .alias("example")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .loggingConfiguration(WorkspaceLoggingConfigurationArgs.builder()
  *                 .logGroupArn(example.arn().applyValue(arn -> String.format("%s:*", arn)))
  *                 .build())
@@ -126,12 +126,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("example")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var example = new Workspace("example", WorkspaceArgs.builder()        
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
  *             .alias("example")
  *             .kmsKeyArn(exampleKey.arn())
  *             .build());

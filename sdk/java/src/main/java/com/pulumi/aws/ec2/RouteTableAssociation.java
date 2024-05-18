@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new RouteTableAssociation("a", RouteTableAssociationArgs.builder()        
+ *         var a = new RouteTableAssociation("a", RouteTableAssociationArgs.builder()
  *             .subnetId(foo.id())
  *             .routeTableId(bar.id())
  *             .build());
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new RouteTableAssociation("b", RouteTableAssociationArgs.builder()        
+ *         var b = new RouteTableAssociation("b", RouteTableAssociationArgs.builder()
  *             .gatewayId(foo.id())
  *             .routeTableId(bar.id())
  *             .build());

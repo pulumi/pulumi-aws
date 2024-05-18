@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var connector = new VpcConnector("connector", VpcConnectorArgs.builder()        
+ *         var connector = new VpcConnector("connector", VpcConnectorArgs.builder()
  *             .vpcConnectorName("name")
  *             .subnets(            
  *                 "subnet1",

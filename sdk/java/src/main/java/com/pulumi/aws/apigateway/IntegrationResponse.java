@@ -56,39 +56,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
  *             .pathPart("mydemoresource")
  *             .build());
  * 
- *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()        
+ *         var myDemoMethod = new Method("myDemoMethod", MethodArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod("GET")
  *             .authorization("NONE")
  *             .build());
  * 
- *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()        
+ *         var myDemoIntegration = new Integration("myDemoIntegration", IntegrationArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
  *             .type("MOCK")
  *             .build());
  * 
- *         var response200 = new MethodResponse("response200", MethodResponseArgs.builder()        
+ *         var response200 = new MethodResponse("response200", MethodResponseArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
  *             .statusCode("200")
  *             .build());
  * 
- *         var myDemoIntegrationResponse = new IntegrationResponse("myDemoIntegrationResponse", IntegrationResponseArgs.builder()        
+ *         var myDemoIntegrationResponse = new IntegrationResponse("myDemoIntegrationResponse", IntegrationResponseArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())

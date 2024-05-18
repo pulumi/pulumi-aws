@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Project("example", ProjectArgs.builder()        
+ *         var example = new Project("example", ProjectArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleUpload = new Upload("exampleUpload", UploadArgs.builder()        
+ *         var exampleUpload = new Upload("exampleUpload", UploadArgs.builder()
  *             .name("example")
  *             .projectArn(example.arn())
  *             .type("APPIUM_JAVA_TESTNG_TEST_SPEC")

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationConfiguration("example", OrganizationConfigurationArgs.builder()        
+ *         var example = new OrganizationConfiguration("example", OrganizationConfigurationArgs.builder()
  *             .autoEnable(OrganizationConfigurationAutoEnableArgs.builder()
  *                 .ec2(true)
  *                 .ecr(false)

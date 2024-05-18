@@ -61,22 +61,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new BucketV2("default", BucketV2Args.builder()        
+ *         var default_ = new BucketV2("default", BucketV2Args.builder()
  *             .bucket("tftest.applicationversion.bucket")
  *             .build());
  * 
- *         var defaultBucketObjectv2 = new BucketObjectv2("defaultBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var defaultBucketObjectv2 = new BucketObjectv2("defaultBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(default_.id())
  *             .key("beanstalk/go-v1.zip")
  *             .source(new FileAsset("go-v1.zip"))
  *             .build());
  * 
- *         var defaultApplication = new Application("defaultApplication", ApplicationArgs.builder()        
+ *         var defaultApplication = new Application("defaultApplication", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .build());
  * 
- *         var defaultApplicationVersion = new ApplicationVersion("defaultApplicationVersion", ApplicationVersionArgs.builder()        
+ *         var defaultApplicationVersion = new ApplicationVersion("defaultApplicationVersion", ApplicationVersionArgs.builder()
  *             .name("tf-test-version-label")
  *             .application("tf-test-name")
  *             .description("application version")

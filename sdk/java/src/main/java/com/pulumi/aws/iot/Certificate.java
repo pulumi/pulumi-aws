@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .csr(StdFunctions.file(FileArgs.builder()
  *                 .input("/my/csr.pem")
  *                 .build()).result())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .active(true)
  *             .build());
  * 
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()        
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .certificatePem(StdFunctions.file(FileArgs.builder()
  *                 .input("/my/cert.pem")
  *                 .build()).result())

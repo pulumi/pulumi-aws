@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileCache("example", FileCacheArgs.builder()        
+ *         var example = new FileCache("example", FileCacheArgs.builder()
  *             .dataRepositoryAssociations(FileCacheDataRepositoryAssociationArgs.builder()
  *                 .dataRepositoryPath("nfs://filer.domain.com")
  *                 .dataRepositorySubdirectories(                
