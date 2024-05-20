@@ -7,7 +7,7 @@ Subject: [PATCH] Workaround SSM Parameter tier bug
 - Disable diff suppression & counteractions
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index 7fd23f6b57..ffa7fb4254 100644
+index 7fd23f6b57..5a24c9641a 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
 @@ -92,15 +92,17 @@ func resourceParameter() *schema.Resource {
@@ -27,7 +27,7 @@ index 7fd23f6b57..ffa7fb4254 100644
 -						return awstypes.ParameterTier(new) == awstypes.ParameterTierIntelligentTiering
 -					}
 -					return false
-+					return d.Get("tier").(awstypes.ParameterTier) == awstypes.ParameterTierIntelligentTiering
++					return awstypes.ParameterTier(d.Get("tier").(string)) == awstypes.ParameterTierIntelligentTiering
 +					//if old != "" {
 +					//	return new == ssm.ParameterTierIntelligentTiering
 +					//}
