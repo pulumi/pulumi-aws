@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodb = new Target("dynamodb", TargetArgs.builder()        
+ *         var dynamodb = new Target("dynamodb", TargetArgs.builder()
  *             .maxCapacity(100)
  *             .minCapacity(5)
  *             .resourceId("table/tableName")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .serviceNamespace("dynamodb")
  *             .build());
  * 
- *         var dynamodbScheduledAction = new ScheduledAction("dynamodbScheduledAction", ScheduledActionArgs.builder()        
+ *         var dynamodbScheduledAction = new ScheduledAction("dynamodbScheduledAction", ScheduledActionArgs.builder()
  *             .name("dynamodb")
  *             .serviceNamespace(dynamodb.serviceNamespace())
  *             .resourceId(dynamodb.resourceId())
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecs = new Target("ecs", TargetArgs.builder()        
+ *         var ecs = new Target("ecs", TargetArgs.builder()
  *             .maxCapacity(4)
  *             .minCapacity(1)
  *             .resourceId("service/clusterName/serviceName")
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .serviceNamespace("ecs")
  *             .build());
  * 
- *         var ecsScheduledAction = new ScheduledAction("ecsScheduledAction", ScheduledActionArgs.builder()        
+ *         var ecsScheduledAction = new ScheduledAction("ecsScheduledAction", ScheduledActionArgs.builder()
  *             .name("ecs")
  *             .serviceNamespace(ecs.serviceNamespace())
  *             .resourceId(ecs.resourceId())

@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .path("/")
  *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domainName("example")
  *             .authMode("IAM")
  *             .vpcId(exampleAwsVpc.id())
@@ -121,24 +121,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Image("example", ImageArgs.builder()        
+ *         var example = new Image("example", ImageArgs.builder()
  *             .imageName("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
- *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()        
+ *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()
  *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .build());
  * 
- *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()        
+ *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()
  *             .imageName(example.id())
  *             .baseImage("base-image")
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domainName("example")
  *             .authMode("IAM")
  *             .vpcId(exampleAwsVpc.id())

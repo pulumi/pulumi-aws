@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("ActiveDirectory")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("GuestAccess")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())

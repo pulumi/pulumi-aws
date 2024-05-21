@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Password("example", PasswordArgs.builder()        
+ *         var example = new Password("example", PasswordArgs.builder()
  *             .length(16)
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userName("my-user")
  *             .accessString("on ~* &* +{@literal @}all")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()

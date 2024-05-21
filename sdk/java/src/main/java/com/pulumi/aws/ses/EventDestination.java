@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cloudwatch = new EventDestination("cloudwatch", EventDestinationArgs.builder()        
+ *         var cloudwatch = new EventDestination("cloudwatch", EventDestinationArgs.builder()
  *             .name("event-destination-cloudwatch")
  *             .configurationSetName(example.name())
  *             .enabled(true)
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()        
+ *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()
  *             .name("event-destination-kinesis")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sns = new EventDestination("sns", EventDestinationArgs.builder()        
+ *         var sns = new EventDestination("sns", EventDestinationArgs.builder()
  *             .name("event-destination-sns")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)

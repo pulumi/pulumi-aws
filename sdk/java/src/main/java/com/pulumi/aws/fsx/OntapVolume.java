@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapVolume("test", OntapVolumeArgs.builder()        
+ *         var test = new OntapVolume("test", OntapVolumeArgs.builder()
  *             .name("test")
  *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapVolume("test", OntapVolumeArgs.builder()        
+ *         var test = new OntapVolume("test", OntapVolumeArgs.builder()
  *             .name("test")
  *             .junctionPath("/test")
  *             .sizeInMegabytes(1024)

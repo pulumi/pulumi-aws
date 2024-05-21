@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new V2modelsBotVersion("test", V2modelsBotVersionArgs.builder()        
+ *         var test = new V2modelsBotVersion("test", V2modelsBotVersionArgs.builder()
  *             .botId(testAwsLexv2models.id())
  *             .localeSpecification(Map.of("en_US", Map.of("sourceBotVersion", "DRAFT")))
  *             .build());

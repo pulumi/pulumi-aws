@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var exampleActionTarget = new ActionTarget("exampleActionTarget", ActionTargetArgs.builder()        
+ *         var exampleActionTarget = new ActionTarget("exampleActionTarget", ActionTargetArgs.builder()
  *             .name("Send notification to chat")
  *             .identifier("SendToChat")
  *             .description("This is custom action sends selected findings to chat")

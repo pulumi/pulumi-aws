@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()        
+ *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()
  *             .name("parameter-group-test")
  *             .family("redshift-1.0")
  *             .parameters(            

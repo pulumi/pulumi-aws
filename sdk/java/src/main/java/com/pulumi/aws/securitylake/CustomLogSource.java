@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()        
+ *         var example = new CustomLogSource("example", CustomLogSourceArgs.builder()
  *             .sourceName("example-name")
  *             .sourceVersion("1.0")
  *             .eventClasses("FILE_ACTIVITY")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var iot = new DomainConfiguration("iot", DomainConfigurationArgs.builder()        
+ *         var iot = new DomainConfiguration("iot", DomainConfigurationArgs.builder()
  *             .name("iot-")
  *             .domainName("iot.example.com")
  *             .serviceType("DATA")

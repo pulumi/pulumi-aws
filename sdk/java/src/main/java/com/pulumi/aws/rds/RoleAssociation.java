@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RoleAssociation("example", RoleAssociationArgs.builder()        
+ *         var example = new RoleAssociation("example", RoleAssociationArgs.builder()
  *             .dbInstanceIdentifier(exampleAwsDbInstance.identifier())
  *             .featureName("S3_INTEGRATION")
  *             .roleArn(exampleAwsIamRole.arn())

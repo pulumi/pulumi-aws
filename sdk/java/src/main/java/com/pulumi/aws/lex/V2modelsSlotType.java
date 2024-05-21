@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RolePolicyAttachment("test", RolePolicyAttachmentArgs.builder()        
+ *         var test = new RolePolicyAttachment("test", RolePolicyAttachmentArgs.builder()
  *             .role(testAwsIamRole.name())
  *             .policyArn(String.format("arn:%s:iam::aws:policy/AmazonLexFullAccess", current.partition()))
  *             .build());
  * 
- *         var testV2modelsBot = new V2modelsBot("testV2modelsBot", V2modelsBotArgs.builder()        
+ *         var testV2modelsBot = new V2modelsBot("testV2modelsBot", V2modelsBotArgs.builder()
  *             .name("testbot")
  *             .idleSessionTtlInSeconds(60)
  *             .roleArn(testAwsIamRole.arn())
@@ -72,19 +72,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testV2modelsBotLocale = new V2modelsBotLocale("testV2modelsBotLocale", V2modelsBotLocaleArgs.builder()        
+ *         var testV2modelsBotLocale = new V2modelsBotLocale("testV2modelsBotLocale", V2modelsBotLocaleArgs.builder()
  *             .localeId("en_US")
  *             .botId(testV2modelsBot.id())
  *             .botVersion("DRAFT")
  *             .nLuIntentConfidenceThreshold(0.7)
  *             .build());
  * 
- *         var testV2modelsBotVersion = new V2modelsBotVersion("testV2modelsBotVersion", V2modelsBotVersionArgs.builder()        
+ *         var testV2modelsBotVersion = new V2modelsBotVersion("testV2modelsBotVersion", V2modelsBotVersionArgs.builder()
  *             .botId(testV2modelsBot.id())
  *             .localeSpecification(testV2modelsBotLocale.localeId().applyValue(localeId -> Map.of(localeId, Map.of("sourceBotVersion", "DRAFT"))))
  *             .build());
  * 
- *         var testV2modelsSlotType = new V2modelsSlotType("testV2modelsSlotType", V2modelsSlotTypeArgs.builder()        
+ *         var testV2modelsSlotType = new V2modelsSlotType("testV2modelsSlotType", V2modelsSlotTypeArgs.builder()
  *             .botId(testV2modelsBot.id())
  *             .botVersion(testV2modelsBotLocale.botVersion())
  *             .name("test")

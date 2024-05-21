@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", BucketPolicyArgs.builder()        
+ *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.id())
  *             .policy(allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccount -> allowAccessFromAnotherAccount.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

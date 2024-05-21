@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new ResourceGroup("bar", ResourceGroupArgs.builder()        
+ *         var bar = new ResourceGroup("bar", ResourceGroupArgs.builder()
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "foo"),
  *                 Map.entry("Env", "bar")
  *             ))
  *             .build());
  * 
- *         var foo = new AssessmentTarget("foo", AssessmentTargetArgs.builder()        
+ *         var foo = new AssessmentTarget("foo", AssessmentTargetArgs.builder()
  *             .name("assessment target")
  *             .resourceGroupArn(bar.arn())
  *             .build());

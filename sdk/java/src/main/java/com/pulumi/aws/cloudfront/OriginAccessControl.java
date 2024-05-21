@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginAccessControl("example", OriginAccessControlArgs.builder()        
+ *         var example = new OriginAccessControl("example", OriginAccessControlArgs.builder()
  *             .name("example")
  *             .description("Example Policy")
  *             .originAccessControlOriginType("s3")

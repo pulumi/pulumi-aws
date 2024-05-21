@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Topic("example", TopicArgs.builder()        
+ *         var example = new Topic("example", TopicArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleDataProtectionPolicy = new DataProtectionPolicy("exampleDataProtectionPolicy", DataProtectionPolicyArgs.builder()        
+ *         var exampleDataProtectionPolicy = new DataProtectionPolicy("exampleDataProtectionPolicy", DataProtectionPolicyArgs.builder()
  *             .arn(example.arn())
  *             .policy(serializeJson(
  *                 jsonObject(

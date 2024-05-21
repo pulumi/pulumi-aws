@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ScheduleGroup("example", ScheduleGroupArgs.builder()        
+ *         var example = new ScheduleGroup("example", ScheduleGroupArgs.builder()
  *             .name("my-schedule-group")
  *             .build());
  * 

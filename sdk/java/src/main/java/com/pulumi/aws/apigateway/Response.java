@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new RestApi("main", RestApiArgs.builder()        
+ *         var main = new RestApi("main", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .build());
  * 
- *         var test = new Response("test", ResponseArgs.builder()        
+ *         var test = new Response("test", ResponseArgs.builder()
  *             .restApiId(main.id())
  *             .statusCode("401")
  *             .responseType("UNAUTHORIZED")

@@ -66,17 +66,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example-flink-application")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.id())
  *             .key("example-flink-application")
  *             .source(new FileAsset("flink-app.jar"))
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-flink-application")
  *             .runtimeEnvironment("FLINK-1_8")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())
@@ -177,16 +177,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("example-sql-application")
  *             .build());
  * 
- *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()        
+ *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()
  *             .name("example-sql-application")
  *             .logGroupName(example.name())
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-sql-application")
  *             .runtimeEnvironment("SQL-1_0")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())
@@ -321,17 +321,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example-flink-application")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.id())
  *             .key("example-flink-application")
  *             .source(new FileAsset("flink-app.jar"))
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-flink-application")
  *             .runtimeEnvironment("FLINK-1_8")
  *             .serviceExecutionRole(exampleAwsIamRole.arn())

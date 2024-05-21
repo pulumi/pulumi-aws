@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var orderFlowersProd = new BotAlias("orderFlowersProd", BotAliasArgs.builder()        
+ *         var orderFlowersProd = new BotAlias("orderFlowersProd", BotAliasArgs.builder()
  *             .botName("OrderFlowers")
  *             .botVersion("1")
  *             .description("Production Version of the OrderFlowers Bot.")

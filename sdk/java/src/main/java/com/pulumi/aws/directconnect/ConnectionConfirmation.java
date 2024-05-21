@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var confirmation = new ConnectionConfirmation("confirmation", ConnectionConfirmationArgs.builder()        
+ *         var confirmation = new ConnectionConfirmation("confirmation", ConnectionConfirmationArgs.builder()
  *             .connectionId("dxcon-ffabc123")
  *             .build());
  * 

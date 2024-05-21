@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()        
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("global-test")
  *             .engine("neptune")
  *             .engineVersion("1.2.0.0")
  *             .build());
  * 
- *         var primary = new Cluster("primary", ClusterArgs.builder()        
+ *         var primary = new Cluster("primary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-primary-cluster")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-primary-cluster-instance")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var secondary = new Cluster("secondary", ClusterArgs.builder()        
+ *         var secondary = new Cluster("secondary", ClusterArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .clusterIdentifier("test-secondary-cluster")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .neptuneSubnetGroupName("default")
  *             .build());
  * 
- *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()        
+ *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
  *             .engine(example.engine())
  *             .engineVersion(example.engineVersion())
  *             .identifier("test-secondary-cluster-instance")
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Cluster("example");
  * 
- *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()        
+ *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("example")
  *             .sourceDbClusterIdentifier(example.arn())
  *             .build());

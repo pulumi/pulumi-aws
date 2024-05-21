@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePatchBaseline = new PatchBaseline("examplePatchBaseline", PatchBaselineArgs.builder()        
+ *         var examplePatchBaseline = new PatchBaseline("examplePatchBaseline", PatchBaselineArgs.builder()
  *             .name("example")
  *             .approvedPatches("KB123456")
  *             .build());
  * 
- *         var example = new DefaultPatchBaseline("example", DefaultPatchBaselineArgs.builder()        
+ *         var example = new DefaultPatchBaseline("example", DefaultPatchBaselineArgs.builder()
  *             .baselineId(examplePatchBaseline.id())
  *             .operatingSystem(examplePatchBaseline.operatingSystem())
  *             .build());

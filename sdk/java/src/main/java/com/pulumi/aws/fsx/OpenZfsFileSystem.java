@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OpenZfsFileSystem("test", OpenZfsFileSystemArgs.builder()        
+ *         var test = new OpenZfsFileSystem("test", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
  *             .subnetIds(test1.id())
  *             .deploymentType("SINGLE_AZ_1")

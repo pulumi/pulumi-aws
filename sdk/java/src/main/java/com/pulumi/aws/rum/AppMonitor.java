@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AppMonitor("example", AppMonitorArgs.builder()        
+ *         var example = new AppMonitor("example", AppMonitorArgs.builder()
  *             .name("example")
  *             .domain("localhost")
  *             .build());

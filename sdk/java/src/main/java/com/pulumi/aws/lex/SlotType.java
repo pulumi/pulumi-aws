@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var flowerTypes = new SlotType("flowerTypes", SlotTypeArgs.builder()        
+ *         var flowerTypes = new SlotType("flowerTypes", SlotTypeArgs.builder()
  *             .createVersion(true)
  *             .description("Types of flowers to order")
  *             .enumerationValues(            

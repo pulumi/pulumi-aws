@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .capacity(100)
  *             .name("example")
  *             .type("STATEFUL")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .capacity(100)
  *             .name("example")
  *             .type("STATEFUL")
@@ -168,7 +168,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .capacity(100)
  *             .name("example")
  *             .type("STATEFUL")
@@ -215,7 +215,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .capacity(100)
  *             .name("example")
  *             .type("STATEFUL")
@@ -292,7 +292,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .description("Stateless Rate Limiting Rule")
  *             .capacity(100)
  *             .name("example")
@@ -385,7 +385,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RuleGroup("example", RuleGroupArgs.builder()        
+ *         var example = new RuleGroup("example", RuleGroupArgs.builder()
  *             .capacity(100)
  *             .name("example")
  *             .type("STATEFUL")

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new NetworkAcl("main", NetworkAclArgs.builder()        
+ *         var main = new NetworkAcl("main", NetworkAclArgs.builder()
  *             .vpcId(mainAwsVpc.id())
  *             .egress(NetworkAclEgressArgs.builder()
  *                 .protocol("tcp")

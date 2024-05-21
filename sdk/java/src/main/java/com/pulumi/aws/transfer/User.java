@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooServer = new Server("fooServer", ServerArgs.builder()        
+ *         var fooServer = new Server("fooServer", ServerArgs.builder()
  *             .identityProviderType("SERVICE_MANAGED")
  *             .tags(Map.of("NAME", "tf-acc-test-transfer-server"))
  *             .build());
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooRole = new Role("fooRole", RoleArgs.builder()        
+ *         var fooRole = new Role("fooRole", RoleArgs.builder()
  *             .name("tf-test-transfer-user-iam-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -83,13 +83,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooRolePolicy = new RolePolicy("fooRolePolicy", RolePolicyArgs.builder()        
+ *         var fooRolePolicy = new RolePolicy("fooRolePolicy", RolePolicyArgs.builder()
  *             .name("tf-test-transfer-user-iam-policy")
  *             .role(fooRole.id())
  *             .policy(foo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .serverId(fooServer.id())
  *             .userName("tftestuser")
  *             .role(fooRole.arn())

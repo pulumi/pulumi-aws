@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .userId("testUserId")
  *             .userName("default")
  *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .passwords("password123456789")
  *             .build());
  * 
- *         var testUserGroup = new UserGroup("testUserGroup", UserGroupArgs.builder()        
+ *         var testUserGroup = new UserGroup("testUserGroup", UserGroupArgs.builder()
  *             .engine("REDIS")
  *             .userGroupId("userGroupId")
  *             .userIds(test.userId())

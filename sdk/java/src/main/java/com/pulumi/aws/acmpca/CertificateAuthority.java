@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
  *                 .signingAlgorithm("SHA512WITHRSA")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
  *             .usageMode("SHORT_LIVED_CERTIFICATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
@@ -172,12 +172,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(example.id())
  *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(acmpcaBucketAccess -> acmpcaBucketAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
  *                 .signingAlgorithm("SHA512WITHRSA")

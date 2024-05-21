@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VirtualMfaDevice("example", VirtualMfaDeviceArgs.builder()        
+ *         var example = new VirtualMfaDevice("example", VirtualMfaDeviceArgs.builder()
  *             .virtualMfaDeviceName("example")
  *             .build());
  * 

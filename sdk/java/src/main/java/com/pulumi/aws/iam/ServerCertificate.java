@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCert = new ServerCertificate("testCert", ServerCertificateArgs.builder()        
+ *         var testCert = new ServerCertificate("testCert", ServerCertificateArgs.builder()
  *             .name("some_test_cert")
  *             .certificateBody(StdFunctions.file(FileArgs.builder()
  *                 .input("self-ca-cert.pem")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCertAlt = new ServerCertificate("testCertAlt", ServerCertificateArgs.builder()        
+ *         var testCertAlt = new ServerCertificate("testCertAlt", ServerCertificateArgs.builder()
  *             .name("alt_test_cert")
  *             .certificateBody("""
  * -----BEGIN CERTIFICATE-----

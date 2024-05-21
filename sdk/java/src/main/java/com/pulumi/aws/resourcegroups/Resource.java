@@ -47,18 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedHost("example", DedicatedHostArgs.builder()        
+ *         var example = new DedicatedHost("example", DedicatedHostArgs.builder()
  *             .instanceFamily("t3")
  *             .availabilityZone("us-east-1a")
  *             .hostRecovery("off")
  *             .autoPlacement("on")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
  *             .groupArn(exampleGroup.arn())
  *             .resourceArn(example.arn())
  *             .build());

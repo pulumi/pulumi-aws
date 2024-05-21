@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Registry("test", RegistryArgs.builder()        
+ *         var test = new Registry("test", RegistryArgs.builder()
  *             .name("my_own_registry")
  *             .description("A custom schema registry")
  *             .build());

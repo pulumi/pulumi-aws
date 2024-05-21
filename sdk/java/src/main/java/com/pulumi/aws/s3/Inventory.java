@@ -56,15 +56,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *         var test = new BucketV2("test", BucketV2Args.builder()
  *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
- *         var inventory = new BucketV2("inventory", BucketV2Args.builder()        
+ *         var inventory = new BucketV2("inventory", BucketV2Args.builder()
  *             .bucket("my-tf-inventory-bucket")
  *             .build());
  * 
- *         var testInventory = new Inventory("testInventory", InventoryArgs.builder()        
+ *         var testInventory = new Inventory("testInventory", InventoryArgs.builder()
  *             .bucket(test.id())
  *             .name("EntireBucketDaily")
  *             .includedObjectVersions("All")
@@ -116,15 +116,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *         var test = new BucketV2("test", BucketV2Args.builder()
  *             .bucket("my-tf-test-bucket")
  *             .build());
  * 
- *         var inventory = new BucketV2("inventory", BucketV2Args.builder()        
+ *         var inventory = new BucketV2("inventory", BucketV2Args.builder()
  *             .bucket("my-tf-inventory-bucket")
  *             .build());
  * 
- *         var test_prefix = new Inventory("test-prefix", InventoryArgs.builder()        
+ *         var test_prefix = new Inventory("test-prefix", InventoryArgs.builder()
  *             .bucket(test.id())
  *             .name("DocumentsWeekly")
  *             .includedObjectVersions("All")

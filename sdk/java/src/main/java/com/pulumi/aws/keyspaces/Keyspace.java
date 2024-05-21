@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Keyspace("example", KeyspaceArgs.builder()        
+ *         var example = new Keyspace("example", KeyspaceArgs.builder()
  *             .name("my_keyspace")
  *             .build());
  * 

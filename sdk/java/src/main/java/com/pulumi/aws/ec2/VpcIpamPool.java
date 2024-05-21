@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
@@ -106,30 +106,30 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new VpcIpam("example", VpcIpamArgs.builder()        
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var parent = new VpcIpamPool("parent", VpcIpamPoolArgs.builder()        
+ *         var parent = new VpcIpamPool("parent", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
  *             .build());
  * 
- *         var parentTest = new VpcIpamPoolCidr("parentTest", VpcIpamPoolCidrArgs.builder()        
+ *         var parentTest = new VpcIpamPoolCidr("parentTest", VpcIpamPoolCidrArgs.builder()
  *             .ipamPoolId(parent.id())
  *             .cidr("172.20.0.0/16")
  *             .build());
  * 
- *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()        
+ *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .sourceIpamPoolId(parent.id())
  *             .build());
  * 
- *         var childTest = new VpcIpamPoolCidr("childTest", VpcIpamPoolCidrArgs.builder()        
+ *         var childTest = new VpcIpamPoolCidr("childTest", VpcIpamPoolCidrArgs.builder()
  *             .ipamPoolId(child.id())
  *             .cidr("172.20.0.0/24")
  *             .build());

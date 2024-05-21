@@ -49,28 +49,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()        
+ *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()        
+ *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()
  *             .bgpAsn(65000)
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
  * 
- *         var main = new VpnConnection("main", VpnConnectionArgs.builder()        
+ *         var main = new VpnConnection("main", VpnConnectionArgs.builder()
  *             .vpnGatewayId(vpnGateway.id())
  *             .customerGatewayId(customerGateway.id())
  *             .type("ipsec.1")
  *             .staticRoutesOnly(true)
  *             .build());
  * 
- *         var office = new VpnConnectionRoute("office", VpnConnectionRouteArgs.builder()        
+ *         var office = new VpnConnectionRoute("office", VpnConnectionRouteArgs.builder()
  *             .destinationCidrBlock("192.168.10.0/24")
  *             .vpnConnectionId(main.id())
  *             .build());

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CompositeAlarm("example", CompositeAlarmArgs.builder()        
+ *         var example = new CompositeAlarm("example", CompositeAlarmArgs.builder()
  *             .alarmDescription("This is a composite alarm!")
  *             .alarmName("example-composite-alarm")
  *             .alarmActions(exampleAwsSnsTopic.arn())

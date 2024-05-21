@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()        
+ *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()
  *             .domainArn(domain1.arn())
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FargateProfile("example", FargateProfileArgs.builder()        
+ *         var example = new FargateProfile("example", FargateProfileArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .fargateProfileName("example")
  *             .podExecutionRoleArn(exampleAwsIamRole.arn())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name("eks-fargate-profile-example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var example_AmazonEKSFargatePodExecutionRolePolicy = new RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEKSFargatePodExecutionRolePolicy = new RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy")
  *             .role(example.name())
  *             .build());

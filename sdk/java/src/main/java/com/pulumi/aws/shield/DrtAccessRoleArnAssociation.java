@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Role("test", RoleArgs.builder()        
+ *         var test = new Role("test", RoleArgs.builder()
  *             .name(awsShieldDrtAccessRoleArn)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testRolePolicyAttachment = new RolePolicyAttachment("testRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var testRolePolicyAttachment = new RolePolicyAttachment("testRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(test.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
  *             .build());
  * 
- *         var testDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()        
+ *         var testDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()
  *             .roleArn(test.arn())
  *             .build());
  * 

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
  *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
  *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))

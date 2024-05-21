@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var account = new ConfigurationAggregator("account", ConfigurationAggregatorArgs.builder()        
+ *         var account = new ConfigurationAggregator("account", ConfigurationAggregatorArgs.builder()
  *             .name("example")
  *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
  *                 .accountIds("123456789012")
@@ -106,17 +106,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var organizationRole = new Role("organizationRole", RoleArgs.builder()        
+ *         var organizationRole = new Role("organizationRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var organizationRolePolicyAttachment = new RolePolicyAttachment("organizationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var organizationRolePolicyAttachment = new RolePolicyAttachment("organizationRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(organizationRole.name())
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
  *             .build());
  * 
- *         var organization = new ConfigurationAggregator("organization", ConfigurationAggregatorArgs.builder()        
+ *         var organization = new ConfigurationAggregator("organization", ConfigurationAggregatorArgs.builder()
  *             .name("example")
  *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
  *                 .allRegions(true)

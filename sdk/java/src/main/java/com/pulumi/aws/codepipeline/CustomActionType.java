@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomActionType("example", CustomActionTypeArgs.builder()        
+ *         var example = new CustomActionType("example", CustomActionTypeArgs.builder()
  *             .category("Build")
  *             .inputArtifactDetails(CustomActionTypeInputArtifactDetailsArgs.builder()
  *                 .maximumCount(1)

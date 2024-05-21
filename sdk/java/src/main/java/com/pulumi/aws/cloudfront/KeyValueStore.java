@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()        
+ *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()
  *             .name("ExampleKeyValueStore")
  *             .comment("This is an example key value store")
  *             .build());

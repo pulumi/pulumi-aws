@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Endpoint("example", EndpointArgs.builder()        
+ *         var example = new Endpoint("example", EndpointArgs.builder()
  *             .description("clientvpn-example")
  *             .serverCertificateArn(cert.arn())
  *             .clientCidrBlock("10.0.0.0/16")
