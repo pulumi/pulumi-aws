@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
@@ -61,6 +62,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
+ *         final var currentGetPartition = AwsFunctions.getPartition();
+ * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
  *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -78,9 +81,16 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnLike")
- *                         .values(String.format("arn:aws:bedrock:%s:%s:agent/*", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
  *                         .variable("AWS:SourceArn")
  *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("bedrock:InvokeModel")
+ *                 .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
  *                 .build())
  *             .build());
  * 
@@ -89,19 +99,12 @@ import javax.annotation.Nullable;
  *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
  *             .build());
  * 
- *         final var exampleAgentPermissions = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("bedrock:InvokeModel")
- *                 .resources(String.format("arn:aws:bedrock:%s::foundation-model/anthropic.claude-v2", currentGetRegion.applyValue(getRegionResult -> getRegionResult.name())))
- *                 .build())
- *             .build());
- * 
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
  *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(example.id())
  *             .build());
  * 
- *         var test = new AgentAgent("test", AgentAgentArgs.builder()        
+ *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()        
  *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
  *             .idleSessionTtlInSeconds(500)
@@ -116,94 +119,94 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
+ * $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentAgent:AgentAgent")
 public class AgentAgent extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Agent.
+     * ARN of the agent.
      * 
      */
     @Export(name="agentArn", refs={String.class}, tree="[0]")
     private Output<String> agentArn;
 
     /**
-     * @return ARN of the Agent.
+     * @return ARN of the agent.
      * 
      */
     public Output<String> agentArn() {
         return this.agentArn;
     }
     /**
-     * ID of the Agent.
+     * Unique identifier of the agent.
      * 
      */
     @Export(name="agentId", refs={String.class}, tree="[0]")
     private Output<String> agentId;
 
     /**
-     * @return ID of the Agent.
+     * @return Unique identifier of the agent.
      * 
      */
     public Output<String> agentId() {
         return this.agentId;
     }
     /**
-     * Name for the agent.
+     * Name of the agent.
      * 
      */
     @Export(name="agentName", refs={String.class}, tree="[0]")
     private Output<String> agentName;
 
     /**
-     * @return Name for the agent.
+     * @return Name of the agent.
      * 
      */
     public Output<String> agentName() {
         return this.agentName;
     }
     /**
-     * ARN of the Role for the agent.
+     * ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
     @Export(name="agentResourceRoleArn", refs={String.class}, tree="[0]")
     private Output<String> agentResourceRoleArn;
 
     /**
-     * @return ARN of the Role for the agent.
+     * @return ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
     public Output<String> agentResourceRoleArn() {
         return this.agentResourceRoleArn;
     }
     /**
-     * Version of the Agent.
+     * Version of the agent.
      * 
      */
     @Export(name="agentVersion", refs={String.class}, tree="[0]")
     private Output<String> agentVersion;
 
     /**
-     * @return Version of the Agent.
+     * @return Version of the agent.
      * 
      */
     public Output<String> agentVersion() {
         return this.agentVersion;
     }
     /**
-     * ARN of customer manager key to use for encryption.
+     * ARN of the AWS KMS key that encrypts the agent.
      * 
      */
     @Export(name="customerEncryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerEncryptionKeyArn;
 
     /**
-     * @return ARN of customer manager key to use for encryption.
+     * @return ARN of the AWS KMS key that encrypts the agent.
      * 
      */
     public Output<Optional<String>> customerEncryptionKeyArn() {
@@ -224,7 +227,7 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Foundation model for the agent to use.
+     * Foundation model used for orchestration by the agent.
      * 
      * The following arguments are optional:
      * 
@@ -233,7 +236,7 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
     private Output<String> foundationModel;
 
     /**
-     * @return Foundation model for the agent to use.
+     * @return Foundation model used for orchestration by the agent.
      * 
      * The following arguments are optional:
      * 
@@ -242,76 +245,78 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.foundationModel;
     }
     /**
-     * TTL in seconds for the agent to idle.
+     * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
     @Export(name="idleSessionTtlInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleSessionTtlInSeconds;
 
     /**
-     * @return TTL in seconds for the agent to idle.
+     * @return Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
     public Output<Integer> idleSessionTtlInSeconds() {
         return this.idleSessionTtlInSeconds;
     }
     /**
-     * Instructions to tell agent what it should do.
+     * Instructions that tell the agent what it should do and how it should interact with users.
      * 
      */
     @Export(name="instruction", refs={String.class}, tree="[0]")
     private Output<String> instruction;
 
     /**
-     * @return Instructions to tell agent what it should do.
+     * @return Instructions that tell the agent what it should do and how it should interact with users.
      * 
      */
     public Output<String> instruction() {
         return this.instruction;
     }
     /**
-     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     @Export(name="prepareAgent", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> prepareAgent;
 
     /**
-     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * @return Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
     public Output<Boolean> prepareAgent() {
         return this.prepareAgent;
     }
     /**
-     * Prompt override configuration.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
      * 
      */
     @Export(name="promptOverrideConfigurations", refs={List.class,AgentAgentPromptOverrideConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
     /**
-     * @return Prompt override configuration.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations() {
         return this.promptOverrideConfigurations;
     }
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -320,6 +325,10 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
     public static final AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs();
 
     /**
-     * The ARN of the OpenSearch Service vector store.
+     * ARN of the OpenSearch Service vector store.
      * 
      */
     @Import(name="collectionArn", required=true)
     private Output<String> collectionArn;
 
     /**
-     * @return The ARN of the OpenSearch Service vector store.
+     * @return ARN of the OpenSearch Service vector store.
      * 
      */
     public Output<String> collectionArn() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
     }
 
     /**
-     * Contains the names of the fields to which to map information about the vector store.
+     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs>> fieldMapping() {
@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
     }
 
     /**
-     * The name of the vector store.
+     * Name of the vector store.
      * 
      */
     @Import(name="vectorIndexName", required=true)
     private Output<String> vectorIndexName;
 
     /**
-     * @return The name of the vector store.
+     * @return Name of the vector store.
      * 
      */
     public Output<String> vectorIndexName() {
@@ -89,7 +89,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param collectionArn The ARN of the OpenSearch Service vector store.
+         * @param collectionArn ARN of the OpenSearch Service vector store.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param collectionArn The ARN of the OpenSearch Service vector store.
+         * @param collectionArn ARN of the OpenSearch Service vector store.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param vectorIndexName The name of the vector store.
+         * @param vectorIndexName Name of the vector store.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         }
 
         /**
-         * @param vectorIndexName The name of the vector store.
+         * @param vectorIndexName Name of the vector store.
          * 
          * @return builder
          * 

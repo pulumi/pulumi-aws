@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
     /**
-     * @return The endpoint URL for your index management page.
+     * @return Endpoint URL for your index management page.
      * 
      */
     private String connectionString;
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
      * 
      */
     private String credentialsSecretArn;
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping;
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return Namespace to be used to write new data to your database.
      * 
      */
     private @Nullable String namespace;
 
     private AgentKnowledgeBaseStorageConfigurationPineconeConfiguration() {}
     /**
-     * @return The endpoint URL for your index management page.
+     * @return Endpoint URL for your index management page.
      * 
      */
     public String connectionString() {
         return this.connectionString;
     }
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
      * 
      */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return Namespace to be used to write new data to your database.
      * 
      */
     public Optional<String> namespace() {

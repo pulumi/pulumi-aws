@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration
     {
         /// <summary>
-        /// The ARN of the model used to create vector embeddings for the knowledge base.
+        /// ARN of the model used to create vector embeddings for the knowledge base.
         /// </summary>
         public readonly string EmbeddingModelArn;
 

@@ -26,6 +26,8 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
     ///     var exampleAgentTrust = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -65,19 +67,13 @@ namespace Pulumi.Aws.Bedrock
     ///                         Test = "ArnLike",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:aws:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
     ///                         },
     ///                         Variable = "AWS:SourceArn",
     ///                     },
     ///                 },
     ///             },
     ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = exampleAgentTrust.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         NamePrefix = "AmazonBedrockExecutionRoleForAgents_",
     ///     });
     /// 
     ///     var exampleAgentPermissions = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -92,10 +88,16 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}::foundation-model/anthropic.claude-v2",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}::foundation-model/anthropic.claude-v2",
     ///                 },
     ///             },
     ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = exampleAgentTrust.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         NamePrefix = "AmazonBedrockExecutionRoleForAgents_",
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()
@@ -104,7 +106,7 @@ namespace Pulumi.Aws.Bedrock
     ///         Role = example.Id,
     ///     });
     /// 
-    ///     var test = new Aws.Bedrock.AgentAgent("test", new()
+    ///     var exampleAgentAgent = new Aws.Bedrock.AgentAgent("example", new()
     ///     {
     ///         AgentName = "my-agent-name",
     ///         AgentResourceRoleArn = example.Arn,
@@ -117,47 +119,47 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
+    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
+    /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentAgent:AgentAgent")]
     public partial class AgentAgent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the Agent.
+        /// ARN of the agent.
         /// </summary>
         [Output("agentArn")]
         public Output<string> AgentArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Agent.
+        /// Unique identifier of the agent.
         /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
-        /// Name for the agent.
+        /// Name of the agent.
         /// </summary>
         [Output("agentName")]
         public Output<string> AgentName { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the Role for the agent.
+        /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
         [Output("agentResourceRoleArn")]
         public Output<string> AgentResourceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the Agent.
+        /// Version of the agent.
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of customer manager key to use for encryption.
+        /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
         [Output("customerEncryptionKeyArn")]
         public Output<string?> CustomerEncryptionKeyArn { get; private set; } = null!;
@@ -169,7 +171,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Foundation model for the agent to use.
+        /// Foundation model used for orchestration by the agent.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -177,35 +179,38 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> FoundationModel { get; private set; } = null!;
 
         /// <summary>
-        /// TTL in seconds for the agent to idle.
+        /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
         [Output("idleSessionTtlInSeconds")]
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Instructions to tell agent what it should do.
+        /// Instructions that tell the agent what it should do and how it should interact with users.
         /// </summary>
         [Output("instruction")]
         public Output<string> Instruction { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Output("prepareAgent")]
         public Output<bool> PrepareAgent { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt override configuration.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -259,19 +264,19 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name for the agent.
+        /// Name of the agent.
         /// </summary>
         [Input("agentName", required: true)]
         public Input<string> AgentName { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the Role for the agent.
+        /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
         [Input("agentResourceRoleArn", required: true)]
         public Input<string> AgentResourceRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// ARN of customer manager key to use for encryption.
+        /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
@@ -283,7 +288,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Foundation model for the agent to use.
+        /// Foundation model used for orchestration by the agent.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -291,19 +296,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> FoundationModel { get; set; } = null!;
 
         /// <summary>
-        /// TTL in seconds for the agent to idle.
+        /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
         [Input("idleSessionTtlInSeconds")]
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions to tell agent what it should do.
+        /// Instructions that tell the agent what it should do and how it should interact with users.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -312,7 +317,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Prompt override configuration.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationArgs> PromptOverrideConfigurations
         {
@@ -324,7 +329,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -344,37 +349,37 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the Agent.
+        /// ARN of the agent.
         /// </summary>
         [Input("agentArn")]
         public Input<string>? AgentArn { get; set; }
 
         /// <summary>
-        /// ID of the Agent.
+        /// Unique identifier of the agent.
         /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
-        /// Name for the agent.
+        /// Name of the agent.
         /// </summary>
         [Input("agentName")]
         public Input<string>? AgentName { get; set; }
 
         /// <summary>
-        /// ARN of the Role for the agent.
+        /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
         [Input("agentResourceRoleArn")]
         public Input<string>? AgentResourceRoleArn { get; set; }
 
         /// <summary>
-        /// Version of the Agent.
+        /// Version of the agent.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
-        /// ARN of customer manager key to use for encryption.
+        /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
         [Input("customerEncryptionKeyArn")]
         public Input<string>? CustomerEncryptionKeyArn { get; set; }
@@ -386,7 +391,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Foundation model for the agent to use.
+        /// Foundation model used for orchestration by the agent.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -394,19 +399,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? FoundationModel { get; set; }
 
         /// <summary>
-        /// TTL in seconds for the agent to idle.
+        /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
         [Input("idleSessionTtlInSeconds")]
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions to tell agent what it should do.
+        /// Instructions that tell the agent what it should do and how it should interact with users.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
 
         /// <summary>
-        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Input("prepareAgent")]
         public Input<bool>? PrepareAgent { get; set; }
@@ -415,7 +420,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs>? _promptOverrideConfigurations;
 
         /// <summary>
-        /// Prompt override configuration.
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
         /// </summary>
         public InputList<Inputs.AgentAgentPromptOverrideConfigurationGetArgs> PromptOverrideConfigurations
         {
@@ -427,7 +432,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -437,6 +442,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceServerSideEncryptionConfiguration {
+    /**
+     * @return ARN of the AWS KMS key used to encrypt the resource.
+     * 
+     */
     private @Nullable String kmsKeyArn;
 
     private AgentDataSourceServerSideEncryptionConfiguration() {}
+    /**
+     * @return ARN of the AWS KMS key used to encrypt the resource.
+     * 
+     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

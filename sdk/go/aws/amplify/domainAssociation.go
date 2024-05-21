@@ -85,7 +85,7 @@ type DomainAssociation struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for the domain association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The DNS record for certificate verification.
+	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -140,7 +140,7 @@ type domainAssociationState struct {
 	AppId *string `pulumi:"appId"`
 	// ARN for the domain association.
 	Arn *string `pulumi:"arn"`
-	// The DNS record for certificate verification.
+	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
 	DomainName *string `pulumi:"domainName"`
@@ -157,7 +157,7 @@ type DomainAssociationState struct {
 	AppId pulumi.StringPtrInput
 	// ARN for the domain association.
 	Arn pulumi.StringPtrInput
-	// The DNS record for certificate verification.
+	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
 	// Domain name for the domain association.
 	DomainName pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The DNS record for certificate verification.
+// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringOutput)
 }

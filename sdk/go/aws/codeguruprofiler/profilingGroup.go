@@ -65,7 +65,7 @@ type ProfilingGroup struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -113,7 +113,7 @@ type profilingGroupState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -132,7 +132,7 @@ type ProfilingGroupState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -153,7 +153,7 @@ type profilingGroupArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -167,7 +167,7 @@ type ProfilingGroupArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -282,7 +282,7 @@ func (o ProfilingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

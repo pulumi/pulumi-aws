@@ -49,14 +49,14 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The DNS record for certificate verification.
+     * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
     @Import(name="certificateVerificationDnsRecord")
     private @Nullable Output<String> certificateVerificationDnsRecord;
 
     /**
-     * @return The DNS record for certificate verification.
+     * @return DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
     public Optional<Output<String>> certificateVerificationDnsRecord() {
@@ -196,7 +196,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateVerificationDnsRecord The DNS record for certificate verification.
+         * @param certificateVerificationDnsRecord DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class DomainAssociationState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param certificateVerificationDnsRecord The DNS record for certificate verification.
+         * @param certificateVerificationDnsRecord DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
          * 
          * @return builder
          * 

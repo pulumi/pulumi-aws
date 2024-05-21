@@ -55,6 +55,10 @@ import (
 //						},
 //					},
 //				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -328,7 +332,7 @@ type Budget struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the budget.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrOutput `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
@@ -348,11 +352,19 @@ type Budget struct {
 	Notifications BudgetNotificationArrayOutput `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayOutput `pulumi:"plannedLimits"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	//
+	// The following arguments are optional:
 	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
@@ -396,7 +408,7 @@ type budgetState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the budget.
 	Arn *string `pulumi:"arn"`
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
@@ -416,11 +428,19 @@ type budgetState struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	//
+	// The following arguments are optional:
 	TimeUnit *string `pulumi:"timeUnit"`
 }
 
@@ -429,7 +449,7 @@ type BudgetState struct {
 	AccountId pulumi.StringPtrInput
 	// The ARN of the budget.
 	Arn pulumi.StringPtrInput
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
@@ -449,11 +469,19 @@ type BudgetState struct {
 	Notifications BudgetNotificationArrayInput
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	//
+	// The following arguments are optional:
 	TimeUnit pulumi.StringPtrInput
 }
 
@@ -464,7 +492,7 @@ func (BudgetState) ElementType() reflect.Type {
 type budgetArgs struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId *string `pulumi:"accountId"`
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
@@ -484,11 +512,15 @@ type budgetArgs struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits []BudgetPlannedLimit `pulumi:"plannedLimits"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	//
+	// The following arguments are optional:
 	TimeUnit string `pulumi:"timeUnit"`
 }
 
@@ -496,7 +528,7 @@ type budgetArgs struct {
 type BudgetArgs struct {
 	// The ID of the target account for budget. Will use current user's accountId by default if omitted.
 	AccountId pulumi.StringPtrInput
-	// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+	// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
@@ -516,11 +548,15 @@ type BudgetArgs struct {
 	Notifications BudgetNotificationArrayInput
 	// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
 	PlannedLimits BudgetPlannedLimitArrayInput
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+	//
+	// The following arguments are optional:
 	TimeUnit pulumi.StringInput
 }
 
@@ -621,7 +657,7 @@ func (o BudgetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
 func (o BudgetOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
 	return o.ApplyT(func(v *Budget) BudgetAutoAdjustDataPtrOutput { return v.AutoAdjustData }).(BudgetAutoAdjustDataPtrOutput)
 }
@@ -671,6 +707,18 @@ func (o BudgetOutput) PlannedLimits() BudgetPlannedLimitArrayOutput {
 	return o.ApplyT(func(v *Budget) BudgetPlannedLimitArrayOutput { return v.PlannedLimits }).(BudgetPlannedLimitArrayOutput)
 }
 
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o BudgetOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
 // The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 func (o BudgetOutput) TimePeriodEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.TimePeriodEnd }).(pulumi.StringPtrOutput)
@@ -682,6 +730,8 @@ func (o BudgetOutput) TimePeriodStart() pulumi.StringOutput {
 }
 
 // The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+//
+// The following arguments are optional:
 func (o BudgetOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.TimeUnit }).(pulumi.StringOutput)
 }

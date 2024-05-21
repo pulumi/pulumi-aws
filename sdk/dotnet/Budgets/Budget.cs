@@ -56,6 +56,11 @@ namespace Pulumi.Aws.Budgets
     ///                 },
     ///             },
     ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -290,7 +295,7 @@ namespace Pulumi.Aws.Budgets
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
         [Output("autoAdjustData")]
         public Output<Outputs.BudgetAutoAdjustData?> AutoAdjustData { get; private set; } = null!;
@@ -350,6 +355,18 @@ namespace Pulumi.Aws.Budgets
         public Output<ImmutableArray<Outputs.BudgetPlannedLimit>> PlannedLimits { get; private set; } = null!;
 
         /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Output("timePeriodEnd")]
@@ -363,6 +380,8 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("timeUnit")]
         public Output<string> TimeUnit { get; private set; } = null!;
@@ -420,7 +439,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
         [Input("autoAdjustData")]
         public Input<Inputs.BudgetAutoAdjustDataArgs>? AutoAdjustData { get; set; }
@@ -497,6 +516,18 @@ namespace Pulumi.Aws.Budgets
             set => _plannedLimits = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
@@ -511,6 +542,8 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("timeUnit", required: true)]
         public Input<string> TimeUnit { get; set; } = null!;
@@ -536,7 +569,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+        /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
         [Input("autoAdjustData")]
         public Input<Inputs.BudgetAutoAdjustDataGetArgs>? AutoAdjustData { get; set; }
@@ -613,6 +646,31 @@ namespace Pulumi.Aws.Budgets
             set => _plannedLimits = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
@@ -627,6 +685,8 @@ namespace Pulumi.Aws.Budgets
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }

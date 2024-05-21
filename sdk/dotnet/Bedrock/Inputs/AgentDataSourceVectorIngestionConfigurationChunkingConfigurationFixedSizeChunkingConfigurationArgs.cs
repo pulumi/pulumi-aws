@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of tokens to include in a chunk.
+        /// </summary>
         [Input("maxTokens", required: true)]
         public Input<int> MaxTokens { get; set; } = null!;
 
+        /// <summary>
+        /// Percentage of overlap between adjacent chunks of a data source.
+        /// </summary>
         [Input("overlapPercentage", required: true)]
         public Input<int> OverlapPercentage { get; set; } = null!;
 

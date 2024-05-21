@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AgentAgentActionGroupActionGroupExecutor struct {
-	// ARN of the Lambda that defines the business logic for the action group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
 	Lambda *string `pulumi:"lambda"`
 }
 
@@ -30,7 +30,7 @@ type AgentAgentActionGroupActionGroupExecutorInput interface {
 }
 
 type AgentAgentActionGroupActionGroupExecutorArgs struct {
-	// ARN of the Lambda that defines the business logic for the action group.
+	// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
 	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
 }
 
@@ -111,7 +111,7 @@ func (o AgentAgentActionGroupActionGroupExecutorOutput) ToAgentAgentActionGroupA
 	}).(AgentAgentActionGroupActionGroupExecutorPtrOutput)
 }
 
-// ARN of the Lambda that defines the business logic for the action group.
+// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
 func (o AgentAgentActionGroupActionGroupExecutorOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupActionGroupExecutor) *string { return v.Lambda }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Elem() AgentAgentActi
 	}).(AgentAgentActionGroupActionGroupExecutorOutput)
 }
 
-// ARN of the Lambda that defines the business logic for the action group.
+// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
 func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupActionGroupExecutor) *string {
 		if v == nil {
@@ -151,9 +151,9 @@ func (o AgentAgentActionGroupActionGroupExecutorPtrOutput) Lambda() pulumi.Strin
 }
 
 type AgentAgentActionGroupApiSchema struct {
-	// YAML or JSON OpenAPI Schema.
+	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
 	Payload *string `pulumi:"payload"`
-	// Configuration of S3 schema location
+	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
 	S3 *AgentAgentActionGroupApiSchemaS3 `pulumi:"s3"`
 }
 
@@ -169,9 +169,9 @@ type AgentAgentActionGroupApiSchemaInput interface {
 }
 
 type AgentAgentActionGroupApiSchemaArgs struct {
-	// YAML or JSON OpenAPI Schema.
+	// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
 	Payload pulumi.StringPtrInput `pulumi:"payload"`
-	// Configuration of S3 schema location
+	// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
 	S3 AgentAgentActionGroupApiSchemaS3PtrInput `pulumi:"s3"`
 }
 
@@ -252,12 +252,12 @@ func (o AgentAgentActionGroupApiSchemaOutput) ToAgentAgentActionGroupApiSchemaPt
 	}).(AgentAgentActionGroupApiSchemaPtrOutput)
 }
 
-// YAML or JSON OpenAPI Schema.
+// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
 func (o AgentAgentActionGroupApiSchemaOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *string { return v.Payload }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of S3 schema location
+// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
 func (o AgentAgentActionGroupApiSchemaOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 { return v.S3 }).(AgentAgentActionGroupApiSchemaS3PtrOutput)
 }
@@ -286,7 +286,7 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Elem() AgentAgentActionGroupApi
 	}).(AgentAgentActionGroupApiSchemaOutput)
 }
 
-// YAML or JSON OpenAPI Schema.
+// JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *string {
 		if v == nil {
@@ -296,7 +296,7 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) Payload() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration of S3 schema location
+// Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
 func (o AgentAgentActionGroupApiSchemaPtrOutput) S3() AgentAgentActionGroupApiSchemaS3PtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchema) *AgentAgentActionGroupApiSchemaS3 {
 		if v == nil {
@@ -307,11 +307,9 @@ func (o AgentAgentActionGroupApiSchemaPtrOutput) S3() AgentAgentActionGroupApiSc
 }
 
 type AgentAgentActionGroupApiSchemaS3 struct {
-	// The S3 bucket name that contains the OpenAPI Schema.
+	// Name of the S3 bucket.
 	S3BucketName *string `pulumi:"s3BucketName"`
-	// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-	//
-	// The following arguments are optional:
+	// S3 object key containing the resource.
 	S3ObjectKey *string `pulumi:"s3ObjectKey"`
 }
 
@@ -327,11 +325,9 @@ type AgentAgentActionGroupApiSchemaS3Input interface {
 }
 
 type AgentAgentActionGroupApiSchemaS3Args struct {
-	// The S3 bucket name that contains the OpenAPI Schema.
+	// Name of the S3 bucket.
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-	//
-	// The following arguments are optional:
+	// S3 object key containing the resource.
 	S3ObjectKey pulumi.StringPtrInput `pulumi:"s3ObjectKey"`
 }
 
@@ -412,14 +408,12 @@ func (o AgentAgentActionGroupApiSchemaS3Output) ToAgentAgentActionGroupApiSchema
 	}).(AgentAgentActionGroupApiSchemaS3PtrOutput)
 }
 
-// The S3 bucket name that contains the OpenAPI Schema.
+// Name of the S3 bucket.
 func (o AgentAgentActionGroupApiSchemaS3Output) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchemaS3) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-//
-// The following arguments are optional:
+// S3 object key containing the resource.
 func (o AgentAgentActionGroupApiSchemaS3Output) S3ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentAgentActionGroupApiSchemaS3) *string { return v.S3ObjectKey }).(pulumi.StringPtrOutput)
 }
@@ -448,7 +442,7 @@ func (o AgentAgentActionGroupApiSchemaS3PtrOutput) Elem() AgentAgentActionGroupA
 	}).(AgentAgentActionGroupApiSchemaS3Output)
 }
 
-// The S3 bucket name that contains the OpenAPI Schema.
+// Name of the S3 bucket.
 func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchemaS3) *string {
 		if v == nil {
@@ -458,9 +452,7 @@ func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3BucketName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-//
-// The following arguments are optional:
+// S3 object key containing the resource.
 func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroupApiSchemaS3) *string {
 		if v == nil {
@@ -471,7 +463,7 @@ func (o AgentAgentActionGroupApiSchemaS3PtrOutput) S3ObjectKey() pulumi.StringPt
 }
 
 type AgentAgentAliasRoutingConfiguration struct {
-	// Version of the agent the alias routes to.
+	// Version of the agent with which the alias is associated.
 	AgentVersion string `pulumi:"agentVersion"`
 }
 
@@ -487,7 +479,7 @@ type AgentAgentAliasRoutingConfigurationInput interface {
 }
 
 type AgentAgentAliasRoutingConfigurationArgs struct {
-	// Version of the agent the alias routes to.
+	// Version of the agent with which the alias is associated.
 	AgentVersion pulumi.StringInput `pulumi:"agentVersion"`
 }
 
@@ -542,7 +534,7 @@ func (o AgentAgentAliasRoutingConfigurationOutput) ToAgentAgentAliasRoutingConfi
 	return o
 }
 
-// Version of the agent the alias routes to.
+// Version of the agent with which the alias is associated.
 func (o AgentAgentAliasRoutingConfigurationOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentAliasRoutingConfiguration) string { return v.AgentVersion }).(pulumi.StringOutput)
 }
@@ -743,11 +735,9 @@ func (o AgentAgentAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentAgentPromptOverrideConfiguration struct {
-	// ARN of Lambda to use when parsing the raw foundation model output.
+	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda string `pulumi:"overrideLambda"`
-	// List of prompt configurations.
-	//
-	// The following arguments are optional:
+	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
 	PromptConfigurations []interface{} `pulumi:"promptConfigurations"`
 }
 
@@ -763,11 +753,9 @@ type AgentAgentPromptOverrideConfigurationInput interface {
 }
 
 type AgentAgentPromptOverrideConfigurationArgs struct {
-	// ARN of Lambda to use when parsing the raw foundation model output.
+	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda pulumi.StringInput `pulumi:"overrideLambda"`
-	// List of prompt configurations.
-	//
-	// The following arguments are optional:
+	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
 	PromptConfigurations pulumi.ArrayInput `pulumi:"promptConfigurations"`
 }
 
@@ -822,14 +810,12 @@ func (o AgentAgentPromptOverrideConfigurationOutput) ToAgentAgentPromptOverrideC
 	return o
 }
 
-// ARN of Lambda to use when parsing the raw foundation model output.
+// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 func (o AgentAgentPromptOverrideConfigurationOutput) OverrideLambda() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) string { return v.OverrideLambda }).(pulumi.StringOutput)
 }
 
-// List of prompt configurations.
-//
-// The following arguments are optional:
+// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
 func (o AgentAgentPromptOverrideConfigurationOutput) PromptConfigurations() pulumi.ArrayOutput {
 	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) []interface{} { return v.PromptConfigurations }).(pulumi.ArrayOutput)
 }
@@ -1030,8 +1016,10 @@ func (o AgentAgentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AgentDataSourceDataSourceConfiguration struct {
+	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 	S3Configuration *AgentDataSourceDataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
-	Type            string                                                 `pulumi:"type"`
+	// Type of storage for the data source. Valid values: `S3`.
+	Type string `pulumi:"type"`
 }
 
 // AgentDataSourceDataSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationOutput values.
@@ -1046,8 +1034,10 @@ type AgentDataSourceDataSourceConfigurationInput interface {
 }
 
 type AgentDataSourceDataSourceConfigurationArgs struct {
+	// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 	S3Configuration AgentDataSourceDataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
-	Type            pulumi.StringInput                                            `pulumi:"type"`
+	// Type of storage for the data source. Valid values: `S3`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AgentDataSourceDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -1127,12 +1117,14 @@ func (o AgentDataSourceDataSourceConfigurationOutput) ToAgentDataSourceDataSourc
 	}).(AgentDataSourceDataSourceConfigurationPtrOutput)
 }
 
+// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
 		return v.S3Configuration
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// Type of storage for the data source. Valid values: `S3`.
 func (o AgentDataSourceDataSourceConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceDataSourceConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1161,6 +1153,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) Elem() AgentDataSourceD
 	}).(AgentDataSourceDataSourceConfigurationOutput)
 }
 
+// Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *AgentDataSourceDataSourceConfigurationS3Configuration {
 		if v == nil {
@@ -1170,6 +1163,7 @@ func (o AgentDataSourceDataSourceConfigurationPtrOutput) S3Configuration() Agent
 	}).(AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput)
 }
 
+// Type of storage for the data source. Valid values: `S3`.
 func (o AgentDataSourceDataSourceConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceDataSourceConfiguration) *string {
 		if v == nil {
@@ -1343,6 +1337,7 @@ func (o AgentDataSourceDataSourceConfigurationS3ConfigurationPtrOutput) Inclusio
 }
 
 type AgentDataSourceServerSideEncryptionConfiguration struct {
+	// ARN of the AWS KMS key used to encrypt the resource.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -1358,6 +1353,7 @@ type AgentDataSourceServerSideEncryptionConfigurationInput interface {
 }
 
 type AgentDataSourceServerSideEncryptionConfigurationArgs struct {
+	// ARN of the AWS KMS key used to encrypt the resource.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -1438,6 +1434,7 @@ func (o AgentDataSourceServerSideEncryptionConfigurationOutput) ToAgentDataSourc
 	}).(AgentDataSourceServerSideEncryptionConfigurationPtrOutput)
 }
 
+// ARN of the AWS KMS key used to encrypt the resource.
 func (o AgentDataSourceServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceServerSideEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1466,6 +1463,7 @@ func (o AgentDataSourceServerSideEncryptionConfigurationPtrOutput) Elem() AgentD
 	}).(AgentDataSourceServerSideEncryptionConfigurationOutput)
 }
 
+// ARN of the AWS KMS key used to encrypt the resource.
 func (o AgentDataSourceServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceServerSideEncryptionConfiguration) *string {
 		if v == nil {
@@ -1632,6 +1630,7 @@ func (o AgentDataSourceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type AgentDataSourceVectorIngestionConfiguration struct {
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration `pulumi:"chunkingConfiguration"`
 }
 
@@ -1647,6 +1646,7 @@ type AgentDataSourceVectorIngestionConfigurationInput interface {
 }
 
 type AgentDataSourceVectorIngestionConfigurationArgs struct {
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
 }
 
@@ -1727,6 +1727,7 @@ func (o AgentDataSourceVectorIngestionConfigurationOutput) ToAgentDataSourceVect
 	}).(AgentDataSourceVectorIngestionConfigurationPtrOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
 		return v.ChunkingConfiguration
@@ -1757,6 +1758,7 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) Elem() AgentDataSo
 	}).(AgentDataSourceVectorIngestionConfigurationOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
 		if v == nil {
@@ -1767,7 +1769,9 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfiguration struct {
-	ChunkingStrategy               string                                                                                          `pulumi:"chunkingStrategy"`
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+	ChunkingStrategy string `pulumi:"chunkingStrategy"`
+	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
 }
 
@@ -1783,7 +1787,9 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput inter
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs struct {
-	ChunkingStrategy               pulumi.StringInput                                                                                     `pulumi:"chunkingStrategy"`
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+	ChunkingStrategy pulumi.StringInput `pulumi:"chunkingStrategy"`
+	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
 }
 
@@ -1864,12 +1870,14 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) 
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) ChunkingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) string {
 		return v.ChunkingStrategy
 	}).(pulumi.StringOutput)
 }
 
+// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		return v.FixedSizeChunkingConfiguration
@@ -1900,6 +1908,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput)
 }
 
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) ChunkingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *string {
 		if v == nil {
@@ -1909,6 +1918,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		if v == nil {
@@ -1919,7 +1929,9 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration struct {
-	MaxTokens         int `pulumi:"maxTokens"`
+	// Maximum number of tokens to include in a chunk.
+	MaxTokens int `pulumi:"maxTokens"`
+	// Percentage of overlap between adjacent chunks of a data source.
 	OverlapPercentage int `pulumi:"overlapPercentage"`
 }
 
@@ -1935,7 +1947,9 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeCh
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs struct {
-	MaxTokens         pulumi.IntInput `pulumi:"maxTokens"`
+	// Maximum number of tokens to include in a chunk.
+	MaxTokens pulumi.IntInput `pulumi:"maxTokens"`
+	// Percentage of overlap between adjacent chunks of a data source.
 	OverlapPercentage pulumi.IntInput `pulumi:"overlapPercentage"`
 }
 
@@ -2016,12 +2030,14 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput)
 }
 
+// Maximum number of tokens to include in a chunk.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationOutput) MaxTokens() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration) int {
 		return v.MaxTokens
 	}).(pulumi.IntOutput)
 }
 
+// Percentage of overlap between adjacent chunks of a data source.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationOutput) OverlapPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration) int {
 		return v.OverlapPercentage
@@ -2052,6 +2068,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationOutput)
 }
 
+// Maximum number of tokens to include in a chunk.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration) *int {
 		if v == nil {
@@ -2061,6 +2078,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 	}).(pulumi.IntPtrOutput)
 }
 
+// Percentage of overlap between adjacent chunks of a data source.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration) *int {
 		if v == nil {
@@ -2071,9 +2089,9 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
-	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
 	Type string `pulumi:"type"`
-	// Contains details about the embeddings model that'sused to   convert the data source.
+	// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
 	VectorKnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -2089,9 +2107,9 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationArgs struct {
-	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// Contains details about the embeddings model that'sused to   convert the data source.
+	// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
 	VectorKnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
@@ -2172,12 +2190,12 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) ToAgentKnowledgeBase
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput)
 }
 
-// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Contains details about the embeddings model that'sused to   convert the data source.
+// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
@@ -2208,7 +2226,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Elem() AgentKnowl
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput)
 }
 
-// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *string {
 		if v == nil {
@@ -2218,7 +2236,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) Type() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains details about the embeddings model that'sused to   convert the data source.
+// Details about the embeddings model that'sused to convert the data source. See `vectorKnowledgeBaseConfiguration` block for details.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBaseConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
 		if v == nil {
@@ -2229,7 +2247,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput) VectorKnowledgeBa
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration struct {
-	// The ARN of the model used to create vector embeddings for the knowledge base.
+	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
 }
 
@@ -2245,7 +2263,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguratio
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs struct {
-	// The ARN of the model used to create vector embeddings for the knowledge base.
+	// ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
 }
 
@@ -2326,7 +2344,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput)
 }
 
-// The ARN of the model used to create vector embeddings for the knowledge base.
+// ARN of the model used to create vector embeddings for the knowledge base.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) string {
 		return v.EmbeddingModelArn
@@ -2357,7 +2375,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput)
 }
 
-// The ARN of the model used to create vector embeddings for the knowledge base.
+// ARN of the model used to create vector embeddings for the knowledge base.
 func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration) *string {
 		if v == nil {
@@ -2368,15 +2386,15 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigura
 }
 
 type AgentKnowledgeBaseStorageConfiguration struct {
-	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
 	OpensearchServerlessConfiguration *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration `pulumi:"opensearchServerlessConfiguration"`
-	// Contains the storage configuration of the knowledge base in Pinecone.
+	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 	PineconeConfiguration *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration `pulumi:"pineconeConfiguration"`
-	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
 	RdsConfiguration *AgentKnowledgeBaseStorageConfigurationRdsConfiguration `pulumi:"rdsConfiguration"`
-	// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 	RedisEnterpriseCloudConfiguration *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration `pulumi:"redisEnterpriseCloudConfiguration"`
-	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
 	Type string `pulumi:"type"`
 }
 
@@ -2392,15 +2410,15 @@ type AgentKnowledgeBaseStorageConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseStorageConfigurationArgs struct {
-	// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+	// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
 	OpensearchServerlessConfiguration AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrInput `pulumi:"opensearchServerlessConfiguration"`
-	// Contains the storage configuration of the knowledge base in Pinecone.
+	// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 	PineconeConfiguration AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
-	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+	// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
 	RdsConfiguration AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
-	// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+	// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 	RedisEnterpriseCloudConfiguration AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrInput `pulumi:"redisEnterpriseCloudConfiguration"`
-	// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+	// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2481,35 +2499,35 @@ func (o AgentKnowledgeBaseStorageConfigurationOutput) ToAgentKnowledgeBaseStorag
 	}).(AgentKnowledgeBaseStorageConfigurationPtrOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		return v.OpensearchServerlessConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Pinecone.
+// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
 		return v.PineconeConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
 }
 
-// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
 		return v.RdsConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
 		return v.RedisEnterpriseCloudConfiguration
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
 func (o AgentKnowledgeBaseStorageConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2538,7 +2556,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Elem() AgentKnowledgeBa
 	}).(AgentKnowledgeBaseStorageConfigurationOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearchServerlessConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessConfiguration() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
 		if v == nil {
@@ -2548,7 +2566,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessCon
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Pinecone.
+// The storage configuration of the knowledge base in Pinecone. See `pineconeConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
 		if v == nil {
@@ -2558,7 +2576,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration()
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
 }
 
-// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rdsConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
 		if v == nil {
@@ -2568,7 +2586,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() Agen
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
 }
 
-// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redisEnterpriseCloudConfiguration` block for details.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudConfiguration() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration {
 		if v == nil {
@@ -2578,7 +2596,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) RedisEnterpriseCloudCon
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
 func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfiguration) *string {
 		if v == nil {
@@ -2589,11 +2607,11 @@ func (o AgentKnowledgeBaseStorageConfigurationPtrOutput) Type() pulumi.StringPtr
 }
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration struct {
-	// The ARN of the OpenSearch Service vector store.
+	// ARN of the OpenSearch Service vector store.
 	CollectionArn string `pulumi:"collectionArn"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// The name of the vector store.
+	// Name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
 
@@ -2609,11 +2627,11 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationInpu
 }
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs struct {
-	// The ARN of the OpenSearch Service vector store.
+	// ARN of the OpenSearch Service vector store.
 	CollectionArn pulumi.StringInput `pulumi:"collectionArn"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
-	// The name of the vector store.
+	// Name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
 
@@ -2694,21 +2712,21 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationO
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput)
 }
 
-// The ARN of the OpenSearch Service vector store.
+// ARN of the OpenSearch Service vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) CollectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) string {
 		return v.CollectionArn
 	}).(pulumi.StringOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
 		return v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the vector store.
+// Name of the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) VectorIndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) string {
 		return v.VectorIndexName
@@ -2739,7 +2757,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput)
 }
 
-// The ARN of the OpenSearch Service vector store.
+// ARN of the OpenSearch Service vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) CollectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *string {
 		if v == nil {
@@ -2749,7 +2767,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
 		if v == nil {
@@ -2759,7 +2777,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the vector store.
+// Name of the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *string {
 		if v == nil {
@@ -2770,11 +2788,11 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 }
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField *string `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField *string `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField *string `pulumi:"vectorField"`
 }
 
@@ -2790,11 +2808,11 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFiel
 }
 
 type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField pulumi.StringPtrInput `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField pulumi.StringPtrInput `pulumi:"vectorField"`
 }
 
@@ -2875,21 +2893,21 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		return v.MetadataField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		return v.TextField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		return v.VectorField
@@ -2920,7 +2938,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		if v == nil {
@@ -2930,7 +2948,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		if v == nil {
@@ -2940,7 +2958,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping) *string {
 		if v == nil {
@@ -2951,13 +2969,13 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationF
 }
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfiguration struct {
-	// The endpoint URL for your index management page.
+	// Endpoint URL for your index management page.
 	ConnectionString string `pulumi:"connectionString"`
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// The namespace to be used to write new data to your database.
+	// Namespace to be used to write new data to your database.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -2973,13 +2991,13 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationInput interface 
 }
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs struct {
-	// The endpoint URL for your index management page.
+	// Endpoint URL for your index management page.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
-	// The namespace to be used to write new data to your database.
+	// Namespace to be used to write new data to your database.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -3060,26 +3078,26 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ToAge
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput)
 }
 
-// The endpoint URL for your index management page.
+// Endpoint URL for your index management page.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
 		return v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
 }
 
-// The namespace to be used to write new data to your database.
+// Namespace to be used to write new data to your database.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -3108,7 +3126,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) El
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput)
 }
 
-// The endpoint URL for your index management page.
+// Endpoint URL for your index management page.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
 		if v == nil {
@@ -3118,7 +3136,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
 		if v == nil {
@@ -3128,7 +3146,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
 		if v == nil {
@@ -3138,7 +3156,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Fi
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
 }
 
-// The namespace to be used to write new data to your database.
+// Namespace to be used to write new data to your database.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *string {
 		if v == nil {
@@ -3149,9 +3167,9 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Na
 }
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField *string `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField *string `pulumi:"textField"`
 }
 
@@ -3167,9 +3185,9 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInpu
 }
 
 type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField pulumi.StringPtrInput `pulumi:"textField"`
 }
 
@@ -3250,14 +3268,14 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingO
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
 		return v.MetadataField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
 		return v.TextField
@@ -3288,7 +3306,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingP
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3298,7 +3316,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3309,15 +3327,15 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingP
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfiguration struct {
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The name of your Amazon RDS database.
+	// Name of your Amazon RDS database.
 	DatabaseName string `pulumi:"databaseName"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// The namespace to be used to write new data to your database.
+	// ARN of the vector store.
 	ResourceArn string `pulumi:"resourceArn"`
-	// The name of the table in the database.
+	// Name of the table in the database.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -3333,15 +3351,15 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfigurationInput interface {
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs struct {
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The name of your Amazon RDS database.
+	// Name of your Amazon RDS database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
-	// The namespace to be used to write new data to your database.
+	// ARN of the vector store.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// The name of the table in the database.
+	// Name of the table in the database.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -3422,29 +3440,29 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ToAgentKno
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.CredentialsSecretArn }).(pulumi.StringOutput)
 }
 
-// The name of your Amazon RDS database.
+// Name of your Amazon RDS database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// Names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
 		return v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
 }
 
-// The namespace to be used to write new data to your database.
+// ARN of the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The name of the table in the database.
+// Name of the table in the database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -3473,7 +3491,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Elem() 
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
 		if v == nil {
@@ -3483,7 +3501,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Credent
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of your Amazon RDS database.
+// Name of your Amazon RDS database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
 		if v == nil {
@@ -3493,7 +3511,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Databas
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// Names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
 		if v == nil {
@@ -3503,7 +3521,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) FieldMa
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
 }
 
-// The namespace to be used to write new data to your database.
+// ARN of the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
 		if v == nil {
@@ -3513,7 +3531,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) Resourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the table in the database.
+// Name of the table in the database.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *string {
 		if v == nil {
@@ -3524,13 +3542,13 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) TableNa
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField string `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the ID for each entry.
+	// Name of the field in which Amazon Bedrock stores the ID for each entry.
 	PrimaryKeyField string `pulumi:"primaryKeyField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField string `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField string `pulumi:"vectorField"`
 }
 
@@ -3546,13 +3564,13 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput int
 }
 
 type AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringInput `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the ID for each entry.
+	// Name of the field in which Amazon Bedrock stores the ID for each entry.
 	PrimaryKeyField pulumi.StringInput `pulumi:"primaryKeyField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField pulumi.StringInput `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField pulumi.StringInput `pulumi:"vectorField"`
 }
 
@@ -3633,26 +3651,26 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) MetadataField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
 		return v.MetadataField
 	}).(pulumi.StringOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the ID for each entry.
+// Name of the field in which Amazon Bedrock stores the ID for each entry.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) PrimaryKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
 		return v.PrimaryKeyField
 	}).(pulumi.StringOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) TextField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string { return v.TextField }).(pulumi.StringOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput) VectorField() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) string {
 		return v.VectorField
@@ -3683,7 +3701,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3693,7 +3711,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the ID for each entry.
+// Name of the field in which Amazon Bedrock stores the ID for each entry.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) PrimaryKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3703,7 +3721,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3713,7 +3731,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping) *string {
 		if v == nil {
@@ -3724,13 +3742,13 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOut
 }
 
 type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration struct {
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
-	// The endpoint URL of the Redis Enterprise Cloud database.
+	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint string `pulumi:"endpoint"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping `pulumi:"fieldMapping"`
-	// The name of the vector store.
+	// Name of the vector index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
 
@@ -3746,13 +3764,13 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationInpu
 }
 
 type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs struct {
-	// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
-	// The endpoint URL of the Redis Enterprise Cloud database.
+	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// Contains the names of the fields to which to map information about the vector store.
+	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
-	// The name of the vector store.
+	// Name of the vector index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
 
@@ -3833,28 +3851,28 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationO
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) CredentialsSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
 		return v.CredentialsSecretArn
 	}).(pulumi.StringOutput)
 }
 
-// The endpoint URL of the Redis Enterprise Cloud database.
+// Endpoint URL of the Redis Enterprise Cloud database.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
 		return v.Endpoint
 	}).(pulumi.StringOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
 		return v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the vector store.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) VectorIndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) string {
 		return v.VectorIndexName
@@ -3885,7 +3903,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput)
 }
 
-// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) CredentialsSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
 		if v == nil {
@@ -3895,7 +3913,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL of the Redis Enterprise Cloud database.
+// Endpoint URL of the Redis Enterprise Cloud database.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
 		if v == nil {
@@ -3905,7 +3923,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the names of the fields to which to map information about the vector store.
+// The names of the fields to which to map information about the vector store. This block supports the following arguments:
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
 		if v == nil {
@@ -3915,7 +3933,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the vector store.
+// Name of the vector index.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationPtrOutput) VectorIndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *string {
 		if v == nil {
@@ -3926,11 +3944,11 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 }
 
 type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField *string `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField *string `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField *string `pulumi:"vectorField"`
 }
 
@@ -3946,11 +3964,11 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFiel
 }
 
 type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs struct {
-	// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+	// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 	MetadataField pulumi.StringPtrInput `pulumi:"metadataField"`
-	// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+	// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 	TextField pulumi.StringPtrInput `pulumi:"textField"`
-	// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+	// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 	VectorField pulumi.StringPtrInput `pulumi:"vectorField"`
 }
 
@@ -4031,21 +4049,21 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationF
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		return v.MetadataField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		return v.TextField
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		return v.VectorField
@@ -4076,7 +4094,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationF
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores metadata about the vector store.
+// Name of the field in which Amazon Bedrock stores metadata about the vector store.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) MetadataField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		if v == nil {
@@ -4086,7 +4104,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationF
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+// Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) TextField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		if v == nil {
@@ -4096,7 +4114,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationF
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+// Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
 func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput) VectorField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping) *string {
 		if v == nil {

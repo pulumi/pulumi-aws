@@ -61,14 +61,14 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
     }
 
     /**
-     * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+     * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+     * @return The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -166,7 +166,7 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userId he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+         * @param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class EnvironmentMembershipState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userId he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+         * @param userId The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
          * 
          * @return builder
          * 

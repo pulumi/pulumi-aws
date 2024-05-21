@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Amplify.Inputs
         public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
-        /// DNS record for the subdomain.
+        /// DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME &lt;target&gt;`).
         /// </summary>
         [Input("dnsRecord")]
         public Input<string>? DnsRecord { get; set; }

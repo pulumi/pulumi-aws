@@ -37,6 +37,10 @@ import (
 // if err != nil {
 // return err
 // }
+// currentGetPartition, err := aws.GetPartition(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
 // currentGetRegion, err := aws.GetRegion(ctx, nil, nil);
 // if err != nil {
 // return err
@@ -66,10 +70,25 @@ import (
 // {
 // Test: "ArnLike",
 // Values: []string{
-// fmt.Sprintf("arn:aws:bedrock:%v:%v:agent/*", currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
 // },
 // Variable: "AWS:SourceArn",
 // },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "bedrock:InvokeModel",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-v2", currentGetPartition.Partition, currentGetRegion.Name),
 // },
 // },
 // },
@@ -84,21 +103,6 @@ import (
 // if err != nil {
 // return err
 // }
-// exampleAgentPermissions, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "bedrock:InvokeModel",
-// },
-// Resources: []string{
-// fmt.Sprintf("arn:aws:bedrock:%v::foundation-model/anthropic.claude-v2", currentGetRegion.Name),
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Policy: pulumi.String(exampleAgentPermissions.Json),
 // Role: example.ID(),
@@ -106,7 +110,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = bedrock.NewAgentAgent(ctx, "test", &bedrock.AgentAgentArgs{
+// _, err = bedrock.NewAgentAgent(ctx, "example", &bedrock.AgentAgentArgs{
 // AgentName: pulumi.String("my-agent-name"),
 // AgentResourceRoleArn: example.Arn,
 // IdleSessionTtlInSeconds: pulumi.Int(500),
@@ -122,42 +126,44 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the `id`. For example:
+// Using `pulumi import`, import Agents for Amazon Bedrock Agent using the agent ID. For example:
 //
 // ```sh
-// $ pulumi import aws:bedrock/agentAgent:AgentAgent example agent-abcd1234
+// $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
 // ```
 type AgentAgent struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Agent.
+	// ARN of the agent.
 	AgentArn pulumi.StringOutput `pulumi:"agentArn"`
-	// ID of the Agent.
+	// Unique identifier of the agent.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
-	// Name for the agent.
+	// Name of the agent.
 	AgentName pulumi.StringOutput `pulumi:"agentName"`
-	// ARN of the Role for the agent.
+	// ARN of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn pulumi.StringOutput `pulumi:"agentResourceRoleArn"`
-	// Version of the Agent.
+	// Version of the agent.
 	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// ARN of customer manager key to use for encryption.
+	// ARN of the AWS KMS key that encrypts the agent.
 	CustomerEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"customerEncryptionKeyArn"`
 	// Description of the agent.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Foundation model for the agent to use.
+	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
 	FoundationModel pulumi.StringOutput `pulumi:"foundationModel"`
-	// TTL in seconds for the agent to idle.
+	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions to tell agent what it should do.
+	// Instructions that tell the agent what it should do and how it should interact with users.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
-	// Prompt override configuration.
+	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayOutput `pulumi:"promptOverrideConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
 	Timeouts AgentAgentTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -202,68 +208,72 @@ func GetAgentAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentAgent resources.
 type agentAgentState struct {
-	// ARN of the Agent.
+	// ARN of the agent.
 	AgentArn *string `pulumi:"agentArn"`
-	// ID of the Agent.
+	// Unique identifier of the agent.
 	AgentId *string `pulumi:"agentId"`
-	// Name for the agent.
+	// Name of the agent.
 	AgentName *string `pulumi:"agentName"`
-	// ARN of the Role for the agent.
+	// ARN of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn *string `pulumi:"agentResourceRoleArn"`
-	// Version of the Agent.
+	// Version of the agent.
 	AgentVersion *string `pulumi:"agentVersion"`
-	// ARN of customer manager key to use for encryption.
+	// ARN of the AWS KMS key that encrypts the agent.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Description of the agent.
 	Description *string `pulumi:"description"`
-	// Foundation model for the agent to use.
+	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
 	FoundationModel *string `pulumi:"foundationModel"`
-	// TTL in seconds for the agent to idle.
+	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions to tell agent what it should do.
+	// Instructions that tell the agent what it should do and how it should interact with users.
 	Instruction *string `pulumi:"instruction"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Prompt override configuration.
+	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string   `pulumi:"tagsAll"`
 	Timeouts *AgentAgentTimeouts `pulumi:"timeouts"`
 }
 
 type AgentAgentState struct {
-	// ARN of the Agent.
+	// ARN of the agent.
 	AgentArn pulumi.StringPtrInput
-	// ID of the Agent.
+	// Unique identifier of the agent.
 	AgentId pulumi.StringPtrInput
-	// Name for the agent.
+	// Name of the agent.
 	AgentName pulumi.StringPtrInput
-	// ARN of the Role for the agent.
+	// ARN of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn pulumi.StringPtrInput
-	// Version of the Agent.
+	// Version of the agent.
 	AgentVersion pulumi.StringPtrInput
-	// ARN of customer manager key to use for encryption.
+	// ARN of the AWS KMS key that encrypts the agent.
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	// Description of the agent.
 	Description pulumi.StringPtrInput
-	// Foundation model for the agent to use.
+	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
 	FoundationModel pulumi.StringPtrInput
-	// TTL in seconds for the agent to idle.
+	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions to tell agent what it should do.
+	// Instructions that tell the agent what it should do and how it should interact with users.
 	Instruction pulumi.StringPtrInput
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// Prompt override configuration.
+	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentAgentTimeoutsPtrInput
@@ -274,54 +284,54 @@ func (AgentAgentState) ElementType() reflect.Type {
 }
 
 type agentAgentArgs struct {
-	// Name for the agent.
+	// Name of the agent.
 	AgentName string `pulumi:"agentName"`
-	// ARN of the Role for the agent.
+	// ARN of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn string `pulumi:"agentResourceRoleArn"`
-	// ARN of customer manager key to use for encryption.
+	// ARN of the AWS KMS key that encrypts the agent.
 	CustomerEncryptionKeyArn *string `pulumi:"customerEncryptionKeyArn"`
 	// Description of the agent.
 	Description *string `pulumi:"description"`
-	// Foundation model for the agent to use.
+	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
 	FoundationModel string `pulumi:"foundationModel"`
-	// TTL in seconds for the agent to idle.
+	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions to tell agent what it should do.
+	// Instructions that tell the agent what it should do and how it should interact with users.
 	Instruction *string `pulumi:"instruction"`
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
-	// Prompt override configuration.
+	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 	PromptOverrideConfigurations []AgentAgentPromptOverrideConfiguration `pulumi:"promptOverrideConfigurations"`
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string   `pulumi:"tags"`
 	Timeouts *AgentAgentTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgent resource.
 type AgentAgentArgs struct {
-	// Name for the agent.
+	// Name of the agent.
 	AgentName pulumi.StringInput
-	// ARN of the Role for the agent.
+	// ARN of the IAM role with permissions to invoke API operations on the agent.
 	AgentResourceRoleArn pulumi.StringInput
-	// ARN of customer manager key to use for encryption.
+	// ARN of the AWS KMS key that encrypts the agent.
 	CustomerEncryptionKeyArn pulumi.StringPtrInput
 	// Description of the agent.
 	Description pulumi.StringPtrInput
-	// Foundation model for the agent to use.
+	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
 	FoundationModel pulumi.StringInput
-	// TTL in seconds for the agent to idle.
+	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions to tell agent what it should do.
+	// Instructions that tell the agent what it should do and how it should interact with users.
 	Instruction pulumi.StringPtrInput
-	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
-	// Prompt override configuration.
+	// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 	PromptOverrideConfigurations AgentAgentPromptOverrideConfigurationArrayInput
-	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts AgentAgentTimeoutsPtrInput
 }
@@ -413,32 +423,32 @@ func (o AgentAgentOutput) ToAgentAgentOutputWithContext(ctx context.Context) Age
 	return o
 }
 
-// ARN of the Agent.
+// ARN of the agent.
 func (o AgentAgentOutput) AgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentArn }).(pulumi.StringOutput)
 }
 
-// ID of the Agent.
+// Unique identifier of the agent.
 func (o AgentAgentOutput) AgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentId }).(pulumi.StringOutput)
 }
 
-// Name for the agent.
+// Name of the agent.
 func (o AgentAgentOutput) AgentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentName }).(pulumi.StringOutput)
 }
 
-// ARN of the Role for the agent.
+// ARN of the IAM role with permissions to invoke API operations on the agent.
 func (o AgentAgentOutput) AgentResourceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentResourceRoleArn }).(pulumi.StringOutput)
 }
 
-// Version of the Agent.
+// Version of the agent.
 func (o AgentAgentOutput) AgentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
 }
 
-// ARN of customer manager key to use for encryption.
+// ARN of the AWS KMS key that encrypts the agent.
 func (o AgentAgentOutput) CustomerEncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringPtrOutput { return v.CustomerEncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -448,40 +458,42 @@ func (o AgentAgentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Foundation model for the agent to use.
+// Foundation model used for orchestration by the agent.
 //
 // The following arguments are optional:
 func (o AgentAgentOutput) FoundationModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.FoundationModel }).(pulumi.StringOutput)
 }
 
-// TTL in seconds for the agent to idle.
+// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Instructions to tell agent what it should do.
+// Instructions that tell the agent what it should do and how it should interact with users.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }
 
-// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+// Whether to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
 }
 
-// Prompt override configuration.
+// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` block for details.
 func (o AgentAgentOutput) PromptOverrideConfigurations() AgentAgentPromptOverrideConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentPromptOverrideConfigurationArrayOutput {
 		return v.PromptOverrideConfigurations
 	}).(AgentAgentPromptOverrideConfigurationArrayOutput)
 }
 
-// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AgentAgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o AgentAgentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

@@ -26,12 +26,10 @@ class EnvironmentEC2Args:
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
                * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -67,12 +65,10 @@ class EnvironmentEC2Args:
     def image_id(self) -> pulumi.Input[str]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
         * `amazonlinux-2-x86_64`
         * `amazonlinux-2023-x86_64`
         * `ubuntu-18.04-x86_64`
         * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -203,12 +199,10 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
                * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -302,12 +296,10 @@ class _EnvironmentEC2State:
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
         * `amazonlinux-2-x86_64`
         * `amazonlinux-2023-x86_64`
         * `ubuntu-18.04-x86_64`
         * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -476,12 +468,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
                * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -629,12 +619,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] connection_type: The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] image_id: The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-               * `amazonlinux-1-x86_64`
                * `amazonlinux-2-x86_64`
                * `amazonlinux-2023-x86_64`
                * `ubuntu-18.04-x86_64`
                * `ubuntu-22.04-x86_64`
-               * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
                * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -702,12 +690,10 @@ class EnvironmentEC2(pulumi.CustomResource):
     def image_id(self) -> pulumi.Output[str]:
         """
         The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-        * `amazonlinux-1-x86_64`
         * `amazonlinux-2-x86_64`
         * `amazonlinux-2023-x86_64`
         * `ubuntu-18.04-x86_64`
         * `ubuntu-22.04-x86_64`
-        * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
         * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`

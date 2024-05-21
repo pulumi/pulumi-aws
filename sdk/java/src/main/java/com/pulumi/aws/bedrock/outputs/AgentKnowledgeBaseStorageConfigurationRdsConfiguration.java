@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfiguration {
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
      * 
      */
     private String credentialsSecretArn;
     /**
-     * @return The name of your Amazon RDS database.
+     * @return Name of your Amazon RDS database.
      * 
      */
     private String databaseName;
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     private @Nullable AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping;
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return ARN of the vector store.
      * 
      */
     private String resourceArn;
     /**
-     * @return The name of the table in the database.
+     * @return Name of the table in the database.
      * 
      */
     private String tableName;
 
     private AgentKnowledgeBaseStorageConfigurationRdsConfiguration() {}
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
      * 
      */
     public String credentialsSecretArn() {
         return this.credentialsSecretArn;
     }
     /**
-     * @return The name of your Amazon RDS database.
+     * @return Name of your Amazon RDS database.
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping> fieldMapping() {
         return Optional.ofNullable(this.fieldMapping);
     }
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return ARN of the vector store.
      * 
      */
     public String resourceArn() {
         return this.resourceArn;
     }
     /**
-     * @return The name of the table in the database.
+     * @return Name of the table in the database.
      * 
      */
     public String tableName() {

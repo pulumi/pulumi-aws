@@ -20,23 +20,31 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     public static final AgentAgentAliasState Empty = new AgentAgentAliasState();
 
     /**
-     * ARN of the Agent Alias.
+     * ARN of the alias.
      * 
      */
     @Import(name="agentAliasArn")
     private @Nullable Output<String> agentAliasArn;
 
     /**
-     * @return ARN of the Agent Alias.
+     * @return ARN of the alias.
      * 
      */
     public Optional<Output<String>> agentAliasArn() {
         return Optional.ofNullable(this.agentAliasArn);
     }
 
+    /**
+     * Unique identifier of the alias.
+     * 
+     */
     @Import(name="agentAliasId")
     private @Nullable Output<String> agentAliasId;
 
+    /**
+     * @return Unique identifier of the alias.
+     * 
+     */
     public Optional<Output<String>> agentAliasId() {
         return Optional.ofNullable(this.agentAliasId);
     }
@@ -59,6 +67,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     /**
      * Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
@@ -66,20 +76,22 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     /**
      * @return Identifier of the agent to create an alias for.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> agentId() {
         return Optional.ofNullable(this.agentId);
     }
 
     /**
-     * Description of the alias of the agent.
+     * Description of the alias.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the alias of the agent.
+     * @return Description of the alias.
      * 
      */
     public Optional<Output<String>> description() {
@@ -87,14 +99,14 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Routing configuration of the alias
+     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     @Import(name="routingConfigurations")
     private @Nullable Output<List<AgentAgentAliasRoutingConfigurationArgs>> routingConfigurations;
 
     /**
-     * @return Routing configuration of the alias
+     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
      * 
      */
     public Optional<Output<List<AgentAgentAliasRoutingConfigurationArgs>>> routingConfigurations() {
@@ -102,18 +114,14 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * The following arguments are optional:
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -121,6 +129,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -130,6 +140,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -179,7 +191,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param agentAliasArn ARN of the Agent Alias.
+         * @param agentAliasArn ARN of the alias.
          * 
          * @return builder
          * 
@@ -190,7 +202,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param agentAliasArn ARN of the Agent Alias.
+         * @param agentAliasArn ARN of the alias.
          * 
          * @return builder
          * 
@@ -199,11 +211,23 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
             return agentAliasArn(Output.of(agentAliasArn));
         }
 
+        /**
+         * @param agentAliasId Unique identifier of the alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentAliasId(@Nullable Output<String> agentAliasId) {
             $.agentAliasId = agentAliasId;
             return this;
         }
 
+        /**
+         * @param agentAliasId Unique identifier of the alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder agentAliasId(String agentAliasId) {
             return agentAliasId(Output.of(agentAliasId));
         }
@@ -232,6 +256,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         /**
          * @param agentId Identifier of the agent to create an alias for.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -243,6 +269,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         /**
          * @param agentId Identifier of the agent to create an alias for.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -251,7 +279,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the alias of the agent.
+         * @param description Description of the alias.
          * 
          * @return builder
          * 
@@ -262,7 +290,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Description of the alias of the agent.
+         * @param description Description of the alias.
          * 
          * @return builder
          * 
@@ -272,7 +300,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -283,7 +311,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -293,7 +321,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routingConfigurations Routing configuration of the alias
+         * @param routingConfigurations Details about the routing configuration of the alias. See `routing_configuration` block for details.
          * 
          * @return builder
          * 
@@ -303,9 +331,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * The following arguments are optional:
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -316,9 +342,7 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * The following arguments are optional:
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -328,6 +352,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -341,6 +367,8 @@ public final class AgentAgentAliasState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated

@@ -100,7 +100,7 @@ type LaunchTemplate struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -223,7 +223,7 @@ type launchTemplateState struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -317,7 +317,7 @@ type LaunchTemplateState struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -411,7 +411,7 @@ type launchTemplateArgs struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -498,7 +498,7 @@ type LaunchTemplateArgs struct {
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
-	// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+	// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -782,7 +782,7 @@ func (o LaunchTemplateOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
-// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
 func (o LaunchTemplateOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateTagSpecificationArrayOutput { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
 }

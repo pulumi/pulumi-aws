@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration
     {
         /// <summary>
-        /// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
         /// </summary>
         public readonly string CredentialsSecretArn;
         /// <summary>
-        /// The endpoint URL of the Redis Enterprise Cloud database.
+        /// Endpoint URL of the Redis Enterprise Cloud database.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Contains the names of the fields to which to map information about the vector store.
+        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping? FieldMapping;
         /// <summary>
-        /// The name of the vector store.
+        /// Name of the vector index.
         /// </summary>
         public readonly string VectorIndexName;
 

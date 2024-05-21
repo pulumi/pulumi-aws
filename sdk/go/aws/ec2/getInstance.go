@@ -132,6 +132,8 @@ type LookupInstanceResult struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Key name of the Instance.
 	KeyName string `pulumi:"keyName"`
+	// Time the instance was launched.
+	LaunchTime string `pulumi:"launchTime"`
 	// Maintenance and recovery options for the instance.
 	MaintenanceOptions []GetInstanceMaintenanceOption `pulumi:"maintenanceOptions"`
 	// Metadata options of the Instance.
@@ -350,6 +352,11 @@ func (o LookupInstanceResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 // Key name of the Instance.
 func (o LookupInstanceResultOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Time the instance was launched.
+func (o LookupInstanceResultOutput) LaunchTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.LaunchTime }).(pulumi.StringOutput)
 }
 
 // Maintenance and recovery options for the instance.

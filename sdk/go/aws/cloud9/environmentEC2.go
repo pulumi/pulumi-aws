@@ -144,12 +144,10 @@ type EnvironmentEC2 struct {
 	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
 	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -218,12 +216,10 @@ type environmentEC2State struct {
 	// The description of the environment.
 	Description *string `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
 	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -257,12 +253,10 @@ type EnvironmentEC2State struct {
 	// The description of the environment.
 	Description pulumi.StringPtrInput
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
 	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -298,12 +292,10 @@ type environmentEC2Args struct {
 	// The description of the environment.
 	Description *string `pulumi:"description"`
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
 	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -330,12 +322,10 @@ type EnvironmentEC2Args struct {
 	// The description of the environment.
 	Description pulumi.StringPtrInput
 	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-	// * `amazonlinux-1-x86_64`
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
 	// * `ubuntu-22.04-x86_64`
-	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 	// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
@@ -461,12 +451,10 @@ func (o EnvironmentEC2Output) Description() pulumi.StringPtrOutput {
 }
 
 // The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
-// * `amazonlinux-1-x86_64`
 // * `amazonlinux-2-x86_64`
 // * `amazonlinux-2023-x86_64`
 // * `ubuntu-18.04-x86_64`
 // * `ubuntu-22.04-x86_64`
-// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
 // * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
 // * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
 // * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`

@@ -112,7 +112,7 @@ class _DomainAssociationState:
         Input properties used for looking up and filtering DomainAssociation resources.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] arn: ARN for the domain association.
-        :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
+        :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
@@ -161,7 +161,7 @@ class _DomainAssociationState:
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS record for certificate verification.
+        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         """
         return pulumi.get(self, "certificate_verification_dns_record")
 
@@ -395,7 +395,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] arn: ARN for the domain association.
-        :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
+        :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
@@ -434,7 +434,7 @@ class DomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="certificateVerificationDnsRecord")
     def certificate_verification_dns_record(self) -> pulumi.Output[str]:
         """
-        The DNS record for certificate verification.
+        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         """
         return pulumi.get(self, "certificate_verification_dns_record")
 

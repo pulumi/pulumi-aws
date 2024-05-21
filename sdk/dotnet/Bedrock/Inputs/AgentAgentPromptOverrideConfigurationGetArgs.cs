@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentAgentPromptOverrideConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of Lambda to use when parsing the raw foundation model output.
+        /// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
         /// </summary>
         [Input("overrideLambda", required: true)]
         public Input<string> OverrideLambda { get; set; } = null!;
@@ -22,9 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<object>? _promptConfigurations;
 
         /// <summary>
-        /// List of prompt configurations.
-        /// 
-        /// The following arguments are optional:
+        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         /// </summary>
         public InputList<object> PromptConfigurations
         {

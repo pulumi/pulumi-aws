@@ -35,6 +35,10 @@ import * as utilities from "../utilities";
  *         notificationType: "FORECASTED",
  *         subscriberEmailAddresses: ["test@example.com"],
  *     }],
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
  * });
  * ```
  *
@@ -207,7 +211,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
     public readonly autoAdjustData!: pulumi.Output<outputs.budgets.BudgetAutoAdjustData | undefined>;
     /**
@@ -247,6 +251,16 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly plannedLimits!: pulumi.Output<outputs.budgets.BudgetPlannedLimit[] | undefined>;
     /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     public readonly timePeriodEnd!: pulumi.Output<string | undefined>;
@@ -256,6 +270,8 @@ export class Budget extends pulumi.CustomResource {
     public readonly timePeriodStart!: pulumi.Output<string>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     *
+     * The following arguments are optional:
      */
     public readonly timeUnit!: pulumi.Output<string>;
 
@@ -284,6 +300,8 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
             resourceInputs["plannedLimits"] = state ? state.plannedLimits : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timePeriodEnd"] = state ? state.timePeriodEnd : undefined;
             resourceInputs["timePeriodStart"] = state ? state.timePeriodStart : undefined;
             resourceInputs["timeUnit"] = state ? state.timeUnit : undefined;
@@ -306,10 +324,12 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
             resourceInputs["plannedLimits"] = args ? args.plannedLimits : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timePeriodEnd"] = args ? args.timePeriodEnd : undefined;
             resourceInputs["timePeriodStart"] = args ? args.timePeriodStart : undefined;
             resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
@@ -329,7 +349,7 @@ export interface BudgetState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
     autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
     /**
@@ -369,6 +389,16 @@ export interface BudgetState {
      */
     plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
     /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodEnd?: pulumi.Input<string>;
@@ -378,6 +408,8 @@ export interface BudgetState {
     timePeriodStart?: pulumi.Input<string>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     *
+     * The following arguments are optional:
      */
     timeUnit?: pulumi.Input<string>;
 }
@@ -391,7 +423,7 @@ export interface BudgetArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      */
     autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustData>;
     /**
@@ -431,6 +463,10 @@ export interface BudgetArgs {
      */
     plannedLimits?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetPlannedLimit>[]>;
     /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodEnd?: pulumi.Input<string>;
@@ -440,6 +476,8 @@ export interface BudgetArgs {
     timePeriodStart?: pulumi.Input<string>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     *
+     * The following arguments are optional:
      */
     timeUnit: pulumi.Input<string>;
 }

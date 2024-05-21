@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentAgentAliasRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Version of the agent the alias routes to.
+        /// Version of the agent with which the alias is associated.
         /// </summary>
         [Input("agentVersion", required: true)]
         public Input<string> AgentVersion { get; set; } = null!;

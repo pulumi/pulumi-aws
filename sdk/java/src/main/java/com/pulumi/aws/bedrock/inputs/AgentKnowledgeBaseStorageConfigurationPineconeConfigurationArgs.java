@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
     public static final AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs();
 
     /**
-     * The endpoint URL for your index management page.
+     * Endpoint URL for your index management page.
      * 
      */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
     /**
-     * @return The endpoint URL for your index management page.
+     * @return Endpoint URL for your index management page.
      * 
      */
     public Output<String> connectionString() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
     }
 
     /**
-     * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
      * 
      */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
      * 
      */
     public Output<String> credentialsSecretArn() {
@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
     }
 
     /**
-     * Contains the names of the fields to which to map information about the vector store.
+     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs>> fieldMapping() {
@@ -63,14 +63,14 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
     }
 
     /**
-     * The namespace to be used to write new data to your database.
+     * Namespace to be used to write new data to your database.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace to be used to write new data to your database.
+     * @return Namespace to be used to write new data to your database.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -105,7 +105,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param connectionString The endpoint URL for your index management page.
+         * @param connectionString Endpoint URL for your index management page.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param connectionString The endpoint URL for your index management page.
+         * @param connectionString Endpoint URL for your index management page.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param namespace The namespace to be used to write new data to your database.
+         * @param namespace Namespace to be used to write new data to your database.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
         }
 
         /**
-         * @param namespace The namespace to be used to write new data to your database.
+         * @param namespace Namespace to be used to write new data to your database.
          * 
          * @return builder
          * 

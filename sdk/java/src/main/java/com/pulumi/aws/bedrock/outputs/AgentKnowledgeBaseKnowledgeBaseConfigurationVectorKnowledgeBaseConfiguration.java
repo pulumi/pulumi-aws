@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration {
     /**
-     * @return The ARN of the model used to create vector embeddings for the knowledge base.
+     * @return ARN of the model used to create vector embeddings for the knowledge base.
      * 
      */
     private String embeddingModelArn;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration() {}
     /**
-     * @return The ARN of the model used to create vector embeddings for the knowledge base.
+     * @return ARN of the model used to create vector embeddings for the knowledge base.
      * 
      */
     public String embeddingModelArn() {

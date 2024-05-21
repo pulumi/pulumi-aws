@@ -12,30 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentAgentActionGroupApiSchemaS3 {
     /**
-     * @return The S3 bucket name that contains the OpenAPI Schema.
+     * @return Name of the S3 bucket.
      * 
      */
     private @Nullable String s3BucketName;
     /**
-     * @return The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-     * 
-     * The following arguments are optional:
+     * @return S3 object key containing the resource.
      * 
      */
     private @Nullable String s3ObjectKey;
 
     private AgentAgentActionGroupApiSchemaS3() {}
     /**
-     * @return The S3 bucket name that contains the OpenAPI Schema.
+     * @return Name of the S3 bucket.
      * 
      */
     public Optional<String> s3BucketName() {
         return Optional.ofNullable(this.s3BucketName);
     }
     /**
-     * @return The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-     * 
-     * The following arguments are optional:
+     * @return S3 object key containing the resource.
      * 
      */
     public Optional<String> s3ObjectKey() {

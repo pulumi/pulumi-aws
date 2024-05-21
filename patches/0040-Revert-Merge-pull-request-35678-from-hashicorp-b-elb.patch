@@ -21,7 +21,7 @@ index 106f298c02..0000000000
 -resource/aws_lb_listener_rule: Fixes unexpected diff when using `action` parameters which don't match the `type`.
 -```
 diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
-index d47935f910..e1bd664c4f 100644
+index 181c549470..c16a7351a7 100644
 --- a/internal/service/elbv2/listener.go
 +++ b/internal/service/elbv2/listener.go
 @@ -75,10 +75,9 @@ func ResourceListener() *schema.Resource {
@@ -65,7 +65,7 @@ index d47935f910..e1bd664c4f 100644
 +							MaxItems: 1,
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
- 									"content_type": {
+ 									names.AttrContentType: {
 @@ -217,10 +214,11 @@ func ResourceListener() *schema.Resource {
  							},
  						},
@@ -133,7 +133,7 @@ index d47935f910..e1bd664c4f 100644
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index 239c0c940d..00064312b9 100644
+index 5e4b6c881e..b86c1490f1 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
 @@ -11,7 +11,6 @@ import (
@@ -185,7 +185,7 @@ index 239c0c940d..00064312b9 100644
 +							MaxItems: 1,
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
- 									"content_type": {
+ 									names.AttrContentType: {
 @@ -243,10 +239,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  

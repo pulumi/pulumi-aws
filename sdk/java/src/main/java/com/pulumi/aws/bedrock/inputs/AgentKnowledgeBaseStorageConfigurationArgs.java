@@ -21,14 +21,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     public static final AgentKnowledgeBaseStorageConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationArgs();
 
     /**
-     * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+     * The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
      * 
      */
     @Import(name="opensearchServerlessConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs> opensearchServerlessConfiguration;
 
     /**
-     * @return Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+     * @return The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs>> opensearchServerlessConfiguration() {
@@ -36,14 +36,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Contains the storage configuration of the knowledge base in Pinecone.
+     * The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
      * 
      */
     @Import(name="pineconeConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs> pineconeConfiguration;
 
     /**
-     * @return Contains the storage configuration of the knowledge base in Pinecone.
+     * @return The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs>> pineconeConfiguration() {
@@ -51,14 +51,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+     * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
      * 
      */
     @Import(name="rdsConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs> rdsConfiguration;
 
     /**
-     * @return Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+     * @return Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs>> rdsConfiguration() {
@@ -66,14 +66,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+     * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
      * 
      */
     @Import(name="redisEnterpriseCloudConfiguration")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs> redisEnterpriseCloudConfiguration;
 
     /**
-     * @return Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+     * @return The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs>> redisEnterpriseCloudConfiguration() {
@@ -81,14 +81,14 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+     * @return Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
      * 
      */
     public Output<String> type() {
@@ -124,7 +124,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchServerlessConfiguration Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+         * @param opensearchServerlessConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param opensearchServerlessConfiguration Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+         * @param opensearchServerlessConfiguration The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param pineconeConfiguration Contains the storage configuration of the knowledge base in Pinecone.
+         * @param pineconeConfiguration The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param pineconeConfiguration Contains the storage configuration of the knowledge base in Pinecone.
+         * @param pineconeConfiguration The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param rdsConfiguration Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param rdsConfiguration Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+         * @param rdsConfiguration Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param redisEnterpriseCloudConfiguration Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+         * @param redisEnterpriseCloudConfiguration The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param redisEnterpriseCloudConfiguration Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+         * @param redisEnterpriseCloudConfiguration The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * @param type Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+         * @param type Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ public final class DomainAssociationSubDomain {
      */
     private String branchName;
     /**
-     * @return DNS record for the subdomain.
+     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
      * 
      */
     private @Nullable String dnsRecord;
@@ -43,7 +43,7 @@ public final class DomainAssociationSubDomain {
         return this.branchName;
     }
     /**
-     * @return DNS record for the subdomain.
+     * @return DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
      * 
      */
     public Optional<String> dnsRecord() {

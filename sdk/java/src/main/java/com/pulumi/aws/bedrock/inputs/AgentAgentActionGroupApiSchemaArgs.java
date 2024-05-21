@@ -17,14 +17,14 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
     public static final AgentAgentActionGroupApiSchemaArgs Empty = new AgentAgentActionGroupApiSchemaArgs();
 
     /**
-     * YAML or JSON OpenAPI Schema.
+     * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
      * 
      */
     @Import(name="payload")
     private @Nullable Output<String> payload;
 
     /**
-     * @return YAML or JSON OpenAPI Schema.
+     * @return JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
      * 
      */
     public Optional<Output<String>> payload() {
@@ -32,14 +32,14 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
     }
 
     /**
-     * Configuration of S3 schema location
+     * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentAgentActionGroupApiSchemaS3Args> s3;
 
     /**
-     * @return Configuration of S3 schema location
+     * @return Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupApiSchemaS3Args>> s3() {
@@ -72,7 +72,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param payload YAML or JSON OpenAPI Schema.
+         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param payload YAML or JSON OpenAPI Schema.
+         * @param payload JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param s3 Configuration of S3 schema location
+         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentAgentActionGroupApiSchemaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param s3 Configuration of S3 schema location
+         * @param s3 Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
          * 
          * @return builder
          * 

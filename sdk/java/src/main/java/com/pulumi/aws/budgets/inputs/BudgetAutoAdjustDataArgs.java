@@ -17,23 +17,47 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
 
     public static final BudgetAutoAdjustDataArgs Empty = new BudgetAutoAdjustDataArgs();
 
+    /**
+     * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * 
+     */
     @Import(name="autoAdjustType", required=true)
     private Output<String> autoAdjustType;
 
+    /**
+     * @return (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+     * 
+     */
     public Output<String> autoAdjustType() {
         return this.autoAdjustType;
     }
 
+    /**
+     * (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * 
+     */
     @Import(name="historicalOptions")
     private @Nullable Output<BudgetAutoAdjustDataHistoricalOptionsArgs> historicalOptions;
 
+    /**
+     * @return (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+     * 
+     */
     public Optional<Output<BudgetAutoAdjustDataHistoricalOptionsArgs>> historicalOptions() {
         return Optional.ofNullable(this.historicalOptions);
     }
 
+    /**
+     * (Optional) - The last time that your budget was auto-adjusted.
+     * 
+     */
     @Import(name="lastAutoAdjustTime")
     private @Nullable Output<String> lastAutoAdjustTime;
 
+    /**
+     * @return (Optional) - The last time that your budget was auto-adjusted.
+     * 
+     */
     public Optional<Output<String>> lastAutoAdjustTime() {
         return Optional.ofNullable(this.lastAutoAdjustTime);
     }
@@ -64,29 +88,65 @@ public final class BudgetAutoAdjustDataArgs extends com.pulumi.resources.Resourc
             $ = new BudgetAutoAdjustDataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoAdjustType (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoAdjustType(Output<String> autoAdjustType) {
             $.autoAdjustType = autoAdjustType;
             return this;
         }
 
+        /**
+         * @param autoAdjustType (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoAdjustType(String autoAdjustType) {
             return autoAdjustType(Output.of(autoAdjustType));
         }
 
+        /**
+         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder historicalOptions(@Nullable Output<BudgetAutoAdjustDataHistoricalOptionsArgs> historicalOptions) {
             $.historicalOptions = historicalOptions;
             return this;
         }
 
+        /**
+         * @param historicalOptions (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder historicalOptions(BudgetAutoAdjustDataHistoricalOptionsArgs historicalOptions) {
             return historicalOptions(Output.of(historicalOptions));
         }
 
+        /**
+         * @param lastAutoAdjustTime (Optional) - The last time that your budget was auto-adjusted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastAutoAdjustTime(@Nullable Output<String> lastAutoAdjustTime) {
             $.lastAutoAdjustTime = lastAutoAdjustTime;
             return this;
         }
 
+        /**
+         * @param lastAutoAdjustTime (Optional) - The last time that your budget was auto-adjusted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastAutoAdjustTime(String lastAutoAdjustTime) {
             return lastAutoAdjustTime(Output.of(lastAutoAdjustTime));
         }

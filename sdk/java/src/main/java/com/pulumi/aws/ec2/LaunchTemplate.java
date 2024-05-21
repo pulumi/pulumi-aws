@@ -546,14 +546,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupNames);
     }
     /**
-     * The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
     @Export(name="tagSpecifications", refs={List.class,LaunchTemplateTagSpecification.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchTemplateTagSpecification>> tagSpecifications;
 
     /**
-     * @return The tags to apply to the resources during launch. See Tag Specifications below for more details.
+     * @return The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
     public Output<Optional<List<LaunchTemplateTagSpecification>>> tagSpecifications() {

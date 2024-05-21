@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS record for certificate verification.
+        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
         /// </summary>
         [Output("certificateVerificationDnsRecord")]
         public Output<string> CertificateVerificationDnsRecord { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The DNS record for certificate verification.
+        /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
         /// </summary>
         [Input("certificateVerificationDnsRecord")]
         public Input<string>? CertificateVerificationDnsRecord { get; set; }

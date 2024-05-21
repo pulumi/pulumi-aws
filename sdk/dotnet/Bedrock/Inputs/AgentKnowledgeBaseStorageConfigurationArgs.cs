@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+        /// The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
         /// </summary>
         [Input("opensearchServerlessConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs>? OpensearchServerlessConfiguration { get; set; }
 
         /// <summary>
-        /// Contains the storage configuration of the knowledge base in Pinecone.
+        /// The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
         /// </summary>
         [Input("pineconeConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs>? PineconeConfiguration { get; set; }
 
         /// <summary>
-        /// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
+        /// Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
         /// </summary>
         [Input("rdsConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs>? RdsConfiguration { get; set; }
 
         /// <summary>
-        /// Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.
+        /// The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
         /// </summary>
         [Input("redisEnterpriseCloudConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs>? RedisEnterpriseCloudConfiguration { get; set; }
 
         /// <summary>
-        /// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        /// Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

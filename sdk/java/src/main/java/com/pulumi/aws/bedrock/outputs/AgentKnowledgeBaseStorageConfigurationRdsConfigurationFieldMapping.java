@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     private String metadataField;
     /**
-     * @return The name of the field in which Amazon Bedrock stores the ID for each entry.
+     * @return Name of the field in which Amazon Bedrock stores the ID for each entry.
      * 
      */
     private String primaryKeyField;
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     private String textField;
     /**
-     * @return The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
     private String vectorField;
 
     private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping() {}
     /**
-     * @return The name of the field in which Amazon Bedrock stores metadata about the vector store.
+     * @return Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
     public String metadataField() {
         return this.metadataField;
     }
     /**
-     * @return The name of the field in which Amazon Bedrock stores the ID for each entry.
+     * @return Name of the field in which Amazon Bedrock stores the ID for each entry.
      * 
      */
     public String primaryKeyField() {
         return this.primaryKeyField;
     }
     /**
-     * @return The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+     * @return Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
     public String textField() {
         return this.textField;
     }
     /**
-     * @return The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+     * @return Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
     public String vectorField() {

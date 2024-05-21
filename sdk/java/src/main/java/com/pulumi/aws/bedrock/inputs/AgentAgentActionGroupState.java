@@ -19,58 +19,74 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     public static final AgentAgentActionGroupState Empty = new AgentAgentActionGroupState();
 
     /**
-     * Configuration of the executor for the Action Group.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
      * 
      */
     @Import(name="actionGroupExecutor")
     private @Nullable Output<AgentAgentActionGroupActionGroupExecutorArgs> actionGroupExecutor;
 
     /**
-     * @return Configuration of the executor for the Action Group.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupActionGroupExecutorArgs>> actionGroupExecutor() {
         return Optional.ofNullable(this.actionGroupExecutor);
     }
 
+    /**
+     * Unique identifier of the action group.
+     * 
+     */
     @Import(name="actionGroupId")
     private @Nullable Output<String> actionGroupId;
 
+    /**
+     * @return Unique identifier of the action group.
+     * 
+     */
     public Optional<Output<String>> actionGroupId() {
         return Optional.ofNullable(this.actionGroupId);
     }
 
     /**
-     * Name of the Agent Action Group.
+     * Name of the action group.
      * 
      */
     @Import(name="actionGroupName")
     private @Nullable Output<String> actionGroupName;
 
     /**
-     * @return Name of the Agent Action Group.
+     * @return Name of the action group.
      * 
      */
     public Optional<Output<String>> actionGroupName() {
         return Optional.ofNullable(this.actionGroupName);
     }
 
+    /**
+     * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     @Import(name="actionGroupState")
     private @Nullable Output<String> actionGroupState;
 
+    /**
+     * @return Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+     * 
+     */
     public Optional<Output<String>> actionGroupState() {
         return Optional.ofNullable(this.actionGroupState);
     }
 
     /**
-     * Id of the Agent for the Action Group.
+     * The unique identifier of the agent for which to create the action group.
      * 
      */
     @Import(name="agentId")
     private @Nullable Output<String> agentId;
 
     /**
-     * @return Id of the Agent for the Action Group.
+     * @return The unique identifier of the agent for which to create the action group.
      * 
      */
     public Optional<Output<String>> agentId() {
@@ -78,14 +94,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Version of the Agent to attach the Action Group to.
+     * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
     @Import(name="agentVersion")
     private @Nullable Output<String> agentVersion;
 
     /**
-     * @return Version of the Agent to attach the Action Group to.
+     * @return Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
     public Optional<Output<String>> agentVersion() {
@@ -93,37 +109,65 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Configuration of the API Schema for the Action Group.
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="apiSchema")
     private @Nullable Output<AgentAgentActionGroupApiSchemaArgs> apiSchema;
 
     /**
-     * @return Configuration of the API Schema for the Action Group.
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentAgentActionGroupApiSchemaArgs>> apiSchema() {
         return Optional.ofNullable(this.apiSchema);
     }
 
+    /**
+     * Description of the action group.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the action group.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * 
+     */
     @Import(name="parentActionGroupSignature")
     private @Nullable Output<String> parentActionGroupSignature;
 
+    /**
+     * @return To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+     * 
+     */
     public Optional<Output<String>> parentActionGroupSignature() {
         return Optional.ofNullable(this.parentActionGroupSignature);
     }
 
+    /**
+     * Whether the in-use check is skipped when deleting the action group.
+     * 
+     */
     @Import(name="skipResourceInUseCheck")
     private @Nullable Output<Boolean> skipResourceInUseCheck;
 
+    /**
+     * @return Whether the in-use check is skipped when deleting the action group.
+     * 
+     */
     public Optional<Output<Boolean>> skipResourceInUseCheck() {
         return Optional.ofNullable(this.skipResourceInUseCheck);
     }
@@ -162,7 +206,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor Configuration of the executor for the Action Group.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
          * 
          * @return builder
          * 
@@ -173,7 +217,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor Configuration of the executor for the Action Group.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
          * 
          * @return builder
          * 
@@ -182,17 +226,29 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
             return actionGroupExecutor(Output.of(actionGroupExecutor));
         }
 
+        /**
+         * @param actionGroupId Unique identifier of the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionGroupId(@Nullable Output<String> actionGroupId) {
             $.actionGroupId = actionGroupId;
             return this;
         }
 
+        /**
+         * @param actionGroupId Unique identifier of the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionGroupId(String actionGroupId) {
             return actionGroupId(Output.of(actionGroupId));
         }
 
         /**
-         * @param actionGroupName Name of the Agent Action Group.
+         * @param actionGroupName Name of the action group.
          * 
          * @return builder
          * 
@@ -203,7 +259,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupName Name of the Agent Action Group.
+         * @param actionGroupName Name of the action group.
          * 
          * @return builder
          * 
@@ -212,17 +268,29 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
             return actionGroupName(Output.of(actionGroupName));
         }
 
+        /**
+         * @param actionGroupState Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionGroupState(@Nullable Output<String> actionGroupState) {
             $.actionGroupState = actionGroupState;
             return this;
         }
 
+        /**
+         * @param actionGroupState Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actionGroupState(String actionGroupState) {
             return actionGroupState(Output.of(actionGroupState));
         }
 
         /**
-         * @param agentId Id of the Agent for the Action Group.
+         * @param agentId The unique identifier of the agent for which to create the action group.
          * 
          * @return builder
          * 
@@ -233,7 +301,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentId Id of the Agent for the Action Group.
+         * @param agentId The unique identifier of the agent for which to create the action group.
          * 
          * @return builder
          * 
@@ -243,7 +311,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentVersion Version of the Agent to attach the Action Group to.
+         * @param agentVersion Version of the agent for which to create the action group. Valid values: `DRAFT`.
          * 
          * @return builder
          * 
@@ -254,7 +322,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentVersion Version of the Agent to attach the Action Group to.
+         * @param agentVersion Version of the agent for which to create the action group. Valid values: `DRAFT`.
          * 
          * @return builder
          * 
@@ -264,7 +332,9 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Configuration of the API Schema for the Action Group.
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -275,7 +345,9 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Configuration of the API Schema for the Action Group.
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -284,29 +356,65 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
             return apiSchema(Output.of(apiSchema));
         }
 
+        /**
+         * @param description Description of the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentActionGroupSignature(@Nullable Output<String> parentActionGroupSignature) {
             $.parentActionGroupSignature = parentActionGroupSignature;
             return this;
         }
 
+        /**
+         * @param parentActionGroupSignature To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parentActionGroupSignature(String parentActionGroupSignature) {
             return parentActionGroupSignature(Output.of(parentActionGroupSignature));
         }
 
+        /**
+         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipResourceInUseCheck(@Nullable Output<Boolean> skipResourceInUseCheck) {
             $.skipResourceInUseCheck = skipResourceInUseCheck;
             return this;
         }
 
+        /**
+         * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the action group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipResourceInUseCheck(Boolean skipResourceInUseCheck) {
             return skipResourceInUseCheck(Output.of(skipResourceInUseCheck));
         }

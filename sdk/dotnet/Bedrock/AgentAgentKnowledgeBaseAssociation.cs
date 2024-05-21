@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentAgentKnowledgeBaseAssociation("example", new()
     ///     {
-    ///         AgentId = "012EXAMPLE",
+    ///         AgentId = "GGRRAED6JP",
     ///         Description = "Example Knowledge base",
-    ///         KnowledgeBaseId = "345EXAMPLE",
+    ///         KnowledgeBaseId = "EMDPPAYPZI",
     ///         KnowledgeBaseState = "ENABLED",
     ///     });
     /// 
@@ -37,41 +37,41 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the `012AGENTID-DRAFT-345678KBID`. For example:
+    /// Using `pulumi import`, import Agents for Amazon Bedrock Agent Knowledge Base Association using the agent ID, the agent version, and the knowledge base ID separated by `,`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example 012AGENTID-DRAFT-345678KBID
+    /// $ pulumi import aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation example GGRRAED6JP,DRAFT,EMDPPAYPZI
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")]
     public partial class AgentAgentKnowledgeBaseAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the agent to associate.
+        /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
         [Output("agentId")]
         public Output<string> AgentId { get; private set; } = null!;
 
         /// <summary>
-        /// Agent version to associate the Knowledge Base to, currently only DRAFT.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the association.
+        /// Description of what the agent should use the knowledge base for.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Knowledge Base to associate.
+        /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
         [Output("knowledgeBaseId")]
         public Output<string> KnowledgeBaseId { get; private set; } = null!;
 
         /// <summary>
-        /// State of the association ENABLED or DISABLED.
+        /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -125,31 +125,31 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentKnowledgeBaseAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the agent to associate.
+        /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
         [Input("agentId", required: true)]
         public Input<string> AgentId { get; set; } = null!;
 
         /// <summary>
-        /// Agent version to associate the Knowledge Base to, currently only DRAFT.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
-        /// Description of the association.
+        /// Description of what the agent should use the knowledge base for.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Knowledge Base to associate.
+        /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
         [Input("knowledgeBaseId", required: true)]
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
         /// <summary>
-        /// State of the association ENABLED or DISABLED.
+        /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -165,31 +165,31 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentKnowledgeBaseAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the agent to associate.
+        /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
         [Input("agentId")]
         public Input<string>? AgentId { get; set; }
 
         /// <summary>
-        /// Agent version to associate the Knowledge Base to, currently only DRAFT.
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
-        /// Description of the association.
+        /// Description of what the agent should use the knowledge base for.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Knowledge Base to associate.
+        /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
         [Input("knowledgeBaseId")]
         public Input<string>? KnowledgeBaseId { get; set; }
 
         /// <summary>
-        /// State of the association ENABLED or DISABLED.
+        /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>

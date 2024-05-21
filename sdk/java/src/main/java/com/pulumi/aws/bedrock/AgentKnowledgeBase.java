@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AgentKnowledgeBase("test", AgentKnowledgeBaseArgs.builder()        
+ *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()        
  *             .name("example")
- *             .roleArn(example.arn())
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
  *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
  *                 .type("OPENSEARCH_SERVERLESS")
  *                 .opensearchServerlessConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs.builder()
- *                     .collectionArn("arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf")
+ *                     .collectionArn("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf")
  *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs.builder()
  *                         .vectorField("bedrock-knowledge-base-default-vector")
@@ -83,44 +83,52 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the `Q1IYMH6GQG`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the knowledge base ID. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example Q1IYMH6GQG
+ * $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")
 public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the knowledge base.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the Knowledge Base. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the knowledge base.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Time at which the knowledge base was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return Time at which the knowledge base was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the knowledge base.
+     * @return Description of the knowledge base.
      * 
      */
     public Output<Optional<String>> description() {
@@ -133,76 +141,82 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
         return this.failureReasons;
     }
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     @Export(name="knowledgeBaseConfiguration", refs={AgentKnowledgeBaseKnowledgeBaseConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
 
     /**
-     * @return Contains details about the embeddings model used for the knowledge base.
+     * @return Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
     public Output<Optional<AgentKnowledgeBaseKnowledgeBaseConfiguration>> knowledgeBaseConfiguration() {
         return Codegen.optional(this.knowledgeBaseConfiguration);
     }
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the knowledge base.
+     * @return Name of the knowledge base.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role with permissions to create the knowledge base.
+     * @return ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="storageConfiguration", refs={AgentKnowledgeBaseStorageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
 
     /**
-     * @return Contains details about the configuration of the vector database used for the knowledge base.
+     * @return Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<AgentKnowledgeBaseStorageConfiguration>> storageConfiguration() {
         return Codegen.optional(this.storageConfiguration);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -211,6 +225,10 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
@@ -220,9 +238,17 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
     public Output<Optional<AgentKnowledgeBaseTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * Time at which the knowledge base was last updated.
+     * 
+     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
+    /**
+     * @return Time at which the knowledge base was last updated.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

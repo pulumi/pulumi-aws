@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+        /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchTemplateTagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
-        /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+        /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
         public InputList<Inputs.LaunchTemplateTagSpecificationArgs> TagSpecifications
         {
@@ -852,7 +852,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.LaunchTemplateTagSpecificationGetArgs>? _tagSpecifications;
 
         /// <summary>
-        /// The tags to apply to the resources during launch. See Tag Specifications below for more details.
+        /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
         public InputList<Inputs.LaunchTemplateTagSpecificationGetArgs> TagSpecifications
         {

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the OpenSearch Service vector store.
+        /// ARN of the OpenSearch Service vector store.
         /// </summary>
         [Input("collectionArn", required: true)]
         public Input<string> CollectionArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains the names of the fields to which to map information about the vector store.
+        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
         [Input("fieldMapping")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingGetArgs>? FieldMapping { get; set; }
 
         /// <summary>
-        /// The name of the vector store.
+        /// Name of the vector store.
         /// </summary>
         [Input("vectorIndexName", required: true)]
         public Input<string> VectorIndexName { get; set; } = null!;

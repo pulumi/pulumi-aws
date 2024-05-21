@@ -19,7 +19,7 @@ index e4c13754ab..cb4258a1e8 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/eks/pod_identity_association.go b/internal/service/eks/pod_identity_association.go
-index 421077d389..f8dc17e1cd 100644
+index 0f9499ef34..30407342fd 100644
 --- a/internal/service/eks/pod_identity_association.go
 +++ b/internal/service/eks/pod_identity_association.go
 @@ -105,7 +105,7 @@ func (r *podIdentityAssociationResource) Schema(ctx context.Context, req resourc
@@ -58,7 +58,7 @@ index 7fca401a6e..b4cc558fa4 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grants_location.go b/internal/service/s3control/access_grants_location.go
-index a8e540e057..bb01d64ffb 100644
+index 1e52ad62a3..1056b0c429 100644
 --- a/internal/service/s3control/access_grants_location.go
 +++ b/internal/service/s3control/access_grants_location.go
 @@ -84,7 +84,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou

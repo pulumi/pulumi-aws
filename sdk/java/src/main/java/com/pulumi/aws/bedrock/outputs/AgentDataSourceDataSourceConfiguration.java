@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfiguration {
+    /**
+     * @return Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+     * 
+     */
     private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
+    /**
+     * @return Type of storage for the data source. Valid values: `S3`.
+     * 
+     */
     private String type;
 
     private AgentDataSourceDataSourceConfiguration() {}
+    /**
+     * @return Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+     * 
+     */
     public Optional<AgentDataSourceDataSourceConfigurationS3Configuration> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
+    /**
+     * @return Type of storage for the data source. Valid values: `S3`.
+     * 
+     */
     public String type() {
         return this.type;
     }

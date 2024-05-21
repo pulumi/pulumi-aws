@@ -13,15 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentAgentActionGroupApiSchemaS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 bucket name that contains the OpenAPI Schema.
+        /// Name of the S3 bucket.
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
         /// <summary>
-        /// The S3 Object Key for the OpenAPI Schema in the S3 Bucket.
-        /// 
-        /// The following arguments are optional:
+        /// S3 object key containing the resource.
         /// </summary>
         [Input("s3ObjectKey")]
         public Input<string>? S3ObjectKey { get; set; }

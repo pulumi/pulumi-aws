@@ -17,6 +17,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -69,6 +70,10 @@ import javax.annotation.Nullable;
  *                 .notificationType("FORECASTED")
  *                 .subscriberEmailAddresses("test{@literal @}example.com")
  *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Tag1", "Value1"),
+ *                 Map.entry("Tag2", "Value2")
+ *             ))
  *             .build());
  * 
  *     }
@@ -420,14 +425,14 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      * 
      */
     @Export(name="autoAdjustData", refs={BudgetAutoAdjustData.class}, tree="[0]")
     private Output</* @Nullable */ BudgetAutoAdjustData> autoAdjustData;
 
     /**
-     * @return Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
+     * @return Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      * 
      */
     public Output<Optional<BudgetAutoAdjustData>> autoAdjustData() {
@@ -560,6 +565,38 @@ public class Budget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.plannedLimits);
     }
     /**
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
@@ -590,12 +627,16 @@ public class Budget extends com.pulumi.resources.CustomResource {
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="timeUnit", refs={String.class}, tree="[0]")
     private Output<String> timeUnit;
 
     /**
      * @return The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> timeUnit() {

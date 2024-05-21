@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentAgentActionGroupActionGroupExecutor {
     /**
-     * @return ARN of the Lambda that defines the business logic for the action group.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
      * 
      */
     private @Nullable String lambda;
 
     private AgentAgentActionGroupActionGroupExecutor() {}
     /**
-     * @return ARN of the Lambda that defines the business logic for the action group.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
      * 
      */
     public Optional<String> lambda() {

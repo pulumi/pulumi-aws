@@ -15,14 +15,14 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
     public static final AgentAgentAliasRoutingConfigurationArgs Empty = new AgentAgentAliasRoutingConfigurationArgs();
 
     /**
-     * Version of the agent the alias routes to.
+     * Version of the agent with which the alias is associated.
      * 
      */
     @Import(name="agentVersion", required=true)
     private Output<String> agentVersion;
 
     /**
-     * @return Version of the agent the alias routes to.
+     * @return Version of the agent with which the alias is associated.
      * 
      */
     public Output<String> agentVersion() {
@@ -54,7 +54,7 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param agentVersion Version of the agent the alias routes to.
+         * @param agentVersion Version of the agent with which the alias is associated.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentAgentAliasRoutingConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param agentVersion Version of the agent the alias routes to.
+         * @param agentVersion Version of the agent with which the alias is associated.
          * 
          * @return builder
          * 

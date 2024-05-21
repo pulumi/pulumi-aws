@@ -14,16 +14,32 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
 
     public static final AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs();
 
+    /**
+     * Maximum number of tokens to include in a chunk.
+     * 
+     */
     @Import(name="maxTokens", required=true)
     private Output<Integer> maxTokens;
 
+    /**
+     * @return Maximum number of tokens to include in a chunk.
+     * 
+     */
     public Output<Integer> maxTokens() {
         return this.maxTokens;
     }
 
+    /**
+     * Percentage of overlap between adjacent chunks of a data source.
+     * 
+     */
     @Import(name="overlapPercentage", required=true)
     private Output<Integer> overlapPercentage;
 
+    /**
+     * @return Percentage of overlap between adjacent chunks of a data source.
+     * 
+     */
     public Output<Integer> overlapPercentage() {
         return this.overlapPercentage;
     }
@@ -53,20 +69,44 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             $ = new AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxTokens Maximum number of tokens to include in a chunk.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxTokens(Output<Integer> maxTokens) {
             $.maxTokens = maxTokens;
             return this;
         }
 
+        /**
+         * @param maxTokens Maximum number of tokens to include in a chunk.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxTokens(Integer maxTokens) {
             return maxTokens(Output.of(maxTokens));
         }
 
+        /**
+         * @param overlapPercentage Percentage of overlap between adjacent chunks of a data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overlapPercentage(Output<Integer> overlapPercentage) {
             $.overlapPercentage = overlapPercentage;
             return this;
         }
 
+        /**
+         * @param overlapPercentage Percentage of overlap between adjacent chunks of a data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overlapPercentage(Integer overlapPercentage) {
             return overlapPercentage(Output.of(overlapPercentage));
         }

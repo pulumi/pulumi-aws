@@ -61,7 +61,7 @@ type Collection struct {
 	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
 	// The Face Model Version that the collection was initialized with
 	FaceModelVersion pulumi.StringOutput `pulumi:"faceModelVersion"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -111,7 +111,7 @@ type collectionState struct {
 	CollectionId *string `pulumi:"collectionId"`
 	// The Face Model Version that the collection was initialized with
 	FaceModelVersion *string `pulumi:"faceModelVersion"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -129,7 +129,7 @@ type CollectionState struct {
 	CollectionId pulumi.StringPtrInput
 	// The Face Model Version that the collection was initialized with
 	FaceModelVersion pulumi.StringPtrInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -147,7 +147,7 @@ type collectionArgs struct {
 	//
 	// The following arguments are optional:
 	CollectionId string `pulumi:"collectionId"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string   `pulumi:"tags"`
 	Timeouts *CollectionTimeouts `pulumi:"timeouts"`
 }
@@ -158,7 +158,7 @@ type CollectionArgs struct {
 	//
 	// The following arguments are optional:
 	CollectionId pulumi.StringInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts CollectionTimeoutsPtrInput
 }
@@ -267,7 +267,7 @@ func (o CollectionOutput) FaceModelVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.FaceModelVersion }).(pulumi.StringOutput)
 }
 
-// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

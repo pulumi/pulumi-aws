@@ -13,30 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class AgentAgentPromptOverrideConfiguration {
     /**
-     * @return ARN of Lambda to use when parsing the raw foundation model output.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
      * 
      */
     private String overrideLambda;
     /**
-     * @return List of prompt configurations.
-     * 
-     * The following arguments are optional:
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
      * 
      */
     private List<Object> promptConfigurations;
 
     private AgentAgentPromptOverrideConfiguration() {}
     /**
-     * @return ARN of Lambda to use when parsing the raw foundation model output.
+     * @return ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
      * 
      */
     public String overrideLambda() {
         return this.overrideLambda;
     }
     /**
-     * @return List of prompt configurations.
-     * 
-     * The following arguments are optional:
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
      * 
      */
     public List<Object> promptConfigurations() {

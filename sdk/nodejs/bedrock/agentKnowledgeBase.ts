@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.bedrock.AgentKnowledgeBase("test", {
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
  *     name: "example",
- *     roleArn: example.arn,
+ *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
  *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v1",
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     storageConfiguration: {
  *         type: "OPENSEARCH_SERVERLESS",
  *         opensearchServerlessConfiguration: {
- *             collectionArn: "arn:aws:aoss:us-west-2:1234567890:collection/142bezjddq707i5stcrf",
+ *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
  *             vectorIndexName: "bedrock-knowledge-base-default-index",
  *             fieldMapping: {
  *                 vectorField: "bedrock-knowledge-base-default-vector",
@@ -42,10 +42,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the `Q1IYMH6GQG`. For example:
+ * Using `pulumi import`, import Agents for Amazon Bedrock Knowledge Base using the knowledge base ID. For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example Q1IYMH6GQG
+ * $ pulumi import aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase example EMDPPAYPZI
  * ```
  */
 export class AgentKnowledgeBase extends pulumi.CustomResource {
@@ -77,40 +77,50 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the knowledge base.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Time at which the knowledge base was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly failureReasons!: pulumi.Output<string[]>;
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
     public readonly knowledgeBaseConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     *
+     * The following arguments are optional:
      */
     public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseStorageConfiguration | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
+    /**
+     * Time at which the knowledge base was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -166,40 +176,50 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
  */
 export interface AgentKnowledgeBaseState {
     /**
-     * ARN of the Knowledge Base. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+     * ARN of the knowledge base.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Time at which the knowledge base was created.
+     */
     createdAt?: pulumi.Input<string>;
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      */
     description?: pulumi.Input<string>;
     failureReasons?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
     knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     *
+     * The following arguments are optional:
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
+    /**
+     * Time at which the knowledge base was last updated.
+     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -208,27 +228,29 @@ export interface AgentKnowledgeBaseState {
  */
 export interface AgentKnowledgeBaseArgs {
     /**
-     * A description of the knowledge base.
+     * Description of the knowledge base.
      */
     description?: pulumi.Input<string>;
     /**
-     * Contains details about the embeddings model used for the knowledge base.
+     * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
     knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
-     * A name for the knowledge base.
+     * Name of the knowledge base.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of the IAM role with permissions to create the knowledge base.
+     * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Contains details about the configuration of the vector database used for the knowledge base.
+     * Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
+     *
+     * The following arguments are optional:
      */
     storageConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseStorageConfiguration>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;

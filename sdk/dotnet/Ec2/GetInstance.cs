@@ -327,6 +327,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string KeyName;
         /// <summary>
+        /// Time the instance was launched.
+        /// </summary>
+        public readonly string LaunchTime;
+        /// <summary>
         /// Maintenance and recovery options for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> MaintenanceOptions;
@@ -469,6 +473,8 @@ namespace Pulumi.Aws.Ec2
 
             string keyName,
 
+            string launchTime,
+
             ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> maintenanceOptions,
 
             ImmutableArray<Outputs.GetInstanceMetadataOptionResult> metadataOptions,
@@ -539,6 +545,7 @@ namespace Pulumi.Aws.Ec2
             InstanceType = instanceType;
             Ipv6Addresses = ipv6Addresses;
             KeyName = keyName;
+            LaunchTime = launchTime;
             MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;

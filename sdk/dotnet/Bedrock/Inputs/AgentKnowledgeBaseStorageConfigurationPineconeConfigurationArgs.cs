@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint URL for your index management page.
+        /// Endpoint URL for your index management page.
         /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         /// </summary>
         [Input("credentialsSecretArn", required: true)]
         public Input<string> CredentialsSecretArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains the names of the fields to which to map information about the vector store.
+        /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
         [Input("fieldMapping")]
         public Input<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs>? FieldMapping { get; set; }
 
         /// <summary>
-        /// The namespace to be used to write new data to your database.
+        /// Namespace to be used to write new data to your database.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

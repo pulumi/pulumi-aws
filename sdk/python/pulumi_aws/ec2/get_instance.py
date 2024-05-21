@@ -23,7 +23,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, launch_time=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -96,6 +96,9 @@ class GetInstanceResult:
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
+        if launch_time and not isinstance(launch_time, str):
+            raise TypeError("Expected argument 'launch_time' to be a str")
+        pulumi.set(__self__, "launch_time", launch_time)
         if maintenance_options and not isinstance(maintenance_options, list):
             raise TypeError("Expected argument 'maintenance_options' to be a list")
         pulumi.set(__self__, "maintenance_options", maintenance_options)
@@ -344,6 +347,14 @@ class GetInstanceResult:
         return pulumi.get(self, "key_name")
 
     @property
+    @pulumi.getter(name="launchTime")
+    def launch_time(self) -> str:
+        """
+        Time the instance was launched.
+        """
+        return pulumi.get(self, "launch_time")
+
+    @property
     @pulumi.getter(name="maintenanceOptions")
     def maintenance_options(self) -> Sequence['outputs.GetInstanceMaintenanceOptionResult']:
         """
@@ -558,6 +569,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             instance_type=self.instance_type,
             ipv6_addresses=self.ipv6_addresses,
             key_name=self.key_name,
+            launch_time=self.launch_time,
             maintenance_options=self.maintenance_options,
             metadata_options=self.metadata_options,
             monitoring=self.monitoring,
@@ -664,6 +676,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         instance_type=pulumi.get(__ret__, 'instance_type'),
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         key_name=pulumi.get(__ret__, 'key_name'),
+        launch_time=pulumi.get(__ret__, 'launch_time'),
         maintenance_options=pulumi.get(__ret__, 'maintenance_options'),
         metadata_options=pulumi.get(__ret__, 'metadata_options'),
         monitoring=pulumi.get(__ret__, 'monitoring'),

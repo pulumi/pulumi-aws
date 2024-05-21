@@ -30,6 +30,7 @@ export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Pro
         "accountId": args.accountId,
         "name": args.name,
         "namePrefix": args.namePrefix,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -51,6 +52,10 @@ export interface GetBudgetArgs {
      * The prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -102,6 +107,10 @@ export interface GetBudgetResult {
      */
     readonly plannedLimits: outputs.budgets.GetBudgetPlannedLimit[];
     /**
+     * Map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      */
     readonly timePeriodEnd: string;
@@ -152,4 +161,8 @@ export interface GetBudgetOutputArgs {
      * The prefix of the name of a budget. Unique within accounts.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

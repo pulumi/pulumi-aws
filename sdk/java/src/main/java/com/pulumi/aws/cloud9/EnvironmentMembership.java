@@ -120,14 +120,14 @@ public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
         return this.userArn;
     }
     /**
-     * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+     * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+     * @return The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
     public Output<String> userId() {

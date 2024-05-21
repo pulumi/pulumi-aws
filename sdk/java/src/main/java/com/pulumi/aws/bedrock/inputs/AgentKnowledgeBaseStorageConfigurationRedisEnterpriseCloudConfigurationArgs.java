@@ -18,14 +18,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
     public static final AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs Empty = new AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs();
 
     /**
-     * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
      * 
      */
     @Import(name="credentialsSecretArn", required=true)
     private Output<String> credentialsSecretArn;
 
     /**
-     * @return The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+     * @return ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
      * 
      */
     public Output<String> credentialsSecretArn() {
@@ -33,14 +33,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
     }
 
     /**
-     * The endpoint URL of the Redis Enterprise Cloud database.
+     * Endpoint URL of the Redis Enterprise Cloud database.
      * 
      */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint URL of the Redis Enterprise Cloud database.
+     * @return Endpoint URL of the Redis Enterprise Cloud database.
      * 
      */
     public Output<String> endpoint() {
@@ -48,14 +48,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
     }
 
     /**
-     * Contains the names of the fields to which to map information about the vector store.
+     * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     @Import(name="fieldMapping")
     private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping;
 
     /**
-     * @return Contains the names of the fields to which to map information about the vector store.
+     * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
     public Optional<Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs>> fieldMapping() {
@@ -63,14 +63,14 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
     }
 
     /**
-     * The name of the vector store.
+     * Name of the vector index.
      * 
      */
     @Import(name="vectorIndexName", required=true)
     private Output<String> vectorIndexName;
 
     /**
-     * @return The name of the vector store.
+     * @return Name of the vector index.
      * 
      */
     public Output<String> vectorIndexName() {
@@ -105,7 +105,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param credentialsSecretArn The ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+         * @param credentialsSecretArn ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param endpoint The endpoint URL of the Redis Enterprise Cloud database.
+         * @param endpoint Endpoint URL of the Redis Enterprise Cloud database.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param endpoint The endpoint URL of the Redis Enterprise Cloud database.
+         * @param endpoint Endpoint URL of the Redis Enterprise Cloud database.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param fieldMapping Contains the names of the fields to which to map information about the vector store.
+         * @param fieldMapping The names of the fields to which to map information about the vector store. This block supports the following arguments:
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param vectorIndexName The name of the vector store.
+         * @param vectorIndexName Name of the vector index.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
         }
 
         /**
-         * @param vectorIndexName The name of the vector store.
+         * @param vectorIndexName Name of the vector index.
          * 
          * @return builder
          * 

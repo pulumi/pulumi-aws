@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The vector store service in which the knowledge base is stored.Valid Values: OPENSEARCH_SERVERLESS | PINECONE | REDIS_ENTERPRISE_CLOUD | RDS
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Contains details about the embeddings model that'sused to   convert the data source.
+        /// Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
         /// </summary>
         [Input("vectorKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs>? VectorKnowledgeBaseConfiguration { get; set; }

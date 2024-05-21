@@ -397,6 +397,11 @@ class BudgetAutoAdjustData(dict):
                  auto_adjust_type: str,
                  historical_options: Optional['outputs.BudgetAutoAdjustDataHistoricalOptions'] = None,
                  last_auto_adjust_time: Optional[str] = None):
+        """
+        :param str auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+        :param 'BudgetAutoAdjustDataHistoricalOptionsArgs' historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        :param str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
+        """
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
             pulumi.set(__self__, "historical_options", historical_options)
@@ -406,16 +411,25 @@ class BudgetAutoAdjustData(dict):
     @property
     @pulumi.getter(name="autoAdjustType")
     def auto_adjust_type(self) -> str:
+        """
+        (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+        """
         return pulumi.get(self, "auto_adjust_type")
 
     @property
     @pulumi.getter(name="historicalOptions")
     def historical_options(self) -> Optional['outputs.BudgetAutoAdjustDataHistoricalOptions']:
+        """
+        (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        """
         return pulumi.get(self, "historical_options")
 
     @property
     @pulumi.getter(name="lastAutoAdjustTime")
     def last_auto_adjust_time(self) -> Optional[str]:
+        """
+        (Optional) - The last time that your budget was auto-adjusted.
+        """
         return pulumi.get(self, "last_auto_adjust_time")
 
 
@@ -443,6 +457,10 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
     def __init__(__self__, *,
                  budget_adjustment_period: int,
                  lookback_available_periods: Optional[int] = None):
+        """
+        :param int budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        :param int lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        """
         pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
         if lookback_available_periods is not None:
             pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
@@ -450,11 +468,17 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
     def budget_adjustment_period(self) -> int:
+        """
+        (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        """
         return pulumi.get(self, "budget_adjustment_period")
 
     @property
     @pulumi.getter(name="lookbackAvailablePeriods")
     def lookback_available_periods(self) -> Optional[int]:
+        """
+        (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        """
         return pulumi.get(self, "lookback_available_periods")
 
 

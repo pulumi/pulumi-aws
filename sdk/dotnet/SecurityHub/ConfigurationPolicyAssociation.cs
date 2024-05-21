@@ -93,7 +93,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an existing Security Hub enabled account using the universally unique identifier (UUID) of the policy. For example:
+    /// Using `pulumi import`, import an existing Security Hub enabled account using the target id. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012

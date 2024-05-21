@@ -104,7 +104,7 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -166,7 +166,7 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn *string `pulumi:"roleArn"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -196,7 +196,7 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -224,7 +224,7 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// ARN of role for application to use to access AWS resources.
 	RoleArn *string `pulumi:"roleArn"`
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string    `pulumi:"tags"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
@@ -245,7 +245,7 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// ARN of role for application to use to access AWS resources.
 	RoleArn pulumi.StringPtrInput
-	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -384,7 +384,7 @@ func (o ApplicationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

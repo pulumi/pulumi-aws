@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentAgentAliasRoutingConfiguration
     {
         /// <summary>
-        /// Version of the agent the alias routes to.
+        /// Version of the agent with which the alias is associated.
         /// </summary>
         public readonly string AgentVersion;
 

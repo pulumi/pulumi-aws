@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Cloud9
         public Output<string> UserArn { get; private set; } = null!;
 
         /// <summary>
-        /// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        /// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? UserArn { get; set; }
 
         /// <summary>
-        /// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+        /// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
