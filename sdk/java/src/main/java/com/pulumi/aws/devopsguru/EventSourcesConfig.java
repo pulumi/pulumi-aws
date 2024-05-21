@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSourcesConfig("example", EventSourcesConfigArgs.builder()        
+ *         var example = new EventSourcesConfig("example", EventSourcesConfigArgs.builder()
  *             .eventSources(EventSourcesConfigEventSourceArgs.builder()
  *                 .amazonCodeGuruProfilers(EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs.builder()
  *                     .status("ENABLED")

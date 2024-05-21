@@ -60,7 +60,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -123,7 +123,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -186,7 +186,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -249,7 +249,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -312,7 +312,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",
@@ -375,7 +375,7 @@ public final class AutoscalingFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()        
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
      *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
      *             .notifications(            
      *                 "autoscaling:EC2_INSTANCE_LAUNCH",

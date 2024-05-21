@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()        
+ *         var example = new KeyValueStore("example", KeyValueStoreArgs.builder()
  *             .name("ExampleKeyValueStore")
  *             .comment("This is an example key value store")
  *             .build());
  * 
- *         var exampleKeyvaluestoreKey = new KeyvaluestoreKey("exampleKeyvaluestoreKey", KeyvaluestoreKeyArgs.builder()        
+ *         var exampleKeyvaluestoreKey = new KeyvaluestoreKey("exampleKeyvaluestoreKey", KeyvaluestoreKeyArgs.builder()
  *             .keyValueStoreArn(example.arn())
  *             .key("Test Key")
  *             .value("Test Value")

@@ -50,16 +50,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domain("example")
  *             .encryptionKey(example.arn())
  *             .build());
  * 
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repository("example")
  *             .domain(exampleDomain.domain())
  *             .build());
@@ -96,12 +96,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var upstream = new Repository("upstream", RepositoryArgs.builder()        
+ *         var upstream = new Repository("upstream", RepositoryArgs.builder()
  *             .repository("upstream")
  *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repository("example")
  *             .domain(example.domain())
  *             .upstreams(RepositoryUpstreamArgs.builder()
@@ -141,12 +141,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var upstream = new Repository("upstream", RepositoryArgs.builder()        
+ *         var upstream = new Repository("upstream", RepositoryArgs.builder()
  *             .repository("upstream")
  *             .domain(testAwsCodeartifactDomain.domain())
  *             .build());
  * 
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repository("example")
  *             .domain(example.domain())
  *             .externalConnections(RepositoryExternalConnectionsArgs.builder()

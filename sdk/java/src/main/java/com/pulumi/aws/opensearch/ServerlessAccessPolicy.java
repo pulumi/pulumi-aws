@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()        
+ *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
  *             .name("example")
  *             .type("data")
  *             .description("read and write permissions")
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()        
+ *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
  *             .name("example")
  *             .type("data")
  *             .description("read-only permissions")
@@ -164,7 +164,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()        
+ *         var example = new ServerlessAccessPolicy("example", ServerlessAccessPolicyArgs.builder()
  *             .name("example")
  *             .type("data")
  *             .description("saml permissions")

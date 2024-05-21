@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var defaultAz1 = new DefaultSubnet("defaultAz1", DefaultSubnetArgs.builder()        
+ *         var defaultAz1 = new DefaultSubnet("defaultAz1", DefaultSubnetArgs.builder()
  *             .availabilityZone("us-west-2a")
  *             .tags(Map.of("Name", "Default subnet for us-west-2a"))
  *             .build());

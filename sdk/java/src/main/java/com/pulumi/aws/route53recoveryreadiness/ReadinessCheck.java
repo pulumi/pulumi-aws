@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReadinessCheck("example", ReadinessCheckArgs.builder()        
+ *         var example = new ReadinessCheck("example", ReadinessCheckArgs.builder()
  *             .readinessCheckName(my_cw_alarm_check)
  *             .resourceSetName(my_cw_alarm_set)
  *             .build());

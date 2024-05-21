@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Agreement("example", AgreementArgs.builder()        
+ *         var example = new Agreement("example", AgreementArgs.builder()
  *             .accessRole(test.arn())
  *             .baseDirectory("/DOC-EXAMPLE-BUCKET/home/mydirectory")
  *             .description("example")

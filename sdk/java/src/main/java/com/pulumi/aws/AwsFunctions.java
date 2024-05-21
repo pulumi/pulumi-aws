@@ -267,7 +267,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -276,7 +276,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -346,7 +346,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -355,7 +355,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -425,7 +425,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -434,7 +434,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -504,7 +504,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -513,7 +513,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -583,7 +583,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -592,7 +592,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -662,7 +662,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input("10.0.0.0/8")
      *                 .newbits(4)
@@ -671,7 +671,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()        
+     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
      *             .build());
@@ -731,11 +731,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -875,11 +875,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -1019,11 +1019,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -1163,11 +1163,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -1307,11 +1307,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -1451,11 +1451,11 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         // e.g., Create subnets in the first two available availability zones
-     *         var primary = new Subnet("primary", SubnetArgs.builder()        
+     *         var primary = new Subnet("primary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
-     *         var secondary = new Subnet("secondary", SubnetArgs.builder()        
+     *         var secondary = new Subnet("secondary", SubnetArgs.builder()
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
@@ -1588,11 +1588,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -1621,7 +1621,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1674,11 +1674,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -1707,7 +1707,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1760,11 +1760,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -1793,7 +1793,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1846,11 +1846,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -1879,7 +1879,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1932,11 +1932,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -1965,7 +1965,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -2018,11 +2018,11 @@ public final class AwsFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = AwsFunctions.getBillingServiceAccount();
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()        
+     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()        
+     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2051,7 +2051,7 @@ public final class AwsFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
      *             .policy(allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowBillingLogging -> allowBillingLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -2662,7 +2662,7 @@ public final class AwsFunctions {
      *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort("443")
@@ -2725,7 +2725,7 @@ public final class AwsFunctions {
      *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort("443")
@@ -2788,7 +2788,7 @@ public final class AwsFunctions {
      *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort("443")
@@ -2851,7 +2851,7 @@ public final class AwsFunctions {
      *             .services("ec2")
      *             .build());
      * 
-     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()        
+     *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
      *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort("443")

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myTemplate = new Template("myTemplate", TemplateArgs.builder()        
+ *         var myTemplate = new Template("myTemplate", TemplateArgs.builder()
  *             .name("MyTemplate")
  *             .subject("Greetings, {{name}}!")
  *             .html("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>")

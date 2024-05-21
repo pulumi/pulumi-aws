@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()        
+ *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()
  *             .botId(exampleAwsLexv2modelsBot.id())
  *             .botVersion(exampleAwsLexv2modelsBotVersion.botVersion())
  *             .intentId(exampleAwsLexv2modelsIntent.id())

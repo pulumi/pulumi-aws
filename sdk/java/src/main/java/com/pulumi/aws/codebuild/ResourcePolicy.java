@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReportGroup("example", ReportGroupArgs.builder()        
+ *         var example = new ReportGroup("example", ReportGroupArgs.builder()
  *             .name("example")
  *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()        
+ *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .resourceArn(example.arn())
  *             .policy(example.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(

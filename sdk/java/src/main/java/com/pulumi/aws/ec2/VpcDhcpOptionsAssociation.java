@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dnsResolver = new VpcDhcpOptionsAssociation("dnsResolver", VpcDhcpOptionsAssociationArgs.builder()        
+ *         var dnsResolver = new VpcDhcpOptionsAssociation("dnsResolver", VpcDhcpOptionsAssociationArgs.builder()
  *             .vpcId(fooAwsVpc.id())
  *             .dhcpOptionsId(foo.id())
  *             .build());

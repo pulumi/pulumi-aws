@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()        
+ *         var test = new Bucket("test", BucketArgs.builder()
  *             .name("test-bucket")
  *             .bundleId("small_1_0")
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()        
+ *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
  *             .name("test-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
@@ -147,23 +147,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()        
+ *         var testStaticIp = new StaticIp("testStaticIp", StaticIpArgs.builder()
  *             .name("test-static-ip")
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("test-instance")
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("micro_1_0")
  *             .build());
  * 
- *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()        
+ *         var test = new StaticIpAttachment("test", StaticIpAttachmentArgs.builder()
  *             .staticIpName(testStaticIp.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()        
+ *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
  *             .name("test-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()
@@ -229,26 +229,26 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Lb("test", LbArgs.builder()        
+ *         var test = new Lb("test", LbArgs.builder()
  *             .name("test-load-balancer")
  *             .healthCheckPath("/")
  *             .instancePort("80")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("test-instance")
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testLbAttachment = new LbAttachment("testLbAttachment", LbAttachmentArgs.builder()        
+ *         var testLbAttachment = new LbAttachment("testLbAttachment", LbAttachmentArgs.builder()
  *             .lbName(test.name())
  *             .instanceName(testInstance.name())
  *             .build());
  * 
- *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()        
+ *         var testDistribution = new Distribution("testDistribution", DistributionArgs.builder()
  *             .name("test-distribution")
  *             .bundleId("small_1_0")
  *             .origin(DistributionOriginArgs.builder()

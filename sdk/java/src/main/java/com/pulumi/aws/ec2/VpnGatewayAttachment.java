@@ -50,15 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var network = new Vpc("network", VpcArgs.builder()        
+ *         var network = new Vpc("network", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpn = new VpnGateway("vpn", VpnGatewayArgs.builder()        
+ *         var vpn = new VpnGateway("vpn", VpnGatewayArgs.builder()
  *             .tags(Map.of("Name", "example-vpn-gateway"))
  *             .build());
  * 
- *         var vpnAttachment = new VpnGatewayAttachment("vpnAttachment", VpnGatewayAttachmentArgs.builder()        
+ *         var vpnAttachment = new VpnGatewayAttachment("vpnAttachment", VpnGatewayAttachmentArgs.builder()
  *             .vpcId(network.id())
  *             .vpnGatewayId(vpn.id())
  *             .build());

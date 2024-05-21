@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .name("example-repo")
  *             .build());
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()        
+ *         var exampleRepositoryPolicy = new RepositoryPolicy("exampleRepositoryPolicy", RepositoryPolicyArgs.builder()
  *             .repository(exampleRepository.name())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

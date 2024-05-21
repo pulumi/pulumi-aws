@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
  *             .name("example-policy")
  *             .comment("test comment")
  *             .corsConfig(ResponseHeadersPolicyCorsConfigArgs.builder()
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
  *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(                
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()        
+ *         var example = new ResponseHeadersPolicy("example", ResponseHeadersPolicyArgs.builder()
  *             .name("example-headers-policy")
  *             .customHeadersConfig(ResponseHeadersPolicyCustomHeadersConfigArgs.builder()
  *                 .items(ResponseHeadersPolicyCustomHeadersConfigItemArgs.builder()

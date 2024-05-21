@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()        
+ *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVaultLock = new VaultLock("exampleVaultLock", VaultLockArgs.builder()        
+ *         var exampleVaultLock = new VaultLock("exampleVaultLock", VaultLockArgs.builder()
  *             .completeLock(false)
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .vaultName(exampleVault.name())
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VaultLock("example", VaultLockArgs.builder()        
+ *         var example = new VaultLock("example", VaultLockArgs.builder()
  *             .completeLock(true)
  *             .policy(exampleAwsIamPolicyDocument.json())
  *             .vaultName(exampleAwsGlacierVault.name())

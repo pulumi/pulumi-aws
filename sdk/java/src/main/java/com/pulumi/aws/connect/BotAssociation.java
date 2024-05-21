@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BotAssociation("example", BotAssociationArgs.builder()        
+ *         var example = new BotAssociation("example", BotAssociationArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion("us-west-2")
@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Intent("example", IntentArgs.builder()        
+ *         var example = new Intent("example", IntentArgs.builder()
  *             .createVersion(true)
  *             .name("connect_lex_intent")
  *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .sampleUtterances("I would like to pick up flowers.")
  *             .build());
  * 
- *         var exampleBot = new Bot("exampleBot", BotArgs.builder()        
+ *         var exampleBot = new Bot("exampleBot", BotArgs.builder()
  *             .abortStatement(BotAbortStatementArgs.builder()
  *                 .messages(BotAbortStatementMessageArgs.builder()
  *                     .content("Sorry, I am not able to assist at this time.")
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .processBehavior("BUILD")
  *             .build());
  * 
- *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()        
+ *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
  *                 .lexRegion(current.applyValue(getRegionResult -> getRegionResult.name()))

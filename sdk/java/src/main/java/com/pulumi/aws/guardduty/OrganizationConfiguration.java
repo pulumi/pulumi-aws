@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Detector("example", DetectorArgs.builder()        
+ *         var example = new Detector("example", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnableOrganizationMembers("ALL")
  *             .detectorId(example.id())
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()

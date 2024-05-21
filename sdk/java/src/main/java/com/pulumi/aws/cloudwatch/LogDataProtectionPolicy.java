@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()        
+ *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
  *             .logGroupName(example.name())
  *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -> serializeJson(
  *                 jsonObject(

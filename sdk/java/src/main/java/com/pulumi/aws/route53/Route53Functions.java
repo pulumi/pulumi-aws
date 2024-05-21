@@ -3168,7 +3168,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3269,7 +3269,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3348,7 +3348,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3449,7 +3449,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3528,7 +3528,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3629,7 +3629,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3708,7 +3708,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3809,7 +3809,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3888,7 +3888,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -3989,7 +3989,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -4068,7 +4068,7 @@ public final class Route53Functions {
      *                 .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -4169,7 +4169,7 @@ public final class Route53Functions {
      *                     .build())
      *             .build());
      * 
-     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()        
+     *         var exampleTrafficPolicy = new TrafficPolicy("exampleTrafficPolicy", TrafficPolicyArgs.builder()
      *             .name("example")
      *             .comment("example comment")
      *             .document(example.applyValue(getTrafficPolicyDocumentResult -> getTrafficPolicyDocumentResult.json()))
@@ -4224,7 +4224,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")
@@ -4281,7 +4281,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")
@@ -4338,7 +4338,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")
@@ -4395,7 +4395,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")
@@ -4452,7 +4452,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")
@@ -4509,7 +4509,7 @@ public final class Route53Functions {
      *             .privateZone(true)
      *             .build());
      * 
-     *         var www = new Record("www", RecordArgs.builder()        
+     *         var www = new Record("www", RecordArgs.builder()
      *             .zoneId(selected.applyValue(getZoneResult -> getZoneResult.zoneId()))
      *             .name(String.format("www.%s", selected.applyValue(getZoneResult -> getZoneResult.name())))
      *             .type("A")

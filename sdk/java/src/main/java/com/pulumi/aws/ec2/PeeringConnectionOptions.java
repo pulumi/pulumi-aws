@@ -59,21 +59,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *         var foo = new Vpc("foo", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var bar = new Vpc("bar", VpcArgs.builder()        
+ *         var bar = new Vpc("bar", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection("fooVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
+ *         var fooVpcPeeringConnection = new VpcPeeringConnection("fooVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
  *             .vpcId(foo.id())
  *             .peerVpcId(bar.id())
  *             .autoAccept(true)
  *             .build());
  * 
- *         var fooPeeringConnectionOptions = new PeeringConnectionOptions("fooPeeringConnectionOptions", PeeringConnectionOptionsArgs.builder()        
+ *         var fooPeeringConnectionOptions = new PeeringConnectionOptions("fooPeeringConnectionOptions", PeeringConnectionOptionsArgs.builder()
  *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
@@ -121,13 +121,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
  *             .build());
  * 
- *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()        
+ *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .enableDnsSupport(true)
  *             .enableDnsHostnames(true)
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *         final var peer = AwsFunctions.getCallerIdentity();
  * 
  *         // Requester's side of the connection.
- *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
  *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
@@ -145,20 +145,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Accepter's side of the connection.
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()        
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
  *             .tags(Map.of("Side", "Accepter"))
  *             .build());
  * 
- *         var requester = new PeeringConnectionOptions("requester", PeeringConnectionOptionsArgs.builder()        
+ *         var requester = new PeeringConnectionOptions("requester", PeeringConnectionOptionsArgs.builder()
  *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
  *             .build());
  * 
- *         var accepter = new PeeringConnectionOptions("accepter", PeeringConnectionOptionsArgs.builder()        
+ *         var accepter = new PeeringConnectionOptions("accepter", PeeringConnectionOptionsArgs.builder()
  *             .vpcPeeringConnectionId(peerVpcPeeringConnectionAccepter.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)

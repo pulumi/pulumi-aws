@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Instance("bar", InstanceArgs.builder()        
+ *         var bar = new Instance("bar", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .engine("mysql")
  *             .engineVersion("5.6.21")
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var test = new Snapshot("test", SnapshotArgs.builder()        
+ *         var test = new Snapshot("test", SnapshotArgs.builder()
  *             .dbInstanceIdentifier(bar.identifier())
  *             .dbSnapshotIdentifier("testsnapshot1234")
  *             .build());

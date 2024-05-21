@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()        
+ *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketAccelerateConfigurationV2("example", BucketAccelerateConfigurationV2Args.builder()        
+ *         var example = new BucketAccelerateConfigurationV2("example", BucketAccelerateConfigurationV2Args.builder()
  *             .bucket(mybucket.id())
  *             .status("Enabled")
  *             .build());

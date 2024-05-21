@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var e = new Endpoint("e", EndpointArgs.builder()        
+ *         var e = new Endpoint("e", EndpointArgs.builder()
  *             .name("my-endpoint")
  *             .endpointConfigName(ec.name())
  *             .tags(Map.of("Name", "foo"))

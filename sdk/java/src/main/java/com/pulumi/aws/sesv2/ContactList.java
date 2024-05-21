@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactList("example", ContactListArgs.builder()        
+ *         var example = new ContactList("example", ContactListArgs.builder()
  *             .contactListName("example")
  *             .build());
  * 
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContactList("example", ContactListArgs.builder()        
+ *         var example = new ContactList("example", ContactListArgs.builder()
  *             .contactListName("example")
  *             .description("description")
  *             .topics(ContactListTopicArgs.builder()

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MemberAssociation("example", MemberAssociationArgs.builder()        
+ *         var example = new MemberAssociation("example", MemberAssociationArgs.builder()
  *             .accountId("123456789012")
  *             .build());
  * 

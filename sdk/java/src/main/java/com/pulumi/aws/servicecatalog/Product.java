@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Product("example", ProductArgs.builder()        
+ *         var example = new Product("example", ProductArgs.builder()
  *             .name("example")
  *             .owner("example-owner")
  *             .type("CLOUD_FORMATION_TEMPLATE")

@@ -81,25 +81,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name("example-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var aWSCodeDeployRole = new RolePolicyAttachment("aWSCodeDeployRole", RolePolicyAttachmentArgs.builder()        
+ *         var aWSCodeDeployRole = new RolePolicyAttachment("aWSCodeDeployRole", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole")
  *             .role(example.name())
  *             .build());
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example-app")
  *             .build());
  * 
- *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()        
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
  *             .name("example-topic")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
  *             .appName(exampleApplication.name())
  *             .deploymentGroupName("example-group")
  *             .serviceRoleArn(example.arn())
@@ -174,12 +174,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()        
+ *         var example = new Application("example", ApplicationArgs.builder()
  *             .computePlatform("ECS")
  *             .name("example")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
  *             .appName(example.name())
  *             .deploymentConfigName("CodeDeployDefault.ECSAllAtOnce")
  *             .deploymentGroupName("example")
@@ -260,11 +260,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Application("example", ApplicationArgs.builder()        
+ *         var example = new Application("example", ApplicationArgs.builder()
  *             .name("example-app")
  *             .build());
  * 
- *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()        
+ *         var exampleDeploymentGroup = new DeploymentGroup("exampleDeploymentGroup", DeploymentGroupArgs.builder()
  *             .appName(example.name())
  *             .deploymentGroupName("example-group")
  *             .serviceRoleArn(exampleAwsIamRole.arn())

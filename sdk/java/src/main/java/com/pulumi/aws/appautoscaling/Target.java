@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()        
+ *         var dynamodbTableReadTarget = new Target("dynamodbTableReadTarget", TargetArgs.builder()
  *             .maxCapacity(100)
  *             .minCapacity(5)
  *             .resourceId(String.format("table/%s", example.name()))
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dynamodbIndexReadTarget = new Target("dynamodbIndexReadTarget", TargetArgs.builder()        
+ *         var dynamodbIndexReadTarget = new Target("dynamodbIndexReadTarget", TargetArgs.builder()
  *             .maxCapacity(100)
  *             .minCapacity(5)
  *             .resourceId(String.format("table/%s/index/%s", example.name(),indexName))
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()
  *             .maxCapacity(4)
  *             .minCapacity(1)
  *             .resourceId(String.format("service/%s/%s", example.name(),exampleAwsEcsService.name()))
@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var replicas = new Target("replicas", TargetArgs.builder()        
+ *         var replicas = new Target("replicas", TargetArgs.builder()
  *             .serviceNamespace("rds")
  *             .scalableDimension("rds:cluster:ReadReplicaCount")
  *             .resourceId(String.format("cluster:%s", example.id()))
@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()        
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()
  *             .maxCapacity(4)
  *             .minCapacity(1)
  *             .resourceId(String.format("service/%s/%s", example.name(),exampleAwsEcsService.name()))
@@ -245,7 +245,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mskTarget = new Target("mskTarget", TargetArgs.builder()        
+ *         var mskTarget = new Target("mskTarget", TargetArgs.builder()
  *             .serviceNamespace("kafka")
  *             .scalableDimension("kafka:broker-storage:VolumeSize")
  *             .resourceId(example.arn())

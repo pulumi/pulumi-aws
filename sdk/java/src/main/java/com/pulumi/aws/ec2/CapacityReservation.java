@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new CapacityReservation("default", CapacityReservationArgs.builder()        
+ *         var default_ = new CapacityReservation("default", CapacityReservationArgs.builder()
  *             .instanceType("t2.micro")
  *             .instancePlatform("Linux/UNIX")
  *             .availabilityZone("eu-west-1a")

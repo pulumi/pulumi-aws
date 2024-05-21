@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CustomRoutingEndpointGroup("example", CustomRoutingEndpointGroupArgs.builder()        
+ *         var example = new CustomRoutingEndpointGroup("example", CustomRoutingEndpointGroupArgs.builder()
  *             .listenerArn(exampleAwsGlobalacceleratorCustomRoutingListener.id())
  *             .destinationConfigurations(CustomRoutingEndpointGroupDestinationConfigurationArgs.builder()
  *                 .fromPort(80)

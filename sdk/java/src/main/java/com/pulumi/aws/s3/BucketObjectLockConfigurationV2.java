@@ -57,18 +57,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", BucketObjectLockConfigurationV2Args.builder()        
+ *         var exampleBucketObjectLockConfigurationV2 = new BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2", BucketObjectLockConfigurationV2Args.builder()
  *             .bucket(example.id())
  *             .rule(BucketObjectLockConfigurationV2RuleArgs.builder()
  *                 .defaultRetention(BucketObjectLockConfigurationV2RuleDefaultRetentionArgs.builder()

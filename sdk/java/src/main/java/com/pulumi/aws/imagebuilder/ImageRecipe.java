@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ImageRecipe("example", ImageRecipeArgs.builder()        
+ *         var example = new ImageRecipe("example", ImageRecipeArgs.builder()
  *             .blockDeviceMappings(ImageRecipeBlockDeviceMappingArgs.builder()
  *                 .deviceName("/dev/xvdb")
  *                 .ebs(ImageRecipeBlockDeviceMappingEbsArgs.builder()

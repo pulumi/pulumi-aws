@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()        
+ *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
  *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
  *                 .computeReservation(1)

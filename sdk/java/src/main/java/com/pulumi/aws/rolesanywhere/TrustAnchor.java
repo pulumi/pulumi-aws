@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()        
+ *         var example = new CertificateAuthority("example", CertificateAuthorityArgs.builder()
  *             .permanentDeletionTimeInDays(7)
  *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var test = new Certificate("test", CertificateArgs.builder()        
+ *         var test = new Certificate("test", CertificateArgs.builder()
  *             .certificateAuthorityArn(example.arn())
  *             .certificateSigningRequest(example.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()        
+ *         var exampleCertificateAuthorityCertificate = new CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", CertificateAuthorityCertificateArgs.builder()
  *             .certificateAuthorityArn(example.arn())
  *             .certificate(exampleAwsAcmpcaCertificate.certificate())
  *             .certificateChain(exampleAwsAcmpcaCertificate.certificateChain())
  *             .build());
  * 
- *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()        
+ *         var testTrustAnchor = new TrustAnchor("testTrustAnchor", TrustAnchorArgs.builder()
  *             .name("example")
  *             .source(TrustAnchorSourceArgs.builder()
  *                 .sourceData(TrustAnchorSourceSourceDataArgs.builder()

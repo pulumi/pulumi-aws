@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var byteSet = new ByteMatchSet("byteSet", ByteMatchSetArgs.builder()        
+ *         var byteSet = new ByteMatchSet("byteSet", ByteMatchSetArgs.builder()
  *             .name("my_waf_byte_match_set")
  *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
  *                 .textTransformation("NONE")

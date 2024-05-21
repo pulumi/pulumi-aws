@@ -43,11 +43,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var yada = new LogGroup("yada", LogGroupArgs.builder()        
+ *         var yada = new LogGroup("yada", LogGroupArgs.builder()
  *             .name("Yada")
  *             .build());
  * 
- *         var foo = new LogStream("foo", LogStreamArgs.builder()        
+ *         var foo = new LogStream("foo", LogStreamArgs.builder()
  *             .name("SampleLogStream1234")
  *             .logGroupName(yada.name())
  *             .build());

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var enforce_imdsv2 = new InstanceMetadataDefaults("enforce-imdsv2", InstanceMetadataDefaultsArgs.builder()        
+ *         var enforce_imdsv2 = new InstanceMetadataDefaults("enforce-imdsv2", InstanceMetadataDefaultsArgs.builder()
  *             .httpTokens("required")
  *             .httpPutResponseHopLimit(1)
  *             .build());

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityConfiguration("example", SecurityConfigurationArgs.builder()        
+ *         var example = new SecurityConfiguration("example", SecurityConfigurationArgs.builder()
  *             .name("example")
  *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
  *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()

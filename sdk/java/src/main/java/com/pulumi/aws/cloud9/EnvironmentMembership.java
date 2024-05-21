@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EnvironmentEC2("test", EnvironmentEC2Args.builder()        
+ *         var test = new EnvironmentEC2("test", EnvironmentEC2Args.builder()
  *             .instanceType("t2.micro")
  *             .name("some-env")
  *             .build());
  * 
- *         var testUser = new User("testUser", UserArgs.builder()        
+ *         var testUser = new User("testUser", UserArgs.builder()
  *             .name("some-user")
  *             .build());
  * 
- *         var testEnvironmentMembership = new EnvironmentMembership("testEnvironmentMembership", EnvironmentMembershipArgs.builder()        
+ *         var testEnvironmentMembership = new EnvironmentMembership("testEnvironmentMembership", EnvironmentMembershipArgs.builder()
  *             .environmentId(test.id())
  *             .permissions("read-only")
  *             .userArn(testUser.arn())

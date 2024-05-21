@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
- *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()        
+ *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()
  *             .name("example")
  *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
  *                 .parameterName("AccessKeysRotatedParameterMaxAccessKeyAge")
@@ -120,16 +120,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()        
+ *         var exampleOrganization = new Organization("exampleOrganization", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(exampleBucketV2.id())
  *             .key("example-key")
  *             .content("""
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()        
+ *         var example = new OrganizationConformancePack("example", OrganizationConformancePackArgs.builder()
  *             .name("example")
  *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -> {
  *                 var bucket = values.t1;

@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()        
+ *         var example = new FindingAggregator("example", FindingAggregatorArgs.builder()
  *             .linkingMode("ALL_REGIONS")
  *             .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnable(false)
  *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()        
+ *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()
  *             .name("Example")
  *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
@@ -83,17 +83,17 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleOrganizationConfiguration)
  *                 .build());
  * 
- *         var accountExample = new ConfigurationPolicyAssociation("accountExample", ConfigurationPolicyAssociationArgs.builder()        
+ *         var accountExample = new ConfigurationPolicyAssociation("accountExample", ConfigurationPolicyAssociationArgs.builder()
  *             .targetId("123456789012")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
- *         var rootExample = new ConfigurationPolicyAssociation("rootExample", ConfigurationPolicyAssociationArgs.builder()        
+ *         var rootExample = new ConfigurationPolicyAssociation("rootExample", ConfigurationPolicyAssociationArgs.builder()
  *             .targetId("r-abcd")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());
  * 
- *         var ouExample = new ConfigurationPolicyAssociation("ouExample", ConfigurationPolicyAssociationArgs.builder()        
+ *         var ouExample = new ConfigurationPolicyAssociation("ouExample", ConfigurationPolicyAssociationArgs.builder()
  *             .targetId("ou-abcd-12345678")
  *             .policyId(exampleConfigurationPolicy.id())
  *             .build());

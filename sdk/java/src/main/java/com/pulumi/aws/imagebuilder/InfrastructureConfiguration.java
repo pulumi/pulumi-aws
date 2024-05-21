@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InfrastructureConfiguration("example", InfrastructureConfigurationArgs.builder()        
+ *         var example = new InfrastructureConfiguration("example", InfrastructureConfigurationArgs.builder()
  *             .description("example description")
  *             .instanceProfileName(exampleAwsIamInstanceProfile.name())
  *             .instanceTypes(            

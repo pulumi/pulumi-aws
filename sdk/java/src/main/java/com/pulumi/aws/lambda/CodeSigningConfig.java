@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var newCsc = new CodeSigningConfig("newCsc", CodeSigningConfigArgs.builder()        
+ *         var newCsc = new CodeSigningConfig("newCsc", CodeSigningConfigArgs.builder()
  *             .allowedPublishers(CodeSigningConfigAllowedPublishersArgs.builder()
  *                 .signingProfileVersionArns(                
  *                     example1.arn(),

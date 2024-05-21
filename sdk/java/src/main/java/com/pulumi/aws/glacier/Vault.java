@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awsSnsTopic = new Topic("awsSnsTopic", TopicArgs.builder()        
+ *         var awsSnsTopic = new Topic("awsSnsTopic", TopicArgs.builder()
  *             .name("glacier-sns-topic")
  *             .build());
  * 
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var myArchiveVault = new Vault("myArchiveVault", VaultArgs.builder()        
+ *         var myArchiveVault = new Vault("myArchiveVault", VaultArgs.builder()
  *             .name("MyArchive")
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())

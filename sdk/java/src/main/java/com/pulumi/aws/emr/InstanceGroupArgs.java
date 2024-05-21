@@ -91,7 +91,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -146,7 +146,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -372,7 +372,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
          *             .configurationsJson("""
          * [
          * {
@@ -431,7 +431,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+         *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
          *             .configurationsJson("""
          * [
          * {

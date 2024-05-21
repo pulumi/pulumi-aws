@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
  *             .name("example")
  *             .internal(true)
  *             .loadBalancerType("network")
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVpcLink = new VpcLink("exampleVpcLink", VpcLinkArgs.builder()        
+ *         var exampleVpcLink = new VpcLink("exampleVpcLink", VpcLinkArgs.builder()
  *             .name("example")
  *             .description("example description")
  *             .targetArn(example.arn())

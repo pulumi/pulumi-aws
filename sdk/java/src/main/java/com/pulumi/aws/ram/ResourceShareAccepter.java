@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var senderShare = new ResourceShare("senderShare", ResourceShareArgs.builder()        
+ *         var senderShare = new ResourceShare("senderShare", ResourceShareArgs.builder()
  *             .name("tf-test-resource-share")
  *             .allowExternalPrincipals(true)
  *             .tags(Map.of("Name", "tf-test-resource-share"))
@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  * 
  *         final var receiver = AwsFunctions.getCallerIdentity();
  * 
- *         var senderInvite = new PrincipalAssociation("senderInvite", PrincipalAssociationArgs.builder()        
+ *         var senderInvite = new PrincipalAssociation("senderInvite", PrincipalAssociationArgs.builder()
  *             .principal(receiver.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .resourceShareArn(senderShare.arn())
  *             .build());
  * 
- *         var receiverAccept = new ResourceShareAccepter("receiverAccept", ResourceShareAccepterArgs.builder()        
+ *         var receiverAccept = new ResourceShareAccepter("receiverAccept", ResourceShareAccepterArgs.builder()
  *             .shareArn(senderInvite.resourceShareArn())
  *             .build());
  * 

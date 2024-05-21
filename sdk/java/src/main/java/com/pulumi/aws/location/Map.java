@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Map("example", MapArgs.builder()        
+ *         var example = new Map("example", MapArgs.builder()
  *             .configuration(MapConfigurationArgs.builder()
  *                 .style("VectorHereBerlin")
  *                 .build())
