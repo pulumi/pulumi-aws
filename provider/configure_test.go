@@ -110,7 +110,6 @@ func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	      "s3UsePathStyle": "true",
 	      "secretKey": "*",
 	      "skipCredentialsValidation": "true",
-	      "skipMetadataApiCheck": "true",
 	      "skipRegionValidation": "true",
 	      "skipRequestingAccountId": "true",
 	      "version": "6.5.0"
