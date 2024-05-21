@@ -181,6 +181,8 @@ resources:
         user: ec2-user # The default user for Amazon Linux AMI
         privateKey: ${priv-key.privateKeyOpenssh}
     options:
+      ignoreChanges:
+        - connection
       dependsOn:
         - ${install-cmd}
         - ${provider-copy}
