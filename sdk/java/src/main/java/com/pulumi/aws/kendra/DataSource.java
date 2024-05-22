@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .description("example")
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("S3")
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("S3")
@@ -187,7 +187,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("S3")
@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -293,7 +293,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -344,7 +344,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -398,7 +398,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -458,7 +458,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -510,7 +510,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -562,7 +562,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -616,7 +616,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")
@@ -674,7 +674,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataSource("example", DataSourceArgs.builder()        
+ *         var example = new DataSource("example", DataSourceArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("example")
  *             .type("WEBCRAWLER")

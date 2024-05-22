@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sys = new ResolverRule("sys", ResolverRuleArgs.builder()        
+ *         var sys = new ResolverRule("sys", ResolverRuleArgs.builder()
  *             .domainName("subdomain.example.com")
  *             .ruleType("SYSTEM")
  *             .build());
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()        
+ *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()
  *             .domainName("example.com")
  *             .name("example")
  *             .ruleType("FORWARD")

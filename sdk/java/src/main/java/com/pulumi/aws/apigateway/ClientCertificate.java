@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demo = new ClientCertificate("demo", ClientCertificateArgs.builder()        
+ *         var demo = new ClientCertificate("demo", ClientCertificateArgs.builder()
  *             .description("My client certificate")
  *             .build());
  * 

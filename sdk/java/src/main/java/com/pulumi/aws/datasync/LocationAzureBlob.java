@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationAzureBlob("example", LocationAzureBlobArgs.builder()        
+ *         var example = new LocationAzureBlob("example", LocationAzureBlobArgs.builder()
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType("SAS")
  *             .containerUrl("https://myaccount.blob.core.windows.net/mycontainer")

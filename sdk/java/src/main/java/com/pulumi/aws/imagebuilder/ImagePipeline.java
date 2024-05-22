@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ImagePipeline("example", ImagePipelineArgs.builder()        
+ *         var example = new ImagePipeline("example", ImagePipelineArgs.builder()
  *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
  *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
  *             .name("example")

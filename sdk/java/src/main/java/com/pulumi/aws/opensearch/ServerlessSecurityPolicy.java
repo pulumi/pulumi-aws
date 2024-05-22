@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("encryption")
  *             .description("encryption security policy for example-collection")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("encryption")
  *             .description("encryption security policy for collections that begin with \"example\"")
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("encryption")
  *             .description("encryption security policy using customer KMS key")
@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("network")
  *             .description("Public access")
@@ -241,7 +241,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("network")
  *             .description("VPC access")
@@ -295,7 +295,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("network")
  *             .description("Mixed access for marketing and sales")

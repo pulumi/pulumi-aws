@@ -59,18 +59,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()        
+ *         var peerVpc = new Vpc("peerVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
  *         final var peer = AwsFunctions.getCallerIdentity();
  * 
  *         // Requester's side of the connection.
- *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()        
+ *         var peerVpcPeeringConnection = new VpcPeeringConnection("peerVpcPeeringConnection", VpcPeeringConnectionArgs.builder()
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
  *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Accepter's side of the connection.
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()        
+ *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", VpcPeeringConnectionAccepterArgs.builder()
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
  *             .tags(Map.of("Side", "Accepter"))

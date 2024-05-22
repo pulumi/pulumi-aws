@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new PlacementGroup("web", PlacementGroupArgs.builder()        
+ *         var web = new PlacementGroup("web", PlacementGroupArgs.builder()
  *             .name("hunky-dory-pg")
  *             .strategy("cluster")
  *             .build());

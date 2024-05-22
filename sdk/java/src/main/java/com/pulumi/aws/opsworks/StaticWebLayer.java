@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new StaticWebLayer("web", StaticWebLayerArgs.builder()        
+ *         var web = new StaticWebLayer("web", StaticWebLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

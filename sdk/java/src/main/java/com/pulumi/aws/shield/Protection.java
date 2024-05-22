@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Eip("example", EipArgs.builder()        
+ *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
  *             .build());
  * 
- *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example")
  *             .resourceArn(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .tags(Map.of("Environment", "Dev"))

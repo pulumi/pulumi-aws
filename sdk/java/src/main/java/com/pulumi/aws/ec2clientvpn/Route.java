@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()        
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .description("Example Client VPN endpoint")
  *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
  *             .clientCidrBlock("10.0.0.0/16")
@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleNetworkAssociation = new NetworkAssociation("exampleNetworkAssociation", NetworkAssociationArgs.builder()        
+ *         var exampleNetworkAssociation = new NetworkAssociation("exampleNetworkAssociation", NetworkAssociationArgs.builder()
  *             .clientVpnEndpointId(exampleEndpoint.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .build());
  * 
- *         var example = new Route("example", RouteArgs.builder()        
+ *         var example = new Route("example", RouteArgs.builder()
  *             .clientVpnEndpointId(exampleEndpoint.id())
  *             .destinationCidrBlock("0.0.0.0/0")
  *             .targetVpcSubnetId(exampleNetworkAssociation.subnetId())

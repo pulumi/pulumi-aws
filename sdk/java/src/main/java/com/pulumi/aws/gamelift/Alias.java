@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Alias("example", AliasArgs.builder()        
+ *         var example = new Alias("example", AliasArgs.builder()
  *             .name("example-alias")
  *             .description("Example Description")
  *             .routingStrategy(AliasRoutingStrategyArgs.builder()

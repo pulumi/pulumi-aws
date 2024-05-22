@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new GlobalSettings("test", GlobalSettingsArgs.builder()        
+ *         var test = new GlobalSettings("test", GlobalSettingsArgs.builder()
  *             .globalSettings(Map.of("isCrossAccountBackupEnabled", "true"))
  *             .build());
  * 

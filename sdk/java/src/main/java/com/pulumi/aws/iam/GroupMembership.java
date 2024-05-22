@@ -53,19 +53,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group("group", GroupArgs.builder()        
+ *         var group = new Group("group", GroupArgs.builder()
  *             .name("test-group")
  *             .build());
  * 
- *         var userOne = new User("userOne", UserArgs.builder()        
+ *         var userOne = new User("userOne", UserArgs.builder()
  *             .name("test-user")
  *             .build());
  * 
- *         var userTwo = new User("userTwo", UserArgs.builder()        
+ *         var userTwo = new User("userTwo", UserArgs.builder()
  *             .name("test-user-two")
  *             .build());
  * 
- *         var team = new GroupMembership("team", GroupMembershipArgs.builder()        
+ *         var team = new GroupMembership("team", GroupMembershipArgs.builder()
  *             .name("tf-testing-group-membership")
  *             .users(            
  *                 userOne.name(),

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic("testTopic", TopicArgs.builder()        
+ *         var testTopic = new Topic("testTopic", TopicArgs.builder()
  *             .name("test")
  *             .build());
  * 
@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test")
  *             .assumeRolePolicy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()        
+ *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()
  *             .name("test")
  *             .description("test description")
  *             .actionPoints(ExtensionActionPointArgs.builder()

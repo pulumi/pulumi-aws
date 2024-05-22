@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()        
+ *         var example = new Fleet("example", FleetArgs.builder()
  *             .name("NAME")
  *             .imageName("Amazon-AppStream2-Sample-Image-03-11-2023")
  *             .instanceType("stream.standard.small")
@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleStack = new Stack("exampleStack", StackArgs.builder()        
+ *         var exampleStack = new Stack("exampleStack", StackArgs.builder()
  *             .name("STACK NAME")
  *             .build());
  * 
- *         var exampleFleetStackAssociation = new FleetStackAssociation("exampleFleetStackAssociation", FleetStackAssociationArgs.builder()        
+ *         var exampleFleetStackAssociation = new FleetStackAssociation("exampleFleetStackAssociation", FleetStackAssociationArgs.builder()
  *             .fleetName(example.name())
  *             .stackName(exampleStack.name())
  *             .build());

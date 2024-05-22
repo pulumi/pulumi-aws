@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()        
+ *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()
  *             .identifier("https://example.com")
  *             .name("example")
  *             .userPoolId(pool.id())
@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("pool")
  *             .build());
  * 
- *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()        
+ *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()
  *             .identifier("https://example.com")
  *             .name("example")
  *             .scopes(ResourceServerScopeArgs.builder()

@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .customerMasterKeySpec("ECC_NIST_P256")
  *             .deletionWindowInDays(7)
  *             .keyUsage("SIGN_VERIFY")
@@ -93,17 +93,17 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
  *             .name("example.com")
  *             .build());
  * 
- *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()        
+ *         var exampleKeySigningKey = new KeySigningKey("exampleKeySigningKey", KeySigningKeyArgs.builder()
  *             .hostedZoneId(exampleZone.id())
  *             .keyManagementServiceArn(example.arn())
  *             .name("example")
  *             .build());
  * 
- *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec("exampleHostedZoneDnsSec", HostedZoneDnsSecArgs.builder()        
+ *         var exampleHostedZoneDnsSec = new HostedZoneDnsSec("exampleHostedZoneDnsSec", HostedZoneDnsSecArgs.builder()
  *             .hostedZoneId(exampleKeySigningKey.hostedZoneId())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleKeySigningKey)

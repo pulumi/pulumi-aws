@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RouteTablePropagation("example", RouteTablePropagationArgs.builder()        
+ *         var example = new RouteTablePropagation("example", RouteTablePropagationArgs.builder()
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGatewayRouteTable.id())
  *             .build());

@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus("messenger", EventBusArgs.builder()        
+ *         var messenger = new EventBus("messenger", EventBusArgs.builder()
  *             .name("chat-messages")
  *             .build());
  * 
- *         var test = new Discoverer("test", DiscovererArgs.builder()        
+ *         var test = new Discoverer("test", DiscovererArgs.builder()
  *             .sourceArn(messenger.arn())
  *             .description("Auto discover event schemas")
  *             .build());

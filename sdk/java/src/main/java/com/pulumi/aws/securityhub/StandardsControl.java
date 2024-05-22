@@ -52,13 +52,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account("example");
  * 
- *         var cisAwsFoundationsBenchmark = new StandardsSubscription("cisAwsFoundationsBenchmark", StandardsSubscriptionArgs.builder()        
+ *         var cisAwsFoundationsBenchmark = new StandardsSubscription("cisAwsFoundationsBenchmark", StandardsSubscriptionArgs.builder()
  *             .standardsArn("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", StandardsControlArgs.builder()        
+ *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", StandardsControlArgs.builder()
  *             .standardsControlArn("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10")
  *             .controlStatus("DISABLED")
  *             .disabledReason("We handle password policies within Okta")

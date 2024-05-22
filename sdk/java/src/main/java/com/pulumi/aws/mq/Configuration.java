@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *         var example = new Configuration("example", ConfigurationArgs.builder()
  *             .description("Example Configuration")
  *             .name("example")
  *             .engineType("ActiveMQ")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Configuration("example", ConfigurationArgs.builder()        
+ *         var example = new Configuration("example", ConfigurationArgs.builder()
  *             .description("Example Configuration")
  *             .name("example")
  *             .engineType("RabbitMQ")

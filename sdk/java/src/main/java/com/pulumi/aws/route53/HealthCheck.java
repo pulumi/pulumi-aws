@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HealthCheck("example", HealthCheckArgs.builder()        
+ *         var example = new HealthCheck("example", HealthCheckArgs.builder()
  *             .fqdn("example.com")
  *             .port(80)
  *             .type("HTTP")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HealthCheck("example", HealthCheckArgs.builder()        
+ *         var example = new HealthCheck("example", HealthCheckArgs.builder()
  *             .failureThreshold("5")
  *             .fqdn("example.com")
  *             .port(443)
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new HealthCheck("parent", HealthCheckArgs.builder()        
+ *         var parent = new HealthCheck("parent", HealthCheckArgs.builder()
  *             .type("CALCULATED")
  *             .childHealthThreshold(1)
  *             .childHealthchecks(child.id())
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()        
+ *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
  *             .name("test-foobar5")
  *             .comparisonOperator("GreaterThanOrEqualToThreshold")
  *             .evaluationPeriods("2")
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *             .alarmDescription("This metric monitors ec2 cpu utilization")
  *             .build());
  * 
- *         var foo = new HealthCheck("foo", HealthCheckArgs.builder()        
+ *         var foo = new HealthCheck("foo", HealthCheckArgs.builder()
  *             .type("CLOUDWATCH_METRIC")
  *             .cloudwatchAlarmName(foobar.name())
  *             .cloudwatchAlarmRegion("us-west-2")

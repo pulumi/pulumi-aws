@@ -47,18 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Eip("example", EipArgs.builder()        
+ *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
  *             .build());
  * 
- *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
+ *         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
  *             .zoneId(main.zoneId())
  *             .name("reverse")
  *             .type("A")
  *             .records(example.publicIp())
  *             .build());
  * 
- *         var exampleEipDomainName = new EipDomainName("exampleEipDomainName", EipDomainNameArgs.builder()        
+ *         var exampleEipDomainName = new EipDomainName("exampleEipDomainName", EipDomainNameArgs.builder()
  *             .allocationId(example.allocationId())
  *             .domainName(exampleRecord.fqdn())
  *             .build());

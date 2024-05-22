@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow("example", WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()
  *             .steps(WorkflowStepArgs.builder()
  *                 .deleteStepDetails(WorkflowStepDeleteStepDetailsArgs.builder()
  *                     .name("example")
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workflow("example", WorkflowArgs.builder()        
+ *         var example = new Workflow("example", WorkflowArgs.builder()
  *             .steps(            
  *                 WorkflowStepArgs.builder()
  *                     .customStepDetails(WorkflowStepCustomStepDetailsArgs.builder()

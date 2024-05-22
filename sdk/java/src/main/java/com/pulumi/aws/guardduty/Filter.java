@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFilter = new Filter("myFilter", FilterArgs.builder()        
+ *         var myFilter = new Filter("myFilter", FilterArgs.builder()
  *             .name("MyFilter")
  *             .action("ARCHIVE")
  *             .detectorId(example.id())

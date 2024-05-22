@@ -46,7 +46,7 @@ public final class DatazoneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
      *             .domainExecutionRole(domainExecutionRole.arn())
      *             .build());
@@ -99,7 +99,7 @@ public final class DatazoneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
      *             .domainExecutionRole(domainExecutionRole.arn())
      *             .build());
@@ -152,7 +152,7 @@ public final class DatazoneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
      *             .domainExecutionRole(domainExecutionRole.arn())
      *             .build());
@@ -205,7 +205,7 @@ public final class DatazoneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+     *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
      *             .name("example_domain")
      *             .domainExecutionRole(domainExecutionRole.arn())
      *             .build());

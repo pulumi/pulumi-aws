@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Theme("example", ThemeArgs.builder()        
+ *         var example = new Theme("example", ThemeArgs.builder()
  *             .themeId("example")
  *             .name("example")
  *             .baseThemeId("MIDNIGHT")

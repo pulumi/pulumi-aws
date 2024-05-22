@@ -45,16 +45,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new DelegationSet("main", DelegationSetArgs.builder()        
+ *         var main = new DelegationSet("main", DelegationSetArgs.builder()
  *             .referenceName("DynDNS")
  *             .build());
  * 
- *         var primary = new Zone("primary", ZoneArgs.builder()        
+ *         var primary = new Zone("primary", ZoneArgs.builder()
  *             .name("mydomain.com")
  *             .delegationSetId(main.id())
  *             .build());
  * 
- *         var secondary = new Zone("secondary", ZoneArgs.builder()        
+ *         var secondary = new Zone("secondary", ZoneArgs.builder()
  *             .name("coolcompany.io")
  *             .delegationSetId(main.id())
  *             .build());

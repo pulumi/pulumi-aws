@@ -57,23 +57,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()        
+ *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()
  *             .storageCapacity(1200)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType("PERSISTENT_2")
  *             .perUnitStorageThroughput(125)
  *             .build());
  * 
- *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation("exampleDataRepositoryAssociation", DataRepositoryAssociationArgs.builder()        
+ *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation("exampleDataRepositoryAssociation", DataRepositoryAssociationArgs.builder()
  *             .fileSystemId(exampleLustreFileSystem.id())
  *             .dataRepositoryPath(example.id().applyValue(id -> String.format("s3://%s", id)))
  *             .fileSystemPath("/my-bucket")

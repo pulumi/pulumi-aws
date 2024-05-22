@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()
  *             .name("patch-baseline")
  *             .approvedPatches("KB123456")
  *             .build());
  * 
- *         var patchgroup = new PatchGroup("patchgroup", PatchGroupArgs.builder()        
+ *         var patchgroup = new PatchGroup("patchgroup", PatchGroupArgs.builder()
  *             .baselineId(production.id())
  *             .patchGroup("patch-group-name")
  *             .build());

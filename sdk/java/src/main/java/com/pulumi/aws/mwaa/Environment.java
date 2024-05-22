@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .name("example")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .airflowConfigurationOptions(Map.ofEntries(
  *                 Map.entry("core.default_task_retries", 16),
  *                 Map.entry("core.parallelism", 1)
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .loggingConfiguration(EnvironmentLoggingConfigurationArgs.builder()
@@ -216,7 +216,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Environment("example", EnvironmentArgs.builder()        
+ *         var example = new Environment("example", EnvironmentArgs.builder()
  *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .name("example")

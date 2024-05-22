@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServicecatalogPortfolioStatus("example", ServicecatalogPortfolioStatusArgs.builder()        
+ *         var example = new ServicecatalogPortfolioStatus("example", ServicecatalogPortfolioStatusArgs.builder()
  *             .status("Enabled")
  *             .build());
  * 

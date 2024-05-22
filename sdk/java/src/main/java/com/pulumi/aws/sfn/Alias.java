@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()        
+ *         var sfnAlias = new Alias("sfnAlias", AliasArgs.builder()
  *             .name("my_sfn_alias")
  *             .routingConfigurations(AliasRoutingConfigurationArgs.builder()
  *                 .stateMachineVersionArn(sfnTest.stateMachineVersionArn())
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var mySfnAlias = new Alias("mySfnAlias", AliasArgs.builder()        
+ *         var mySfnAlias = new Alias("mySfnAlias", AliasArgs.builder()
  *             .name("my_sfn_alias")
  *             .routingConfigurations(            
  *                 AliasRoutingConfigurationArgs.builder()

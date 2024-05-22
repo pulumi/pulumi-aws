@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()        
+ *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()
  *             .accountId("123456789012")
  *             .region("us-east-1")
  *             .stackSetName(exampleAwsCloudformationStackSet.name())
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetExecutionRole = new Role("aWSCloudFormationStackSetExecutionRole", RoleArgs.builder()        
+ *         var aWSCloudFormationStackSetExecutionRole = new Role("aWSCloudFormationStackSetExecutionRole", RoleArgs.builder()
  *             .assumeRolePolicy(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("AWSCloudFormationStackSetExecutionRole")
  *             .build());
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("MinimumExecutionPolicy")
  *             .policy(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(aWSCloudFormationStackSetExecutionRole.name())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()        
+ *         var example = new StackSetInstance("example", StackSetInstanceArgs.builder()
  *             .deploymentTargets(StackSetInstanceDeploymentTargetsArgs.builder()
  *                 .organizationalUnitIds(exampleAwsOrganizationsOrganization.roots()[0].id())
  *                 .build())

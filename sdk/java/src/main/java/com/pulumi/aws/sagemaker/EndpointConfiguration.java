@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ec = new EndpointConfiguration("ec", EndpointConfigurationArgs.builder()        
+ *         var ec = new EndpointConfiguration("ec", EndpointConfigurationArgs.builder()
  *             .name("my-endpoint-config")
  *             .productionVariants(EndpointConfigurationProductionVariantArgs.builder()
  *                 .variantName("variant-1")
