@@ -189,11 +189,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('skipCredentialsValidation') or False
 
     @property
-    def skip_metadata_api_check(self) -> bool:
+    def skip_metadata_api_check(self) -> Optional[bool]:
         """
         Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         """
-        return __config__.get_bool('skipMetadataApiCheck') or True
+        return __config__.get_bool('skipMetadataApiCheck')
 
     @property
     def skip_region_validation(self) -> bool:

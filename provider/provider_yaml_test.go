@@ -1,4 +1,4 @@
-// Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2024, Pulumi Corporation.  All rights reserved.
 
 //go:build !go && !nodejs && !python && !dotnet
 // +build !go,!nodejs,!python,!dotnet
@@ -6,11 +6,15 @@
 package provider
 
 import (
+	"bytes"
 	"context"
 	"fmt"
 	"math/rand"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"runtime"
+	"strings"
 	"testing"
 
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -313,6 +317,56 @@ func TestRegress3674(t *testing.T) {
 	state, err := ptest.ExportStack().Deployment.MarshalJSON()
 	require.NoError(t, err)
 	require.NotContainsf(t, string(state), "MyTestTag", "Expected MyTestTag to be removed")
+}
+
+// Ensure that pulumi-aws can authenticate using IMDS API when Pulumi is running in a context where that is made
+// available such as an EC2 instance.
+func TestIMDSAuth(t *testing.T) {
+	var localProviderBuild string
+	actual := fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH)
+	expected := "linux/amd64"
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	if actual == expected {
+		currentBinary, err := filepath.Abs(filepath.Join(cwd, "..", "bin", "pulumi-resource-aws"))
+		require.NoError(t, err)
+		t.Logf("Reusing prebuilt binary from %s to test %q", currentBinary, expected)
+		localProviderBuild = currentBinary
+	} else {
+		t.Logf("Cross-compiling provider-resource-aws under test to %q", expected)
+		localProviderBuild = filepath.Join(os.TempDir(), "pulumi-resource-aws")
+		ldFlags := []string{
+			"-X", "github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version=6.0.0-alpha.0+dev",
+			"-X", "github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev",
+		}
+		args := []string{
+			"build", "-o", localProviderBuild,
+			"-ldflags", strings.Join(ldFlags, " "),
+		}
+		cmd := exec.Command("go", args...)
+		cmd.Dir = filepath.Join(cwd, "cmd", "pulumi-resource-aws")
+		cmd.Env = os.Environ()
+		cmd.Env = append(cmd.Env,
+			fmt.Sprintf("GOOS=linux"),
+			fmt.Sprintf("GOARCH=amd64"),
+		)
+		var stderr, stdout bytes.Buffer
+		cmd.Stderr = &stderr
+		cmd.Stdout = &stdout
+		if err := cmd.Run(); err != nil {
+			t.Logf("go %s failed\nStdout:\n%s\nStderr:\n%s\n", strings.Join(args, " "),
+				stdout.String(), stderr.String())
+			require.NoError(t, err)
+		}
+	}
+	t.Run("IDMSv2", func(t *testing.T) {
+		ptest := pulumiTest(t, filepath.Join("test-programs", "imds-auth", "imds-v2"), opttest.SkipInstall())
+		ptest.SetConfig("localProviderBuild", localProviderBuild)
+		result := ptest.Up()
+		t.Logf("stdout: %s", result.StdOut)
+		t.Logf("stderr: %s", result.StdErr)
+		t.Logf("commandOut: %v", result.Outputs["commandOut"].Value)
+	})
 }
 
 func configureS3() *s3sdk.Client {

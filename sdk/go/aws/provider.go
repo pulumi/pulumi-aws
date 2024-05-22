@@ -72,9 +72,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}
-	if args.SkipMetadataApiCheck == nil {
-		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
-	}
 	if args.SkipRegionValidation == nil {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
