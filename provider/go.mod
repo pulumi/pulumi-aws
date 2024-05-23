@@ -11,10 +11,10 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.11
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.0
-	github.com/pulumi/pulumi/pkg/v3 v3.114.0
-	github.com/pulumi/pulumi/sdk/v3 v3.114.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.35.1-0.20240523132403-341014ae6076
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.82.1-0.20240523132403-341014ae6076
+	github.com/pulumi/pulumi/pkg/v3 v3.116.1
+	github.com/pulumi/pulumi/sdk/v3 v3.116.1
 	github.com/stretchr/testify v1.9.0
 	pgregory.net/rapid v0.6.1
 )
@@ -27,7 +27,7 @@ require (
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
@@ -385,9 +385,9 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.10.0 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.11.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.6.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.7.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
