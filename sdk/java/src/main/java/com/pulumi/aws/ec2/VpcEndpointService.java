@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .networkLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .gatewayLoadBalancerArns(exampleAwsLb.arn())
  *             .build());

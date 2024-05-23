@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AccessEntry("example", AccessEntryArgs.builder()        
+ *         var example = new AccessEntry("example", AccessEntryArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .principalArn(exampleAwsIamRole.arn())
  *             .kubernetesGroups(            

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
+    /**
+     * @return S3 bucket name.
+     * 
+     */
     private @Nullable String bucketName;
+    /**
+     * @return S3 prefix.
+     * 
+     */
     private @Nullable String keyPrefix;
 
     private InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config() {}
+    /**
+     * @return S3 bucket name.
+     * 
+     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
+    /**
+     * @return S3 prefix.
+     * 
+     */
     public Optional<String> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }

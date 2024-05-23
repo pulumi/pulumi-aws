@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .description("example description")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(LaunchGroupArgs.builder()
@@ -281,7 +281,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .randomizationSalt("example randomization salt")
@@ -331,7 +331,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            
@@ -397,7 +397,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Launch("example", LaunchArgs.builder()        
+ *         var example = new Launch("example", LaunchArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .groups(            

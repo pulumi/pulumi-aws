@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Key("example");
  * 
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .repositoryName("example-repo")
  *             .build());
  * 
- *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()        
+ *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()
  *             .repository(RepositoryAssociationRepositoryArgs.builder()
  *                 .codecommit(RepositoryAssociationRepositoryCodecommitArgs.builder()
  *                     .name(exampleRepository.repositoryName())

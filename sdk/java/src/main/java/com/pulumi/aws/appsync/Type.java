@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("example")
  *             .build());
  * 
- *         var exampleType = new Type("exampleType", TypeArgs.builder()        
+ *         var exampleType = new Type("exampleType", TypeArgs.builder()
  *             .apiId(example.id())
  *             .format("SDL")
  *             .definition("""

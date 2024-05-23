@@ -68,13 +68,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .tags(Map.of("Name", "Primary"))
  *             .build());
  * 
  *         for (var i = 0; i < 2; i++) {
- *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()            
+ *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
  *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()        
+ *         var exampleDirectory = new Directory("exampleDirectory", DirectoryArgs.builder()
  *             .name("example.com")
  *             .password("SuperSecretPassw0rd")
  *             .type("MicrosoftAD")
@@ -101,13 +101,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_secondary = new Vpc("example-secondary", VpcArgs.builder()        
+ *         var example_secondary = new Vpc("example-secondary", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .tags(Map.of("Name", "Secondary"))
  *             .build());
  * 
  *         for (var i = 0; i < 2; i++) {
- *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()            
+ *             new Subnet("example-secondarySubnet-" + i, SubnetArgs.builder()
  *                 .vpcId(example_secondary.id())
  *                 .availabilityZone(available_secondary.names()[range.value()])
  *                 .cidrBlock(example_secondary.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()        
+ *         var exampleServiceRegion = new ServiceRegion("exampleServiceRegion", ServiceRegionArgs.builder()
  *             .directoryId(exampleDirectory.id())
  *             .regionName(example.applyValue(getRegionResult -> getRegionResult.name()))
  *             .vpcSettings(ServiceRegionVpcSettingsArgs.builder()

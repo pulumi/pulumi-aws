@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ClusterSnapshot("example", ClusterSnapshotArgs.builder()        
+ *         var example = new ClusterSnapshot("example", ClusterSnapshotArgs.builder()
  *             .dbClusterIdentifier(exampleAwsRdsCluster.id())
  *             .dbClusterSnapshotIdentifier("resourcetestsnapshot1234")
  *             .build());

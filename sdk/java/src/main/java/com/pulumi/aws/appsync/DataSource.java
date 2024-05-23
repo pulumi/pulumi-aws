@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTable = new Table("exampleTable", TableArgs.builder()        
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("example")
  *             .readCapacity(1)
  *             .writeCapacity(1)
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -96,18 +96,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .name("example")
  *             .role(exampleRole.id())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleGraphQLApi = new GraphQLApi("exampleGraphQLApi", GraphQLApiArgs.builder()        
+ *         var exampleGraphQLApi = new GraphQLApi("exampleGraphQLApi", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("my_appsync_example")
  *             .build());
  * 
- *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()        
+ *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
  *             .apiId(exampleGraphQLApi.id())
  *             .name("my_appsync_example")
  *             .serviceRoleArn(exampleRole.arn())

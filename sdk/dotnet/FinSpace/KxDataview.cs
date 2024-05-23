@@ -80,6 +80,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
+        /// * `SINGLE` - Assigns one availability zone per cluster.
+        /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
         [Output("azMode")]
         public Output<string> AzMode { get; private set; } = null!;
@@ -218,6 +220,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
+        /// * `SINGLE` - Assigns one availability zone per cluster.
+        /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
         [Input("azMode", required: true)]
         public Input<string> AzMode { get; set; } = null!;
@@ -315,6 +319,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
+        /// * `SINGLE` - Assigns one availability zone per cluster.
+        /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
         [Input("azMode")]
         public Input<string>? AzMode { get; set; }

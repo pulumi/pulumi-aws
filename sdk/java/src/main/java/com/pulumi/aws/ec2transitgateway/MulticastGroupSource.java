@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MulticastGroupSource("example", MulticastGroupSourceArgs.builder()        
+ *         var example = new MulticastGroupSource("example", MulticastGroupSourceArgs.builder()
  *             .groupIpAddress("224.0.0.1")
  *             .networkInterfaceId(exampleAwsNetworkInterface.id())
  *             .transitGatewayMulticastDomainId(exampleAwsEc2TransitGatewayMulticastDomain.id())

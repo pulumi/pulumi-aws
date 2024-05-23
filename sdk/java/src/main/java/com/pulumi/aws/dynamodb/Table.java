@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()        
+ *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()
  *             .name("GameScores")
  *             .billingMode("PROVISIONED")
  *             .readCapacity(20)
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .name("example")
  *             .hashKey("TestTableHashKey")
  *             .billingMode("PAY_PER_REQUEST")
@@ -214,7 +214,7 @@ import javax.annotation.Nullable;
  * 
  *         final var third = AwsFunctions.getRegion();
  * 
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .billingMode("PAY_PER_REQUEST")
  *             .hashKey("TestTableHashKey")
  *             .name("example-13281")
@@ -238,7 +238,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleTag = new Tag("exampleTag", TagArgs.builder()        
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
  *             .resourceArn(example.arn().applyValue(arn -> StdFunctions.replace()).applyValue(invoke -> invoke.result()))
  *             .key("Architect")
  *             .value("Gigi")

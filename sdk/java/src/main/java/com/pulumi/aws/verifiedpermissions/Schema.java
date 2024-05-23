@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Schema("example", SchemaArgs.builder()        
+ *         var example = new Schema("example", SchemaArgs.builder()
  *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.policyStoreId())
  *             .definition(SchemaDefinitionArgs.builder()
  *                 .value(serializeJson(

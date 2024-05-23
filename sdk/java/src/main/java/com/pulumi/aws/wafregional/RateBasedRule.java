@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()
  *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wafrule = new RateBasedRule("wafrule", RateBasedRuleArgs.builder()        
+ *         var wafrule = new RateBasedRule("wafrule", RateBasedRuleArgs.builder()
  *             .name("tfWAFRule")
  *             .metricName("tfWAFRule")
  *             .rateKey("IP")

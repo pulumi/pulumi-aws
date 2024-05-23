@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var console = new EventRule("console", EventRuleArgs.builder()        
+ *         var console = new EventRule("console", EventRuleArgs.builder()
  *             .name("capture-aws-sign-in")
  *             .description("Capture each AWS Console Sign In")
  *             .eventPattern(serializeJson(
@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var awsLogins = new Topic("awsLogins", TopicArgs.builder()        
+ *         var awsLogins = new Topic("awsLogins", TopicArgs.builder()
  *             .name("aws-console-logins")
  *             .build());
  * 
- *         var sns = new EventTarget("sns", EventTargetArgs.builder()        
+ *         var sns = new EventTarget("sns", EventTargetArgs.builder()
  *             .rule(console.name())
  *             .targetId("SendToSNS")
  *             .arn(awsLogins.arn())
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(awsLogins.arn())
  *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

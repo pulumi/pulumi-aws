@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new ThingType("foo", ThingTypeArgs.builder()        
+ *         var foo = new ThingType("foo", ThingTypeArgs.builder()
  *             .name("my_iot_thing")
  *             .build());
  * 

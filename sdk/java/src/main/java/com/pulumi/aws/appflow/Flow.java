@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSourceBucketV2 = new BucketV2("exampleSourceBucketV2", BucketV2Args.builder()        
+ *         var exampleSourceBucketV2 = new BucketV2("exampleSourceBucketV2", BucketV2Args.builder()
  *             .bucket("example-source")
  *             .build());
  * 
@@ -88,18 +88,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleSourceBucketV2.id())
  *             .policy(exampleSource.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()        
+ *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
  *             .bucket(exampleSourceBucketV2.id())
  *             .key("example_source.csv")
  *             .source(new FileAsset("example_source.csv"))
  *             .build());
  * 
- *         var exampleDestinationBucketV2 = new BucketV2("exampleDestinationBucketV2", BucketV2Args.builder()        
+ *         var exampleDestinationBucketV2 = new BucketV2("exampleDestinationBucketV2", BucketV2Args.builder()
  *             .bucket("example-destination")
  *             .build());
  * 
@@ -124,12 +124,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()        
+ *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleDestinationBucketV2.id())
  *             .policy(exampleDestination.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleFlow = new Flow("exampleFlow", FlowArgs.builder()        
+ *         var exampleFlow = new Flow("exampleFlow", FlowArgs.builder()
  *             .name("example")
  *             .sourceFlowConfig(FlowSourceFlowConfigArgs.builder()
  *                 .connectorType("S3")

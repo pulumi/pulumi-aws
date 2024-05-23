@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IntegrationResponse("example", IntegrationResponseArgs.builder()        
+ *         var example = new IntegrationResponse("example", IntegrationResponseArgs.builder()
  *             .apiId(exampleAwsApigatewayv2Api.id())
  *             .integrationId(exampleAwsApigatewayv2Integration.id())
  *             .integrationResponseKey("/200/")

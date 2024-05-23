@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceShare("example", ResourceShareArgs.builder()        
+ *         var example = new ResourceShare("example", ResourceShareArgs.builder()
  *             .allowExternalPrincipals(true)
  *             .build());
  * 
- *         var examplePrincipalAssociation = new PrincipalAssociation("examplePrincipalAssociation", PrincipalAssociationArgs.builder()        
+ *         var examplePrincipalAssociation = new PrincipalAssociation("examplePrincipalAssociation", PrincipalAssociationArgs.builder()
  *             .principal("111111111111")
  *             .resourceShareArn(example.arn())
  *             .build());
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrincipalAssociation("example", PrincipalAssociationArgs.builder()        
+ *         var example = new PrincipalAssociation("example", PrincipalAssociationArgs.builder()
  *             .principal(exampleAwsOrganizationsOrganization.arn())
  *             .resourceShareArn(exampleAwsRamResourceShare.arn())
  *             .build());

@@ -24,6 +24,8 @@ public final class LoadBalancerHealthCheck {
     /**
      * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
      * values are:
+     * * `HTTP`, `HTTPS` - PORT and PATH are required
+     * * `TCP`, `SSL` - PORT is required, PATH is not supported
      * 
      */
     private String target;
@@ -56,6 +58,8 @@ public final class LoadBalancerHealthCheck {
     /**
      * @return The target of the check. Valid pattern is &#34;${PROTOCOL}:${PORT}${PATH}&#34;, where PROTOCOL
      * values are:
+     * * `HTTP`, `HTTPS` - PORT and PATH are required
+     * * `TCP`, `SSL` - PORT is required, PATH is not supported
      * 
      */
     public String target() {

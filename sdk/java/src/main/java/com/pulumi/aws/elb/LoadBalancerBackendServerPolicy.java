@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()        
+ *         var wu_tang = new LoadBalancer("wu-tang", LoadBalancerArgs.builder()
  *             .name("wu-tang")
  *             .availabilityZones("us-east-1a")
  *             .listeners(LoadBalancerListenerArgs.builder()
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Name", "wu-tang"))
  *             .build());
  * 
- *         var wu_tang_ca_pubkey_policy = new LoadBalancerPolicy("wu-tang-ca-pubkey-policy", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_ca_pubkey_policy = new LoadBalancerPolicy("wu-tang-ca-pubkey-policy", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-ca-pubkey-policy")
  *             .policyTypeName("PublicKeyPolicyType")
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", LoadBalancerPolicyArgs.builder()        
+ *         var wu_tang_root_ca_backend_auth_policy = new LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", LoadBalancerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .policyName("wu-tang-root-ca-backend-auth-policy")
  *             .policyTypeName("BackendServerAuthenticationPolicyType")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wu_tang_backend_auth_policies_443 = new LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", LoadBalancerBackendServerPolicyArgs.builder()        
+ *         var wu_tang_backend_auth_policies_443 = new LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", LoadBalancerBackendServerPolicyArgs.builder()
  *             .loadBalancerName(wu_tang.name())
  *             .instancePort(443)
  *             .policyNames(wu_tang_root_ca_backend_auth_policy.policyName())

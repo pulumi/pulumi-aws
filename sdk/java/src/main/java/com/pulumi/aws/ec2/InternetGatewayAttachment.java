@@ -44,13 +44,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
  *         var exampleInternetGateway = new InternetGateway("exampleInternetGateway");
  * 
- *         var example = new InternetGatewayAttachment("example", InternetGatewayAttachmentArgs.builder()        
+ *         var example = new InternetGatewayAttachment("example", InternetGatewayAttachmentArgs.builder()
  *             .internetGatewayId(exampleInternetGateway.id())
  *             .vpcId(exampleVpc.id())
  *             .build());

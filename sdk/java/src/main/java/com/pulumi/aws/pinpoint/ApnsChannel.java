@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var apns = new ApnsChannel("apns", ApnsChannelArgs.builder()        
+ *         var apns = new ApnsChannel("apns", ApnsChannelArgs.builder()
  *             .applicationId(app.applicationId())
  *             .certificate(StdFunctions.file(FileArgs.builder()
  *                 .input("./certificate.pem")

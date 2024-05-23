@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ApiKey("example", ApiKeyArgs.builder()        
+ *         var example = new ApiKey("example", ApiKeyArgs.builder()
  *             .name("example")
  *             .build());
  * 

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Channel("example", ChannelArgs.builder()        
+ *         var example = new Channel("example", ChannelArgs.builder()
  *             .name("example-channel")
  *             .channelClass("STANDARD")
  *             .roleArn(exampleAwsIamRole.arn())

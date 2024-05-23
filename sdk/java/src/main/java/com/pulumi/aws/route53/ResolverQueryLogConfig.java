@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResolverQueryLogConfig("example", ResolverQueryLogConfigArgs.builder()        
+ *         var example = new ResolverQueryLogConfig("example", ResolverQueryLogConfigArgs.builder()
  *             .name("example")
  *             .destinationArn(exampleAwsS3Bucket.arn())
  *             .tags(Map.of("Environment", "Prod"))

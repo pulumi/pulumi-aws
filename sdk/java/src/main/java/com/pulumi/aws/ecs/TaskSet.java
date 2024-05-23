@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TaskSet("example", TaskSetArgs.builder()        
+ *         var example = new TaskSet("example", TaskSetArgs.builder()
  *             .service(exampleAwsEcsService.id())
  *             .cluster(exampleAwsEcsCluster.id())
  *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TaskSet("example", TaskSetArgs.builder()        
+ *         var example = new TaskSet("example", TaskSetArgs.builder()
  *             .scale(TaskSetScaleArgs.builder()
  *                 .value(50)
  *                 .build())

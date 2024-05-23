@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var frontEndListener = new Listener("frontEndListener");
  * 
- *         var static_ = new ListenerRule("static", ListenerRuleArgs.builder()        
+ *         var static_ = new ListenerRule("static", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .priority(100)
  *             .actions(ListenerRuleActionArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Forward action
- *         var hostBasedWeightedRouting = new ListenerRule("hostBasedWeightedRouting", ListenerRuleArgs.builder()        
+ *         var hostBasedWeightedRouting = new ListenerRule("hostBasedWeightedRouting", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
  *             .actions(ListenerRuleActionArgs.builder()
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Weighted Forward action
- *         var hostBasedRouting = new ListenerRule("hostBasedRouting", ListenerRuleArgs.builder()        
+ *         var hostBasedRouting = new ListenerRule("hostBasedRouting", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
  *             .actions(ListenerRuleActionArgs.builder()
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Redirect action
- *         var redirectHttpToHttps = new ListenerRule("redirectHttpToHttps", ListenerRuleArgs.builder()        
+ *         var redirectHttpToHttps = new ListenerRule("redirectHttpToHttps", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
  *                 .type("redirect")
@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Fixed-response action
- *         var healthCheck = new ListenerRule("healthCheck", ListenerRuleArgs.builder()        
+ *         var healthCheck = new ListenerRule("healthCheck", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
  *                 .type("fixed-response")
@@ -183,7 +183,7 @@ import javax.annotation.Nullable;
  * 
  *         var domain = new UserPoolDomain("domain");
  * 
- *         var admin = new ListenerRule("admin", ListenerRuleArgs.builder()        
+ *         var admin = new ListenerRule("admin", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
  *                 ListenerRuleActionArgs.builder()
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Authenticate-oidc Action
- *         var oidc = new ListenerRule("oidc", ListenerRuleArgs.builder()        
+ *         var oidc = new ListenerRule("oidc", ListenerRuleArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            
  *                 ListenerRuleActionArgs.builder()

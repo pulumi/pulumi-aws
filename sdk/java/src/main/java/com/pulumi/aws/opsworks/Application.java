@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_app = new Application("foo-app", ApplicationArgs.builder()        
+ *         var foo_app = new Application("foo-app", ApplicationArgs.builder()
  *             .name("foobar application")
  *             .shortName("foobar")
  *             .stackId(main.id())

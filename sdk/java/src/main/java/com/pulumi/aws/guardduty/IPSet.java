@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector("primary", DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
  *         var bucket = new BucketV2("bucket");
  * 
- *         var myIPSet = new BucketObjectv2("myIPSet", BucketObjectv2Args.builder()        
+ *         var myIPSet = new BucketObjectv2("myIPSet", BucketObjectv2Args.builder()
  *             .content("""
  * 10.0.0.0/8
  *             """)
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .key("MyIPSet")
  *             .build());
  * 
- *         var example = new IPSet("example", IPSetArgs.builder()        
+ *         var example = new IPSet("example", IPSetArgs.builder()
  *             .activate(true)
  *             .detectorId(primary.id())
  *             .format("TXT")
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *             .name("MyIPSet")
  *             .build());
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());

@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var r = new Role("r", RoleArgs.builder()        
+ *         var r = new Role("r", RoleArgs.builder()
  *             .name("awsconfig-example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *         var foo = new Recorder("foo", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(r.arn())
  *             .build());
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *         var foo = new Recorder("foo", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Recorder("foo", RecorderArgs.builder()        
+ *         var foo = new Recorder("foo", RecorderArgs.builder()
  *             .name("example")
  *             .roleArn(r.arn())
  *             .recordingGroup(RecorderRecordingGroupArgs.builder()

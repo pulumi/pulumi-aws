@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .state("available")
  *             .build());
  * 
- *         var example = new Multiplex("example", MultiplexArgs.builder()        
+ *         var example = new Multiplex("example", MultiplexArgs.builder()
  *             .name("example-multiplex-changed")
  *             .availabilityZones(            
  *                 available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]),
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("tag1", "value1"))
  *             .build());
  * 
- *         var exampleMultiplexProgram = new MultiplexProgram("exampleMultiplexProgram", MultiplexProgramArgs.builder()        
+ *         var exampleMultiplexProgram = new MultiplexProgram("exampleMultiplexProgram", MultiplexProgramArgs.builder()
  *             .programName("example_program")
  *             .multiplexId(example.id())
  *             .multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs.builder()

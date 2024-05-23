@@ -13,6 +13,9 @@ namespace Pulumi.Aws.IvsChat.Outputs
     [OutputType]
     public sealed class LoggingConfigurationDestinationConfigurationCloudwatchLogs
     {
+        /// <summary>
+        /// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        /// </summary>
         public readonly string LogGroupName;
 
         [OutputConstructor]

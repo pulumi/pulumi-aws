@@ -458,12 +458,18 @@ class GroupInstanceRefreshPreferences(dict):
 class GroupInstanceRefreshPreferencesAlarmSpecification(dict):
     def __init__(__self__, *,
                  alarms: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] alarms: List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+        """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
 
     @property
     @pulumi.getter
     def alarms(self) -> Optional[Sequence[str]]:
+        """
+        List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+        """
         return pulumi.get(self, "alarms")
 
 

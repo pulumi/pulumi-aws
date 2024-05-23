@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()

@@ -100,6 +100,8 @@ class LoadBalancerHealthCheckArgs:
         :param pulumi.Input[int] interval: The interval between checks.
         :param pulumi.Input[str] target: The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
                values are:
+               * `HTTP`, `HTTPS` - PORT and PATH are required
+               * `TCP`, `SSL` - PORT is required, PATH is not supported
         :param pulumi.Input[int] timeout: The length of time before the check times out.
         :param pulumi.Input[int] unhealthy_threshold: The number of checks before the instance is declared unhealthy.
         """
@@ -139,6 +141,8 @@ class LoadBalancerHealthCheckArgs:
         """
         The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
         values are:
+        * `HTTP`, `HTTPS` - PORT and PATH are required
+        * `TCP`, `SSL` - PORT is required, PATH is not supported
         """
         return pulumi.get(self, "target")
 

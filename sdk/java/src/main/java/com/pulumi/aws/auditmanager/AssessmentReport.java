@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AssessmentReport("test", AssessmentReportArgs.builder()        
+ *         var test = new AssessmentReport("test", AssessmentReportArgs.builder()
  *             .name("example")
  *             .assessmentId(testAwsAuditmanagerAssessment.id())
  *             .build());

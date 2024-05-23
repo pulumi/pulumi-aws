@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()        
+ *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineConfigurationBody(example.arn().applyValue(arn -> """
  * version: "2"
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipeline("example", PipelineArgs.builder()        
+ *         var example = new Pipeline("example", PipelineArgs.builder()
  *             .pipelineName("example")
  *             .pipelineConfigurationBody(StdFunctions.file(FileArgs.builder()
  *                 .input("example.yaml")

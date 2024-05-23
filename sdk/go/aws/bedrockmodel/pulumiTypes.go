@@ -231,9 +231,12 @@ func (o InvocationLoggingConfigurationLoggingConfigPtrOutput) TextDataDeliveryEn
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfig struct {
+	// S3 configuration for delivering a large amount of data.
 	LargeDataDeliveryS3Config *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config `pulumi:"largeDataDeliveryS3Config"`
-	LogGroupName              *string                                                                               `pulumi:"logGroupName"`
-	RoleArn                   *string                                                                               `pulumi:"roleArn"`
+	// Log group name.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The role ARN.
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 // InvocationLoggingConfigurationLoggingConfigCloudwatchConfigInput is an input type that accepts InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs and InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput values.
@@ -248,9 +251,12 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigInput interface 
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs struct {
+	// S3 configuration for delivering a large amount of data.
 	LargeDataDeliveryS3Config InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrInput `pulumi:"largeDataDeliveryS3Config"`
-	LogGroupName              pulumi.StringPtrInput                                                                        `pulumi:"logGroupName"`
-	RoleArn                   pulumi.StringPtrInput                                                                        `pulumi:"roleArn"`
+	// Log group name.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The role ARN.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs) ElementType() reflect.Type {
@@ -330,16 +336,19 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) ToInv
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput)
 }
 
+// S3 configuration for delivering a large amount of data.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LargeDataDeliveryS3Config() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
 		return v.LargeDataDeliveryS3Config
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput)
 }
 
+// Log group name.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The role ARN.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -368,6 +377,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) El
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput)
 }
 
+// S3 configuration for delivering a large amount of data.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) LargeDataDeliveryS3Config() InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
 		if v == nil {
@@ -377,6 +387,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) La
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput)
 }
 
+// Log group name.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string {
 		if v == nil {
@@ -386,6 +397,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) Lo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The role ARN.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig) *string {
 		if v == nil {
@@ -396,8 +408,10 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigPtrOutput) Ro
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config struct {
+	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	KeyPrefix  *string `pulumi:"keyPrefix"`
+	// S3 prefix.
+	KeyPrefix *string `pulumi:"keyPrefix"`
 }
 
 // InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigInput is an input type that accepts InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs and InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput values.
@@ -412,8 +426,10 @@ type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliver
 }
 
 type InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs struct {
+	// S3 bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	KeyPrefix  pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// S3 prefix.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
 
 func (InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs) ElementType() reflect.Type {
@@ -493,12 +509,14 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput)
 }
 
+// S3 bucket name.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) *string {
 		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 prefix.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) *string {
 		return v.KeyPrefix
@@ -529,6 +547,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 	}).(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigOutput)
 }
 
+// S3 bucket name.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) *string {
 		if v == nil {
@@ -538,6 +557,7 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 prefix.
 func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config) *string {
 		if v == nil {
@@ -548,8 +568,10 @@ func (o InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeli
 }
 
 type InvocationLoggingConfigurationLoggingConfigS3Config struct {
+	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	KeyPrefix  *string `pulumi:"keyPrefix"`
+	// S3 prefix.
+	KeyPrefix *string `pulumi:"keyPrefix"`
 }
 
 // InvocationLoggingConfigurationLoggingConfigS3ConfigInput is an input type that accepts InvocationLoggingConfigurationLoggingConfigS3ConfigArgs and InvocationLoggingConfigurationLoggingConfigS3ConfigOutput values.
@@ -564,8 +586,10 @@ type InvocationLoggingConfigurationLoggingConfigS3ConfigInput interface {
 }
 
 type InvocationLoggingConfigurationLoggingConfigS3ConfigArgs struct {
+	// S3 bucket name.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	KeyPrefix  pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	// S3 prefix.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 }
 
 func (InvocationLoggingConfigurationLoggingConfigS3ConfigArgs) ElementType() reflect.Type {
@@ -645,10 +669,12 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) ToInvocationL
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput)
 }
 
+// S3 bucket name.
 func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigS3Config) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
+// S3 prefix.
 func (o InvocationLoggingConfigurationLoggingConfigS3ConfigOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvocationLoggingConfigurationLoggingConfigS3Config) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -677,6 +703,7 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) Elem() Inv
 	}).(InvocationLoggingConfigurationLoggingConfigS3ConfigOutput)
 }
 
+// S3 bucket name.
 func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigS3Config) *string {
 		if v == nil {
@@ -686,6 +713,7 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
+// S3 prefix.
 func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvocationLoggingConfigurationLoggingConfigS3Config) *string {
 		if v == nil {

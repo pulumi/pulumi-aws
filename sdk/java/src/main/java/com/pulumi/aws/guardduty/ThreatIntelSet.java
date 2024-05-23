@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Detector("primary", DetectorArgs.builder()        
+ *         var primary = new Detector("primary", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
  *         var bucket = new BucketV2("bucket");
  * 
- *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()        
+ *         var bucketAcl = new BucketAclV2("bucketAcl", BucketAclV2Args.builder()
  *             .bucket(bucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var myThreatIntelSet = new BucketObjectv2("myThreatIntelSet", BucketObjectv2Args.builder()        
+ *         var myThreatIntelSet = new BucketObjectv2("myThreatIntelSet", BucketObjectv2Args.builder()
  *             .acl("public-read")
  *             .content("""
  * 10.0.0.0/8
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .key("MyThreatIntelSet")
  *             .build());
  * 
- *         var myThreatIntelSetThreatIntelSet = new ThreatIntelSet("myThreatIntelSetThreatIntelSet", ThreatIntelSetArgs.builder()        
+ *         var myThreatIntelSetThreatIntelSet = new ThreatIntelSet("myThreatIntelSetThreatIntelSet", ThreatIntelSetArgs.builder()
  *             .activate(true)
  *             .detectorId(primary.id())
  *             .format("TXT")

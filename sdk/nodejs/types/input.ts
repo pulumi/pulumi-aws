@@ -4540,10 +4540,16 @@ export namespace appmesh {
     }
 
     export interface MeshSpecEgressFilter {
+        /**
+         * Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+         */
         type?: pulumi.Input<string>;
     }
 
     export interface MeshSpecServiceDiscovery {
+        /**
+         * The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+         */
         ipPreference?: pulumi.Input<string>;
     }
 
@@ -6649,6 +6655,10 @@ export namespace apprunner {
         codeConfigurationValues?: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues>;
         /**
          * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
+         * source code repository and ignores the CodeConfigurationValues parameter.
+         * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
+         * parameter and ignores the apprunner.yaml file in the source code repository.
          */
         configurationSource: pulumi.Input<string>;
     }
@@ -7642,6 +7652,9 @@ export namespace autoscaling {
     }
 
     export interface GroupInstanceRefreshPreferencesAlarmSpecification {
+        /**
+         * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         */
         alarms?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -9543,6 +9556,9 @@ export namespace bedrock {
     }
 
     export interface CustomModelValidationDataConfigValidator {
+        /**
+         * The S3 URI where the validation data is stored.
+         */
         s3Uri: pulumi.Input<string>;
     }
 
@@ -9600,18 +9616,39 @@ export namespace bedrockmodel {
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
+        /**
+         * S3 configuration for delivering a large amount of data.
+         */
         largeDataDeliveryS3Config?: pulumi.Input<inputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config>;
+        /**
+         * Log group name.
+         */
         logGroupName?: pulumi.Input<string>;
+        /**
+         * The role ARN.
+         */
         roleArn?: pulumi.Input<string>;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
+        /**
+         * S3 bucket name.
+         */
         bucketName?: pulumi.Input<string>;
+        /**
+         * S3 prefix.
+         */
         keyPrefix?: pulumi.Input<string>;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigS3Config {
+        /**
+         * S3 bucket name.
+         */
         bucketName?: pulumi.Input<string>;
+        /**
+         * S3 prefix.
+         */
         keyPrefix?: pulumi.Input<string>;
     }
 }
@@ -10056,6 +10093,10 @@ export namespace cfg {
         maximumExecutionFrequency?: pulumi.Input<string>;
         /**
          * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+         * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+         * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
+         * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
          */
         messageType?: pulumi.Input<string>;
     }
@@ -10253,9 +10294,21 @@ export namespace chimesdkmediapipelines {
     }
 
     export interface MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
+        /**
+         * Should output be redacted.
+         */
         contentRedactionOutput?: pulumi.Input<string>;
+        /**
+         * ARN of the role used by AWS Transcribe to upload your post call analysis.
+         */
         dataAccessRoleArn: pulumi.Input<string>;
+        /**
+         * ID of the KMS key used to encrypt the output.
+         */
         outputEncryptionKmsKeyId?: pulumi.Input<string>;
+        /**
+         * The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+         */
         outputLocation: pulumi.Input<string>;
     }
 
@@ -10387,18 +10440,39 @@ export namespace chimesdkmediapipelines {
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration {
+        /**
+         * Rule name.
+         */
         ruleName: pulumi.Input<string>;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
+        /**
+         * Collection of keywords to match.
+         */
         keywords: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Negate the rule.
+         */
         negate?: pulumi.Input<boolean>;
+        /**
+         * Rule name.
+         */
         ruleName: pulumi.Input<string>;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
+        /**
+         * Rule name.
+         */
         ruleName: pulumi.Input<string>;
+        /**
+         * Sentiment type to match.
+         */
         sentimentType: pulumi.Input<string>;
+        /**
+         * Analysis interval.
+         */
         timePeriod: pulumi.Input<number>;
     }
 }
@@ -12881,6 +12955,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
         /**
          * When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+         * * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+         * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
          */
         actionOnTimeout?: pulumi.Input<string>;
         /**
@@ -12892,6 +12968,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
         /**
          * The method used to add instances to a replacement environment.
+         * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+         * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
          */
         action?: pulumi.Input<string>;
     }
@@ -12899,6 +12977,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
         /**
          * The action to take on instances in the original environment after a successful blue/green deployment.
+         * * `TERMINATE`: Instances are terminated after a specified wait time.
+         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          */
         action?: pulumi.Input<string>;
         /**
@@ -25777,6 +25857,8 @@ export namespace elb {
         /**
          * The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
          * values are:
+         * * `HTTP`, `HTTPS` - PORT and PATH are required
+         * * `TCP`, `SSL` - PORT is required, PATH is not supported
          */
         target: pulumi.Input<string>;
         /**
@@ -26726,6 +26808,9 @@ export namespace emrcontainers {
     }
 
     export interface VirtualClusterContainerProviderInfoEksInfo {
+        /**
+         * The namespace where the EMR Containers cluster is running
+         */
         namespace?: pulumi.Input<string>;
     }
 }
@@ -27970,6 +28055,7 @@ export namespace fsx {
         id: pulumi.Input<number>;
         /**
          * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          */
         storageCapacityQuotaGib: pulumi.Input<number>;
         type: pulumi.Input<string>;
@@ -31851,6 +31937,11 @@ export namespace ivs {
     }
 
     export interface RecordingConfigurationDestinationConfigurationS3 {
+        /**
+         * S3 bucket name where recorded videos will be stored.
+         *
+         * The following arguments are optional:
+         */
         bucketName: pulumi.Input<string>;
     }
 
@@ -31883,14 +31974,25 @@ export namespace ivschat {
     }
 
     export interface LoggingConfigurationDestinationConfigurationCloudwatchLogs {
+        /**
+         * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+         */
         logGroupName: pulumi.Input<string>;
     }
 
     export interface LoggingConfigurationDestinationConfigurationFirehose {
+        /**
+         * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+         */
         deliveryStreamName: pulumi.Input<string>;
     }
 
     export interface LoggingConfigurationDestinationConfigurationS3 {
+        /**
+         * Name of the Amazon S3 bucket where chat activity will be logged.
+         *
+         * The following arguments are optional:
+         */
         bucketName: pulumi.Input<string>;
     }
 
@@ -32055,6 +32157,9 @@ export namespace kendra {
         seedUrls: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+         * * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+         * * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+         * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
          */
         webCrawlerMode?: pulumi.Input<string>;
     }
@@ -53376,7 +53481,13 @@ export namespace opensearch {
     }
 
     export interface DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+        /**
+         * Starting hour of the 10-hour window for updates
+         */
         hours?: pulumi.Input<number>;
+        /**
+         * Starting minute of the 10-hour window for updates
+         */
         minutes?: pulumi.Input<number>;
     }
 
@@ -59388,6 +59499,9 @@ export namespace s3 {
     export interface BucketOwnershipControlsRule {
         /**
          * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
+         * * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
          */
         objectOwnership: pulumi.Input<string>;
     }
@@ -60403,17 +60517,35 @@ export namespace s3control {
     }
 
     export interface BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
+        /**
+         * Number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
         daysAfterInitiation: pulumi.Input<number>;
     }
 
     export interface BucketLifecycleConfigurationRuleExpiration {
+        /**
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+         */
         date?: pulumi.Input<string>;
+        /**
+         * Number of days before the object is to be deleted.
+         */
         days?: pulumi.Input<number>;
+        /**
+         * Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+         */
         expiredObjectDeleteMarker?: pulumi.Input<boolean>;
     }
 
     export interface BucketLifecycleConfigurationRuleFilter {
+        /**
+         * Object prefix for rule filtering.
+         */
         prefix?: pulumi.Input<string>;
+        /**
+         * Key-value map of object tags for rule filtering.
+         */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
@@ -65376,13 +65508,19 @@ export namespace securitylake {
 
     export interface CustomLogSourceConfigurationCrawlerConfiguration {
         /**
-         * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
          */
         roleArn: pulumi.Input<string>;
     }
 
     export interface CustomLogSourceConfigurationProviderIdentity {
+        /**
+         * The external ID used to estalish trust relationship with the AWS identity.
+         */
         externalId: pulumi.Input<string>;
+        /**
+         * The AWS identity principal.
+         */
         principal: pulumi.Input<string>;
     }
 

@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new Application("tftest", ApplicationArgs.builder()        
+ *         var tftest = new Application("tftest", ApplicationArgs.builder()
  *             .name("tf-test-name")
  *             .description("tf-test-desc")
  *             .build());
  * 
- *         var myTemplate = new ConfigurationTemplate("myTemplate", ConfigurationTemplateArgs.builder()        
+ *         var myTemplate = new ConfigurationTemplate("myTemplate", ConfigurationTemplateArgs.builder()
  *             .name("tf-test-template-config")
  *             .application(tftest.name())
  *             .solutionStackName("64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")

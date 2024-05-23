@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new AccessGrantsInstance("example");
  * 
- *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()        
+ *         var exampleAccessGrantsLocation = new AccessGrantsLocation("exampleAccessGrantsLocation", AccessGrantsLocationArgs.builder()
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .locationScope(String.format("s3://%s/prefixA*", exampleAwsS3Bucket.bucket()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleAccessGrant = new AccessGrant("exampleAccessGrant", AccessGrantArgs.builder()        
+ *         var exampleAccessGrant = new AccessGrant("exampleAccessGrant", AccessGrantArgs.builder()
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
  *             .permission("READ")
  *             .accessGrantsLocationConfiguration(AccessGrantAccessGrantsLocationConfigurationArgs.builder()

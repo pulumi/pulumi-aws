@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Link("example", LinkArgs.builder()        
+ *         var example = new Link("example", LinkArgs.builder()
  *             .labelTemplate("$AccountName")
  *             .resourceTypes("AWS::CloudWatch::Metric")
  *             .sinkIdentifier(test.id())

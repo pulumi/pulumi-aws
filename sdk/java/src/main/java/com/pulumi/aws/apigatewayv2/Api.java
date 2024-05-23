@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()        
+ *         var example = new Api("example", ApiArgs.builder()
  *             .name("example-websocket-api")
  *             .protocolType("WEBSOCKET")
  *             .routeSelectionExpression("$request.body.action")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Api("example", ApiArgs.builder()        
+ *         var example = new Api("example", ApiArgs.builder()
  *             .name("example-http-api")
  *             .protocolType("HTTP")
  *             .build());

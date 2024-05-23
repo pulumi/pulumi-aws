@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventApiDestination("test", EventApiDestinationArgs.builder()        
+ *         var test = new EventApiDestination("test", EventApiDestinationArgs.builder()
  *             .name("api-destination")
  *             .description("An API Destination")
  *             .invocationEndpoint("https://api.destination.com/endpoint")

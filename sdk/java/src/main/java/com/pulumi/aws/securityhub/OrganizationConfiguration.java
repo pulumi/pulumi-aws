@@ -58,18 +58,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()        
+ *         var example = new Organization("example", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("securityhub.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()        
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()
  *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnable(true)
  *             .build());
  * 
@@ -110,19 +110,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationAdminAccount("example", OrganizationAdminAccountArgs.builder()        
+ *         var example = new OrganizationAdminAccount("example", OrganizationAdminAccountArgs.builder()
  *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsOrganizationsOrganization)
  *                 .build());
  * 
- *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()        
+ *         var exampleFindingAggregator = new FindingAggregator("exampleFindingAggregator", FindingAggregatorArgs.builder()
  *             .linkingMode("ALL_REGIONS")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnable(false)
  *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()

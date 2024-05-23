@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var q = new Queue("q", QueueArgs.builder()        
+ *         var q = new Queue("q", QueueArgs.builder()
  *             .name("examplequeue")
  *             .build());
  * 
- *         var ddl = new Queue("ddl", QueueArgs.builder()        
+ *         var ddl = new Queue("ddl", QueueArgs.builder()
  *             .name("examplequeue-ddl")
  *             .redriveAllowPolicy(q.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var qRedrivePolicy = new RedrivePolicy("qRedrivePolicy", RedrivePolicyArgs.builder()        
+ *         var qRedrivePolicy = new RedrivePolicy("qRedrivePolicy", RedrivePolicyArgs.builder()
  *             .queueUrl(q.id())
  *             .redrivePolicy(ddl.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(

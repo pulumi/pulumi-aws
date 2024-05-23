@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var code = new Repository("code", RepositoryArgs.builder()        
+ *         var code = new Repository("code", RepositoryArgs.builder()
  *             .repositoryName("example-code-repo")
  *             .build());
  * 
- *         var notif = new Topic("notif", TopicArgs.builder()        
+ *         var notif = new Topic("notif", TopicArgs.builder()
  *             .name("notification")
  *             .build());
  * 
@@ -73,12 +73,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()        
+ *         var default_ = new TopicPolicy("default", TopicPolicyArgs.builder()
  *             .arn(notif.arn())
  *             .policy(notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(notifAccess -> notifAccess.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var commits = new NotificationRule("commits", NotificationRuleArgs.builder()        
+ *         var commits = new NotificationRule("commits", NotificationRuleArgs.builder()
  *             .detailType("BASIC")
  *             .eventTypeIds("codecommit-repository-comments-on-commits")
  *             .name("example-code-repo-commits")

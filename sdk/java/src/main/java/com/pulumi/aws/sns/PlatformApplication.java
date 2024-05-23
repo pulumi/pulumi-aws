@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()        
+ *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()
  *             .name("apns_application")
  *             .platform("APNS")
  *             .platformCredential("<APNS PRIVATE KEY>")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()        
+ *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()
  *             .name("apns_application")
  *             .platform("APNS")
  *             .platformCredential("<APNS SIGNING KEY>")
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var gcmApplication = new PlatformApplication("gcmApplication", PlatformApplicationArgs.builder()        
+ *         var gcmApplication = new PlatformApplication("gcmApplication", PlatformApplicationArgs.builder()
  *             .name("gcm_application")
  *             .platform("GCM")
  *             .platformCredential("<GCM API KEY>")
