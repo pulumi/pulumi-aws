@@ -756,7 +756,6 @@ func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMa
 		var err error
 		skipCredentialsValidation, err := boolValue(vars, "skipCredentialsValidation",
 			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
-
 		if err != nil {
 			return err
 		}
