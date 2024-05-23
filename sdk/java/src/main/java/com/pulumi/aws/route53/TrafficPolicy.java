@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrafficPolicy("example", TrafficPolicyArgs.builder()        
+ *         var example = new TrafficPolicy("example", TrafficPolicyArgs.builder()
  *             .name("example")
  *             .comment("example comment")
  *             .document("""

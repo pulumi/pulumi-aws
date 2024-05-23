@@ -14,9 +14,21 @@ public final class RecordingConfigurationDestinationConfigurationS3Args extends 
 
     public static final RecordingConfigurationDestinationConfigurationS3Args Empty = new RecordingConfigurationDestinationConfigurationS3Args();
 
+    /**
+     * S3 bucket name where recorded videos will be stored.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return S3 bucket name where recorded videos will be stored.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
@@ -45,11 +57,27 @@ public final class RecordingConfigurationDestinationConfigurationS3Args extends 
             $ = new RecordingConfigurationDestinationConfigurationS3Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName S3 bucket name where recorded videos will be stored.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName S3 bucket name where recorded videos will be stored.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }

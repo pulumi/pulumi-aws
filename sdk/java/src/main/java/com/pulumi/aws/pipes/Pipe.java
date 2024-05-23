@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var main = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         var sourceQueue = new Queue("sourceQueue");
  * 
- *         var source = new RolePolicy("source", RolePolicyArgs.builder()        
+ *         var source = new RolePolicy("source", RolePolicyArgs.builder()
  *             .role(example.id())
  *             .policy(sourceQueue.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *         var targetQueue = new Queue("targetQueue");
  * 
- *         var target = new RolePolicy("target", RolePolicyArgs.builder()        
+ *         var target = new RolePolicy("target", RolePolicyArgs.builder()
  *             .role(example.id())
  *             .policy(targetQueue.arn().applyValue(arn -> serializeJson(
  *                 jsonObject(
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()        
+ *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()
  *             .name("example-pipe")
  *             .roleArn(example.arn())
  *             .source(sourceQueue.arn())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe("example", PipeArgs.builder()        
+ *         var example = new Pipe("example", PipeArgs.builder()
  *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())
@@ -217,7 +217,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe("example", PipeArgs.builder()        
+ *         var example = new Pipe("example", PipeArgs.builder()
  *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())
@@ -268,7 +268,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Pipe("example", PipeArgs.builder()        
+ *         var example = new Pipe("example", PipeArgs.builder()
  *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(source.arn())

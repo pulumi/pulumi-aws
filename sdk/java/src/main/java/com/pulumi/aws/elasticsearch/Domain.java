@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("example")
  *             .elasticsearchVersion("7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName(domain)
  *             .accessPolicies("""
  * {
@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -186,12 +186,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyName("example")
  *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .logPublishingOptions(DomainLogPublishingOptionArgs.builder()
  *                 .cloudwatchLogGroupArn(exampleLogGroup.arn())
  *                 .logType("INDEX_SLOW_LOGS")
@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var es = new SecurityGroup("es", SecurityGroupArgs.builder()        
+ *         var es = new SecurityGroup("es", SecurityGroupArgs.builder()
  *             .name(String.format("%s-elasticsearch-%s", vpc,domain))
  *             .description("Managed by Pulumi")
  *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
@@ -274,11 +274,11 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var esServiceLinkedRole = new ServiceLinkedRole("esServiceLinkedRole", ServiceLinkedRoleArgs.builder()        
+ *         var esServiceLinkedRole = new ServiceLinkedRole("esServiceLinkedRole", ServiceLinkedRoleArgs.builder()
  *             .awsServiceName("opensearchservice.amazonaws.com")
  *             .build());
  * 
- *         var esDomain = new Domain("esDomain", DomainArgs.builder()        
+ *         var esDomain = new Domain("esDomain", DomainArgs.builder()
  *             .domainName(domain)
  *             .elasticsearchVersion("6.3")
  *             .clusterConfig(DomainClusterConfigArgs.builder()

@@ -95,6 +95,14 @@ export class KxScalingGroup extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The status of scaling group.
+     * * `CREATING` – The scaling group creation is in progress.
+     * * `CREATE_FAILED` – The scaling group creation has failed.
+     * * `ACTIVE` – The scaling group is active.
+     * * `UPDATING` – The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `DELETING` – The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the scaling group.
+     * * `DELETED` – The scaling group is successfully deleted.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -206,6 +214,14 @@ export interface KxScalingGroupState {
     name?: pulumi.Input<string>;
     /**
      * The status of scaling group.
+     * * `CREATING` – The scaling group creation is in progress.
+     * * `CREATE_FAILED` – The scaling group creation has failed.
+     * * `ACTIVE` – The scaling group is active.
+     * * `UPDATING` – The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `DELETING` – The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the scaling group.
+     * * `DELETED` – The scaling group is successfully deleted.
      */
     status?: pulumi.Input<string>;
     /**

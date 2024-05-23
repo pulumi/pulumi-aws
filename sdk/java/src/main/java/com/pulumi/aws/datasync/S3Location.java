@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Location("example", S3LocationArgs.builder()        
+ *         var example = new S3Location("example", S3LocationArgs.builder()
  *             .s3BucketArn(exampleAwsS3Bucket.arn())
  *             .subdirectory("/example/prefix")
  *             .s3Config(S3LocationS3ConfigArgs.builder()

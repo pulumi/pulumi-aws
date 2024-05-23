@@ -47,6 +47,10 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
 
     /**
      * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+     * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+     * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+     * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+     * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
      * 
      */
     @Import(name="messageType")
@@ -54,6 +58,10 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
 
     /**
      * @return The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+     * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+     * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+     * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+     * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
      * 
      */
     public Optional<Output<String>> messageType() {
@@ -130,6 +138,10 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
 
         /**
          * @param messageType The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+         * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+         * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+         * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
          * 
          * @return builder
          * 
@@ -141,6 +153,10 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
 
         /**
          * @param messageType The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+         * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+         * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+         * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
          * 
          * @return builder
          * 

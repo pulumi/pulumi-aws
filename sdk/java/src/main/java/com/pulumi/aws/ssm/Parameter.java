@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Parameter("foo", ParameterArgs.builder()        
+ *         var foo = new Parameter("foo", ParameterArgs.builder()
  *             .name("foo")
  *             .type("String")
  *             .value("bar")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .storageType("gp2")
  *             .engine("mysql")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .parameterGroupName("default.mysql5.7")
  *             .build());
  * 
- *         var secret = new Parameter("secret", ParameterArgs.builder()        
+ *         var secret = new Parameter("secret", ParameterArgs.builder()
  *             .name("/production/database/password/master")
  *             .description("The parameter description")
  *             .type("SecureString")

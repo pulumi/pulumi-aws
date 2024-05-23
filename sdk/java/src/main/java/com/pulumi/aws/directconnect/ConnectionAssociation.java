@@ -45,19 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .name("example")
  *             .bandwidth("1Gbps")
  *             .location("EqSe2-EQ")
  *             .build());
  * 
- *         var exampleLinkAggregationGroup = new LinkAggregationGroup("exampleLinkAggregationGroup", LinkAggregationGroupArgs.builder()        
+ *         var exampleLinkAggregationGroup = new LinkAggregationGroup("exampleLinkAggregationGroup", LinkAggregationGroupArgs.builder()
  *             .name("example")
  *             .connectionsBandwidth("1Gbps")
  *             .location("EqSe2-EQ")
  *             .build());
  * 
- *         var exampleConnectionAssociation = new ConnectionAssociation("exampleConnectionAssociation", ConnectionAssociationArgs.builder()        
+ *         var exampleConnectionAssociation = new ConnectionAssociation("exampleConnectionAssociation", ConnectionAssociationArgs.builder()
  *             .connectionId(example.id())
  *             .lagId(exampleLinkAggregationGroup.id())
  *             .build());

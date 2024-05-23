@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceIntegration("example", ServiceIntegrationArgs.builder()        
+ *         var example = new ServiceIntegration("example", ServiceIntegrationArgs.builder()
  *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
  *                 .optInStatus("ENABLED")
  *                 .type("AWS_OWNED_KMS_KEY")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Key("example");
  * 
- *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()        
+ *         var exampleServiceIntegration = new ServiceIntegration("exampleServiceIntegration", ServiceIntegrationArgs.builder()
  *             .kmsServerSideEncryption(ServiceIntegrationKmsServerSideEncryptionArgs.builder()
  *                 .kmsKeyId(test.arn())
  *                 .optInStatus("ENABLED")

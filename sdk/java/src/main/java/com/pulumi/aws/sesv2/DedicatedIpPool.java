@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()        
+ *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()
  *             .poolName("my-pool")
  *             .build());
  * 
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()        
+ *         var example = new DedicatedIpPool("example", DedicatedIpPoolArgs.builder()
  *             .poolName("my-managed-pool")
  *             .scalingMode("MANAGED")
  *             .build());

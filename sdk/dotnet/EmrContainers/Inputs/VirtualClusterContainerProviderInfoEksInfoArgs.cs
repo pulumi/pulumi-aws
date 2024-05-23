@@ -12,6 +12,9 @@ namespace Pulumi.Aws.EmrContainers.Inputs
 
     public sealed class VirtualClusterContainerProviderInfoEksInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The namespace where the EMR Containers cluster is running
+        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 

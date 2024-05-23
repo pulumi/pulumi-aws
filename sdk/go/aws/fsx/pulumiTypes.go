@@ -5253,6 +5253,7 @@ type OpenZfsVolumeUserAndGroupQuota struct {
 	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
 	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
 	Type                    string `pulumi:"type"`
 }
@@ -5272,6 +5273,7 @@ type OpenZfsVolumeUserAndGroupQuotaArgs struct {
 	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
 	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
 	Type                    pulumi.StringInput `pulumi:"type"`
 }
@@ -5333,6 +5335,7 @@ func (o OpenZfsVolumeUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
 }
 
 // The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
 }

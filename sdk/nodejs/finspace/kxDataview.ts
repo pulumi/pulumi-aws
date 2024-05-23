@@ -83,6 +83,8 @@ export class KxDataview extends pulumi.CustomResource {
     public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      */
     public readonly azMode!: pulumi.Output<string>;
     /**
@@ -221,6 +223,8 @@ export interface KxDataviewState {
     availabilityZoneId?: pulumi.Input<string>;
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      */
     azMode?: pulumi.Input<string>;
     /**
@@ -291,6 +295,8 @@ export interface KxDataviewArgs {
     availabilityZoneId?: pulumi.Input<string>;
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      */
     azMode: pulumi.Input<string>;
     /**

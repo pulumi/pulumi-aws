@@ -1901,6 +1901,7 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterCo
 }
 
 type VirtualClusterContainerProviderInfoEksInfo struct {
+	// The namespace where the EMR Containers cluster is running
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -1916,6 +1917,7 @@ type VirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoEksInfoArgs struct {
+	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -1996,6 +1998,7 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
+// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -2024,6 +2027,7 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClust
 	}).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
+// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfoEksInfo) *string {
 		if v == nil {

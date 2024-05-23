@@ -53,14 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("example")
  *             .description("example")
  *             .vpcId(main.id())
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
- *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule("exampleSecurityGroupIngressRule", SecurityGroupIngressRuleArgs.builder()        
+ *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule("exampleSecurityGroupIngressRule", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(example.id())
  *             .cidrIpv4("10.0.0.0/8")
  *             .fromPort(80)

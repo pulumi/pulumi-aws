@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MeshSpecServiceDiscovery {
+    /**
+     * @return The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+     * 
+     */
     private @Nullable String ipPreference;
 
     private MeshSpecServiceDiscovery() {}
+    /**
+     * @return The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+     * 
+     */
     public Optional<String> ipPreference() {
         return Optional.ofNullable(this.ipPreference);
     }

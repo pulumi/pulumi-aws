@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ipset = new IpSet("ipset", IpSetArgs.builder()        
+ *         var ipset = new IpSet("ipset", IpSetArgs.builder()
  *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wafrule = new Rule("wafrule", RuleArgs.builder()        
+ *         var wafrule = new Rule("wafrule", RuleArgs.builder()
  *             .name("tfWAFRule")
  *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var wafacl = new WebAcl("wafacl", WebAclArgs.builder()        
+ *         var wafacl = new WebAcl("wafacl", WebAclArgs.builder()
  *             .name("tfWebACL")
  *             .metricName("tfWebACL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAcl("example", WebAclArgs.builder()        
+ *         var example = new WebAcl("example", WebAclArgs.builder()
  *             .name("example")
  *             .metricName("example")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
@@ -177,7 +177,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAcl("example", WebAclArgs.builder()        
+ *         var example = new WebAcl("example", WebAclArgs.builder()
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
  *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()

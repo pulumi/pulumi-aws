@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new HsmConfiguration("example", HsmConfigurationArgs.builder()        
+ *         var example = new HsmConfiguration("example", HsmConfigurationArgs.builder()
  *             .description("example")
  *             .hsmConfigurationIdentifier("example")
  *             .hsmIpAddress("10.0.0.1")

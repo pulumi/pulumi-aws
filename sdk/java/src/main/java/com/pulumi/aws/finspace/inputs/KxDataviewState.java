@@ -66,6 +66,8 @@ public final class KxDataviewState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
     @Import(name="azMode")
@@ -73,6 +75,8 @@ public final class KxDataviewState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The number of availability zones you want to assign per cluster. This can be one of the following:
+     * * `SINGLE` - Assigns one availability zone per cluster.
+     * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
     public Optional<Output<String>> azMode() {
@@ -373,6 +377,8 @@ public final class KxDataviewState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
+         * * `SINGLE` - Assigns one availability zone per cluster.
+         * * `MULTI` - Assigns all the availability zones per cluster.
          * 
          * @return builder
          * 
@@ -384,6 +390,8 @@ public final class KxDataviewState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
+         * * `SINGLE` - Assigns one availability zone per cluster.
+         * * `MULTI` - Assigns all the availability zones per cluster.
          * 
          * @return builder
          * 

@@ -15,9 +15,17 @@ public final class MeshSpecServiceDiscoveryArgs extends com.pulumi.resources.Res
 
     public static final MeshSpecServiceDiscoveryArgs Empty = new MeshSpecServiceDiscoveryArgs();
 
+    /**
+     * The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+     * 
+     */
     @Import(name="ipPreference")
     private @Nullable Output<String> ipPreference;
 
+    /**
+     * @return The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+     * 
+     */
     public Optional<Output<String>> ipPreference() {
         return Optional.ofNullable(this.ipPreference);
     }
@@ -46,11 +54,23 @@ public final class MeshSpecServiceDiscoveryArgs extends com.pulumi.resources.Res
             $ = new MeshSpecServiceDiscoveryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipPreference The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipPreference(@Nullable Output<String> ipPreference) {
             $.ipPreference = ipPreference;
             return this;
         }
 
+        /**
+         * @param ipPreference The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipPreference(String ipPreference) {
             return ipPreference(Output.of(ipPreference));
         }

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SiteToSiteVpnAttachment("example", SiteToSiteVpnAttachmentArgs.builder()        
+ *         var example = new SiteToSiteVpnAttachment("example", SiteToSiteVpnAttachmentArgs.builder()
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpnConnectionArn(exampleAwsVpnConnection.arn())
  *             .build());

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupRule("example", SecurityGroupRuleArgs.builder()        
+ *         var example = new SecurityGroupRule("example", SecurityGroupRuleArgs.builder()
  *             .type("ingress")
  *             .fromPort(0)
  *             .toPort(65535)
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *         // ...
  *         var myEndpoint = new VpcEndpoint("myEndpoint");
  * 
- *         var allowAll = new SecurityGroupRule("allowAll", SecurityGroupRuleArgs.builder()        
+ *         var allowAll = new SecurityGroupRule("allowAll", SecurityGroupRuleArgs.builder()
  *             .type("egress")
  *             .toPort(0)
  *             .protocol("-1")
@@ -159,7 +159,7 @@ import javax.annotation.Nullable;
  *             .name(String.format("com.amazonaws.%s.s3", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build());
  * 
- *         var s3GatewayEgress = new SecurityGroupRule("s3GatewayEgress", SecurityGroupRuleArgs.builder()        
+ *         var s3GatewayEgress = new SecurityGroupRule("s3GatewayEgress", SecurityGroupRuleArgs.builder()
  *             .description("S3 Gateway Egress")
  *             .type("egress")
  *             .securityGroupId("sg-123456")

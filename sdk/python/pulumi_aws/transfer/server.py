@@ -55,6 +55,10 @@ class ServerArgs:
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
@@ -291,6 +295,10 @@ class ServerArgs:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 
@@ -442,6 +450,10 @@ class _ServerState:
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
@@ -726,6 +738,10 @@ class _ServerState:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 
@@ -1010,6 +1026,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
@@ -1291,6 +1311,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
+               * `SFTP`: File transfer over SSH
+               * `FTPS`: File transfer with TLS encryption
+               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
@@ -1483,6 +1507,10 @@ class Server(pulumi.CustomResource):
     def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
+        * `SFTP`: File transfer over SSH
+        * `FTPS`: File transfer with TLS encryption
+        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 

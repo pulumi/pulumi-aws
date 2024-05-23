@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .instanceTenancy("default")
  *             .tags(Map.of("Name", "main"))
@@ -131,24 +131,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var test = new VpcIpam("test", VpcIpamArgs.builder()        
+ *         var test = new VpcIpam("test", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
  *                 .regionName(current.applyValue(getRegionResult -> getRegionResult.name()))
  *                 .build())
  *             .build());
  * 
- *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()        
+ *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(test.privateDefaultScopeId())
  *             .locale(current.applyValue(getRegionResult -> getRegionResult.name()))
  *             .build());
  * 
- *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()        
+ *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
  *             .ipamPoolId(testVpcIpamPool.id())
  *             .cidr("172.20.0.0/16")
  *             .build());
  * 
- *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+ *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
  *             .ipv4IpamPoolId(testVpcIpamPool.id())
  *             .ipv4NetmaskLength(28)
  *             .build(), CustomResourceOptions.builder()

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repositoryName("MyTestRepository")
  *             .description("This is the Sample App Repository")
  *             .build());
@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testKey = new Key("testKey", KeyArgs.builder()        
+ *         var testKey = new Key("testKey", KeyArgs.builder()
  *             .description("test")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repositoryName("MyTestRepository")
  *             .description("This is the Sample App Repository")
  *             .kmsKeyId(testKey.arn())

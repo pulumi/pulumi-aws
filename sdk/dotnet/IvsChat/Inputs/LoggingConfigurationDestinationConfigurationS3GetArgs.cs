@@ -12,6 +12,11 @@ namespace Pulumi.Aws.IvsChat.Inputs
 
     public sealed class LoggingConfigurationDestinationConfigurationS3GetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket where chat activity will be logged.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 

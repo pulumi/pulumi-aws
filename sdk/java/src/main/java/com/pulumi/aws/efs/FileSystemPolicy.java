@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem("fs", FileSystemArgs.builder()        
+ *         var fs = new FileSystem("fs", FileSystemArgs.builder()
  *             .creationToken("my-product")
  *             .build());
  * 
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var policyFileSystemPolicy = new FileSystemPolicy("policyFileSystemPolicy", FileSystemPolicyArgs.builder()        
+ *         var policyFileSystemPolicy = new FileSystemPolicy("policyFileSystemPolicy", FileSystemPolicyArgs.builder()
  *             .fileSystemId(fs.id())
  *             .policy(policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(policy -> policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());

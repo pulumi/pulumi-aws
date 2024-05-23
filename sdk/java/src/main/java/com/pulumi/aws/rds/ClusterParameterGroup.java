@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new ClusterParameterGroup("default", ClusterParameterGroupArgs.builder()        
+ *         var default_ = new ClusterParameterGroup("default", ClusterParameterGroupArgs.builder()
  *             .name("rds-cluster-pg")
  *             .family("aurora5.6")
  *             .description("RDS default cluster parameter group")

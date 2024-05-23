@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
  *             .automaticFailoverEnabled(true)
  *             .preferredCacheClusterAzs(            
  *                 "us-west-2a",
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
  *             .automaticFailoverEnabled(true)
  *             .preferredCacheClusterAzs(            
  *                 "us-west-2a",
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 1; i++) {
- *             new Cluster("replica-" + i, ClusterArgs.builder()            
+ *             new Cluster("replica-" + i, ClusterArgs.builder()
  *                 .clusterId(String.format("tf-rep-group-1-%s", range.value()))
  *                 .replicationGroupId(example.id())
  *                 .build());
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var baz = new ReplicationGroup("baz", ReplicationGroupArgs.builder()        
+ *         var baz = new ReplicationGroup("baz", ReplicationGroupArgs.builder()
  *             .replicationGroupId("tf-redis-cluster")
  *             .description("example description")
  *             .nodeType("cache.t2.small")
@@ -217,7 +217,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ReplicationGroup("test", ReplicationGroupArgs.builder()        
+ *         var test = new ReplicationGroup("test", ReplicationGroupArgs.builder()
  *             .replicationGroupId("myreplicaciongroup")
  *             .description("test description")
  *             .nodeType("cache.t3.small")
@@ -282,7 +282,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()        
+ *         var primary = new ReplicationGroup("primary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-primary")
  *             .description("primary replication group")
  *             .engine("redis")
@@ -291,12 +291,12 @@ import javax.annotation.Nullable;
  *             .numCacheClusters(1)
  *             .build());
  * 
- *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()        
+ *         var example = new GlobalReplicationGroup("example", GlobalReplicationGroupArgs.builder()
  *             .globalReplicationGroupIdSuffix("example")
  *             .primaryReplicationGroupId(primary.id())
  *             .build());
  * 
- *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()        
+ *         var secondary = new ReplicationGroup("secondary", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example-secondary")
  *             .description("secondary replication group")
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
@@ -334,7 +334,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()        
+ *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
  *             .replicationGroupId("example")
  *             .description("example with authentication")
  *             .nodeType("cache.t2.micro")

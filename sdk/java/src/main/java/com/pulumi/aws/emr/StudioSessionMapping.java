@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StudioSessionMapping("example", StudioSessionMappingArgs.builder()        
+ *         var example = new StudioSessionMapping("example", StudioSessionMappingArgs.builder()
  *             .studioId(exampleAwsEmrStudio.id())
  *             .identityType("USER")
  *             .identityId("example")

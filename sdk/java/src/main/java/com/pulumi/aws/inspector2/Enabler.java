@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Enabler("example", EnablerArgs.builder()        
+ *         var example = new Enabler("example", EnablerArgs.builder()
  *             .accountIds("123456789012")
  *             .resourceTypes("EC2")
  *             .build());
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var test = new Enabler("test", EnablerArgs.builder()        
+ *         var test = new Enabler("test", EnablerArgs.builder()
  *             .accountIds(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .resourceTypes(            
  *                 "ECR",

@@ -325,6 +325,10 @@ type Server struct {
 	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
 	ProtocolDetails ServerProtocolDetailsOutput `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `AS2`: File transfer over Applicability Statement 2
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
 	S3StorageOptions ServerS3StorageOptionsOutput `pulumi:"s3StorageOptions"`
@@ -436,6 +440,10 @@ type serverState struct {
 	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `AS2`: File transfer over Applicability Statement 2
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
@@ -503,6 +511,10 @@ type ServerState struct {
 	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `AS2`: File transfer over Applicability Statement 2
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
@@ -568,6 +580,10 @@ type serverArgs struct {
 	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `AS2`: File transfer over Applicability Statement 2
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
 	S3StorageOptions *ServerS3StorageOptions `pulumi:"s3StorageOptions"`
@@ -626,6 +642,10 @@ type ServerArgs struct {
 	// The protocol settings that are configured for your server. See `protocolDetails` block below for details.
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+	// * `AS2`: File transfer over Applicability Statement 2
+	// * `SFTP`: File transfer over SSH
+	// * `FTPS`: File transfer with TLS encryption
+	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
 	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` block below for details.
 	S3StorageOptions ServerS3StorageOptionsPtrInput
@@ -826,6 +846,10 @@ func (o ServerOutput) ProtocolDetails() ServerProtocolDetailsOutput {
 }
 
 // Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+// * `AS2`: File transfer over Applicability Statement 2
+// * `SFTP`: File transfer over SSH
+// * `FTPS`: File transfer with TLS encryption
+// * `FTP`: Unencrypted file transfer
 func (o ServerOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }

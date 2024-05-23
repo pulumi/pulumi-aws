@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dada = new LogGroup("dada", LogGroupArgs.builder()        
+ *         var dada = new LogGroup("dada", LogGroupArgs.builder()
  *             .name("MyApp/access.log")
  *             .build());
  * 
- *         var yada = new LogMetricFilter("yada", LogMetricFilterArgs.builder()        
+ *         var yada = new LogMetricFilter("yada", LogMetricFilterArgs.builder()
  *             .name("MyAppAccessCount")
  *             .pattern("")
  *             .logGroupName(dada.name())

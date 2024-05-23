@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()        
+ *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()
  *             .name("example_api")
  *             .build());
  * 
- *         var example = new DocumentationPart("example", DocumentationPartArgs.builder()        
+ *         var example = new DocumentationPart("example", DocumentationPartArgs.builder()
  *             .location(DocumentationPartLocationArgs.builder()
  *                 .type("METHOD")
  *                 .method("GET")

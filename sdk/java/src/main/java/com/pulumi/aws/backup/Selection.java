@@ -68,17 +68,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup")
  *             .role(example.name())
  *             .build());
  * 
- *         var exampleSelection = new Selection("exampleSelection", SelectionArgs.builder()        
+ *         var exampleSelection = new Selection("exampleSelection", SelectionArgs.builder()
  *             .iamRoleArn(example.arn())
  *             .build());
  * 
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection("example", SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
@@ -157,7 +157,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection("example", SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
@@ -213,7 +213,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection("example", SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())
@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Selection("example", SelectionArgs.builder()        
+ *         var example = new Selection("example", SelectionArgs.builder()
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .name("my_example_backup_selection")
  *             .planId(exampleAwsBackupPlan.id())

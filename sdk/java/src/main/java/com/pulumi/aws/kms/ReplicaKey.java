@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Key("primary", KeyArgs.builder()        
+ *         var primary = new Key("primary", KeyArgs.builder()
  *             .description("Multi-Region primary key")
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
  *             .build());
  * 
- *         var replica = new ReplicaKey("replica", ReplicaKeyArgs.builder()        
+ *         var replica = new ReplicaKey("replica", ReplicaKeyArgs.builder()
  *             .description("Multi-Region replica key")
  *             .deletionWindowInDays(7)
  *             .primaryKeyArn(primary.arn())

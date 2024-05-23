@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Vpc("example", VpcArgs.builder()        
+ *         var example = new Vpc("example", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .assignGeneratedIpv6CidrBlock(true)
  *             .build());
  * 
- *         var exampleEgressOnlyInternetGateway = new EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", EgressOnlyInternetGatewayArgs.builder()        
+ *         var exampleEgressOnlyInternetGateway = new EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", EgressOnlyInternetGatewayArgs.builder()
  *             .vpcId(example.id())
  *             .tags(Map.of("Name", "main"))
  *             .build());

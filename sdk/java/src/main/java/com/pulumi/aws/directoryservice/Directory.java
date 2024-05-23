@@ -55,23 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet("foo", SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2a")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()        
+ *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2b")
  *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var bar = new Directory("bar", DirectoryArgs.builder()        
+ *         var bar = new Directory("bar", DirectoryArgs.builder()
  *             .name("corp.notexample.com")
  *             .password("SuperSecretPassw0rd")
  *             .size("Small")
@@ -120,23 +120,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet("foo", SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2a")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()        
+ *         var barSubnet = new Subnet("barSubnet", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2b")
  *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var bar = new Directory("bar", DirectoryArgs.builder()        
+ *         var bar = new Directory("bar", DirectoryArgs.builder()
  *             .name("corp.notexample.com")
  *             .password("SuperSecretPassw0rd")
  *             .edition("Standard")
@@ -186,23 +186,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Vpc("main", VpcArgs.builder()        
+ *         var main = new Vpc("main", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var foo = new Subnet("foo", SubnetArgs.builder()        
+ *         var foo = new Subnet("foo", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2a")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var bar = new Subnet("bar", SubnetArgs.builder()        
+ *         var bar = new Subnet("bar", SubnetArgs.builder()
  *             .vpcId(main.id())
  *             .availabilityZone("us-west-2b")
  *             .cidrBlock("10.0.2.0/24")
  *             .build());
  * 
- *         var connector = new Directory("connector", DirectoryArgs.builder()        
+ *         var connector = new Directory("connector", DirectoryArgs.builder()
  *             .name("corp.notexample.com")
  *             .password("SuperSecretPassw0rd")
  *             .size("Small")

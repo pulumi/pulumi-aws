@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         // Create an AMI that will start a machine whose root device is backed by
  *         // an EBS volume populated from a snapshot. We assume that such a snapshot
  *         // already exists with the id "snap-xxxxxxxx".
- *         var example = new Ami("example", AmiArgs.builder()        
+ *         var example = new Ami("example", AmiArgs.builder()
  *             .name("example")
  *             .virtualizationType("hvm")
  *             .rootDeviceName("/dev/xvda")

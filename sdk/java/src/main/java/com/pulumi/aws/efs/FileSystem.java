@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new FileSystem("foo", FileSystemArgs.builder()        
+ *         var foo = new FileSystem("foo", FileSystemArgs.builder()
  *             .creationToken("my-product")
  *             .tags(Map.of("Name", "MyProduct"))
  *             .build());
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooWithLifecylePolicy = new FileSystem("fooWithLifecylePolicy", FileSystemArgs.builder()        
+ *         var fooWithLifecylePolicy = new FileSystem("fooWithLifecylePolicy", FileSystemArgs.builder()
  *             .creationToken("my-product")
  *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
  *                 .transitionToIa("AFTER_30_DAYS")

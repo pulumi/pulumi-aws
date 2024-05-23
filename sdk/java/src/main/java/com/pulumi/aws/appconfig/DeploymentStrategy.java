@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DeploymentStrategy("example", DeploymentStrategyArgs.builder()        
+ *         var example = new DeploymentStrategy("example", DeploymentStrategyArgs.builder()
  *             .name("example-deployment-strategy-tf")
  *             .description("Example Deployment Strategy")
  *             .deploymentDurationInMinutes(3)

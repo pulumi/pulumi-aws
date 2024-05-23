@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration
     {
+        /// <summary>
+        /// Rule name.
+        /// </summary>
         public readonly string RuleName;
+        /// <summary>
+        /// Sentiment type to match.
+        /// </summary>
         public readonly string SentimentType;
+        /// <summary>
+        /// Analysis interval.
+        /// </summary>
         public readonly int TimePeriod;
 
         [OutputConstructor]

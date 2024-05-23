@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()
  *             .name("patch-baseline")
  *             .approvedPatches("KB123456")
  *             .build());
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()        
+ *         var production = new PatchBaseline("production", PatchBaselineArgs.builder()
  *             .name("patch-baseline")
  *             .description("Patch Baseline Description")
  *             .approvedPatches(            
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var windowsOsApps = new PatchBaseline("windowsOsApps", PatchBaselineArgs.builder()        
+ *         var windowsOsApps = new PatchBaseline("windowsOsApps", PatchBaselineArgs.builder()
  *             .name("WindowsOSAndMicrosoftApps")
  *             .description("Patch both Windows and Microsoft apps")
  *             .operatingSystem("WINDOWS")
@@ -249,7 +249,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var al201709 = new PatchBaseline("al201709", PatchBaselineArgs.builder()        
+ *         var al201709 = new PatchBaseline("al201709", PatchBaselineArgs.builder()
  *             .approvalRules()
  *             .name("Amazon-Linux-2017.09")
  *             .description("My patch repository for Amazon Linux 2017.09")

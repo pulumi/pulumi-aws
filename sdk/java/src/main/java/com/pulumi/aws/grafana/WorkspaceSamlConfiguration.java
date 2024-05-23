@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var assume = new Role("assume", RoleArgs.builder()        
+ *         var assume = new Role("assume", RoleArgs.builder()
  *             .name("grafana-assume")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()        
+ *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .accountAccessType("CURRENT_ACCOUNT")
  *             .authenticationProviders("SAML")
  *             .permissionType("SERVICE_MANAGED")
  *             .roleArn(assume.arn())
  *             .build());
  * 
- *         var example = new WorkspaceSamlConfiguration("example", WorkspaceSamlConfigurationArgs.builder()        
+ *         var example = new WorkspaceSamlConfiguration("example", WorkspaceSamlConfigurationArgs.builder()
  *             .editorRoleValues("editor")
  *             .idpMetadataUrl("https://my_idp_metadata.url")
  *             .workspaceId(exampleWorkspace.id())

@@ -4966,6 +4966,7 @@ func (o CustomModelValidationDataConfigPtrOutput) Validators() CustomModelValida
 }
 
 type CustomModelValidationDataConfigValidator struct {
+	// The S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -4981,6 +4982,7 @@ type CustomModelValidationDataConfigValidatorInput interface {
 }
 
 type CustomModelValidationDataConfigValidatorArgs struct {
+	// The S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -5035,6 +5037,7 @@ func (o CustomModelValidationDataConfigValidatorOutput) ToCustomModelValidationD
 	return o
 }
 
+// The S3 URI where the validation data is stored.
 func (o CustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
 }

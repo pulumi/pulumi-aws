@@ -12,15 +12,27 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should output be redacted.
+        /// </summary>
         [Input("contentRedactionOutput")]
         public Input<string>? ContentRedactionOutput { get; set; }
 
+        /// <summary>
+        /// ARN of the role used by AWS Transcribe to upload your post call analysis.
+        /// </summary>
         [Input("dataAccessRoleArn", required: true)]
         public Input<string> DataAccessRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the KMS key used to encrypt the output.
+        /// </summary>
         [Input("outputEncryptionKmsKeyId")]
         public Input<string>? OutputEncryptionKmsKeyId { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+        /// </summary>
         [Input("outputLocation", required: true)]
         public Input<string> OutputLocation { get; set; } = null!;
 

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Ingestion("example", IngestionArgs.builder()        
+ *         var example = new Ingestion("example", IngestionArgs.builder()
  *             .dataSetId(exampleAwsQuicksightDataSet.dataSetId())
  *             .ingestionId("example-id")
  *             .ingestionType("FULL_REFRESH")

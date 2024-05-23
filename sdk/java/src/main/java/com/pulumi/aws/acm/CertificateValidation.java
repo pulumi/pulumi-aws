@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Certificate("example", CertificateArgs.builder()        
+ *         var example = new Certificate("example", CertificateArgs.builder()
  *             .domainName("example.com")
  *             .validationMethod("EMAIL")
  *             .build());
  * 
- *         var exampleCertificateValidation = new CertificateValidation("exampleCertificateValidation", CertificateValidationArgs.builder()        
+ *         var exampleCertificateValidation = new CertificateValidation("exampleCertificateValidation", CertificateValidationArgs.builder()
  *             .certificateArn(example.arn())
  *             .build());
  * 

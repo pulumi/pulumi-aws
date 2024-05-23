@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()
  *             .comment("test public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
  *                 .input("public_key.pem")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("test_key")
  *             .build());
  * 
- *         var test = new FieldLevelEncryptionProfile("test", FieldLevelEncryptionProfileArgs.builder()        
+ *         var test = new FieldLevelEncryptionProfile("test", FieldLevelEncryptionProfileArgs.builder()
  *             .comment("test comment")
  *             .name("test profile")
  *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()

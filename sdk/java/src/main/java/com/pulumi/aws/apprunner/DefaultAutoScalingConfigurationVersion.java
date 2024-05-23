@@ -46,14 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()        
+ *         var example = new AutoScalingConfigurationVersion("example", AutoScalingConfigurationVersionArgs.builder()
  *             .autoScalingConfigurationName("example")
  *             .maxConcurrency(50)
  *             .maxSize(10)
  *             .minSize(2)
  *             .build());
  * 
- *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", DefaultAutoScalingConfigurationVersionArgs.builder()        
+ *         var exampleDefaultAutoScalingConfigurationVersion = new DefaultAutoScalingConfigurationVersion("exampleDefaultAutoScalingConfigurationVersion", DefaultAutoScalingConfigurationVersionArgs.builder()
  *             .autoScalingConfigurationArn(example.arn())
  *             .build());
  * 

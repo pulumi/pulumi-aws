@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AgentAgentKnowledgeBaseAssociation("example", AgentAgentKnowledgeBaseAssociationArgs.builder()        
+ *         var example = new AgentAgentKnowledgeBaseAssociation("example", AgentAgentKnowledgeBaseAssociationArgs.builder()
  *             .agentId("GGRRAED6JP")
  *             .description("Example Knowledge base")
  *             .knowledgeBaseId("EMDPPAYPZI")

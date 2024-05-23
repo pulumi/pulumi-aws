@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dnsResolver = new VpcDhcpOptions("dnsResolver", VpcDhcpOptionsArgs.builder()        
+ *         var dnsResolver = new VpcDhcpOptions("dnsResolver", VpcDhcpOptionsArgs.builder()
  *             .domainNameServers(            
  *                 "8.8.8.8",
  *                 "8.8.4.4")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new VpcDhcpOptions("foo", VpcDhcpOptionsArgs.builder()        
+ *         var foo = new VpcDhcpOptions("foo", VpcDhcpOptionsArgs.builder()
  *             .domainName("service.consul")
  *             .domainNameServers(            
  *                 "127.0.0.1",

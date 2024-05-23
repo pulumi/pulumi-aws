@@ -46,17 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nlb = new TrafficMirrorTarget("nlb", TrafficMirrorTargetArgs.builder()        
+ *         var nlb = new TrafficMirrorTarget("nlb", TrafficMirrorTargetArgs.builder()
  *             .description("NLB target")
  *             .networkLoadBalancerArn(lb.arn())
  *             .build());
  * 
- *         var eni = new TrafficMirrorTarget("eni", TrafficMirrorTargetArgs.builder()        
+ *         var eni = new TrafficMirrorTarget("eni", TrafficMirrorTargetArgs.builder()
  *             .description("ENI target")
  *             .networkInterfaceId(test.primaryNetworkInterfaceId())
  *             .build());
  * 
- *         var gwlb = new TrafficMirrorTarget("gwlb", TrafficMirrorTargetArgs.builder()        
+ *         var gwlb = new TrafficMirrorTarget("gwlb", TrafficMirrorTargetArgs.builder()
  *             .description("GWLB target")
  *             .gatewayLoadBalancerEndpointId(example.id())
  *             .build());
