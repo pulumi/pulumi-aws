@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SnapshotImport("example", SnapshotImportArgs.builder()        
+ *         var example = new SnapshotImport("example", SnapshotImportArgs.builder()
  *             .diskContainer(SnapshotImportDiskContainerArgs.builder()
  *                 .format("VHD")
  *                 .userBucket(SnapshotImportDiskContainerUserBucketArgs.builder()

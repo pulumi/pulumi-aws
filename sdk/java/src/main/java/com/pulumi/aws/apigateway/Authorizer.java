@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var demoRestApi = new RestApi("demoRestApi", RestApiArgs.builder()        
+ *         var demoRestApi = new RestApi("demoRestApi", RestApiArgs.builder()
  *             .name("auth-demo")
  *             .build());
  * 
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var invocationRole = new Role("invocationRole", RoleArgs.builder()        
+ *         var invocationRole = new Role("invocationRole", RoleArgs.builder()
  *             .name("api_gateway_auth_invocation")
  *             .path("/")
  *             .assumeRolePolicy(invocationAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -87,12 +87,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var lambda = new Role("lambda", RoleArgs.builder()        
+ *         var lambda = new Role("lambda", RoleArgs.builder()
  *             .name("demo-lambda")
  *             .assumeRolePolicy(lambdaAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var authorizer = new Function("authorizer", FunctionArgs.builder()        
+ *         var authorizer = new Function("authorizer", FunctionArgs.builder()
  *             .code(new FileArchive("lambda-function.zip"))
  *             .name("api_gateway_authorizer")
  *             .role(lambda.arn())
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *         var demo = new Authorizer("demo", AuthorizerArgs.builder()        
+ *         var demo = new Authorizer("demo", AuthorizerArgs.builder()
  *             .name("demo")
  *             .restApi(demoRestApi.id())
  *             .authorizerUri(authorizer.invokeArn())
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var invocationPolicyRolePolicy = new RolePolicy("invocationPolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var invocationPolicyRolePolicy = new RolePolicy("invocationPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("default")
  *             .role(invocationRole.id())
  *             .policy(invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(invocationPolicy -> invocationPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

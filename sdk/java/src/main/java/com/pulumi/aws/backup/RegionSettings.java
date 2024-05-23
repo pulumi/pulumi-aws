@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RegionSettings("test", RegionSettingsArgs.builder()        
+ *         var test = new RegionSettings("test", RegionSettingsArgs.builder()
  *             .resourceTypeOptInPreference(Map.ofEntries(
  *                 Map.entry("Aurora", true),
  *                 Map.entry("DocumentDB", true),

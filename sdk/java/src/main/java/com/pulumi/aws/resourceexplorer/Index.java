@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Index("example", IndexArgs.builder()        
+ *         var example = new Index("example", IndexArgs.builder()
  *             .type("LOCAL")
  *             .build());
  * 

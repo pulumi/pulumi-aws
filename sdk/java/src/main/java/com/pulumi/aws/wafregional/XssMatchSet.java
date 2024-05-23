@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var xssMatchSet = new XssMatchSet("xssMatchSet", XssMatchSetArgs.builder()        
+ *         var xssMatchSet = new XssMatchSet("xssMatchSet", XssMatchSetArgs.builder()
  *             .name("xss_match_set")
  *             .xssMatchTuples(            
  *                 XssMatchSetXssMatchTupleArgs.builder()

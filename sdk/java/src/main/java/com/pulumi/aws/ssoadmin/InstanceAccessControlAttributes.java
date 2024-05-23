@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()        
+ *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .attributes(            
  *                 InstanceAccessControlAttributesAttributeArgs.builder()

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetPartition = AwsFunctions.getPartition();
  * 
- *         var example = new RegistryPolicy("example", RegistryPolicyArgs.builder()        
+ *         var example = new RegistryPolicy("example", RegistryPolicyArgs.builder()
  *             .policy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),

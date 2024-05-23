@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()        
+ *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()
  *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .build());
  * 
- *         var buildSigningJob = new SigningJob("buildSigningJob", SigningJobArgs.builder()        
+ *         var buildSigningJob = new SigningJob("buildSigningJob", SigningJobArgs.builder()
  *             .profileName(testSp.name())
  *             .source(SigningJobSourceArgs.builder()
  *                 .s3(SigningJobSourceS3Args.builder()

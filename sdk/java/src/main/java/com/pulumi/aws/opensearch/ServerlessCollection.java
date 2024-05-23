@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy("example", ServerlessSecurityPolicyArgs.builder()
  *             .name("example")
  *             .type("encryption")
  *             .policy(serializeJson(
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()        
+ *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()
  *             .name("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

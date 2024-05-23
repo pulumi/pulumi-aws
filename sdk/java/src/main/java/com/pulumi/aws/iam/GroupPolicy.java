@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDevelopers = new Group("myDevelopers", GroupArgs.builder()        
+ *         var myDevelopers = new Group("myDevelopers", GroupArgs.builder()
  *             .name("developers")
  *             .path("/users/")
  *             .build());
  * 
- *         var myDeveloperPolicy = new GroupPolicy("myDeveloperPolicy", GroupPolicyArgs.builder()        
+ *         var myDeveloperPolicy = new GroupPolicy("myDeveloperPolicy", GroupPolicyArgs.builder()
  *             .name("my_developer_policy")
  *             .group(myDevelopers.name())
  *             .policy(serializeJson(

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .name("example-domain")
  *             .build());
  * 
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", DomainServiceAccessPolicyArgs.builder()        
+ *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", DomainServiceAccessPolicyArgs.builder()
  *             .domainName(exampleDomain.id())
  *             .accessPolicy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

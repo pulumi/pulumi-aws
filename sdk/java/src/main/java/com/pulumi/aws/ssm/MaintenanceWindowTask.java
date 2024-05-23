@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)
@@ -227,7 +227,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()        
+ *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
  *             .maxConcurrency(2)
  *             .maxErrors(1)
  *             .priority(1)

@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var allowTls = new SecurityGroup("allowTls", SecurityGroupArgs.builder()        
+ *         var allowTls = new SecurityGroup("allowTls", SecurityGroupArgs.builder()
  *             .name("allow_tls")
  *             .description("Allow TLS inbound traffic and all outbound traffic")
  *             .vpcId(main.id())
  *             .tags(Map.of("Name", "allow_tls"))
  *             .build());
  * 
- *         var allowTlsIpv4 = new SecurityGroupIngressRule("allowTlsIpv4", SecurityGroupIngressRuleArgs.builder()        
+ *         var allowTlsIpv4 = new SecurityGroupIngressRule("allowTlsIpv4", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv4(main.cidrBlock())
  *             .fromPort(443)
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .toPort(443)
  *             .build());
  * 
- *         var allowTlsIpv6 = new SecurityGroupIngressRule("allowTlsIpv6", SecurityGroupIngressRuleArgs.builder()        
+ *         var allowTlsIpv6 = new SecurityGroupIngressRule("allowTlsIpv6", SecurityGroupIngressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv6(main.ipv6CidrBlock())
  *             .fromPort(443)
@@ -84,13 +84,13 @@ import javax.annotation.Nullable;
  *             .toPort(443)
  *             .build());
  * 
- *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule("allowAllTrafficIpv4", SecurityGroupEgressRuleArgs.builder()        
+ *         var allowAllTrafficIpv4 = new SecurityGroupEgressRule("allowAllTrafficIpv4", SecurityGroupEgressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv4("0.0.0.0/0")
  *             .ipProtocol("-1")
  *             .build());
  * 
- *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule("allowAllTrafficIpv6", SecurityGroupEgressRuleArgs.builder()        
+ *         var allowAllTrafficIpv6 = new SecurityGroupEgressRule("allowAllTrafficIpv6", SecurityGroupEgressRuleArgs.builder()
  *             .securityGroupId(allowTls.id())
  *             .cidrIpv6("::/0")
  *             .ipProtocol("-1")
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var myEndpoint = new VpcEndpoint("myEndpoint");
  * 
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
@@ -222,7 +222,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("sg")
  *             .vpcId(exampleAwsVpc.id())
  *             .ingress()
@@ -276,7 +276,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("izizavle")
  *             .build());
  * 
@@ -326,7 +326,7 @@ import javax.annotation.Nullable;
  *             .name("default")
  *             .build());
  * 
- *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()        
+ *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("sg")
  *             .tags(Map.ofEntries(
  *                 Map.entry("workaround1", "tagged-name"),
@@ -334,7 +334,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleProvisioner0 = new Command("exampleProvisioner0", CommandArgs.builder()        
+ *         var exampleProvisioner0 = new Command("exampleProvisioner0", CommandArgs.builder()
  *             .create("true")
  *             .update("true")
  *             .delete("""
@@ -345,14 +345,14 @@ import javax.annotation.Nullable;
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()        
+ *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
  *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))
  *             .build());
  * 
- *         var exampleResourceProvisioner0 = new Command("exampleResourceProvisioner0", CommandArgs.builder()        
+ *         var exampleResourceProvisioner0 = new Command("exampleResourceProvisioner0", CommandArgs.builder()
  *             .create("""
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id %s --remove-security-group-ids %s
  * ", exampleAwsVpcEndpoint.id(),default_.id()))

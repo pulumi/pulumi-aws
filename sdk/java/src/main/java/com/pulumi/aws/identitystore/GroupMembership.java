@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
  *             .displayName("John Doe")
  *             .userName("john.doe{@literal @}example.com")
@@ -59,13 +59,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
  *             .displayName("MyGroup")
  *             .description("Some group name")
  *             .build());
  * 
- *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()        
+ *         var exampleGroupMembership = new GroupMembership("exampleGroupMembership", GroupMembershipArgs.builder()
  *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
  *             .groupId(exampleGroup.groupId())
  *             .memberId(exampleUser.userId())

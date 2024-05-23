@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Broker("example", BrokerArgs.builder()        
+ *         var example = new Broker("example", BrokerArgs.builder()
  *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Broker("example", BrokerArgs.builder()        
+ *         var example = new Broker("example", BrokerArgs.builder()
  *             .brokerName("example")
  *             .configuration(BrokerConfigurationArgs.builder()
  *                 .id(test.id())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrimary = new Broker("examplePrimary", BrokerArgs.builder()        
+ *         var examplePrimary = new Broker("examplePrimary", BrokerArgs.builder()
  *             .applyImmediately(true)
  *             .brokerName("example_primary")
  *             .engineType("ActiveMQ")
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var example = new Broker("example", BrokerArgs.builder()        
+ *         var example = new Broker("example", BrokerArgs.builder()
  *             .applyImmediately(true)
  *             .brokerName("example")
  *             .engineType("ActiveMQ")

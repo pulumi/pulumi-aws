@@ -71,38 +71,38 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var dms_access_for_endpoint = new Role("dms-access-for-endpoint", RoleArgs.builder()        
+ *         var dms_access_for_endpoint = new Role("dms-access-for-endpoint", RoleArgs.builder()
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("dms-access-for-endpoint")
  *             .build());
  * 
- *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", RolePolicyAttachmentArgs.builder()        
+ *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment("dms-access-for-endpoint-AmazonDMSRedshiftS3Role", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role")
  *             .role(dms_access_for_endpoint.name())
  *             .build());
  * 
- *         var dms_cloudwatch_logs_role = new Role("dms-cloudwatch-logs-role", RoleArgs.builder()        
+ *         var dms_cloudwatch_logs_role = new Role("dms-cloudwatch-logs-role", RoleArgs.builder()
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("dms-cloudwatch-logs-role")
  *             .build());
  * 
- *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", RolePolicyAttachmentArgs.builder()        
+ *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment("dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole")
  *             .role(dms_cloudwatch_logs_role.name())
  *             .build());
  * 
- *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()        
+ *         var dms_vpc_role = new Role("dms-vpc-role", RoleArgs.builder()
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("dms-vpc-role")
  *             .build());
  * 
- *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", RolePolicyAttachmentArgs.builder()        
+ *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment("dms-vpc-role-AmazonDMSVPCManagementRole", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
  *             .role(dms_vpc_role.name())
  *             .build());
  * 
  *         // Create a new replication instance
- *         var test = new ReplicationInstance("test", ReplicationInstanceArgs.builder()        
+ *         var test = new ReplicationInstance("test", ReplicationInstanceArgs.builder()
  *             .allocatedStorage(20)
  *             .applyImmediately(true)
  *             .autoMinorVersionUpgrade(true)

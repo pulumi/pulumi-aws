@@ -52,16 +52,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")
@@ -117,16 +117,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")
@@ -182,16 +182,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")
@@ -247,16 +247,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")
@@ -312,16 +312,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")
@@ -377,16 +377,16 @@ public final class InspectorFunctions {
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
      *         // e.g., Use in aws_inspector_assessment_template
-     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()        
+     *         var group = new ResourceGroup("group", ResourceGroupArgs.builder()
      *             .tags(Map.of("test", "test"))
      *             .build());
      * 
-     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()        
+     *         var assessment = new AssessmentTarget("assessment", AssessmentTargetArgs.builder()
      *             .name("test")
      *             .resourceGroupArn(group.arn())
      *             .build());
      * 
-     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()        
+     *         var assessmentAssessmentTemplate = new AssessmentTemplate("assessmentAssessmentTemplate", AssessmentTemplateArgs.builder()
      *             .name("Test")
      *             .targetArn(assessment.arn())
      *             .duration("60")

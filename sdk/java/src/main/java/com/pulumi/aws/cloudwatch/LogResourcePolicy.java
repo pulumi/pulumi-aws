@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var elasticsearch_log_publishing_policyLogResourcePolicy = new LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyDocument(elasticsearch_log_publishing_policy.json())
  *             .policyName("elasticsearch-log-publishing-policy")
  *             .build());
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyDocument(route53_query_logging_policy.json())
  *             .policyName("route53-query-logging-policy")
  *             .build());

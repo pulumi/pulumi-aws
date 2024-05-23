@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Topic("example", TopicArgs.builder()        
+ *         var example = new Topic("example", TopicArgs.builder()
  *             .name("example-topic")
  *             .build());
  * 
- *         var bar = new Group("bar", GroupArgs.builder()        
+ *         var bar = new Group("bar", GroupArgs.builder()
  *             .name("foobar1-test")
  *             .build());
  * 
- *         var foo = new Group("foo", GroupArgs.builder()        
+ *         var foo = new Group("foo", GroupArgs.builder()
  *             .name("barfoo-test")
  *             .build());
  * 
- *         var exampleNotifications = new Notification("exampleNotifications", NotificationArgs.builder()        
+ *         var exampleNotifications = new Notification("exampleNotifications", NotificationArgs.builder()
  *             .groupNames(            
  *                 bar.name(),
  *                 foo.name())

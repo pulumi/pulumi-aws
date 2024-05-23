@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()        
+ *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()
  *             .name("maintenance-window-webapp")
  *             .schedule("cron(0 16 ? * TUE *)")
  *             .duration(3)
  *             .cutoff(1)
  *             .build());
  * 
- *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()        
+ *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()
  *             .windowId(window.id())
  *             .name("maintenance-window-target")
  *             .description("This is a maintenance window target")
@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()        
+ *         var window = new MaintenanceWindow("window", MaintenanceWindowArgs.builder()
  *             .name("maintenance-window-webapp")
  *             .schedule("cron(0 16 ? * TUE *)")
  *             .duration(3)
  *             .cutoff(1)
  *             .build());
  * 
- *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()        
+ *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()
  *             .windowId(window.id())
  *             .name("maintenance-window-target")
  *             .description("This is a maintenance window target")

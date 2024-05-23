@@ -47,21 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()        
+ *         var example = new Organization("example", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("securityhub.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount");
  * 
- *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()        
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount("exampleOrganizationAdminAccount", OrganizationAdminAccountArgs.builder()
  *             .adminAccountId("123456789012")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *         // Auto enable security hub in organization member accounts
- *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()        
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
  *             .autoEnable(true)
  *             .build());
  * 

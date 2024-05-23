@@ -815,7 +815,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
      *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
@@ -866,7 +866,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
      *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
@@ -917,7 +917,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
      *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 
@@ -968,7 +968,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()        
+     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
      *             .instanceType(example.applyValue(getOutpostInstanceTypeResult -> getOutpostInstanceTypeResult.instanceType()))
      *             .build());
      * 

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connection("example", ConnectionArgs.builder()        
+ *         var example = new Connection("example", ConnectionArgs.builder()
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .deviceId(example1.id())
  *             .connectedDeviceId(example2.id())

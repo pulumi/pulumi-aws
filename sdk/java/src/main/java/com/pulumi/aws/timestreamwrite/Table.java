@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName("example")
  *             .build());
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName("example")
  *             .retentionProperties(TableRetentionPropertiesArgs.builder()
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Table("example", TableArgs.builder()        
+ *         var example = new Table("example", TableArgs.builder()
  *             .databaseName(exampleAwsTimestreamwriteDatabase.databaseName())
  *             .tableName("example")
  *             .schema(TableSchemaArgs.builder()

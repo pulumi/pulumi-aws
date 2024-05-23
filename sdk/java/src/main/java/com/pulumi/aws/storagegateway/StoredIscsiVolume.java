@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()        
+ *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .targetName("example")
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()        
+ *         var example = new StoredIscsiVolume("example", StoredIscsiVolumeArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayCache.gatewayArn())
  *             .networkInterfaceId(exampleAwsInstance.privateIp())
  *             .snapshotId(exampleAwsEbsSnapshot.id())

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()        
+ *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
  *             .connectionAlias("outbound_connection")
  *             .connectionMode("DIRECT")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()

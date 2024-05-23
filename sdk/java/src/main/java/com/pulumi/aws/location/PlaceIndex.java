@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PlaceIndex("example", PlaceIndexArgs.builder()        
+ *         var example = new PlaceIndex("example", PlaceIndexArgs.builder()
  *             .dataSource("Here")
  *             .indexName("example")
  *             .build());

@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("example")
  *             .engineVersion("Elasticsearch_7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domainName(domain)
  *             .accessPolicies(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
@@ -209,12 +209,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()        
+ *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
  *             .policyName("example")
  *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .logPublishingOptions(DomainLogPublishingOptionArgs.builder()
  *                 .cloudwatchLogGroupArn(exampleLogGroup.arn())
  *                 .logType("INDEX_SLOW_LOGS")
@@ -287,7 +287,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()        
+ *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
  *             .name(String.format("%s-opensearch-%s", vpc,domain))
  *             .description("Managed by Pulumi")
  *             .vpcId(example.applyValue(getVpcResult -> getVpcResult.id()))
@@ -299,7 +299,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleServiceLinkedRole = new ServiceLinkedRole("exampleServiceLinkedRole", ServiceLinkedRoleArgs.builder()        
+ *         var exampleServiceLinkedRole = new ServiceLinkedRole("exampleServiceLinkedRole", ServiceLinkedRoleArgs.builder()
  *             .awsServiceName("opensearchservice.amazonaws.com")
  *             .build());
  * 
@@ -315,7 +315,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domainName(domain)
  *             .engineVersion("OpenSearch_1.0")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -377,7 +377,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("ggkitty")
  *             .engineVersion("Elasticsearch_7.1")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -448,7 +448,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .domainName("ggkitty")
  *             .engineVersion("Elasticsearch_7.1")
  *             .clusterConfig(DomainClusterConfigArgs.builder()

@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDetector = new Detector("myDetector", DetectorArgs.builder()        
+ *         var myDetector = new Detector("myDetector", DetectorArgs.builder()
  *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
  *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()

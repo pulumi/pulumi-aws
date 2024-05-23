@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Analyzer("example", AnalyzerArgs.builder()        
+ *         var example = new Analyzer("example", AnalyzerArgs.builder()
  *             .analyzerName("example")
  *             .build());
  * 
@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()        
+ *         var example = new Organization("example", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("access-analyzer.amazonaws.com")
  *             .build());
  * 
- *         var exampleAnalyzer = new Analyzer("exampleAnalyzer", AnalyzerArgs.builder()        
+ *         var exampleAnalyzer = new Analyzer("exampleAnalyzer", AnalyzerArgs.builder()
  *             .analyzerName("example")
  *             .type("ORGANIZATION")
  *             .build(), CustomResourceOptions.builder()

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("neptune-cluster-demo")
  *             .engine("neptune")
  *             .backupRetentionPeriod(5)

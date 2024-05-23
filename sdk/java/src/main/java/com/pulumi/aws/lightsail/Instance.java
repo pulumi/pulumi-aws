@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new GitLab Lightsail Instance
- *         var gitlabTest = new Instance("gitlabTest", InstanceArgs.builder()        
+ *         var gitlabTest = new Instance("gitlabTest", InstanceArgs.builder()
  *             .name("custom_gitlab")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custom = new Instance("custom", InstanceArgs.builder()        
+ *         var custom = new Instance("custom", InstanceArgs.builder()
  *             .name("custom")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Instance("test", InstanceArgs.builder()        
+ *         var test = new Instance("test", InstanceArgs.builder()
  *             .name("custom_instance")
  *             .availabilityZone("us-east-1b")
  *             .blueprintId("amazon_linux_2")

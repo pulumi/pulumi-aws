@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
  *             .emailIdentity("example.com")
  *             .build());
  * 
- *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", EmailIdentityFeedbackAttributesArgs.builder()        
+ *         var exampleEmailIdentityFeedbackAttributes = new EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes", EmailIdentityFeedbackAttributesArgs.builder()
  *             .emailIdentity(example.emailIdentity())
  *             .emailForwardingEnabled(true)
  *             .build());

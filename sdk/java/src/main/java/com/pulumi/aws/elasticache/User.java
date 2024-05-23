@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~* +{@literal @}all")
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .userId("testUserId")
  *             .userName("testUserName")
  *             .accessString("on ~* +{@literal @}all")

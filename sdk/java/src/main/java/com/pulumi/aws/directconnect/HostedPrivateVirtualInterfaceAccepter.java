@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var vpnGw = new VpnGateway("vpnGw");
  * 
  *         // Creator's side of the VIF
- *         var creator = new HostedPrivateVirtualInterface("creator", HostedPrivateVirtualInterfaceArgs.builder()        
+ *         var creator = new HostedPrivateVirtualInterface("creator", HostedPrivateVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .name("vif-foo")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(vpnGw)
  *                 .build());
  * 
- *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", HostedPrivateVirtualInterfaceAccepterArgs.builder()        
+ *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", HostedPrivateVirtualInterfaceAccepterArgs.builder()
  *             .virtualInterfaceId(creator.id())
  *             .vpnGatewayId(vpnGw.id())
  *             .tags(Map.of("Side", "Accepter"))

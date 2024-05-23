@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var docdb = new Cluster("docdb", ClusterArgs.builder()        
+ *         var docdb = new Cluster("docdb", ClusterArgs.builder()
  *             .clusterIdentifier("my-docdb-cluster")
  *             .engine("docdb")
  *             .masterUsername("foo")

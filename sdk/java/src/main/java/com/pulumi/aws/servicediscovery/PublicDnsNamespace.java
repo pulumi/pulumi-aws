@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicDnsNamespace("example", PublicDnsNamespaceArgs.builder()        
+ *         var example = new PublicDnsNamespace("example", PublicDnsNamespaceArgs.builder()
  *             .name("hoge.example.com")
  *             .description("example")
  *             .build());

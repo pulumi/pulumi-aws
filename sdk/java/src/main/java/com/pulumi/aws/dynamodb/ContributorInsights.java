@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new ContributorInsights("test", ContributorInsightsArgs.builder()        
+ *         var test = new ContributorInsights("test", ContributorInsightsArgs.builder()
  *             .tableName("ExampleTableName")
  *             .build());
  * 

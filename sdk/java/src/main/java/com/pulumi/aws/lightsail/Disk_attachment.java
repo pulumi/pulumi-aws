@@ -55,20 +55,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new Disk("test", DiskArgs.builder()        
+ *         var test = new Disk("test", DiskArgs.builder()
  *             .name("test-disk")
  *             .sizeInGb(8)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
- *         var testInstance = new Instance("testInstance", InstanceArgs.builder()        
+ *         var testInstance = new Instance("testInstance", InstanceArgs.builder()
  *             .name("test-instance")
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names()[0]))
  *             .blueprintId("amazon_linux_2")
  *             .bundleId("nano_3_0")
  *             .build());
  * 
- *         var testDisk_attachment = new Disk_attachment("testDisk_attachment", Disk_attachmentArgs.builder()        
+ *         var testDisk_attachment = new Disk_attachment("testDisk_attachment", Disk_attachmentArgs.builder()
  *             .diskName(test.name())
  *             .instanceName(testInstance.name())
  *             .diskPath("/dev/xvdf")

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new RailsAppLayer("app", RailsAppLayerArgs.builder()        
+ *         var app = new RailsAppLayer("app", RailsAppLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

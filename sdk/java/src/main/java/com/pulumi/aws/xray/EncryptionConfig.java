@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EncryptionConfig("example", EncryptionConfigArgs.builder()        
+ *         var example = new EncryptionConfig("example", EncryptionConfigArgs.builder()
  *             .type("NONE")
  *             .build());
  * 
@@ -100,13 +100,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("Some Key")
  *             .deletionWindowInDays(7)
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleEncryptionConfig = new EncryptionConfig("exampleEncryptionConfig", EncryptionConfigArgs.builder()        
+ *         var exampleEncryptionConfig = new EncryptionConfig("exampleEncryptionConfig", EncryptionConfigArgs.builder()
  *             .type("KMS")
  *             .keyId(exampleKey.arn())
  *             .build());

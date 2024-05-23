@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()        
+ *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()
  *             .name("example")
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
  *                 .childDirected("boolean")

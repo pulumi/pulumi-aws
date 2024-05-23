@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DirectoryConfig("example", DirectoryConfigArgs.builder()        
+ *         var example = new DirectoryConfig("example", DirectoryConfigArgs.builder()
  *             .directoryName("NAME OF DIRECTORY")
  *             .organizationalUnitDistinguishedNames("DISTINGUISHED NAME")
  *             .serviceAccountCredentials(DirectoryConfigServiceAccountCredentialsArgs.builder()
