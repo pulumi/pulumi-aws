@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testTopic = new Topic("testTopic", TopicArgs.builder()        
+ *         var testTopic = new Topic("testTopic", TopicArgs.builder()
  *             .name("test")
  *             .build());
  * 
@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testRole = new Role("testRole", RoleArgs.builder()        
+ *         var testRole = new Role("testRole", RoleArgs.builder()
  *             .name("test")
  *             .assumeRolePolicy(test.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()        
+ *         var testExtension = new Extension("testExtension", ExtensionArgs.builder()
  *             .name("test")
  *             .description("test description")
  *             .actionPoints(ExtensionActionPointArgs.builder()
@@ -88,11 +88,11 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Type", "AppConfig Extension"))
  *             .build());
  * 
- *         var testApplication = new Application("testApplication", ApplicationArgs.builder()        
+ *         var testApplication = new Application("testApplication", ApplicationArgs.builder()
  *             .name("test")
  *             .build());
  * 
- *         var testExtensionAssociation = new ExtensionAssociation("testExtensionAssociation", ExtensionAssociationArgs.builder()        
+ *         var testExtensionAssociation = new ExtensionAssociation("testExtensionAssociation", ExtensionAssociationArgs.builder()
  *             .extensionArn(testExtension.arn())
  *             .resourceArn(testApplication.arn())
  *             .build());

@@ -50,7 +50,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -103,7 +103,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -156,7 +156,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -209,7 +209,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -262,7 +262,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -315,7 +315,7 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getEndpoint();
      * 
-     *         var agent = new Pod("agent", PodArgs.builder()        
+     *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(ObjectMetaArgs.builder()
      *                 .name("my-device")
      *                 .build())
@@ -368,11 +368,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
@@ -424,11 +424,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
@@ -480,11 +480,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
@@ -536,11 +536,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
@@ -592,11 +592,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()
@@ -648,11 +648,11 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getRegistrationCode();
      * 
-     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()        
+     *         var verification = new PrivateKey("verification", PrivateKeyArgs.builder()
      *             .algorithm("RSA")
      *             .build());
      * 
-     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()        
+     *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(CertRequestSubjectArgs.builder()

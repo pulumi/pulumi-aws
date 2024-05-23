@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Accelerator("example", AcceleratorArgs.builder()        
+ *         var example = new Accelerator("example", AcceleratorArgs.builder()
  *             .name("Example")
  *             .ipAddressType("IPV4")
  *             .ipAddresses("1.2.3.4")

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EfsLocation("example", EfsLocationArgs.builder()        
+ *         var example = new EfsLocation("example", EfsLocationArgs.builder()
  *             .efsFileSystemArn(exampleAwsEfsMountTarget.fileSystemArn())
  *             .ec2Config(EfsLocationEc2ConfigArgs.builder()
  *                 .securityGroupArns(exampleAwsSecurityGroup.arn())

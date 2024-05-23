@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceCredential("example", SourceCredentialArgs.builder()        
+ *         var example = new SourceCredential("example", SourceCredentialArgs.builder()
  *             .authType("PERSONAL_ACCESS_TOKEN")
  *             .serverType("GITHUB")
  *             .token("example")
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SourceCredential("example", SourceCredentialArgs.builder()        
+ *         var example = new SourceCredential("example", SourceCredentialArgs.builder()
  *             .authType("BASIC_AUTH")
  *             .serverType("BITBUCKET")
  *             .token("example")

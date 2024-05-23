@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()        
+ *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()
  *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode("US")
  *             .type("DID")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()        
+ *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()
  *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode("US")
  *             .type("DID")
@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()        
+ *         var example = new PhoneNumber("example", PhoneNumberArgs.builder()
  *             .targetArn(exampleAwsConnectInstance.arn())
  *             .countryCode("US")
  *             .type("DID")

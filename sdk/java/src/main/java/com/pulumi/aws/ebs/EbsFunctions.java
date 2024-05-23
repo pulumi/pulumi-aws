@@ -57,7 +57,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
@@ -104,7 +104,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
@@ -151,7 +151,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
@@ -198,7 +198,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
@@ -245,7 +245,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))
@@ -292,7 +292,7 @@ public final class EbsFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = EbsFunctions.getDefaultKmsKey();
      * 
-     *         var example = new Volume("example", VolumeArgs.builder()        
+     *         var example = new Volume("example", VolumeArgs.builder()
      *             .availabilityZone("us-west-2a")
      *             .encrypted(true)
      *             .kmsKeyId(current.applyValue(getDefaultKmsKeyResult -> getDefaultKmsKeyResult.keyArn()))

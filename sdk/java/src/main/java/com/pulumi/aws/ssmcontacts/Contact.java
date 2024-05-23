@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact("example", ContactArgs.builder()        
+ *         var example = new Contact("example", ContactArgs.builder()
  *             .alias("alias")
  *             .type("PERSONAL")
  *             .build(), CustomResourceOptions.builder()
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Contact("example", ContactArgs.builder()        
+ *         var example = new Contact("example", ContactArgs.builder()
  *             .alias("alias")
  *             .displayName("displayName")
  *             .type("ESCALATION")

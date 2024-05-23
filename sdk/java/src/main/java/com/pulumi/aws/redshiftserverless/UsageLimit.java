@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Workgroup("example", WorkgroupArgs.builder()        
+ *         var example = new Workgroup("example", WorkgroupArgs.builder()
  *             .namespaceName(exampleAwsRedshiftserverlessNamespace.namespaceName())
  *             .workgroupName("example")
  *             .build());
  * 
- *         var exampleUsageLimit = new UsageLimit("exampleUsageLimit", UsageLimitArgs.builder()        
+ *         var exampleUsageLimit = new UsageLimit("exampleUsageLimit", UsageLimitArgs.builder()
  *             .resourceArn(example.arn())
  *             .usageType("serverless-compute")
  *             .amount(60)

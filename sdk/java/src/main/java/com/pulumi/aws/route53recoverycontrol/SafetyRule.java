@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SafetyRule("example", SafetyRuleArgs.builder()        
+ *         var example = new SafetyRule("example", SafetyRuleArgs.builder()
  *             .assertedControls(exampleAwsRoute53recoverycontrolconfigRoutingControl.arn())
  *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
  *             .name("daisyguttridge")
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SafetyRule("example", SafetyRuleArgs.builder()        
+ *         var example = new SafetyRule("example", SafetyRuleArgs.builder()
  *             .name("i_o")
  *             .controlPanelArn("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
  *             .waitPeriodMs(5000)

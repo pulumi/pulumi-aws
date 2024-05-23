@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceGlobalSettings("example", SdkvoiceGlobalSettingsArgs.builder()        
+ *         var example = new SdkvoiceGlobalSettings("example", SdkvoiceGlobalSettingsArgs.builder()
  *             .voiceConnector(SdkvoiceGlobalSettingsVoiceConnectorArgs.builder()
  *                 .cdrBucket("example-bucket-name")
  *                 .build())

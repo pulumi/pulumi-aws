@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()
  *             .configurationSetName(example.configurationSetName())
  *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()
  *             .configurationSetName(example.configurationSetName())
  *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
@@ -155,11 +155,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()
  *             .configurationSetName(example.configurationSetName())
  *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()
@@ -206,11 +206,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .build());
  * 
- *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()        
+ *         var exampleConfigurationSetEventDestination = new ConfigurationSetEventDestination("exampleConfigurationSetEventDestination", ConfigurationSetEventDestinationArgs.builder()
  *             .configurationSetName(example.configurationSetName())
  *             .eventDestinationName("example")
  *             .eventDestination(ConfigurationSetEventDestinationEventDestinationArgs.builder()

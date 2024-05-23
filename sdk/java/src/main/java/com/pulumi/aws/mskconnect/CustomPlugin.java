@@ -53,17 +53,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.id())
  *             .key("debezium.zip")
  *             .source(new FileAsset("debezium.zip"))
  *             .build());
  * 
- *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()        
+ *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()
  *             .name("debezium-example")
  *             .contentType("ZIP")
  *             .location(CustomPluginLocationArgs.builder()

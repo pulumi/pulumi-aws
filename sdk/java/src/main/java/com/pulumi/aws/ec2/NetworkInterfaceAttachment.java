@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new NetworkInterfaceAttachment("test", NetworkInterfaceAttachmentArgs.builder()        
+ *         var test = new NetworkInterfaceAttachment("test", NetworkInterfaceAttachmentArgs.builder()
  *             .instanceId(testAwsInstance.id())
  *             .networkInterfaceId(testAwsNetworkInterface.id())
  *             .deviceIndex(0)

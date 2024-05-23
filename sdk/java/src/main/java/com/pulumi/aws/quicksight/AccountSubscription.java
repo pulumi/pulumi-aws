@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var subscription = new AccountSubscription("subscription", AccountSubscriptionArgs.builder()        
+ *         var subscription = new AccountSubscription("subscription", AccountSubscriptionArgs.builder()
  *             .accountName("quicksight-pulumi")
  *             .authenticationMethod("IAM_AND_QUICKSIGHT")
  *             .edition("ENTERPRISE")

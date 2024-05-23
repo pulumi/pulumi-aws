@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new host with instance type of c5.18xlarge with Auto Placement
  *         // and Host Recovery enabled.
- *         var test = new DedicatedHost("test", DedicatedHostArgs.builder()        
+ *         var test = new DedicatedHost("test", DedicatedHostArgs.builder()
  *             .instanceType("c5.18xlarge")
  *             .availabilityZone("us-west-2a")
  *             .hostRecovery("on")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("example-queue")
  *             .delaySeconds(90)
  *             .maxMessageSize(2048)
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("example-queue.fifo")
  *             .fifoQueue(true)
  *             .contentBasedDeduplication(true)
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("pulumi-example-queue.fifo")
  *             .fifoQueue(true)
  *             .deduplicationScope("messageGroup")
@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("pulumi-example-queue")
  *             .redrivePolicy(serializeJson(
  *                 jsonObject(
@@ -176,11 +176,11 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleQueueDeadletter = new Queue("exampleQueueDeadletter", QueueArgs.builder()        
+ *         var exampleQueueDeadletter = new Queue("exampleQueueDeadletter", QueueArgs.builder()
  *             .name("pulumi-example-deadletter-queue")
  *             .build());
  * 
- *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()        
+ *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()
  *             .queueUrl(exampleQueueDeadletter.id())
  *             .redriveAllowPolicy(serializeJson(
  *                 jsonObject(
@@ -222,7 +222,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("pulumi-example-queue")
  *             .sqsManagedSseEnabled(true)
  *             .build());
@@ -258,7 +258,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()        
+ *         var queue = new Queue("queue", QueueArgs.builder()
  *             .name("example-queue")
  *             .kmsMasterKeyId("alias/aws/sqs")
  *             .kmsDataKeyReusePeriodSeconds(300)

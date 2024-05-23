@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Project("test", ProjectArgs.builder()        
+ *         var test = new Project("test", ProjectArgs.builder()
  *             .spaceName("myproject")
  *             .displayName("MyProject")
  *             .description("My CodeCatalyst Project created using Pulumi")

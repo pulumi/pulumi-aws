@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IndexingConfiguration("example", IndexingConfigurationArgs.builder()        
+ *         var example = new IndexingConfiguration("example", IndexingConfigurationArgs.builder()
  *             .thingIndexingConfiguration(IndexingConfigurationThingIndexingConfigurationArgs.builder()
  *                 .thingIndexingMode("REGISTRY_AND_SHADOW")
  *                 .thingConnectivityIndexingMode("STATUS")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lc = new NotebookInstanceLifecycleConfiguration("lc", NotebookInstanceLifecycleConfigurationArgs.builder()        
+ *         var lc = new NotebookInstanceLifecycleConfiguration("lc", NotebookInstanceLifecycleConfigurationArgs.builder()
  *             .name("foo")
  *             .onCreate(StdFunctions.base64encode(Base64encodeArgs.builder()
  *                 .input("echo foo")

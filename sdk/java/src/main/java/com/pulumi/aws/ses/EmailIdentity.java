@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
  *             .email("email{@literal @}example.com")
  *             .build());
  * 

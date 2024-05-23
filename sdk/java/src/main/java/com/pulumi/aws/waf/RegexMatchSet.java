@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRegexPatternSet = new RegexPatternSet("exampleRegexPatternSet", RegexPatternSetArgs.builder()        
+ *         var exampleRegexPatternSet = new RegexPatternSet("exampleRegexPatternSet", RegexPatternSetArgs.builder()
  *             .name("example")
  *             .regexPatternStrings(            
  *                 "one",
  *                 "two")
  *             .build());
  * 
- *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()        
+ *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()
  *             .name("example")
  *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
  *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var demo = new Workspace("demo");
  * 
- *         var demoAlertManagerDefinition = new AlertManagerDefinition("demoAlertManagerDefinition", AlertManagerDefinitionArgs.builder()        
+ *         var demoAlertManagerDefinition = new AlertManagerDefinition("demoAlertManagerDefinition", AlertManagerDefinitionArgs.builder()
  *             .workspaceId(demo.id())
  *             .definition("""
  * alertmanager_config: |

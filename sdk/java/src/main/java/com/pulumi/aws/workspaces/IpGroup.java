@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var contractors = new IpGroup("contractors", IpGroupArgs.builder()        
+ *         var contractors = new IpGroup("contractors", IpGroupArgs.builder()
  *             .name("Contractors")
  *             .description("Contractors IP access control group")
  *             .rules(            

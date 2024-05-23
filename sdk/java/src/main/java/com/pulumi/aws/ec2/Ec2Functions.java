@@ -1115,12 +1115,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1176,12 +1176,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1237,12 +1237,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1298,12 +1298,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1359,12 +1359,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1420,12 +1420,12 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()        
+     *         var main = new VpnGateway("main", VpnGatewayArgs.builder()
      *             .vpcId(mainAwsVpc.id())
      *             .amazonSideAsn(7224)
      *             .build());
      * 
-     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()        
+     *         var transit = new VpnConnection("transit", VpnConnectionArgs.builder()
      *             .vpnGatewayId(main.id())
      *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.id()))
      *             .type(foo.applyValue(getCustomerGatewayResult -> getCustomerGatewayResult.type()))
@@ -1472,7 +1472,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -1559,7 +1559,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -1646,7 +1646,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -1733,7 +1733,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -1820,7 +1820,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -1907,7 +1907,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()        
+     *         var testDedicatedHost = new DedicatedHost("testDedicatedHost", DedicatedHostArgs.builder()
      *             .instanceType("c5.18xlarge")
      *             .availabilityZone("us-west-2a")
      *             .build());
@@ -4653,7 +4653,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -4718,7 +4718,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -4783,7 +4783,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -4848,7 +4848,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -4913,7 +4913,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -4978,7 +4978,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < test.applyValue(getInstancesResult -> getInstancesResult.ids()).length(); i++) {
-     *             new Eip("testEip-" + i, EipArgs.builder()            
+     *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.applyValue(getInstancesResult -> getInstancesResult.ids())[range.value()])
      *                 .build());
      * 
@@ -5315,7 +5315,7 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
@@ -5369,7 +5369,7 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
@@ -5423,7 +5423,7 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
@@ -5477,7 +5477,7 @@ public final class Ec2Functions {
      *             .netmaskLength(28)
      *             .build());
      * 
-     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()        
+     *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", VpcIpamPoolCidrAllocationArgs.builder()
      *             .ipamPoolId(testAwsVpcIpamPool.id())
      *             .cidr(test.applyValue(getIpamPreviewNextCidrResult -> getIpamPreviewNextCidrResult.cidr()))
      *             .build());
@@ -11492,7 +11492,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -11501,11 +11501,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -11606,7 +11606,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -11615,11 +11615,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -11720,7 +11720,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -11729,11 +11729,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -11834,7 +11834,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -11843,11 +11843,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -11948,7 +11948,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -11957,11 +11957,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -12062,7 +12062,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()        
+     *         var privateS3VpcEndpoint = new VpcEndpoint("privateS3VpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
@@ -12071,11 +12071,11 @@ public final class Ec2Functions {
      *             .prefixListId(privateS3VpcEndpoint.prefixListId())
      *             .build());
      * 
-     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+     *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
-     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()        
+     *         var privateS3NetworkAclRule = new NetworkAclRule("privateS3NetworkAclRule", NetworkAclRuleArgs.builder()
      *             .networkAclId(bar.id())
      *             .ruleNumber(200)
      *             .egress(false)
@@ -13072,7 +13072,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13128,7 +13128,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13184,7 +13184,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13240,7 +13240,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13296,7 +13296,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13352,7 +13352,7 @@ public final class Ec2Functions {
      *             .subnetId(subnetId)
      *             .build());
      * 
-     *         var route = new Route("route", RouteArgs.builder()        
+     *         var route = new Route("route", RouteArgs.builder()
      *             .routeTableId(selected.applyValue(getRouteTableResult -> getRouteTableResult.id()))
      *             .destinationCidrBlock("10.0.1.0/22")
      *             .vpcPeeringConnectionId("pcx-45ff3dc1")
@@ -13412,7 +13412,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13474,7 +13474,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13536,7 +13536,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13598,7 +13598,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13660,7 +13660,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13722,7 +13722,7 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         for (var i = 0; i < rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids()).length(); i++) {
-     *             new Route("r-" + i, RouteArgs.builder()            
+     *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.applyValue(getRouteTablesResult -> getRouteTablesResult.ids())[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
      *                 .vpcPeeringConnectionId("pcx-0e9a7a9ecd137dc54")
@@ -13783,7 +13783,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -13841,7 +13841,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -13899,7 +13899,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -13957,7 +13957,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -14015,7 +14015,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -14073,7 +14073,7 @@ public final class Ec2Functions {
      *             .id(securityGroupId)
      *             .build());
      * 
-     *         var subnet = new Subnet("subnet", SubnetArgs.builder()        
+     *         var subnet = new Subnet("subnet", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getSecurityGroupResult -> getSecurityGroupResult.vpcId()))
      *             .cidrBlock("10.0.1.0/24")
      *             .build());
@@ -15161,7 +15161,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15262,7 +15262,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15363,7 +15363,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15464,7 +15464,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15565,7 +15565,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15666,7 +15666,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()        
+     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -16070,7 +16070,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16134,7 +16134,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16198,7 +16198,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16262,7 +16262,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16326,7 +16326,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16390,7 +16390,7 @@ public final class Ec2Functions {
      *             .id(vpcId)
      *             .build());
      * 
-     *         var example = new Subnet("example", SubnetArgs.builder()        
+     *         var example = new Subnet("example", SubnetArgs.builder()
      *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
      *             .availabilityZone("us-west-2a")
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
@@ -16969,7 +16969,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17021,7 +17021,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17073,7 +17073,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17125,7 +17125,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17177,7 +17177,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17229,7 +17229,7 @@ public final class Ec2Functions {
      *             .serviceName("com.amazonaws.us-west-2.s3")
      *             .build());
      * 
-     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()        
+     *         var privateS3 = new VpcEndpointRouteTableAssociation("privateS3", VpcEndpointRouteTableAssociationArgs.builder()
      *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -> getVpcEndpointResult.id()))
      *             .routeTableId(private_.id())
      *             .build());
@@ -17286,12 +17286,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -17421,12 +17421,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -17556,12 +17556,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -17691,12 +17691,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -17826,12 +17826,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -17961,12 +17961,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a VPC
-     *         var foo = new Vpc("foo", VpcArgs.builder()        
+     *         var foo = new Vpc("foo", VpcArgs.builder()
      *             .cidrBlock("10.0.0.0/16")
      *             .build());
      * 
      *         // Create a VPC endpoint
-     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()        
+     *         var ep = new VpcEndpoint("ep", VpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
      *             .build());
@@ -18104,7 +18104,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -18173,7 +18173,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -18242,7 +18242,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -18311,7 +18311,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -18380,7 +18380,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -18449,7 +18449,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19138,7 +19138,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19203,7 +19203,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19268,7 +19268,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19333,7 +19333,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19398,7 +19398,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -19463,7 +19463,7 @@ public final class Ec2Functions {
      *                     .build())
      *             .build());
      * 
-     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()        
+     *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
      *             .ipv4IpamPoolId(test.applyValue(getVpcIpamPoolResult -> getVpcIpamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
@@ -20098,12 +20098,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
@@ -20159,12 +20159,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
@@ -20220,12 +20220,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
@@ -20281,12 +20281,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
@@ -20342,12 +20342,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))
@@ -20403,12 +20403,12 @@ public final class Ec2Functions {
      *             .build());
      * 
      *         // Create a route table
-     *         var rt = new RouteTable("rt", RouteTableArgs.builder()        
+     *         var rt = new RouteTable("rt", RouteTableArgs.builder()
      *             .vpcId(foo.id())
      *             .build());
      * 
      *         // Create a route
-     *         var r = new Route("r", RouteArgs.builder()        
+     *         var r = new Route("r", RouteArgs.builder()
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.peerCidrBlock()))
      *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -> getVpcPeeringConnectionResult.id()))

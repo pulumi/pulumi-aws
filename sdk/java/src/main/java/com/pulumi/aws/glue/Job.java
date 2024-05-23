@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Job("example", JobArgs.builder()        
+ *         var example = new Job("example", JobArgs.builder()
  *             .name("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Job("example", JobArgs.builder()        
+ *         var example = new Job("example", JobArgs.builder()
  *             .name("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .glueVersion("4.0")
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Job("example", JobArgs.builder()        
+ *         var example = new Job("example", JobArgs.builder()
  *             .name("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
@@ -180,7 +180,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Job("example", JobArgs.builder()        
+ *         var example = new Job("example", JobArgs.builder()
  *             .name("example streaming job")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .command(JobCommandArgs.builder()
@@ -222,12 +222,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("example")
  *             .retentionInDays(14)
  *             .build());
  * 
- *         var exampleJob = new Job("exampleJob", JobArgs.builder()        
+ *         var exampleJob = new Job("exampleJob", JobArgs.builder()
  *             .defaultArguments(Map.ofEntries(
  *                 Map.entry("--continuous-log-logGroup", example.name()),
  *                 Map.entry("--enable-continuous-cloudwatch-log", "true"),

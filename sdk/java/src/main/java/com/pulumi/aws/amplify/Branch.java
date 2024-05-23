@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .build());
  * 
- *         var master = new Branch("master", BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()
  *             .appId(example.id())
  *             .branchName("master")
  *             .framework("React")
@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .build());
  * 
- *         var master = new Branch("master", BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()
  *             .appId(example.id())
  *             .branchName("master")
  *             .enableBasicAuth(true)
@@ -154,18 +154,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()        
+ *         var example = new App("example", AppArgs.builder()
  *             .name("app")
  *             .build());
  * 
- *         var master = new Branch("master", BranchArgs.builder()        
+ *         var master = new Branch("master", BranchArgs.builder()
  *             .appId(example.id())
  *             .branchName("master")
  *             .enableNotification(true)
  *             .build());
  * 
  *         // EventBridge Rule for Amplify notifications
- *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()        
+ *         var amplifyAppMasterEventRule = new EventRule("amplifyAppMasterEventRule", EventRuleArgs.builder()
  *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s-%s-branch-notification", app.id(),branchName)))
  *             .description(master.branchName().applyValue(branchName -> String.format("AWS Amplify build notifications for :  App: %s Branch: %s", app.id(),branchName)))
  *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -> {
@@ -189,11 +189,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // SNS Topic for Amplify notifications
- *         var amplifyAppMasterTopic = new Topic("amplifyAppMasterTopic", TopicArgs.builder()        
+ *         var amplifyAppMasterTopic = new Topic("amplifyAppMasterTopic", TopicArgs.builder()
  *             .name(master.branchName().applyValue(branchName -> String.format("amplify-%s_%s", app.id(),branchName)))
  *             .build());
  * 
- *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()        
+ *         var amplifyAppMasterEventTarget = new EventTarget("amplifyAppMasterEventTarget", EventTargetArgs.builder()
  *             .rule(amplifyAppMasterEventRule.name())
  *             .targetId(master.branchName())
  *             .arn(amplifyAppMasterTopic.arn())
@@ -222,12 +222,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()        
+ *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(amplifyAppMasterTopic.arn())
  *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(amplifyAppMaster -> amplifyAppMaster.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()        
+ *         var this_ = new TopicSubscription("this", TopicSubscriptionArgs.builder()
  *             .topic(amplifyAppMasterTopic.arn())
  *             .protocol("email")
  *             .endpoint("user{@literal @}acme.com")

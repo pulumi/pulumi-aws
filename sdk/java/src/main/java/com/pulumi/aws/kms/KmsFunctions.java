@@ -241,7 +241,7 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
@@ -299,7 +299,7 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
@@ -357,7 +357,7 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());
@@ -415,7 +415,7 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()        
+     *         var oauthConfig = new Key("oauthConfig", KeyArgs.builder()
      *             .description("oauth config")
      *             .isEnabled(true)
      *             .build());

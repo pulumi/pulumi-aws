@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Firewall("example", FirewallArgs.builder()        
+ *         var example = new Firewall("example", FirewallArgs.builder()
  *             .name("example")
  *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .vpcId(exampleAwsVpc.id())

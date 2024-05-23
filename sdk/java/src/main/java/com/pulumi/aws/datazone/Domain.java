@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()        
+ *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
  *             .name("my_domain_execution_role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Domain("example", DomainArgs.builder()        
+ *         var example = new Domain("example", DomainArgs.builder()
  *             .name("example")
  *             .domainExecutionRole(domainExecutionRole.arn())
  *             .build());

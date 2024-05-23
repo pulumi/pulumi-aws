@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()        
+ *         var example = new ResourcePolicy("example", ResourcePolicyArgs.builder()
  *             .resourceArn(exampleAwsDynamodbTable.arn())
  *             .policy(test.json())
  *             .build());

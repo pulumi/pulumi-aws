@@ -54,17 +54,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()        
+ *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()
  *             .name("one.example.com")
  *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()        
+ *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()
  *             .name("two.example.com")
  *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var one = new Trust("one", TrustArgs.builder()        
+ *         var one = new Trust("one", TrustArgs.builder()
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
  *             .trustDirection("Two-Way")
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var two = new Trust("two", TrustArgs.builder()        
+ *         var two = new Trust("two", TrustArgs.builder()
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
  *             .trustDirection("Two-Way")
@@ -113,17 +113,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()        
+ *         var oneDirectory = new Directory("oneDirectory", DirectoryArgs.builder()
  *             .name("one.example.com")
  *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()        
+ *         var twoDirectory = new Directory("twoDirectory", DirectoryArgs.builder()
  *             .name("two.example.com")
  *             .type("MicrosoftAD")
  *             .build());
  * 
- *         var one = new Trust("one", TrustArgs.builder()        
+ *         var one = new Trust("one", TrustArgs.builder()
  *             .directoryId(oneDirectory.id())
  *             .remoteDomainName(twoDirectory.name())
  *             .trustDirection("One-Way: Incoming")
@@ -131,7 +131,7 @@ import javax.annotation.Nullable;
  *             .conditionalForwarderIpAddrs(twoDirectory.dnsIpAddresses())
  *             .build());
  * 
- *         var two = new Trust("two", TrustArgs.builder()        
+ *         var two = new Trust("two", TrustArgs.builder()
  *             .directoryId(twoDirectory.id())
  *             .remoteDomainName(oneDirectory.name())
  *             .trustDirection("One-Way: Outgoing")

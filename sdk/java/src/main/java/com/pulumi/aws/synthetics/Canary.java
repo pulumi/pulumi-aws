@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some = new Canary("some", CanaryArgs.builder()        
+ *         var some = new Canary("some", CanaryArgs.builder()
  *             .name("some-canary")
  *             .artifactS3Location("s3://some-bucket/")
  *             .executionRoleArn("some-role")

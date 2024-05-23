@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()        
+ *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
  *             .subnetArns(exampleAwsSubnet.arn())
  *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
  *             .vpcArn(exampleAwsVpc.arn())

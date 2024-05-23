@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var staging = new Distribution("staging", DistributionArgs.builder()        
+ *         var staging = new Distribution("staging", DistributionArgs.builder()
  *             .enabled(true)
  *             .staging(true)
  *             .build());
  * 
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var production = new Distribution("production", DistributionArgs.builder()        
+ *         var production = new Distribution("production", DistributionArgs.builder()
  *             .enabled(true)
  *             .continuousDeploymentPolicyId(example.id())
  *             .build());
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()        
+ *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
  *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
