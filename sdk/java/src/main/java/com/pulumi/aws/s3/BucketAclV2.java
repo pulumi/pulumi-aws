@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()        
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
  *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build(), CustomResourceOptions.builder()
@@ -115,18 +115,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()        
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
  *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock("exampleBucketPublicAccessBlock", BucketPublicAccessBlockArgs.builder()        
+ *         var exampleBucketPublicAccessBlock = new BucketPublicAccessBlock("exampleBucketPublicAccessBlock", BucketPublicAccessBlockArgs.builder()
  *             .bucket(example.id())
  *             .blockPublicAcls(false)
  *             .blockPublicPolicy(false)
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .restrictPublicBuckets(false)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("public-read")
  *             .build(), CustomResourceOptions.builder()
@@ -185,18 +185,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = S3Functions.getCanonicalUserId();
  * 
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()        
+ *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
  *             .bucket(example.id())
  *             .rule(BucketOwnershipControlsRuleArgs.builder()
  *                 .objectOwnership("BucketOwnerPreferred")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
  *                 .grants(                

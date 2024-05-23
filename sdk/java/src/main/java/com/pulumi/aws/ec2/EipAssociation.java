@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var web = new Instance("web", InstanceArgs.builder()        
+ *         var web = new Instance("web", InstanceArgs.builder()
  *             .ami("ami-21f78e11")
  *             .availabilityZone("us-west-2a")
  *             .instanceType("t2.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var example = new Eip("example", EipArgs.builder()        
+ *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
  *             .build());
  * 
- *         var eipAssoc = new EipAssociation("eipAssoc", EipAssociationArgs.builder()        
+ *         var eipAssoc = new EipAssociation("eipAssoc", EipAssociationArgs.builder()
  *             .instanceId(web.id())
  *             .allocationId(example.id())
  *             .build());

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  *         var frontEndListener = new Listener("frontEndListener");
  * 
- *         var exampleListenerCertificate = new ListenerCertificate("exampleListenerCertificate", ListenerCertificateArgs.builder()        
+ *         var exampleListenerCertificate = new ListenerCertificate("exampleListenerCertificate", ListenerCertificateArgs.builder()
  *             .listenerArn(frontEndListener.arn())
  *             .certificateArn(example.arn())
  *             .build());

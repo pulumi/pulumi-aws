@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
  *             .deploymentConfigName("test-deployment-config")
  *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
  *                 .type("HOST_COUNT")
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()        
+ *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
  *             .appName(fooApp.name())
  *             .deploymentGroupName("bar")
  *             .serviceRoleArn(fooRole.arn())
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()        
+ *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
  *             .deploymentConfigName("test-deployment-config")
  *             .computePlatform("Lambda")
  *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()        
+ *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
  *             .appName(fooApp.name())
  *             .deploymentGroupName("bar")
  *             .serviceRoleArn(fooRole.arn())

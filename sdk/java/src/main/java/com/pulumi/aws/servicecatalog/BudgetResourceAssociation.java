@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BudgetResourceAssociation("example", BudgetResourceAssociationArgs.builder()        
+ *         var example = new BudgetResourceAssociation("example", BudgetResourceAssociationArgs.builder()
  *             .budgetName("budget-pjtvyakdlyo3m")
  *             .resourceId("prod-dnigbtea24ste")
  *             .build());

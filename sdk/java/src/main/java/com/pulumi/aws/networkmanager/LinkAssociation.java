@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LinkAssociation("example", LinkAssociationArgs.builder()        
+ *         var example = new LinkAssociation("example", LinkAssociationArgs.builder()
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .linkId(exampleAwsNetworkmanagerLink.id())
  *             .deviceId(exampleAwsNetworkmanagerDevice.id())

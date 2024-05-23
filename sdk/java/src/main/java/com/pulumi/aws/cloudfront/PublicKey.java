@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PublicKey("example", PublicKeyArgs.builder()        
+ *         var example = new PublicKey("example", PublicKeyArgs.builder()
  *             .comment("test public key")
  *             .encodedKey(StdFunctions.file(FileArgs.builder()
  *                 .input("public_key.pem")

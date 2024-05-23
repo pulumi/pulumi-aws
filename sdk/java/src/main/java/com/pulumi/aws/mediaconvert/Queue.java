@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Queue("test", QueueArgs.builder()        
+ *         var test = new Queue("test", QueueArgs.builder()
  *             .name("tf-test-queue")
  *             .build());
  * 

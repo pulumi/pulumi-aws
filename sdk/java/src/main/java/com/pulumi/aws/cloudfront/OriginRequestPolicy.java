@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginRequestPolicy("example", OriginRequestPolicyArgs.builder()        
+ *         var example = new OriginRequestPolicy("example", OriginRequestPolicyArgs.builder()
  *             .name("example-policy")
  *             .comment("example comment")
  *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()

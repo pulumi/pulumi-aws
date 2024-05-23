@@ -48,25 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *         var foo = new Vpc("foo", VpcArgs.builder()
  *             .cidrBlock("10.1.0.0/16")
  *             .build());
  * 
- *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()        
+ *         var fooSubnet = new Subnet("fooSubnet", SubnetArgs.builder()
  *             .cidrBlock("10.1.1.0/24")
  *             .availabilityZone("us-west-2a")
  *             .vpcId(foo.id())
  *             .tags(Map.of("Name", "tf-dbsubnet-test-1"))
  *             .build());
  * 
- *         var bar = new Subnet("bar", SubnetArgs.builder()        
+ *         var bar = new Subnet("bar", SubnetArgs.builder()
  *             .cidrBlock("10.1.2.0/24")
  *             .availabilityZone("us-west-2b")
  *             .vpcId(foo.id())
  *             .tags(Map.of("Name", "tf-dbsubnet-test-2"))
  *             .build());
  * 
- *         var fooSubnetGroup = new SubnetGroup("fooSubnetGroup", SubnetGroupArgs.builder()        
+ *         var fooSubnetGroup = new SubnetGroup("fooSubnetGroup", SubnetGroupArgs.builder()
  *             .name("foo")
  *             .subnetIds(            
  *                 fooSubnet.id(),

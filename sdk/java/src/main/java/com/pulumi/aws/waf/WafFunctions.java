@@ -569,7 +569,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
@@ -632,7 +632,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
@@ -695,7 +695,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
@@ -758,7 +758,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
@@ -821,7 +821,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)
@@ -884,7 +884,7 @@ public final class WafFunctions {
      *             .metricName("F5BotDetectionSignatures")
      *             .build());
      * 
-     *         var acl = new WebAcl("acl", WebAclArgs.builder()        
+     *         var acl = new WebAcl("acl", WebAclArgs.builder()
      *             .rules(            
      *                 WebAclRuleArgs.builder()
      *                     .priority(1)

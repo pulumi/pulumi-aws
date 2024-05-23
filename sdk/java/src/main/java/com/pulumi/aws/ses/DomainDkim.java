@@ -49,16 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()        
+ *         var example = new DomainIdentity("example", DomainIdentityArgs.builder()
  *             .domain("example.com")
  *             .build());
  * 
- *         var exampleDomainDkim = new DomainDkim("exampleDomainDkim", DomainDkimArgs.builder()        
+ *         var exampleDomainDkim = new DomainDkim("exampleDomainDkim", DomainDkimArgs.builder()
  *             .domain(example.domain())
  *             .build());
  * 
  *         for (var i = 0; i < 3; i++) {
- *             new Record("exampleAmazonsesDkimRecord-" + i, RecordArgs.builder()            
+ *             new Record("exampleAmazonsesDkimRecord-" + i, RecordArgs.builder()
  *                 .zoneId("ABCDEFGHIJ123")
  *                 .name(exampleDomainDkim.dkimTokens().applyValue(dkimTokens -> String.format("%s._domainkey", dkimTokens[range.value()])))
  *                 .type("CNAME")

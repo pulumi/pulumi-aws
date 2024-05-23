@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()        
+ *         var testSp = new SigningProfile("testSp", SigningProfileArgs.builder()
  *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .build());
  * 
- *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()        
+ *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()
  *             .platformId("AWSLambda-SHA384-ECDSA")
  *             .namePrefix("prod_sp_")
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()

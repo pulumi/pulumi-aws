@@ -515,13 +515,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -579,13 +579,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -643,13 +643,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -707,13 +707,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -771,13 +771,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -835,13 +835,13 @@ public final class RdsFunctions {
      * 
      *         // Use the last snapshot of the dev database before it was destroyed to create
      *         // a new dev database.
-     *         var aurora = new Cluster("aurora", ClusterArgs.builder()        
+     *         var aurora = new Cluster("aurora", ClusterArgs.builder()
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -> getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName("my_db_subnet_group")
      *             .build());
      * 
-     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()        
+     *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
      *             .instanceClass("db.t2.small")
      *             .dbSubnetGroupName("my_db_subnet_group")
@@ -3622,7 +3622,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3640,7 +3640,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
@@ -3689,7 +3689,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3707,7 +3707,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
@@ -3756,7 +3756,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3774,7 +3774,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
@@ -3823,7 +3823,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3841,7 +3841,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
@@ -3890,7 +3890,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3908,7 +3908,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))
@@ -3957,7 +3957,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var prod = new Instance("prod", InstanceArgs.builder()        
+     *         var prod = new Instance("prod", InstanceArgs.builder()
      *             .allocatedStorage(10)
      *             .engine("mysql")
      *             .engineVersion("5.6.17")
@@ -3975,7 +3975,7 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         // Use the latest production snapshot to create a dev instance.
-     *         var dev = new Instance("dev", InstanceArgs.builder()        
+     *         var dev = new Instance("dev", InstanceArgs.builder()
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult).applyValue(latestProdSnapshot -> latestProdSnapshot.applyValue(getSnapshotResult -> getSnapshotResult.id())))

@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .description("My example policy")
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -88,12 +88,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleBudget = new Budget("exampleBudget", BudgetArgs.builder()        
+ *         var exampleBudget = new Budget("exampleBudget", BudgetArgs.builder()
  *             .name("example")
  *             .budgetType("USAGE")
  *             .limitAmount("10.0")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *             .timeUnit("MONTHLY")
  *             .build());
  * 
- *         var exampleBudgetAction = new BudgetAction("exampleBudgetAction", BudgetActionArgs.builder()        
+ *         var exampleBudgetAction = new BudgetAction("exampleBudgetAction", BudgetActionArgs.builder()
  *             .budgetName(exampleBudget.name())
  *             .actionType("APPLY_IAM_POLICY")
  *             .approvalModel("AUTOMATIC")

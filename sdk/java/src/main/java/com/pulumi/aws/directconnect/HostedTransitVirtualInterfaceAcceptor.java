@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         // Accepter's side of the VIF.
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("tf-dxg-example")
  *             .amazonSideAsn(64512)
  *             .build());
  * 
  *         // Creator's side of the VIF
- *         var creator = new HostedTransitVirtualInterface("creator", HostedTransitVirtualInterfaceArgs.builder()        
+ *         var creator = new HostedTransitVirtualInterface("creator", HostedTransitVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .name("tf-transit-vif-example")
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(example)
  *                 .build());
  * 
- *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", HostedTransitVirtualInterfaceAcceptorArgs.builder()        
+ *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", HostedTransitVirtualInterfaceAcceptorArgs.builder()
  *             .virtualInterfaceId(creator.id())
  *             .dxGatewayId(example.id())
  *             .tags(Map.of("Side", "Accepter"))

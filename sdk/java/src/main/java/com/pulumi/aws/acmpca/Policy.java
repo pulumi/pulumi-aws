@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .resourceArn(exampleAwsAcmpcaCertificateAuthority.arn())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

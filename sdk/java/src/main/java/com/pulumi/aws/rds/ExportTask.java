@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExportTask("example", ExportTaskArgs.builder()        
+ *         var example = new ExportTask("example", ExportTaskArgs.builder()
  *             .exportTaskIdentifier("example")
  *             .sourceArn(exampleAwsDbSnapshot.dbSnapshotArn())
  *             .s3BucketName(exampleAwsS3Bucket.id())
@@ -105,17 +105,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(exampleBucketV2.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -152,21 +152,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .role(exampleRole.name())
  *             .policyArn(examplePolicy.arn())
  *             .build());
  * 
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .identifier("example")
  *             .allocatedStorage(10)
  *             .dbName("test")
@@ -179,12 +179,12 @@ import javax.annotation.Nullable;
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()        
+ *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()
  *             .dbInstanceIdentifier(exampleInstance.identifier())
  *             .dbSnapshotIdentifier("example")
  *             .build());
  * 
- *         var exampleExportTask = new ExportTask("exampleExportTask", ExportTaskArgs.builder()        
+ *         var exampleExportTask = new ExportTask("exampleExportTask", ExportTaskArgs.builder()
  *             .exportTaskIdentifier("example")
  *             .sourceArn(exampleSnapshot.dbSnapshotArn())
  *             .s3BucketName(exampleBucketV2.id())

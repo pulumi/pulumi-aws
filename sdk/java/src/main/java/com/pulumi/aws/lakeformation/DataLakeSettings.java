@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()        
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
  *             .admins(            
  *                 test.arn(),
  *                 testAwsIamRole.arn())

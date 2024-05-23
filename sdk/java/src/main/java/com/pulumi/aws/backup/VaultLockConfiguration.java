@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new VaultLockConfiguration("test", VaultLockConfigurationArgs.builder()        
+ *         var test = new VaultLockConfiguration("test", VaultLockConfigurationArgs.builder()
  *             .backupVaultName("example_backup_vault")
  *             .changeableForDays(3)
  *             .maxRetentionDays(1200)

@@ -268,7 +268,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy("example", PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
@@ -317,7 +317,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy("example", PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
@@ -717,7 +717,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Policy("example", PolicyArgs.builder()        
+         *         var example = new Policy("example", PolicyArgs.builder()
          *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
          *                     .predefinedMetricType("ASGAverageCPUUtilization")
@@ -770,7 +770,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          *     }
          * 
          *     public static void stack(Context ctx) {
-         *         var example = new Policy("example", PolicyArgs.builder()        
+         *         var example = new Policy("example", PolicyArgs.builder()
          *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
          *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
          *                     .predefinedMetricType("ASGAverageCPUUtilization")

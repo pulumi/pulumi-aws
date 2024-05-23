@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InternetMonitor("example", InternetMonitorArgs.builder()        
+ *         var example = new InternetMonitor("example", InternetMonitorArgs.builder()
  *             .monitorName("exmple")
  *             .build());
  * 

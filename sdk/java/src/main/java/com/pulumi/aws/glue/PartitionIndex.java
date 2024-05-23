@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()        
+ *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()
  *             .name("example")
  *             .databaseName(example.name())
  *             .owner("my_owner")
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .parameters(Map.of("param1", "param1_val"))
  *             .build());
  * 
- *         var examplePartitionIndex = new PartitionIndex("examplePartitionIndex", PartitionIndexArgs.builder()        
+ *         var examplePartitionIndex = new PartitionIndex("examplePartitionIndex", PartitionIndexArgs.builder()
  *             .databaseName(example.name())
  *             .tableName(exampleCatalogTable.name())
  *             .partitionIndex(PartitionIndexPartitionIndexArgs.builder()

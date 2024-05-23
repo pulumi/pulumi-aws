@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Tracker("example", TrackerArgs.builder()        
+ *         var example = new Tracker("example", TrackerArgs.builder()
  *             .trackerName("example")
  *             .build());
  * 

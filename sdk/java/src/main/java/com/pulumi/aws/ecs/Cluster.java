@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Cluster("foo", ClusterArgs.builder()        
+ *         var foo = new Cluster("foo", ClusterArgs.builder()
  *             .name("white-hart")
  *             .settings(ClusterSettingArgs.builder()
  *                 .name("containerInsights")
@@ -94,16 +94,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("example")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var test = new Cluster("test", ClusterArgs.builder()        
+ *         var test = new Cluster("test", ClusterArgs.builder()
  *             .name("example")
  *             .configuration(ClusterConfigurationArgs.builder()
  *                 .executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs.builder()

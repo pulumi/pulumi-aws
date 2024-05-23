@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(exampleBucketV2.id())
  *             .acl("private")
  *             .build());
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -150,12 +150,12 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .role(exampleRole.name())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()        
+ *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
  *             .name("test-project")
  *             .description("test_codebuild_project")
  *             .buildTimeout(5)
@@ -214,7 +214,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Test"))
  *             .build());
  * 
- *         var project_with_cache = new Project("project-with-cache", ProjectArgs.builder()        
+ *         var project_with_cache = new Project("project-with-cache", ProjectArgs.builder()
  *             .name("test-project-cache")
  *             .description("test_codebuild_project_cache")
  *             .buildTimeout(5)

@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()        
+ *         var gdBucket = new BucketV2("gdBucket", BucketV2Args.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
@@ -111,27 +111,27 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var testGd = new Detector("testGd", DetectorArgs.builder()        
+ *         var testGd = new Detector("testGd", DetectorArgs.builder()
  *             .enable(true)
  *             .build());
  * 
- *         var gdBucketAcl = new BucketAclV2("gdBucketAcl", BucketAclV2Args.builder()        
+ *         var gdBucketAcl = new BucketAclV2("gdBucketAcl", BucketAclV2Args.builder()
  *             .bucket(gdBucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var gdBucketPolicy = new BucketPolicy("gdBucketPolicy", BucketPolicyArgs.builder()        
+ *         var gdBucketPolicy = new BucketPolicy("gdBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(gdBucket.id())
  *             .policy(bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(bucketPol -> bucketPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .build());
  * 
- *         var gdKey = new Key("gdKey", KeyArgs.builder()        
+ *         var gdKey = new Key("gdKey", KeyArgs.builder()
  *             .description("Temporary key for AccTest of TF")
  *             .deletionWindowInDays(7)
  *             .policy(kmsPol.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var test = new PublishingDestination("test", PublishingDestinationArgs.builder()        
+ *         var test = new PublishingDestination("test", PublishingDestinationArgs.builder()
  *             .detectorId(testGd.id())
  *             .destinationArn(gdBucket.arn())
  *             .kmsKeyArn(gdKey.arn())

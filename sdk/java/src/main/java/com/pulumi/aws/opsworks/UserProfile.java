@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myProfile = new UserProfile("myProfile", UserProfileArgs.builder()        
+ *         var myProfile = new UserProfile("myProfile", UserProfileArgs.builder()
  *             .userArn(user.arn())
  *             .sshUsername("my_user")
  *             .build());

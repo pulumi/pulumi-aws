@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Repository("test", RepositoryArgs.builder()        
+ *         var test = new Repository("test", RepositoryArgs.builder()
  *             .repositoryName("test")
  *             .build());
  * 
- *         var testTrigger = new Trigger("testTrigger", TriggerArgs.builder()        
+ *         var testTrigger = new Trigger("testTrigger", TriggerArgs.builder()
  *             .repositoryName(test.repositoryName())
  *             .triggers(TriggerTriggerArgs.builder()
  *                 .name("all")

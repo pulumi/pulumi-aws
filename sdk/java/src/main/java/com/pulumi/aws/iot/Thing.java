@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thing("example", ThingArgs.builder()        
+ *         var example = new Thing("example", ThingArgs.builder()
  *             .name("example")
  *             .attributes(Map.of("First", "examplevalue"))
  *             .build());

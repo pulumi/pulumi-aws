@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCurReportDefinition = new ReportDefinition("exampleCurReportDefinition", ReportDefinitionArgs.builder()        
+ *         var exampleCurReportDefinition = new ReportDefinition("exampleCurReportDefinition", ReportDefinitionArgs.builder()
  *             .reportName("example-cur-report-definition")
  *             .timeUnit("HOURLY")
  *             .format("textORcsv")
