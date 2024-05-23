@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testStream = new Stream("testStream", StreamArgs.builder()        
+ *         var testStream = new Stream("testStream", StreamArgs.builder()
  *             .name("kinesis-test")
  *             .shardCount(1)
  *             .build());
  * 
- *         var testApplication = new AnalyticsApplication("testApplication", AnalyticsApplicationArgs.builder()        
+ *         var testApplication = new AnalyticsApplication("testApplication", AnalyticsApplicationArgs.builder()
  *             .name("kinesis-analytics-application-test")
  *             .inputs(AnalyticsApplicationInputsArgs.builder()
  *                 .namePrefix("test_prefix")
@@ -150,21 +150,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name("analytics")
  *             .build());
  * 
- *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()        
+ *         var exampleLogStream = new LogStream("exampleLogStream", LogStreamArgs.builder()
  *             .name("example-kinesis-application")
  *             .logGroupName(example.name())
  *             .build());
  * 
- *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
  *             .name("example-kinesis-stream")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()        
+ *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()
  *             .name("example-kinesis-delivery-stream")
  *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new AnalyticsApplication("test", AnalyticsApplicationArgs.builder()        
+ *         var test = new AnalyticsApplication("test", AnalyticsApplicationArgs.builder()
  *             .name("example-application")
  *             .cloudwatchLoggingOptions(AnalyticsApplicationCloudwatchLoggingOptionsArgs.builder()
  *                 .logStreamArn(exampleLogStream.arn())

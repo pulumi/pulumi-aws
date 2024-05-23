@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserProfile("example", UserProfileArgs.builder()        
+ *         var example = new UserProfile("example", UserProfileArgs.builder()
  *             .domainId(test.id())
  *             .userProfileName("example")
  *             .build());

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Webhook("example", WebhookArgs.builder()        
+ *         var example = new Webhook("example", WebhookArgs.builder()
  *             .projectName(exampleAwsCodebuildProject.name())
  *             .buildType("BUILD")
  *             .filterGroups(WebhookFilterGroupArgs.builder()
@@ -82,52 +82,6 @@ import javax.annotation.Nullable;
  * More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codebuild.Webhook;
- * import com.pulumi.aws.codebuild.WebhookArgs;
- * import com.pulumi.github.RepositoryWebhook;
- * import com.pulumi.github.RepositoryWebhookArgs;
- * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Webhook("example", WebhookArgs.builder()        
- *             .projectName(exampleAwsCodebuildProject.name())
- *             .build());
- * 
- *         var exampleRepositoryWebhook = new RepositoryWebhook("exampleRepositoryWebhook", RepositoryWebhookArgs.builder()        
- *             .active(true)
- *             .events("push")
- *             .name("example")
- *             .repository(exampleGithubRepository.name())
- *             .configuration(RepositoryWebhookConfigurationArgs.builder()
- *                 .url(example.payloadUrl())
- *                 .secret(example.secret())
- *                 .contentType("json")
- *                 .insecureSsl(false)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

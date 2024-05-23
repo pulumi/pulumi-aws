@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()        
+ *         var example = new Trigger("example", TriggerArgs.builder()
  *             .name("example")
  *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()        
+ *         var example = new Trigger("example", TriggerArgs.builder()
  *             .name("example")
  *             .type("ON_DEMAND")
  *             .actions(TriggerActionArgs.builder()
@@ -138,7 +138,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()        
+ *         var example = new Trigger("example", TriggerArgs.builder()
  *             .name("example")
  *             .schedule("cron(15 12 * * ? *)")
  *             .type("SCHEDULED")
@@ -182,7 +182,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()        
+ *         var example = new Trigger("example", TriggerArgs.builder()
  *             .name("example")
  *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Trigger("example", TriggerArgs.builder()        
+ *         var example = new Trigger("example", TriggerArgs.builder()
  *             .name("example")
  *             .type("CONDITIONAL")
  *             .actions(TriggerActionArgs.builder()

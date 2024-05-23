@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Secret("example", SecretArgs.builder()        
+ *         var example = new Secret("example", SecretArgs.builder()
  *             .name("example")
  *             .build());
  * 

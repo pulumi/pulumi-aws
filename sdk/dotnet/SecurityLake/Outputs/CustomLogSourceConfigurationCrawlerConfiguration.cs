@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     public sealed class CustomLogSourceConfigurationCrawlerConfiguration
     {
         /// <summary>
-        /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
         /// </summary>
         public readonly string RoleArn;
 

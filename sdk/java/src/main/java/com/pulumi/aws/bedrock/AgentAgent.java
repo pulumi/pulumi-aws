@@ -94,17 +94,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(exampleAgentTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .namePrefix("AmazonBedrockExecutionRoleForAgents_")
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .policy(exampleAgentPermissions.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .role(example.id())
  *             .build());
  * 
- *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()        
+ *         var exampleAgentAgent = new AgentAgent("exampleAgentAgent", AgentAgentArgs.builder()
  *             .agentName("my-agent-name")
  *             .agentResourceRoleArn(example.arn())
  *             .idleSessionTtlInSeconds(500)

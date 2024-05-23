@@ -195,6 +195,7 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) S3() LoggingConfi
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogs struct {
+	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 	LogGroupName string `pulumi:"logGroupName"`
 }
 
@@ -210,6 +211,7 @@ type LoggingConfigurationDestinationConfigurationCloudwatchLogsInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs struct {
+	// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 }
 
@@ -290,6 +292,7 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ToLogg
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
+// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
@@ -318,6 +321,7 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Ele
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput)
 }
 
+// Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationCloudwatchLogs) *string {
 		if v == nil {
@@ -328,6 +332,7 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Log
 }
 
 type LoggingConfigurationDestinationConfigurationFirehose struct {
+	// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 	DeliveryStreamName string `pulumi:"deliveryStreamName"`
 }
 
@@ -343,6 +348,7 @@ type LoggingConfigurationDestinationConfigurationFirehoseInput interface {
 }
 
 type LoggingConfigurationDestinationConfigurationFirehoseArgs struct {
+	// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
 }
 
@@ -423,6 +429,7 @@ func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) ToLoggingCon
 	}).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
+// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
@@ -451,6 +458,7 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) Elem() Lo
 	}).(LoggingConfigurationDestinationConfigurationFirehoseOutput)
 }
 
+// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationFirehose) *string {
 		if v == nil {
@@ -461,6 +469,9 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) DeliveryS
 }
 
 type LoggingConfigurationDestinationConfigurationS3 struct {
+	// Name of the Amazon S3 bucket where chat activity will be logged.
+	//
+	// The following arguments are optional:
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -476,6 +487,9 @@ type LoggingConfigurationDestinationConfigurationS3Input interface {
 }
 
 type LoggingConfigurationDestinationConfigurationS3Args struct {
+	// Name of the Amazon S3 bucket where chat activity will be logged.
+	//
+	// The following arguments are optional:
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -556,6 +570,9 @@ func (o LoggingConfigurationDestinationConfigurationS3Output) ToLoggingConfigura
 	}).(LoggingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
+// Name of the Amazon S3 bucket where chat activity will be logged.
+//
+// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -584,6 +601,9 @@ func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) Elem() LoggingC
 	}).(LoggingConfigurationDestinationConfigurationS3Output)
 }
 
+// Name of the Amazon S3 bucket where chat activity will be logged.
+//
+// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationS3) *string {
 		if v == nil {

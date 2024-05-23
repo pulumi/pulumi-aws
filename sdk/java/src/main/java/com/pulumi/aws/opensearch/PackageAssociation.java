@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDomain = new Domain("myDomain", DomainArgs.builder()        
+ *         var myDomain = new Domain("myDomain", DomainArgs.builder()
  *             .domainName("my-opensearch-domain")
  *             .engineVersion("Elasticsearch_7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Package("example", PackageArgs.builder()        
+ *         var example = new Package("example", PackageArgs.builder()
  *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .packageType("TXT-DICTIONARY")
  *             .build());
  * 
- *         var examplePackageAssociation = new PackageAssociation("examplePackageAssociation", PackageAssociationArgs.builder()        
+ *         var examplePackageAssociation = new PackageAssociation("examplePackageAssociation", PackageAssociationArgs.builder()
  *             .packageId(example.id())
  *             .domainName(myDomain.domainName())
  *             .build());

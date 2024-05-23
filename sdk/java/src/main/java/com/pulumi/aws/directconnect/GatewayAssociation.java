@@ -55,20 +55,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("example")
  *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.255.255.0/28")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleVpnGateway.id())
  *             .build());
@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("example")
  *             .amazonSideAsn("64512")
  *             .build());
  * 
  *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway");
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleTransitGateway.id())
  *             .allowedPrefixes(            
@@ -159,20 +159,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .name("example")
  *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.255.255.0/28")
  *             .build());
  * 
- *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()        
+ *         var exampleVpnGateway = new VpnGateway("exampleVpnGateway", VpnGatewayArgs.builder()
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()
  *             .dxGatewayId(example.id())
  *             .associatedGatewayId(exampleVpnGateway.id())
  *             .allowedPrefixes(            

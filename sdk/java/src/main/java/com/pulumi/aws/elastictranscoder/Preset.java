@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Preset("bar", PresetArgs.builder()        
+ *         var bar = new Preset("bar", PresetArgs.builder()
  *             .container("mp4")
  *             .description("Sample Preset")
  *             .name("sample_preset")

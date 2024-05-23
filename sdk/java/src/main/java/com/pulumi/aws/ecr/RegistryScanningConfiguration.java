@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var configuration = new RegistryScanningConfiguration("configuration", RegistryScanningConfigurationArgs.builder()        
+ *         var configuration = new RegistryScanningConfiguration("configuration", RegistryScanningConfigurationArgs.builder()
  *             .scanType("ENHANCED")
  *             .rules(RegistryScanningConfigurationRuleArgs.builder()
  *                 .scanFrequency("CONTINUOUS_SCAN")
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RegistryScanningConfiguration("test", RegistryScanningConfigurationArgs.builder()        
+ *         var test = new RegistryScanningConfiguration("test", RegistryScanningConfigurationArgs.builder()
  *             .scanType("ENHANCED")
  *             .rules(            
  *                 RegistryScanningConfigurationRuleArgs.builder()

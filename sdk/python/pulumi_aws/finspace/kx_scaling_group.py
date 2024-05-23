@@ -128,6 +128,14 @@ class _KxScalingGroupState:
         :param pulumi.Input[str] last_modified_timestamp: Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[str] name: Unique name for the scaling group that you want to create.
         :param pulumi.Input[str] status: The status of scaling group.
+               * `CREATING` – The scaling group creation is in progress.
+               * `CREATE_FAILED` – The scaling group creation has failed.
+               * `ACTIVE` – The scaling group is active.
+               * `UPDATING` – The scaling group is in the process of being updated.
+               * `UPDATE_FAILED` – The update action failed.
+               * `DELETING` – The scaling group is in the process of being deleted.
+               * `DELETE_FAILED` – The system failed to delete the scaling group.
+               * `DELETED` – The scaling group is successfully deleted.
         :param pulumi.Input[str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -263,6 +271,14 @@ class _KxScalingGroupState:
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         The status of scaling group.
+        * `CREATING` – The scaling group creation is in progress.
+        * `CREATE_FAILED` – The scaling group creation has failed.
+        * `ACTIVE` – The scaling group is active.
+        * `UPDATING` – The scaling group is in the process of being updated.
+        * `UPDATE_FAILED` – The update action failed.
+        * `DELETING` – The scaling group is in the process of being deleted.
+        * `DELETE_FAILED` – The system failed to delete the scaling group.
+        * `DELETED` – The scaling group is successfully deleted.
         """
         return pulumi.get(self, "status")
 
@@ -476,6 +492,14 @@ class KxScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_timestamp: Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[str] name: Unique name for the scaling group that you want to create.
         :param pulumi.Input[str] status: The status of scaling group.
+               * `CREATING` – The scaling group creation is in progress.
+               * `CREATE_FAILED` – The scaling group creation has failed.
+               * `ACTIVE` – The scaling group is active.
+               * `UPDATING` – The scaling group is in the process of being updated.
+               * `UPDATE_FAILED` – The update action failed.
+               * `DELETING` – The scaling group is in the process of being deleted.
+               * `DELETE_FAILED` – The system failed to delete the scaling group.
+               * `DELETED` – The scaling group is successfully deleted.
         :param pulumi.Input[str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -569,6 +593,14 @@ class KxScalingGroup(pulumi.CustomResource):
     def status(self) -> pulumi.Output[str]:
         """
         The status of scaling group.
+        * `CREATING` – The scaling group creation is in progress.
+        * `CREATE_FAILED` – The scaling group creation has failed.
+        * `ACTIVE` – The scaling group is active.
+        * `UPDATING` – The scaling group is in the process of being updated.
+        * `UPDATE_FAILED` – The update action failed.
+        * `DELETING` – The scaling group is in the process of being deleted.
+        * `DELETE_FAILED` – The system failed to delete the scaling group.
+        * `DELETED` – The scaling group is successfully deleted.
         """
         return pulumi.get(self, "status")
 

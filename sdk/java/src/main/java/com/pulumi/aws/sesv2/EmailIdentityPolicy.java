@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity("example", EmailIdentityArgs.builder()
  *             .emailIdentity("testing{@literal @}example.com")
  *             .build());
  * 
- *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy("exampleEmailIdentityPolicy", EmailIdentityPolicyArgs.builder()        
+ *         var exampleEmailIdentityPolicy = new EmailIdentityPolicy("exampleEmailIdentityPolicy", EmailIdentityPolicyArgs.builder()
  *             .emailIdentity(example.emailIdentity())
  *             .policyName("example")
  *             .policy(example.arn().applyValue(arn -> """

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class CustomModelValidationDataConfigValidatorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The S3 URI where the validation data is stored.
+        /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;
 

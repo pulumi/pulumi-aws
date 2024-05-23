@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pool = new UserPool("pool", UserPoolArgs.builder()        
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
  *             .name("mypool")
  *             .build());
  * 
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserPool("example", UserPoolArgs.builder()        
+ *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .mfaConfiguration("ON")
  *             .smsAuthenticationMessage("Your code is {####}")
  *             .smsConfiguration(UserPoolSmsConfigurationArgs.builder()
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new UserPool("test", UserPoolArgs.builder()        
+ *         var test = new UserPool("test", UserPoolArgs.builder()
  *             .name("mypool")
  *             .accountRecoverySetting(UserPoolAccountRecoverySettingArgs.builder()
  *                 .recoveryMechanisms(                

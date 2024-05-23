@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var custlayer = new CustomLayer("custlayer", CustomLayerArgs.builder()        
+ *         var custlayer = new CustomLayer("custlayer", CustomLayerArgs.builder()
  *             .name("My Awesome Custom Layer")
  *             .shortName("awesome")
  *             .stackId(main.id())

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()        
+ *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()
  *             .name("rds-pg")
  *             .family("mysql5.6")
  *             .parameters(            

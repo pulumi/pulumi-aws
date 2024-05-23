@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Proxy("example", ProxyArgs.builder()        
+ *         var example = new Proxy("example", ProxyArgs.builder()
  *             .name("example")
  *             .debugLogging(false)
  *             .engineFamily("MYSQL")

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupEgressRule("example", SecurityGroupEgressRuleArgs.builder()        
+ *         var example = new SecurityGroupEgressRule("example", SecurityGroupEgressRuleArgs.builder()
  *             .securityGroupId(exampleAwsSecurityGroup.id())
  *             .cidrIpv4("10.0.0.0/8")
  *             .fromPort(80)

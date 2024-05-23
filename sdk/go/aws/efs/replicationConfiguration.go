@@ -130,6 +130,8 @@ type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
@@ -180,6 +182,8 @@ func GetReplicationConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ReplicationConfiguration resources.
 type replicationConfigurationState struct {
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime *string `pulumi:"creationTime"`
 	// A destination configuration block (documented below).
 	Destination *ReplicationConfigurationDestination `pulumi:"destination"`
@@ -195,6 +199,8 @@ type replicationConfigurationState struct {
 
 type ReplicationConfigurationState struct {
 	// When the replication configuration was created.
+	// * `destination[0].file_system_id` - The fs ID of the replica.
+	// * `destination[0].status` - The status of the replication.
 	CreationTime pulumi.StringPtrInput
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationPtrInput
@@ -315,6 +321,8 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 }
 
 // When the replication configuration was created.
+// * `destination[0].file_system_id` - The fs ID of the replica.
+// * `destination[0].status` - The status of the replication.
 func (o ReplicationConfigurationOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }

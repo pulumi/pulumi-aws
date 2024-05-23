@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()        
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
  *             .applicationProviderArn("arn:aws:sso::aws:applicationProvider/custom")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .build());
  * 
- *         var exampleApplicationAccessScope = new ApplicationAccessScope("exampleApplicationAccessScope", ApplicationAccessScopeArgs.builder()        
+ *         var exampleApplicationAccessScope = new ApplicationAccessScope("exampleApplicationAccessScope", ApplicationAccessScopeArgs.builder()
  *             .applicationArn(exampleApplication.applicationArn())
  *             .authorizedTargets("arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901")
  *             .scope("sso:account:access")

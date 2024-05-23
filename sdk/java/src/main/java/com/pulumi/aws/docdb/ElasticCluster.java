@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ElasticCluster("example", ElasticClusterArgs.builder()        
+ *         var example = new ElasticCluster("example", ElasticClusterArgs.builder()
  *             .name("my-docdb-cluster")
  *             .adminUserName("foo")
  *             .adminUserPassword("mustbeeightchars")

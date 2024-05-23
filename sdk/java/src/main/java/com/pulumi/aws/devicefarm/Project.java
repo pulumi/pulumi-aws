@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var awesomeDevices = new Project("awesomeDevices", ProjectArgs.builder()        
+ *         var awesomeDevices = new Project("awesomeDevices", ProjectArgs.builder()
  *             .name("my-device-farm")
  *             .build());
  * 

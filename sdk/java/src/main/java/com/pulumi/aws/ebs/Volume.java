@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Volume("example", VolumeArgs.builder()        
+ *         var example = new Volume("example", VolumeArgs.builder()
  *             .availabilityZone("us-west-2a")
  *             .size(40)
  *             .tags(Map.of("Name", "HelloWorld"))

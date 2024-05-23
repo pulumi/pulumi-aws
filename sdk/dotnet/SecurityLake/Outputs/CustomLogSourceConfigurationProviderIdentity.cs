@@ -13,7 +13,13 @@ namespace Pulumi.Aws.SecurityLake.Outputs
     [OutputType]
     public sealed class CustomLogSourceConfigurationProviderIdentity
     {
+        /// <summary>
+        /// The external ID used to estalish trust relationship with the AWS identity.
+        /// </summary>
         public readonly string ExternalId;
+        /// <summary>
+        /// The AWS identity principal.
+        /// </summary>
         public readonly string Principal;
 
         [OutputConstructor]

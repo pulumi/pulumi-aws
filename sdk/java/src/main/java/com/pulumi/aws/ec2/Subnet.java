@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var main = new Subnet("main", SubnetArgs.builder()        
+ *         var main = new Subnet("main", SubnetArgs.builder()
  *             .vpcId(mainAwsVpc.id())
  *             .cidrBlock("10.0.1.0/24")
  *             .tags(Map.of("Name", "Main"))
@@ -91,12 +91,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var secondaryCidr = new VpcIpv4CidrBlockAssociation("secondaryCidr", VpcIpv4CidrBlockAssociationArgs.builder()        
+ *         var secondaryCidr = new VpcIpv4CidrBlockAssociation("secondaryCidr", VpcIpv4CidrBlockAssociationArgs.builder()
  *             .vpcId(main.id())
  *             .cidrBlock("172.20.0.0/16")
  *             .build());
  * 
- *         var inSecondaryCidr = new Subnet("inSecondaryCidr", SubnetArgs.builder()        
+ *         var inSecondaryCidr = new Subnet("inSecondaryCidr", SubnetArgs.builder()
  *             .vpcId(secondaryCidr.vpcId())
  *             .cidrBlock("172.20.0.0/24")
  *             .build());

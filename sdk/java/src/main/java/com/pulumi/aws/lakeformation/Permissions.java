@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .arn(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
  *             .build());
  * 
- *         var test = new DataLakeSettings("test", DataLakeSettingsArgs.builder()        
+ *         var test = new DataLakeSettings("test", DataLakeSettingsArgs.builder()
  *             .admins(currentGetSessionContext.applyValue(getSessionContextResult -> getSessionContextResult.issuerArn()))
  *             .build());
  * 
@@ -128,11 +128,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()        
+ *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
  *             .name("sadabate")
  *             .build());
  * 
- *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()        
+ *         var exampleCatalogTable = new CatalogTable("exampleCatalogTable", CatalogTableArgs.builder()
  *             .name("abelt")
  *             .databaseName(test.name())
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
@@ -143,7 +143,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePermissions = new Permissions("examplePermissions", PermissionsArgs.builder()        
+ *         var examplePermissions = new Permissions("examplePermissions", PermissionsArgs.builder()
  *             .permissions("SELECT")
  *             .principal("arn:aws:iam:us-east-1:123456789012:user/SanHolo")
  *             .tableWithColumns(PermissionsTableWithColumnsArgs.builder()
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permissions("example", PermissionsArgs.builder()        
+ *         var example = new Permissions("example", PermissionsArgs.builder()
  *             .principal(workflowRole.arn())
  *             .permissions("DATA_LOCATION_ACCESS")
  *             .dataLocation(PermissionsDataLocationArgs.builder()
@@ -241,7 +241,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Permissions("example", PermissionsArgs.builder()        
+ *         var example = new Permissions("example", PermissionsArgs.builder()
  *             .principal(workflowRole.arn())
  *             .permissions(            
  *                 "CREATE_TABLE",
@@ -285,7 +285,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Permissions("test", PermissionsArgs.builder()        
+ *         var test = new Permissions("test", PermissionsArgs.builder()
  *             .principal(salesRole.arn())
  *             .permissions(            
  *                 "CREATE_TABLE",

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cache("example", CacheArgs.builder()        
+ *         var example = new Cache("example", CacheArgs.builder()
  *             .diskId(exampleAwsStoragegatewayLocalDisk.id())
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .build());

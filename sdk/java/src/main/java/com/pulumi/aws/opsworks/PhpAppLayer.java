@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var app = new PhpAppLayer("app", PhpAppLayerArgs.builder()        
+ *         var app = new PhpAppLayer("app", PhpAppLayerArgs.builder()
  *             .stackId(main.id())
  *             .build());
  * 

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new IdentityProviderConfig("example", IdentityProviderConfigArgs.builder()        
+ *         var example = new IdentityProviderConfig("example", IdentityProviderConfigArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .oidc(IdentityProviderConfigOidcArgs.builder()
  *                 .clientId("your client_id")

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .engine("mysql")
  *             .engineVersion("5.6.17")
@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *             .parameterGroupName("default.mysql5.6")
  *             .build());
  * 
- *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()        
+ *         var defaultTopic = new Topic("defaultTopic", TopicArgs.builder()
  *             .name("rds-events")
  *             .build());
  * 
- *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()        
+ *         var defaultEventSubscription = new EventSubscription("defaultEventSubscription", EventSubscriptionArgs.builder()
  *             .name("rds-event-sub")
  *             .snsTopic(defaultTopic.arn())
  *             .sourceType("db-instance")

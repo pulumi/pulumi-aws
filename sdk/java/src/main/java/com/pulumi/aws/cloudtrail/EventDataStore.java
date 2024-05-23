@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventDataStore("example", EventDataStoreArgs.builder()        
+ *         var example = new EventDataStore("example", EventDataStoreArgs.builder()
  *             .name("example-event-data-store")
  *             .build());
  * 
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .name("not-important-dynamodb-table")
  *             .build());
  * 
- *         var example = new EventDataStore("example", EventDataStoreArgs.builder()        
+ *         var example = new EventDataStore("example", EventDataStoreArgs.builder()
  *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
  *                 .name("Log all DynamoDB PutEvent actions for a specific DynamoDB table")
  *                 .fieldSelectors(                

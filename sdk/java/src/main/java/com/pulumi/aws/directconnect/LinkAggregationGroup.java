@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hoge = new LinkAggregationGroup("hoge", LinkAggregationGroupArgs.builder()        
+ *         var hoge = new LinkAggregationGroup("hoge", LinkAggregationGroupArgs.builder()
  *             .name("tf-dx-lag")
  *             .connectionsBandwidth("1Gbps")
  *             .location("EqDC2")

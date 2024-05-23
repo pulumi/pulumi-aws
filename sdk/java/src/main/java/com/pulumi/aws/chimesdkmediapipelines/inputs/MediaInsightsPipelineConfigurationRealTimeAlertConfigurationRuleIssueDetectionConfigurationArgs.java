@@ -14,9 +14,17 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
 
     public static final MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs Empty = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs();
 
+    /**
+     * Rule name.
+     * 
+     */
     @Import(name="ruleName", required=true)
     private Output<String> ruleName;
 
+    /**
+     * @return Rule name.
+     * 
+     */
     public Output<String> ruleName() {
         return this.ruleName;
     }
@@ -45,11 +53,23 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
             $ = new MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ruleName Rule name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleName(Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
+        /**
+         * @param ruleName Rule name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }

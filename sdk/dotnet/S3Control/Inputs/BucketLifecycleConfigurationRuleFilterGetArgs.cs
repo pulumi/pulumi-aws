@@ -12,11 +12,18 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class BucketLifecycleConfigurationRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Object prefix for rule filtering.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of object tags for rule filtering.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

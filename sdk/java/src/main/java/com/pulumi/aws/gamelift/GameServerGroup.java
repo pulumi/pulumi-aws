@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()        
+ *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()
  *             .gameServerGroupName("example")
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()        
+ *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()
  *             .autoScalingPolicy(GameServerGroupAutoScalingPolicyArgs.builder()
  *                 .estimatedInstanceWarmup(60)
  *                 .targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.builder()
@@ -192,12 +192,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("gamelift-game-server-group-example")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .policyArn(String.format("arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy", current.applyValue(getPartitionResult -> getPartitionResult.partition())))
  *             .role(example.name())
  *             .build());

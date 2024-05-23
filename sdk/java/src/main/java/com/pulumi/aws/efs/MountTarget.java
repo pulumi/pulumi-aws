@@ -46,17 +46,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Vpc("foo", VpcArgs.builder()        
+ *         var foo = new Vpc("foo", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var alphaSubnet = new Subnet("alphaSubnet", SubnetArgs.builder()        
+ *         var alphaSubnet = new Subnet("alphaSubnet", SubnetArgs.builder()
  *             .vpcId(foo.id())
  *             .availabilityZone("us-west-2a")
  *             .cidrBlock("10.0.1.0/24")
  *             .build());
  * 
- *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()        
+ *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()
  *             .fileSystemId(fooAwsEfsFileSystem.id())
  *             .subnetId(alphaSubnet.id())
  *             .build());

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var operations = new AlternativeContact("operations", AlternativeContactArgs.builder()        
+ *         var operations = new AlternativeContact("operations", AlternativeContactArgs.builder()
  *             .alternateContactType("OPERATIONS")
  *             .name("Example")
  *             .title("Example")

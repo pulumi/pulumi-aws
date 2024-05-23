@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pubsub = new Policy("pubsub", PolicyArgs.builder()        
+ *         var pubsub = new Policy("pubsub", PolicyArgs.builder()
  *             .name("PubSubToAnyTopic")
  *             .policy(serializeJson(
  *                 jsonObject(

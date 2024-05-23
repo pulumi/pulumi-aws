@@ -72,6 +72,7 @@ namespace Pulumi.Aws.Lex
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         /// 
         /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+        /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
         [Output("localeSpecification")]
         public Output<ImmutableDictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>> LocaleSpecification { get; private set; } = null!;
@@ -150,6 +151,7 @@ namespace Pulumi.Aws.Lex
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         /// 
         /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+        /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
         public InputMap<Inputs.V2modelsBotVersionLocaleSpecificationArgs> LocaleSpecification
         {
@@ -193,6 +195,7 @@ namespace Pulumi.Aws.Lex
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
         /// 
         /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+        /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
         public InputMap<Inputs.V2modelsBotVersionLocaleSpecificationGetArgs> LocaleSpecification
         {

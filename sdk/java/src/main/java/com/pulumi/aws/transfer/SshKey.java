@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()        
+ *         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()
  *             .algorithm("RSA")
  *             .rsaBits(4096)
  *             .build());
  * 
- *         var exampleServer = new Server("exampleServer", ServerArgs.builder()        
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
  *             .identityProviderType("SERVICE_MANAGED")
  *             .tags(Map.of("NAME", "tf-acc-test-transfer-server"))
  *             .build());
@@ -74,19 +74,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("tf-test-transfer-user-iam-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleUser = new User("exampleUser", UserArgs.builder()        
+ *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .serverId(exampleServer.id())
  *             .userName("tftestuser")
  *             .role(exampleRole.arn())
  *             .tags(Map.of("NAME", "tftestuser"))
  *             .build());
  * 
- *         var exampleSshKey = new SshKey("exampleSshKey", SshKeyArgs.builder()        
+ *         var exampleSshKey = new SshKey("exampleSshKey", SshKeyArgs.builder()
  *             .serverId(exampleServer.id())
  *             .userName(exampleUser.userName())
  *             .body(StdFunctions.trimspace().applyValue(invoke -> invoke.result()))
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()        
+ *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()
  *             .name("tf-test-transfer-user-iam-policy")
  *             .role(exampleRole.id())
  *             .policy(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))

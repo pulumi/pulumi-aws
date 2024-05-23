@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()        
+ *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .tlsPolicy("REQUIRE")

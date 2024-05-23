@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var users = new Domain("users", DomainArgs.builder()        
+ *         var users = new Domain("users", DomainArgs.builder()
  *             .name("users")
  *             .build());
  * 

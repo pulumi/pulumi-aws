@@ -398,6 +398,12 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
                  output_location: pulumi.Input[str],
                  content_redaction_output: Optional[pulumi.Input[str]] = None,
                  output_encryption_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_access_role_arn: ARN of the role used by AWS Transcribe to upload your post call analysis.
+        :param pulumi.Input[str] output_location: The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+        :param pulumi.Input[str] content_redaction_output: Should output be redacted.
+        :param pulumi.Input[str] output_encryption_kms_key_id: ID of the KMS key used to encrypt the output.
+        """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "output_location", output_location)
         if content_redaction_output is not None:
@@ -408,6 +414,9 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @property
     @pulumi.getter(name="dataAccessRoleArn")
     def data_access_role_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the role used by AWS Transcribe to upload your post call analysis.
+        """
         return pulumi.get(self, "data_access_role_arn")
 
     @data_access_role_arn.setter
@@ -417,6 +426,9 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
@@ -426,6 +438,9 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @property
     @pulumi.getter(name="contentRedactionOutput")
     def content_redaction_output(self) -> Optional[pulumi.Input[str]]:
+        """
+        Should output be redacted.
+        """
         return pulumi.get(self, "content_redaction_output")
 
     @content_redaction_output.setter
@@ -435,6 +450,9 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @property
     @pulumi.getter(name="outputEncryptionKmsKeyId")
     def output_encryption_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the KMS key used to encrypt the output.
+        """
         return pulumi.get(self, "output_encryption_kms_key_id")
 
     @output_encryption_kms_key_id.setter
@@ -900,11 +918,17 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs:
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs:
     def __init__(__self__, *,
                  rule_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] rule_name: Rule name.
+        """
         pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
+        """
+        Rule name.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -918,6 +942,11 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
                  keywords: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rule_name: pulumi.Input[str],
                  negate: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Collection of keywords to match.
+        :param pulumi.Input[str] rule_name: Rule name.
+        :param pulumi.Input[bool] negate: Negate the rule.
+        """
         pulumi.set(__self__, "keywords", keywords)
         pulumi.set(__self__, "rule_name", rule_name)
         if negate is not None:
@@ -926,6 +955,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
     @property
     @pulumi.getter
     def keywords(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Collection of keywords to match.
+        """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
@@ -935,6 +967,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
+        """
+        Rule name.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -944,6 +979,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
     @property
     @pulumi.getter
     def negate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Negate the rule.
+        """
         return pulumi.get(self, "negate")
 
     @negate.setter
@@ -957,6 +995,11 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
                  rule_name: pulumi.Input[str],
                  sentiment_type: pulumi.Input[str],
                  time_period: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] rule_name: Rule name.
+        :param pulumi.Input[str] sentiment_type: Sentiment type to match.
+        :param pulumi.Input[int] time_period: Analysis interval.
+        """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "sentiment_type", sentiment_type)
         pulumi.set(__self__, "time_period", time_period)
@@ -964,6 +1007,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[str]:
+        """
+        Rule name.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -973,6 +1019,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
     @property
     @pulumi.getter(name="sentimentType")
     def sentiment_type(self) -> pulumi.Input[str]:
+        """
+        Sentiment type to match.
+        """
         return pulumi.get(self, "sentiment_type")
 
     @sentiment_type.setter
@@ -982,6 +1031,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
     @property
     @pulumi.getter(name="timePeriod")
     def time_period(self) -> pulumi.Input[int]:
+        """
+        Analysis interval.
+        """
         return pulumi.get(self, "time_period")
 
     @time_period.setter

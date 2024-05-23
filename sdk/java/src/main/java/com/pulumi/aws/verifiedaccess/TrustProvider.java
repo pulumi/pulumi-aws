@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TrustProvider("example", TrustProviderArgs.builder()        
+ *         var example = new TrustProvider("example", TrustProviderArgs.builder()
  *             .policyReferenceName("example")
  *             .trustProviderType("user")
  *             .userTrustProviderType("iam-identity-center")

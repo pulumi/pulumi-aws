@@ -12,6 +12,11 @@ namespace Pulumi.Aws.Ivs.Inputs
 
     public sealed class RecordingConfigurationDestinationConfigurationS3Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// S3 bucket name where recorded videos will be stored.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 

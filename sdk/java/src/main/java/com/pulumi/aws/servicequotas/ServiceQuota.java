@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ServiceQuota("example", ServiceQuotaArgs.builder()        
+ *         var example = new ServiceQuota("example", ServiceQuotaArgs.builder()
  *             .quotaCode("L-F678F1CE")
  *             .serviceCode("vpc")
  *             .value(75)

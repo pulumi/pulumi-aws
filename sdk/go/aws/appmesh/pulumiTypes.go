@@ -6102,6 +6102,7 @@ func (o MeshSpecPtrOutput) ServiceDiscovery() MeshSpecServiceDiscoveryPtrOutput 
 }
 
 type MeshSpecEgressFilter struct {
+	// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type *string `pulumi:"type"`
 }
 
@@ -6117,6 +6118,7 @@ type MeshSpecEgressFilterInput interface {
 }
 
 type MeshSpecEgressFilterArgs struct {
+	// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6197,6 +6199,7 @@ func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutputWithContext(c
 	}).(MeshSpecEgressFilterPtrOutput)
 }
 
+// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6225,6 +6228,7 @@ func (o MeshSpecEgressFilterPtrOutput) Elem() MeshSpecEgressFilterOutput {
 	}).(MeshSpecEgressFilterOutput)
 }
 
+// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeshSpecEgressFilter) *string {
 		if v == nil {
@@ -6235,6 +6239,7 @@ func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type MeshSpecServiceDiscovery struct {
+	// The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
 	IpPreference *string `pulumi:"ipPreference"`
 }
 
@@ -6250,6 +6255,7 @@ type MeshSpecServiceDiscoveryInput interface {
 }
 
 type MeshSpecServiceDiscoveryArgs struct {
+	// The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
 	IpPreference pulumi.StringPtrInput `pulumi:"ipPreference"`
 }
 
@@ -6330,6 +6336,7 @@ func (o MeshSpecServiceDiscoveryOutput) ToMeshSpecServiceDiscoveryPtrOutputWithC
 	}).(MeshSpecServiceDiscoveryPtrOutput)
 }
 
+// The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
 func (o MeshSpecServiceDiscoveryOutput) IpPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MeshSpecServiceDiscovery) *string { return v.IpPreference }).(pulumi.StringPtrOutput)
 }
@@ -6358,6 +6365,7 @@ func (o MeshSpecServiceDiscoveryPtrOutput) Elem() MeshSpecServiceDiscoveryOutput
 	}).(MeshSpecServiceDiscoveryOutput)
 }
 
+// The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
 func (o MeshSpecServiceDiscoveryPtrOutput) IpPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeshSpecServiceDiscovery) *string {
 		if v == nil {

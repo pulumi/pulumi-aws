@@ -10,9 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class LoggingConfigurationDestinationConfigurationS3 {
+    /**
+     * @return Name of the Amazon S3 bucket where chat activity will be logged.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     private String bucketName;
 
     private LoggingConfigurationDestinationConfigurationS3() {}
+    /**
+     * @return Name of the Amazon S3 bucket where chat activity will be logged.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }

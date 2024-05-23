@@ -1078,6 +1078,10 @@ class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
     def __init__(__self__, *,
                  hours: Optional[int] = None,
                  minutes: Optional[int] = None):
+        """
+        :param int hours: Starting hour of the 10-hour window for updates
+        :param int minutes: Starting minute of the 10-hour window for updates
+        """
         if hours is not None:
             pulumi.set(__self__, "hours", hours)
         if minutes is not None:
@@ -1086,11 +1090,17 @@ class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
     @property
     @pulumi.getter
     def hours(self) -> Optional[int]:
+        """
+        Starting hour of the 10-hour window for updates
+        """
         return pulumi.get(self, "hours")
 
     @property
     @pulumi.getter
     def minutes(self) -> Optional[int]:
+        """
+        Starting minute of the 10-hour window for updates
+        """
         return pulumi.get(self, "minutes")
 
 

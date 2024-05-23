@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()        
+ *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()
  *             .protectionGroupId("example")
  *             .aggregation("MAX")
  *             .pattern("ALL")
@@ -97,16 +97,16 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new Eip("example", EipArgs.builder()        
+ *         var example = new Eip("example", EipArgs.builder()
  *             .domain("vpc")
  *             .build());
  * 
- *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()        
+ *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example")
  *             .resourceArn(example.id().applyValue(id -> String.format("arn:aws:ec2:%s:%s:eip-allocation/%s", current.applyValue(getRegionResult -> getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),id)))
  *             .build());
  * 
- *         var exampleProtectionGroup = new ProtectionGroup("exampleProtectionGroup", ProtectionGroupArgs.builder()        
+ *         var exampleProtectionGroup = new ProtectionGroup("exampleProtectionGroup", ProtectionGroupArgs.builder()
  *             .protectionGroupId("example")
  *             .aggregation("MEAN")
  *             .pattern("ARBITRARY")
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()        
+ *         var example = new ProtectionGroup("example", ProtectionGroupArgs.builder()
  *             .protectionGroupId("example")
  *             .aggregation("SUM")
  *             .pattern("BY_RESOURCE_TYPE")

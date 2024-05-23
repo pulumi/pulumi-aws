@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new NetworkInterface("test", NetworkInterfaceArgs.builder()        
+ *         var test = new NetworkInterface("test", NetworkInterfaceArgs.builder()
  *             .subnetId(publicA.id())
  *             .privateIps("10.0.0.50")
  *             .securityGroups(web.id())
