@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var alias = new AccountAlias("alias", AccountAliasArgs.builder()        
+ *         var alias = new AccountAlias("alias", AccountAliasArgs.builder()
  *             .accountAlias("my-account-alias")
  *             .build());
  * 

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ArchiveRule("example", ArchiveRuleArgs.builder()        
+ *         var example = new ArchiveRule("example", ArchiveRuleArgs.builder()
  *             .analyzerName("example-analyzer")
  *             .ruleName("example-rule")
  *             .filters(            

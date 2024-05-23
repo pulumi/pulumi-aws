@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Deployment("test", DeploymentArgs.builder()        
+ *         var test = new Deployment("test", DeploymentArgs.builder()
  *             .environmentId("01234567890abcdef012345678")
  *             .applicationId("34567890abcdef012345678012")
  *             .applicationVersion(1)

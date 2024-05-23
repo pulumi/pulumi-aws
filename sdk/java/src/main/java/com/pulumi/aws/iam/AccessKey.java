@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lbUser = new User("lbUser", UserArgs.builder()        
+ *         var lbUser = new User("lbUser", UserArgs.builder()
  *             .name("loadbalancer")
  *             .path("/system/")
  *             .build());
  * 
- *         var lb = new AccessKey("lb", AccessKeyArgs.builder()        
+ *         var lb = new AccessKey("lb", AccessKeyArgs.builder()
  *             .user(lbUser.name())
  *             .pgpKey("keybase:some_person_that_exists")
  *             .build());
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()        
+ *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()
  *             .name("test")
  *             .user(lbUser.name())
  *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
@@ -105,12 +105,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new User("test", UserArgs.builder()        
+ *         var test = new User("test", UserArgs.builder()
  *             .name("test")
  *             .path("/test/")
  *             .build());
  * 
- *         var testAccessKey = new AccessKey("testAccessKey", AccessKeyArgs.builder()        
+ *         var testAccessKey = new AccessKey("testAccessKey", AccessKeyArgs.builder()
  *             .user(test.name())
  *             .build());
  * 

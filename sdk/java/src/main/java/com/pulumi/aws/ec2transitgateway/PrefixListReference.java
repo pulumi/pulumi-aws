@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()        
+ *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()
  *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
  *             .transitGatewayAttachmentId(exampleAwsEc2TransitGatewayVpcAttachment.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()        
+ *         var example = new PrefixListReference("example", PrefixListReferenceArgs.builder()
  *             .blackhole(true)
  *             .prefixListId(exampleAwsEc2ManagedPrefixList.id())
  *             .transitGatewayRouteTableId(exampleAwsEc2TransitGateway.associationDefaultRouteTableId())

@@ -62,17 +62,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()        
+ *         var topicTopic = new Topic("topicTopic", TopicArgs.builder()
  *             .name("vpce-notification-topic")
  *             .policy(topic.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()        
+ *         var foo = new VpcEndpointService("foo", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .networkLoadBalancerArns(test.arn())
  *             .build());
  * 
- *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", VpcEndpointConnectionNotificationArgs.builder()        
+ *         var fooVpcEndpointConnectionNotification = new VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", VpcEndpointConnectionNotificationArgs.builder()
  *             .vpcEndpointServiceId(foo.id())
  *             .connectionNotificationArn(topicTopic.arn())
  *             .connectionEvents(            

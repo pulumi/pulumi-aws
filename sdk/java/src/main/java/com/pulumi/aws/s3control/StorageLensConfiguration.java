@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new StorageLensConfiguration("example", StorageLensConfigurationArgs.builder()        
+ *         var example = new StorageLensConfiguration("example", StorageLensConfigurationArgs.builder()
  *             .configId("example-1")
  *             .storageLensConfiguration(StorageLensConfigurationStorageLensConfigurationArgs.builder()
  *                 .enabled(true)

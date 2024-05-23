@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")
@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  *             .keyId("example-ef278353ceba4a5a97de6784565b9f78")
  *             .build());
  * 
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(50)
  *             .autoMinorVersionUpgrade(false)
  *             .customIamInstanceProfile("AWSRDSCustomInstanceProfile")
@@ -170,7 +170,7 @@ import javax.annotation.Nullable;
  *             .storageEncrypted(true)
  *             .build());
  * 
- *         var test_replica = new Instance("test-replica", InstanceArgs.builder()        
+ *         var test_replica = new Instance("test-replica", InstanceArgs.builder()
  *             .replicateSourceDb(default_.identifier())
  *             .replicaMode("mounted")
  *             .autoMinorVersionUpgrade(false)
@@ -235,7 +235,7 @@ import javax.annotation.Nullable;
  *             .keyId("example-ef278353ceba4a5a97de6784565b9f78")
  *             .build());
  * 
- *         var example = new Instance("example", InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()
  *             .allocatedStorage(500)
  *             .autoMinorVersionUpgrade(false)
  *             .customIamInstanceProfile("AWSRDSCustomSQLServerInstanceProfile")
@@ -307,7 +307,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
- *         var exampleParameterGroup = new ParameterGroup("exampleParameterGroup", ParameterGroupArgs.builder()        
+ *         var exampleParameterGroup = new ParameterGroup("exampleParameterGroup", ParameterGroupArgs.builder()
  *             .name("db-db2-params")
  *             .family(default_.parameterGroupFamily())
  *             .parameters(            
@@ -324,7 +324,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create the RDS Db2 instance, use the data sources defined to set attributes
- *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()        
+ *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
  *             .allocatedStorage(100)
  *             .backupRetentionPeriod(7)
  *             .dbName("test")
@@ -370,7 +370,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Instance("example", InstanceArgs.builder()        
+ *         var example = new Instance("example", InstanceArgs.builder()
  *             .allocatedStorage(50)
  *             .maxAllocatedStorage(100)
  *             .build());
@@ -410,7 +410,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")
@@ -458,11 +458,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Example KMS Key")
  *             .build());
  * 
- *         var default_ = new Instance("default", InstanceArgs.builder()        
+ *         var default_ = new Instance("default", InstanceArgs.builder()
  *             .allocatedStorage(10)
  *             .dbName("mydb")
  *             .engine("mysql")

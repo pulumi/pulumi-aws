@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
  *             .family("service")
  *             .containerDefinitions(serializeJson(
  *                 jsonArray(
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
  *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
  *                 .input("task-definitions/service.json")
@@ -177,7 +177,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
  *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
  *                 .input("task-definitions/service.json")
@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
  *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
  *                 .input("task-definitions/service.json")
@@ -288,7 +288,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new SecretVersion("test", SecretVersionArgs.builder()        
+ *         var test = new SecretVersion("test", SecretVersionArgs.builder()
  *             .secretId(testAwsSecretsmanagerSecret.id())
  *             .secretString(serializeJson(
  *                 jsonObject(
@@ -297,7 +297,7 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()        
+ *         var service = new TaskDefinition("service", TaskDefinitionArgs.builder()
  *             .family("service")
  *             .containerDefinitions(StdFunctions.file(FileArgs.builder()
  *                 .input("task-definitions/service.json")
@@ -347,7 +347,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()        
+ *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()
  *             .family("test")
  *             .containerDefinitions("""
  * [
@@ -415,7 +415,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()        
+ *         var test = new TaskDefinition("test", TaskDefinitionArgs.builder()
  *             .family("test")
  *             .requiresCompatibilities("FARGATE")
  *             .networkMode("awsvpc")

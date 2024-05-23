@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new KxDataview("example", KxDataviewArgs.builder()        
+ *         var example = new KxDataview("example", KxDataviewArgs.builder()
  *             .name("my-tf-kx-dataview")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .databaseName(exampleAwsFinspaceKxDatabase.name())

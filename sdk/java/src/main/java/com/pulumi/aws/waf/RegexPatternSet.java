@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()        
+ *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()
  *             .name("my_waf_regex_pattern_set")
  *             .regexPatternStrings(            
  *                 "one",

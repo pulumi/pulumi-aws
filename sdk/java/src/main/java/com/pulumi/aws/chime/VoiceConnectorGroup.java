@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vc1 = new VoiceConnector("vc1", VoiceConnectorArgs.builder()        
+ *         var vc1 = new VoiceConnector("vc1", VoiceConnectorArgs.builder()
  *             .name("connector-test-1")
  *             .requireEncryption(true)
  *             .awsRegion("us-east-1")
  *             .build());
  * 
- *         var vc2 = new VoiceConnector("vc2", VoiceConnectorArgs.builder()        
+ *         var vc2 = new VoiceConnector("vc2", VoiceConnectorArgs.builder()
  *             .name("connector-test-2")
  *             .requireEncryption(true)
  *             .awsRegion("us-west-2")
  *             .build());
  * 
- *         var group = new VoiceConnectorGroup("group", VoiceConnectorGroupArgs.builder()        
+ *         var group = new VoiceConnectorGroup("group", VoiceConnectorGroupArgs.builder()
  *             .name("test-group")
  *             .connectors(            
  *                 VoiceConnectorGroupConnectorArgs.builder()

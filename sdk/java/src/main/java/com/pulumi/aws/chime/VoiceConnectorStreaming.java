@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
  *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
  * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()        
+ *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .dataRetention(7)
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()        
+ *         var default_ = new VoiceConnector("default", VoiceConnectorArgs.builder()
  *             .name("vc-name-test")
  *             .requireEncryption(true)
  *             .build());
@@ -122,17 +122,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .name("ExampleResourceAccessRole")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()        
+ *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
  *             .name("ExampleStream")
  *             .shardCount(2)
  *             .build());
  * 
- *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("ExampleConfig")
  *             .resourceAccessRoleArn(exampleRole.arn())
  *             .elements(            
@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()        
+ *         var defaultVoiceConnectorStreaming = new VoiceConnectorStreaming("defaultVoiceConnectorStreaming", VoiceConnectorStreamingArgs.builder()
  *             .disabled(false)
  *             .voiceConnectorId(default_.id())
  *             .dataRetention(7)

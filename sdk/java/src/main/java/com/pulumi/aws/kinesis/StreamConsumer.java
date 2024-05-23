@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()        
+ *         var example = new Stream("example", StreamArgs.builder()
  *             .name("example-stream")
  *             .shardCount(1)
  *             .build());
  * 
- *         var exampleStreamConsumer = new StreamConsumer("exampleStreamConsumer", StreamConsumerArgs.builder()        
+ *         var exampleStreamConsumer = new StreamConsumer("exampleStreamConsumer", StreamConsumerArgs.builder()
  *             .name("example-consumer")
  *             .streamArn(example.arn())
  *             .build());

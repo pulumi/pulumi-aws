@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
  *         // Creator's side of the VIF
- *         var creator = new HostedPublicVirtualInterface("creator", HostedPublicVirtualInterfaceArgs.builder()        
+ *         var creator = new HostedPublicVirtualInterface("creator", HostedPublicVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *             .name("vif-foo")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Accepter's side of the VIF.
- *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", HostedPublicVirtualInterfaceAccepterArgs.builder()        
+ *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter", HostedPublicVirtualInterfaceAccepterArgs.builder()
  *             .virtualInterfaceId(creator.id())
  *             .tags(Map.of("Side", "Accepter"))
  *             .build());

@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()        
+ *         var myDemoAPI = new RestApi("myDemoAPI", RestApiArgs.builder()
  *             .name("MyDemoAPI")
  *             .description("This is my API for demonstration purposes")
  *             .build());
  * 
- *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()        
+ *         var myDemoResource = new Resource("myDemoResource", ResourceArgs.builder()
  *             .restApi(myDemoAPI.id())
  *             .parentId(myDemoAPI.rootResourceId())
  *             .pathPart("mydemoresource")

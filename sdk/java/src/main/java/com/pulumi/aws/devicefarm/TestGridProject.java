@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new TestGridProject("example", TestGridProjectArgs.builder()        
+ *         var example = new TestGridProject("example", TestGridProjectArgs.builder()
  *             .name("example")
  *             .vpcConfig(TestGridProjectVpcConfigArgs.builder()
  *                 .vpcId(exampleAwsVpc.id())

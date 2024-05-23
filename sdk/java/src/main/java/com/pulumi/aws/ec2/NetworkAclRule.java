@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()        
+ *         var bar = new NetworkAcl("bar", NetworkAclArgs.builder()
  *             .vpcId(foo.id())
  *             .build());
  * 
- *         var barNetworkAclRule = new NetworkAclRule("barNetworkAclRule", NetworkAclRuleArgs.builder()        
+ *         var barNetworkAclRule = new NetworkAclRule("barNetworkAclRule", NetworkAclRuleArgs.builder()
  *             .networkAclId(bar.id())
  *             .ruleNumber(200)
  *             .egress(false)

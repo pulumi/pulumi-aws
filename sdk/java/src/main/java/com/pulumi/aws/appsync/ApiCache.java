@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("example")
  *             .build());
  * 
- *         var exampleApiCache = new ApiCache("exampleApiCache", ApiCacheArgs.builder()        
+ *         var exampleApiCache = new ApiCache("exampleApiCache", ApiCacheArgs.builder()
  *             .apiId(example.id())
  *             .apiCachingBehavior("FULL_REQUEST_CACHING")
  *             .type("LARGE")

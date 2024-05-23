@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = SsoadminFunctions.getInstances();
  * 
- *         var exampleTrustedTokenIssuer = new TrustedTokenIssuer("exampleTrustedTokenIssuer", TrustedTokenIssuerArgs.builder()        
+ *         var exampleTrustedTokenIssuer = new TrustedTokenIssuer("exampleTrustedTokenIssuer", TrustedTokenIssuerArgs.builder()
  *             .name("example")
  *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
  *             .trustedTokenIssuerType("OIDC_JWT")

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Group("bar", GroupArgs.builder()        
+ *         var bar = new Group("bar", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .name("foobar3-test")
  *             .maxSize(5)
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .launchConfiguration(foo.name())
  *             .build());
  * 
- *         var bat = new Policy("bat", PolicyArgs.builder()        
+ *         var bat = new Policy("bat", PolicyArgs.builder()
  *             .name("foobar3-test")
  *             .scalingAdjustment(4)
  *             .adjustmentType("ChangeInCapacity")
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy("example", PolicyArgs.builder()        
+ *         var example = new Policy("example", PolicyArgs.builder()
  *             .autoscalingGroupName("my-test-asg")
  *             .name("foo")
  *             .policyType("TargetTrackingScaling")
@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy("example", PolicyArgs.builder()        
+ *         var example = new Policy("example", PolicyArgs.builder()
  *             .autoscalingGroupName("my-test-asg")
  *             .name("foo")
  *             .policyType("PredictiveScaling")
@@ -269,7 +269,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Policy("example", PolicyArgs.builder()        
+ *         var example = new Policy("example", PolicyArgs.builder()
  *             .autoscalingGroupName("my-test-asg")
  *             .name("foo")
  *             .policyType("PredictiveScaling")
@@ -551,7 +551,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy("example", PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")
@@ -600,7 +600,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new Policy("example", PolicyArgs.builder()        
+     *         var example = new Policy("example", PolicyArgs.builder()
      *             .targetTrackingConfiguration(PolicyTargetTrackingConfigurationArgs.builder()
      *                 .predefinedMetricSpecification(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.builder()
      *                     .predefinedMetricType("ASGAverageCPUUtilization")

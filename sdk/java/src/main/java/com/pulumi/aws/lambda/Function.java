@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *             .outputPath("lambda_function_payload.zip")
  *             .build());
  * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+ *         var testLambda = new Function("testLambda", FunctionArgs.builder()
  *             .code(new FileArchive("lambda_function_payload.zip"))
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new LayerVersion("example");
  * 
- *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()        
+ *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
  *             .layers(example.arn())
  *             .build());
  * 
@@ -196,12 +196,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()        
+ *         var iamForLambda = new Role("iamForLambda", RoleArgs.builder()
  *             .name("iam_for_lambda")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+ *         var testLambda = new Function("testLambda", FunctionArgs.builder()
  *             .code(new FileArchive("lambda_function_payload.zip"))
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
@@ -258,19 +258,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // EFS file system
- *         var efsForLambda = new FileSystem("efsForLambda", FileSystemArgs.builder()        
+ *         var efsForLambda = new FileSystem("efsForLambda", FileSystemArgs.builder()
  *             .tags(Map.of("Name", "efs_for_lambda"))
  *             .build());
  * 
  *         // Mount target connects the file system to the subnet
- *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()        
+ *         var alpha = new MountTarget("alpha", MountTargetArgs.builder()
  *             .fileSystemId(efsForLambda.id())
  *             .subnetId(subnetForLambda.id())
  *             .securityGroups(sgForLambda.id())
  *             .build());
  * 
  *         // EFS access point used by lambda file system
- *         var accessPointForLambda = new AccessPoint("accessPointForLambda", AccessPointArgs.builder()        
+ *         var accessPointForLambda = new AccessPoint("accessPointForLambda", AccessPointArgs.builder()
  *             .fileSystemId(efsForLambda.id())
  *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
  *                 .path("/lambda")
@@ -287,7 +287,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // A lambda function connected to an EFS file system
- *         var example = new Function("example", FunctionArgs.builder()        
+ *         var example = new Function("example", FunctionArgs.builder()
  *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
  *                 .arn(accessPointForLambda.arn())
  *                 .localMountPath("/mnt/efs")
@@ -351,7 +351,7 @@ import javax.annotation.Nullable;
  *         final var lambdaFunctionName = config.get("lambdaFunctionName").orElse("lambda_function_name");
  *         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  *         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
- *         var example = new LogGroup("example", LogGroupArgs.builder()        
+ *         var example = new LogGroup("example", LogGroupArgs.builder()
  *             .name(String.format("/aws/lambda/%s", lambdaFunctionName))
  *             .retentionInDays(14)
  *             .build());
@@ -368,19 +368,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var lambdaLoggingPolicy = new Policy("lambdaLoggingPolicy", PolicyArgs.builder()        
+ *         var lambdaLoggingPolicy = new Policy("lambdaLoggingPolicy", PolicyArgs.builder()
  *             .name("lambda_logging")
  *             .path("/")
  *             .description("IAM policy for logging from a lambda")
  *             .policy(lambdaLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var lambdaLogs = new RolePolicyAttachment("lambdaLogs", RolePolicyAttachmentArgs.builder()        
+ *         var lambdaLogs = new RolePolicyAttachment("lambdaLogs", RolePolicyAttachmentArgs.builder()
  *             .role(iamForLambda.name())
  *             .policyArn(lambdaLoggingPolicy.arn())
  *             .build());
  * 
- *         var testLambda = new Function("testLambda", FunctionArgs.builder()        
+ *         var testLambda = new Function("testLambda", FunctionArgs.builder()
  *             .name(lambdaFunctionName)
  *             .loggingConfig(FunctionLoggingConfigArgs.builder()
  *                 .logFormat("Text")

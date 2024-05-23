@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()        
+ *         var example = new Faq("example", FaqArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("Example")
  *             .roleArn(exampleAwsIamRole.arn())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()        
+ *         var example = new Faq("example", FaqArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("Example")
  *             .fileFormat("CSV")
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Faq("example", FaqArgs.builder()        
+ *         var example = new Faq("example", FaqArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("Example")
  *             .languageCode("en")

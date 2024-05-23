@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Plan("example", PlanArgs.builder()        
+ *         var example = new Plan("example", PlanArgs.builder()
  *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
@@ -87,12 +87,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var contact = new Contact("contact", ContactArgs.builder()        
+ *         var contact = new Contact("contact", ContactArgs.builder()
  *             .alias("alias")
  *             .type("PERSONAL")
  *             .build());
  * 
- *         var plan = new Plan("plan", PlanArgs.builder()        
+ *         var plan = new Plan("plan", PlanArgs.builder()
  *             .contactId(contact.arn())
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(1)
@@ -133,22 +133,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var escalationPlan = new Contact("escalationPlan", ContactArgs.builder()        
+ *         var escalationPlan = new Contact("escalationPlan", ContactArgs.builder()
  *             .alias("escalation-plan-alias")
  *             .type("ESCALATION")
  *             .build());
  * 
- *         var contactOne = new Contact("contactOne", ContactArgs.builder()        
+ *         var contactOne = new Contact("contactOne", ContactArgs.builder()
  *             .alias("alias")
  *             .type("PERSONAL")
  *             .build());
  * 
- *         var contactTwo = new Contact("contactTwo", ContactArgs.builder()        
+ *         var contactTwo = new Contact("contactTwo", ContactArgs.builder()
  *             .alias("alias")
  *             .type("PERSONAL")
  *             .build());
  * 
- *         var test = new Plan("test", PlanArgs.builder()        
+ *         var test = new Plan("test", PlanArgs.builder()
  *             .contactId(escalationPlan.arn())
  *             .stages(PlanStageArgs.builder()
  *                 .durationInMinutes(0)

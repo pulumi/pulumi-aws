@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var kittens = new Channel("kittens", ChannelArgs.builder()        
+ *         var kittens = new Channel("kittens", ChannelArgs.builder()
  *             .channelId("kitten-channel")
  *             .description("A channel dedicated to amusing videos of kittens.")
  *             .build());

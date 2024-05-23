@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var sms = new SmsChannel("sms", SmsChannelArgs.builder()        
+ *         var sms = new SmsChannel("sms", SmsChannelArgs.builder()
  *             .applicationId(app.applicationId())
  *             .build());
  * 

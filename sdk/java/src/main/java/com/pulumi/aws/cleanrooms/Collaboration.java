@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCollaboration = new Collaboration("testCollaboration", CollaborationArgs.builder()        
+ *         var testCollaboration = new Collaboration("testCollaboration", CollaborationArgs.builder()
  *             .name("pulumi-example-collaboration")
  *             .creatorMemberAbilities(            
  *                 "CAN_QUERY",

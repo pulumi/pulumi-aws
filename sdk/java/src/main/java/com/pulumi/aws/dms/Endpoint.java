@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new endpoint
- *         var test = new Endpoint("test", EndpointArgs.builder()        
+ *         var test = new Endpoint("test", EndpointArgs.builder()
  *             .certificateArn("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012")
  *             .databaseName("test")
  *             .endpointId("test-dms-endpoint-tf")

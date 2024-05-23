@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new HaproxyLayer("lb", HaproxyLayerArgs.builder()        
+ *         var lb = new HaproxyLayer("lb", HaproxyLayerArgs.builder()
  *             .stackId(main.id())
  *             .statsPassword("foobarbaz")
  *             .build());

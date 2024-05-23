@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testFleet = new Fleet("testFleet", FleetArgs.builder()        
+ *         var testFleet = new Fleet("testFleet", FleetArgs.builder()
  *             .name("test-fleet")
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)

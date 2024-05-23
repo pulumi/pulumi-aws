@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Bucket("test", BucketArgs.builder()        
+ *         var test = new Bucket("test", BucketArgs.builder()
  *             .name("mytestbucket")
  *             .bundleId("small_1_0")
  *             .build());

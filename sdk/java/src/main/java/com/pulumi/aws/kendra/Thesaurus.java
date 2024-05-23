@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Thesaurus("example", ThesaurusArgs.builder()        
+ *         var example = new Thesaurus("example", ThesaurusArgs.builder()
  *             .indexId(exampleAwsKendraIndex.id())
  *             .name("Example")
  *             .roleArn(exampleAwsIamRole.arn())

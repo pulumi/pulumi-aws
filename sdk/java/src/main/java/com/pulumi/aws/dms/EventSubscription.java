@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventSubscription("example", EventSubscriptionArgs.builder()        
+ *         var example = new EventSubscription("example", EventSubscriptionArgs.builder()
  *             .enabled(true)
  *             .eventCategories(            
  *                 "creation",

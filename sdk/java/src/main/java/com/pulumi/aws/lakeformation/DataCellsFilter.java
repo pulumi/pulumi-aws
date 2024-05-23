@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()        
+ *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
  *                 .databaseName(test.name())
  *                 .name("example")

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature("example", FeatureArgs.builder()        
+ *         var example = new Feature("example", FeatureArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .description("example description")
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature("example", FeatureArgs.builder()        
+ *         var example = new Feature("example", FeatureArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .defaultVariation("Variation2")
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature("example", FeatureArgs.builder()        
+ *         var example = new Feature("example", FeatureArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .entityOverrides(Map.of("test1", "Variation1"))
@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Feature("example", FeatureArgs.builder()        
+ *         var example = new Feature("example", FeatureArgs.builder()
  *             .name("example")
  *             .project(exampleAwsEvidentlyProject.name())
  *             .evaluationStrategy("ALL_RULES")

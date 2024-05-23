@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()        
+ *         var exampleLustreFileSystem = new LustreFileSystem("exampleLustreFileSystem", LustreFileSystemArgs.builder()
  *             .storageCapacity(1200)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType("PERSISTENT_1")
  *             .perUnitStorageThroughput(50)
  *             .build());
  * 
- *         var example = new Backup("example", BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()
  *             .fileSystemId(exampleLustreFileSystem.id())
  *             .build());
  * 
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleWindowsFileSystem = new WindowsFileSystem("exampleWindowsFileSystem", WindowsFileSystemArgs.builder()        
+ *         var exampleWindowsFileSystem = new WindowsFileSystem("exampleWindowsFileSystem", WindowsFileSystemArgs.builder()
  *             .activeDirectoryId(eample.id())
  *             .skipFinalBackup(true)
  *             .storageCapacity(32)
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var example = new Backup("example", BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()
  *             .fileSystemId(exampleWindowsFileSystem.id())
  *             .build());
  * 
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOntapVolume = new OntapVolume("exampleOntapVolume", OntapVolumeArgs.builder()        
+ *         var exampleOntapVolume = new OntapVolume("exampleOntapVolume", OntapVolumeArgs.builder()
  *             .name("example")
  *             .junctionPath("/example")
  *             .sizeInMegabytes(1024)
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *             .storageVirtualMachineId(test.id())
  *             .build());
  * 
- *         var example = new Backup("example", BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()
  *             .volumeId(exampleOntapVolume.id())
  *             .build());
  * 
@@ -179,14 +179,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()        
+ *         var exampleOpenZfsFileSystem = new OpenZfsFileSystem("exampleOpenZfsFileSystem", OpenZfsFileSystemArgs.builder()
  *             .storageCapacity(64)
  *             .subnetIds(exampleAwsSubnet.id())
  *             .deploymentType("SINGLE_AZ_1")
  *             .throughputCapacity(64)
  *             .build());
  * 
- *         var example = new Backup("example", BackupArgs.builder()        
+ *         var example = new Backup("example", BackupArgs.builder()
  *             .fileSystemId(exampleOpenZfsFileSystem.id())
  *             .build());
  * 

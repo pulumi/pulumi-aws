@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new PullThroughCacheRule("example", PullThroughCacheRuleArgs.builder()        
+ *         var example = new PullThroughCacheRule("example", PullThroughCacheRuleArgs.builder()
  *             .ecrRepositoryPrefix("ecr-public")
  *             .upstreamRegistryUrl("public.ecr.aws")
  *             .credentialArn("arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")

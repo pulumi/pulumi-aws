@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Device("example", DeviceArgs.builder()        
+ *         var example = new Device("example", DeviceArgs.builder()
  *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
  *             .siteId(exampleAwsNetworkmanagerSite.id())
  *             .build());

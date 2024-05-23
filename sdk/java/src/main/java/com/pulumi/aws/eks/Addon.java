@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon("example", AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .addonName("vpc-cni")
  *             .build());
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon("example", AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .addonName("coredns")
  *             .addonVersion("v1.10.1-eksbuild.1")
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Addon("example", AddonArgs.builder()        
+ *         var example = new Addon("example", AddonArgs.builder()
  *             .clusterName("mycluster")
  *             .addonName("coredns")
  *             .addonVersion("v1.10.1-eksbuild.1")
@@ -197,7 +197,7 @@ import javax.annotation.Nullable;
  *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
  *             .build());
  * 
- *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()        
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()
  *             .clientIdLists("sts.amazonaws.com")
  *             .thumbprintLists(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.certificates()[0].sha1Fingerprint())))
  *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
@@ -219,12 +219,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -> exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .name("example-vpc-cni-role")
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()        
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
  *             .role(exampleRole.name())
  *             .build());

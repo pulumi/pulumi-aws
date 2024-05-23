@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SdkvoiceSipRule("example", SdkvoiceSipRuleArgs.builder()        
+ *         var example = new SdkvoiceSipRule("example", SdkvoiceSipRuleArgs.builder()
  *             .name("example-sip-rule")
  *             .triggerType("RequestUriHostname")
  *             .triggerValue(example_voice_connector.outboundHostName())

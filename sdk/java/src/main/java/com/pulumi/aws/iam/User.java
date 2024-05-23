@@ -52,13 +52,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lb = new User("lb", UserArgs.builder()        
+ *         var lb = new User("lb", UserArgs.builder()
  *             .name("loadbalancer")
  *             .path("/system/")
  *             .tags(Map.of("tag-key", "tag-value"))
  *             .build());
  * 
- *         var lbAccessKey = new AccessKey("lbAccessKey", AccessKeyArgs.builder()        
+ *         var lbAccessKey = new AccessKey("lbAccessKey", AccessKeyArgs.builder()
  *             .user(lb.name())
  *             .build());
  * 
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()        
+ *         var lbRoUserPolicy = new UserPolicy("lbRoUserPolicy", UserPolicyArgs.builder()
  *             .name("test")
  *             .user(lb.name())
  *             .policy(lbRo.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
