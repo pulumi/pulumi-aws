@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var parent = new ThingGroup("parent", ThingGroupArgs.builder()        
+ *         var parent = new ThingGroup("parent", ThingGroupArgs.builder()
  *             .name("parent")
  *             .build());
  * 
- *         var example = new ThingGroup("example", ThingGroupArgs.builder()        
+ *         var example = new ThingGroup("example", ThingGroupArgs.builder()
  *             .name("example")
  *             .parentGroupName(parent.name())
  *             .properties(ThingGroupPropertiesArgs.builder()

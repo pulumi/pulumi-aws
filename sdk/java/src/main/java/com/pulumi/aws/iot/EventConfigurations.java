@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventConfigurations("example", EventConfigurationsArgs.builder()        
+ *         var example = new EventConfigurations("example", EventConfigurationsArgs.builder()
  *             .eventConfigurations(Map.ofEntries(
  *                 Map.entry("THING", true),
  *                 Map.entry("THING_GROUP", false),

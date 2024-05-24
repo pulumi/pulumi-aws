@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new FileSystemAssociation("example", FileSystemAssociationArgs.builder()        
+ *         var example = new FileSystemAssociation("example", FileSystemAssociationArgs.builder()
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsFsxWindowsFileSystem.arn())
  *             .username("Admin")
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name("/aws/service/storagegateway/ami/FILE_S3/latest")
  *             .build());
  * 
- *         var test = new Instance("test", InstanceArgs.builder()        
+ *         var test = new Instance("test", InstanceArgs.builder()
  *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -> getParameterResult.value()))
  *             .associatePublicIpAddress(true)
  *             .instanceType(available.instanceType())
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                     testAwsVpcDhcpOptionsAssociation)
  *                 .build());
  * 
- *         var testGateway = new Gateway("testGateway", GatewayArgs.builder()        
+ *         var testGateway = new Gateway("testGateway", GatewayArgs.builder()
  *             .gatewayIpAddress(test.publicIp())
  *             .gatewayName("test-sgw")
  *             .gatewayTimezone("GMT")
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testWindowsFileSystem = new WindowsFileSystem("testWindowsFileSystem", WindowsFileSystemArgs.builder()        
+ *         var testWindowsFileSystem = new WindowsFileSystem("testWindowsFileSystem", WindowsFileSystemArgs.builder()
  *             .activeDirectoryId(testAwsDirectoryServiceDirectory.id())
  *             .securityGroupIds(testAwsSecurityGroup.id())
  *             .skipFinalBackup(true)
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *             .throughputCapacity(8)
  *             .build());
  * 
- *         var fsx = new FileSystemAssociation("fsx", FileSystemAssociationArgs.builder()        
+ *         var fsx = new FileSystemAssociation("fsx", FileSystemAssociationArgs.builder()
  *             .gatewayArn(testGateway.arn())
  *             .locationArn(testWindowsFileSystem.arn())
  *             .username("Admin")

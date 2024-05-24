@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ExternalKey("example", ExternalKeyArgs.builder()        
+ *         var example = new ExternalKey("example", ExternalKeyArgs.builder()
  *             .description("KMS EXTERNAL for AMI encryption")
  *             .build());
  * 

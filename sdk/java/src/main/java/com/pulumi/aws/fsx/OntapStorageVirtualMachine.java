@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()        
+ *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()
  *             .fileSystemId(testAwsFsxOntapFileSystem.id())
  *             .name("test")
  *             .build());
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()        
+ *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()
  *             .fileSystemId(testAwsFsxOntapFileSystem.id())
  *             .name("mysvm")
  *             .activeDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.builder()

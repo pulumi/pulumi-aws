@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()        
+ *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType("SIMPLE")
  *             .simpleUser("example")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()        
+ *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType("KERBEROS")
  *             .nameNodes(LocationHdfsNameNodeArgs.builder()

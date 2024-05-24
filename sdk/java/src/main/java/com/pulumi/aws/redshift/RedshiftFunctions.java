@@ -68,7 +68,7 @@ public final class RedshiftFunctions {
      *             .clusterIdentifier("example-cluster")
      *             .build());
      * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()        
+     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .name("kinesis-firehose-example-stream")
      *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
@@ -135,7 +135,7 @@ public final class RedshiftFunctions {
      *             .clusterIdentifier("example-cluster")
      *             .build());
      * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()        
+     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .name("kinesis-firehose-example-stream")
      *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
@@ -202,7 +202,7 @@ public final class RedshiftFunctions {
      *             .clusterIdentifier("example-cluster")
      *             .build());
      * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()        
+     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .name("kinesis-firehose-example-stream")
      *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
@@ -269,7 +269,7 @@ public final class RedshiftFunctions {
      *             .clusterIdentifier("example-cluster")
      *             .build());
      * 
-     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()        
+     *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
      *             .name("kinesis-firehose-example-stream")
      *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
@@ -1210,7 +1210,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1239,7 +1239,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1294,7 +1294,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1323,7 +1323,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1378,7 +1378,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1407,7 +1407,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1462,7 +1462,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1491,7 +1491,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1546,7 +1546,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1575,7 +1575,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());
@@ -1630,7 +1630,7 @@ public final class RedshiftFunctions {
      *     public static void stack(Context ctx) {
      *         final var main = RedshiftFunctions.getServiceAccount();
      * 
-     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()        
+     *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
      *             .bucket("tf-redshift-logging-test-bucket")
      *             .forceDestroy(true)
      *             .build());
@@ -1659,7 +1659,7 @@ public final class RedshiftFunctions {
      *                     .build())
      *             .build());
      * 
-     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()        
+     *         var allowAuditLoggingBucketPolicy = new BucketPolicy("allowAuditLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
      *             .policy(allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(allowAuditLogging -> allowAuditLogging.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
      *             .build());

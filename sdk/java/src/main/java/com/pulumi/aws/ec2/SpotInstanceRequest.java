@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Request a spot instance at $0.03
- *         var cheapWorker = new SpotInstanceRequest("cheapWorker", SpotInstanceRequestArgs.builder()        
+ *         var cheapWorker = new SpotInstanceRequest("cheapWorker", SpotInstanceRequestArgs.builder()
  *             .ami("ami-1234")
  *             .spotPrice("0.03")
  *             .instanceType("c4.xlarge")

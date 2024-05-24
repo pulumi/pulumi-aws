@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVolumeAttachment = new VolumeAttachment("testVolumeAttachment", VolumeAttachmentArgs.builder()        
+ *         var testVolumeAttachment = new VolumeAttachment("testVolumeAttachment", VolumeAttachmentArgs.builder()
  *             .deviceName("/dev/xvdb")
  *             .volumeId(testAwsEbsVolume.id())
  *             .instanceId(testAwsInstance.id())
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
  * 
- *         var testCache = new Cache("testCache", CacheArgs.builder()        
+ *         var testCache = new Cache("testCache", CacheArgs.builder()
  *             .diskId(test.applyValue(getLocalDiskResult -> getLocalDiskResult.diskId()))
  *             .gatewayArn(testAwsStoragegatewayGateway.arn())
  *             .build());
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress("1.2.3.4")
  *             .gatewayName("example")
  *             .gatewayTimezone("GMT")
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress("1.2.3.4")
  *             .gatewayName("example")
  *             .gatewayTimezone("GMT")
@@ -186,7 +186,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress("1.2.3.4")
  *             .gatewayName("example")
  *             .gatewayTimezone("GMT")
@@ -226,7 +226,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress("1.2.3.4")
  *             .gatewayName("example")
  *             .gatewayTimezone("GMT")
@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Gateway("example", GatewayArgs.builder()        
+ *         var example = new Gateway("example", GatewayArgs.builder()
  *             .gatewayIpAddress("1.2.3.4")
  *             .gatewayName("example")
  *             .gatewayTimezone("GMT")

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()        
+ *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()
  *             .name("example-cross-account-attachment")
  *             .build());
  * 
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()        
+ *         var example = new CrossAccountAttachment("example", CrossAccountAttachmentArgs.builder()
  *             .name("example-cross-account-attachment")
  *             .principals("123456789012")
  *             .resources(CrossAccountAttachmentResourceArgs.builder()

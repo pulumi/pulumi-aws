@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()        
+ *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
  *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .sqsNotificationConfiguration()
@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()        
+ *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
  *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.builder()

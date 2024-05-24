@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OrganizationCustomPolicyRule("example", OrganizationCustomPolicyRuleArgs.builder()        
+ *         var example = new OrganizationCustomPolicyRule("example", OrganizationCustomPolicyRuleArgs.builder()
  *             .name("example_rule_name")
  *             .policyRuntime("guard-2.x.x")
  *             .policyText("""

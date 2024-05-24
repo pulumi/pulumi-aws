@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RecoveryGroup("example", RecoveryGroupArgs.builder()        
+ *         var example = new RecoveryGroup("example", RecoveryGroupArgs.builder()
  *             .recoveryGroupName("my-high-availability-app")
  *             .build());
  * 

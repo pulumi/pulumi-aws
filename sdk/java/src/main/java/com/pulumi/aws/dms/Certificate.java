@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new certificate
- *         var test = new Certificate("test", CertificateArgs.builder()        
+ *         var test = new Certificate("test", CertificateArgs.builder()
  *             .certificateId("test-dms-certificate-tf")
  *             .certificatePem("...")
  *             .tags(Map.of("Name", "test"))

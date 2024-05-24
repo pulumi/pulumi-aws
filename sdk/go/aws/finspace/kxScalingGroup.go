@@ -74,6 +74,14 @@ type KxScalingGroup struct {
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of scaling group.
+	// * `CREATING` – The scaling group creation is in progress.
+	// * `CREATE_FAILED` – The scaling group creation has failed.
+	// * `ACTIVE` – The scaling group is active.
+	// * `UPDATING` – The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` – The update action failed.
+	// * `DELETING` – The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` – The system failed to delete the scaling group.
+	// * `DELETED` – The scaling group is successfully deleted.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
@@ -143,6 +151,14 @@ type kxScalingGroupState struct {
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
 	// The status of scaling group.
+	// * `CREATING` – The scaling group creation is in progress.
+	// * `CREATE_FAILED` – The scaling group creation has failed.
+	// * `ACTIVE` – The scaling group is active.
+	// * `UPDATING` – The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` – The update action failed.
+	// * `DELETING` – The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` – The system failed to delete the scaling group.
+	// * `DELETED` – The scaling group is successfully deleted.
 	Status *string `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
@@ -174,6 +190,14 @@ type KxScalingGroupState struct {
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
 	// The status of scaling group.
+	// * `CREATING` – The scaling group creation is in progress.
+	// * `CREATE_FAILED` – The scaling group creation has failed.
+	// * `ACTIVE` – The scaling group is active.
+	// * `UPDATING` – The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` – The update action failed.
+	// * `DELETING` – The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` – The system failed to delete the scaling group.
+	// * `DELETED` – The scaling group is successfully deleted.
 	Status pulumi.StringPtrInput
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
@@ -350,6 +374,14 @@ func (o KxScalingGroupOutput) Name() pulumi.StringOutput {
 }
 
 // The status of scaling group.
+// * `CREATING` – The scaling group creation is in progress.
+// * `CREATE_FAILED` – The scaling group creation has failed.
+// * `ACTIVE` – The scaling group is active.
+// * `UPDATING` – The scaling group is in the process of being updated.
+// * `UPDATE_FAILED` – The update action failed.
+// * `DELETING` – The scaling group is in the process of being deleted.
+// * `DELETE_FAILED` – The system failed to delete the scaling group.
+// * `DELETED` – The scaling group is successfully deleted.
 func (o KxScalingGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

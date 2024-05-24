@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new Group("foobar", GroupArgs.builder()        
+ *         var foobar = new Group("foobar", GroupArgs.builder()
  *             .availabilityZones("us-west-2a")
  *             .name("test-foobar5")
  *             .maxSize(1)
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .terminationPolicies("OldestInstance")
  *             .build());
  * 
- *         var foobarSchedule = new Schedule("foobarSchedule", ScheduleArgs.builder()        
+ *         var foobarSchedule = new Schedule("foobarSchedule", ScheduleArgs.builder()
  *             .scheduledActionName("foobar")
  *             .minSize(0)
  *             .maxSize(1)

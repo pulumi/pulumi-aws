@@ -234,6 +234,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
      * 
      */
     @Import(name="protocols")
@@ -241,6 +245,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
+     * * `AS2`: File transfer over Applicability Statement 2
+     * * `SFTP`: File transfer over SSH
+     * * `FTPS`: File transfer with TLS encryption
+     * * `FTP`: Unencrypted file transfer
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -713,6 +721,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
+         * * `AS2`: File transfer over Applicability Statement 2
+         * * `SFTP`: File transfer over SSH
+         * * `FTPS`: File transfer with TLS encryption
+         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 
@@ -724,6 +736,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
+         * * `AS2`: File transfer over Applicability Statement 2
+         * * `SFTP`: File transfer over SSH
+         * * `FTPS`: File transfer with TLS encryption
+         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 
@@ -734,6 +750,10 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
+         * * `AS2`: File transfer over Applicability Statement 2
+         * * `SFTP`: File transfer over SSH
+         * * `FTPS`: File transfer with TLS encryption
+         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 

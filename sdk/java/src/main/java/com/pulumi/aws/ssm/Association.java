@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association("example", AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()
  *             .name(exampleAwsSsmDocument.name())
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association("example", AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()
  *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("InstanceIds")
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association("example", AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()
  *             .name("AmazonCloudWatch-ManageAgent")
  *             .targets(AssociationTargetArgs.builder()
  *                 .key("tag:Environment")
@@ -177,7 +177,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Association("example", AssociationArgs.builder()        
+ *         var example = new Association("example", AssociationArgs.builder()
  *             .name(exampleAwsSsmDocument.name())
  *             .scheduleExpression("cron(0 2 ? * SUN *)")
  *             .targets(AssociationTargetArgs.builder()

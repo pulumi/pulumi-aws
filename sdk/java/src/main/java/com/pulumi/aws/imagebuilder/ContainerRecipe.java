@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()        
+ *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()
  *             .name("example")
  *             .version("1.0.0")
  *             .containerType("DOCKER")

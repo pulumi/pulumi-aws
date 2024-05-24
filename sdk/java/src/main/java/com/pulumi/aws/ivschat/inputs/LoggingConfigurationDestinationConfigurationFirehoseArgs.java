@@ -14,9 +14,17 @@ public final class LoggingConfigurationDestinationConfigurationFirehoseArgs exte
 
     public static final LoggingConfigurationDestinationConfigurationFirehoseArgs Empty = new LoggingConfigurationDestinationConfigurationFirehoseArgs();
 
+    /**
+     * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+     * 
+     */
     @Import(name="deliveryStreamName", required=true)
     private Output<String> deliveryStreamName;
 
+    /**
+     * @return Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+     * 
+     */
     public Output<String> deliveryStreamName() {
         return this.deliveryStreamName;
     }
@@ -45,11 +53,23 @@ public final class LoggingConfigurationDestinationConfigurationFirehoseArgs exte
             $ = new LoggingConfigurationDestinationConfigurationFirehoseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deliveryStreamName Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryStreamName(Output<String> deliveryStreamName) {
             $.deliveryStreamName = deliveryStreamName;
             return this;
         }
 
+        /**
+         * @param deliveryStreamName Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deliveryStreamName(String deliveryStreamName) {
             return deliveryStreamName(Output.of(deliveryStreamName));
         }

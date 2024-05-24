@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     [OutputType]
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration
     {
+        /// <summary>
+        /// Collection of keywords to match.
+        /// </summary>
         public readonly ImmutableArray<string> Keywords;
+        /// <summary>
+        /// Negate the rule.
+        /// </summary>
         public readonly bool? Negate;
+        /// <summary>
+        /// Rule name.
+        /// </summary>
         public readonly string RuleName;
 
         [OutputConstructor]

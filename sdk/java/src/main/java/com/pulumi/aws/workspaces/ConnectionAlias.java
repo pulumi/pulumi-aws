@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ConnectionAlias("example", ConnectionAliasArgs.builder()        
+ *         var example = new ConnectionAlias("example", ConnectionAliasArgs.builder()
  *             .connectionString("testdomain.test")
  *             .build());
  * 

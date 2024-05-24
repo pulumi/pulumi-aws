@@ -556,12 +556,18 @@ class VirtualClusterContainerProviderInfoArgs:
 class VirtualClusterContainerProviderInfoEksInfoArgs:
     def __init__(__self__, *,
                  namespace: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] namespace: The namespace where the EMR Containers cluster is running
+        """
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace where the EMR Containers cluster is running
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter

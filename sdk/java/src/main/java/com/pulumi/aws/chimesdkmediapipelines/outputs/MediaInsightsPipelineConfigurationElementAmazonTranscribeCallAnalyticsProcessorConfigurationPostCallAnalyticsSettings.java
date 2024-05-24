@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
+    /**
+     * @return Should output be redacted.
+     * 
+     */
     private @Nullable String contentRedactionOutput;
+    /**
+     * @return ARN of the role used by AWS Transcribe to upload your post call analysis.
+     * 
+     */
     private String dataAccessRoleArn;
+    /**
+     * @return ID of the KMS key used to encrypt the output.
+     * 
+     */
     private @Nullable String outputEncryptionKmsKeyId;
+    /**
+     * @return The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+     * 
+     */
     private String outputLocation;
 
     private MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings() {}
+    /**
+     * @return Should output be redacted.
+     * 
+     */
     public Optional<String> contentRedactionOutput() {
         return Optional.ofNullable(this.contentRedactionOutput);
     }
+    /**
+     * @return ARN of the role used by AWS Transcribe to upload your post call analysis.
+     * 
+     */
     public String dataAccessRoleArn() {
         return this.dataAccessRoleArn;
     }
+    /**
+     * @return ID of the KMS key used to encrypt the output.
+     * 
+     */
     public Optional<String> outputEncryptionKmsKeyId() {
         return Optional.ofNullable(this.outputEncryptionKmsKeyId);
     }
+    /**
+     * @return The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+     * 
+     */
     public String outputLocation() {
         return this.outputLocation;
     }

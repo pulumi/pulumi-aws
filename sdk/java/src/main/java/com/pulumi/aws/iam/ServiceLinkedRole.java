@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var elasticbeanstalk = new ServiceLinkedRole("elasticbeanstalk", ServiceLinkedRoleArgs.builder()        
+ *         var elasticbeanstalk = new ServiceLinkedRole("elasticbeanstalk", ServiceLinkedRoleArgs.builder()
  *             .awsServiceName("elasticbeanstalk.amazonaws.com")
  *             .build());
  * 

@@ -40,6 +40,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+     * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
     @Import(name="azMode", required=true)
@@ -47,6 +48,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+     * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
     public Output<String> azMode() {
@@ -213,6 +215,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+         * * `SINGLE` - Assigns one availability zone per volume.
          * 
          * @return builder
          * 
@@ -224,6 +227,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+         * * `SINGLE` - Assigns one availability zone per volume.
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ public final class ServerlessrepositoryFunctions {
      *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
      *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
      *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
@@ -99,7 +99,7 @@ public final class ServerlessrepositoryFunctions {
      *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
      *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
      *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
@@ -150,7 +150,7 @@ public final class ServerlessrepositoryFunctions {
      *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
      *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
      *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))
@@ -201,7 +201,7 @@ public final class ServerlessrepositoryFunctions {
      *             .applicationId("arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
      *             .build());
      * 
-     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()        
+     *         var exampleCloudFormationStack = new CloudFormationStack("exampleCloudFormationStack", CloudFormationStackArgs.builder()
      *             .name("Example")
      *             .applicationId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
      *             .semanticVersion(example.applyValue(getApplicationResult -> getApplicationResult.semanticVersion()))

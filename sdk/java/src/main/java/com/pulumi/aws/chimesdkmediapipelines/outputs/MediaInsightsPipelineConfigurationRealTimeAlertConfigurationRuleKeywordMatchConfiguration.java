@@ -14,17 +14,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
+    /**
+     * @return Collection of keywords to match.
+     * 
+     */
     private List<String> keywords;
+    /**
+     * @return Negate the rule.
+     * 
+     */
     private @Nullable Boolean negate;
+    /**
+     * @return Rule name.
+     * 
+     */
     private String ruleName;
 
     private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration() {}
+    /**
+     * @return Collection of keywords to match.
+     * 
+     */
     public List<String> keywords() {
         return this.keywords;
     }
+    /**
+     * @return Negate the rule.
+     * 
+     */
     public Optional<Boolean> negate() {
         return Optional.ofNullable(this.negate);
     }
+    /**
+     * @return Rule name.
+     * 
+     */
     public String ruleName() {
         return this.ruleName;
     }

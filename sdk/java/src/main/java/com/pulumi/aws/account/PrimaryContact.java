@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new PrimaryContact("test", PrimaryContactArgs.builder()        
+ *         var test = new PrimaryContact("test", PrimaryContactArgs.builder()
  *             .addressLine1("123 Any Street")
  *             .city("Seattle")
  *             .companyName("Example Corp, Inc.")

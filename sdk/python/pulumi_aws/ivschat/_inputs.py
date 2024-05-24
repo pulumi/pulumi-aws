@@ -76,11 +76,17 @@ class LoggingConfigurationDestinationConfigurationArgs:
 class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        """
         pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -92,11 +98,17 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
 class LoggingConfigurationDestinationConfigurationFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        """
         return pulumi.get(self, "delivery_stream_name")
 
     @delivery_stream_name.setter
@@ -108,11 +120,21 @@ class LoggingConfigurationDestinationConfigurationFirehoseArgs:
 class LoggingConfigurationDestinationConfigurationS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
+               
+               The following arguments are optional:
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon S3 bucket where chat activity will be logged.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter

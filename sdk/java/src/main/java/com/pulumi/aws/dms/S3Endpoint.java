@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Endpoint("example", S3EndpointArgs.builder()        
+ *         var example = new S3Endpoint("example", S3EndpointArgs.builder()
  *             .endpointId("donnedtipi")
  *             .endpointType("target")
  *             .bucketName("beckut_name")
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new S3Endpoint("example", S3EndpointArgs.builder()        
+ *         var example = new S3Endpoint("example", S3EndpointArgs.builder()
  *             .endpointId("donnedtipi")
  *             .endpointType("target")
  *             .sslMode("none")

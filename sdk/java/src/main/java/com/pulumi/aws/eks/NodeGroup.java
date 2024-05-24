@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NodeGroup("example", NodeGroupArgs.builder()        
+ *         var example = new NodeGroup("example", NodeGroupArgs.builder()
  *             .clusterName(exampleAwsEksCluster.name())
  *             .nodeGroupName("example")
  *             .nodeRoleArn(exampleAwsIamRole.arn())
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new NodeGroup("example", NodeGroupArgs.builder()        
+ *         var example = new NodeGroup("example", NodeGroupArgs.builder()
  *             .scalingConfig(NodeGroupScalingConfigArgs.builder()
  *                 .desiredSize(2)
  *                 .build())
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name("eks-node-group-example")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -164,17 +164,17 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var example_AmazonEKSWorkerNodePolicy = new RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEKSWorkerNodePolicy = new RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy")
  *             .role(example.name())
  *             .build());
  * 
- *         var example_AmazonEKSCNIPolicy = new RolePolicyAttachment("example-AmazonEKSCNIPolicy", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEKSCNIPolicy = new RolePolicyAttachment("example-AmazonEKSCNIPolicy", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
  *             .role(example.name())
  *             .build());
  * 
- *         var example_AmazonEC2ContainerRegistryReadOnly = new RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEC2ContainerRegistryReadOnly = new RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly")
  *             .role(example.name())
  *             .build());
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         for (var i = 0; i < 2; i++) {
- *             new Subnet("example-" + i, SubnetArgs.builder()            
+ *             new Subnet("example-" + i, SubnetArgs.builder()
  *                 .availabilityZone(available.applyValue(getAvailabilityZonesResult -> getAvailabilityZonesResult.names())[range.value()])
  *                 .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
  *                     .input(exampleAwsVpc.cidrBlock())

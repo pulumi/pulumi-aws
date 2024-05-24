@@ -1873,12 +1873,18 @@ class MeshSpecArgs:
 class MeshSpecEgressFilterArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1890,12 +1896,18 @@ class MeshSpecEgressFilterArgs:
 class MeshSpecServiceDiscoveryArgs:
     def __init__(__self__, *,
                  ip_preference: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ip_preference: The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+        """
         if ip_preference is not None:
             pulumi.set(__self__, "ip_preference", ip_preference)
 
     @property
     @pulumi.getter(name="ipPreference")
     def ip_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+        """
         return pulumi.get(self, "ip_preference")
 
     @ip_preference.setter

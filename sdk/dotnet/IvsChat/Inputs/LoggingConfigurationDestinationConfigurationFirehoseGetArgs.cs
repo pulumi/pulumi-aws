@@ -12,6 +12,9 @@ namespace Pulumi.Aws.IvsChat.Inputs
 
     public sealed class LoggingConfigurationDestinationConfigurationFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        /// </summary>
         [Input("deliveryStreamName", required: true)]
         public Input<string> DeliveryStreamName { get; set; } = null!;
 

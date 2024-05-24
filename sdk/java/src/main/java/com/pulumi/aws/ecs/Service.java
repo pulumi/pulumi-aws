@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mongo = new Service("mongo", ServiceArgs.builder()        
+ *         var mongo = new Service("mongo", ServiceArgs.builder()
  *             .name("mongodb")
  *             .cluster(fooAwsEcsCluster.id())
  *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .desiredCount(2)
  *             .build());
  * 
@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bar = new Service("bar", ServiceArgs.builder()        
+ *         var bar = new Service("bar", ServiceArgs.builder()
  *             .name("bar")
  *             .cluster(foo.id())
  *             .taskDefinition(barAwsEcsTaskDefinition.arn())
@@ -194,7 +194,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example")
  *             .cluster(exampleAwsEcsCluster.id())
  *             .alarms(ServiceAlarmsArgs.builder()
@@ -236,7 +236,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Service("example", ServiceArgs.builder()        
+ *         var example = new Service("example", ServiceArgs.builder()
  *             .name("example")
  *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentController(ServiceDeploymentControllerArgs.builder()

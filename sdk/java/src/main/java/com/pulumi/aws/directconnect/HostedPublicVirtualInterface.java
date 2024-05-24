@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new HostedPublicVirtualInterface("foo", HostedPublicVirtualInterfaceArgs.builder()        
+ *         var foo = new HostedPublicVirtualInterface("foo", HostedPublicVirtualInterfaceArgs.builder()
  *             .connectionId("dxcon-zzzzzzzz")
  *             .name("vif-foo")
  *             .vlan(4094)

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Cluster("default", ClusterArgs.builder()        
+ *         var default_ = new Cluster("default", ClusterArgs.builder()
  *             .clusterIdentifier("aurora-cluster-demo")
  *             .availabilityZones(            
  *                 "us-west-2a",
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
  * 
- *         var test1 = new ClusterInstance("test1", ClusterInstanceArgs.builder()        
+ *         var test1 = new ClusterInstance("test1", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
  *             .identifier("test1")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var test2 = new ClusterInstance("test2", ClusterInstanceArgs.builder()        
+ *         var test2 = new ClusterInstance("test2", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
  *             .identifier("test2")
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var test3 = new ClusterInstance("test3", ClusterInstanceArgs.builder()        
+ *         var test3 = new ClusterInstance("test3", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
  *             .clusterIdentifier(default_.id())
  *             .identifier("test3")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .engineVersion(default_.engineVersion())
  *             .build());
  * 
- *         var eligible = new ClusterEndpoint("eligible", ClusterEndpointArgs.builder()        
+ *         var eligible = new ClusterEndpoint("eligible", ClusterEndpointArgs.builder()
  *             .clusterIdentifier(default_.id())
  *             .clusterEndpointIdentifier("reader")
  *             .customEndpointType("READER")
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *                 test2.id())
  *             .build());
  * 
- *         var static_ = new ClusterEndpoint("static", ClusterEndpointArgs.builder()        
+ *         var static_ = new ClusterEndpoint("static", ClusterEndpointArgs.builder()
  *             .clusterIdentifier(default_.id())
  *             .clusterEndpointIdentifier("static")
  *             .customEndpointType("READER")

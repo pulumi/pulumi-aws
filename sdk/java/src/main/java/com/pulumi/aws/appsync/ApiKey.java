@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()        
+ *         var example = new GraphQLApi("example", GraphQLApiArgs.builder()
  *             .authenticationType("API_KEY")
  *             .name("example")
  *             .build());
  * 
- *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()        
+ *         var exampleApiKey = new ApiKey("exampleApiKey", ApiKeyArgs.builder()
  *             .apiId(example.id())
  *             .expires("2018-05-03T04:00:00Z")
  *             .build());

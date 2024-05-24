@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath("path1/GET")
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath("path1/GET")
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath("path1/GET")
@@ -176,7 +176,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()        
+ *         var pathSpecific = new MethodSettings("pathSpecific", MethodSettingsArgs.builder()
  *             .restApi(example.id())
  *             .stageName(exampleAwsApiGatewayStage.stageName())
  *             .methodPath("path1/GET")

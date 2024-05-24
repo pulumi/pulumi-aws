@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()        
+ *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .content(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

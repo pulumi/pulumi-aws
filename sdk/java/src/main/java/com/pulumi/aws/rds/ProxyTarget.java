@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Proxy("example", ProxyArgs.builder()        
+ *         var example = new Proxy("example", ProxyArgs.builder()
  *             .name("example")
  *             .debugLogging(false)
  *             .engineFamily("MYSQL")
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()        
+ *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()
  *             .dbProxyName(example.name())
  *             .connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs.builder()
  *                 .connectionBorrowTimeout(120)
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleProxyTarget = new ProxyTarget("exampleProxyTarget", ProxyTargetArgs.builder()        
+ *         var exampleProxyTarget = new ProxyTarget("exampleProxyTarget", ProxyTargetArgs.builder()
  *             .dbInstanceIdentifier(exampleAwsDbInstance.identifier())
  *             .dbProxyName(example.name())
  *             .targetGroupName(exampleProxyDefaultTargetGroup.name())

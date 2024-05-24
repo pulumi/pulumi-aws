@@ -15,16 +15,32 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs ex
 
     public static final DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs Empty = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs();
 
+    /**
+     * Starting hour of the 10-hour window for updates
+     * 
+     */
     @Import(name="hours")
     private @Nullable Output<Integer> hours;
 
+    /**
+     * @return Starting hour of the 10-hour window for updates
+     * 
+     */
     public Optional<Output<Integer>> hours() {
         return Optional.ofNullable(this.hours);
     }
 
+    /**
+     * Starting minute of the 10-hour window for updates
+     * 
+     */
     @Import(name="minutes")
     private @Nullable Output<Integer> minutes;
 
+    /**
+     * @return Starting minute of the 10-hour window for updates
+     * 
+     */
     public Optional<Output<Integer>> minutes() {
         return Optional.ofNullable(this.minutes);
     }
@@ -54,20 +70,44 @@ public final class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs ex
             $ = new DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hours Starting hour of the 10-hour window for updates
+         * 
+         * @return builder
+         * 
+         */
         public Builder hours(@Nullable Output<Integer> hours) {
             $.hours = hours;
             return this;
         }
 
+        /**
+         * @param hours Starting hour of the 10-hour window for updates
+         * 
+         * @return builder
+         * 
+         */
         public Builder hours(Integer hours) {
             return hours(Output.of(hours));
         }
 
+        /**
+         * @param minutes Starting minute of the 10-hour window for updates
+         * 
+         * @return builder
+         * 
+         */
         public Builder minutes(@Nullable Output<Integer> minutes) {
             $.minutes = minutes;
             return this;
         }
 
+        /**
+         * @param minutes Starting minute of the 10-hour window for updates
+         * 
+         * @return builder
+         * 
+         */
         public Builder minutes(Integer minutes) {
             return minutes(Output.of(minutes));
         }

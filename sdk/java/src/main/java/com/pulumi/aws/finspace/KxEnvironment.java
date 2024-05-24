@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Sample KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()        
+ *         var exampleKxEnvironment = new KxEnvironment("exampleKxEnvironment", KxEnvironmentArgs.builder()
  *             .name("my-tf-kx-environment")
  *             .kmsKeyId(example.arn())
  *             .build());
@@ -97,16 +97,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()        
+ *         var example = new Key("example", KeyArgs.builder()
  *             .description("Sample KMS Key")
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()        
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
  *             .description("example")
  *             .build());
  * 
- *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()        
+ *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()
  *             .name("my-tf-kx-environment")
  *             .description("Environment description")
  *             .kmsKeyId(example.arn())

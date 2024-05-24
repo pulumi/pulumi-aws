@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Proxy("example", ProxyArgs.builder()        
+ *         var example = new Proxy("example", ProxyArgs.builder()
  *             .name("example")
  *             .debugLogging(false)
  *             .engineFamily("MYSQL")
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()        
+ *         var exampleProxyDefaultTargetGroup = new ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", ProxyDefaultTargetGroupArgs.builder()
  *             .dbProxyName(example.name())
  *             .connectionPoolConfig(ProxyDefaultTargetGroupConnectionPoolConfigArgs.builder()
  *                 .connectionBorrowTimeout(120)

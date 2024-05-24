@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new Pipeline("default", PipelineArgs.builder()        
+ *         var default_ = new Pipeline("default", PipelineArgs.builder()
  *             .name("tf-pipeline-default")
  *             .build());
  * 
- *         var example = new PipelineDefinition("example", PipelineDefinitionArgs.builder()        
+ *         var example = new PipelineDefinition("example", PipelineDefinitionArgs.builder()
  *             .pipelineId(default_.id())
  *             .pipelineObjects(            
  *                 PipelineDefinitionPipelineObjectArgs.builder()

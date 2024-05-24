@@ -15,14 +15,14 @@ public final class CustomLogSourceConfigurationCrawlerConfigurationArgs extends 
     public static final CustomLogSourceConfigurationCrawlerConfigurationArgs Empty = new CustomLogSourceConfigurationCrawlerConfigurationArgs();
 
     /**
-     * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
      * 
      */
     public Output<String> roleArn() {
@@ -54,7 +54,7 @@ public final class CustomLogSourceConfigurationCrawlerConfigurationArgs extends 
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+         * @param roleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CustomLogSourceConfigurationCrawlerConfigurationArgs extends 
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+         * @param roleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
          * 
          * @return builder
          * 

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ThingGroupMembership("example", ThingGroupMembershipArgs.builder()        
+ *         var example = new ThingGroupMembership("example", ThingGroupMembershipArgs.builder()
  *             .thingName("example-thing")
  *             .thingGroupName("example-group")
  *             .overrideDynamicGroup(true)

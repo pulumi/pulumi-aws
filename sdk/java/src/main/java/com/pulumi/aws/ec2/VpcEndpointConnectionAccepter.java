@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .networkLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .vpcId(testAlternate.id())
  *             .serviceName(testAwsVpcEndpointService.serviceName())
  *             .vpcEndpointType("Interface")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .securityGroupIds(test.id())
  *             .build());
  * 
- *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()        
+ *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()
  *             .vpcEndpointServiceId(example.id())
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .build());

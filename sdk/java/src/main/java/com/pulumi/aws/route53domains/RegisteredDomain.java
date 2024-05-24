@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RegisteredDomain("example", RegisteredDomainArgs.builder()        
+ *         var example = new RegisteredDomain("example", RegisteredDomainArgs.builder()
  *             .domainName("example.com")
  *             .nameServers(            
  *                 RegisteredDomainNameServerArgs.builder()

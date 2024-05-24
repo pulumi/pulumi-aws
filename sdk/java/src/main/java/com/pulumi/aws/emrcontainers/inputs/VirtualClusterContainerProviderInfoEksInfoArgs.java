@@ -15,9 +15,17 @@ public final class VirtualClusterContainerProviderInfoEksInfoArgs extends com.pu
 
     public static final VirtualClusterContainerProviderInfoEksInfoArgs Empty = new VirtualClusterContainerProviderInfoEksInfoArgs();
 
+    /**
+     * The namespace where the EMR Containers cluster is running
+     * 
+     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
+    /**
+     * @return The namespace where the EMR Containers cluster is running
+     * 
+     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
@@ -46,11 +54,23 @@ public final class VirtualClusterContainerProviderInfoEksInfoArgs extends com.pu
             $ = new VirtualClusterContainerProviderInfoEksInfoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param namespace The namespace where the EMR Containers cluster is running
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
+        /**
+         * @param namespace The namespace where the EMR Containers cluster is running
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

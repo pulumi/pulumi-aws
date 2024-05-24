@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StudioLifecycleConfig("example", StudioLifecycleConfigArgs.builder()        
+ *         var example = new StudioLifecycleConfig("example", StudioLifecycleConfigArgs.builder()
  *             .studioLifecycleConfigName("example")
  *             .studioLifecycleConfigAppType("JupyterServer")
  *             .studioLifecycleConfigContent(StdFunctions.base64encode(Base64encodeArgs.builder()

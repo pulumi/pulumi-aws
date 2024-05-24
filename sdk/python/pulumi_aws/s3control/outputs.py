@@ -240,11 +240,17 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
 
     def __init__(__self__, *,
                  days_after_initiation: int):
+        """
+        :param int days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
+        """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> int:
+        """
+        Number of days after which Amazon S3 aborts an incomplete multipart upload.
+        """
         return pulumi.get(self, "days_after_initiation")
 
 
@@ -271,6 +277,11 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
                  date: Optional[str] = None,
                  days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
+        """
+        :param str date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+        :param int days: Number of days before the object is to be deleted.
+        :param bool expired_object_delete_marker: Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+        """
         if date is not None:
             pulumi.set(__self__, "date", date)
         if days is not None:
@@ -281,16 +292,25 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
     @property
     @pulumi.getter
     def date(self) -> Optional[str]:
+        """
+        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+        """
         return pulumi.get(self, "date")
 
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
+        """
+        Number of days before the object is to be deleted.
+        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter(name="expiredObjectDeleteMarker")
     def expired_object_delete_marker(self) -> Optional[bool]:
+        """
+        Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+        """
         return pulumi.get(self, "expired_object_delete_marker")
 
 
@@ -299,6 +319,10 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
+        """
+        :param str prefix: Object prefix for rule filtering.
+        :param Mapping[str, str] tags: Key-value map of object tags for rule filtering.
+        """
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
@@ -307,11 +331,17 @@ class BucketLifecycleConfigurationRuleFilter(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        Object prefix for rule filtering.
+        """
         return pulumi.get(self, "prefix")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map of object tags for rule filtering.
+        """
         return pulumi.get(self, "tags")
 
 

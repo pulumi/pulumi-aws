@@ -820,6 +820,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) StandbyInstances() pulumi.Stri
 }
 
 type GroupInstanceRefreshPreferencesAlarmSpecification struct {
+	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 	Alarms []string `pulumi:"alarms"`
 }
 
@@ -835,6 +836,7 @@ type GroupInstanceRefreshPreferencesAlarmSpecificationInput interface {
 }
 
 type GroupInstanceRefreshPreferencesAlarmSpecificationArgs struct {
+	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
 }
 
@@ -915,6 +917,7 @@ func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstance
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
 }
 
+// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferencesAlarmSpecification) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
@@ -943,6 +946,7 @@ func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Elem() Group
 	}).(GroupInstanceRefreshPreferencesAlarmSpecificationOutput)
 }
 
+// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
 func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferencesAlarmSpecification) []string {
 		if v == nil {

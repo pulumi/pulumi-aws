@@ -31,6 +31,8 @@ class KxDataviewArgs:
         The set of arguments for constructing a KxDataview resource.
         :param pulumi.Input[bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
+               * `SINGLE` - Assigns one availability zone per cluster.
+               * `MULTI` - Assigns all the availability zones per cluster.
         :param pulumi.Input[str] database_name: The name of the database where you want to create a dataview.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
@@ -82,6 +84,8 @@ class KxDataviewArgs:
     def az_mode(self) -> pulumi.Input[str]:
         """
         The number of availability zones you want to assign per cluster. This can be one of the following:
+        * `SINGLE` - Assigns one availability zone per cluster.
+        * `MULTI` - Assigns all the availability zones per cluster.
         """
         return pulumi.get(self, "az_mode")
 
@@ -228,6 +232,8 @@ class _KxDataviewState:
         :param pulumi.Input[bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
+               * `SINGLE` - Assigns one availability zone per cluster.
+               * `MULTI` - Assigns all the availability zones per cluster.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
         :param pulumi.Input[str] created_timestamp: Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         :param pulumi.Input[str] database_name: The name of the database where you want to create a dataview.
@@ -322,6 +328,8 @@ class _KxDataviewState:
     def az_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The number of availability zones you want to assign per cluster. This can be one of the following:
+        * `SINGLE` - Assigns one availability zone per cluster.
+        * `MULTI` - Assigns all the availability zones per cluster.
         """
         return pulumi.get(self, "az_mode")
 
@@ -534,6 +542,8 @@ class KxDataview(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
+               * `SINGLE` - Assigns one availability zone per cluster.
+               * `MULTI` - Assigns all the availability zones per cluster.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
         :param pulumi.Input[str] database_name: The name of the database where you want to create a dataview.
         :param pulumi.Input[str] description: A description for the dataview.
@@ -683,6 +693,8 @@ class KxDataview(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         :param pulumi.Input[str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
+               * `SINGLE` - Assigns one availability zone per cluster.
+               * `MULTI` - Assigns all the availability zones per cluster.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
         :param pulumi.Input[str] created_timestamp: Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         :param pulumi.Input[str] database_name: The name of the database where you want to create a dataview.
@@ -751,6 +763,8 @@ class KxDataview(pulumi.CustomResource):
     def az_mode(self) -> pulumi.Output[str]:
         """
         The number of availability zones you want to assign per cluster. This can be one of the following:
+        * `SINGLE` - Assigns one availability zone per cluster.
+        * `MULTI` - Assigns all the availability zones per cluster.
         """
         return pulumi.get(self, "az_mode")
 

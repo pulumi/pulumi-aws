@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class MeshSpecEgressFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
