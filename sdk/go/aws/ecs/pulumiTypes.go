@@ -1318,9 +1318,9 @@ func (o ClusterSettingArrayOutput) Index(i pulumi.IntInput) ClusterSettingOutput
 type ServiceAlarms struct {
 	// One or more CloudWatch alarm names.
 	AlarmNames []string `pulumi:"alarmNames"`
-	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	// Whether to use the CloudWatch alarm option in the service deployment process.
 	Enable bool `pulumi:"enable"`
-	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	// Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	Rollback bool `pulumi:"rollback"`
 }
 
@@ -1338,9 +1338,9 @@ type ServiceAlarmsInput interface {
 type ServiceAlarmsArgs struct {
 	// One or more CloudWatch alarm names.
 	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
-	// Determines whether to use the CloudWatch alarm option in the service deployment process.
+	// Whether to use the CloudWatch alarm option in the service deployment process.
 	Enable pulumi.BoolInput `pulumi:"enable"`
-	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+	// Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 	Rollback pulumi.BoolInput `pulumi:"rollback"`
 }
 
@@ -1426,12 +1426,12 @@ func (o ServiceAlarmsOutput) AlarmNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAlarms) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
 }
 
-// Determines whether to use the CloudWatch alarm option in the service deployment process.
+// Whether to use the CloudWatch alarm option in the service deployment process.
 func (o ServiceAlarmsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceAlarms) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+// Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceAlarmsOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceAlarms) bool { return v.Rollback }).(pulumi.BoolOutput)
 }
@@ -1470,7 +1470,7 @@ func (o ServiceAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determines whether to use the CloudWatch alarm option in the service deployment process.
+// Whether to use the CloudWatch alarm option in the service deployment process.
 func (o ServiceAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceAlarms) *bool {
 		if v == nil {
@@ -1480,7 +1480,7 @@ func (o ServiceAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+// Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceAlarms) *bool {
 		if v == nil {
@@ -2439,13 +2439,13 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 }
 
 type ServiceServiceConnectConfiguration struct {
-	// Specifies whether to use Service Connect with this service.
+	// Whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
-	// The log configuration for the container. See below.
+	// Log configuration for the container. See below.
 	LogConfiguration *ServiceServiceConnectConfigurationLogConfiguration `pulumi:"logConfiguration"`
-	// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+	// Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 	Namespace *string `pulumi:"namespace"`
-	// The list of Service Connect service objects. See below.
+	// List of Service Connect service objects. See below.
 	Services []ServiceServiceConnectConfigurationService `pulumi:"services"`
 }
 
@@ -2461,13 +2461,13 @@ type ServiceServiceConnectConfigurationInput interface {
 }
 
 type ServiceServiceConnectConfigurationArgs struct {
-	// Specifies whether to use Service Connect with this service.
+	// Whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The log configuration for the container. See below.
+	// Log configuration for the container. See below.
 	LogConfiguration ServiceServiceConnectConfigurationLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+	// Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The list of Service Connect service objects. See below.
+	// List of Service Connect service objects. See below.
 	Services ServiceServiceConnectConfigurationServiceArrayInput `pulumi:"services"`
 }
 
@@ -2548,24 +2548,24 @@ func (o ServiceServiceConnectConfigurationOutput) ToServiceServiceConnectConfigu
 	}).(ServiceServiceConnectConfigurationPtrOutput)
 }
 
-// Specifies whether to use Service Connect with this service.
+// Whether to use Service Connect with this service.
 func (o ServiceServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The log configuration for the container. See below.
+// Log configuration for the container. See below.
 func (o ServiceServiceConnectConfigurationOutput) LogConfiguration() ServiceServiceConnectConfigurationLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationLogConfiguration {
 		return v.LogConfiguration
 	}).(ServiceServiceConnectConfigurationLogConfigurationPtrOutput)
 }
 
-// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+// Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 func (o ServiceServiceConnectConfigurationOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfiguration) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The list of Service Connect service objects. See below.
+// List of Service Connect service objects. See below.
 func (o ServiceServiceConnectConfigurationOutput) Services() ServiceServiceConnectConfigurationServiceArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfiguration) []ServiceServiceConnectConfigurationService {
 		return v.Services
@@ -2596,7 +2596,7 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Elem() ServiceServiceConnec
 	}).(ServiceServiceConnectConfigurationOutput)
 }
 
-// Specifies whether to use Service Connect with this service.
+// Whether to use Service Connect with this service.
 func (o ServiceServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *bool {
 		if v == nil {
@@ -2606,7 +2606,7 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The log configuration for the container. See below.
+// Log configuration for the container. See below.
 func (o ServiceServiceConnectConfigurationPtrOutput) LogConfiguration() ServiceServiceConnectConfigurationLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *ServiceServiceConnectConfigurationLogConfiguration {
 		if v == nil {
@@ -2616,7 +2616,7 @@ func (o ServiceServiceConnectConfigurationPtrOutput) LogConfiguration() ServiceS
 	}).(ServiceServiceConnectConfigurationLogConfigurationPtrOutput)
 }
 
-// The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+// Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
 func (o ServiceServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) *string {
 		if v == nil {
@@ -2626,7 +2626,7 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of Service Connect service objects. See below.
+// List of Service Connect service objects. See below.
 func (o ServiceServiceConnectConfigurationPtrOutput) Services() ServiceServiceConnectConfigurationServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfiguration) []ServiceServiceConnectConfigurationService {
 		if v == nil {
@@ -2637,11 +2637,11 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Services() ServiceServiceCo
 }
 
 type ServiceServiceConnectConfigurationLogConfiguration struct {
-	// The log driver to use for the container.
+	// Log driver to use for the container.
 	LogDriver string `pulumi:"logDriver"`
-	// The configuration options to send to the log driver.
+	// Configuration options to send to the log driver.
 	Options map[string]string `pulumi:"options"`
-	// The secrets to pass to the log configuration. See below.
+	// Secrets to pass to the log configuration. See below.
 	SecretOptions []ServiceServiceConnectConfigurationLogConfigurationSecretOption `pulumi:"secretOptions"`
 }
 
@@ -2657,11 +2657,11 @@ type ServiceServiceConnectConfigurationLogConfigurationInput interface {
 }
 
 type ServiceServiceConnectConfigurationLogConfigurationArgs struct {
-	// The log driver to use for the container.
+	// Log driver to use for the container.
 	LogDriver pulumi.StringInput `pulumi:"logDriver"`
-	// The configuration options to send to the log driver.
+	// Configuration options to send to the log driver.
 	Options pulumi.StringMapInput `pulumi:"options"`
-	// The secrets to pass to the log configuration. See below.
+	// Secrets to pass to the log configuration. See below.
 	SecretOptions ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayInput `pulumi:"secretOptions"`
 }
 
@@ -2742,17 +2742,17 @@ func (o ServiceServiceConnectConfigurationLogConfigurationOutput) ToServiceServi
 	}).(ServiceServiceConnectConfigurationLogConfigurationPtrOutput)
 }
 
-// The log driver to use for the container.
+// Log driver to use for the container.
 func (o ServiceServiceConnectConfigurationLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
 }
 
-// The configuration options to send to the log driver.
+// Configuration options to send to the log driver.
 func (o ServiceServiceConnectConfigurationLogConfigurationOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
-// The secrets to pass to the log configuration. See below.
+// Secrets to pass to the log configuration. See below.
 func (o ServiceServiceConnectConfigurationLogConfigurationOutput) SecretOptions() ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfiguration) []ServiceServiceConnectConfigurationLogConfigurationSecretOption {
 		return v.SecretOptions
@@ -2783,7 +2783,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) Elem() Serv
 	}).(ServiceServiceConnectConfigurationLogConfigurationOutput)
 }
 
-// The log driver to use for the container.
+// Log driver to use for the container.
 func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationLogConfiguration) *string {
 		if v == nil {
@@ -2793,7 +2793,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) LogDriver()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration options to send to the log driver.
+// Configuration options to send to the log driver.
 func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationLogConfiguration) map[string]string {
 		if v == nil {
@@ -2803,7 +2803,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) Options() p
 	}).(pulumi.StringMapOutput)
 }
 
-// The secrets to pass to the log configuration. See below.
+// Secrets to pass to the log configuration. See below.
 func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) SecretOptions() ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationLogConfiguration) []ServiceServiceConnectConfigurationLogConfigurationSecretOption {
 		if v == nil {
@@ -2814,9 +2814,9 @@ func (o ServiceServiceConnectConfigurationLogConfigurationPtrOutput) SecretOptio
 }
 
 type ServiceServiceConnectConfigurationLogConfigurationSecretOption struct {
-	// The name of the secret.
+	// Name of the secret.
 	Name string `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+	// Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
 	ValueFrom string `pulumi:"valueFrom"`
 }
 
@@ -2832,9 +2832,9 @@ type ServiceServiceConnectConfigurationLogConfigurationSecretOptionInput interfa
 }
 
 type ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs struct {
-	// The name of the secret.
+	// Name of the secret.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+	// Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
 }
 
@@ -2889,12 +2889,12 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionOutput) To
 	return o
 }
 
-// The name of the secret.
+// Name of the secret.
 func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfigurationSecretOption) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+// Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
 func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationLogConfigurationSecretOption) string { return v.ValueFrom }).(pulumi.StringOutput)
 }
@@ -2920,17 +2920,17 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutpu
 }
 
 type ServiceServiceConnectConfigurationService struct {
-	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
 	ClientAlias []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAlias"`
-	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+	// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName *string `pulumi:"discoveryName"`
-	// The port number for the Service Connect proxy to listen on.
+	// Port number for the Service Connect proxy to listen on.
 	IngressPortOverride *int `pulumi:"ingressPortOverride"`
-	// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+	// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
 	PortName string `pulumi:"portName"`
 	// Configuration timeouts for Service Connect
 	Timeout *ServiceServiceConnectConfigurationServiceTimeout `pulumi:"timeout"`
-	// The configuration for enabling Transport Layer Security (TLS)
+	// Configuration for enabling Transport Layer Security (TLS)
 	Tls *ServiceServiceConnectConfigurationServiceTls `pulumi:"tls"`
 }
 
@@ -2946,17 +2946,17 @@ type ServiceServiceConnectConfigurationServiceInput interface {
 }
 
 type ServiceServiceConnectConfigurationServiceArgs struct {
-	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+	// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
 	ClientAlias ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAlias"`
-	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+	// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
-	// The port number for the Service Connect proxy to listen on.
+	// Port number for the Service Connect proxy to listen on.
 	IngressPortOverride pulumi.IntPtrInput `pulumi:"ingressPortOverride"`
-	// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+	// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
 	PortName pulumi.StringInput `pulumi:"portName"`
 	// Configuration timeouts for Service Connect
 	Timeout ServiceServiceConnectConfigurationServiceTimeoutPtrInput `pulumi:"timeout"`
-	// The configuration for enabling Transport Layer Security (TLS)
+	// Configuration for enabling Transport Layer Security (TLS)
 	Tls ServiceServiceConnectConfigurationServiceTlsPtrInput `pulumi:"tls"`
 }
 
@@ -3011,24 +3011,24 @@ func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnect
 	return o
 }
 
-// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
 func (o ServiceServiceConnectConfigurationServiceOutput) ClientAlias() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
 		return v.ClientAlias
 	}).(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput)
 }
 
-// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 func (o ServiceServiceConnectConfigurationServiceOutput) DiscoveryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) *string { return v.DiscoveryName }).(pulumi.StringPtrOutput)
 }
 
-// The port number for the Service Connect proxy to listen on.
+// Port number for the Service Connect proxy to listen on.
 func (o ServiceServiceConnectConfigurationServiceOutput) IngressPortOverride() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) *int { return v.IngressPortOverride }).(pulumi.IntPtrOutput)
 }
 
-// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
 func (o ServiceServiceConnectConfigurationServiceOutput) PortName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) string { return v.PortName }).(pulumi.StringOutput)
 }
@@ -3040,7 +3040,7 @@ func (o ServiceServiceConnectConfigurationServiceOutput) Timeout() ServiceServic
 	}).(ServiceServiceConnectConfigurationServiceTimeoutPtrOutput)
 }
 
-// The configuration for enabling Transport Layer Security (TLS)
+// Configuration for enabling Transport Layer Security (TLS)
 func (o ServiceServiceConnectConfigurationServiceOutput) Tls() ServiceServiceConnectConfigurationServiceTlsPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) *ServiceServiceConnectConfigurationServiceTls {
 		return v.Tls
@@ -3068,9 +3068,9 @@ func (o ServiceServiceConnectConfigurationServiceArrayOutput) Index(i pulumi.Int
 }
 
 type ServiceServiceConnectConfigurationServiceClientAlias struct {
-	// The name that you use in the applications of client tasks to connect to this service.
+	// Name that you use in the applications of client tasks to connect to this service.
 	DnsName *string `pulumi:"dnsName"`
-	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+	// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	Port int `pulumi:"port"`
 }
 
@@ -3086,9 +3086,9 @@ type ServiceServiceConnectConfigurationServiceClientAliasInput interface {
 }
 
 type ServiceServiceConnectConfigurationServiceClientAliasArgs struct {
-	// The name that you use in the applications of client tasks to connect to this service.
+	// Name that you use in the applications of client tasks to connect to this service.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+	// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -3143,12 +3143,12 @@ func (o ServiceServiceConnectConfigurationServiceClientAliasOutput) ToServiceSer
 	return o
 }
 
-// The name that you use in the applications of client tasks to connect to this service.
+// Name that you use in the applications of client tasks to connect to this service.
 func (o ServiceServiceConnectConfigurationServiceClientAliasOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAlias) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
 func (o ServiceServiceConnectConfigurationServiceClientAliasOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceClientAlias) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -3174,9 +3174,9 @@ func (o ServiceServiceConnectConfigurationServiceClientAliasArrayOutput) Index(i
 }
 
 type ServiceServiceConnectConfigurationServiceTimeout struct {
-	// The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+	// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
 	IdleTimeoutSeconds *int `pulumi:"idleTimeoutSeconds"`
-	// The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+	// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
 	PerRequestTimeoutSeconds *int `pulumi:"perRequestTimeoutSeconds"`
 }
 
@@ -3192,9 +3192,9 @@ type ServiceServiceConnectConfigurationServiceTimeoutInput interface {
 }
 
 type ServiceServiceConnectConfigurationServiceTimeoutArgs struct {
-	// The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+	// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
 	IdleTimeoutSeconds pulumi.IntPtrInput `pulumi:"idleTimeoutSeconds"`
-	// The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+	// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
 	PerRequestTimeoutSeconds pulumi.IntPtrInput `pulumi:"perRequestTimeoutSeconds"`
 }
 
@@ -3275,12 +3275,12 @@ func (o ServiceServiceConnectConfigurationServiceTimeoutOutput) ToServiceService
 	}).(ServiceServiceConnectConfigurationServiceTimeoutPtrOutput)
 }
 
-// The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
 func (o ServiceServiceConnectConfigurationServiceTimeoutOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTimeout) *int { return v.IdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
 func (o ServiceServiceConnectConfigurationServiceTimeoutOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTimeout) *int { return v.PerRequestTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3309,7 +3309,7 @@ func (o ServiceServiceConnectConfigurationServiceTimeoutPtrOutput) Elem() Servic
 	}).(ServiceServiceConnectConfigurationServiceTimeoutOutput)
 }
 
-// The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+// Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
 func (o ServiceServiceConnectConfigurationServiceTimeoutPtrOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTimeout) *int {
 		if v == nil {
@@ -3319,7 +3319,7 @@ func (o ServiceServiceConnectConfigurationServiceTimeoutPtrOutput) IdleTimeoutSe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+// Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
 func (o ServiceServiceConnectConfigurationServiceTimeoutPtrOutput) PerRequestTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTimeout) *int {
 		if v == nil {
@@ -3330,11 +3330,11 @@ func (o ServiceServiceConnectConfigurationServiceTimeoutPtrOutput) PerRequestTim
 }
 
 type ServiceServiceConnectConfigurationServiceTls struct {
-	// The details of the certificate authority which will issue the certificate.
+	// Details of the certificate authority which will issue the certificate.
 	IssuerCertAuthority ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority `pulumi:"issuerCertAuthority"`
-	// The KMS key used to encrypt the private key in Secrets Manager.
+	// KMS key used to encrypt the private key in Secrets Manager.
 	KmsKey *string `pulumi:"kmsKey"`
-	// The ARN of the IAM Role that's associated with the Service Connect TLS.
+	// ARN of the IAM Role that's associated with the Service Connect TLS.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -3350,11 +3350,11 @@ type ServiceServiceConnectConfigurationServiceTlsInput interface {
 }
 
 type ServiceServiceConnectConfigurationServiceTlsArgs struct {
-	// The details of the certificate authority which will issue the certificate.
+	// Details of the certificate authority which will issue the certificate.
 	IssuerCertAuthority ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityInput `pulumi:"issuerCertAuthority"`
-	// The KMS key used to encrypt the private key in Secrets Manager.
+	// KMS key used to encrypt the private key in Secrets Manager.
 	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
-	// The ARN of the IAM Role that's associated with the Service Connect TLS.
+	// ARN of the IAM Role that's associated with the Service Connect TLS.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
@@ -3435,19 +3435,19 @@ func (o ServiceServiceConnectConfigurationServiceTlsOutput) ToServiceServiceConn
 	}).(ServiceServiceConnectConfigurationServiceTlsPtrOutput)
 }
 
-// The details of the certificate authority which will issue the certificate.
+// Details of the certificate authority which will issue the certificate.
 func (o ServiceServiceConnectConfigurationServiceTlsOutput) IssuerCertAuthority() ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTls) ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
 		return v.IssuerCertAuthority
 	}).(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput)
 }
 
-// The KMS key used to encrypt the private key in Secrets Manager.
+// KMS key used to encrypt the private key in Secrets Manager.
 func (o ServiceServiceConnectConfigurationServiceTlsOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTls) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role that's associated with the Service Connect TLS.
+// ARN of the IAM Role that's associated with the Service Connect TLS.
 func (o ServiceServiceConnectConfigurationServiceTlsOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTls) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -3476,7 +3476,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) Elem() ServiceSer
 	}).(ServiceServiceConnectConfigurationServiceTlsOutput)
 }
 
-// The details of the certificate authority which will issue the certificate.
+// Details of the certificate authority which will issue the certificate.
 func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) IssuerCertAuthority() ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTls) *ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
 		if v == nil {
@@ -3486,7 +3486,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) IssuerCertAuthori
 	}).(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput)
 }
 
-// The KMS key used to encrypt the private key in Secrets Manager.
+// KMS key used to encrypt the private key in Secrets Manager.
 func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTls) *string {
 		if v == nil {
@@ -3496,7 +3496,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) KmsKey() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM Role that's associated with the Service Connect TLS.
+// ARN of the IAM Role that's associated with the Service Connect TLS.
 func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTls) *string {
 		if v == nil {
@@ -3507,7 +3507,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) RoleArn() pulumi.
 }
 
 type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority struct {
-	// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+	// ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
 	AwsPcaAuthorityArn string `pulumi:"awsPcaAuthorityArn"`
 }
 
@@ -3523,7 +3523,7 @@ type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityInput interf
 }
 
 type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs struct {
-	// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+	// ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
 	AwsPcaAuthorityArn pulumi.StringInput `pulumi:"awsPcaAuthorityArn"`
 }
 
@@ -3604,7 +3604,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput) T
 	}).(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput)
 }
 
-// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+// ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
 func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput) AwsPcaAuthorityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority) string {
 		return v.AwsPcaAuthorityArn
@@ -3635,7 +3635,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput
 	}).(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput)
 }
 
-// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+// ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
 func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority) *string {
 		if v == nil {
@@ -3836,6 +3836,453 @@ func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.RegistryArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceVolumeConfiguration struct {
+	// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+	ManagedEbsVolume ServiceVolumeConfigurationManagedEbsVolume `pulumi:"managedEbsVolume"`
+	// Name of the volume.
+	Name string `pulumi:"name"`
+}
+
+// ServiceVolumeConfigurationInput is an input type that accepts ServiceVolumeConfigurationArgs and ServiceVolumeConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationInput` via:
+//
+//	ServiceVolumeConfigurationArgs{...}
+type ServiceVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput
+	ToServiceVolumeConfigurationOutputWithContext(context.Context) ServiceVolumeConfigurationOutput
+}
+
+type ServiceVolumeConfigurationArgs struct {
+	// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+	ManagedEbsVolume ServiceVolumeConfigurationManagedEbsVolumeInput `pulumi:"managedEbsVolume"`
+	// Name of the volume.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput {
+	return i.ToServiceVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationOutput)
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationPtrOutput() ServiceVolumeConfigurationPtrOutput {
+	return i.ToServiceVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationOutput).ToServiceVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceVolumeConfigurationPtrInput is an input type that accepts ServiceVolumeConfigurationArgs, ServiceVolumeConfigurationPtr and ServiceVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationPtrInput` via:
+//
+//	        ServiceVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationPtrOutput() ServiceVolumeConfigurationPtrOutput
+	ToServiceVolumeConfigurationPtrOutputWithContext(context.Context) ServiceVolumeConfigurationPtrOutput
+}
+
+type serviceVolumeConfigurationPtrType ServiceVolumeConfigurationArgs
+
+func ServiceVolumeConfigurationPtr(v *ServiceVolumeConfigurationArgs) ServiceVolumeConfigurationPtrInput {
+	return (*serviceVolumeConfigurationPtrType)(v)
+}
+
+func (*serviceVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *serviceVolumeConfigurationPtrType) ToServiceVolumeConfigurationPtrOutput() ServiceVolumeConfigurationPtrOutput {
+	return i.ToServiceVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceVolumeConfigurationPtrType) ToServiceVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationPtrOutput)
+}
+
+type ServiceVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationPtrOutput() ServiceVolumeConfigurationPtrOutput {
+	return o.ToServiceVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceVolumeConfiguration) *ServiceVolumeConfiguration {
+		return &v
+	}).(ServiceVolumeConfigurationPtrOutput)
+}
+
+// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+func (o ServiceVolumeConfigurationOutput) ManagedEbsVolume() ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return o.ApplyT(func(v ServiceVolumeConfiguration) ServiceVolumeConfigurationManagedEbsVolume {
+		return v.ManagedEbsVolume
+	}).(ServiceVolumeConfigurationManagedEbsVolumeOutput)
+}
+
+// Name of the volume.
+func (o ServiceVolumeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVolumeConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationPtrOutput) ToServiceVolumeConfigurationPtrOutput() ServiceVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationPtrOutput) ToServiceVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationPtrOutput) Elem() ServiceVolumeConfigurationOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfiguration) ServiceVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceVolumeConfiguration
+		return ret
+	}).(ServiceVolumeConfigurationOutput)
+}
+
+// Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+func (o ServiceVolumeConfigurationPtrOutput) ManagedEbsVolume() ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfiguration) *ServiceVolumeConfigurationManagedEbsVolume {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedEbsVolume
+	}).(ServiceVolumeConfigurationManagedEbsVolumePtrOutput)
+}
+
+// Name of the volume.
+func (o ServiceVolumeConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolume struct {
+	// Whether the volume should be encrypted. Default value is `true`.
+	Encrypted *bool `pulumi:"encrypted"`
+	// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+	FileSystemType *string `pulumi:"fileSystemType"`
+	// Number of I/O operations per second (IOPS).
+	Iops *int `pulumi:"iops"`
+	// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+	RoleArn string `pulumi:"roleArn"`
+	// Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+	SizeInGb *int `pulumi:"sizeInGb"`
+	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+	Throughput *string `pulumi:"throughput"`
+	// Volume type.
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// ServiceVolumeConfigurationManagedEbsVolumeInput is an input type that accepts ServiceVolumeConfigurationManagedEbsVolumeArgs and ServiceVolumeConfigurationManagedEbsVolumeOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationManagedEbsVolumeInput` via:
+//
+//	ServiceVolumeConfigurationManagedEbsVolumeArgs{...}
+type ServiceVolumeConfigurationManagedEbsVolumeInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationManagedEbsVolumeOutput() ServiceVolumeConfigurationManagedEbsVolumeOutput
+	ToServiceVolumeConfigurationManagedEbsVolumeOutputWithContext(context.Context) ServiceVolumeConfigurationManagedEbsVolumeOutput
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
+	// Whether the volume should be encrypted. Default value is `true`.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+	FileSystemType pulumi.StringPtrInput `pulumi:"fileSystemType"`
+	// Number of I/O operations per second (IOPS).
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+	SizeInGb pulumi.IntPtrInput `pulumi:"sizeInGb"`
+	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+	Throughput pulumi.StringPtrInput `pulumi:"throughput"`
+	// Volume type.
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (ServiceVolumeConfigurationManagedEbsVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolume)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeArgs) ToServiceVolumeConfigurationManagedEbsVolumeOutput() ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return i.ToServiceVolumeConfigurationManagedEbsVolumeOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeArgs) ToServiceVolumeConfigurationManagedEbsVolumeOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationManagedEbsVolumeOutput)
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeArgs) ToServiceVolumeConfigurationManagedEbsVolumePtrOutput() ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return i.ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeArgs) ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationManagedEbsVolumeOutput).ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(ctx)
+}
+
+// ServiceVolumeConfigurationManagedEbsVolumePtrInput is an input type that accepts ServiceVolumeConfigurationManagedEbsVolumeArgs, ServiceVolumeConfigurationManagedEbsVolumePtr and ServiceVolumeConfigurationManagedEbsVolumePtrOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationManagedEbsVolumePtrInput` via:
+//
+//	        ServiceVolumeConfigurationManagedEbsVolumeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceVolumeConfigurationManagedEbsVolumePtrInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationManagedEbsVolumePtrOutput() ServiceVolumeConfigurationManagedEbsVolumePtrOutput
+	ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(context.Context) ServiceVolumeConfigurationManagedEbsVolumePtrOutput
+}
+
+type serviceVolumeConfigurationManagedEbsVolumePtrType ServiceVolumeConfigurationManagedEbsVolumeArgs
+
+func ServiceVolumeConfigurationManagedEbsVolumePtr(v *ServiceVolumeConfigurationManagedEbsVolumeArgs) ServiceVolumeConfigurationManagedEbsVolumePtrInput {
+	return (*serviceVolumeConfigurationManagedEbsVolumePtrType)(v)
+}
+
+func (*serviceVolumeConfigurationManagedEbsVolumePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVolumeConfigurationManagedEbsVolume)(nil)).Elem()
+}
+
+func (i *serviceVolumeConfigurationManagedEbsVolumePtrType) ToServiceVolumeConfigurationManagedEbsVolumePtrOutput() ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return i.ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceVolumeConfigurationManagedEbsVolumePtrType) ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationManagedEbsVolumePtrOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationManagedEbsVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolume)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) ToServiceVolumeConfigurationManagedEbsVolumeOutput() ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) ToServiceVolumeConfigurationManagedEbsVolumeOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) ToServiceVolumeConfigurationManagedEbsVolumePtrOutput() ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return o.ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceVolumeConfigurationManagedEbsVolume) *ServiceVolumeConfigurationManagedEbsVolume {
+		return &v
+	}).(ServiceVolumeConfigurationManagedEbsVolumePtrOutput)
+}
+
+// Whether the volume should be encrypted. Default value is `true`.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) FileSystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.FileSystemType }).(pulumi.StringPtrOutput)
+}
+
+// Number of I/O operations per second (IOPS).
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) SizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.SizeInGb }).(pulumi.IntPtrOutput)
+}
+
+// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Throughput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.Throughput }).(pulumi.StringPtrOutput)
+}
+
+// Volume type.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationManagedEbsVolumePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVolumeConfigurationManagedEbsVolume)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) ToServiceVolumeConfigurationManagedEbsVolumePtrOutput() ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) ToServiceVolumeConfigurationManagedEbsVolumePtrOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumePtrOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Elem() ServiceVolumeConfigurationManagedEbsVolumeOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) ServiceVolumeConfigurationManagedEbsVolume {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceVolumeConfigurationManagedEbsVolume
+		return ret
+	}).(ServiceVolumeConfigurationManagedEbsVolumeOutput)
+}
+
+// Whether the volume should be encrypted. Default value is `true`.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) FileSystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of I/O operations per second (IOPS).
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) SizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Throughput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.StringPtrOutput)
+}
+
+// Volume type.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4520,6 +4967,8 @@ func (o TaskDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.S
 }
 
 type TaskDefinitionVolume struct {
+	// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+	ConfigureAtLaunch *bool `pulumi:"configureAtLaunch"`
 	// Configuration block to configure a docker volume. Detailed below.
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
@@ -4545,6 +4994,8 @@ type TaskDefinitionVolumeInput interface {
 }
 
 type TaskDefinitionVolumeArgs struct {
+	// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+	ConfigureAtLaunch pulumi.BoolPtrInput `pulumi:"configureAtLaunch"`
 	// Configuration block to configure a docker volume. Detailed below.
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
@@ -4607,6 +5058,11 @@ func (o TaskDefinitionVolumeOutput) ToTaskDefinitionVolumeOutput() TaskDefinitio
 
 func (o TaskDefinitionVolumeOutput) ToTaskDefinitionVolumeOutputWithContext(ctx context.Context) TaskDefinitionVolumeOutput {
 	return o
+}
+
+// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+func (o TaskDefinitionVolumeOutput) ConfigureAtLaunch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *bool { return v.ConfigureAtLaunch }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block to configure a docker volume. Detailed below.
@@ -7830,6 +8286,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrInput)(nil)).Elem(), ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceRegistriesInput)(nil)).Elem(), ServiceServiceRegistriesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceServiceRegistriesPtrInput)(nil)).Elem(), ServiceServiceRegistriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationPtrInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumePtrInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStoragePtrInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), TaskDefinitionInferenceAcceleratorArgs{})
@@ -7934,6 +8394,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})

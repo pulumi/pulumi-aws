@@ -22,13 +22,16 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_sha256=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, logging_configs=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if code_sha256 and not isinstance(code_sha256, str):
+            raise TypeError("Expected argument 'code_sha256' to be a str")
+        pulumi.set(__self__, "code_sha256", code_sha256)
         if code_signing_config_arn and not isinstance(code_signing_config_arn, str):
             raise TypeError("Expected argument 'code_signing_config_arn' to be a str")
         pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
@@ -138,6 +141,14 @@ class GetFunctionResult:
         Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="codeSha256")
+    def code_sha256(self) -> str:
+        """
+        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        """
+        return pulumi.get(self, "code_sha256")
 
     @property
     @pulumi.getter(name="codeSigningConfigArn")
@@ -329,8 +340,11 @@ class GetFunctionResult:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> str:
         """
-        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
+        warnings.warn("""This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""", DeprecationWarning)
+        pulumi.log.warn("""source_code_hash is deprecated: This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""")
+
         return pulumi.get(self, "source_code_hash")
 
     @property
@@ -387,6 +401,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         return GetFunctionResult(
             architectures=self.architectures,
             arn=self.arn,
+            code_sha256=self.code_sha256,
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
             description=self.description,
@@ -452,6 +467,7 @@ def get_function(function_name: Optional[str] = None,
     return AwaitableGetFunctionResult(
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
+        code_sha256=pulumi.get(__ret__, 'code_sha256'),
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
         description=pulumi.get(__ret__, 'description'),

@@ -1251,6 +1251,10 @@
     {
       "old": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Terraform to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)",
       "new": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)"
+    },
+    {
+      "old": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(\"file.zip\")` (Terraform 0.11.12 and later) or `base64sha256(file(\"file.zip\"))` (Terraform 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda function source archive.\n",
+      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(\"file.zip\")` (TODO 0.11.12 and later) or `base64sha256(file(\"file.zip\"))` (TODO 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda function source archive.\n"
     }
   ],
   "lambda_functions.html.markdown": [
@@ -1297,6 +1301,10 @@
     {
       "old": "~> **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running `terraform destroy`. Layer versions are thus intentional dangling resources that are _not_ managed by Terraform and may incur extra expense in your AWS account.",
       "new": "~> **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account."
+    },
+    {
+      "old": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256(\"file.zip\")}` (Terraform 0.11.12 or later) or `${base64sha256(file(\"file.zip\"))}` (Terraform 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda layer source archive.\n",
+      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256(\"file.zip\")}` (TODO 0.11.12 or later) or `${base64sha256(file(\"file.zip\"))}` (TODO 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda layer source archive.\n"
     }
   ],
   "lambda_layer_version_permission.html.markdown": [

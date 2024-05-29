@@ -268,6 +268,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    public /*out*/ readonly codeSha256!: pulumi.Output<string>;
+    /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      */
     public readonly codeSigningConfigArn!: pulumi.Output<string | undefined>;
@@ -348,15 +352,15 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
     /**
-     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * Whether to replace the security groups on the function's VPC configuration prior to destruction.
+     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+     * By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+     * Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
      */
     public readonly replaceSecurityGroupsOnDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * List of security group IDs to assign to the function's VPC configuration prior to destruction.
+     * `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
      */
     public readonly replacementSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -401,9 +405,6 @@ export class Function extends pulumi.CustomResource {
      * Snap start settings block. Detailed below.
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -452,6 +453,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["architectures"] = state ? state.architectures : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["codeSha256"] = state ? state.codeSha256 : undefined;
             resourceInputs["codeSigningConfigArn"] = state ? state.codeSigningConfigArn : undefined;
             resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -531,6 +533,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["codeSha256"] = undefined /*out*/;
             resourceInputs["invokeArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["qualifiedArn"] = undefined /*out*/;
@@ -562,6 +565,10 @@ export interface FunctionState {
      * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    codeSha256?: pulumi.Input<string>;
     /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      */
@@ -643,15 +650,15 @@ export interface FunctionState {
      */
     qualifiedInvokeArn?: pulumi.Input<string>;
     /**
-     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * Whether to replace the security groups on the function's VPC configuration prior to destruction.
+     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+     * By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+     * Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
      */
     replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
     /**
-     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * List of security group IDs to assign to the function's VPC configuration prior to destruction.
+     * `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
      */
     replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -696,9 +703,6 @@ export interface FunctionState {
      * Snap start settings block. Detailed below.
      */
     snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -809,15 +813,15 @@ export interface FunctionArgs {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * Whether to replace the security groups on the function's VPC configuration prior to destruction.
+     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+     * By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+     * Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
      */
     replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
     /**
-     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-     *
-     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * List of security group IDs to assign to the function's VPC configuration prior to destruction.
+     * `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
      */
     replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -854,9 +858,6 @@ export interface FunctionArgs {
      * Snap start settings block. Detailed below.
      */
     snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

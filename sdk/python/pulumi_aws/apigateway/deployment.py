@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
@@ -15,6 +17,7 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  rest_api: pulumi.Input[str],
+                 canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
@@ -23,6 +26,7 @@ class DeploymentArgs:
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] rest_api: REST API identifier.
+        :param pulumi.Input['DeploymentCanarySettingsArgs'] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
         :param pulumi.Input[str] stage_name: Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `apigateway.Stage` resource instead to manage stages.
@@ -30,6 +34,8 @@ class DeploymentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
         pulumi.set(__self__, "rest_api", rest_api)
+        if canary_settings is not None:
+            pulumi.set(__self__, "canary_settings", canary_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if stage_description is not None:
@@ -52,6 +58,18 @@ class DeploymentArgs:
     @rest_api.setter
     def rest_api(self, value: pulumi.Input[str]):
         pulumi.set(self, "rest_api", value)
+
+    @property
+    @pulumi.getter(name="canarySettings")
+    def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
+        """
+        Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        """
+        return pulumi.get(self, "canary_settings")
+
+    @canary_settings.setter
+    def canary_settings(self, value: Optional[pulumi.Input['DeploymentCanarySettingsArgs']]):
+        pulumi.set(self, "canary_settings", value)
 
     @property
     @pulumi.getter
@@ -117,6 +135,7 @@ class DeploymentArgs:
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
+                 canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_arn: Optional[pulumi.Input[str]] = None,
@@ -128,6 +147,7 @@ class _DeploymentState:
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input['DeploymentCanarySettingsArgs'] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] created_date: Creation date of the deployment
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
@@ -141,6 +161,8 @@ class _DeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
+        if canary_settings is not None:
+            pulumi.set(__self__, "canary_settings", canary_settings)
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
         if description is not None:
@@ -159,6 +181,18 @@ class _DeploymentState:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="canarySettings")
+    def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
+        """
+        Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        """
+        return pulumi.get(self, "canary_settings")
+
+    @canary_settings.setter
+    def canary_settings(self, value: Optional[pulumi.Input['DeploymentCanarySettingsArgs']]):
+        pulumi.set(self, "canary_settings", value)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -277,6 +311,7 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[str]] = None,
@@ -309,6 +344,7 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] rest_api: REST API identifier.
         :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
@@ -360,6 +396,7 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[str]] = None,
@@ -375,6 +412,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            __props__.__dict__["canary_settings"] = canary_settings
             __props__.__dict__["description"] = description
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
@@ -396,6 +434,7 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
@@ -412,6 +451,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] created_date: Creation date of the deployment
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
@@ -429,6 +469,7 @@ class Deployment(pulumi.CustomResource):
 
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
+        __props__.__dict__["canary_settings"] = canary_settings
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["description"] = description
         __props__.__dict__["execution_arn"] = execution_arn
@@ -439,6 +480,14 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["variables"] = variables
         return Deployment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="canarySettings")
+    def canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
+        """
+        Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        """
+        return pulumi.get(self, "canary_settings")
 
     @property
     @pulumi.getter(name="createdDate")

@@ -95,7 +95,7 @@ type ClassificationJob struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails ClassificationJobUserPausedDetailArrayOutput `pulumi:"userPausedDetails"`
 }
 
@@ -163,7 +163,7 @@ type classificationJobState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails []ClassificationJobUserPausedDetail `pulumi:"userPausedDetails"`
 }
 
@@ -196,7 +196,7 @@ type ClassificationJobState struct {
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails ClassificationJobUserPausedDetailArrayInput
 }
 
@@ -415,7 +415,7 @@ func (o ClassificationJobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 func (o ClassificationJobOutput) UserPausedDetails() ClassificationJobUserPausedDetailArrayOutput {
 	return o.ApplyT(func(v *ClassificationJob) ClassificationJobUserPausedDetailArrayOutput { return v.UserPausedDetails }).(ClassificationJobUserPausedDetailArrayOutput)
 }

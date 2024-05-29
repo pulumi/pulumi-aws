@@ -18,22 +18,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfigurationService {
     /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
     private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias;
     /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     * @return Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
      */
     private @Nullable String discoveryName;
     /**
-     * @return The port number for the Service Connect proxy to listen on.
+     * @return Port number for the Service Connect proxy to listen on.
      * 
      */
     private @Nullable Integer ingressPortOverride;
     /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     * @return Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
      * 
      */
     private String portName;
@@ -43,35 +43,35 @@ public final class ServiceServiceConnectConfigurationService {
      */
     private @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout;
     /**
-     * @return The configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling Transport Layer Security (TLS)
      * 
      */
     private @Nullable ServiceServiceConnectConfigurationServiceTls tls;
 
     private ServiceServiceConnectConfigurationService() {}
     /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
     public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias() {
         return this.clientAlias == null ? List.of() : this.clientAlias;
     }
     /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     * @return Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
      */
     public Optional<String> discoveryName() {
         return Optional.ofNullable(this.discoveryName);
     }
     /**
-     * @return The port number for the Service Connect proxy to listen on.
+     * @return Port number for the Service Connect proxy to listen on.
      * 
      */
     public Optional<Integer> ingressPortOverride() {
         return Optional.ofNullable(this.ingressPortOverride);
     }
     /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     * @return Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
      * 
      */
     public String portName() {
@@ -85,7 +85,7 @@ public final class ServiceServiceConnectConfigurationService {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return The configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling Transport Layer Security (TLS)
      * 
      */
     public Optional<ServiceServiceConnectConfigurationServiceTls> tls() {

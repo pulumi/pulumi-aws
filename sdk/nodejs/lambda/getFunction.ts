@@ -61,6 +61,10 @@ export interface GetFunctionResult {
      */
     readonly arn: string;
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    readonly codeSha256: string;
+    /**
      * ARN for a Code Signing Configuration.
      */
     readonly codeSigningConfigArn: string;
@@ -151,7 +155,9 @@ export interface GetFunctionResult {
      */
     readonly signingProfileVersionArn: string;
     /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     *
+     * @deprecated This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
      */
     readonly sourceCodeHash: string;
     /**

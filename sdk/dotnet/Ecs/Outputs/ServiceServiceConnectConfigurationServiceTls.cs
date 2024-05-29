@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationServiceTls
     {
         /// <summary>
-        /// The details of the certificate authority which will issue the certificate.
+        /// Details of the certificate authority which will issue the certificate.
         /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority IssuerCertAuthority;
         /// <summary>
-        /// The KMS key used to encrypt the private key in Secrets Manager.
+        /// KMS key used to encrypt the private key in Secrets Manager.
         /// </summary>
         public readonly string? KmsKey;
         /// <summary>
-        /// The ARN of the IAM Role that's associated with the Service Connect TLS.
+        /// ARN of the IAM Role that's associated with the Service Connect TLS.
         /// </summary>
         public readonly string? RoleArn;
 

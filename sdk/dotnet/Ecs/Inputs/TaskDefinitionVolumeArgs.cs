@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+        /// </summary>
+        [Input("configureAtLaunch")]
+        public Input<bool>? ConfigureAtLaunch { get; set; }
+
+        /// <summary>
         /// Configuration block to configure a docker volume. Detailed below.
         /// </summary>
         [Input("dockerVolumeConfiguration")]

@@ -22,14 +22,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     public static final ServiceServiceConnectConfigurationServiceArgs Empty = new ServiceServiceConnectConfigurationServiceArgs();
 
     /**
-     * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
     @Import(name="clientAlias")
     private @Nullable Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAlias;
 
     /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+     * @return List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
     public Optional<Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>>> clientAlias() {
@@ -37,14 +37,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     }
 
     /**
-     * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     * Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
      */
     @Import(name="discoveryName")
     private @Nullable Output<String> discoveryName;
 
     /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+     * @return Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
      */
     public Optional<Output<String>> discoveryName() {
@@ -52,14 +52,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     }
 
     /**
-     * The port number for the Service Connect proxy to listen on.
+     * Port number for the Service Connect proxy to listen on.
      * 
      */
     @Import(name="ingressPortOverride")
     private @Nullable Output<Integer> ingressPortOverride;
 
     /**
-     * @return The port number for the Service Connect proxy to listen on.
+     * @return Port number for the Service Connect proxy to listen on.
      * 
      */
     public Optional<Output<Integer>> ingressPortOverride() {
@@ -67,14 +67,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     }
 
     /**
-     * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     * Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
      * 
      */
     @Import(name="portName", required=true)
     private Output<String> portName;
 
     /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+     * @return Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
      * 
      */
     public Output<String> portName() {
@@ -97,14 +97,14 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
     }
 
     /**
-     * The configuration for enabling Transport Layer Security (TLS)
+     * Configuration for enabling Transport Layer Security (TLS)
      * 
      */
     @Import(name="tls")
     private @Nullable Output<ServiceServiceConnectConfigurationServiceTlsArgs> tls;
 
     /**
-     * @return The configuration for enabling Transport Layer Security (TLS)
+     * @return Configuration for enabling Transport Layer Security (TLS)
      * 
      */
     public Optional<Output<ServiceServiceConnectConfigurationServiceTlsArgs>> tls() {
@@ -141,7 +141,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param clientAlias The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * @param clientAlias List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param discoveryName The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+         * @param discoveryName Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param discoveryName The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+         * @param discoveryName Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param ingressPortOverride The port number for the Service Connect proxy to listen on.
+         * @param ingressPortOverride Port number for the Service Connect proxy to listen on.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param ingressPortOverride The port number for the Service Connect proxy to listen on.
+         * @param ingressPortOverride Port number for the Service Connect proxy to listen on.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param portName The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+         * @param portName Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param portName The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+         * @param portName Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param tls The configuration for enabling Transport Layer Security (TLS)
+         * @param tls Configuration for enabling Transport Layer Security (TLS)
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
         }
 
         /**
-         * @param tls The configuration for enabling Transport Layer Security (TLS)
+         * @param tls Configuration for enabling Transport Layer Security (TLS)
          * 
          * @return builder
          * 

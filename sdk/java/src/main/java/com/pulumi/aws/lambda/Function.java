@@ -459,6 +459,20 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.code);
     }
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    @Export(name="codeSha256", refs={String.class}, tree="[0]")
+    private Output<String> codeSha256;
+
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    public Output<String> codeSha256() {
+        return this.codeSha256;
+    }
+    /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      * 
      */
@@ -739,36 +753,36 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedInvokeArn;
     }
     /**
-     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
-     * 
-     * @deprecated
-     * AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
+     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
+     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
+     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
      * 
      */
-    @Deprecated /* AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version. */
     @Export(name="replaceSecurityGroupsOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceSecurityGroupsOnDestroy;
 
     /**
-     * @return **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * @return Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
+     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
+     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
+     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
      * 
      */
     public Output<Optional<Boolean>> replaceSecurityGroupsOnDestroy() {
         return Codegen.optional(this.replaceSecurityGroupsOnDestroy);
     }
     /**
-     * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
-     * 
-     * @deprecated
-     * AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
+     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
      * 
      */
-    @Deprecated /* AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version. */
     @Export(name="replacementSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> replacementSecurityGroupIds;
 
     /**
-     * @return List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
+     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
      * 
      */
     public Output<Optional<List<String>>> replacementSecurityGroupIds() {
@@ -918,17 +932,9 @@ public class Function extends com.pulumi.resources.CustomResource {
     public Output<Optional<FunctionSnapStart>> snapStart() {
         return Codegen.optional(this.snapStart);
     }
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
-    /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }

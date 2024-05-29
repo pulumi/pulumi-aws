@@ -561,13 +561,300 @@ class Key(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Symmetric Encryption KMS Key
+
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        a = aws.kms.Key("a",
-            description="KMS key 1",
-            deletion_window_in_days=10)
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example symmetric encryption KMS key",
+            enable_key_rotation=True,
+            deletion_window_in_days=20,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Alice",
+                        },
+                        "Action": [
+                            "kms:ReplicateKey",
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Bob",
+                        },
+                        "Action": [
+                            "kms:DescribeKey",
+                            "kms:Encrypt",
+                            "kms:Decrypt",
+                            "kms:ReEncrypt*",
+                            "kms:GenerateDataKey",
+                            "kms:GenerateDataKeyWithoutPlaintext",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### Symmetric Encryption KMS Key With Standalone Policy Resource
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example symmetric encryption KMS key",
+            enable_key_rotation=True,
+            deletion_window_in_days=20)
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [{
+                    "Sid": "Enable IAM User Permissions",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": f"arn:aws:iam::{current.account_id}:root",
+                    },
+                    "Action": "kms:*",
+                    "Resource": "*",
+                }],
+            }))
+        ```
+
+        ### Asymmetric KMS Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="RSA-3072 asymmetric KMS key for signing and verification",
+            customer_master_key_spec="RSA_3072",
+            key_usage="SIGN_VERIFY",
+            enable_key_rotation=False,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Admin",
+                        },
+                        "Action": [
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Developer",
+                        },
+                        "Action": [
+                            "kms:Sign",
+                            "kms:Verify",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### HMAC KMS key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="HMAC_384 key for tokens",
+            customer_master_key_spec="HMAC_384",
+            key_usage="GENERATE_VERIFY_MAC",
+            enable_key_rotation=False,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Admin",
+                        },
+                        "Action": [
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Developer",
+                        },
+                        "Action": [
+                            "kms:GenerateMac",
+                            "kms:VerifyMac",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### Multi-Region Primary Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example multi-Region primary key",
+            multi_region=True,
+            enable_key_rotation=True,
+            deletion_window_in_days=10,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Alice",
+                        },
+                        "Action": [
+                            "kms:ReplicateKey",
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Bob",
+                        },
+                        "Action": [
+                            "kms:DescribeKey",
+                            "kms:Encrypt",
+                            "kms:Decrypt",
+                            "kms:ReEncrypt*",
+                            "kms:GenerateDataKey",
+                            "kms:GenerateDataKeyWithoutPlaintext",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
         ```
 
         ## Import
@@ -618,13 +905,300 @@ class Key(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Symmetric Encryption KMS Key
+
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        a = aws.kms.Key("a",
-            description="KMS key 1",
-            deletion_window_in_days=10)
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example symmetric encryption KMS key",
+            enable_key_rotation=True,
+            deletion_window_in_days=20,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Alice",
+                        },
+                        "Action": [
+                            "kms:ReplicateKey",
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Bob",
+                        },
+                        "Action": [
+                            "kms:DescribeKey",
+                            "kms:Encrypt",
+                            "kms:Decrypt",
+                            "kms:ReEncrypt*",
+                            "kms:GenerateDataKey",
+                            "kms:GenerateDataKeyWithoutPlaintext",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### Symmetric Encryption KMS Key With Standalone Policy Resource
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example symmetric encryption KMS key",
+            enable_key_rotation=True,
+            deletion_window_in_days=20)
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [{
+                    "Sid": "Enable IAM User Permissions",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "AWS": f"arn:aws:iam::{current.account_id}:root",
+                    },
+                    "Action": "kms:*",
+                    "Resource": "*",
+                }],
+            }))
+        ```
+
+        ### Asymmetric KMS Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="RSA-3072 asymmetric KMS key for signing and verification",
+            customer_master_key_spec="RSA_3072",
+            key_usage="SIGN_VERIFY",
+            enable_key_rotation=False,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Admin",
+                        },
+                        "Action": [
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Developer",
+                        },
+                        "Action": [
+                            "kms:Sign",
+                            "kms:Verify",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### HMAC KMS key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="HMAC_384 key for tokens",
+            customer_master_key_spec="HMAC_384",
+            key_usage="GENERATE_VERIFY_MAC",
+            enable_key_rotation=False,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Admin",
+                        },
+                        "Action": [
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:role/Developer",
+                        },
+                        "Action": [
+                            "kms:GenerateMac",
+                            "kms:VerifyMac",
+                            "kms:DescribeKey",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
+        ```
+
+        ### Multi-Region Primary Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="An example multi-Region primary key",
+            multi_region=True,
+            enable_key_rotation=True,
+            deletion_window_in_days=10,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Id": "key-default-1",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:root",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow administration of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Alice",
+                        },
+                        "Action": [
+                            "kms:ReplicateKey",
+                            "kms:Create*",
+                            "kms:Describe*",
+                            "kms:Enable*",
+                            "kms:List*",
+                            "kms:Put*",
+                            "kms:Update*",
+                            "kms:Revoke*",
+                            "kms:Disable*",
+                            "kms:Get*",
+                            "kms:Delete*",
+                            "kms:ScheduleKeyDeletion",
+                            "kms:CancelKeyDeletion",
+                        ],
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow use of the key",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": f"arn:aws:iam::{current.account_id}:user/Bob",
+                        },
+                        "Action": [
+                            "kms:DescribeKey",
+                            "kms:Encrypt",
+                            "kms:Decrypt",
+                            "kms:ReEncrypt*",
+                            "kms:GenerateDataKey",
+                            "kms:GenerateDataKeyWithoutPlaintext",
+                        ],
+                        "Resource": "*",
+                    },
+                ],
+            }))
         ```
 
         ## Import

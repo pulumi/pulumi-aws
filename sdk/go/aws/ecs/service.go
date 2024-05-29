@@ -215,9 +215,9 @@ type Service struct {
 	DeploymentMinimumHealthyPercent pulumi.IntPtrOutput `pulumi:"deploymentMinimumHealthyPercent"`
 	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrOutput `pulumi:"desiredCount"`
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrOutput `pulumi:"forceNewDeployment"`
@@ -241,11 +241,11 @@ type Service struct {
 	PlacementConstraints ServicePlacementConstraintArrayOutput `pulumi:"placementConstraints"`
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
-	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrOutput `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
@@ -259,6 +259,8 @@ type Service struct {
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
 	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+	VolumeConfiguration ServiceVolumeConfigurationPtrOutput `pulumi:"volumeConfiguration"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
 }
@@ -309,9 +311,9 @@ type serviceState struct {
 	DeploymentMinimumHealthyPercent *int `pulumi:"deploymentMinimumHealthyPercent"`
 	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount *int `pulumi:"desiredCount"`
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
@@ -335,11 +337,11 @@ type serviceState struct {
 	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
-	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 	ServiceConnectConfiguration *ServiceServiceConnectConfiguration `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
@@ -353,6 +355,8 @@ type serviceState struct {
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 	Triggers map[string]string `pulumi:"triggers"`
+	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
@@ -374,9 +378,9 @@ type ServiceState struct {
 	DeploymentMinimumHealthyPercent pulumi.IntPtrInput
 	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrInput
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
@@ -400,11 +404,11 @@ type ServiceState struct {
 	PlacementConstraints ServicePlacementConstraintArrayInput
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
-	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
@@ -418,6 +422,8 @@ type ServiceState struct {
 	TaskDefinition pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 	Triggers pulumi.StringMapInput
+	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+	VolumeConfiguration ServiceVolumeConfigurationPtrInput
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
@@ -443,9 +449,9 @@ type serviceArgs struct {
 	DeploymentMinimumHealthyPercent *int `pulumi:"deploymentMinimumHealthyPercent"`
 	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount *int `pulumi:"desiredCount"`
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
@@ -469,11 +475,11 @@ type serviceArgs struct {
 	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags *string `pulumi:"propagateTags"`
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
-	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 	ServiceConnectConfiguration *ServiceServiceConnectConfiguration `pulumi:"serviceConnectConfiguration"`
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
@@ -483,6 +489,8 @@ type serviceArgs struct {
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 	Triggers map[string]string `pulumi:"triggers"`
+	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
@@ -505,9 +513,9 @@ type ServiceArgs struct {
 	DeploymentMinimumHealthyPercent pulumi.IntPtrInput
 	// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
 	DesiredCount pulumi.IntPtrInput
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
@@ -531,11 +539,11 @@ type ServiceArgs struct {
 	PlacementConstraints ServicePlacementConstraintArrayInput
 	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+	// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 	PropagateTags pulumi.StringPtrInput
 	// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
 	SchedulingStrategy pulumi.StringPtrInput
-	// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+	// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 	ServiceConnectConfiguration ServiceServiceConnectConfigurationPtrInput
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. See below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
@@ -545,6 +553,8 @@ type ServiceArgs struct {
 	TaskDefinition pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 	Triggers pulumi.StringMapInput
+	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+	VolumeConfiguration ServiceVolumeConfigurationPtrInput
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
@@ -676,12 +686,12 @@ func (o ServiceOutput) DesiredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.DesiredCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+// Whether to enable Amazon ECS managed tags for the tasks within the service.
 func (o ServiceOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+// Whether to enable Amazon ECS Exec for the tasks within the service.
 func (o ServiceOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
@@ -738,7 +748,7 @@ func (o ServiceOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
 func (o ServiceOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
@@ -748,7 +758,7 @@ func (o ServiceOutput) SchedulingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.SchedulingStrategy }).(pulumi.StringPtrOutput)
 }
 
-// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
 func (o ServiceOutput) ServiceConnectConfiguration() ServiceServiceConnectConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceServiceConnectConfigurationPtrOutput { return v.ServiceConnectConfiguration }).(ServiceServiceConnectConfigurationPtrOutput)
 }
@@ -778,6 +788,11 @@ func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
 // Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
 func (o ServiceOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
+}
+
+// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+func (o ServiceOutput) VolumeConfiguration() ServiceVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationPtrOutput { return v.VolumeConfiguration }).(ServiceVolumeConfigurationPtrOutput)
 }
 
 // If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

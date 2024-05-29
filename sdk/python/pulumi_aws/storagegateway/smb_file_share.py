@@ -51,7 +51,9 @@ class SmbFileShareArgs:
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -217,7 +219,9 @@ class SmbFileShareArgs:
     @pulumi.getter(name="cacheAttributes")
     def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
         """
-        Refresh cache information. see Cache Attributes for more details.
+        Refresh cache information. see `cache_attributes` Block for more details.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 
@@ -458,7 +462,9 @@ class _SmbFileShareState:
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -620,7 +626,9 @@ class _SmbFileShareState:
     @pulumi.getter(name="cacheAttributes")
     def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
         """
-        Refresh cache information. see Cache Attributes for more details.
+        Refresh cache information. see `cache_attributes` Block for more details.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 
@@ -977,7 +985,9 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -1183,7 +1193,9 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+               
+               **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -1294,7 +1306,9 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter(name="cacheAttributes")
     def cache_attributes(self) -> pulumi.Output[Optional['outputs.SmbFileShareCacheAttributes']]:
         """
-        Refresh cache information. see Cache Attributes for more details.
+        Refresh cache information. see `cache_attributes` Block for more details.
+
+        **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         """
         return pulumi.get(self, "cache_attributes")
 

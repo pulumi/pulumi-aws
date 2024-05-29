@@ -12,6 +12,7 @@ namespace Pulumi.Aws.Kms
     /// <summary>
     /// Provides a resource-based access control mechanism for a KMS customer master key.
     /// 
+    /// &gt; **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -107,6 +108,10 @@ namespace Pulumi.Aws.Kms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "grantToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -235,11 +240,21 @@ namespace Pulumi.Aws.Kms
         [Input("grantId")]
         public Input<string>? GrantId { get; set; }
 
+        [Input("grantToken")]
+        private Input<string>? _grantToken;
+
         /// <summary>
         /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
         /// </summary>
-        [Input("grantToken")]
-        public Input<string>? GrantToken { get; set; }
+        public Input<string>? GrantToken
+        {
+            get => _grantToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _grantToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.

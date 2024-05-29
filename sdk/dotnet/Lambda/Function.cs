@@ -377,6 +377,12 @@ namespace Pulumi.Aws.Lambda
         public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        [Output("codeSha256")]
+        public Output<string> CodeSha256 { get; private set; } = null!;
+
+        /// <summary>
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         /// </summary>
         [Output("codeSigningConfigArn")]
@@ -497,13 +503,17 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
-        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Output("replaceSecurityGroupsOnDestroy")]
         public Output<bool?> ReplaceSecurityGroupsOnDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
         [Output("replacementSecurityGroupIds")]
         public Output<ImmutableArray<string>> ReplacementSecurityGroupIds { get; private set; } = null!;
@@ -570,9 +580,6 @@ namespace Pulumi.Aws.Lambda
         [Output("snapStart")]
         public Output<Outputs.FunctionSnapStart?> SnapStart { get; private set; } = null!;
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
 
@@ -785,7 +792,10 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -794,9 +804,9 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
-        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());
@@ -853,9 +863,6 @@ namespace Pulumi.Aws.Lambda
         [Input("snapStart")]
         public Input<Inputs.FunctionSnapStartArgs>? SnapStart { get; set; }
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 
@@ -920,6 +927,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
+
+        /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        [Input("codeSha256")]
+        public Input<string>? CodeSha256 { get; set; }
 
         /// <summary>
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -1048,7 +1061,10 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedInvokeArn { get; set; }
 
         /// <summary>
-        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -1057,9 +1073,9 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
-        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());
@@ -1128,9 +1144,6 @@ namespace Pulumi.Aws.Lambda
         [Input("snapStart")]
         public Input<Inputs.FunctionSnapStartGetArgs>? SnapStart { get; set; }
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 

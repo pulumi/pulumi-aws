@@ -5,7 +5,6 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -45,21 +44,6 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
-    }
-
-    /**
-     * The number of Record Set in the Hosted Zone.
-     * 
-     */
-    @Import(name="resourceRecordSetCount")
-    private @Nullable Integer resourceRecordSetCount;
-
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
-    public Optional<Integer> resourceRecordSetCount() {
-        return Optional.ofNullable(this.resourceRecordSetCount);
     }
 
     /**
@@ -112,7 +96,6 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetZonePlainArgs(GetZonePlainArgs $) {
         this.name = $.name;
         this.privateZone = $.privateZone;
-        this.resourceRecordSetCount = $.resourceRecordSetCount;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
         this.zoneId = $.zoneId;
@@ -155,17 +138,6 @@ public final class GetZonePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder privateZone(@Nullable Boolean privateZone) {
             $.privateZone = privateZone;
-            return this;
-        }
-
-        /**
-         * @param resourceRecordSetCount The number of Record Set in the Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceRecordSetCount(@Nullable Integer resourceRecordSetCount) {
-            $.resourceRecordSetCount = resourceRecordSetCount;
             return this;
         }
 

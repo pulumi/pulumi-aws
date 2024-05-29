@@ -35,6 +35,8 @@ __all__ = [
     'ServiceServiceConnectConfigurationServiceTlsArgs',
     'ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs',
     'ServiceServiceRegistriesArgs',
+    'ServiceVolumeConfigurationArgs',
+    'ServiceVolumeConfigurationManagedEbsVolumeArgs',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionInferenceAcceleratorArgs',
     'TaskDefinitionPlacementConstraintArgs',
@@ -505,8 +507,8 @@ class ServiceAlarmsArgs:
                  rollback: pulumi.Input[bool]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_names: One or more CloudWatch alarm names.
-        :param pulumi.Input[bool] enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
-        :param pulumi.Input[bool] rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        :param pulumi.Input[bool] enable: Whether to use the CloudWatch alarm option in the service deployment process.
+        :param pulumi.Input[bool] rollback: Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
         pulumi.set(__self__, "alarm_names", alarm_names)
         pulumi.set(__self__, "enable", enable)
@@ -528,7 +530,7 @@ class ServiceAlarmsArgs:
     @pulumi.getter
     def enable(self) -> pulumi.Input[bool]:
         """
-        Determines whether to use the CloudWatch alarm option in the service deployment process.
+        Whether to use the CloudWatch alarm option in the service deployment process.
         """
         return pulumi.get(self, "enable")
 
@@ -540,7 +542,7 @@ class ServiceAlarmsArgs:
     @pulumi.getter
     def rollback(self) -> pulumi.Input[bool]:
         """
-        Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+        Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
         return pulumi.get(self, "rollback")
 
@@ -888,10 +890,10 @@ class ServiceServiceConnectConfigurationArgs:
                  namespace: Optional[pulumi.Input[str]] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Specifies whether to use Service Connect with this service.
-        :param pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs'] log_configuration: The log configuration for the container. See below.
-        :param pulumi.Input[str] namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]] services: The list of Service Connect service objects. See below.
+        :param pulumi.Input[bool] enabled: Whether to use Service Connect with this service.
+        :param pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs'] log_configuration: Log configuration for the container. See below.
+        :param pulumi.Input[str] namespace: Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]] services: List of Service Connect service objects. See below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_configuration is not None:
@@ -905,7 +907,7 @@ class ServiceServiceConnectConfigurationArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Specifies whether to use Service Connect with this service.
+        Whether to use Service Connect with this service.
         """
         return pulumi.get(self, "enabled")
 
@@ -917,7 +919,7 @@ class ServiceServiceConnectConfigurationArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']]:
         """
-        The log configuration for the container. See below.
+        Log configuration for the container. See below.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -929,7 +931,7 @@ class ServiceServiceConnectConfigurationArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
+        Namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
         """
         return pulumi.get(self, "namespace")
 
@@ -941,7 +943,7 @@ class ServiceServiceConnectConfigurationArgs:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]]]:
         """
-        The list of Service Connect service objects. See below.
+        List of Service Connect service objects. See below.
         """
         return pulumi.get(self, "services")
 
@@ -957,9 +959,9 @@ class ServiceServiceConnectConfigurationLogConfigurationArgs:
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]] = None):
         """
-        :param pulumi.Input[str] log_driver: The log driver to use for the container.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: The configuration options to send to the log driver.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]] secret_options: The secrets to pass to the log configuration. See below.
+        :param pulumi.Input[str] log_driver: Log driver to use for the container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: Configuration options to send to the log driver.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]] secret_options: Secrets to pass to the log configuration. See below.
         """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -971,7 +973,7 @@ class ServiceServiceConnectConfigurationLogConfigurationArgs:
     @pulumi.getter(name="logDriver")
     def log_driver(self) -> pulumi.Input[str]:
         """
-        The log driver to use for the container.
+        Log driver to use for the container.
         """
         return pulumi.get(self, "log_driver")
 
@@ -983,7 +985,7 @@ class ServiceServiceConnectConfigurationLogConfigurationArgs:
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The configuration options to send to the log driver.
+        Configuration options to send to the log driver.
         """
         return pulumi.get(self, "options")
 
@@ -995,7 +997,7 @@ class ServiceServiceConnectConfigurationLogConfigurationArgs:
     @pulumi.getter(name="secretOptions")
     def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]]:
         """
-        The secrets to pass to the log configuration. See below.
+        Secrets to pass to the log configuration. See below.
         """
         return pulumi.get(self, "secret_options")
 
@@ -1010,8 +1012,8 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
                  name: pulumi.Input[str],
                  value_from: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the secret.
-        :param pulumi.Input[str] value_from: The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        :param pulumi.Input[str] name: Name of the secret.
+        :param pulumi.Input[str] value_from: Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value_from", value_from)
@@ -1020,7 +1022,7 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the secret.
+        Name of the secret.
         """
         return pulumi.get(self, "name")
 
@@ -1032,7 +1034,7 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
     @pulumi.getter(name="valueFrom")
     def value_from(self) -> pulumi.Input[str]:
         """
-        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
         """
         return pulumi.get(self, "value_from")
 
@@ -1051,12 +1053,12 @@ class ServiceServiceConnectConfigurationServiceArgs:
                  timeout: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs']] = None,
                  tls: Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']] = None):
         """
-        :param pulumi.Input[str] port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-        :param pulumi.Input[str] discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-        :param pulumi.Input[int] ingress_port_override: The port number for the Service Connect proxy to listen on.
+        :param pulumi.Input[str] port_name: Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param pulumi.Input[str] discovery_name: Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        :param pulumi.Input[int] ingress_port_override: Port number for the Service Connect proxy to listen on.
         :param pulumi.Input['ServiceServiceConnectConfigurationServiceTimeoutArgs'] timeout: Configuration timeouts for Service Connect
-        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs'] tls: The configuration for enabling Transport Layer Security (TLS)
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs'] tls: Configuration for enabling Transport Layer Security (TLS)
         """
         pulumi.set(__self__, "port_name", port_name)
         if client_alias is not None:
@@ -1074,7 +1076,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter(name="portName")
     def port_name(self) -> pulumi.Input[str]:
         """
-        The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         """
         return pulumi.get(self, "port_name")
 
@@ -1086,7 +1088,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter(name="clientAlias")
     def client_alias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]]:
         """
-        The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         """
         return pulumi.get(self, "client_alias")
 
@@ -1098,7 +1100,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter(name="discoveryName")
     def discovery_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         """
         return pulumi.get(self, "discovery_name")
 
@@ -1110,7 +1112,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter(name="ingressPortOverride")
     def ingress_port_override(self) -> Optional[pulumi.Input[int]]:
         """
-        The port number for the Service Connect proxy to listen on.
+        Port number for the Service Connect proxy to listen on.
         """
         return pulumi.get(self, "ingress_port_override")
 
@@ -1134,7 +1136,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationServiceTlsArgs']]:
         """
-        The configuration for enabling Transport Layer Security (TLS)
+        Configuration for enabling Transport Layer Security (TLS)
         """
         return pulumi.get(self, "tls")
 
@@ -1149,8 +1151,8 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
                  port: pulumi.Input[int],
                  dns_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] port: The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-        :param pulumi.Input[str] dns_name: The name that you use in the applications of client tasks to connect to this service.
+        :param pulumi.Input[int] port: Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+        :param pulumi.Input[str] dns_name: Name that you use in the applications of client tasks to connect to this service.
         """
         pulumi.set(__self__, "port", port)
         if dns_name is not None:
@@ -1160,7 +1162,7 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+        Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         """
         return pulumi.get(self, "port")
 
@@ -1172,7 +1174,7 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name that you use in the applications of client tasks to connect to this service.
+        Name that you use in the applications of client tasks to connect to this service.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1187,8 +1189,8 @@ class ServiceServiceConnectConfigurationServiceTimeoutArgs:
                  idle_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  per_request_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] idle_timeout_seconds: The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
-        :param pulumi.Input[int] per_request_timeout_seconds: The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+        :param pulumi.Input[int] idle_timeout_seconds: Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+        :param pulumi.Input[int] per_request_timeout_seconds: Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
         """
         if idle_timeout_seconds is not None:
             pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
@@ -1199,7 +1201,7 @@ class ServiceServiceConnectConfigurationServiceTimeoutArgs:
     @pulumi.getter(name="idleTimeoutSeconds")
     def idle_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+        Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
         """
         return pulumi.get(self, "idle_timeout_seconds")
 
@@ -1211,7 +1213,7 @@ class ServiceServiceConnectConfigurationServiceTimeoutArgs:
     @pulumi.getter(name="perRequestTimeoutSeconds")
     def per_request_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+        Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
         """
         return pulumi.get(self, "per_request_timeout_seconds")
 
@@ -1227,9 +1229,9 @@ class ServiceServiceConnectConfigurationServiceTlsArgs:
                  kms_key: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs'] issuer_cert_authority: The details of the certificate authority which will issue the certificate.
-        :param pulumi.Input[str] kms_key: The KMS key used to encrypt the private key in Secrets Manager.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM Role that's associated with the Service Connect TLS.
+        :param pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs'] issuer_cert_authority: Details of the certificate authority which will issue the certificate.
+        :param pulumi.Input[str] kms_key: KMS key used to encrypt the private key in Secrets Manager.
+        :param pulumi.Input[str] role_arn: ARN of the IAM Role that's associated with the Service Connect TLS.
         """
         pulumi.set(__self__, "issuer_cert_authority", issuer_cert_authority)
         if kms_key is not None:
@@ -1241,7 +1243,7 @@ class ServiceServiceConnectConfigurationServiceTlsArgs:
     @pulumi.getter(name="issuerCertAuthority")
     def issuer_cert_authority(self) -> pulumi.Input['ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs']:
         """
-        The details of the certificate authority which will issue the certificate.
+        Details of the certificate authority which will issue the certificate.
         """
         return pulumi.get(self, "issuer_cert_authority")
 
@@ -1253,7 +1255,7 @@ class ServiceServiceConnectConfigurationServiceTlsArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The KMS key used to encrypt the private key in Secrets Manager.
+        KMS key used to encrypt the private key in Secrets Manager.
         """
         return pulumi.get(self, "kms_key")
 
@@ -1265,7 +1267,7 @@ class ServiceServiceConnectConfigurationServiceTlsArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the IAM Role that's associated with the Service Connect TLS.
+        ARN of the IAM Role that's associated with the Service Connect TLS.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1279,7 +1281,7 @@ class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs:
     def __init__(__self__, *,
                  aws_pca_authority_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] aws_pca_authority_arn: The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+        :param pulumi.Input[str] aws_pca_authority_arn: ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
         """
         pulumi.set(__self__, "aws_pca_authority_arn", aws_pca_authority_arn)
 
@@ -1287,7 +1289,7 @@ class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs:
     @pulumi.getter(name="awsPcaAuthorityArn")
     def aws_pca_authority_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
+        ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
         """
         return pulumi.get(self, "aws_pca_authority_arn")
 
@@ -1364,6 +1366,193 @@ class ServiceServiceRegistriesArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ServiceVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 managed_ebs_volume: pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeArgs'],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeArgs'] managed_ebs_volume: Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+        :param pulumi.Input[str] name: Name of the volume.
+        """
+        pulumi.set(__self__, "managed_ebs_volume", managed_ebs_volume)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="managedEbsVolume")
+    def managed_ebs_volume(self) -> pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeArgs']:
+        """
+        Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+        """
+        return pulumi.get(self, "managed_ebs_volume")
+
+    @managed_ebs_volume.setter
+    def managed_ebs_volume(self, value: pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeArgs']):
+        pulumi.set(self, "managed_ebs_volume", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ServiceVolumeConfigurationManagedEbsVolumeArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 file_system_type: Optional[pulumi.Input[str]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 size_in_gb: Optional[pulumi.Input[int]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[str]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] role_arn: Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+        :param pulumi.Input[bool] encrypted: Whether the volume should be encrypted. Default value is `true`.
+        :param pulumi.Input[str] file_system_type: Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+        :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS).
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        :param pulumi.Input[int] size_in_gb: Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+        :param pulumi.Input[str] snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+        :param pulumi.Input[str] throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[str] volume_type: Volume type.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if file_system_type is not None:
+            pulumi.set(__self__, "file_system_type", file_system_type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if size_in_gb is not None:
+            pulumi.set(__self__, "size_in_gb", size_in_gb)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the volume should be encrypted. Default value is `true`.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="fileSystemType")
+    def file_system_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+        """
+        return pulumi.get(self, "file_system_type")
+
+    @file_system_type.setter
+    def file_system_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_type", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of I/O operations per second (IOPS).
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @size_in_gb.setter
+    def size_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[str]]:
+        """
+        Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Volume type.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_type", value)
 
 
 @pulumi.input_type
@@ -1560,6 +1749,7 @@ class TaskDefinitionRuntimePlatformArgs:
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 configure_at_launch: Optional[pulumi.Input[bool]] = None,
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']] = None,
                  efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']] = None,
                  fsx_windows_file_server_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']] = None,
@@ -1567,12 +1757,15 @@ class TaskDefinitionVolumeArgs:
         """
         :param pulumi.Input[str] name: Name of the volume. This name is referenced in the `sourceVolume`
                parameter of container definition in the `mountPoints` section.
+        :param pulumi.Input[bool] configure_at_launch: Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
         :param pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
         :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
         :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param pulumi.Input[str] host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         """
         pulumi.set(__self__, "name", name)
+        if configure_at_launch is not None:
+            pulumi.set(__self__, "configure_at_launch", configure_at_launch)
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
@@ -1594,6 +1787,18 @@ class TaskDefinitionVolumeArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="configureAtLaunch")
+    def configure_at_launch(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+        """
+        return pulumi.get(self, "configure_at_launch")
+
+    @configure_at_launch.setter
+    def configure_at_launch(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configure_at_launch", value)
 
     @property
     @pulumi.getter(name="dockerVolumeConfiguration")

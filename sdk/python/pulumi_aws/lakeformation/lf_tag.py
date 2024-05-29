@@ -131,7 +131,7 @@ class LfTag(pulumi.CustomResource):
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
+        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
 
         ## Example Usage
 
@@ -169,7 +169,7 @@ class LfTag(pulumi.CustomResource):
                  args: LfTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
+        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
 
         ## Example Usage
 

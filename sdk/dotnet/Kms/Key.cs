@@ -18,18 +18,391 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// ### Symmetric Encryption KMS Key
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var a = new Aws.Kms.Key("a", new()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
     ///     {
-    ///         Description = "KMS key 1",
+    ///         Description = "An example symmetric encryption KMS key",
+    ///         EnableKeyRotation = true,
+    ///         DeletionWindowInDays = 20,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-default-1",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow administration of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:user/Alice",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:ReplicateKey",
+    ///                         "kms:Create*",
+    ///                         "kms:Describe*",
+    ///                         "kms:Enable*",
+    ///                         "kms:List*",
+    ///                         "kms:Put*",
+    ///                         "kms:Update*",
+    ///                         "kms:Revoke*",
+    ///                         "kms:Disable*",
+    ///                         "kms:Get*",
+    ///                         "kms:Delete*",
+    ///                         "kms:ScheduleKeyDeletion",
+    ///                         "kms:CancelKeyDeletion",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow use of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:user/Bob",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:DescribeKey",
+    ///                         "kms:Encrypt",
+    ///                         "kms:Decrypt",
+    ///                         "kms:ReEncrypt*",
+    ///                         "kms:GenerateDataKey",
+    ///                         "kms:GenerateDataKeyWithoutPlaintext",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Symmetric Encryption KMS Key With Standalone Policy Resource
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "An example symmetric encryption KMS key",
+    ///         EnableKeyRotation = true,
+    ///         DeletionWindowInDays = 20,
+    ///     });
+    /// 
+    ///     var exampleKeyPolicy = new Aws.Kms.KeyPolicy("example", new()
+    ///     {
+    ///         KeyId = example.Id,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-default-1",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Asymmetric KMS Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "RSA-3072 asymmetric KMS key for signing and verification",
+    ///         CustomerMasterKeySpec = "RSA_3072",
+    ///         KeyUsage = "SIGN_VERIFY",
+    ///         EnableKeyRotation = false,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-default-1",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow administration of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:role/Admin",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:Create*",
+    ///                         "kms:Describe*",
+    ///                         "kms:Enable*",
+    ///                         "kms:List*",
+    ///                         "kms:Put*",
+    ///                         "kms:Update*",
+    ///                         "kms:Revoke*",
+    ///                         "kms:Disable*",
+    ///                         "kms:Get*",
+    ///                         "kms:Delete*",
+    ///                         "kms:ScheduleKeyDeletion",
+    ///                         "kms:CancelKeyDeletion",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow use of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:role/Developer",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:Sign",
+    ///                         "kms:Verify",
+    ///                         "kms:DescribeKey",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### HMAC KMS key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "HMAC_384 key for tokens",
+    ///         CustomerMasterKeySpec = "HMAC_384",
+    ///         KeyUsage = "GENERATE_VERIFY_MAC",
+    ///         EnableKeyRotation = false,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-default-1",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow administration of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:role/Admin",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:Create*",
+    ///                         "kms:Describe*",
+    ///                         "kms:Enable*",
+    ///                         "kms:List*",
+    ///                         "kms:Put*",
+    ///                         "kms:Update*",
+    ///                         "kms:Revoke*",
+    ///                         "kms:Disable*",
+    ///                         "kms:Get*",
+    ///                         "kms:Delete*",
+    ///                         "kms:ScheduleKeyDeletion",
+    ///                         "kms:CancelKeyDeletion",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow use of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:role/Developer",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:GenerateMac",
+    ///                         "kms:VerifyMac",
+    ///                         "kms:DescribeKey",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Multi-Region Primary Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.Kms.Key("example", new()
+    ///     {
+    ///         Description = "An example multi-Region primary key",
+    ///         MultiRegion = true,
+    ///         EnableKeyRotation = true,
     ///         DeletionWindowInDays = 10,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-default-1",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow administration of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:user/Alice",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:ReplicateKey",
+    ///                         "kms:Create*",
+    ///                         "kms:Describe*",
+    ///                         "kms:Enable*",
+    ///                         "kms:List*",
+    ///                         "kms:Put*",
+    ///                         "kms:Update*",
+    ///                         "kms:Revoke*",
+    ///                         "kms:Disable*",
+    ///                         "kms:Get*",
+    ///                         "kms:Delete*",
+    ///                         "kms:ScheduleKeyDeletion",
+    ///                         "kms:CancelKeyDeletion",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow use of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:user/Bob",
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:DescribeKey",
+    ///                         "kms:Encrypt",
+    ///                         "kms:Decrypt",
+    ///                         "kms:ReEncrypt*",
+    ///                         "kms:GenerateDataKey",
+    ///                         "kms:GenerateDataKeyWithoutPlaintext",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });

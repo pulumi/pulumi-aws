@@ -17,50 +17,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfiguration {
     /**
-     * @return Specifies whether to use Service Connect with this service.
+     * @return Whether to use Service Connect with this service.
      * 
      */
     private Boolean enabled;
     /**
-     * @return The log configuration for the container. See below.
+     * @return Log configuration for the container. See below.
      * 
      */
     private @Nullable ServiceServiceConnectConfigurationLogConfiguration logConfiguration;
     /**
-     * @return The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
      * 
      */
     private @Nullable String namespace;
     /**
-     * @return The list of Service Connect service objects. See below.
+     * @return List of Service Connect service objects. See below.
      * 
      */
     private @Nullable List<ServiceServiceConnectConfigurationService> services;
 
     private ServiceServiceConnectConfiguration() {}
     /**
-     * @return Specifies whether to use Service Connect with this service.
+     * @return Whether to use Service Connect with this service.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return The log configuration for the container. See below.
+     * @return Log configuration for the container. See below.
      * 
      */
     public Optional<ServiceServiceConnectConfigurationLogConfiguration> logConfiguration() {
         return Optional.ofNullable(this.logConfiguration);
     }
     /**
-     * @return The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
      * 
      */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return The list of Service Connect service objects. See below.
+     * @return List of Service Connect service objects. See below.
      * 
      */
     public List<ServiceServiceConnectConfigurationService> services() {

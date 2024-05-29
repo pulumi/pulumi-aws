@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type EndpointServicePrivateDnsVerificationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// EndpointServicePrivateDnsVerificationTimeoutsInput is an input type that accepts EndpointServicePrivateDnsVerificationTimeoutsArgs and EndpointServicePrivateDnsVerificationTimeoutsOutput values.
+// You can construct a concrete instance of `EndpointServicePrivateDnsVerificationTimeoutsInput` via:
+//
+//	EndpointServicePrivateDnsVerificationTimeoutsArgs{...}
+type EndpointServicePrivateDnsVerificationTimeoutsInput interface {
+	pulumi.Input
+
+	ToEndpointServicePrivateDnsVerificationTimeoutsOutput() EndpointServicePrivateDnsVerificationTimeoutsOutput
+	ToEndpointServicePrivateDnsVerificationTimeoutsOutputWithContext(context.Context) EndpointServicePrivateDnsVerificationTimeoutsOutput
+}
+
+type EndpointServicePrivateDnsVerificationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (EndpointServicePrivateDnsVerificationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeouts)(nil)).Elem()
+}
+
+func (i EndpointServicePrivateDnsVerificationTimeoutsArgs) ToEndpointServicePrivateDnsVerificationTimeoutsOutput() EndpointServicePrivateDnsVerificationTimeoutsOutput {
+	return i.ToEndpointServicePrivateDnsVerificationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i EndpointServicePrivateDnsVerificationTimeoutsArgs) ToEndpointServicePrivateDnsVerificationTimeoutsOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicePrivateDnsVerificationTimeoutsOutput)
+}
+
+func (i EndpointServicePrivateDnsVerificationTimeoutsArgs) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutput() EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return i.ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointServicePrivateDnsVerificationTimeoutsArgs) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicePrivateDnsVerificationTimeoutsOutput).ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// EndpointServicePrivateDnsVerificationTimeoutsPtrInput is an input type that accepts EndpointServicePrivateDnsVerificationTimeoutsArgs, EndpointServicePrivateDnsVerificationTimeoutsPtr and EndpointServicePrivateDnsVerificationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `EndpointServicePrivateDnsVerificationTimeoutsPtrInput` via:
+//
+//	        EndpointServicePrivateDnsVerificationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointServicePrivateDnsVerificationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutput() EndpointServicePrivateDnsVerificationTimeoutsPtrOutput
+	ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(context.Context) EndpointServicePrivateDnsVerificationTimeoutsPtrOutput
+}
+
+type endpointServicePrivateDnsVerificationTimeoutsPtrType EndpointServicePrivateDnsVerificationTimeoutsArgs
+
+func EndpointServicePrivateDnsVerificationTimeoutsPtr(v *EndpointServicePrivateDnsVerificationTimeoutsArgs) EndpointServicePrivateDnsVerificationTimeoutsPtrInput {
+	return (*endpointServicePrivateDnsVerificationTimeoutsPtrType)(v)
+}
+
+func (*endpointServicePrivateDnsVerificationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointServicePrivateDnsVerificationTimeouts)(nil)).Elem()
+}
+
+func (i *endpointServicePrivateDnsVerificationTimeoutsPtrType) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutput() EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return i.ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointServicePrivateDnsVerificationTimeoutsPtrType) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput)
+}
+
+type EndpointServicePrivateDnsVerificationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (EndpointServicePrivateDnsVerificationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeouts)(nil)).Elem()
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsOutput) ToEndpointServicePrivateDnsVerificationTimeoutsOutput() EndpointServicePrivateDnsVerificationTimeoutsOutput {
+	return o
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsOutput) ToEndpointServicePrivateDnsVerificationTimeoutsOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsOutput {
+	return o
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsOutput) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutput() EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return o.ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsOutput) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointServicePrivateDnsVerificationTimeouts) *EndpointServicePrivateDnsVerificationTimeouts {
+		return &v
+	}).(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EndpointServicePrivateDnsVerificationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointServicePrivateDnsVerificationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type EndpointServicePrivateDnsVerificationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointServicePrivateDnsVerificationTimeouts)(nil)).Elem()
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutput() EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) ToEndpointServicePrivateDnsVerificationTimeoutsPtrOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) Elem() EndpointServicePrivateDnsVerificationTimeoutsOutput {
+	return o.ApplyT(func(v *EndpointServicePrivateDnsVerificationTimeouts) EndpointServicePrivateDnsVerificationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointServicePrivateDnsVerificationTimeouts
+		return ret
+	}).(EndpointServicePrivateDnsVerificationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointServicePrivateDnsVerificationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSecurityGroupRuleFilter struct {
 	// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
 	Name string `pulumi:"name"`
@@ -232,10 +369,14 @@ func (o GetSecurityGroupRulesFilterArrayOutput) Index(i pulumi.IntInput) GetSecu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsPtrInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterInput)(nil)).Elem(), GetSecurityGroupRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterArrayInput)(nil)).Elem(), GetSecurityGroupRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterInput)(nil)).Elem(), GetSecurityGroupRulesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterArrayInput)(nil)).Elem(), GetSecurityGroupRulesFilterArray{})
+	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsOutput{})
+	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRulesFilterOutput{})

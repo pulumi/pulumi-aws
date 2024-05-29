@@ -105,7 +105,9 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly bucketRegion!: pulumi.Output<string | undefined>;
     /**
-     * Refresh cache information. see Cache Attributes for more details.
+     * Refresh cache information. see `cacheAttributes` Block for more details.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
     /**
@@ -316,7 +318,9 @@ export interface SmbFileShareState {
      */
     bucketRegion?: pulumi.Input<string>;
     /**
-     * Refresh cache information. see Cache Attributes for more details.
+     * Refresh cache information. see `cacheAttributes` Block for more details.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
@@ -436,7 +440,9 @@ export interface SmbFileShareArgs {
      */
     bucketRegion?: pulumi.Input<string>;
     /**
-     * Refresh cache information. see Cache Attributes for more details.
+     * Refresh cache information. see `cacheAttributes` Block for more details.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**

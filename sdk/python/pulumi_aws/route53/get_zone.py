@@ -187,7 +187,6 @@ class AwaitableGetZoneResult(GetZoneResult):
 
 def get_zone(name: Optional[str] = None,
              private_zone: Optional[bool] = None,
-             resource_record_set_count: Optional[int] = None,
              tags: Optional[Mapping[str, str]] = None,
              vpc_id: Optional[str] = None,
              zone_id: Optional[str] = None,
@@ -218,7 +217,6 @@ def get_zone(name: Optional[str] = None,
 
     :param str name: Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param int resource_record_set_count: The number of Record Set in the Hosted Zone.
     :param Mapping[str, str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
     :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param str zone_id: Hosted Zone id of the desired Hosted Zone.
@@ -226,7 +224,6 @@ def get_zone(name: Optional[str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['privateZone'] = private_zone
-    __args__['resourceRecordSetCount'] = resource_record_set_count
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __args__['zoneId'] = zone_id
@@ -253,7 +250,6 @@ def get_zone(name: Optional[str] = None,
 @_utilities.lift_output_func(get_zone)
 def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     private_zone: Optional[pulumi.Input[Optional[bool]]] = None,
-                    resource_record_set_count: Optional[pulumi.Input[Optional[int]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                     zone_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -284,7 +280,6 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str name: Hosted Zone name of the desired Hosted Zone.
     :param bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param int resource_record_set_count: The number of Record Set in the Hosted Zone.
     :param Mapping[str, str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
     :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param str zone_id: Hosted Zone id of the desired Hosted Zone.

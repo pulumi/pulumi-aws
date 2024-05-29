@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Macie2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         /// </summary>
         [Output("userPausedDetails")]
         public Output<ImmutableArray<Outputs.ClassificationJobUserPausedDetail>> UserPausedDetails { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Macie2
         private InputList<Inputs.ClassificationJobUserPausedDetailGetArgs>? _userPausedDetails;
 
         /// <summary>
-        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         /// </summary>
         public InputList<Inputs.ClassificationJobUserPausedDetailGetArgs> UserPausedDetails
         {

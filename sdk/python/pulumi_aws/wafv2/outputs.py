@@ -324,7 +324,11 @@ __all__ = [
     'RuleGroupVisibilityConfig',
     'WebAclAssociationConfig',
     'WebAclAssociationConfigRequestBody',
+    'WebAclAssociationConfigRequestBodyApiGateway',
+    'WebAclAssociationConfigRequestBodyAppRunnerService',
     'WebAclAssociationConfigRequestBodyCloudfront',
+    'WebAclAssociationConfigRequestBodyCognitoUserPool',
+    'WebAclAssociationConfigRequestBodyVerifiedAccessInstance',
     'WebAclCaptchaConfig',
     'WebAclCaptchaConfigImmunityTimeProperty',
     'WebAclChallengeConfig',
@@ -12968,21 +12972,162 @@ class WebAclAssociationConfig(dict):
 
 @pulumi.output_type
 class WebAclAssociationConfigRequestBody(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiGateways":
+            suggest = "api_gateways"
+        elif key == "appRunnerServices":
+            suggest = "app_runner_services"
+        elif key == "cognitoUserPools":
+            suggest = "cognito_user_pools"
+        elif key == "verifiedAccessInstances":
+            suggest = "verified_access_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBody.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None):
+                 api_gateways: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']] = None,
+                 app_runner_services: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']] = None,
+                 cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None,
+                 cognito_user_pools: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']] = None,
+                 verified_access_instances: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']] = None):
         """
-        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyApiGatewayArgs'] api_gateways: Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyAppRunnerServiceArgs'] app_runner_services: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyCognitoUserPoolArgs'] cognito_user_pools: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs'] verified_access_instances: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
+        if api_gateways is not None:
+            pulumi.set(__self__, "api_gateways", api_gateways)
+        if app_runner_services is not None:
+            pulumi.set(__self__, "app_runner_services", app_runner_services)
         if cloudfronts is not None:
             pulumi.set(__self__, "cloudfronts", cloudfronts)
+        if cognito_user_pools is not None:
+            pulumi.set(__self__, "cognito_user_pools", cognito_user_pools)
+        if verified_access_instances is not None:
+            pulumi.set(__self__, "verified_access_instances", verified_access_instances)
+
+    @property
+    @pulumi.getter(name="apiGateways")
+    def api_gateways(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']]:
+        """
+        Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        """
+        return pulumi.get(self, "api_gateways")
+
+    @property
+    @pulumi.getter(name="appRunnerServices")
+    def app_runner_services(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']]:
+        """
+        Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        """
+        return pulumi.get(self, "app_runner_services")
 
     @property
     @pulumi.getter
     def cloudfronts(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']]:
         """
-        Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         """
         return pulumi.get(self, "cloudfronts")
+
+    @property
+    @pulumi.getter(name="cognitoUserPools")
+    def cognito_user_pools(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']]:
+        """
+        Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        """
+        return pulumi.get(self, "cognito_user_pools")
+
+    @property
+    @pulumi.getter(name="verifiedAccessInstances")
+    def verified_access_instances(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']]:
+        """
+        Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        """
+        return pulumi.get(self, "verified_access_instances")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBodyApiGateway(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBodyApiGateway. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBodyApiGateway.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBodyApiGateway.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: str):
+        """
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> str:
+        """
+        Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBodyAppRunnerService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBodyAppRunnerService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBodyAppRunnerService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBodyAppRunnerService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: str):
+        """
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> str:
+        """
+        Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
 
 
 @pulumi.output_type
@@ -13007,7 +13152,7 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: str):
         """
-        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -13015,7 +13160,77 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> str:
         """
-        Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBodyCognitoUserPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBodyCognitoUserPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBodyCognitoUserPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBodyCognitoUserPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: str):
+        """
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> str:
+        """
+        Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBodyVerifiedAccessInstance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBodyVerifiedAccessInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBodyVerifiedAccessInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBodyVerifiedAccessInstance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: str):
+        """
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> str:
+        """
+        Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 

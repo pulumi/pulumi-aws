@@ -16,6 +16,7 @@ import com.pulumi.aws.ecs.outputs.ServiceOrderedPlacementStrategy;
 import com.pulumi.aws.ecs.outputs.ServicePlacementConstraint;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceRegistries;
+import com.pulumi.aws.ecs.outputs.ServiceVolumeConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -374,28 +375,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.desiredCount);
     }
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     @Export(name="enableEcsManagedTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEcsManagedTags;
 
     /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * @return Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     public Output<Optional<Boolean>> enableEcsManagedTags() {
         return Codegen.optional(this.enableEcsManagedTags);
     }
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     @Export(name="enableExecuteCommand", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExecuteCommand;
 
     /**
-     * @return Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * @return Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     public Output<Optional<Boolean>> enableExecuteCommand() {
@@ -546,14 +547,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.platformVersion;
     }
     /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
     @Export(name="propagateTags", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * @return Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
     public Output<Optional<String>> propagateTags() {
@@ -574,14 +575,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedulingStrategy);
     }
     /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
     @Export(name="serviceConnectConfiguration", refs={ServiceServiceConnectConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceConnectConfiguration> serviceConnectConfiguration;
 
     /**
-     * @return The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * @return ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
     public Output<Optional<ServiceServiceConnectConfiguration>> serviceConnectConfiguration() {
@@ -660,6 +661,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> triggers() {
         return this.triggers;
+    }
+    /**
+     * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     * 
+     */
+    @Export(name="volumeConfiguration", refs={ServiceVolumeConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceVolumeConfiguration> volumeConfiguration;
+
+    /**
+     * @return Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     * 
+     */
+    public Output<Optional<ServiceVolumeConfiguration>> volumeConfiguration() {
+        return Codegen.optional(this.volumeConfiguration);
     }
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

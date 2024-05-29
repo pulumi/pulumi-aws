@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
+    /// Using `pulumi import`, import Network Insights Analyzes using the `id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
