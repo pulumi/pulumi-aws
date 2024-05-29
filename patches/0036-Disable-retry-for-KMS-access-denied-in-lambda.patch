@@ -50,7 +50,7 @@ index 0000000000..54f6aac15a
 +	}), nil
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index c127b05200..0f67e0aa4c 100644
+index 568123bfdb..72d8c48672 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
 @@ -5,8 +5,6 @@ package lambda
@@ -62,7 +62,7 @@ index c127b05200..0f67e0aa4c 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -129,17 +127,6 @@ func (p *servicePackage) ServicePackageName() string {
+@@ -134,17 +132,6 @@ func (p *servicePackage) ServicePackageName() string {
  	return names.Lambda
  }
  
@@ -81,7 +81,7 @@ index c127b05200..0f67e0aa4c 100644
  	return &servicePackage{}
  }
 diff --git a/names/data/names_data.csv b/names/data/names_data.csv
-index e9bb5d08f1..57c0231f72 100644
+index dcdb79a469..26fcf35fe8 100644
 --- a/names/data/names_data.csv
 +++ b/names/data/names_data.csv
 @@ -218,7 +218,7 @@ kinesis-video-media,kinesisvideomedia,kinesisvideomedia,kinesisvideomedia,,kines

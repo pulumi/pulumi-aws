@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Daniel Bradley <daniel@pulumi.com>
-Date: Tue, 28 Feb 2023 15:19:24 +0000
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Wed, 29 May 2024 09:05:36 -0400
 Subject: [PATCH] Change default descriptions to "Managed by Pulumi"
 
 
@@ -1030,41 +1030,41 @@ index 2d1a8f8bcb..47c939f356 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index b11895007a..99e20aa518 100644
+index 5362a975a8..36ec6ae24a 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -361,7 +361,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
- 	// retry for us since Route53 sometimes returns errors about another
- 	// operation happening at the same time.
- 	changeBatch := &route53.ChangeBatch{
--		Comment: aws.String("Managed by Terraform"),
-+		Comment: aws.String("Managed by Pulumi"),
- 		Changes: []*route53.Change{
- 			{
- 				Action:            aws.String(action),
-@@ -664,7 +664,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
- 	// StateChangeConf for this to retry for us since Route53 sometimes returns
- 	// errors about another operation happening at the same time.
- 	changeBatch := &route53.ChangeBatch{
--		Comment: aws.String("Managed by Terraform"),
-+		Comment: aws.String("Managed by Pulumi"),
- 		Changes: []*route53.Change{
- 			{
- 				Action:            aws.String(route53.ChangeActionDelete),
-@@ -735,7 +735,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
- 
- 	// Change batch for deleting
- 	changeBatch := &route53.ChangeBatch{
--		Comment: aws.String("Deleted by Terraform"),
-+		Comment: aws.String("Deleted by Pulumi"),
- 		Changes: []*route53.Change{
- 			{
- 				Action:            aws.String(route53.ChangeActionDelete),
+@@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
+ 					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
+ 				},
+ 			},
+-			Comment: aws.String("Managed by Terraform"),
++			Comment: aws.String("Managed by Pulumi"),
+ 		},
+ 		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
+ 	}
+@@ -662,7 +662,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
+ 					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
+ 				},
+ 			},
+-			Comment: aws.String("Managed by Terraform"),
++			Comment: aws.String("Managed by Pulumi"),
+ 		},
+ 		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
+ 	}
+@@ -729,7 +729,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
+ 					ResourceRecordSet: rec,
+ 				},
+ 			},
+-			Comment: aws.String("Deleted by Terraform"),
++			Comment: aws.String("Deleted by Pulumi"),
+ 		},
+ 		HostedZoneId: aws.String(zoneID),
+ 	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 188382487b..27b22fbad1 100644
+index 10dc7c543b..9f5c076bf7 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
-@@ -59,7 +59,7 @@ func ResourceZone() *schema.Resource {
+@@ -53,7 +53,7 @@ func resourceZone() *schema.Resource {
  			names.AttrComment: {
  				Type:         schema.TypeString,
  				Optional:     true,
@@ -1074,24 +1074,24 @@ index 188382487b..27b22fbad1 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index b35f1a2241..82766fec83 100644
+index 9223463906..943ab16d4f 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
-@@ -77,7 +77,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+@@ -74,7 +74,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+ 	zoneID := d.Get("zone_id").(string)
+ 	id := zoneAssociationCreateResourceID(zoneID, vpcID, vpcRegion)
+ 	input := &route53.AssociateVPCWithHostedZoneInput{
+-		Comment:      aws.String("Managed by Terraform"),
++		Comment:      aws.String("Managed by Pulumi"),
+ 		HostedZoneId: aws.String(zoneID),
+ 		VPC: &awstypes.VPC{
  			VPCId:     aws.String(vpcID),
- 			VPCRegion: aws.String(vpcRegion),
- 		},
--		Comment: aws.String("Managed by Terraform"),
-+		Comment: aws.String("Managed by Pulumi"),
- 	}
+@@ -158,7 +158,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
  
- 	output, err := conn.AssociateVPCWithHostedZoneWithContext(ctx, input)
-@@ -180,7 +180,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
+ 	log.Printf("[INFO] Deleting Route53 Zone Association: %s", d.Id())
+ 	output, err := conn.DisassociateVPCFromHostedZone(ctx, &route53.DisassociateVPCFromHostedZoneInput{
+-		Comment:      aws.String("Managed by Terraform"),
++		Comment:      aws.String("Managed by Pulumi"),
+ 		HostedZoneId: aws.String(zoneID),
+ 		VPC: &awstypes.VPC{
  			VPCId:     aws.String(vpcID),
- 			VPCRegion: aws.String(vpcRegion),
- 		},
--		Comment: aws.String("Managed by Terraform"),
-+		Comment: aws.String("Managed by Pulumi"),
- 	}
- 
- 	_, err = conn.DisassociateVPCFromHostedZoneWithContext(ctx, input)
