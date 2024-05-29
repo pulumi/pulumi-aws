@@ -103,45 +103,9 @@ The following configuration points are available:
 - `aws:skipCredentialsValidation` - (Optional) Skip the credentials validation via the STS API. Useful for AWS API implementations that do not have STS available or implemented. Default value is `false`. Can be set via the environment variable `AWS_SKIP_CREDENTIALS_VALIDATION`.
 - `aws:skipRegionValidation` - (Optional) Skip validation of provided region name. Useful for AWS-like implementations that use their own region names or to bypass the validation for regions that aren't publicly available yet. Default value is `true`.
 - `aws:skipRequestionAccountId` - (Optional) Skip requesting the account ID. Useful for AWS API implementations that do not have the IAM, STS API, or metadata API. Default value is `false`. When specified, the use of ARNs is compromised as there is no accountID available to construct the ARN.
-- `aws:skipMetadataApiCheck` - (Optional) Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. This provider from authenticating via the Metadata API by default. You may need to use other authentication methods like static credentials, configuration variables, or environment variables. Default is `true`. Can be set via the environment variable `AWS_SKIP_METADATA_API_CHECK`.
+- `aws:skipMetadataApiCheck` - (Optional) Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. This provider from authenticating via the Metadata API by default. You may need to use other authentication methods like static credentials, configuration variables, or environment variables. Can be set via the environment variable `AWS_SKIP_METADATA_API_CHECK`.
 - `aws:s3UsePathStyle` - (Optional) Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing, `http://BUCKET.s3.amazonaws.com/KEY`, when possible. Specific to the Amazon S3 service. Default is `false`.
 - `aws:useFipsEndpoint` - (Optional) Force the provider to resolve endpoints with FIPS capability. Can also be set with the `AWS_USE_FIPS_ENDPOINT` environment variable.
-
-### Authenticating pulumi-aws via EC2 Instance Metadata?
-
-As of pulumi-aws v3.28.1, the default behaviour for the provider [was changed](https://github.com/pulumi/pulumi-aws/blob/master/CHANGELOG_OLD.md#3281-2021-02-10) to disable MetadataApiCheck by default. This means, you need to do either of the following
-
-1. When using the default provider:
-```
-pulumi config set aws:skipMetadataApiCheck false
-```
-
-2. When using a named provider
-```typescript
-const myProvider = new aws.Provider("named-provider", {
-  // other config
-  skipMetadataApiCheck: false,
-});
-```
-
-```csharp
-var provider = new Aws.Provider("named-provider", new Aws.ProviderArgs
-{
-  // other config
-  SkipMetadataApiCheck = false,
-});
-```
-
-```go
-provider, err := aws.NewProvider(ctx, "named-provider", &aws.ProviderArgs{
-    // other config
-    SkipMetadataApiCheck: pulumi.BoolPtr(false),
-})
-```
-
-```python
-provider = pulumi_aws.Provider('named-provider', skip_metadata_api_check=False)
-```
 
 ## Reference
 
