@@ -114,6 +114,20 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.code);
     }
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    @Export(name="codeSha256", refs={String.class}, tree="[0]")
+    private Output<String> codeSha256;
+
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    public Output<String> codeSha256() {
+        return this.codeSha256;
+    }
+    /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
      * 
      */
@@ -299,17 +313,9 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
-    /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     public Output<String> sourceCodeHash() {
         return this.sourceCodeHash;
     }

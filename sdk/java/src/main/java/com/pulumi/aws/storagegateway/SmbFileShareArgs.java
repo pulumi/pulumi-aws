@@ -96,14 +96,18 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Refresh cache information. see Cache Attributes for more details.
+     * Refresh cache information. see `cache_attributes` Block for more details.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     @Import(name="cacheAttributes")
     private @Nullable Output<SmbFileShareCacheAttributesArgs> cacheAttributes;
 
     /**
-     * @return Refresh cache information. see Cache Attributes for more details.
+     * @return Refresh cache information. see `cache_attributes` Block for more details.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Optional<Output<SmbFileShareCacheAttributesArgs>> cacheAttributes() {
@@ -559,7 +563,9 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheAttributes Refresh cache information. see Cache Attributes for more details.
+         * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
+         * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 
@@ -570,7 +576,9 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheAttributes Refresh cache information. see Cache Attributes for more details.
+         * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
+         * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 

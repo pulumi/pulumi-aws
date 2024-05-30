@@ -6,7 +6,6 @@ package com.pulumi.aws.route53.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -46,21 +45,6 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<Boolean>> privateZone() {
         return Optional.ofNullable(this.privateZone);
-    }
-
-    /**
-     * The number of Record Set in the Hosted Zone.
-     * 
-     */
-    @Import(name="resourceRecordSetCount")
-    private @Nullable Output<Integer> resourceRecordSetCount;
-
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
-    public Optional<Output<Integer>> resourceRecordSetCount() {
-        return Optional.ofNullable(this.resourceRecordSetCount);
     }
 
     /**
@@ -113,7 +97,6 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
     private GetZoneArgs(GetZoneArgs $) {
         this.name = $.name;
         this.privateZone = $.privateZone;
-        this.resourceRecordSetCount = $.resourceRecordSetCount;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
         this.zoneId = $.zoneId;
@@ -177,27 +160,6 @@ public final class GetZoneArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder privateZone(Boolean privateZone) {
             return privateZone(Output.of(privateZone));
-        }
-
-        /**
-         * @param resourceRecordSetCount The number of Record Set in the Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceRecordSetCount(@Nullable Output<Integer> resourceRecordSetCount) {
-            $.resourceRecordSetCount = resourceRecordSetCount;
-            return this;
-        }
-
-        /**
-         * @param resourceRecordSetCount The number of Record Set in the Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceRecordSetCount(Integer resourceRecordSetCount) {
-            return resourceRecordSetCount(Output.of(resourceRecordSetCount));
         }
 
         /**

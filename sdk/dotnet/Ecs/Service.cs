@@ -221,13 +221,13 @@ namespace Pulumi.Aws.Ecs
         public Output<int?> DesiredCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Output("enableEcsManagedTags")]
         public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Output("enableExecuteCommand")]
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
         [Output("propagateTags")]
         public Output<string?> PropagateTags { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
         [Output("serviceConnectConfiguration")]
         public Output<Outputs.ServiceServiceConnectConfiguration?> ServiceConnectConfiguration { get; private set; } = null!;
@@ -341,6 +341,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        /// </summary>
+        [Output("volumeConfiguration")]
+        public Output<Outputs.ServiceVolumeConfiguration?> VolumeConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
@@ -449,13 +455,13 @@ namespace Pulumi.Aws.Ecs
         public Input<int>? DesiredCount { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
@@ -541,7 +547,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
@@ -553,7 +559,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? SchedulingStrategy { get; set; }
 
         /// <summary>
-        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
         [Input("serviceConnectConfiguration")]
         public Input<Inputs.ServiceServiceConnectConfigurationArgs>? ServiceConnectConfiguration { get; set; }
@@ -593,6 +599,12 @@ namespace Pulumi.Aws.Ecs
             get => _triggers ?? (_triggers = new InputMap<string>());
             set => _triggers = value;
         }
+
+        /// <summary>
+        /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        /// </summary>
+        [Input("volumeConfiguration")]
+        public Input<Inputs.ServiceVolumeConfigurationArgs>? VolumeConfiguration { get; set; }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
@@ -663,13 +675,13 @@ namespace Pulumi.Aws.Ecs
         public Input<int>? DesiredCount { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
@@ -755,7 +767,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
@@ -767,7 +779,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? SchedulingStrategy { get; set; }
 
         /// <summary>
-        /// The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
         [Input("serviceConnectConfiguration")]
         public Input<Inputs.ServiceServiceConnectConfigurationGetArgs>? ServiceConnectConfiguration { get; set; }
@@ -820,6 +832,12 @@ namespace Pulumi.Aws.Ecs
             get => _triggers ?? (_triggers = new InputMap<string>());
             set => _triggers = value;
         }
+
+        /// <summary>
+        /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        /// </summary>
+        [Input("volumeConfiguration")]
+        public Input<Inputs.ServiceVolumeConfigurationGetArgs>? VolumeConfiguration { get; set; }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

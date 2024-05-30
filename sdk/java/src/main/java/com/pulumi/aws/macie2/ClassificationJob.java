@@ -277,14 +277,14 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
     @Export(name="userPausedDetails", refs={List.class,ClassificationJobUserPausedDetail.class}, tree="[0,1]")
     private Output<List<ClassificationJobUserPausedDetail>> userPausedDetails;
 
     /**
-     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
     public Output<List<ClassificationJobUserPausedDetail>> userPausedDetails() {

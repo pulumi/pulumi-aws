@@ -12,16 +12,64 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclAssociationConfigRequestBodyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiGateways")]
+        private InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>? _apiGateways;
+
+        /// <summary>
+        /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs> ApiGateways
+        {
+            get => _apiGateways ?? (_apiGateways = new InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayArgs>());
+            set => _apiGateways = value;
+        }
+
+        [Input("appRunnerServices")]
+        private InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>? _appRunnerServices;
+
+        /// <summary>
+        /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs> AppRunnerServices
+        {
+            get => _appRunnerServices ?? (_appRunnerServices = new InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceArgs>());
+            set => _appRunnerServices = value;
+        }
+
         [Input("cloudfronts")]
         private InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>? _cloudfronts;
 
         /// <summary>
-        /// Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         /// </summary>
         public InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs> Cloudfronts
         {
             get => _cloudfronts ?? (_cloudfronts = new InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontArgs>());
             set => _cloudfronts = value;
+        }
+
+        [Input("cognitoUserPools")]
+        private InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>? _cognitoUserPools;
+
+        /// <summary>
+        /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs> CognitoUserPools
+        {
+            get => _cognitoUserPools ?? (_cognitoUserPools = new InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolArgs>());
+            set => _cognitoUserPools = value;
+        }
+
+        [Input("verifiedAccessInstances")]
+        private InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>? _verifiedAccessInstances;
+
+        /// <summary>
+        /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs> VerifiedAccessInstances
+        {
+            get => _verifiedAccessInstances ?? (_verifiedAccessInstances = new InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>());
+            set => _verifiedAccessInstances = value;
         }
 
         public WebAclAssociationConfigRequestBodyArgs()

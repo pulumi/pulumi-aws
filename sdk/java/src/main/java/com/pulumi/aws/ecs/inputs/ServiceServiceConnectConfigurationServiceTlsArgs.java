@@ -18,14 +18,14 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
     public static final ServiceServiceConnectConfigurationServiceTlsArgs Empty = new ServiceServiceConnectConfigurationServiceTlsArgs();
 
     /**
-     * The details of the certificate authority which will issue the certificate.
+     * Details of the certificate authority which will issue the certificate.
      * 
      */
     @Import(name="issuerCertAuthority", required=true)
     private Output<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> issuerCertAuthority;
 
     /**
-     * @return The details of the certificate authority which will issue the certificate.
+     * @return Details of the certificate authority which will issue the certificate.
      * 
      */
     public Output<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> issuerCertAuthority() {
@@ -33,14 +33,14 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
     }
 
     /**
-     * The KMS key used to encrypt the private key in Secrets Manager.
+     * KMS key used to encrypt the private key in Secrets Manager.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The KMS key used to encrypt the private key in Secrets Manager.
+     * @return KMS key used to encrypt the private key in Secrets Manager.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -48,14 +48,14 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
     }
 
     /**
-     * The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+     * ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+     * @return ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -89,7 +89,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param issuerCertAuthority The details of the certificate authority which will issue the certificate.
+         * @param issuerCertAuthority Details of the certificate authority which will issue the certificate.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param issuerCertAuthority The details of the certificate authority which will issue the certificate.
+         * @param issuerCertAuthority Details of the certificate authority which will issue the certificate.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param kmsKey The KMS key used to encrypt the private key in Secrets Manager.
+         * @param kmsKey KMS key used to encrypt the private key in Secrets Manager.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param kmsKey The KMS key used to encrypt the private key in Secrets Manager.
+         * @param kmsKey KMS key used to encrypt the private key in Secrets Manager.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+         * @param roleArn ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsArgs extends com.
         }
 
         /**
-         * @param roleArn The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+         * @param roleArn ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
          * 
          * @return builder
          * 

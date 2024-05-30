@@ -5,10 +5,10 @@ Subject: [PATCH] De-deprecate bucket_object
 
 
 diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
-index 506fe1cc26..e6d4e3b3d2 100644
+index 90a568dd74..73b9f61131 100644
 --- a/internal/service/s3/bucket_object.go
 +++ b/internal/service/s3/bucket_object.go
-@@ -68,7 +68,7 @@ func resourceBucketObject() *schema.Resource {
+@@ -71,7 +71,7 @@ func resourceBucketObject() *schema.Resource {
  				Computed: true,
  			},
  			names.AttrBucket: {
@@ -17,7 +17,7 @@ index 506fe1cc26..e6d4e3b3d2 100644
  				Type:         schema.TypeString,
  				Required:     true,
  				ForceNew:     true,
-@@ -125,7 +125,7 @@ func resourceBucketObject() *schema.Resource {
+@@ -128,7 +128,7 @@ func resourceBucketObject() *schema.Resource {
  				Default:  false,
  			},
  			names.AttrKey: {
@@ -26,7 +26,7 @@ index 506fe1cc26..e6d4e3b3d2 100644
  				Type:         schema.TypeString,
  				Required:     true,
  				ForceNew:     true,
-@@ -198,7 +198,9 @@ func resourceBucketObject() *schema.Resource {
+@@ -201,7 +201,9 @@ func resourceBucketObject() *schema.Resource {
  			},
  		},
  

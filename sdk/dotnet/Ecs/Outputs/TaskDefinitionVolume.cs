@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class TaskDefinitionVolume
     {
         /// <summary>
+        /// Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+        /// </summary>
+        public readonly bool? ConfigureAtLaunch;
+        /// <summary>
         /// Configuration block to configure a docker volume. Detailed below.
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeDockerVolumeConfiguration? DockerVolumeConfiguration;
@@ -37,6 +41,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
         [OutputConstructor]
         private TaskDefinitionVolume(
+            bool? configureAtLaunch,
+
             Outputs.TaskDefinitionVolumeDockerVolumeConfiguration? dockerVolumeConfiguration,
 
             Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? efsVolumeConfiguration,
@@ -47,6 +53,7 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string name)
         {
+            ConfigureAtLaunch = configureAtLaunch;
             DockerVolumeConfiguration = dockerVolumeConfiguration;
             EfsVolumeConfiguration = efsVolumeConfiguration;
             FsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;

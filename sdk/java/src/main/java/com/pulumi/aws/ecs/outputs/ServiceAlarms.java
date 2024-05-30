@@ -18,12 +18,12 @@ public final class ServiceAlarms {
      */
     private List<String> alarmNames;
     /**
-     * @return Determines whether to use the CloudWatch alarm option in the service deployment process.
+     * @return Whether to use the CloudWatch alarm option in the service deployment process.
      * 
      */
     private Boolean enable;
     /**
-     * @return Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
     private Boolean rollback;
@@ -37,14 +37,14 @@ public final class ServiceAlarms {
         return this.alarmNames;
     }
     /**
-     * @return Determines whether to use the CloudWatch alarm option in the service deployment process.
+     * @return Whether to use the CloudWatch alarm option in the service deployment process.
      * 
      */
     public Boolean enable() {
         return this.enable;
     }
     /**
-     * @return Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
     public Boolean rollback() {

@@ -32,14 +32,14 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether to use the CloudWatch alarm option in the service deployment process.
+     * Whether to use the CloudWatch alarm option in the service deployment process.
      * 
      */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
     /**
-     * @return Determines whether to use the CloudWatch alarm option in the service deployment process.
+     * @return Whether to use the CloudWatch alarm option in the service deployment process.
      * 
      */
     public Output<Boolean> enable() {
@@ -47,14 +47,14 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+     * Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
     @Import(name="rollback", required=true)
     private Output<Boolean> rollback;
 
     /**
-     * @return Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+     * @return Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
     public Output<Boolean> rollback() {
@@ -119,7 +119,7 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable Determines whether to use the CloudWatch alarm option in the service deployment process.
+         * @param enable Whether to use the CloudWatch alarm option in the service deployment process.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable Determines whether to use the CloudWatch alarm option in the service deployment process.
+         * @param enable Whether to use the CloudWatch alarm option in the service deployment process.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rollback Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+         * @param rollback Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rollback Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+         * @param rollback Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
          * 
          * @return builder
          * 

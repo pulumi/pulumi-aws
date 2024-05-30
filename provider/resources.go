@@ -79,6 +79,7 @@ const (
 	bedrockMod                  = "Bedrock"                  // Bedrock
 	bcmDataMod                  = "BcmData"                  // Billing and Cost Management Data
 	budgetsMod                  = "Budgets"                  // Budgets
+	chatbotMod                  = "Chatbot"                  // Chatbot
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
 	cloud9Mod                   = "Cloud9"                   // Cloud9
@@ -4724,6 +4725,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsDataSource(batchMod, "getSchedulingPolicy")},
+			// chatbot
+			"aws_chatbot_slack_workspace": {Tok: awsDataSource(chatbotMod, "getSlackWorkspace")},
 			// cloud control api
 			"aws_cloudcontrolapi_resource": {Tok: awsDataSource(cloudControlMod, "getResource")},
 			// CloudFormation
@@ -5788,6 +5791,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		"aws_auditmanager_organization_admin_account_registration": {
 			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
 		},
+		"aws_lambda_runtime_management_config": {
+			Tok: awsResource(lambdaMod, "RuntimeManagementConfig"),
+		},
 		"aws_medialive_multiplex_program": {
 			Tok: awsResource(medialiveMod, "MultiplexProgram"),
 		},
@@ -5811,6 +5817,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		},
 		"aws_vpc_security_group_ingress_rule": {
 			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+		},
+		"aws_vpc_endpoint_private_dns": {
+			Tok: awsResource("Vpc", "EndpointPrivateDns"),
+		},
+		"aws_vpc_endpoint_service_private_dns_verification": {
+			Tok: awsResource("Vpc", "EndpointServicePrivateDnsVerification"),
 		},
 		"aws_quicksight_iam_policy_assignment": {
 			Tok: awsResource("QuickSight", "IamPolicyAssignment"),

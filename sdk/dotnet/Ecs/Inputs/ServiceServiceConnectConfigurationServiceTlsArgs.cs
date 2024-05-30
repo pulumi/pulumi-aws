@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceServiceConnectConfigurationServiceTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The details of the certificate authority which will issue the certificate.
+        /// Details of the certificate authority which will issue the certificate.
         /// </summary>
         [Input("issuerCertAuthority", required: true)]
         public Input<Inputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs> IssuerCertAuthority { get; set; } = null!;
 
         /// <summary>
-        /// The KMS key used to encrypt the private key in Secrets Manager.
+        /// KMS key used to encrypt the private key in Secrets Manager.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM Role that's associated with the Service Connect TLS.
+        /// ARN of the IAM Role that's associated with the Service Connect TLS.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -14,6 +14,7 @@ import (
 
 // Provides a resource-based access control mechanism for a KMS customer master key.
 //
+// > **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
 // ## Import
 //
 // Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -63,6 +64,10 @@ func NewGrant(ctx *pulumi.Context,
 	if args.Operations == nil {
 		return nil, errors.New("invalid value for required argument 'Operations'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"grantToken",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Grant
 	err := ctx.RegisterResource("aws:kms/grant:Grant", name, args, &resource, opts...)

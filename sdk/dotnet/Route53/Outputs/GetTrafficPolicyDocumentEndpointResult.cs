@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+        /// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         /// </summary>
         public readonly string? Type;
         /// <summary>

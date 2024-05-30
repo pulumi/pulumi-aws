@@ -137,6 +137,10 @@ namespace Pulumi.Aws.Lambda
         /// ARN of the Lambda Layer with version.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        public readonly string CodeSha256;
         public readonly string? CompatibleArchitecture;
         /// <summary>
         /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
@@ -177,7 +181,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>
@@ -185,13 +189,15 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int SourceCodeSize;
         /// <summary>
-        /// This Lamba Layer version.
+        /// This Lambda Layer version.
         /// </summary>
         public readonly int Version;
 
         [OutputConstructor]
         private GetLayerVersionResult(
             string arn,
+
+            string codeSha256,
 
             string? compatibleArchitecture,
 
@@ -224,6 +230,7 @@ namespace Pulumi.Aws.Lambda
             int version)
         {
             Arn = arn;
+            CodeSha256 = codeSha256;
             CompatibleArchitecture = compatibleArchitecture;
             CompatibleArchitectures = compatibleArchitectures;
             CompatibleRuntime = compatibleRuntime;

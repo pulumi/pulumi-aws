@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceClientAlias {
     /**
-     * @return The name that you use in the applications of client tasks to connect to this service.
+     * @return Name that you use in the applications of client tasks to connect to this service.
      * 
      */
     private @Nullable String dnsName;
     /**
-     * @return The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
      * 
      */
     private Integer port;
 
     private ServiceServiceConnectConfigurationServiceClientAlias() {}
     /**
-     * @return The name that you use in the applications of client tasks to connect to this service.
+     * @return Name that you use in the applications of client tasks to connect to this service.
      * 
      */
     public Optional<String> dnsName() {
         return Optional.ofNullable(this.dnsName);
     }
     /**
-     * @return The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
      * 
      */
     public Integer port() {

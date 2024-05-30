@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Lambda
         public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        [Output("codeSha256")]
+        public Output<string> CodeSha256 { get; private set; } = null!;
+
+        /// <summary>
         /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
         [Output("compatibleArchitectures")]
@@ -153,9 +159,6 @@ namespace Pulumi.Aws.Lambda
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
 
@@ -291,9 +294,6 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 
@@ -316,6 +316,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
+
+        /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        [Input("codeSha256")]
+        public Input<string>? CodeSha256 { get; set; }
 
         [Input("compatibleArchitectures")]
         private InputList<string>? _compatibleArchitectures;
@@ -409,9 +415,6 @@ namespace Pulumi.Aws.Lambda
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
-        /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
 

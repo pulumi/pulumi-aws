@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EndpointPrivateDnsArgs, EndpointPrivateDnsState } from "./endpointPrivateDns";
+export type EndpointPrivateDns = import("./endpointPrivateDns").EndpointPrivateDns;
+export const EndpointPrivateDns: typeof import("./endpointPrivateDns").EndpointPrivateDns = null as any;
+utilities.lazyLoad(exports, ["EndpointPrivateDns"], () => require("./endpointPrivateDns"));
+
+export { EndpointServicePrivateDnsVerificationArgs, EndpointServicePrivateDnsVerificationState } from "./endpointServicePrivateDnsVerification";
+export type EndpointServicePrivateDnsVerification = import("./endpointServicePrivateDnsVerification").EndpointServicePrivateDnsVerification;
+export const EndpointServicePrivateDnsVerification: typeof import("./endpointServicePrivateDnsVerification").EndpointServicePrivateDnsVerification = null as any;
+utilities.lazyLoad(exports, ["EndpointServicePrivateDnsVerification"], () => require("./endpointServicePrivateDnsVerification"));
+
 export { GetSecurityGroupRuleArgs, GetSecurityGroupRuleResult, GetSecurityGroupRuleOutputArgs } from "./getSecurityGroupRule";
 export const getSecurityGroupRule: typeof import("./getSecurityGroupRule").getSecurityGroupRule = null as any;
 export const getSecurityGroupRuleOutput: typeof import("./getSecurityGroupRule").getSecurityGroupRuleOutput = null as any;
@@ -30,6 +40,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:vpc/endpointPrivateDns:EndpointPrivateDns":
+                return new EndpointPrivateDns(name, <any>undefined, { urn })
+            case "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification":
+                return new EndpointServicePrivateDnsVerification(name, <any>undefined, { urn })
             case "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule":
                 return new SecurityGroupEgressRule(name, <any>undefined, { urn })
             case "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule":
@@ -39,5 +53,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "vpc/endpointPrivateDns", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/endpointServicePrivateDnsVerification", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupEgressRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupIngressRule", _module)

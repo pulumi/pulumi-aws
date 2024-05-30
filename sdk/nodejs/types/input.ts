@@ -2292,6 +2292,21 @@ export namespace apigateway {
         rateLimit?: pulumi.Input<number>;
     }
 
+    export interface DeploymentCanarySettings {
+        /**
+         * Percentage (0.0-100.0) of traffic routed to the canary deployment.
+         */
+        percentTraffic?: pulumi.Input<number>;
+        /**
+         * Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+         */
+        stageVariableOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+         */
+        useStageCache?: pulumi.Input<boolean>;
+    }
+
     export interface DocumentationPartLocation {
         /**
          * HTTP verb of a method. The default value is `*` for any method.
@@ -24175,11 +24190,11 @@ export namespace ecs {
          */
         alarmNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Determines whether to use the CloudWatch alarm option in the service deployment process.
+         * Whether to use the CloudWatch alarm option in the service deployment process.
          */
         enable: pulumi.Input<boolean>;
         /**
-         * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+         * Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
          */
         rollback: pulumi.Input<boolean>;
     }
@@ -24284,64 +24299,64 @@ export namespace ecs {
 
     export interface ServiceServiceConnectConfiguration {
         /**
-         * Specifies whether to use Service Connect with this service.
+         * Whether to use Service Connect with this service.
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * The log configuration for the container. See below.
+         * Log configuration for the container. See below.
          */
         logConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationLogConfiguration>;
         /**
-         * The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+         * Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
          */
         namespace?: pulumi.Input<string>;
         /**
-         * The list of Service Connect service objects. See below.
+         * List of Service Connect service objects. See below.
          */
         services?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationService>[]>;
     }
 
     export interface ServiceServiceConnectConfigurationLogConfiguration {
         /**
-         * The log driver to use for the container.
+         * Log driver to use for the container.
          */
         logDriver: pulumi.Input<string>;
         /**
-         * The configuration options to send to the log driver.
+         * Configuration options to send to the log driver.
          */
         options?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The secrets to pass to the log configuration. See below.
+         * Secrets to pass to the log configuration. See below.
          */
         secretOptions?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationLogConfigurationSecretOption>[]>;
     }
 
     export interface ServiceServiceConnectConfigurationLogConfigurationSecretOption {
         /**
-         * The name of the secret.
+         * Name of the secret.
          */
         name: pulumi.Input<string>;
         /**
-         * The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+         * Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
          */
         valueFrom: pulumi.Input<string>;
     }
 
     export interface ServiceServiceConnectConfigurationService {
         /**
-         * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          */
         clientAlias?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias>[]>;
         /**
-         * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+         * Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
          */
         discoveryName?: pulumi.Input<string>;
         /**
-         * The port number for the Service Connect proxy to listen on.
+         * Port number for the Service Connect proxy to listen on.
          */
         ingressPortOverride?: pulumi.Input<number>;
         /**
-         * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+         * Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
          */
         portName: pulumi.Input<string>;
         /**
@@ -24349,51 +24364,51 @@ export namespace ecs {
          */
         timeout?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTimeout>;
         /**
-         * The configuration for enabling Transport Layer Security (TLS)
+         * Configuration for enabling Transport Layer Security (TLS)
          */
         tls?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTls>;
     }
 
     export interface ServiceServiceConnectConfigurationServiceClientAlias {
         /**
-         * The name that you use in the applications of client tasks to connect to this service.
+         * Name that you use in the applications of client tasks to connect to this service.
          */
         dnsName?: pulumi.Input<string>;
         /**
-         * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+         * Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
          */
         port: pulumi.Input<number>;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTimeout {
         /**
-         * The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+         * Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
          */
         idleTimeoutSeconds?: pulumi.Input<number>;
         /**
-         * The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+         * Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
          */
         perRequestTimeoutSeconds?: pulumi.Input<number>;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTls {
         /**
-         * The details of the certificate authority which will issue the certificate.
+         * Details of the certificate authority which will issue the certificate.
          */
         issuerCertAuthority: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority>;
         /**
-         * The KMS key used to encrypt the private key in Secrets Manager.
+         * KMS key used to encrypt the private key in Secrets Manager.
          */
         kmsKey?: pulumi.Input<string>;
         /**
-         * The ARN of the IAM Role that's associated with the Service Connect TLS.
+         * ARN of the IAM Role that's associated with the Service Connect TLS.
          */
         roleArn?: pulumi.Input<string>;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
         /**
-         * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+         * ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
          */
         awsPcaAuthorityArn: pulumi.Input<string>;
     }
@@ -24415,6 +24430,56 @@ export namespace ecs {
          * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
          */
         registryArn: pulumi.Input<string>;
+    }
+
+    export interface ServiceVolumeConfiguration {
+        /**
+         * Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+         */
+        managedEbsVolume: pulumi.Input<inputs.ecs.ServiceVolumeConfigurationManagedEbsVolume>;
+        /**
+         * Name of the volume.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ServiceVolumeConfigurationManagedEbsVolume {
+        /**
+         * Whether the volume should be encrypted. Default value is `true`.
+         */
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+         */
+        fileSystemType?: pulumi.Input<string>;
+        /**
+         * Number of I/O operations per second (IOPS).
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+         */
+        sizeInGb?: pulumi.Input<number>;
+        /**
+         * Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+         */
+        snapshotId?: pulumi.Input<string>;
+        /**
+         * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+         */
+        throughput?: pulumi.Input<string>;
+        /**
+         * Volume type.
+         */
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionEphemeralStorage {
@@ -24473,6 +24538,10 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionVolume {
+        /**
+         * Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+         */
+        configureAtLaunch?: pulumi.Input<boolean>;
         /**
          * Configuration block to configure a docker volume. Detailed below.
          */
@@ -57937,7 +58006,7 @@ export namespace route53 {
          */
         region?: string;
         /**
-         * Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+         * Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
          */
         type?: string;
         /**
@@ -57956,7 +58025,7 @@ export namespace route53 {
          */
         region?: pulumi.Input<string>;
         /**
-         * Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+         * Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
          */
         type?: pulumi.Input<string>;
         /**
@@ -68380,6 +68449,13 @@ export namespace verifiedpermissions {
 }
 
 export namespace vpc {
+    export interface EndpointServicePrivateDnsVerificationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
     export interface GetSecurityGroupRuleFilter {
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
@@ -72208,14 +72284,58 @@ export namespace wafv2 {
 
     export interface WebAclAssociationConfigRequestBody {
         /**
-         * Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+         * Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
+         */
+        apiGateways?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyApiGateway>[]>;
+        /**
+         * Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
+         */
+        appRunnerServices?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyAppRunnerService>[]>;
+        /**
+         * Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
          */
         cloudfronts?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyCloudfront>[]>;
+        /**
+         * Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
+         */
+        cognitoUserPools?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyCognitoUserPool>[]>;
+        /**
+         * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         */
+        verifiedAccessInstances?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyVerifiedAccessInstance>[]>;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyApiGateway {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: pulumi.Input<string>;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyAppRunnerService {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: pulumi.Input<string>;
     }
 
     export interface WebAclAssociationConfigRequestBodyCloudfront {
         /**
-         * Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: pulumi.Input<string>;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyCognitoUserPool {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: pulumi.Input<string>;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyVerifiedAccessInstance {
+        /**
+         * Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: pulumi.Input<string>;
     }

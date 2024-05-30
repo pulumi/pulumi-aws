@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationServiceClientAlias
     {
         /// <summary>
-        /// The name that you use in the applications of client tasks to connect to this service.
+        /// Name that you use in the applications of client tasks to connect to this service.
         /// </summary>
         public readonly string? DnsName;
         /// <summary>
-        /// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+        /// Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         /// </summary>
         public readonly int Port;
 

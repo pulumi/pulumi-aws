@@ -193,7 +193,7 @@ type VpcEndpoint struct {
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
 	// Defaults to `false`.
-	PrivateDnsEnabled pulumi.BoolPtrOutput `pulumi:"privateDnsEnabled"`
+	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged pulumi.BoolOutput `pulumi:"requesterManaged"`
 	// One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -554,8 +554,8 @@ func (o VpcEndpointOutput) PrefixListId() pulumi.StringOutput {
 
 // Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
 // Defaults to `false`.
-func (o VpcEndpointOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcEndpoint) pulumi.BoolPtrOutput { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
+func (o VpcEndpointOutput) PrivateDnsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.BoolOutput { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.

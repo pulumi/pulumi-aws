@@ -83,6 +83,8 @@ if typing.TYPE_CHECKING:
     budgets = __budgets
     import pulumi_aws.cfg as __cfg
     cfg = __cfg
+    import pulumi_aws.chatbot as __chatbot
+    chatbot = __chatbot
     import pulumi_aws.chime as __chime
     chime = __chime
     import pulumi_aws.chimesdkmediapipelines as __chimesdkmediapipelines
@@ -464,6 +466,7 @@ else:
     bedrockmodel = _utilities.lazy_import('pulumi_aws.bedrockmodel')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
+    chatbot = _utilities.lazy_import('pulumi_aws.chatbot')
     chime = _utilities.lazy_import('pulumi_aws.chime')
     chimesdkmediapipelines = _utilities.lazy_import('pulumi_aws.chimesdkmediapipelines')
     cleanrooms = _utilities.lazy_import('pulumi_aws.cleanrooms')
@@ -6885,6 +6888,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambda/runtimeManagementConfig",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig": "RuntimeManagementConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lb/listener",
   "fqn": "pulumi_aws.lb",
   "classes": {
@@ -11201,6 +11212,22 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedpermissions",
   "classes": {
    "aws:verifiedpermissions/schema:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/endpointPrivateDns",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/endpointPrivateDns:EndpointPrivateDns": "EndpointPrivateDns"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpc/endpointServicePrivateDnsVerification",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification": "EndpointServicePrivateDnsVerification"
   }
  },
  {

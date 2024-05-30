@@ -50,6 +50,21 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    @Import(name="codeSha256")
+    private @Nullable Output<String> codeSha256;
+
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    public Optional<Output<String>> codeSha256() {
+        return Optional.ofNullable(this.codeSha256);
+    }
+
+    /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
      * 
      */
@@ -248,17 +263,9 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.skipDestroy);
     }
 
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
-    /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-     * 
-     */
     public Optional<Output<String>> sourceCodeHash() {
         return Optional.ofNullable(this.sourceCodeHash);
     }
@@ -298,6 +305,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     private LayerVersionState(LayerVersionState $) {
         this.arn = $.arn;
         this.code = $.code;
+        this.codeSha256 = $.codeSha256;
         this.compatibleArchitectures = $.compatibleArchitectures;
         this.compatibleRuntimes = $.compatibleRuntimes;
         this.createdDate = $.createdDate;
@@ -374,6 +382,27 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder code(Archive code) {
             return code(Output.of(code));
+        }
+
+        /**
+         * @param codeSha256 Base64-encoded representation of raw SHA-256 sum of the zip file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeSha256(@Nullable Output<String> codeSha256) {
+            $.codeSha256 = codeSha256;
+            return this;
+        }
+
+        /**
+         * @param codeSha256 Base64-encoded representation of raw SHA-256 sum of the zip file.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeSha256(String codeSha256) {
+            return codeSha256(Output.of(codeSha256));
         }
 
         /**
@@ -673,23 +702,11 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
             return skipDestroy(Output.of(skipDestroy));
         }
 
-        /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceCodeHash(@Nullable Output<String> sourceCodeHash) {
             $.sourceCodeHash = sourceCodeHash;
             return this;
         }
 
-        /**
-         * @param sourceCodeHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceCodeHash(String sourceCodeHash) {
             return sourceCodeHash(Output.of(sourceCodeHash));
         }

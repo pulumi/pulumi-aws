@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfigurationLogConfiguration {
     /**
-     * @return The log driver to use for the container.
+     * @return Log driver to use for the container.
      * 
      */
     private String logDriver;
     /**
-     * @return The configuration options to send to the log driver.
+     * @return Configuration options to send to the log driver.
      * 
      */
     private @Nullable Map<String,String> options;
     /**
-     * @return The secrets to pass to the log configuration. See below.
+     * @return Secrets to pass to the log configuration. See below.
      * 
      */
     private @Nullable List<ServiceServiceConnectConfigurationLogConfigurationSecretOption> secretOptions;
 
     private ServiceServiceConnectConfigurationLogConfiguration() {}
     /**
-     * @return The log driver to use for the container.
+     * @return Log driver to use for the container.
      * 
      */
     public String logDriver() {
         return this.logDriver;
     }
     /**
-     * @return The configuration options to send to the log driver.
+     * @return Configuration options to send to the log driver.
      * 
      */
     public Map<String,String> options() {
         return this.options == null ? Map.of() : this.options;
     }
     /**
-     * @return The secrets to pass to the log configuration. See below.
+     * @return Secrets to pass to the log configuration. See below.
      * 
      */
     public List<ServiceServiceConnectConfigurationLogConfigurationSecretOption> secretOptions() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
     /**
-     * @return The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+     * @return ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
     private String awsPcaAuthorityArn;
 
     private ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority() {}
     /**
-     * @return The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+     * @return ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
     public String awsPcaAuthorityArn() {

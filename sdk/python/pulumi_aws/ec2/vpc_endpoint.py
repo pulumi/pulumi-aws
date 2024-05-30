@@ -998,7 +998,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsEnabled")
-    def private_dns_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def private_dns_enabled(self) -> pulumi.Output[bool]:
         """
         Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
         Defaults to `false`.

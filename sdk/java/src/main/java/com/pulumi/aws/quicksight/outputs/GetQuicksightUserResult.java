@@ -49,7 +49,7 @@ public final class GetQuicksightUserResult {
     /**
      * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
      * - `READER`: A user who has read-only access to dashboards.
-     * - `AUTHOR`: A user who can create data sources, datasets, analyses, and dashboards.
+     * - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
      * - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
      * 
      */
@@ -110,7 +110,7 @@ public final class GetQuicksightUserResult {
     /**
      * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
      * - `READER`: A user who has read-only access to dashboards.
-     * - `AUTHOR`: A user who can create data sources, datasets, analyses, and dashboards.
+     * - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
      * - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
      * 
      */

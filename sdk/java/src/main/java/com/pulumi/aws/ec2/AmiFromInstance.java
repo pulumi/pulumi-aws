@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 
 /**
  * The &#34;AMI from instance&#34; resource allows the creation of an Amazon Machine
- * Image (AMI) modelled after an existing EBS-backed EC2 instance.
+ * Image (AMI) modeled after an existing EBS-backed EC2 instance.
  * 
  * The created AMI will refer to implicitly-created snapshots of the instance&#39;s
  * EBS volumes and mimick its assigned block device configuration at the time

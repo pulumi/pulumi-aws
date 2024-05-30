@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
@@ -58,6 +61,10 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
+     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     */
+    public readonly canarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
+    /**
      * Creation date of the deployment
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
@@ -110,6 +117,7 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
+            resourceInputs["canarySettings"] = state ? state.canarySettings : undefined;
             resourceInputs["createdDate"] = state ? state.createdDate : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["executionArn"] = state ? state.executionArn : undefined;
@@ -124,6 +132,7 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
+            resourceInputs["canarySettings"] = args ? args.canarySettings : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["stageDescription"] = args ? args.stageDescription : undefined;
@@ -143,6 +152,10 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
+    /**
+     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     */
+    canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
      * Creation date of the deployment
      */
@@ -188,6 +201,10 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
+    /**
+     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     */
+    canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
      * Description of the deployment
      */

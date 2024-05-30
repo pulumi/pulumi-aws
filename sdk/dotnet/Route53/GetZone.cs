@@ -109,12 +109,6 @@ namespace Pulumi.Aws.Route53
         [Input("privateZone")]
         public bool? PrivateZone { get; set; }
 
-        /// <summary>
-        /// The number of Record Set in the Hosted Zone.
-        /// </summary>
-        [Input("resourceRecordSetCount")]
-        public int? ResourceRecordSetCount { get; set; }
-
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -158,12 +152,6 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("privateZone")]
         public Input<bool>? PrivateZone { get; set; }
-
-        /// <summary>
-        /// The number of Record Set in the Hosted Zone.
-        /// </summary>
-        [Input("resourceRecordSetCount")]
-        public Input<int>? ResourceRecordSetCount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -13,6 +13,7 @@ import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
 import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.ServiceServiceRegistriesArgs;
+import com.pulumi.aws.ecs.inputs.ServiceVolumeConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -150,14 +151,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     @Import(name="enableEcsManagedTags")
     private @Nullable Output<Boolean> enableEcsManagedTags;
 
     /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * @return Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     public Optional<Output<Boolean>> enableEcsManagedTags() {
@@ -165,14 +166,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     @Import(name="enableExecuteCommand")
     private @Nullable Output<Boolean> enableExecuteCommand;
 
     /**
-     * @return Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * @return Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     public Optional<Output<Boolean>> enableExecuteCommand() {
@@ -334,14 +335,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * @return Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
     public Optional<Output<String>> propagateTags() {
@@ -364,14 +365,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
     @Import(name="serviceConnectConfiguration")
     private @Nullable Output<ServiceServiceConnectConfigurationArgs> serviceConnectConfiguration;
 
     /**
-     * @return The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * @return ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
     public Optional<Output<ServiceServiceConnectConfigurationArgs>> serviceConnectConfiguration() {
@@ -462,6 +463,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     * 
+     */
+    @Import(name="volumeConfiguration")
+    private @Nullable Output<ServiceVolumeConfigurationArgs> volumeConfiguration;
+
+    /**
+     * @return Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     * 
+     */
+    public Optional<Output<ServiceVolumeConfigurationArgs>> volumeConfiguration() {
+        return Optional.ofNullable(this.volumeConfiguration);
+    }
+
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */
@@ -507,6 +523,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.tagsAll = $.tagsAll;
         this.taskDefinition = $.taskDefinition;
         this.triggers = $.triggers;
+        this.volumeConfiguration = $.volumeConfiguration;
         this.waitForSteadyState = $.waitForSteadyState;
     }
 
@@ -707,7 +724,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableEcsManagedTags Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+         * @param enableEcsManagedTags Whether to enable Amazon ECS managed tags for the tasks within the service.
          * 
          * @return builder
          * 
@@ -718,7 +735,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableEcsManagedTags Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+         * @param enableEcsManagedTags Whether to enable Amazon ECS managed tags for the tasks within the service.
          * 
          * @return builder
          * 
@@ -728,7 +745,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableExecuteCommand Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+         * @param enableExecuteCommand Whether to enable Amazon ECS Exec for the tasks within the service.
          * 
          * @return builder
          * 
@@ -739,7 +756,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableExecuteCommand Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+         * @param enableExecuteCommand Whether to enable Amazon ECS Exec for the tasks within the service.
          * 
          * @return builder
          * 
@@ -993,7 +1010,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+         * @param propagateTags Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
          * 
          * @return builder
          * 
@@ -1004,7 +1021,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+         * @param propagateTags Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
          * 
          * @return builder
          * 
@@ -1035,7 +1052,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceConnectConfiguration The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+         * @param serviceConnectConfiguration ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
          * 
          * @return builder
          * 
@@ -1046,7 +1063,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceConnectConfiguration The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+         * @param serviceConnectConfiguration ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
          * 
          * @return builder
          * 
@@ -1166,6 +1183,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
+        }
+
+        /**
+         * @param volumeConfiguration Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeConfiguration(@Nullable Output<ServiceVolumeConfigurationArgs> volumeConfiguration) {
+            $.volumeConfiguration = volumeConfiguration;
+            return this;
+        }
+
+        /**
+         * @param volumeConfiguration Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder volumeConfiguration(ServiceVolumeConfigurationArgs volumeConfiguration) {
+            return volumeConfiguration(Output.of(volumeConfiguration));
         }
 
         /**

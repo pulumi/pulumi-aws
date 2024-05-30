@@ -21,14 +21,14 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
     public static final ServiceServiceConnectConfigurationArgs Empty = new ServiceServiceConnectConfigurationArgs();
 
     /**
-     * Specifies whether to use Service Connect with this service.
+     * Whether to use Service Connect with this service.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether to use Service Connect with this service.
+     * @return Whether to use Service Connect with this service.
      * 
      */
     public Output<Boolean> enabled() {
@@ -36,14 +36,14 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The log configuration for the container. See below.
+     * Log configuration for the container. See below.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<ServiceServiceConnectConfigurationLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The log configuration for the container. See below.
+     * @return Log configuration for the container. See below.
      * 
      */
     public Optional<Output<ServiceServiceConnectConfigurationLogConfigurationArgs>> logConfiguration() {
@@ -51,14 +51,14 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     * Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+     * @return Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -66,14 +66,14 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The list of Service Connect service objects. See below.
+     * List of Service Connect service objects. See below.
      * 
      */
     @Import(name="services")
     private @Nullable Output<List<ServiceServiceConnectConfigurationServiceArgs>> services;
 
     /**
-     * @return The list of Service Connect service objects. See below.
+     * @return List of Service Connect service objects. See below.
      * 
      */
     public Optional<Output<List<ServiceServiceConnectConfigurationServiceArgs>>> services() {
@@ -108,7 +108,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Specifies whether to use Service Connect with this service.
+         * @param enabled Whether to use Service Connect with this service.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Specifies whether to use Service Connect with this service.
+         * @param enabled Whether to use Service Connect with this service.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logConfiguration The log configuration for the container. See below.
+         * @param logConfiguration Log configuration for the container. See below.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logConfiguration The log configuration for the container. See below.
+         * @param logConfiguration Log configuration for the container. See below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param namespace The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+         * @param namespace Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param namespace The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+         * @param namespace Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param services The list of Service Connect service objects. See below.
+         * @param services List of Service Connect service objects. See below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param services The list of Service Connect service objects. See below.
+         * @param services List of Service Connect service objects. See below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ServiceServiceConnectConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param services The list of Service Connect service objects. See below.
+         * @param services List of Service Connect service objects. See below.
          * 
          * @return builder
          * 

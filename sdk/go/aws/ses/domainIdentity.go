@@ -95,14 +95,7 @@ type DomainIdentity struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain name to assign to SES
 	Domain pulumi.StringOutput `pulumi:"domain"`
-	// A code which when added to the domain as a TXT record
-	// will signal to SES that the owner of the domain has authorised SES to act on
-	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See the With Route53 Record example
-	// for how this might be achieved when the domain is hosted in Route 53 and
-	// managed by this provider.  Find out more about verifying domains in Amazon
-	// SES in the [AWS SES
-	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
 
@@ -143,14 +136,7 @@ type domainIdentityState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain name to assign to SES
 	Domain *string `pulumi:"domain"`
-	// A code which when added to the domain as a TXT record
-	// will signal to SES that the owner of the domain has authorised SES to act on
-	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See the With Route53 Record example
-	// for how this might be achieved when the domain is hosted in Route 53 and
-	// managed by this provider.  Find out more about verifying domains in Amazon
-	// SES in the [AWS SES
-	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken *string `pulumi:"verificationToken"`
 }
 
@@ -159,14 +145,7 @@ type DomainIdentityState struct {
 	Arn pulumi.StringPtrInput
 	// The domain name to assign to SES
 	Domain pulumi.StringPtrInput
-	// A code which when added to the domain as a TXT record
-	// will signal to SES that the owner of the domain has authorised SES to act on
-	// their behalf. The domain identity will be in state "verification pending"
-	// until this is done. See the With Route53 Record example
-	// for how this might be achieved when the domain is hosted in Route 53 and
-	// managed by this provider.  Find out more about verifying domains in Amazon
-	// SES in the [AWS SES
-	// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+	// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 	VerificationToken pulumi.StringPtrInput
 }
 
@@ -282,14 +261,7 @@ func (o DomainIdentityOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// A code which when added to the domain as a TXT record
-// will signal to SES that the owner of the domain has authorised SES to act on
-// their behalf. The domain identity will be in state "verification pending"
-// until this is done. See the With Route53 Record example
-// for how this might be achieved when the domain is hosted in Route 53 and
-// managed by this provider.  Find out more about verifying domains in Amazon
-// SES in the [AWS SES
-// docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 func (o DomainIdentityOutput) VerificationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentity) pulumi.StringOutput { return v.VerificationToken }).(pulumi.StringOutput)
 }

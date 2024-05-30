@@ -656,7 +656,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
         """
         :param str id: ID of an endpoint you want to assign.
         :param str region: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        :param str type: Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+        :param str type: Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         :param str value: Value of the `type`.
         """
         pulumi.set(__self__, "id", id)
@@ -687,7 +687,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+        Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         """
         return pulumi.get(self, "type")
 

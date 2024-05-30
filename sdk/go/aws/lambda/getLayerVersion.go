@@ -66,7 +66,9 @@ type LookupLayerVersionArgs struct {
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
 	// ARN of the Lambda Layer with version.
-	Arn                    string  `pulumi:"arn"`
+	Arn string `pulumi:"arn"`
+	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	CodeSha256             string  `pulumi:"codeSha256"`
 	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
 	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
@@ -88,11 +90,13 @@ type LookupLayerVersionResult struct {
 	SigningJobArn string `pulumi:"signingJobArn"`
 	// The ARN for a signing profile version.
 	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize int `pulumi:"sourceCodeSize"`
-	// This Lamba Layer version.
+	// This Lambda Layer version.
 	Version int `pulumi:"version"`
 }
 
@@ -143,6 +147,11 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 // ARN of the Lambda Layer with version.
 func (o LookupLayerVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Base64-encoded representation of raw SHA-256 sum of the zip file.
+func (o LookupLayerVersionResultOutput) CodeSha256() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.CodeSha256 }).(pulumi.StringOutput)
 }
 
 func (o LookupLayerVersionResultOutput) CompatibleArchitecture() pulumi.StringPtrOutput {
@@ -202,7 +211,9 @@ func (o LookupLayerVersionResultOutput) SigningProfileVersionArn() pulumi.String
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
 
-// Base64-encoded representation of raw SHA-256 sum of the zip file.
+// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+//
+// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
 func (o LookupLayerVersionResultOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
 }
@@ -212,7 +223,7 @@ func (o LookupLayerVersionResultOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
 }
 
-// This Lamba Layer version.
+// This Lambda Layer version.
 func (o LookupLayerVersionResultOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) int { return v.Version }).(pulumi.IntOutput)
 }

@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationService
     {
         /// <summary>
-        /// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationServiceClientAlias> ClientAlias;
         /// <summary>
-        /// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        /// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         /// </summary>
         public readonly string? DiscoveryName;
         /// <summary>
-        /// The port number for the Service Connect proxy to listen on.
+        /// Port number for the Service Connect proxy to listen on.
         /// </summary>
         public readonly int? IngressPortOverride;
         /// <summary>
-        /// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        /// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         /// </summary>
         public readonly string PortName;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTimeout? Timeout;
         /// <summary>
-        /// The configuration for enabling Transport Layer Security (TLS)
+        /// Configuration for enabling Transport Layer Security (TLS)
         /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTls? Tls;
 

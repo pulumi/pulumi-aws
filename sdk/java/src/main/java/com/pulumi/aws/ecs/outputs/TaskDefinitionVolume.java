@@ -8,6 +8,7 @@ import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeEfsVolumeConfiguration;
 import com.pulumi.aws.ecs.outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskDefinitionVolume {
+    /**
+     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+     * 
+     */
+    private @Nullable Boolean configureAtLaunch;
     /**
      * @return Configuration block to configure a docker volume. Detailed below.
      * 
@@ -43,6 +49,13 @@ public final class TaskDefinitionVolume {
     private String name;
 
     private TaskDefinitionVolume() {}
+    /**
+     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+     * 
+     */
+    public Optional<Boolean> configureAtLaunch() {
+        return Optional.ofNullable(this.configureAtLaunch);
+    }
     /**
      * @return Configuration block to configure a docker volume. Detailed below.
      * 
@@ -89,6 +102,7 @@ public final class TaskDefinitionVolume {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean configureAtLaunch;
         private @Nullable TaskDefinitionVolumeDockerVolumeConfiguration dockerVolumeConfiguration;
         private @Nullable TaskDefinitionVolumeEfsVolumeConfiguration efsVolumeConfiguration;
         private @Nullable TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration fsxWindowsFileServerVolumeConfiguration;
@@ -97,6 +111,7 @@ public final class TaskDefinitionVolume {
         public Builder() {}
         public Builder(TaskDefinitionVolume defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.configureAtLaunch = defaults.configureAtLaunch;
     	      this.dockerVolumeConfiguration = defaults.dockerVolumeConfiguration;
     	      this.efsVolumeConfiguration = defaults.efsVolumeConfiguration;
     	      this.fsxWindowsFileServerVolumeConfiguration = defaults.fsxWindowsFileServerVolumeConfiguration;
@@ -104,6 +119,12 @@ public final class TaskDefinitionVolume {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder configureAtLaunch(@Nullable Boolean configureAtLaunch) {
+
+            this.configureAtLaunch = configureAtLaunch;
+            return this;
+        }
         @CustomType.Setter
         public Builder dockerVolumeConfiguration(@Nullable TaskDefinitionVolumeDockerVolumeConfiguration dockerVolumeConfiguration) {
 
@@ -138,6 +159,7 @@ public final class TaskDefinitionVolume {
         }
         public TaskDefinitionVolume build() {
             final var _resultValue = new TaskDefinitionVolume();
+            _resultValue.configureAtLaunch = configureAtLaunch;
             _resultValue.dockerVolumeConfiguration = dockerVolumeConfiguration;
             _resultValue.efsVolumeConfiguration = efsVolumeConfiguration;
             _resultValue.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;

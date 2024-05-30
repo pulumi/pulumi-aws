@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationLogConfiguration
     {
         /// <summary>
-        /// The log driver to use for the container.
+        /// Log driver to use for the container.
         /// </summary>
         public readonly string LogDriver;
         /// <summary>
-        /// The configuration options to send to the log driver.
+        /// Configuration options to send to the log driver.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
-        /// The secrets to pass to the log configuration. See below.
+        /// Secrets to pass to the log configuration. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption> SecretOptions;
 

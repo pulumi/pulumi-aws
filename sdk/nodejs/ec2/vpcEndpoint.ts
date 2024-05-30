@@ -162,7 +162,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      */
-    public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly privateDnsEnabled!: pulumi.Output<boolean>;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */

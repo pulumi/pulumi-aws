@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.apigateway;
 
+import com.pulumi.aws.apigateway.inputs.DeploymentCanarySettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentArgs Empty = new DeploymentArgs();
+
+    /**
+     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * 
+     */
+    @Import(name="canarySettings")
+    private @Nullable Output<DeploymentCanarySettingsArgs> canarySettings;
+
+    /**
+     * @return Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * 
+     */
+    public Optional<Output<DeploymentCanarySettingsArgs>> canarySettings() {
+        return Optional.ofNullable(this.canarySettings);
+    }
 
     /**
      * Description of the deployment
@@ -110,6 +126,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     private DeploymentArgs() {}
 
     private DeploymentArgs(DeploymentArgs $) {
+        this.canarySettings = $.canarySettings;
         this.description = $.description;
         this.restApi = $.restApi;
         this.stageDescription = $.stageDescription;
@@ -134,6 +151,27 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DeploymentArgs defaults) {
             $ = new DeploymentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param canarySettings Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canarySettings(@Nullable Output<DeploymentCanarySettingsArgs> canarySettings) {
+            $.canarySettings = canarySettings;
+            return this;
+        }
+
+        /**
+         * @param canarySettings Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder canarySettings(DeploymentCanarySettingsArgs canarySettings) {
+            return canarySettings(Output.of(canarySettings));
         }
 
         /**

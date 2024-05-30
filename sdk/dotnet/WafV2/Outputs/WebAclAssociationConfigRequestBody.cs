@@ -14,14 +14,43 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclAssociationConfigRequestBody
     {
         /// <summary>
-        /// Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyApiGateway> ApiGateways;
+        /// <summary>
+        /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyAppRunnerService> AppRunnerServices;
+        /// <summary>
+        /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCloudfront> Cloudfronts;
+        /// <summary>
+        /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool> CognitoUserPools;
+        /// <summary>
+        /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance> VerifiedAccessInstances;
 
         [OutputConstructor]
-        private WebAclAssociationConfigRequestBody(ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCloudfront> cloudfronts)
+        private WebAclAssociationConfigRequestBody(
+            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyApiGateway> apiGateways,
+
+            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices,
+
+            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCloudfront> cloudfronts,
+
+            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools,
+
+            ImmutableArray<Outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances)
         {
+            ApiGateways = apiGateways;
+            AppRunnerServices = appRunnerServices;
             Cloudfronts = cloudfronts;
+            CognitoUserPools = cognitoUserPools;
+            VerifiedAccessInstances = verifiedAccessInstances;
         }
     }
 }

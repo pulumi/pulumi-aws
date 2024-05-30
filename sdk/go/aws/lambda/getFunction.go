@@ -66,6 +66,8 @@ type LookupFunctionResult struct {
 	Architectures []string `pulumi:"architectures"`
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
 	Arn string `pulumi:"arn"`
+	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	CodeSha256 string `pulumi:"codeSha256"`
 	// ARN for a Code Signing Configuration.
 	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
 	// Configure the function's *dead letter queue*.
@@ -112,7 +114,9 @@ type LookupFunctionResult struct {
 	SigningJobArn string `pulumi:"signingJobArn"`
 	// The ARN for a signing profile version.
 	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+	//
+	// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
 	SourceCodeHash string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize int               `pulumi:"sourceCodeSize"`
@@ -176,6 +180,11 @@ func (o LookupFunctionResultOutput) Architectures() pulumi.StringArrayOutput {
 // Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Base64-encoded representation of raw SHA-256 sum of the zip file.
+func (o LookupFunctionResultOutput) CodeSha256() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.CodeSha256 }).(pulumi.StringOutput)
 }
 
 // ARN for a Code Signing Configuration.
@@ -296,7 +305,9 @@ func (o LookupFunctionResultOutput) SigningProfileVersionArn() pulumi.StringOutp
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
 
-// Base64-encoded representation of raw SHA-256 sum of the zip file.
+// (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+//
+// Deprecated: This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
 func (o LookupFunctionResultOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
 }
