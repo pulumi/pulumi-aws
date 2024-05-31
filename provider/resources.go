@@ -6053,7 +6053,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 				}
 			}
 		}
-		return resource.ID(strings.Join(parts, "__"))
+		s := strings.Join(parts, "__")
+		if s == "" {
+			s = "id"
+		}
+		return resource.ID(s)
 	}
 	prov.Resources["aws_lambda_runtime_management_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "functionName", "qualifier"), nil
