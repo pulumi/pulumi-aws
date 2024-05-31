@@ -5910,6 +5910,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 	prov.MustApplyAutoAliases()
 
+	setupComputedIDs(&prov)
+
 	return &prov
 }
 
@@ -6039,4 +6041,30 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	return true
+}
+
+func setupComputedIDs(prov *tfbridge.ProviderInfo) {
+	attr := func(state resource.PropertyMap, attrs ...resource.PropertyKey) resource.ID {
+		parts := []string{}
+		for _, a := range attrs {
+			if v, ok := state[a]; ok {
+				if v.IsString() {
+					parts = append(parts, v.StringValue())
+				}
+			}
+		}
+		return resource.ID(strings.Join(parts, "__"))
+	}
+	prov.Resources["aws_lambda_runtime_management_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "functionName", "qualifier"), nil
+	}
+	prov.Resources["aws_datazone_environment_blueprint_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "domainId", "EnvironmentBlueprintId"), nil
+	}
+	prov.Resources["aws_vpc_endpoint_service_private_dns_verification"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "serviceId"), nil
+	}
+	prov.Resources["aws_vpc_endpoint_private_dns"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "vpcEndpointId"), nil
+	}
 }
