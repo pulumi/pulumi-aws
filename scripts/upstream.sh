@@ -79,17 +79,13 @@ start_rebase() {
   rm -rf .git/modules/upstream/rebase-merge
   cd upstream && git fetch
 
-  if [ -z "$TO" ]; then
-     echo "\$TO not set, assuming TO is the upstream SHA currently committed."
-  else
-     git checkout "$TO"
-  fi
-
   git branch -f local
   if [ -n "$FROM" ]; then
-     git checkout -B pulumi-patch "$FROM"
+      echo "Rebasing from $FROM to $(git rev-parse HEAD)"
+      git checkout -B pulumi-patch "$FROM"
   else
-     git checkout -B pulumi-patch
+      echo "Rebasing in place at $(git rev-parse HEAD)"
+      git checkout -B pulumi-patch
   fi
   git branch --set-upstream-to=local pulumi-patch
 
@@ -120,7 +116,7 @@ assert_rebase_in_progress() {
 Didn't detect an upstream rebase in progress.
 To start an upstream rebase, run
 
-    [FROM=vX.Y.Z] [TO=vA.B.C] make upstream.rebase
+    [FROM=vX.Y.Z] make upstream.rebase
 
 If you are absolutly sure you are already in a rebase, run
 
@@ -149,7 +145,7 @@ make "$1"' failed to apply ${patch}. This is because there is a conflict between
 the checked out version of upstream and the patch set. To resolve this conflict
 run:
 
-    FROM=\$LAST_KNOWN_GOOD_COMMIT TO=\$NEW_COMMIT make upstream.rebase
+    FROM=\$LAST_KNOWN_GOOD_COMMIT make upstream.rebase
 
 This will walk you through resolving the conflict and producing a patch set that
 cleanly applies to the current upstream.
