@@ -17,6 +17,7 @@ import * as aws from "@pulumi/aws";
 
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+const lambdaConfig = new pulumi.Config("lambda");
 
 const assumeRole = aws.iam.getPolicyDocument({
     statements: [{
@@ -32,9 +33,9 @@ const role = new aws.iam.Role("parallel-iam-role", {
     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)
 }, providerOpts);
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 25; i++) {
     new aws.lambda.Function(`lambda-${i}`, {
-        code: new pulumi.asset.FileArchive("lambda.zip"),
+        code: new pulumi.asset.FileArchive(lambdaConfig.require("archivePath")),
         role: role.arn,
         handler: "index.handler",
         runtime: "nodejs20.x",
