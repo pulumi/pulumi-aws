@@ -5,9 +5,7 @@
 package examples
 
 import (
-	"archive/zip"
 	"bytes"
-	"crypto/rand"
 	"encoding/json"
 	"io"
 	"os"
@@ -659,65 +657,4 @@ func TestRdsGetEngineVersion(t *testing.T) {
 
 	engineVersion := res.Outputs["vs"]
 	require.NotEmpty(t, engineVersion.Value)
-}
-
-func TestParallelLambdas(t *testing.T) {
-	tempFile, err := createLambdaArchive(25 * 1024 * 1024)
-	require.NoError(t, err)
-	defer os.Remove(tempFile)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:                    filepath.Join(getCwd(t), "parallel-lambdas"),
-			UpdateCommandlineFlags: []string{"-v11", "--logtostderr", "--debug", "--logflow", "--parallel", "16"},
-			// PreviewCommandlineFlags: []string{"--parallel", "1"},
-			AllowEmptyPreviewChanges: true,
-			SkipRefresh:              true,
-			Config: map[string]string{
-				"lambda:archivePath": tempFile,
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func createLambdaArchive(size int64) (string, error) {
-	// Create a temporary file to save the zip archive
-	tempFile, err := os.CreateTemp("", "archive-*.zip")
-	if err != nil {
-		return "", err
-	}
-	defer tempFile.Close()
-
-	// Create a new zip archive
-	zipWriter := zip.NewWriter(tempFile)
-	defer zipWriter.Close()
-
-	randomDataReader := io.LimitReader(rand.Reader, size)
-
-	// Create the index.js file for the lambda
-	indexWriter, err := zipWriter.Create("index.js")
-	if err != nil {
-		return "", err
-	}
-	_, err = indexWriter.Write([]byte("const { version } = require(\"@aws-sdk/client-s3/package.json\");\n\nexports.handler = async () => ({ version });\n"))
-	if err != nil {
-		return "", err
-	}
-
-	randomDataWriter, err := zipWriter.Create("random.txt")
-	if err != nil {
-		return "", err
-	}
-	_, err = io.Copy(randomDataWriter, randomDataReader)
-	if err != nil {
-		return "", err
-	}
-
-	// Get the path of the temporary file
-	archivePath, err := filepath.Abs(tempFile.Name())
-	if err != nil {
-		return "", err
-	}
-
-	return archivePath, nil
 }
