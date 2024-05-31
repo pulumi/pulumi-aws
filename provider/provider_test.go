@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/optproviderupgrade"
@@ -85,4 +86,19 @@ func pulumiTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.Pu
 	opts = append(opts, opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")))
 	ptest := pulumitest.NewPulumiTest(t, dir, opts...)
 	return ptest
+}
+
+func maxDuration(dur time.Duration, t *testing.T, test func(t *testing.T)) {
+	t.Helper()
+	timeout := time.After(dur)
+	done := make(chan bool)
+	go func() {
+		test(t)
+		done <- true
+	}()
+	select {
+	case <-timeout:
+		t.Fatalf("Test timed out after %v", dur)
+	case <-done:
+	}
 }
