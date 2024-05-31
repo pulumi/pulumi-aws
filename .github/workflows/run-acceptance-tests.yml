@@ -120,7 +120,7 @@ jobs:
         allowed-changes: |
           sdk/**/pulumi-plugin.json
           sdk/dotnet/Pulumi.*.csproj
-          sdk/go/*/internal/pulumiUtilities.go
+          sdk/go/**/pulumiUtilities.go
           sdk/nodejs/package.json
           sdk/python/pyproject.toml
     - name: Compress SDK folder
@@ -300,6 +300,18 @@ jobs:
     - name: Workflow is not a success
       if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
       run: exit 1
+    - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76
+      with: 
+        authToken: ${{secrets.GITHUB_TOKEN}}
+        # Write an explicit status check called "Sentinel" which will only pass if this code really runs.
+        # Once rolled out, we can make this the only required check for PRs,
+        # then remove the old conditionals on this job and remove the previous step.
+        context: 'Sentinel'
+        description: 'All required checks passed'
+        state: 'success'
+        # Write to the PR commit SHA if it's available as we don't want the merge commit sha,
+        # otherwise use the current SHA for any other type of build.
+        sha: ${{ github.event.pull_request.head.sha || github.sha }}
     - name: Workflow is a success
       run: echo "🎉🎈🎉🎈🎉"
 
