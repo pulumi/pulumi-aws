@@ -2,13 +2,22 @@ import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
 const cfg = new pulumi.Config();
-const reg: aws.Region = cfg.require("desired-region");
 
-const awsProvider = new aws.Provider("myprovider", {
-    region: reg,
-});
+export const desiredRegion: string|undefined = cfg.get("desired-region");
 
-const queue = new aws.sqs.Queue("my-queue", {}, { provider: awsProvider })
+function parseRegion(region: string|undefined): aws.Region|undefined {
+    if (region === undefined) {
+        return undefined;
+    }
+    var r: any = region;
+    return r;
+}
 
-export const desiredRegion = reg;
+const opts: pulumi.ResourceOptions =
+    desiredRegion
+    ? {provider: new aws.Provider("myprovider", {region: parseRegion(desiredRegion)})}
+    : {};
+
+const queue = new aws.sqs.Queue("my-queue", {}, opts)
+
 export const actualRegion = queue.arn.apply(x => x.split(":")[3]);
