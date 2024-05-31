@@ -6048,7 +6048,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		parts := []string{}
 		for _, a := range attrs {
 			if v, ok := state[a]; ok {
-				if v.IsString() {
+				if v.IsString() && v.StringValue() != "" {
 					parts = append(parts, v.StringValue())
 				}
 			}
@@ -6063,7 +6063,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		return attr(state, "functionName", "qualifier"), nil
 	}
 	prov.Resources["aws_datazone_environment_blueprint_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "domainId", "EnvironmentBlueprintId"), nil
+		return attr(state, "domainId", "environmentBlueprintId"), nil
 	}
 	prov.Resources["aws_vpc_endpoint_service_private_dns_verification"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "serviceId"), nil
