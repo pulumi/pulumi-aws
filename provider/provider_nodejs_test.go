@@ -79,6 +79,36 @@ func TestRegress3835(t *testing.T) {
 	t.Logf("#%v", result.ChangeSummary)
 }
 
+func TestChangingRegion(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "changing-region")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+
+	t.Run("default provider", func(t *testing.T) {
+		test := pulumitest.NewPulumiTest(t, dir, options...)
+		for _, region := range []string{"us-east-1", "us-west-1"} {
+			test.SetConfig("aws:region", region)
+			res := test.Up()
+			require.Equal(t, region, res.Outputs["actualRegion"].Value)
+		}
+	})
+
+	t.Run("explicit provider", func(t *testing.T) {
+		test := pulumitest.NewPulumiTest(t, dir, options...)
+		for _, region := range []string{"us-east-1", "us-west-1"} {
+			test.SetConfig("desired-region", region)
+			res := test.Up()
+			require.Equal(t, region, res.Outputs["actualRegion"].Value)
+		}
+	})
+}
+
 func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	// pulumi/pulumi-terraform-bridge#1940
 	skipIfShort(t)
