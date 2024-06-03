@@ -666,20 +666,11 @@ func TestRegress4011(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: "regress-4011",
-
-			EditDirs: []integration.EditDir{
-				// remove the SSM parameter from the state
-				{
-					Dir:      filepath.Join("regress-4011", "step1"),
-					Additive: true,
-				},
-				{
-					// get the SSM parameter by name and version, this is where the regression was introduced
-					Dir:      filepath.Join("regress-4011", "step2"),
-					Additive: true,
-				},
-			},
 		})
+
+	// Refresh is inherently showing diffs for the versioned IDs.
+	test.AllowEmptyPreviewChanges = true
+	test.AllowEmptyUpdateChanges = true
 
 	// Disable envRegion mangling
 	test.Config = nil

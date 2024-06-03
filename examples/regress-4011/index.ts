@@ -15,10 +15,14 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
-const param = new aws.ssm.Parameter('regress-4011-test-secret', {
-  name: 'regress-4011-test-secret',
-  type: 'SecureString',
-  value: "test",
-}, { retainOnDelete: true })
+const param = aws.ssm.getParameter({ name: 'regress-4011-test-secret' }).then(
+  () => aws.ssm.Parameter.get('regress-4011-test-secret', 'regress-4011-test-secret:1'),
+  () =>
+    new aws.ssm.Parameter('regress-4011-test-secret', {
+      name: 'regress-4011-test-secret',
+      type: 'SecureString',
+      value: "test",
+    })
+);
 
-export const secretParam = pulumi.output(param).arn;
+export const secret = pulumi.output(param).arn;
