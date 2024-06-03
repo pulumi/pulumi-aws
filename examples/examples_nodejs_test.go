@@ -667,15 +667,19 @@ func TestRegress4011(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: "regress-4011",
 
-
-			EditDirs: []integration.EditDir{{
-				Dir:      filepath.Join("regress-4011"),
-				Additive: true,
-			}},
+			EditDirs: []integration.EditDir{
+				// remove the SSM parameter from the state
+				{
+					Dir:      filepath.Join("regress-4011", "step1"),
+					Additive: true,
+				},
+				{
+					// get the SSM parameter by name and version, this is where the regression was introduced
+					Dir:      filepath.Join("regress-4011", "step2"),
+					Additive: true,
+				},
+			},
 		})
-
-	// 
-	// test.SkipEmptyPreviewUpdate = true
 
 	// Disable envRegion mangling
 	test.Config = nil
