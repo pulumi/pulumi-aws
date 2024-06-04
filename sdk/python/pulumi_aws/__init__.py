@@ -51,6 +51,8 @@ if typing.TYPE_CHECKING:
     appintegrations = __appintegrations
     import pulumi_aws.applicationinsights as __applicationinsights
     applicationinsights = __applicationinsights
+    import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
+    applicationloadbalancing = __applicationloadbalancing
     import pulumi_aws.appmesh as __appmesh
     appmesh = __appmesh
     import pulumi_aws.apprunner as __apprunner
@@ -450,6 +452,7 @@ else:
     appflow = _utilities.lazy_import('pulumi_aws.appflow')
     appintegrations = _utilities.lazy_import('pulumi_aws.appintegrations')
     applicationinsights = _utilities.lazy_import('pulumi_aws.applicationinsights')
+    applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
     appstream = _utilities.lazy_import('pulumi_aws.appstream')
