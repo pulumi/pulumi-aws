@@ -21,4 +21,7 @@ const param = new aws.ssm.Parameter('regress-4011-test-secret', {
   value: "test",
 });
 
+const retrievedParam = aws.ssm.Parameter.get('retrieved-parameter', 'regress-4011-test-secret:1');
+
 export const secret = pulumi.output(param).arn;
+export const retrievedSecret = pulumi.output(retrievedParam).arn;
