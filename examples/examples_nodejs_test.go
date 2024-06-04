@@ -665,12 +665,12 @@ func TestRdsGetEngineVersion(t *testing.T) {
 func TestRegress4011(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: "regress-4011",
+			Dir: filepath.Join(getCwd(t), "regress-4011"),
+			EditDirs: []integration.EditDir{{
+				Dir:      filepath.Join(getCwd(t), "regress-4011", "step1"),
+				Additive: true,
+			}},
 		})
-
-	// Refresh is inherently showing diffs for the versioned IDs.
-	test.AllowEmptyPreviewChanges = true
-	test.AllowEmptyUpdateChanges = true
 
 	// Disable envRegion mangling
 	test.Config = nil
