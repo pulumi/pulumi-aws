@@ -64,7 +64,9 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.linkNodeSDK {
 		options = append(options, opttest.YarnLink("@pulumi/aws"))
 	}
-	options = append(options, opts.extraOpts...)
+	if opts != nil {
+		options = append(options, opts.extraOpts...)
+	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 	if opts != nil && opts.setEnvRegion {
 		test.SetConfig("aws:region", "INVALID_REGION")
