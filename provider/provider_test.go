@@ -31,6 +31,8 @@ type testProviderUpgradeOptions struct {
 	linkNodeSDK     bool
 	installDeps     bool
 	setEnvRegion    bool
+	region          string
+	extraOpts       []opttest.Option
 }
 
 func skipIfShort(t *testing.T) {
@@ -62,10 +64,14 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.linkNodeSDK {
 		options = append(options, opttest.YarnLink("@pulumi/aws"))
 	}
+	options = append(options, opts.extraOpts...)
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 	if opts != nil && opts.setEnvRegion {
 		test.SetConfig("aws:region", "INVALID_REGION")
 		test.SetConfig("aws:envRegion", getEnvRegion(t))
+	}
+	if opts.region != "" {
+		test.SetConfig("aws:region", opts.region)
 	}
 	result := providertest.PreviewProviderUpgrade(
 		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
