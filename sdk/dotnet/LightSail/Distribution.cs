@@ -340,10 +340,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> SupportCode { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If
-        /// configured with a provider
-        /// `default_tags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -466,10 +463,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If
-        /// configured with a provider
-        /// `default_tags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -617,10 +611,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags for the Lightsail Distribution. If
-        /// configured with a provider
-        /// `default_tags` configuration block
-        /// present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

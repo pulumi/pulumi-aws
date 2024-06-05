@@ -339,6 +339,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<Outputs.ApplicationApplicationConfiguration> ApplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// </summary>
+        [Output("applicationMode")]
+        public Output<string> ApplicationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the application.
         /// </summary>
         [Output("arn")]
@@ -475,6 +481,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<Inputs.ApplicationApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
 
         /// <summary>
+        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// </summary>
+        [Input("applicationMode")]
+        public Input<string>? ApplicationMode { get; set; }
+
+        /// <summary>
         /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
@@ -541,6 +553,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         /// </summary>
         [Input("applicationConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationGetArgs>? ApplicationConfiguration { get; set; }
+
+        /// <summary>
+        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// </summary>
+        [Input("applicationMode")]
+        public Input<string>? ApplicationMode { get; set; }
 
         /// <summary>
         /// The ARN of the application.

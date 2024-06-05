@@ -72,8 +72,17 @@ def get_slack_workspace(slack_team_name: Optional[str] = None,
 
     ## Example Usage
 
+    ### Basic Usage
 
-    :param str slack_team_name: Slack workspace name configured with AWS Chabot.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.chatbot.get_slack_workspace(slack_team_name="abc")
+    ```
+
+
+    :param str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     __args__ = dict()
     __args__['slackTeamName'] = slack_team_name
@@ -94,7 +103,16 @@ def get_slack_workspace_output(slack_team_name: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    ### Basic Usage
 
-    :param str slack_team_name: Slack workspace name configured with AWS Chabot.
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.chatbot.get_slack_workspace(slack_team_name="abc")
+    ```
+
+
+    :param str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     ...

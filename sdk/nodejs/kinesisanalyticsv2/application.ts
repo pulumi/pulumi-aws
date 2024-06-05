@@ -263,6 +263,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
     /**
+     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     */
+    public readonly applicationMode!: pulumi.Output<string>;
+    /**
      * The ARN of the application.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -335,6 +339,7 @@ export class Application extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             resourceInputs["applicationConfiguration"] = state ? state.applicationConfiguration : undefined;
+            resourceInputs["applicationMode"] = state ? state.applicationMode : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cloudwatchLoggingOptions"] = state ? state.cloudwatchLoggingOptions : undefined;
             resourceInputs["createTimestamp"] = state ? state.createTimestamp : undefined;
@@ -358,6 +363,7 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceExecutionRole'");
             }
             resourceInputs["applicationConfiguration"] = args ? args.applicationConfiguration : undefined;
+            resourceInputs["applicationMode"] = args ? args.applicationMode : undefined;
             resourceInputs["cloudwatchLoggingOptions"] = args ? args.cloudwatchLoggingOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["forceStop"] = args ? args.forceStop : undefined;
@@ -386,6 +392,10 @@ export interface ApplicationState {
      * The application's configuration
      */
     applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    /**
+     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     */
+    applicationMode?: pulumi.Input<string>;
     /**
      * The ARN of the application.
      */
@@ -454,6 +464,10 @@ export interface ApplicationArgs {
      * The application's configuration
      */
     applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    /**
+     * The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     */
+    applicationMode?: pulumi.Input<string>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */

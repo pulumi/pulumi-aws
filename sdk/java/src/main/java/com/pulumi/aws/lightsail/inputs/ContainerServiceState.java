@@ -245,7 +245,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `default_tags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -255,7 +255,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * @return Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `default_tags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -652,7 +652,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
          * configured with a provider
          * `default_tags` configuration block
          * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -666,7 +666,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+         * @param tags Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
          * configured with a provider
          * `default_tags` configuration block
          * present, tags with matching keys will overwrite those defined at the provider-level.

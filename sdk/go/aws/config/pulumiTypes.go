@@ -825,6 +825,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Synthetics *string `pulumi:"synthetics"`
 	// Use this to override the default service endpoint URL
+	Timestreaminfluxdb *string `pulumi:"timestreaminfluxdb"`
+	// Use this to override the default service endpoint URL
 	Timestreamwrite *string `pulumi:"timestreamwrite"`
 	// Use this to override the default service endpoint URL
 	Transcribe *string `pulumi:"transcribe"`
@@ -1400,6 +1402,8 @@ type EndpointsArgs struct {
 	Swf pulumi.StringPtrInput `pulumi:"swf"`
 	// Use this to override the default service endpoint URL
 	Synthetics pulumi.StringPtrInput `pulumi:"synthetics"`
+	// Use this to override the default service endpoint URL
+	Timestreaminfluxdb pulumi.StringPtrInput `pulumi:"timestreaminfluxdb"`
 	// Use this to override the default service endpoint URL
 	Timestreamwrite pulumi.StringPtrInput `pulumi:"timestreamwrite"`
 	// Use this to override the default service endpoint URL
@@ -2814,6 +2818,11 @@ func (o EndpointsOutput) Swf() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Synthetics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Synthetics }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Timestreaminfluxdb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Timestreaminfluxdb }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

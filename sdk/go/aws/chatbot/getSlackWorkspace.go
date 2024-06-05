@@ -14,6 +14,32 @@ import (
 // Data source for managing an AWS Chatbot Slack Workspace.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chatbot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := chatbot.GetSlackWorkspace(ctx, &chatbot.GetSlackWorkspaceArgs{
+//				SlackTeamName: "abc",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSlackWorkspace(ctx *pulumi.Context, args *GetSlackWorkspaceArgs, opts ...pulumi.InvokeOption) (*GetSlackWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSlackWorkspaceResult
@@ -26,7 +52,7 @@ func GetSlackWorkspace(ctx *pulumi.Context, args *GetSlackWorkspaceArgs, opts ..
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceArgs struct {
-	// Slack workspace name configured with AWS Chabot.
+	// Slack workspace name configured with AWS Chatbot.
 	SlackTeamName string `pulumi:"slackTeamName"`
 }
 
@@ -54,7 +80,7 @@ func GetSlackWorkspaceOutput(ctx *pulumi.Context, args GetSlackWorkspaceOutputAr
 
 // A collection of arguments for invoking getSlackWorkspace.
 type GetSlackWorkspaceOutputArgs struct {
-	// Slack workspace name configured with AWS Chabot.
+	// Slack workspace name configured with AWS Chatbot.
 	SlackTeamName pulumi.StringInput `pulumi:"slackTeamName"`
 }
 

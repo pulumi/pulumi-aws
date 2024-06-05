@@ -314,6 +314,8 @@ type Application struct {
 
 	// The application's configuration
 	ApplicationConfiguration ApplicationApplicationConfigurationOutput `pulumi:"applicationConfiguration"`
+	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	ApplicationMode pulumi.StringOutput `pulumi:"applicationMode"`
 	// The ARN of the application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A CloudWatch log stream to monitor application configuration errors.
@@ -384,6 +386,8 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// The application's configuration
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
+	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	ApplicationMode *string `pulumi:"applicationMode"`
 	// The ARN of the application.
 	Arn *string `pulumi:"arn"`
 	// A CloudWatch log stream to monitor application configuration errors.
@@ -419,6 +423,8 @@ type applicationState struct {
 type ApplicationState struct {
 	// The application's configuration
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
+	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	ApplicationMode pulumi.StringPtrInput
 	// The ARN of the application.
 	Arn pulumi.StringPtrInput
 	// A CloudWatch log stream to monitor application configuration errors.
@@ -458,6 +464,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The application's configuration
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
+	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	ApplicationMode *string `pulumi:"applicationMode"`
 	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// A summary description of the application.
@@ -480,6 +488,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The application's configuration
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
+	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	ApplicationMode pulumi.StringPtrInput
 	// A CloudWatch log stream to monitor application configuration errors.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
 	// A summary description of the application.
@@ -588,6 +598,11 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 // The application's configuration
 func (o ApplicationOutput) ApplicationConfiguration() ApplicationApplicationConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationApplicationConfigurationOutput { return v.ApplicationConfiguration }).(ApplicationApplicationConfigurationOutput)
+}
+
+// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+func (o ApplicationOutput) ApplicationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
 // The ARN of the application.

@@ -19,6 +19,7 @@ class ApplicationArgs:
                  runtime_environment: pulumi.Input[str],
                  service_execution_role: pulumi.Input[str],
                  application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+                 application_mode: Optional[pulumi.Input[str]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_stop: Optional[pulumi.Input[bool]] = None,
@@ -30,6 +31,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
+        :param pulumi.Input[str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] description: A summary description of the application.
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
@@ -41,6 +43,8 @@ class ApplicationArgs:
         pulumi.set(__self__, "service_execution_role", service_execution_role)
         if application_configuration is not None:
             pulumi.set(__self__, "application_configuration", application_configuration)
+        if application_mode is not None:
+            pulumi.set(__self__, "application_mode", application_mode)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if description is not None:
@@ -89,6 +93,18 @@ class ApplicationArgs:
     @application_configuration.setter
     def application_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]):
         pulumi.set(self, "application_configuration", value)
+
+    @property
+    @pulumi.getter(name="applicationMode")
+    def application_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        """
+        return pulumi.get(self, "application_mode")
+
+    @application_mode.setter
+    def application_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_mode", value)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -167,6 +183,7 @@ class ApplicationArgs:
 class _ApplicationState:
     def __init__(__self__, *,
                  application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+                 application_mode: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
                  create_timestamp: Optional[pulumi.Input[str]] = None,
@@ -184,6 +201,7 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
         :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
+        :param pulumi.Input[str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input[str] arn: The ARN of the application.
         :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] create_timestamp: The current timestamp when the application was created.
@@ -201,6 +219,8 @@ class _ApplicationState:
         """
         if application_configuration is not None:
             pulumi.set(__self__, "application_configuration", application_configuration)
+        if application_mode is not None:
+            pulumi.set(__self__, "application_mode", application_mode)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cloudwatch_logging_options is not None:
@@ -244,6 +264,18 @@ class _ApplicationState:
     @application_configuration.setter
     def application_configuration(self, value: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']]):
         pulumi.set(self, "application_configuration", value)
+
+    @property
+    @pulumi.getter(name="applicationMode")
+    def application_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        """
+        return pulumi.get(self, "application_mode")
+
+    @application_mode.setter
+    def application_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_mode", value)
 
     @property
     @pulumi.getter
@@ -423,6 +455,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
+                 application_mode: Optional[pulumi.Input[str]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_stop: Optional[pulumi.Input[bool]] = None,
@@ -652,6 +685,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']] application_configuration: The application's configuration
+        :param pulumi.Input[str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] description: A summary description of the application.
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
@@ -900,6 +934,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
+                 application_mode: Optional[pulumi.Input[str]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_stop: Optional[pulumi.Input[bool]] = None,
@@ -918,6 +953,7 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_configuration"] = application_configuration
+            __props__.__dict__["application_mode"] = application_mode
             __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
             __props__.__dict__["description"] = description
             __props__.__dict__["force_stop"] = force_stop
@@ -947,6 +983,7 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']]] = None,
+            application_mode: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']]] = None,
             create_timestamp: Optional[pulumi.Input[str]] = None,
@@ -969,6 +1006,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ApplicationApplicationConfigurationArgs']] application_configuration: The application's configuration
+        :param pulumi.Input[str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         :param pulumi.Input[str] arn: The ARN of the application.
         :param pulumi.Input[pulumi.InputType['ApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
         :param pulumi.Input[str] create_timestamp: The current timestamp when the application was created.
@@ -989,6 +1027,7 @@ class Application(pulumi.CustomResource):
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
         __props__.__dict__["application_configuration"] = application_configuration
+        __props__.__dict__["application_mode"] = application_mode
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
         __props__.__dict__["create_timestamp"] = create_timestamp
@@ -1012,6 +1051,14 @@ class Application(pulumi.CustomResource):
         The application's configuration
         """
         return pulumi.get(self, "application_configuration")
+
+    @property
+    @pulumi.getter(name="applicationMode")
+    def application_mode(self) -> pulumi.Output[str]:
+        """
+        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        """
+        return pulumi.get(self, "application_mode")
 
     @property
     @pulumi.getter
