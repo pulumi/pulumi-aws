@@ -3095,6 +3095,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 				TransformFromState: func(ctx context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
 					if _, ok := state["dbName"]; ok {
+						delete(state, "name")
 						return state, nil
 					}
 					name, ok := state["name"]
