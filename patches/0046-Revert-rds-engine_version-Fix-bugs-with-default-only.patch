@@ -5,7 +5,7 @@ Subject: [PATCH] Revert "rds/engine_version: Fix bugs with default only flag"
 
 
 diff --git a/internal/service/rds/engine_version_data_source.go b/internal/service/rds/engine_version_data_source.go
-index d825e13714..e3ef66e45f 100644
+index a51d2117fd..9ad488112d 100644
 --- a/internal/service/rds/engine_version_data_source.go
 +++ b/internal/service/rds/engine_version_data_source.go
 @@ -11,7 +11,6 @@ import (
