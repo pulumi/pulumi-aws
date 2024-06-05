@@ -72,7 +72,7 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 		test.SetConfig("aws:region", "INVALID_REGION")
 		test.SetConfig("aws:envRegion", getEnvRegion(t))
 	}
-	if opts.region != "" {
+	if opts != nil && opts.region != "" {
 		test.SetConfig("aws:region", opts.region)
 	}
 	result := providertest.PreviewProviderUpgrade(
