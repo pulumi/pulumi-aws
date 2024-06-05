@@ -1,3 +1,0 @@
-name: webserver-py
-runtime: python
-description: Basic example of an AWS web server accessible over HTTP (in Python!)
