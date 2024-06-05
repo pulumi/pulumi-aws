@@ -38,6 +38,10 @@ func TestRoute53Upgrade(t *testing.T) {
 func TestJobQueueUpgrade(t *testing.T) {
 	opts := nodeProviderUpgradeOpts()
 	opts.setEnvRegion = false
+	opts.region = "us-west-2" // has to match the snapshot-recorded region
+	opts.extraOpts = []opttest.Option{
+		opttest.Env("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true"),
+	}
 	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts)
 }
 

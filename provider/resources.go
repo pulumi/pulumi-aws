@@ -31,6 +31,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/mitchellh/go-homedir"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
@@ -1259,7 +1260,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment")),
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
