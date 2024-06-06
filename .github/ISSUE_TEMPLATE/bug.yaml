@@ -1,0 +1,71 @@
+name: Bug Report
+description: Report something that's not working correctly
+labels: ["kind/bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! 
+        You can also ask questions on our [Community Slack](https://slack.pulumi.com/).
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Describe what happened
+      description: Please summarize what happened, including what Pulumi commands you ran, as well as
+        an inline snippet of any relevant error or console output.
+    validations:
+      required: true
+  - type: textarea
+    id: sample-program
+    attributes:
+      label: Sample program
+      description: |
+        <details><summary>Provide a reproducible sample program</summary>
+        If this is a bug you encountered while running a Pulumi command, please provide us with a minimal, 
+        self-contained Pulumi program that reproduces this behavior so that we can investigate on our end. 
+        Without a functional reproduction, we will not be able to prioritize this bug.
+        **Note:** If the program output is more than a few lines, please send us a Gist or a link to a file.
+        </details>
+    validations:
+      required: true
+  - type: textarea
+    id: log-output
+    attributes:
+      label: Log output
+      description: |
+        <details><summary>How to Submit Logs</summary>
+        If this is something that is dependent on your environment, please also provide us with the output of
+        `pulumi up --logtostderr --logflow -v=10` from the root of your project.
+        We may also ask you to supply us with debug output following [these steps](https://www.pulumi.com/docs/using-pulumi/pulumi-packages/debugging-provider-packages/).
+        **Note:** If the log output is more than a few lines, please send us a Gist or a link to a file.
+        </details>
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Affected Resource(s)
+      description: Please list the affected Pulumi Resource(s) or Function(s).
+    validations:
+      required: false
+  - type: textarea
+    id: versions
+    attributes:
+      label: Output of `pulumi about`
+      description: Provide the output of `pulumi about` from the root of your project.
+    validations:
+      required: true
+  - type: textarea
+    id: ctx
+    attributes:
+      label: Additional context
+      description: Anything else you would like to add?
+    validations:
+      required: false
+  - type: textarea
+    id: voting
+    attributes:
+      label: Contributing
+      value: |
+        Vote on this issue by adding a 👍 reaction. 
+        To contribute a fix for this issue, leave a comment (and link to your pull request, if you've opened one already).

@@ -1707,7 +1707,7 @@ type GetTrafficPolicyDocumentEndpoint struct {
 	Id string `pulumi:"id"`
 	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region *string `pulumi:"region"`
-	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+	// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
 	Type *string `pulumi:"type"`
 	// Value of the `type`.
 	Value *string `pulumi:"value"`
@@ -1729,7 +1729,7 @@ type GetTrafficPolicyDocumentEndpointArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+	// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Value of the `type`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -1796,7 +1796,7 @@ func (o GetTrafficPolicyDocumentEndpointOutput) Region() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
 func (o GetTrafficPolicyDocumentEndpointOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

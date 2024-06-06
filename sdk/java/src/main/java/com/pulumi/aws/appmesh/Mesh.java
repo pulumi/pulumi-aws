@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh("simple", MeshArgs.builder()        
+ *         var simple = new Mesh("simple", MeshArgs.builder()
  *             .name("simpleapp")
  *             .build());
  * 
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simple = new Mesh("simple", MeshArgs.builder()        
+ *         var simple = new Mesh("simple", MeshArgs.builder()
  *             .name("simpleapp")
  *             .spec(MeshSpecArgs.builder()
  *                 .egressFilter(MeshSpecEgressFilterArgs.builder()

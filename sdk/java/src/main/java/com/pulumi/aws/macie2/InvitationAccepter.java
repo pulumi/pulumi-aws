@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         var member = new Account("member");
  * 
- *         var primaryMember = new Member("primaryMember", MemberArgs.builder()        
+ *         var primaryMember = new Member("primaryMember", MemberArgs.builder()
  *             .accountId("ACCOUNT ID")
  *             .email("EMAIL")
  *             .invite(true)
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .dependsOn(primary)
  *                 .build());
  * 
- *         var memberInvitationAccepter = new InvitationAccepter("memberInvitationAccepter", InvitationAccepterArgs.builder()        
+ *         var memberInvitationAccepter = new InvitationAccepter("memberInvitationAccepter", InvitationAccepterArgs.builder()
  *             .administratorAccountId("ADMINISTRATOR ACCOUNT ID")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryMember)

@@ -22,7 +22,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+ * Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
  * 
  * ## Example Usage
  * 
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ec2 = new Budget("ec2", BudgetArgs.builder()        
+ *         var ec2 = new Budget("ec2", BudgetArgs.builder()
  *             .name("budget-ec2-monthly")
  *             .budgetType("COST")
  *             .limitAmount("1200")
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget("cost", BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()
  *             .budgetType("COST")
  *             .limitAmount("100")
  *             .limitUnit("USD")
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget("cost", BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()
  *             .plannedLimits(            
  *                 BudgetPlannedLimitArgs.builder()
  *                     .startTime("2017-07-01_00:00")
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new Budget("s3", BudgetArgs.builder()        
+ *         var s3 = new Budget("s3", BudgetArgs.builder()
  *             .budgetType("USAGE")
  *             .limitAmount("3")
  *             .limitUnit("GB")
@@ -228,7 +228,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var savingsPlanUtilization = new Budget("savingsPlanUtilization", BudgetArgs.builder()        
+ *         var savingsPlanUtilization = new Budget("savingsPlanUtilization", BudgetArgs.builder()
  *             .budgetType("SAVINGS_PLANS_UTILIZATION")
  *             .limitAmount("100.0")
  *             .limitUnit("PERCENTAGE")
@@ -279,7 +279,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var riUtilization = new Budget("riUtilization", BudgetArgs.builder()        
+ *         var riUtilization = new Budget("riUtilization", BudgetArgs.builder()
  *             .budgetType("RI_UTILIZATION")
  *             .limitAmount("100.0")
  *             .limitUnit("PERCENTAGE")
@@ -333,7 +333,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget("cost", BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name("TagKeyValue")
  *                 .values("TagKey$TagValue")
@@ -372,7 +372,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var cost = new Budget("cost", BudgetArgs.builder()        
+ *         var cost = new Budget("cost", BudgetArgs.builder()
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name("TagKeyValue")
  *                 .values(String.format("TagKey%s%s", "$",tagValue))

@@ -14,9 +14,17 @@ public final class LoggingConfigurationDestinationConfigurationCloudwatchLogsArg
 
     public static final LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs Empty = new LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs();
 
+    /**
+     * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+     * 
+     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
+    /**
+     * @return Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+     * 
+     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
@@ -45,11 +53,23 @@ public final class LoggingConfigurationDestinationConfigurationCloudwatchLogsArg
             $ = new LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param logGroupName Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
+        /**
+         * @param logGroupName Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }

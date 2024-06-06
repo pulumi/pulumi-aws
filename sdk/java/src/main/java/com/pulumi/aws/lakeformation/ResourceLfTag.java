@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceLfTag("example", ResourceLfTagArgs.builder()        
+ *         var example = new ResourceLfTag("example", ResourceLfTagArgs.builder()
  *             .database(ResourceLfTagDatabaseArgs.builder()
  *                 .name(exampleAwsGlueCatalogDatabase.name())
  *                 .build())

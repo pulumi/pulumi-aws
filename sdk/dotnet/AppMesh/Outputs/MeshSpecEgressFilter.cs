@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class MeshSpecEgressFilter
     {
+        /// <summary>
+        /// Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

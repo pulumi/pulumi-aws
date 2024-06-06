@@ -1215,6 +1215,21 @@ export namespace apigateway {
         rateLimit: number;
     }
 
+    export interface DeploymentCanarySettings {
+        /**
+         * Percentage (0.0-100.0) of traffic routed to the canary deployment.
+         */
+        percentTraffic?: number;
+        /**
+         * Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+         */
+        stageVariableOverrides?: {[key: string]: string};
+        /**
+         * Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+         */
+        useStageCache?: boolean;
+    }
+
     export interface DocumentationPartLocation {
         /**
          * HTTP verb of a method. The default value is `*` for any method.
@@ -4619,10 +4634,16 @@ export namespace appmesh {
     }
 
     export interface MeshSpecEgressFilter {
+        /**
+         * Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+         */
         type?: string;
     }
 
     export interface MeshSpecServiceDiscovery {
+        /**
+         * The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+         */
         ipPreference?: string;
     }
 
@@ -6729,6 +6750,10 @@ export namespace apprunner {
         codeConfigurationValues?: outputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
         /**
          * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
+         * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
+         * source code repository and ignores the CodeConfigurationValues parameter.
+         * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
+         * parameter and ignores the apprunner.yaml file in the source code repository.
          */
         configurationSource: string;
     }
@@ -8049,6 +8074,9 @@ export namespace autoscaling {
     }
 
     export interface GroupInstanceRefreshPreferencesAlarmSpecification {
+        /**
+         * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         */
         alarms?: string[];
     }
 
@@ -10111,6 +10139,9 @@ export namespace bedrock {
     }
 
     export interface CustomModelValidationDataConfigValidator {
+        /**
+         * The S3 URI where the validation data is stored.
+         */
         s3Uri: string;
     }
 
@@ -10258,18 +10289,39 @@ export namespace bedrockmodel {
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfig {
+        /**
+         * S3 configuration for delivering a large amount of data.
+         */
         largeDataDeliveryS3Config?: outputs.bedrockmodel.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config;
+        /**
+         * Log group name.
+         */
         logGroupName?: string;
+        /**
+         * The role ARN.
+         */
         roleArn?: string;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config {
+        /**
+         * S3 bucket name.
+         */
         bucketName?: string;
+        /**
+         * S3 prefix.
+         */
         keyPrefix?: string;
     }
 
     export interface InvocationLoggingConfigurationLoggingConfigS3Config {
+        /**
+         * S3 bucket name.
+         */
         bucketName?: string;
+        /**
+         * S3 prefix.
+         */
         keyPrefix?: string;
     }
 
@@ -10866,6 +10918,10 @@ export namespace cfg {
         maximumExecutionFrequency?: string;
         /**
          * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+         * * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+         * * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         * * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximumExecutionFrequency`.
+         * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
          */
         messageType?: string;
     }
@@ -11065,9 +11121,21 @@ export namespace chimesdkmediapipelines {
     }
 
     export interface MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
+        /**
+         * Should output be redacted.
+         */
         contentRedactionOutput?: string;
+        /**
+         * ARN of the role used by AWS Transcribe to upload your post call analysis.
+         */
         dataAccessRoleArn: string;
+        /**
+         * ID of the KMS key used to encrypt the output.
+         */
         outputEncryptionKmsKeyId?: string;
+        /**
+         * The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+         */
         outputLocation: string;
     }
 
@@ -11199,18 +11267,39 @@ export namespace chimesdkmediapipelines {
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration {
+        /**
+         * Rule name.
+         */
         ruleName: string;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
+        /**
+         * Collection of keywords to match.
+         */
         keywords: string[];
+        /**
+         * Negate the rule.
+         */
         negate: boolean;
+        /**
+         * Rule name.
+         */
         ruleName: string;
     }
 
     export interface MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
+        /**
+         * Rule name.
+         */
         ruleName: string;
+        /**
+         * Sentiment type to match.
+         */
         sentimentType: string;
+        /**
+         * Analysis interval.
+         */
         timePeriod: number;
     }
 
@@ -13979,6 +14068,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
         /**
          * When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+         * * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+         * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
          */
         actionOnTimeout?: string;
         /**
@@ -13990,6 +14081,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
         /**
          * The method used to add instances to a replacement environment.
+         * * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+         * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscalingGroups` to specify the Auto Scaling group.
          */
         action?: string;
     }
@@ -13997,6 +14090,8 @@ export namespace codedeploy {
     export interface DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
         /**
          * The action to take on instances in the original environment after a successful blue/green deployment.
+         * * `TERMINATE`: Instances are terminated after a specified wait time.
+         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          */
         action?: string;
         /**
@@ -20832,7 +20927,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
         cmkArn?: string;
-        copyTags?: boolean;
+        copyTags: boolean;
         deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule;
         encrypted: boolean;
         retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule;
@@ -28516,11 +28611,11 @@ export namespace ecs {
          */
         alarmNames: string[];
         /**
-         * Determines whether to use the CloudWatch alarm option in the service deployment process.
+         * Whether to use the CloudWatch alarm option in the service deployment process.
          */
         enable: boolean;
         /**
-         * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+         * Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
          */
         rollback: boolean;
     }
@@ -28625,64 +28720,64 @@ export namespace ecs {
 
     export interface ServiceServiceConnectConfiguration {
         /**
-         * Specifies whether to use Service Connect with this service.
+         * Whether to use Service Connect with this service.
          */
         enabled: boolean;
         /**
-         * The log configuration for the container. See below.
+         * Log configuration for the container. See below.
          */
         logConfiguration?: outputs.ecs.ServiceServiceConnectConfigurationLogConfiguration;
         /**
-         * The namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
+         * Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
          */
         namespace?: string;
         /**
-         * The list of Service Connect service objects. See below.
+         * List of Service Connect service objects. See below.
          */
         services?: outputs.ecs.ServiceServiceConnectConfigurationService[];
     }
 
     export interface ServiceServiceConnectConfigurationLogConfiguration {
         /**
-         * The log driver to use for the container.
+         * Log driver to use for the container.
          */
         logDriver: string;
         /**
-         * The configuration options to send to the log driver.
+         * Configuration options to send to the log driver.
          */
         options: {[key: string]: string};
         /**
-         * The secrets to pass to the log configuration. See below.
+         * Secrets to pass to the log configuration. See below.
          */
         secretOptions?: outputs.ecs.ServiceServiceConnectConfigurationLogConfigurationSecretOption[];
     }
 
     export interface ServiceServiceConnectConfigurationLogConfigurationSecretOption {
         /**
-         * The name of the secret.
+         * Name of the secret.
          */
         name: string;
         /**
-         * The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+         * Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
          */
         valueFrom: string;
     }
 
     export interface ServiceServiceConnectConfigurationService {
         /**
-         * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+         * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          */
         clientAlias?: outputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias[];
         /**
-         * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+         * Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
          */
         discoveryName?: string;
         /**
-         * The port number for the Service Connect proxy to listen on.
+         * Port number for the Service Connect proxy to listen on.
          */
         ingressPortOverride?: number;
         /**
-         * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+         * Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
          */
         portName: string;
         /**
@@ -28690,51 +28785,51 @@ export namespace ecs {
          */
         timeout?: outputs.ecs.ServiceServiceConnectConfigurationServiceTimeout;
         /**
-         * The configuration for enabling Transport Layer Security (TLS)
+         * Configuration for enabling Transport Layer Security (TLS)
          */
         tls?: outputs.ecs.ServiceServiceConnectConfigurationServiceTls;
     }
 
     export interface ServiceServiceConnectConfigurationServiceClientAlias {
         /**
-         * The name that you use in the applications of client tasks to connect to this service.
+         * Name that you use in the applications of client tasks to connect to this service.
          */
         dnsName?: string;
         /**
-         * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+         * Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
          */
         port: number;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTimeout {
         /**
-         * The amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
+         * Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
          */
         idleTimeoutSeconds?: number;
         /**
-         * The amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
+         * Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn't TCP.
          */
         perRequestTimeoutSeconds?: number;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTls {
         /**
-         * The details of the certificate authority which will issue the certificate.
+         * Details of the certificate authority which will issue the certificate.
          */
         issuerCertAuthority: outputs.ecs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority;
         /**
-         * The KMS key used to encrypt the private key in Secrets Manager.
+         * KMS key used to encrypt the private key in Secrets Manager.
          */
         kmsKey?: string;
         /**
-         * The ARN of the IAM Role that's associated with the Service Connect TLS.
+         * ARN of the IAM Role that's associated with the Service Connect TLS.
          */
         roleArn?: string;
     }
 
     export interface ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
         /**
-         * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+         * ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
          */
         awsPcaAuthorityArn: string;
     }
@@ -28756,6 +28851,56 @@ export namespace ecs {
          * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
          */
         registryArn: string;
+    }
+
+    export interface ServiceVolumeConfiguration {
+        /**
+         * Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
+         */
+        managedEbsVolume: outputs.ecs.ServiceVolumeConfigurationManagedEbsVolume;
+        /**
+         * Name of the volume.
+         */
+        name: string;
+    }
+
+    export interface ServiceVolumeConfigurationManagedEbsVolume {
+        /**
+         * Whether the volume should be encrypted. Default value is `true`.
+         */
+        encrypted?: boolean;
+        /**
+         * Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
+         */
+        fileSystemType?: string;
+        /**
+         * Number of I/O operations per second (IOPS).
+         */
+        iops?: number;
+        /**
+         * Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+         */
+        kmsKeyId?: string;
+        /**
+         * Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
+         */
+        roleArn: string;
+        /**
+         * Size of the volume in GiB. You must specify either a `sizeInGb` or a `snapshotId`. You can optionally specify a volume size greater than or equal to the snapshot size.
+         */
+        sizeInGb?: number;
+        /**
+         * Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
+         */
+        snapshotId?: string;
+        /**
+         * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+         */
+        throughput?: string;
+        /**
+         * Volume type.
+         */
+        volumeType?: string;
     }
 
     export interface TaskDefinitionEphemeralStorage {
@@ -28814,6 +28959,10 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionVolume {
+        /**
+         * Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+         */
+        configureAtLaunch: boolean;
         /**
          * Configuration block to configure a docker volume. Detailed below.
          */
@@ -30705,6 +30854,8 @@ export namespace elb {
         /**
          * The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
          * values are:
+         * * `HTTP`, `HTTPS` - PORT and PATH are required
+         * * `TCP`, `SSL` - PORT is required, PATH is not supported
          */
         target: string;
         /**
@@ -31627,6 +31778,9 @@ export namespace emrcontainers {
     }
 
     export interface VirtualClusterContainerProviderInfoEksInfo {
+        /**
+         * The namespace where the EMR Containers cluster is running
+         */
         namespace?: string;
     }
 
@@ -32970,6 +33124,7 @@ export namespace fsx {
         id: number;
         /**
          * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          */
         storageCapacityQuotaGib: number;
         type: string;
@@ -37558,6 +37713,11 @@ export namespace ivs {
     }
 
     export interface RecordingConfigurationDestinationConfigurationS3 {
+        /**
+         * S3 bucket name where recorded videos will be stored.
+         *
+         * The following arguments are optional:
+         */
         bucketName: string;
     }
 
@@ -37591,14 +37751,25 @@ export namespace ivschat {
     }
 
     export interface LoggingConfigurationDestinationConfigurationCloudwatchLogs {
+        /**
+         * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+         */
         logGroupName: string;
     }
 
     export interface LoggingConfigurationDestinationConfigurationFirehose {
+        /**
+         * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+         */
         deliveryStreamName: string;
     }
 
     export interface LoggingConfigurationDestinationConfigurationS3 {
+        /**
+         * Name of the Amazon S3 bucket where chat activity will be logged.
+         *
+         * The following arguments are optional:
+         */
         bucketName: string;
     }
 
@@ -37764,6 +37935,9 @@ export namespace kendra {
         seedUrls: string[];
         /**
          * The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+         * * `HOST_ONLY` – crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
+         * * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
+         * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
          */
         webCrawlerMode?: string;
     }
@@ -59812,7 +59986,13 @@ export namespace opensearch {
     }
 
     export interface DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+        /**
+         * Starting hour of the 10-hour window for updates
+         */
         hours: number;
+        /**
+         * Starting minute of the 10-hour window for updates
+         */
         minutes: number;
     }
 
@@ -65081,7 +65261,7 @@ export namespace route53 {
          */
         region?: string;
         /**
-         * Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+         * Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
          */
         type?: string;
         /**
@@ -66473,6 +66653,9 @@ export namespace s3 {
     export interface BucketOwnershipControlsRule {
         /**
          * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
+         * * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
+         * * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
          */
         objectOwnership: string;
     }
@@ -67489,17 +67672,35 @@ export namespace s3control {
     }
 
     export interface BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
+        /**
+         * Number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
         daysAfterInitiation: number;
     }
 
     export interface BucketLifecycleConfigurationRuleExpiration {
+        /**
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+         */
         date?: string;
+        /**
+         * Number of days before the object is to be deleted.
+         */
         days?: number;
+        /**
+         * Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+         */
         expiredObjectDeleteMarker?: boolean;
     }
 
     export interface BucketLifecycleConfigurationRuleFilter {
+        /**
+         * Object prefix for rule filtering.
+         */
         prefix?: string;
+        /**
+         * Key-value map of object tags for rule filtering.
+         */
         tags?: {[key: string]: string};
     }
 
@@ -72503,13 +72704,19 @@ export namespace securitylake {
 
     export interface CustomLogSourceConfigurationCrawlerConfiguration {
         /**
-         * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
          */
         roleArn: string;
     }
 
     export interface CustomLogSourceConfigurationProviderIdentity {
+        /**
+         * The external ID used to estalish trust relationship with the AWS identity.
+         */
         externalId: string;
+        /**
+         * The AWS identity principal.
+         */
         principal: string;
     }
 
@@ -75796,6 +76003,13 @@ export namespace verifiedpermissions {
 }
 
 export namespace vpc {
+    export interface EndpointServicePrivateDnsVerificationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface GetSecurityGroupRuleFilter {
         /**
          * Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
@@ -79634,14 +79848,58 @@ export namespace wafv2 {
 
     export interface WebAclAssociationConfigRequestBody {
         /**
-         * Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+         * Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `apiGateway` below for details.
+         */
+        apiGateways?: outputs.wafv2.WebAclAssociationConfigRequestBodyApiGateway[];
+        /**
+         * Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `appRunnerService` below for details.
+         */
+        appRunnerServices?: outputs.wafv2.WebAclAssociationConfigRequestBodyAppRunnerService[];
+        /**
+         * Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
          */
         cloudfronts?: outputs.wafv2.WebAclAssociationConfigRequestBodyCloudfront[];
+        /**
+         * Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognitoUserPool` below for details.
+         */
+        cognitoUserPools?: outputs.wafv2.WebAclAssociationConfigRequestBodyCognitoUserPool[];
+        /**
+         * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         */
+        verifiedAccessInstances?: outputs.wafv2.WebAclAssociationConfigRequestBodyVerifiedAccessInstance[];
+    }
+
+    export interface WebAclAssociationConfigRequestBodyApiGateway {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: string;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyAppRunnerService {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: string;
     }
 
     export interface WebAclAssociationConfigRequestBodyCloudfront {
         /**
-         * Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         * Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: string;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyCognitoUserPool {
+        /**
+         * Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: string;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyVerifiedAccessInstance {
+        /**
+         * Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
          */
         defaultSizeInspectionLimit: string;
     }

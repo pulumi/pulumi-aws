@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  *             .service("dynamodb")
  *             .build());
  * 
- *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()        
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .serviceName(example.applyValue(getVpcEndpointServiceResult -> getVpcEndpointServiceResult.serviceName()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 
- *         var exampleVpcEndpointPolicy = new VpcEndpointPolicy("exampleVpcEndpointPolicy", VpcEndpointPolicyArgs.builder()        
+ *         var exampleVpcEndpointPolicy = new VpcEndpointPolicy("exampleVpcEndpointPolicy", VpcEndpointPolicyArgs.builder()
  *             .vpcEndpointId(exampleVpcEndpoint.id())
  *             .policy(serializeJson(
  *                 jsonObject(

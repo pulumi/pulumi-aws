@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GroupMembership("example", GroupMembershipArgs.builder()        
+ *         var example = new GroupMembership("example", GroupMembershipArgs.builder()
  *             .groupName("all-access-users")
  *             .memberName("john_smith")
  *             .build());

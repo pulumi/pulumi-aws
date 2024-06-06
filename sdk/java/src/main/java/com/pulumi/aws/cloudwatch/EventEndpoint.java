@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new EventEndpoint("this", EventEndpointArgs.builder()        
+ *         var this_ = new EventEndpoint("this", EventEndpointArgs.builder()
  *             .name("global-endpoint")
  *             .roleArn(replication.arn())
  *             .eventBuses(            

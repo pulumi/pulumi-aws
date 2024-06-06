@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *             .actions("sts:AssumeRole")
  *             .build());
  * 
- *         var role = new Role("role", RoleArgs.builder()        
+ *         var role = new Role("role", RoleArgs.builder()
  *             .name("dynamodb-access-role")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var alias = new RoleAlias("alias", RoleAliasArgs.builder()        
+ *         var alias = new RoleAlias("alias", RoleAliasArgs.builder()
  *             .alias("Thermostat-dynamodb-access-role-alias")
  *             .roleArn(role.arn())
  *             .build());

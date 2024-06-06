@@ -100,7 +100,9 @@ type SmbFileShare struct {
 	Authentication pulumi.StringPtrOutput `pulumi:"authentication"`
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
-	// Refresh cache information. see Cache Attributes for more details.
+	// Refresh cache information. see `cacheAttributes` Block for more details.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrOutput `pulumi:"caseSensitivity"`
@@ -201,7 +203,9 @@ type smbFileShareState struct {
 	Authentication *string `pulumi:"authentication"`
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
-	// Refresh cache information. see Cache Attributes for more details.
+	// Refresh cache information. see `cacheAttributes` Block for more details.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
@@ -264,7 +268,9 @@ type SmbFileShareState struct {
 	Authentication pulumi.StringPtrInput
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
-	// Refresh cache information. see Cache Attributes for more details.
+	// Refresh cache information. see `cacheAttributes` Block for more details.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
@@ -329,7 +335,9 @@ type smbFileShareArgs struct {
 	Authentication *string `pulumi:"authentication"`
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
-	// Refresh cache information. see Cache Attributes for more details.
+	// Refresh cache information. see `cacheAttributes` Block for more details.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
@@ -383,7 +391,9 @@ type SmbFileShareArgs struct {
 	Authentication pulumi.StringPtrInput
 	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
-	// Refresh cache information. see Cache Attributes for more details.
+	// Refresh cache information. see `cacheAttributes` Block for more details.
+	//
+	// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
@@ -542,7 +552,9 @@ func (o SmbFileShareOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.BucketRegion }).(pulumi.StringPtrOutput)
 }
 
-// Refresh cache information. see Cache Attributes for more details.
+// Refresh cache information. see `cacheAttributes` Block for more details.
+//
+// **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
 func (o SmbFileShareOutput) CacheAttributes() SmbFileShareCacheAttributesPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) SmbFileShareCacheAttributesPtrOutput { return v.CacheAttributes }).(SmbFileShareCacheAttributesPtrOutput)
 }

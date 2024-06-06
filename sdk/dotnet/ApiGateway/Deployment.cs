@@ -36,6 +36,12 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// </summary>
+        [Output("canarySettings")]
+        public Output<Outputs.DeploymentCanarySettings?> CanarySettings { get; private set; } = null!;
+
+        /// <summary>
         /// Creation date of the deployment
         /// </summary>
         [Output("createdDate")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// </summary>
+        [Input("canarySettings")]
+        public Input<Inputs.DeploymentCanarySettingsArgs>? CanarySettings { get; set; }
+
+        /// <summary>
         /// Description of the deployment
         /// </summary>
         [Input("description")]
@@ -194,6 +206,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// </summary>
+        [Input("canarySettings")]
+        public Input<Inputs.DeploymentCanarySettingsGetArgs>? CanarySettings { get; set; }
+
         /// <summary>
         /// Creation date of the deployment
         /// </summary>

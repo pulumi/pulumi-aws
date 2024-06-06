@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var documents = new BucketObjectv2("documents");
  * 
- *         var example = new DocumentClassifier("example", DocumentClassifierArgs.builder()        
+ *         var example = new DocumentClassifier("example", DocumentClassifierArgs.builder()
  *             .name("example")
  *             .dataAccessRoleArn(exampleAwsIamRole.arn())
  *             .languageCode("en")

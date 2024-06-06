@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.apigateway.DeploymentArgs;
 import com.pulumi.aws.apigateway.inputs.DeploymentState;
+import com.pulumi.aws.apigateway.outputs.DeploymentCanarySettings;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -41,6 +42,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:apigateway/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
+    /**
+     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * 
+     */
+    @Export(name="canarySettings", refs={DeploymentCanarySettings.class}, tree="[0]")
+    private Output</* @Nullable */ DeploymentCanarySettings> canarySettings;
+
+    /**
+     * @return Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * 
+     */
+    public Output<Optional<DeploymentCanarySettings>> canarySettings() {
+        return Codegen.optional(this.canarySettings);
+    }
     /**
      * Creation date of the deployment
      * 

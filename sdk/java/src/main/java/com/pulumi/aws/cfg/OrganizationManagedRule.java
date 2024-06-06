@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Organization("example", OrganizationArgs.builder()        
+ *         var example = new Organization("example", OrganizationArgs.builder()
  *             .awsServiceAccessPrincipals("config-multiaccountsetup.amazonaws.com")
  *             .featureSet("ALL")
  *             .build());
  * 
- *         var exampleOrganizationManagedRule = new OrganizationManagedRule("exampleOrganizationManagedRule", OrganizationManagedRuleArgs.builder()        
+ *         var exampleOrganizationManagedRule = new OrganizationManagedRule("exampleOrganizationManagedRule", OrganizationManagedRuleArgs.builder()
  *             .name("example")
  *             .ruleIdentifier("IAM_PASSWORD_POLICY")
  *             .build(), CustomResourceOptions.builder()

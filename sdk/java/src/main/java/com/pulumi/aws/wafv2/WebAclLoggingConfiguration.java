@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()        
+ *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
  *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()        
+ *         var example = new WebAclLoggingConfiguration("example", WebAclLoggingConfigurationArgs.builder()
  *             .logDestinationConfigs(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *             .resourceArn(exampleAwsWafv2WebAcl.arn())
  *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()

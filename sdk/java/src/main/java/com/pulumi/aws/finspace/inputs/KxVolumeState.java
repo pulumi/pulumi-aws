@@ -62,6 +62,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+     * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
     @Import(name="azMode")
@@ -69,6 +70,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+     * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
     public Optional<Output<String>> azMode() {
@@ -167,6 +169,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The status of volume creation.
+     * * `CREATING` – The volume creation is in progress.
+     * * `CREATE_FAILED` – The volume creation has failed.
+     * * `ACTIVE` – The volume is active.
+     * * `UPDATING` – The volume is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `UPDATED` – The volume is successfully updated.
+     * * `DELETING` – The volume is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the volume.
+     * * `DELETED` – The volume is successfully deleted.
      * 
      */
     @Import(name="status")
@@ -174,6 +185,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The status of volume creation.
+     * * `CREATING` – The volume creation is in progress.
+     * * `CREATE_FAILED` – The volume creation has failed.
+     * * `ACTIVE` – The volume is active.
+     * * `UPDATING` – The volume is in the process of being updated.
+     * * `UPDATE_FAILED` – The update action failed.
+     * * `UPDATED` – The volume is successfully updated.
+     * * `DELETING` – The volume is in the process of being deleted.
+     * * `DELETE_FAILED` – The system failed to delete the volume.
+     * * `DELETED` – The volume is successfully deleted.
      * 
      */
     public Optional<Output<String>> status() {
@@ -355,6 +375,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+         * * `SINGLE` - Assigns one availability zone per volume.
          * 
          * @return builder
          * 
@@ -366,6 +387,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+         * * `SINGLE` - Assigns one availability zone per volume.
          * 
          * @return builder
          * 
@@ -512,6 +534,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status The status of volume creation.
+         * * `CREATING` – The volume creation is in progress.
+         * * `CREATE_FAILED` – The volume creation has failed.
+         * * `ACTIVE` – The volume is active.
+         * * `UPDATING` – The volume is in the process of being updated.
+         * * `UPDATE_FAILED` – The update action failed.
+         * * `UPDATED` – The volume is successfully updated.
+         * * `DELETING` – The volume is in the process of being deleted.
+         * * `DELETE_FAILED` – The system failed to delete the volume.
+         * * `DELETED` – The volume is successfully deleted.
          * 
          * @return builder
          * 
@@ -523,6 +554,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status The status of volume creation.
+         * * `CREATING` – The volume creation is in progress.
+         * * `CREATE_FAILED` – The volume creation has failed.
+         * * `ACTIVE` – The volume is active.
+         * * `UPDATING` – The volume is in the process of being updated.
+         * * `UPDATE_FAILED` – The update action failed.
+         * * `UPDATED` – The volume is successfully updated.
+         * * `DELETING` – The volume is in the process of being deleted.
+         * * `DELETE_FAILED` – The system failed to delete the volume.
+         * * `DELETED` – The volume is successfully deleted.
          * 
          * @return builder
          * 

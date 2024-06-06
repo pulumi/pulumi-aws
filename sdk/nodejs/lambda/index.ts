@@ -96,6 +96,11 @@ export type ProvisionedConcurrencyConfig = import("./provisionedConcurrencyConfi
 export const ProvisionedConcurrencyConfig: typeof import("./provisionedConcurrencyConfig").ProvisionedConcurrencyConfig = null as any;
 utilities.lazyLoad(exports, ["ProvisionedConcurrencyConfig"], () => require("./provisionedConcurrencyConfig"));
 
+export { RuntimeManagementConfigArgs, RuntimeManagementConfigState } from "./runtimeManagementConfig";
+export type RuntimeManagementConfig = import("./runtimeManagementConfig").RuntimeManagementConfig;
+export const RuntimeManagementConfig: typeof import("./runtimeManagementConfig").RuntimeManagementConfig = null as any;
+utilities.lazyLoad(exports, ["RuntimeManagementConfig"], () => require("./runtimeManagementConfig"));
+
 export * from "./runtimes";
 
 // Export enums:
@@ -127,6 +132,8 @@ const _module = {
                 return new Permission(name, <any>undefined, { urn })
             case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
                 return new ProvisionedConcurrencyConfig(name, <any>undefined, { urn })
+            case "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig":
+                return new RuntimeManagementConfig(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -143,3 +150,4 @@ pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/provisionedConcurrencyConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/runtimeManagementConfig", _module)

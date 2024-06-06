@@ -575,7 +575,7 @@ class Budget(pulumi.CustomResource):
                  time_unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
         ## Example Usage
 
@@ -763,7 +763,7 @@ class Budget(pulumi.CustomResource):
                  args: BudgetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
+        Provides a budgets budget resource. Budgets use the cost visualization provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
         ## Example Usage
 

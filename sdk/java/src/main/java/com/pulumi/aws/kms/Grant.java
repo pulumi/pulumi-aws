@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
  * 
+ * &gt; **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
  * ## Import
  * 
  * Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -206,6 +207,9 @@ public class Grant extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "grantToken"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

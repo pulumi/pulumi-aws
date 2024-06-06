@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Stream("example", StreamArgs.builder()        
+ *         var example = new Stream("example", StreamArgs.builder()
  *             .name("example")
  *             .shardCount(2)
  *             .build());
@@ -74,12 +74,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var callAnalyticsRole = new Role("callAnalyticsRole", RoleArgs.builder()        
+ *         var callAnalyticsRole = new Role("callAnalyticsRole", RoleArgs.builder()
  *             .name("CallAnalyticsRole")
  *             .assumeRolePolicy(mediaPipelinesAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyBasicConfiguration")
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
@@ -153,12 +153,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var postCallRole = new Role("postCallRole", RoleArgs.builder()        
+ *         var postCallRole = new Role("postCallRole", RoleArgs.builder()
  *             .name("PostCallAccessRole")
  *             .assumeRolePolicy(transcribeAssumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyCallAnalyticsConfiguration")
  *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
@@ -229,7 +229,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyRealTimeAlertConfiguration")
  *             .resourceAccessRoleArn(callAnalyticsRole.arn())
  *             .elements(            
@@ -309,7 +309,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyTranscribeConfiguration")
  *             .resourceAccessRoleArn(exampleAwsIamRole.arn())
  *             .elements(            
@@ -374,7 +374,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyVoiceAnalyticsConfiguration")
  *             .resourceAccessRoleArn(example.arn())
  *             .elements(            
@@ -444,7 +444,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()        
+ *         var myConfiguration = new MediaInsightsPipelineConfiguration("myConfiguration", MediaInsightsPipelineConfigurationArgs.builder()
  *             .name("MyS3RecordingConfiguration")
  *             .resourceAccessRoleArn(example.arn())
  *             .elements(MediaInsightsPipelineConfigurationElementArgs.builder()

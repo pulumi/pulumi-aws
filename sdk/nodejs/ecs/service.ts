@@ -170,11 +170,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly desiredCount!: pulumi.Output<number | undefined>;
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     /**
@@ -220,7 +220,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly platformVersion!: pulumi.Output<string>;
     /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
@@ -228,7 +228,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
     /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
     public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceServiceConnectConfiguration | undefined>;
     /**
@@ -253,6 +253,10 @@ export class Service extends pulumi.CustomResource {
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     */
+    public readonly volumeConfiguration!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration | undefined>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
@@ -299,6 +303,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["volumeConfiguration"] = state ? state.volumeConfiguration : undefined;
             resourceInputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -329,6 +334,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["volumeConfiguration"] = args ? args.volumeConfiguration : undefined;
             resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -374,11 +380,11 @@ export interface ServiceState {
      */
     desiredCount?: pulumi.Input<number>;
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
     /**
@@ -424,7 +430,7 @@ export interface ServiceState {
      */
     platformVersion?: pulumi.Input<string>;
     /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     propagateTags?: pulumi.Input<string>;
     /**
@@ -432,7 +438,7 @@ export interface ServiceState {
      */
     schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
     serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
     /**
@@ -457,6 +463,10 @@ export interface ServiceState {
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     */
+    volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
@@ -500,11 +510,11 @@ export interface ServiceArgs {
      */
     desiredCount?: pulumi.Input<number>;
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     enableEcsManagedTags?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
     /**
@@ -550,7 +560,7 @@ export interface ServiceArgs {
      */
     platformVersion?: pulumi.Input<string>;
     /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+     * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     propagateTags?: pulumi.Input<string>;
     /**
@@ -558,7 +568,7 @@ export interface ServiceArgs {
      */
     schedulingStrategy?: pulumi.Input<string>;
     /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+     * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      */
     serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfiguration>;
     /**
@@ -577,6 +587,10 @@ export interface ServiceArgs {
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+     */
+    volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */

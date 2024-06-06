@@ -2624,6 +2624,9 @@ class BucketOwnershipControlsRuleArgs:
                  object_ownership: pulumi.Input[str]):
         """
         :param pulumi.Input[str] object_ownership: Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
+               * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
+               * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
+               * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
         """
         pulumi.set(__self__, "object_ownership", object_ownership)
 
@@ -2632,6 +2635,9 @@ class BucketOwnershipControlsRuleArgs:
     def object_ownership(self) -> pulumi.Input[str]:
         """
         Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
+        * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
+        * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
+        * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
         """
         return pulumi.get(self, "object_ownership")
 

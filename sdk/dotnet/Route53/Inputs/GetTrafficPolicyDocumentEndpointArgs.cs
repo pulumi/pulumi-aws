@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Route53.Inputs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+        /// Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

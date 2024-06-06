@@ -191,7 +191,7 @@ public final class Config {
  * 
  */
     public Optional<Boolean> skipMetadataApiCheck() {
-        return Codegen.booleanProp("skipMetadataApiCheck").config(config).def(true).get();
+        return Codegen.booleanProp("skipMetadataApiCheck").config(config).get();
     }
 /**
  * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are

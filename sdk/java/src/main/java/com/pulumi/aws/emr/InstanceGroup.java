@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+ *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
  *             .clusterId(tf_test_cluster.id())
  *             .instanceCount(1)
  *             .instanceType("m5.xlarge")
@@ -143,7 +143,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
      * {
@@ -198,7 +198,7 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
+     *         var task = new InstanceGroup("task", InstanceGroupArgs.builder()
      *             .configurationsJson("""
      * [
      * {

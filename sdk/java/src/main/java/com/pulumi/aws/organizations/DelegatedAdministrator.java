@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DelegatedAdministrator("example", DelegatedAdministratorArgs.builder()        
+ *         var example = new DelegatedAdministrator("example", DelegatedAdministratorArgs.builder()
  *             .accountId("123456789012")
  *             .servicePrincipal("principal")
  *             .build());

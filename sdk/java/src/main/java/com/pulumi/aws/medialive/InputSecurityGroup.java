@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()        
+ *         var example = new InputSecurityGroup("example", InputSecurityGroupArgs.builder()
  *             .whitelistRules(InputSecurityGroupWhitelistRuleArgs.builder()
  *                 .cidr("10.0.0.8/32")
  *                 .build())

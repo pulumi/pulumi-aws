@@ -39,7 +39,6 @@ class LayerVersionArgs:
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
         pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
@@ -188,9 +187,6 @@ class LayerVersionArgs:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -203,6 +199,7 @@ class _LayerVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 code_sha256: Optional[pulumi.Input[str]] = None,
                  compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
@@ -223,6 +220,7 @@ class _LayerVersionState:
         Input properties used for looking up and filtering LayerVersion resources.
         :param pulumi.Input[str] arn: ARN of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[str] code_sha256: Base64-encoded representation of raw SHA-256 sum of the zip file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         :param pulumi.Input[str] created_date: Date this resource was created.
@@ -238,7 +236,6 @@ class _LayerVersionState:
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -246,6 +243,8 @@ class _LayerVersionState:
             pulumi.set(__self__, "arn", arn)
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if code_sha256 is not None:
+            pulumi.set(__self__, "code_sha256", code_sha256)
         if compatible_architectures is not None:
             pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
@@ -302,6 +301,18 @@ class _LayerVersionState:
     @code.setter
     def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
         pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="codeSha256")
+    def code_sha256(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        """
+        return pulumi.get(self, "code_sha256")
+
+    @code_sha256.setter
+    def code_sha256(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_sha256", value)
 
     @property
     @pulumi.getter(name="compatibleArchitectures")
@@ -464,9 +475,6 @@ class _LayerVersionState:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -567,7 +575,6 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
         ...
     @overload
@@ -662,6 +669,7 @@ class LayerVersion(pulumi.CustomResource):
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["arn"] = None
+            __props__.__dict__["code_sha256"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["layer_arn"] = None
             __props__.__dict__["signing_job_arn"] = None
@@ -680,6 +688,7 @@ class LayerVersion(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code: Optional[pulumi.Input[pulumi.Archive]] = None,
+            code_sha256: Optional[pulumi.Input[str]] = None,
             compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
@@ -705,6 +714,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[str] code_sha256: Base64-encoded representation of raw SHA-256 sum of the zip file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         :param pulumi.Input[str] created_date: Date this resource was created.
@@ -720,7 +730,6 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -730,6 +739,7 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["code"] = code
+        __props__.__dict__["code_sha256"] = code_sha256
         __props__.__dict__["compatible_architectures"] = compatible_architectures
         __props__.__dict__["compatible_runtimes"] = compatible_runtimes
         __props__.__dict__["created_date"] = created_date
@@ -763,6 +773,14 @@ class LayerVersion(pulumi.CustomResource):
         Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeSha256")
+    def code_sha256(self) -> pulumi.Output[str]:
+        """
+        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        """
+        return pulumi.get(self, "code_sha256")
 
     @property
     @pulumi.getter(name="compatibleArchitectures")
@@ -873,9 +891,6 @@ class LayerVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[str]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
-        """
         return pulumi.get(self, "source_code_hash")
 
     @property

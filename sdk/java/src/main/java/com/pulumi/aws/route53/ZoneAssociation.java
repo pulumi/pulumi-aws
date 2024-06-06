@@ -50,26 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primary = new Vpc("primary", VpcArgs.builder()        
+ *         var primary = new Vpc("primary", VpcArgs.builder()
  *             .cidrBlock("10.6.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var secondary = new Vpc("secondary", VpcArgs.builder()        
+ *         var secondary = new Vpc("secondary", VpcArgs.builder()
  *             .cidrBlock("10.7.0.0/16")
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build());
  * 
- *         var example = new Zone("example", ZoneArgs.builder()        
+ *         var example = new Zone("example", ZoneArgs.builder()
  *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(primary.id())
  *                 .build())
  *             .build());
  * 
- *         var secondaryZoneAssociation = new ZoneAssociation("secondaryZoneAssociation", ZoneAssociationArgs.builder()        
+ *         var secondaryZoneAssociation = new ZoneAssociation("secondaryZoneAssociation", ZoneAssociationArgs.builder()
  *             .zoneId(example.zoneId())
  *             .vpcId(secondary.id())
  *             .build());

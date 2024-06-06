@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CidrCollection("example", CidrCollectionArgs.builder()        
+ *         var example = new CidrCollection("example", CidrCollectionArgs.builder()
  *             .name("collection-1")
  *             .build());
  * 
- *         var exampleCidrLocation = new CidrLocation("exampleCidrLocation", CidrLocationArgs.builder()        
+ *         var exampleCidrLocation = new CidrLocation("exampleCidrLocation", CidrLocationArgs.builder()
  *             .cidrCollectionId(example.id())
  *             .name("office")
  *             .cidrBlocks(            

@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new PlacementGroup("test", PlacementGroupArgs.builder()        
+ *         var test = new PlacementGroup("test", PlacementGroupArgs.builder()
  *             .name("test")
  *             .strategy("cluster")
  *             .build());
  * 
- *         var bar = new Group("bar", GroupArgs.builder()        
+ *         var bar = new Group("bar", GroupArgs.builder()
  *             .name("foobar3-test")
  *             .maxSize(5)
  *             .minSize(2)
@@ -144,13 +144,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobar = new LaunchTemplate("foobar", LaunchTemplateArgs.builder()        
+ *         var foobar = new LaunchTemplate("foobar", LaunchTemplateArgs.builder()
  *             .namePrefix("foobar")
  *             .imageId("ami-1a2b3c")
  *             .instanceType("t2.micro")
  *             .build());
  * 
- *         var bar = new Group("bar", GroupArgs.builder()        
+ *         var bar = new Group("bar", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
@@ -197,13 +197,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
  *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
@@ -263,13 +263,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
  *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .capacityRebalance(true)
  *             .desiredCapacity(12)
  *             .maxSize(15)
@@ -338,18 +338,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
  *             .instanceType("c5.large")
  *             .build());
  * 
- *         var example2 = new LaunchTemplate("example2", LaunchTemplateArgs.builder()        
+ *         var example2 = new LaunchTemplate("example2", LaunchTemplateArgs.builder()
  *             .namePrefix("example2")
  *             .imageId(example2AwsAmi.id())
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
@@ -413,13 +413,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
  *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(1)
@@ -479,7 +479,7 @@ import javax.annotation.Nullable;
  *         final var extraTags = config.get("extraTags").orElse(        
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
  *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         var test = new Group("test", GroupArgs.builder()        
+ *         var test = new Group("test", GroupArgs.builder()
  *             .tags(            
  *                 GroupTagArgs.builder()
  *                     .key("explicit1")
@@ -548,12 +548,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleLaunchTemplate = new LaunchTemplate("exampleLaunchTemplate", LaunchTemplateArgs.builder()        
+ *         var exampleLaunchTemplate = new LaunchTemplate("exampleLaunchTemplate", LaunchTemplateArgs.builder()
  *             .imageId(example.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t3.nano")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(2)
@@ -611,13 +611,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()        
+ *         var example = new LaunchTemplate("example", LaunchTemplateArgs.builder()
  *             .namePrefix("example")
  *             .imageId(exampleAwsAmi.id())
  *             .instanceType("c5.large")
  *             .build());
  * 
- *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()        
+ *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .availabilityZones("us-east-1a")
  *             .desiredCapacity(1)
  *             .maxSize(5)

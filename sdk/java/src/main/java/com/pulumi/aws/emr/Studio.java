@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Studio("example", StudioArgs.builder()        
+ *         var example = new Studio("example", StudioArgs.builder()
  *             .authMode("SSO")
  *             .defaultS3Location(String.format("s3://%s/test", test.bucket()))
  *             .engineSecurityGroupId(testAwsSecurityGroup.id())

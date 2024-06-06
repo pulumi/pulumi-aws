@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TransitGateway("example");
  * 
- *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
  *             .bgpAsn(65000)
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .transitGatewayId(example.id())
  *             .type(exampleCustomerGateway.type())
@@ -110,21 +110,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vpc = new Vpc("vpc", VpcArgs.builder()        
+ *         var vpc = new Vpc("vpc", VpcArgs.builder()
  *             .cidrBlock("10.0.0.0/16")
  *             .build());
  * 
- *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()        
+ *         var vpnGateway = new VpnGateway("vpnGateway", VpnGatewayArgs.builder()
  *             .vpcId(vpc.id())
  *             .build());
  * 
- *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()        
+ *         var customerGateway = new CustomerGateway("customerGateway", CustomerGatewayArgs.builder()
  *             .bgpAsn(65000)
  *             .ipAddress("172.0.0.1")
  *             .type("ipsec.1")
  *             .build());
  * 
- *         var main = new VpnConnection("main", VpnConnectionArgs.builder()        
+ *         var main = new VpnConnection("main", VpnConnectionArgs.builder()
  *             .vpnGatewayId(vpnGateway.id())
  *             .customerGatewayId(customerGateway.id())
  *             .type("ipsec.1")
@@ -172,25 +172,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()        
+ *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()
  *             .name("example_ipsec_vpn_example")
  *             .amazonSideAsn("64512")
  *             .build());
  * 
- *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()        
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
  *             .amazonSideAsn("64513")
  *             .description("example_ipsec_vpn_example")
  *             .transitGatewayCidrBlocks("10.0.0.0/24")
  *             .build());
  * 
- *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()        
+ *         var exampleCustomerGateway = new CustomerGateway("exampleCustomerGateway", CustomerGatewayArgs.builder()
  *             .bgpAsn(64514)
  *             .ipAddress("10.0.0.1")
  *             .type("ipsec.1")
  *             .tags(Map.of("Name", "example_ipsec_vpn_example"))
  *             .build());
  * 
- *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()        
+ *         var exampleGatewayAssociation = new GatewayAssociation("exampleGatewayAssociation", GatewayAssociationArgs.builder()
  *             .dxGatewayId(exampleGateway.id())
  *             .associatedGatewayId(exampleTransitGateway.id())
  *             .allowedPrefixes("10.0.0.0/8")
@@ -201,7 +201,7 @@ import javax.annotation.Nullable;
  *             .dxGatewayId(exampleGateway.id())
  *             .build());
  * 
- *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()        
+ *         var exampleVpnConnection = new VpnConnection("exampleVpnConnection", VpnConnectionArgs.builder()
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .outsideIpAddressType("PrivateIpv4")
  *             .transitGatewayId(exampleTransitGateway.id())

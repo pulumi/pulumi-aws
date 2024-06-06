@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .name("example")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
@@ -117,19 +117,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .name("eks-cluster-example")
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var example_AmazonEKSClusterPolicy = new RolePolicyAttachment("example-AmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEKSClusterPolicy = new RolePolicyAttachment("example-AmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
  *             .role(example.name())
  *             .build());
  * 
  *         // Optionally, enable Security Groups for Pods
  *         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
- *         var example_AmazonEKSVPCResourceController = new RolePolicyAttachment("example-AmazonEKSVPCResourceController", RolePolicyAttachmentArgs.builder()        
+ *         var example_AmazonEKSVPCResourceController = new RolePolicyAttachment("example-AmazonEKSVPCResourceController", RolePolicyAttachmentArgs.builder()
  *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController")
  *             .role(example.name())
  *             .build());
@@ -174,12 +174,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var clusterName = config.get("clusterName").orElse("example");
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()        
+ *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
  *             .name(String.format("/aws/eks/%s/cluster", clusterName))
  *             .retentionInDays(7)
  *             .build());
  * 
- *         var example = new Cluster("example", ClusterArgs.builder()        
+ *         var example = new Cluster("example", ClusterArgs.builder()
  *             .enabledClusterLogTypes(            
  *                 "api",
  *                 "audit")
@@ -234,7 +234,7 @@ import javax.annotation.Nullable;
  *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
  *             .build());
  * 
- *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()        
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()
  *             .clientIdLists("sts.amazonaws.com")
  *             .thumbprintLists(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.certificates()[0].sha1Fingerprint())))
  *             .url(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.url())))
@@ -256,7 +256,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()        
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -> exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .name("example")
  *             .build());
@@ -298,12 +298,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
  *             .name("example")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example-cluster")
  *             .roleArn(example.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
@@ -351,12 +351,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()        
+ *         var example = new Role("example", RoleArgs.builder()
  *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
  *             .name("example")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()        
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example-cluster")
  *             .roleArn(example.arn())
  *             .vpcConfig(ClusterVpcConfigArgs.builder()

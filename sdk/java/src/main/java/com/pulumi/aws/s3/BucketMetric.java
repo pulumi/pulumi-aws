@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_entire_bucket = new BucketMetric("example-entire-bucket", BucketMetricArgs.builder()        
+ *         var example_entire_bucket = new BucketMetric("example-entire-bucket", BucketMetricArgs.builder()
  *             .bucket(example.id())
  *             .name("EntireBucket")
  *             .build());
@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()        
+ *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()
  *             .bucket(example.id())
  *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()
@@ -144,16 +144,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example")
  *             .build());
  * 
- *         var example_access_point = new AccessPoint("example-access-point", AccessPointArgs.builder()        
+ *         var example_access_point = new AccessPoint("example-access-point", AccessPointArgs.builder()
  *             .bucket(example.id())
  *             .name("example-access-point")
  *             .build());
  * 
- *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()        
+ *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()
  *             .bucket(example.id())
  *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()

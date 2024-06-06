@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new WorkerConfiguration("example", WorkerConfigurationArgs.builder()        
+ *         var example = new WorkerConfiguration("example", WorkerConfigurationArgs.builder()
  *             .name("example")
  *             .propertiesFileContent("""
  * key.converter=org.apache.kafka.connect.storage.StringConverter

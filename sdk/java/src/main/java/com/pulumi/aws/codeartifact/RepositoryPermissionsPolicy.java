@@ -49,16 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleKey = new Key("exampleKey", KeyArgs.builder()        
+ *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
  *             .description("domain key")
  *             .build());
  * 
- *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()        
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
  *             .domain("example")
  *             .encryptionKey(exampleKey.arn())
  *             .build());
  * 
- *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()        
+ *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .repository("example")
  *             .domain(exampleDomain.domain())
  *             .build());
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", RepositoryPermissionsPolicyArgs.builder()        
+ *         var exampleRepositoryPermissionsPolicy = new RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", RepositoryPermissionsPolicyArgs.builder()
  *             .repository(exampleRepository.repository())
  *             .domain(exampleDomain.domain())
  *             .policyDocument(example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(example -> example.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))

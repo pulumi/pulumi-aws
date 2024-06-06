@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var path = new NetworkInsightsPath("path", NetworkInsightsPathArgs.builder()        
+ *         var path = new NetworkInsightsPath("path", NetworkInsightsPathArgs.builder()
  *             .source(source.id())
  *             .destination(destination.id())
  *             .protocol("tcp")
  *             .build());
  * 
- *         var analysis = new NetworkInsightsAnalysis("analysis", NetworkInsightsAnalysisArgs.builder()        
+ *         var analysis = new NetworkInsightsAnalysis("analysis", NetworkInsightsAnalysisArgs.builder()
  *             .networkInsightsPathId(path.id())
  *             .build());
  * 
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
+ * Using `pulumi import`, import Network Insights Analyzes using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var this_ = new Group("this", GroupArgs.builder()        
+ *         var this_ = new Group("this", GroupArgs.builder()
  *             .displayName("Example group")
  *             .description("Example description")
  *             .identityStoreId(example.identityStoreIds()[0])

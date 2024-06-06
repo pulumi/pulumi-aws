@@ -108,7 +108,9 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> BucketRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Refresh cache information. see Cache Attributes for more details.
+        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("cacheAttributes")]
         public Output<Outputs.SmbFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
@@ -328,7 +330,9 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
-        /// Refresh cache information. see Cache Attributes for more details.
+        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
@@ -516,7 +520,9 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
-        /// Refresh cache information. see Cache Attributes for more details.
+        /// Refresh cache information. see `cache_attributes` Block for more details.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }

@@ -236,14 +236,14 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
     @Import(name="userPausedDetails")
     private @Nullable Output<List<ClassificationJobUserPausedDetailArgs>> userPausedDetails;
 
     /**
-     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+     * @return If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
     public Optional<Output<List<ClassificationJobUserPausedDetailArgs>>> userPausedDetails() {
@@ -595,7 +595,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class ClassificationJobState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+         * @param userPausedDetails If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
          * 
          * @return builder
          * 

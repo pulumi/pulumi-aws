@@ -58,16 +58,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build());
  * 
- *         var versioningExample = new BucketVersioningV2("versioningExample", BucketVersioningV2Args.builder()        
+ *         var versioningExample = new BucketVersioningV2("versioningExample", BucketVersioningV2Args.builder()
  *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
@@ -110,16 +110,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("example-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()        
+ *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build());
  * 
- *         var versioningExample = new BucketVersioningV2("versioningExample", BucketVersioningV2Args.builder()        
+ *         var versioningExample = new BucketVersioningV2("versioningExample", BucketVersioningV2Args.builder()
  *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Disabled")
@@ -169,18 +169,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()        
+ *         var example = new BucketV2("example", BucketV2Args.builder()
  *             .bucket("yotto")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()        
+ *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()
  *             .bucket(example.id())
  *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()        
+ *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(exampleBucketVersioningV2.id())
  *             .key("droeloe")
  *             .source(new FileAsset("example.txt"))

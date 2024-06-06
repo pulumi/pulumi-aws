@@ -105,6 +105,7 @@ import * as bedrockfoundation from "./bedrockfoundation";
 import * as bedrockmodel from "./bedrockmodel";
 import * as budgets from "./budgets";
 import * as cfg from "./cfg";
+import * as chatbot from "./chatbot";
 import * as chime from "./chime";
 import * as chimesdkmediapipelines from "./chimesdkmediapipelines";
 import * as cleanrooms from "./cleanrooms";
@@ -314,6 +315,7 @@ export {
     bedrockmodel,
     budgets,
     cfg,
+    chatbot,
     chime,
     chimesdkmediapipelines,
     cleanrooms,

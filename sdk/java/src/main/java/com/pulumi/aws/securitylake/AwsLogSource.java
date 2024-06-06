@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AwsLogSource("example", AwsLogSourceArgs.builder()        
+ *         var example = new AwsLogSource("example", AwsLogSourceArgs.builder()
  *             .source(AwsLogSourceSourceArgs.builder()
  *                 .accounts("123456789012")
  *                 .regions("eu-west-1")

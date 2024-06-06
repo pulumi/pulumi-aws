@@ -31,6 +31,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/mitchellh/go-homedir"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
@@ -79,6 +80,7 @@ const (
 	bedrockMod                  = "Bedrock"                  // Bedrock
 	bcmDataMod                  = "BcmData"                  // Billing and Cost Management Data
 	budgetsMod                  = "Budgets"                  // Budgets
+	chatbotMod                  = "Chatbot"                  // Chatbot
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
 	cloud9Mod                   = "Cloud9"                   // Cloud9
@@ -522,22 +524,23 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 }
 
 // boolValue gets a bool value from a property map if present, else false
-func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) bool {
+func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) (*bool, error) {
 	val, ok := vars[prop]
 	if ok && val.IsBool() {
-		return val.BoolValue()
+		result := val.BoolValue()
+		return &result, nil
 	}
 	for _, env := range envs {
 		val, ok := os.LookupEnv(env)
 		if ok {
 			boolValue, err := strconv.ParseBool(val)
 			if err != nil {
-				return false
+				return nil, err
 			}
-			return boolValue
+			return &boolValue, nil
 		}
 	}
-	return false
+	return nil, nil
 }
 
 func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
@@ -641,15 +644,16 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		config.AssumeRoleWithWebIdentity = &assumeRole
 	}
 
-	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
-	// if we want to authenticate against the AWS API Metadata Service then the user
-	// will specify that skipMetadataApiCheck: false
-	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
-	config.EC2MetadataServiceEnableState = imds.ClientDisabled
-	skipMetadataApiCheck := boolValue(vars, "skipMetadataApiCheck",
+	// Only set non-default EC2MetadataServiceEnableState if requested by skipMetadataApiCheck.
+	skipMetadataApiCheck, err := boolValue(vars, "skipMetadataApiCheck",
 		[]string{"AWS_SKIP_METADATA_API_CHECK"})
-	if !skipMetadataApiCheck {
-		config.EC2MetadataServiceEnableState = imds.ClientEnabled
+	contract.AssertNoErrorf(err, "Failed to parse skipMetadataApiCheck configuration")
+	if skipMetadataApiCheck != nil {
+		if !*skipMetadataApiCheck {
+			config.EC2MetadataServiceEnableState = imds.ClientEnabled
+		} else {
+			config.EC2MetadataServiceEnableState = imds.ClientDisabled
+		}
 	}
 
 	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
@@ -751,17 +755,20 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(alreadyRun *atomic.Bool) func(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	return func(vars resource.PropertyMap, c shim.ResourceConfig) error {
-		skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+		var err error
+		skipCredentialsValidation, err := boolValue(vars, "skipCredentialsValidation",
 			[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+		if err != nil {
+			return err
+		}
 
 		// if we skipCredentialsValidation then we don't need to do anything in
 		// preConfigureCallback as this is an explicit operation
-		if skipCredentialsValidation {
+		if skipCredentialsValidation != nil && *skipCredentialsValidation {
 			log.Printf("[INFO] pulumi-aws: skip credentials validation")
 			return nil
 		}
 
-		var err error
 		if alreadyRun.CompareAndSwap(false, true) {
 			log.Printf("[INFO] pulumi-aws: starting to validate credentials. " +
 				"Disable this by AWS_SKIP_CREDENTIALS_VALIDATION or " +
@@ -845,6 +852,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
+				ForcesProviderReplace: tfbridge.True(),
 			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
@@ -866,9 +874,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"skip_metadata_api_check": {
 				Type: "boolean",
-				Default: &tfbridge.DefaultInfo{
-					Value: true,
-				},
 			},
 			"access_key": {
 				Secret: tfbridge.True(),
@@ -1255,7 +1260,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment")),
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
@@ -3090,6 +3095,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				},
 				TransformFromState: func(ctx context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
 					if _, ok := state["dbName"]; ok {
+						delete(state, "name")
 						return state, nil
 					}
 					name, ok := state["name"]
@@ -4722,6 +4728,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsDataSource(batchMod, "getSchedulingPolicy")},
+			// chatbot
+			"aws_chatbot_slack_workspace": {Tok: awsDataSource(chatbotMod, "getSlackWorkspace")},
 			// cloud control api
 			"aws_cloudcontrolapi_resource": {Tok: awsDataSource(cloudControlMod, "getResource")},
 			// CloudFormation
@@ -5786,6 +5794,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		"aws_auditmanager_organization_admin_account_registration": {
 			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
 		},
+		"aws_lambda_runtime_management_config": {
+			Tok: awsResource(lambdaMod, "RuntimeManagementConfig"),
+		},
 		"aws_medialive_multiplex_program": {
 			Tok: awsResource(medialiveMod, "MultiplexProgram"),
 		},
@@ -5809,6 +5820,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		},
 		"aws_vpc_security_group_ingress_rule": {
 			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+		},
+		"aws_vpc_endpoint_private_dns": {
+			Tok: awsResource("Vpc", "EndpointPrivateDns"),
+		},
+		"aws_vpc_endpoint_service_private_dns_verification": {
+			Tok: awsResource("Vpc", "EndpointServicePrivateDnsVerification"),
 		},
 		"aws_quicksight_iam_policy_assignment": {
 			Tok: awsResource("QuickSight", "IamPolicyAssignment"),
@@ -5895,6 +5912,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	setAutonaming(&prov)
 
 	prov.MustApplyAutoAliases()
+
+	setupComputedIDs(&prov)
 
 	return &prov
 }
@@ -6025,4 +6044,34 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	return true
+}
+
+func setupComputedIDs(prov *tfbridge.ProviderInfo) {
+	attr := func(state resource.PropertyMap, attrs ...resource.PropertyKey) resource.ID {
+		parts := []string{}
+		for _, a := range attrs {
+			if v, ok := state[a]; ok {
+				if v.IsString() && v.StringValue() != "" {
+					parts = append(parts, v.StringValue())
+				}
+			}
+		}
+		s := strings.Join(parts, "__")
+		if s == "" {
+			s = "id"
+		}
+		return resource.ID(s)
+	}
+	prov.Resources["aws_lambda_runtime_management_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "functionName", "qualifier"), nil
+	}
+	prov.Resources["aws_datazone_environment_blueprint_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "domainId", "environmentBlueprintId"), nil
+	}
+	prov.Resources["aws_vpc_endpoint_service_private_dns_verification"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "serviceId"), nil
+	}
+	prov.Resources["aws_vpc_endpoint_private_dns"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "vpcEndpointId"), nil
+	}
 }

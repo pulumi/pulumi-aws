@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Symmetric Encryption KMS Key
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -34,8 +36,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,9 +54,415 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new Key("a", KeyArgs.builder()        
- *             .description("KMS key 1")
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("An example symmetric encryption KMS key")
+ *             .enableKeyRotation(true)
+ *             .deletionWindowInDays(20)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-default-1"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow administration of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:ReplicateKey", 
+ *                                 "kms:Create*", 
+ *                                 "kms:Describe*", 
+ *                                 "kms:Enable*", 
+ *                                 "kms:List*", 
+ *                                 "kms:Put*", 
+ *                                 "kms:Update*", 
+ *                                 "kms:Revoke*", 
+ *                                 "kms:Disable*", 
+ *                                 "kms:Get*", 
+ *                                 "kms:Delete*", 
+ *                                 "kms:ScheduleKeyDeletion", 
+ *                                 "kms:CancelKeyDeletion"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:DescribeKey", 
+ *                                 "kms:Encrypt", 
+ *                                 "kms:Decrypt", 
+ *                                 "kms:ReEncrypt*", 
+ *                                 "kms:GenerateDataKey", 
+ *                                 "kms:GenerateDataKeyWithoutPlaintext"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Symmetric Encryption KMS Key With Standalone Policy Resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.kms.KeyPolicy;
+ * import com.pulumi.aws.kms.KeyPolicyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("An example symmetric encryption KMS key")
+ *             .enableKeyRotation(true)
+ *             .deletionWindowInDays(20)
+ *             .build());
+ * 
+ *         var exampleKeyPolicy = new KeyPolicy("exampleKeyPolicy", KeyPolicyArgs.builder()
+ *             .keyId(example.id())
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-default-1"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                         )),
+ *                         jsonProperty("Action", "kms:*"),
+ *                         jsonProperty("Resource", "*")
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Asymmetric KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("RSA-3072 asymmetric KMS key for signing and verification")
+ *             .customerMasterKeySpec("RSA_3072")
+ *             .keyUsage("SIGN_VERIFY")
+ *             .enableKeyRotation(false)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-default-1"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow administration of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:Create*", 
+ *                                 "kms:Describe*", 
+ *                                 "kms:Enable*", 
+ *                                 "kms:List*", 
+ *                                 "kms:Put*", 
+ *                                 "kms:Update*", 
+ *                                 "kms:Revoke*", 
+ *                                 "kms:Disable*", 
+ *                                 "kms:Get*", 
+ *                                 "kms:Delete*", 
+ *                                 "kms:ScheduleKeyDeletion", 
+ *                                 "kms:CancelKeyDeletion"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:Sign", 
+ *                                 "kms:Verify", 
+ *                                 "kms:DescribeKey"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### HMAC KMS key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("HMAC_384 key for tokens")
+ *             .customerMasterKeySpec("HMAC_384")
+ *             .keyUsage("GENERATE_VERIFY_MAC")
+ *             .enableKeyRotation(false)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-default-1"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow administration of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Admin", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:Create*", 
+ *                                 "kms:Describe*", 
+ *                                 "kms:Enable*", 
+ *                                 "kms:List*", 
+ *                                 "kms:Put*", 
+ *                                 "kms:Update*", 
+ *                                 "kms:Revoke*", 
+ *                                 "kms:Disable*", 
+ *                                 "kms:Get*", 
+ *                                 "kms:Delete*", 
+ *                                 "kms:ScheduleKeyDeletion", 
+ *                                 "kms:CancelKeyDeletion"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:role/Developer", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:GenerateMac", 
+ *                                 "kms:VerifyMac", 
+ *                                 "kms:DescribeKey"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Multi-Region Primary Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("An example multi-Region primary key")
+ *             .multiRegion(true)
+ *             .enableKeyRotation(true)
  *             .deletionWindowInDays(10)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Id", "key-default-1"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow administration of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Alice", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:ReplicateKey", 
+ *                                 "kms:Create*", 
+ *                                 "kms:Describe*", 
+ *                                 "kms:Enable*", 
+ *                                 "kms:List*", 
+ *                                 "kms:Put*", 
+ *                                 "kms:Update*", 
+ *                                 "kms:Revoke*", 
+ *                                 "kms:Disable*", 
+ *                                 "kms:Get*", 
+ *                                 "kms:Delete*", 
+ *                                 "kms:ScheduleKeyDeletion", 
+ *                                 "kms:CancelKeyDeletion"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow use of the key"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", String.format("arn:aws:iam::%s:user/Bob", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                             )),
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "kms:DescribeKey", 
+ *                                 "kms:Encrypt", 
+ *                                 "kms:Decrypt", 
+ *                                 "kms:ReEncrypt*", 
+ *                                 "kms:GenerateDataKey", 
+ *                                 "kms:GenerateDataKeyWithoutPlaintext"
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *     }

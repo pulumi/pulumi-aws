@@ -33,6 +33,11 @@ public final class GetFunctionResult {
      */
     private String arn;
     /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    private String codeSha256;
+    /**
      * @return ARN for a Code Signing Configuration.
      * 
      */
@@ -145,9 +150,13 @@ public final class GetFunctionResult {
      */
     private String signingProfileVersionArn;
     /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     * @deprecated
+     * This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.
      * 
      */
+    @Deprecated /* This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead. */
     private String sourceCodeHash;
     /**
      * @return Size in bytes of the function .zip file.
@@ -190,6 +199,13 @@ public final class GetFunctionResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     */
+    public String codeSha256() {
+        return this.codeSha256;
     }
     /**
      * @return ARN for a Code Signing Configuration.
@@ -352,9 +368,13 @@ public final class GetFunctionResult {
         return this.signingProfileVersionArn;
     }
     /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * @return (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * 
+     * @deprecated
+     * This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.
      * 
      */
+    @Deprecated /* This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead. */
     public String sourceCodeHash() {
         return this.sourceCodeHash;
     }
@@ -408,6 +428,7 @@ public final class GetFunctionResult {
     public static final class Builder {
         private List<String> architectures;
         private String arn;
+        private String codeSha256;
         private String codeSigningConfigArn;
         private GetFunctionDeadLetterConfig deadLetterConfig;
         private String description;
@@ -444,6 +465,7 @@ public final class GetFunctionResult {
     	      Objects.requireNonNull(defaults);
     	      this.architectures = defaults.architectures;
     	      this.arn = defaults.arn;
+    	      this.codeSha256 = defaults.codeSha256;
     	      this.codeSigningConfigArn = defaults.codeSigningConfigArn;
     	      this.deadLetterConfig = defaults.deadLetterConfig;
     	      this.description = defaults.description;
@@ -494,6 +516,14 @@ public final class GetFunctionResult {
               throw new MissingRequiredPropertyException("GetFunctionResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder codeSha256(String codeSha256) {
+            if (codeSha256 == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "codeSha256");
+            }
+            this.codeSha256 = codeSha256;
             return this;
         }
         @CustomType.Setter
@@ -758,6 +788,7 @@ public final class GetFunctionResult {
             final var _resultValue = new GetFunctionResult();
             _resultValue.architectures = architectures;
             _resultValue.arn = arn;
+            _resultValue.codeSha256 = codeSha256;
             _resultValue.codeSigningConfigArn = codeSigningConfigArn;
             _resultValue.deadLetterConfig = deadLetterConfig;
             _resultValue.description = description;

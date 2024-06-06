@@ -20,14 +20,14 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
     public static final ServiceServiceConnectConfigurationLogConfigurationArgs Empty = new ServiceServiceConnectConfigurationLogConfigurationArgs();
 
     /**
-     * The log driver to use for the container.
+     * Log driver to use for the container.
      * 
      */
     @Import(name="logDriver", required=true)
     private Output<String> logDriver;
 
     /**
-     * @return The log driver to use for the container.
+     * @return Log driver to use for the container.
      * 
      */
     public Output<String> logDriver() {
@@ -35,14 +35,14 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
     }
 
     /**
-     * The configuration options to send to the log driver.
+     * Configuration options to send to the log driver.
      * 
      */
     @Import(name="options")
     private @Nullable Output<Map<String,String>> options;
 
     /**
-     * @return The configuration options to send to the log driver.
+     * @return Configuration options to send to the log driver.
      * 
      */
     public Optional<Output<Map<String,String>>> options() {
@@ -50,14 +50,14 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
     }
 
     /**
-     * The secrets to pass to the log configuration. See below.
+     * Secrets to pass to the log configuration. See below.
      * 
      */
     @Import(name="secretOptions")
     private @Nullable Output<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>> secretOptions;
 
     /**
-     * @return The secrets to pass to the log configuration. See below.
+     * @return Secrets to pass to the log configuration. See below.
      * 
      */
     public Optional<Output<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>>> secretOptions() {
@@ -91,7 +91,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param logDriver The log driver to use for the container.
+         * @param logDriver Log driver to use for the container.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param logDriver The log driver to use for the container.
+         * @param logDriver Log driver to use for the container.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param options The configuration options to send to the log driver.
+         * @param options Configuration options to send to the log driver.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param options The configuration options to send to the log driver.
+         * @param options Configuration options to send to the log driver.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param secretOptions The secrets to pass to the log configuration. See below.
+         * @param secretOptions Secrets to pass to the log configuration. See below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param secretOptions The secrets to pass to the log configuration. See below.
+         * @param secretOptions Secrets to pass to the log configuration. See below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs extend
         }
 
         /**
-         * @param secretOptions The secrets to pass to the log configuration. See below.
+         * @param secretOptions Secrets to pass to the log configuration. See below.
          * 
          * @return builder
          * 

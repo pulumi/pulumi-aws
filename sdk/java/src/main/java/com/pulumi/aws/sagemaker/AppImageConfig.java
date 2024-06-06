@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()        
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
  *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()        
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
  *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))

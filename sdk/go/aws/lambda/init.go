@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Permission{}
 	case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
 		r = &ProvisionedConcurrencyConfig{}
+	case "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig":
+		r = &RuntimeManagementConfig{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -109,6 +111,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/provisionedConcurrencyConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/runtimeManagementConfig",
 		&module{version},
 	)
 }

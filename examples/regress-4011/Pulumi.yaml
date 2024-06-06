@@ -1,0 +1,3 @@
+name: regress-4011
+runtime: nodejs
+description: Regress pulumi/pulumi-aws#4011

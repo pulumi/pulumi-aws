@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()        
+ *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
  *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()

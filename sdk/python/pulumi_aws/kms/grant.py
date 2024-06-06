@@ -335,6 +335,7 @@ class Grant(pulumi.CustomResource):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
 
+        > **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
         ## Import
 
         Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -364,6 +365,7 @@ class Grant(pulumi.CustomResource):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
 
+        > **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
         ## Import
 
         Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -420,6 +422,8 @@ class Grant(pulumi.CustomResource):
             __props__.__dict__["retiring_principal"] = retiring_principal
             __props__.__dict__["grant_id"] = None
             __props__.__dict__["grant_token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["grantToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Grant, __self__).__init__(
             'aws:kms/grant:Grant',
             resource_name,

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new DevicePool("example", DevicePoolArgs.builder()        
+ *         var example = new DevicePool("example", DevicePoolArgs.builder()
  *             .name("example")
  *             .projectArn(exampleAwsDevicefarmProject.arn())
  *             .rules(DevicePoolRuleArgs.builder()

@@ -9,6 +9,7 @@ import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeC
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TaskDefinitionVolumeArgs Empty = new TaskDefinitionVolumeArgs();
+
+    /**
+     * Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+     * 
+     */
+    @Import(name="configureAtLaunch")
+    private @Nullable Output<Boolean> configureAtLaunch;
+
+    /**
+     * @return Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+     * 
+     */
+    public Optional<Output<Boolean>> configureAtLaunch() {
+        return Optional.ofNullable(this.configureAtLaunch);
+    }
 
     /**
      * Configuration block to configure a docker volume. Detailed below.
@@ -99,6 +115,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
     private TaskDefinitionVolumeArgs() {}
 
     private TaskDefinitionVolumeArgs(TaskDefinitionVolumeArgs $) {
+        this.configureAtLaunch = $.configureAtLaunch;
         this.dockerVolumeConfiguration = $.dockerVolumeConfiguration;
         this.efsVolumeConfiguration = $.efsVolumeConfiguration;
         this.fsxWindowsFileServerVolumeConfiguration = $.fsxWindowsFileServerVolumeConfiguration;
@@ -122,6 +139,27 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
 
         public Builder(TaskDefinitionVolumeArgs defaults) {
             $ = new TaskDefinitionVolumeArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param configureAtLaunch Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configureAtLaunch(@Nullable Output<Boolean> configureAtLaunch) {
+            $.configureAtLaunch = configureAtLaunch;
+            return this;
+        }
+
+        /**
+         * @param configureAtLaunch Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configureAtLaunch(Boolean configureAtLaunch) {
+            return configureAtLaunch(Output.of(configureAtLaunch));
         }
 
         /**

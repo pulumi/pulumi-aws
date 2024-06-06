@@ -48,21 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new BucketV2("test", BucketV2Args.builder()        
+ *         var test = new BucketV2("test", BucketV2Args.builder()
  *             .bucket("tf-test")
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()        
+ *         var testWorkgroup = new Workgroup("testWorkgroup", WorkgroupArgs.builder()
  *             .name("tf-test")
  *             .build());
  * 
- *         var testDatabase = new Database("testDatabase", DatabaseArgs.builder()        
+ *         var testDatabase = new Database("testDatabase", DatabaseArgs.builder()
  *             .name("example")
  *             .bucket(test.bucket())
  *             .build());
  * 
- *         var testPreparedStatement = new PreparedStatement("testPreparedStatement", PreparedStatementArgs.builder()        
+ *         var testPreparedStatement = new PreparedStatement("testPreparedStatement", PreparedStatementArgs.builder()
  *             .name("tf_test")
  *             .queryStatement(testDatabase.name().applyValue(name -> String.format("SELECT * FROM %s WHERE x = ?", name)))
  *             .workgroup(testWorkgroup.name())

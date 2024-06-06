@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()        
+ *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()
  *             .name("servicea.simpleapp.local")
  *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()        
+ *         var servicea = new VirtualService("servicea", VirtualServiceArgs.builder()
  *             .name("servicea.simpleapp.local")
  *             .meshName(simple.id())
  *             .spec(VirtualServiceSpecArgs.builder()

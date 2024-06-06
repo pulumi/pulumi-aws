@@ -82,6 +82,9 @@ type GetQuicksightUserResult struct {
 	PrincipalId string `pulumi:"principalId"`
 	UserName    string `pulumi:"userName"`
 	// The Amazon QuickSight role for the user. The user role can be one of the following:.
+	// - `READER`: A user who has read-only access to dashboards.
+	// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
+	// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
 	UserRole string `pulumi:"userRole"`
 }
 
@@ -172,6 +175,9 @@ func (o GetQuicksightUserResultOutput) UserName() pulumi.StringOutput {
 }
 
 // The Amazon QuickSight role for the user. The user role can be one of the following:.
+// - `READER`: A user who has read-only access to dashboards.
+// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
+// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
 func (o GetQuicksightUserResultOutput) UserRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.UserRole }).(pulumi.StringOutput)
 }

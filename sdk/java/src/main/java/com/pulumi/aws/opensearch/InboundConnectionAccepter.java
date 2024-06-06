@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         final var currentGetRegion = AwsFunctions.getRegion();
  * 
- *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()        
+ *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
  *             .connectionAlias("outbound_connection")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
  *                 .ownerId(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var fooInboundConnectionAccepter = new InboundConnectionAccepter("fooInboundConnectionAccepter", InboundConnectionAccepterArgs.builder()        
+ *         var fooInboundConnectionAccepter = new InboundConnectionAccepter("fooInboundConnectionAccepter", InboundConnectionAccepterArgs.builder()
  *             .connectionId(foo.id())
  *             .build());
  * 

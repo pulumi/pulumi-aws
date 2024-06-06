@@ -13,6 +13,11 @@ namespace Pulumi.Aws.IvsChat.Outputs
     [OutputType]
     public sealed class LoggingConfigurationDestinationConfigurationS3
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket where chat activity will be logged.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         public readonly string BucketName;
 
         [OutputConstructor]

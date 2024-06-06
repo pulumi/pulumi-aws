@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceTls {
     /**
-     * @return The details of the certificate authority which will issue the certificate.
+     * @return Details of the certificate authority which will issue the certificate.
      * 
      */
     private ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority issuerCertAuthority;
     /**
-     * @return The KMS key used to encrypt the private key in Secrets Manager.
+     * @return KMS key used to encrypt the private key in Secrets Manager.
      * 
      */
     private @Nullable String kmsKey;
     /**
-     * @return The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+     * @return ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
      * 
      */
     private @Nullable String roleArn;
 
     private ServiceServiceConnectConfigurationServiceTls() {}
     /**
-     * @return The details of the certificate authority which will issue the certificate.
+     * @return Details of the certificate authority which will issue the certificate.
      * 
      */
     public ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority issuerCertAuthority() {
         return this.issuerCertAuthority;
     }
     /**
-     * @return The KMS key used to encrypt the private key in Secrets Manager.
+     * @return KMS key used to encrypt the private key in Secrets Manager.
      * 
      */
     public Optional<String> kmsKey() {
         return Optional.ofNullable(this.kmsKey);
     }
     /**
-     * @return The ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
+     * @return ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
      * 
      */
     public Optional<String> roleArn() {

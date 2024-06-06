@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .type("ROOT")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_4096")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()        
+ *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificateSigningRequest(exampleCertificateAuthority.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new CertificateAuthorityCertificate("example", CertificateAuthorityCertificateArgs.builder()        
+ *         var example = new CertificateAuthorityCertificate("example", CertificateAuthorityCertificateArgs.builder()
  *             .certificateAuthorityArn(exampleCertificateAuthority.arn())
  *             .certificate(exampleCertificate.certificate())
  *             .certificateChain(exampleCertificate.certificateChain())
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var subordinateCertificateAuthority = new CertificateAuthority("subordinateCertificateAuthority", CertificateAuthorityArgs.builder()        
+ *         var subordinateCertificateAuthority = new CertificateAuthority("subordinateCertificateAuthority", CertificateAuthorityArgs.builder()
  *             .type("SUBORDINATE")
  *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
  *                 .keyAlgorithm("RSA_2048")
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getPartition();
  * 
- *         var subordinateCertificate = new Certificate("subordinateCertificate", CertificateArgs.builder()        
+ *         var subordinateCertificate = new Certificate("subordinateCertificate", CertificateArgs.builder()
  *             .certificateAuthorityArn(root.arn())
  *             .certificateSigningRequest(subordinateCertificateAuthority.certificateSigningRequest())
  *             .signingAlgorithm("SHA512WITHRSA")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var subordinate = new CertificateAuthorityCertificate("subordinate", CertificateAuthorityCertificateArgs.builder()        
+ *         var subordinate = new CertificateAuthorityCertificate("subordinate", CertificateAuthorityCertificateArgs.builder()
  *             .certificateAuthorityArn(subordinateCertificateAuthority.arn())
  *             .certificate(subordinateCertificate.certificate())
  *             .certificateChain(subordinateCertificate.certificateChain())

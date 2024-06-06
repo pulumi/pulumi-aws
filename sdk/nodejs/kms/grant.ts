@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource-based access control mechanism for a KMS customer master key.
  *
+ * > **Note:** All arguments including the grant token will be stored in the raw state as plain-text.
  * ## Import
  *
  * Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
@@ -134,6 +135,8 @@ export class Grant extends pulumi.CustomResource {
             resourceInputs["grantToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["grantToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Grant.__pulumiType, name, resourceInputs, opts);
     }
 }

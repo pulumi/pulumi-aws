@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? _clientAlias;
 
         /// <summary>
-        /// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         /// </summary>
         public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs> ClientAlias
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
+        /// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         /// </summary>
         [Input("discoveryName")]
         public Input<string>? DiscoveryName { get; set; }
 
         /// <summary>
-        /// The port number for the Service Connect proxy to listen on.
+        /// Port number for the Service Connect proxy to listen on.
         /// </summary>
         [Input("ingressPortOverride")]
         public Input<int>? IngressPortOverride { get; set; }
 
         /// <summary>
-        /// The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
+        /// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         /// </summary>
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The configuration for enabling Transport Layer Security (TLS)
+        /// Configuration for enabling Transport Layer Security (TLS)
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ServiceServiceConnectConfigurationServiceTlsArgs>? Tls { get; set; }

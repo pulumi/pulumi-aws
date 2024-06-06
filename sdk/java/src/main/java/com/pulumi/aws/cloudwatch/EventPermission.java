@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var devAccountAccess = new EventPermission("devAccountAccess", EventPermissionArgs.builder()        
+ *         var devAccountAccess = new EventPermission("devAccountAccess", EventPermissionArgs.builder()
  *             .principal("123456789012")
  *             .statementId("DevAccountAccess")
  *             .build());
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var organizationAccess = new EventPermission("organizationAccess", EventPermissionArgs.builder()        
+ *         var organizationAccess = new EventPermission("organizationAccess", EventPermissionArgs.builder()
  *             .principal("*")
  *             .statementId("OrganizationAccess")
  *             .condition(EventPermissionConditionArgs.builder()

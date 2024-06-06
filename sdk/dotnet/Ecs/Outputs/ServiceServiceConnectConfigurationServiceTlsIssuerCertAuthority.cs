@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority
     {
         /// <summary>
-        /// The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+        /// ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
         /// </summary>
         public readonly string AwsPcaAuthorityArn;
 

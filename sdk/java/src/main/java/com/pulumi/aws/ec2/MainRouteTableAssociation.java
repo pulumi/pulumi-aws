@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var a = new MainRouteTableAssociation("a", MainRouteTableAssociationArgs.builder()        
+ *         var a = new MainRouteTableAssociation("a", MainRouteTableAssociationArgs.builder()
  *             .vpcId(foo.id())
  *             .routeTableId(bar.id())
  *             .build());

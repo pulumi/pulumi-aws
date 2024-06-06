@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OriginAccessIdentity("example", OriginAccessIdentityArgs.builder()        
+ *         var example = new OriginAccessIdentity("example", OriginAccessIdentityArgs.builder()
  *             .comment("Some comment")
  *             .build());
  * 
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Distribution("example", DistributionArgs.builder()        
+ *         var example = new Distribution("example", DistributionArgs.builder()
  *             .origins(DistributionOriginArgs.builder()
  *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                     .originAccessIdentity(exampleAwsCloudfrontOriginAccessIdentity.cloudfrontAccessIdentityPath())
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
  * `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
- * you see this behaviour, use the `iam_arn` instead:
+ * you see this behavior, use the `iam_arn` instead:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()        
+ *         var example = new BucketPolicy("example", BucketPolicyArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .policy(s3Policy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .build());

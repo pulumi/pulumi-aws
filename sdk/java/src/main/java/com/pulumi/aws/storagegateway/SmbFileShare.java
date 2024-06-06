@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("ActiveDirectory")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()        
+ *         var example = new SmbFileShare("example", SmbFileShareArgs.builder()
  *             .authentication("GuestAccess")
  *             .gatewayArn(exampleAwsStoragegatewayGateway.arn())
  *             .locationArn(exampleAwsS3Bucket.arn())
@@ -199,14 +199,18 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bucketRegion);
     }
     /**
-     * Refresh cache information. see Cache Attributes for more details.
+     * Refresh cache information. see `cache_attributes` Block for more details.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     @Export(name="cacheAttributes", refs={SmbFileShareCacheAttributes.class}, tree="[0]")
     private Output</* @Nullable */ SmbFileShareCacheAttributes> cacheAttributes;
 
     /**
-     * @return Refresh cache information. see Cache Attributes for more details.
+     * @return Refresh cache information. see `cache_attributes` Block for more details.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Output<Optional<SmbFileShareCacheAttributes>> cacheAttributes() {

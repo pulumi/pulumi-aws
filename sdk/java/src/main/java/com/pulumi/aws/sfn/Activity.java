@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()        
+ *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
  *             .name("my-activity")
  *             .build());
  * 

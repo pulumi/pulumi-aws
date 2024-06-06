@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class LoggingConfigurationDestinationConfigurationFirehose {
+    /**
+     * @return Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+     * 
+     */
     private String deliveryStreamName;
 
     private LoggingConfigurationDestinationConfigurationFirehose() {}
+    /**
+     * @return Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+     * 
+     */
     public String deliveryStreamName() {
         return this.deliveryStreamName;
     }

@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ec2
         /// Defaults to `false`.
         /// </summary>
         [Output("privateDnsEnabled")]
-        public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
+        public Output<bool> PrivateDnsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.

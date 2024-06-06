@@ -36,6 +36,8 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
+	// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+	CanarySettings DeploymentCanarySettingsPtrOutput `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the deployment
@@ -92,6 +94,8 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the deployment
@@ -116,6 +120,8 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
+	// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+	CanarySettings DeploymentCanarySettingsPtrInput
 	// Creation date of the deployment
 	CreatedDate pulumi.StringPtrInput
 	// Description of the deployment
@@ -144,6 +150,8 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
 	// Description of the deployment
 	Description *string `pulumi:"description"`
 	// REST API identifier.
@@ -160,6 +168,8 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+	CanarySettings DeploymentCanarySettingsPtrInput
 	// Description of the deployment
 	Description pulumi.StringPtrInput
 	// REST API identifier.
@@ -259,6 +269,11 @@ func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {
 
 func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) DeploymentOutput {
 	return o
+}
+
+// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+func (o DeploymentOutput) CanarySettings() DeploymentCanarySettingsPtrOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.CanarySettings }).(DeploymentCanarySettingsPtrOutput)
 }
 
 // Creation date of the deployment

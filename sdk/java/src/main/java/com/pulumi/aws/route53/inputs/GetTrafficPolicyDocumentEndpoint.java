@@ -46,14 +46,14 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
     }
 
     /**
-     * Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+     * Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+     * @return Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
      * 
      */
     public Optional<String> type() {
@@ -125,7 +125,7 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
         }
 
         /**
-         * @param type Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+         * @param type Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
          * 
          * @return builder
          * 

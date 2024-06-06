@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
+ * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 1000.
  * 
  * ## Example Usage
  * 
@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new LfTag("example", LfTagArgs.builder()        
+ *         var example = new LfTag("example", LfTagArgs.builder()
  *             .key("module")
  *             .values(            
  *                 "Orders",

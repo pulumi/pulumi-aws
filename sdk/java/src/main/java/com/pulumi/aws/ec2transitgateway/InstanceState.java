@@ -63,13 +63,13 @@ import javax.annotation.Nullable;
  *             .owners("099720109477")
  *             .build());
  * 
- *         var test = new Instance("test", InstanceArgs.builder()        
+ *         var test = new Instance("test", InstanceArgs.builder()
  *             .ami(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t3.micro")
  *             .tags(Map.of("Name", "HelloWorld"))
  *             .build());
  * 
- *         var testInstanceState = new InstanceState("testInstanceState", InstanceStateArgs.builder()        
+ *         var testInstanceState = new InstanceState("testInstanceState", InstanceStateArgs.builder()
  *             .instanceId(test.id())
  *             .state("stopped")
  *             .build());

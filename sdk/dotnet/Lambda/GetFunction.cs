@@ -134,6 +134,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// </summary>
+        public readonly string CodeSha256;
+        /// <summary>
         /// ARN for a Code Signing Configuration.
         /// </summary>
         public readonly string CodeSigningConfigArn;
@@ -224,7 +228,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
-        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
+        /// (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         public readonly string SourceCodeHash;
         /// <summary>
@@ -254,6 +258,8 @@ namespace Pulumi.Aws.Lambda
             ImmutableArray<string> architectures,
 
             string arn,
+
+            string codeSha256,
 
             string codeSigningConfigArn,
 
@@ -319,6 +325,7 @@ namespace Pulumi.Aws.Lambda
         {
             Architectures = architectures;
             Arn = arn;
+            CodeSha256 = codeSha256;
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
             Description = description;

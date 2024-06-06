@@ -19,11 +19,17 @@ import (
 //
 // ## Example Usage
 //
+// ### Symmetric Encryption KMS Key
+//
 // ```go
 // package main
 //
 // import (
 //
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -31,9 +37,415 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewKey(ctx, "a", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS key 1"),
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Id":      "key-default-1",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow administration of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Alice", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:ReplicateKey",
+//							"kms:Create*",
+//							"kms:Describe*",
+//							"kms:Enable*",
+//							"kms:List*",
+//							"kms:Put*",
+//							"kms:Update*",
+//							"kms:Revoke*",
+//							"kms:Disable*",
+//							"kms:Get*",
+//							"kms:Delete*",
+//							"kms:ScheduleKeyDeletion",
+//							"kms:CancelKeyDeletion",
+//						},
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow use of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Bob", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:DescribeKey",
+//							"kms:Encrypt",
+//							"kms:Decrypt",
+//							"kms:ReEncrypt*",
+//							"kms:GenerateDataKey",
+//							"kms:GenerateDataKeyWithoutPlaintext",
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("An example symmetric encryption KMS key"),
+//				EnableKeyRotation:    pulumi.Bool(true),
+//				DeletionWindowInDays: pulumi.Int(20),
+//				Policy:               pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Symmetric Encryption KMS Key With Standalone Policy Resource
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("An example symmetric encryption KMS key"),
+//				EnableKeyRotation:    pulumi.Bool(true),
+//				DeletionWindowInDays: pulumi.Int(20),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Id":      "key-default-1",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
+//				KeyId:  example.ID(),
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Asymmetric KMS Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Id":      "key-default-1",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow administration of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Admin", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:Create*",
+//							"kms:Describe*",
+//							"kms:Enable*",
+//							"kms:List*",
+//							"kms:Put*",
+//							"kms:Update*",
+//							"kms:Revoke*",
+//							"kms:Disable*",
+//							"kms:Get*",
+//							"kms:Delete*",
+//							"kms:ScheduleKeyDeletion",
+//							"kms:CancelKeyDeletion",
+//						},
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow use of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Developer", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:Sign",
+//							"kms:Verify",
+//							"kms:DescribeKey",
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:           pulumi.String("RSA-3072 asymmetric KMS key for signing and verification"),
+//				CustomerMasterKeySpec: pulumi.String("RSA_3072"),
+//				KeyUsage:              pulumi.String("SIGN_VERIFY"),
+//				EnableKeyRotation:     pulumi.Bool(false),
+//				Policy:                pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### HMAC KMS key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Id":      "key-default-1",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow administration of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Admin", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:Create*",
+//							"kms:Describe*",
+//							"kms:Enable*",
+//							"kms:List*",
+//							"kms:Put*",
+//							"kms:Update*",
+//							"kms:Revoke*",
+//							"kms:Disable*",
+//							"kms:Get*",
+//							"kms:Delete*",
+//							"kms:ScheduleKeyDeletion",
+//							"kms:CancelKeyDeletion",
+//						},
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow use of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Developer", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:GenerateMac",
+//							"kms:VerifyMac",
+//							"kms:DescribeKey",
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:           pulumi.String("HMAC_384 key for tokens"),
+//				CustomerMasterKeySpec: pulumi.String("HMAC_384"),
+//				KeyUsage:              pulumi.String("GENERATE_VERIFY_MAC"),
+//				EnableKeyRotation:     pulumi.Bool(false),
+//				Policy:                pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Multi-Region Primary Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Id":      "key-default-1",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow administration of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Alice", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:ReplicateKey",
+//							"kms:Create*",
+//							"kms:Describe*",
+//							"kms:Enable*",
+//							"kms:List*",
+//							"kms:Put*",
+//							"kms:Update*",
+//							"kms:Revoke*",
+//							"kms:Disable*",
+//							"kms:Get*",
+//							"kms:Delete*",
+//							"kms:ScheduleKeyDeletion",
+//							"kms:CancelKeyDeletion",
+//						},
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow use of the key",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Bob", current.AccountId),
+//						},
+//						"Action": []string{
+//							"kms:DescribeKey",
+//							"kms:Encrypt",
+//							"kms:Decrypt",
+//							"kms:ReEncrypt*",
+//							"kms:GenerateDataKey",
+//							"kms:GenerateDataKeyWithoutPlaintext",
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("An example multi-Region primary key"),
+//				MultiRegion:          pulumi.Bool(true),
+//				EnableKeyRotation:    pulumi.Bool(true),
 //				DeletionWindowInDays: pulumi.Int(10),
+//				Policy:               pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

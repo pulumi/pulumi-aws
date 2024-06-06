@@ -658,3 +658,21 @@ func TestRdsGetEngineVersion(t *testing.T) {
 	engineVersion := res.Outputs["vs"]
 	require.NotEmpty(t, engineVersion.Value)
 }
+
+// Checks static get function for ssm.parameter that was broken for versioned IDs.
+//
+// See https://github.com/pulumi/pulumi-aws/issues/4011
+func TestRegress4011(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-4011"),
+			EditDirs: []integration.EditDir{{
+				Dir:      filepath.Join(getCwd(t), "regress-4011", "step1"),
+				Additive: true,
+			}},
+		})
+
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}

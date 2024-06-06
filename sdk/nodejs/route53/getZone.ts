@@ -37,7 +37,6 @@ export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promis
     return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "name": args.name,
         "privateZone": args.privateZone,
-        "resourceRecordSetCount": args.resourceRecordSetCount,
         "tags": args.tags,
         "vpcId": args.vpcId,
         "zoneId": args.zoneId,
@@ -56,10 +55,6 @@ export interface GetZoneArgs {
      * Used with `name` field to get a private Hosted Zone.
      */
     privateZone?: boolean;
-    /**
-     * The number of Record Set in the Hosted Zone.
-     */
-    resourceRecordSetCount?: number;
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      */
@@ -162,10 +157,6 @@ export interface GetZoneOutputArgs {
      * Used with `name` field to get a private Hosted Zone.
      */
     privateZone?: pulumi.Input<boolean>;
-    /**
-     * The number of Record Set in the Hosted Zone.
-     */
-    resourceRecordSetCount?: pulumi.Input<number>;
     /**
      * Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
      */

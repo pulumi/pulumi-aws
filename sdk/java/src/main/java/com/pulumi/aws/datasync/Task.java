@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Task("example", TaskArgs.builder()        
+ *         var example = new Task("example", TaskArgs.builder()
  *             .destinationLocationArn(destination.arn())
  *             .name("example")
  *             .sourceLocationArn(source.arn())
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Task("example", TaskArgs.builder()        
+ *         var example = new Task("example", TaskArgs.builder()
  *             .destinationLocationArn(destination.arn())
  *             .name("example")
  *             .sourceLocationArn(source.arn())

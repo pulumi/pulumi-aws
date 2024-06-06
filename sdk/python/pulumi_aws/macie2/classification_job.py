@@ -228,7 +228,7 @@ class _ClassificationJobState:
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -444,7 +444,7 @@ class _ClassificationJobState:
     @pulumi.getter(name="userPausedDetails")
     def user_paused_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]:
         """
-        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         return pulumi.get(self, "user_paused_details")
 
@@ -650,7 +650,7 @@ class ClassificationJob(pulumi.CustomResource):
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         :param pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArgs']]]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArgs']]]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -792,7 +792,7 @@ class ClassificationJob(pulumi.CustomResource):
     @pulumi.getter(name="userPausedDetails")
     def user_paused_details(self) -> pulumi.Output[Sequence['outputs.ClassificationJobUserPausedDetail']]:
         """
-        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         return pulumi.get(self, "user_paused_details")
 

@@ -80,6 +80,10 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    public /*out*/ readonly codeSha256!: pulumi.Output<string>;
+    /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
     public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
@@ -133,9 +137,6 @@ export class LayerVersion extends pulumi.CustomResource {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -161,6 +162,7 @@ export class LayerVersion extends pulumi.CustomResource {
             const state = argsOrState as LayerVersionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["codeSha256"] = state ? state.codeSha256 : undefined;
             resourceInputs["compatibleArchitectures"] = state ? state.compatibleArchitectures : undefined;
             resourceInputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
             resourceInputs["createdDate"] = state ? state.createdDate : undefined;
@@ -194,6 +196,7 @@ export class LayerVersion extends pulumi.CustomResource {
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["codeSha256"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["layerArn"] = undefined /*out*/;
             resourceInputs["signingJobArn"] = undefined /*out*/;
@@ -218,6 +221,10 @@ export interface LayerVersionState {
      * Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    codeSha256?: pulumi.Input<string>;
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
@@ -272,9 +279,6 @@ export interface LayerVersionState {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     skipDestroy?: pulumi.Input<boolean>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -332,8 +336,5 @@ export interface LayerVersionArgs {
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
      */
     skipDestroy?: pulumi.Input<boolean>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-     */
     sourceCodeHash?: pulumi.Input<string>;
 }

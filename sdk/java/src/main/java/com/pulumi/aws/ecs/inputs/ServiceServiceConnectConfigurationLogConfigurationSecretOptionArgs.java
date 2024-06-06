@@ -15,14 +15,14 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
     public static final ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs Empty = new ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs();
 
     /**
-     * The name of the secret.
+     * Name of the secret.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the secret.
+     * @return Name of the secret.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
     }
 
     /**
-     * The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     * Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
      * 
      */
     @Import(name="valueFrom", required=true)
     private Output<String> valueFrom;
 
     /**
-     * @return The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+     * @return Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
      * 
      */
     public Output<String> valueFrom() {
@@ -70,7 +70,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
         }
 
         /**
-         * @param name The name of the secret.
+         * @param name Name of the secret.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
         }
 
         /**
-         * @param name The name of the secret.
+         * @param name Name of the secret.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
         }
 
         /**
-         * @param valueFrom The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+         * @param valueFrom Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
         }
 
         /**
-         * @param valueFrom The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+         * @param valueFrom Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
          * 
          * @return builder
          * 

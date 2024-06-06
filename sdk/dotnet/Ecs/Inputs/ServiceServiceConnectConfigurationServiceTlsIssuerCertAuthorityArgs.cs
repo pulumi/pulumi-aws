@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
+        /// ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
         /// </summary>
         [Input("awsPcaAuthorityArn", required: true)]
         public Input<string> AwsPcaAuthorityArn { get; set; } = null!;

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Acl("example", AclArgs.builder()        
+ *         var example = new Acl("example", AclArgs.builder()
  *             .name("my-acl")
  *             .userNames(            
  *                 "my-user-1",

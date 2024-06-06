@@ -23,7 +23,7 @@ public final class GetTrafficPolicyDocumentEndpoint {
      */
     private @Nullable String region;
     /**
-     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+     * @return Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
      * 
      */
     private @Nullable String type;
@@ -49,7 +49,7 @@ public final class GetTrafficPolicyDocumentEndpoint {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
+     * @return Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
      * 
      */
     public Optional<String> type() {

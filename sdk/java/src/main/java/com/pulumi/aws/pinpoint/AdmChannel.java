@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var app = new App("app");
  * 
- *         var channel = new AdmChannel("channel", AdmChannelArgs.builder()        
+ *         var channel = new AdmChannel("channel", AdmChannelArgs.builder()
  *             .applicationId(app.applicationId())
  *             .clientId("")
  *             .clientSecret("")

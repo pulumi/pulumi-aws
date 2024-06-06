@@ -30,6 +30,7 @@ class KxVolumeArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+               * `SINGLE` - Assigns one availability zone per volume.
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         :param pulumi.Input[str] description: Description of the volume.
@@ -69,6 +70,7 @@ class KxVolumeArgs:
     def az_mode(self) -> pulumi.Input[str]:
         """
         The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+        * `SINGLE` - Assigns one availability zone per volume.
         """
         return pulumi.get(self, "az_mode")
 
@@ -174,6 +176,7 @@ class _KxVolumeState:
                
                The following arguments are optional:
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+               * `SINGLE` - Assigns one availability zone per volume.
         :param pulumi.Input[str] created_timestamp: The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         :param pulumi.Input[str] description: Description of the volume.
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
@@ -181,6 +184,15 @@ class _KxVolumeState:
         :param pulumi.Input[str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         :param pulumi.Input[str] status: The status of volume creation.
+               * `CREATING` – The volume creation is in progress.
+               * `CREATE_FAILED` – The volume creation has failed.
+               * `ACTIVE` – The volume is active.
+               * `UPDATING` – The volume is in the process of being updated.
+               * `UPDATE_FAILED` – The update action failed.
+               * `UPDATED` – The volume is successfully updated.
+               * `DELETING` – The volume is in the process of being deleted.
+               * `DELETE_FAILED` – The system failed to delete the volume.
+               * `DELETED` – The volume is successfully deleted.
         :param pulumi.Input[str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
@@ -259,6 +271,7 @@ class _KxVolumeState:
     def az_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+        * `SINGLE` - Assigns one availability zone per volume.
         """
         return pulumi.get(self, "az_mode")
 
@@ -343,6 +356,15 @@ class _KxVolumeState:
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         The status of volume creation.
+        * `CREATING` – The volume creation is in progress.
+        * `CREATE_FAILED` – The volume creation has failed.
+        * `ACTIVE` – The volume is active.
+        * `UPDATING` – The volume is in the process of being updated.
+        * `UPDATE_FAILED` – The update action failed.
+        * `UPDATED` – The volume is successfully updated.
+        * `DELETING` – The volume is in the process of being deleted.
+        * `DELETE_FAILED` – The system failed to delete the volume.
+        * `DELETED` – The volume is successfully deleted.
         """
         return pulumi.get(self, "status")
 
@@ -450,6 +472,7 @@ class KxVolume(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+               * `SINGLE` - Assigns one availability zone per volume.
         :param pulumi.Input[str] description: Description of the volume.
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[str] name: Unique name for the volumr that you want to create.
@@ -586,6 +609,7 @@ class KxVolume(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+               * `SINGLE` - Assigns one availability zone per volume.
         :param pulumi.Input[str] created_timestamp: The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         :param pulumi.Input[str] description: Description of the volume.
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
@@ -593,6 +617,15 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         :param pulumi.Input[str] status: The status of volume creation.
+               * `CREATING` – The volume creation is in progress.
+               * `CREATE_FAILED` – The volume creation has failed.
+               * `ACTIVE` – The volume is active.
+               * `UPDATING` – The volume is in the process of being updated.
+               * `UPDATE_FAILED` – The update action failed.
+               * `UPDATED` – The volume is successfully updated.
+               * `DELETING` – The volume is in the process of being deleted.
+               * `DELETE_FAILED` – The system failed to delete the volume.
+               * `DELETED` – The volume is successfully deleted.
         :param pulumi.Input[str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
@@ -646,6 +679,7 @@ class KxVolume(pulumi.CustomResource):
     def az_mode(self) -> pulumi.Output[str]:
         """
         The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+        * `SINGLE` - Assigns one availability zone per volume.
         """
         return pulumi.get(self, "az_mode")
 
@@ -702,6 +736,15 @@ class KxVolume(pulumi.CustomResource):
     def status(self) -> pulumi.Output[str]:
         """
         The status of volume creation.
+        * `CREATING` – The volume creation is in progress.
+        * `CREATE_FAILED` – The volume creation has failed.
+        * `ACTIVE` – The volume is active.
+        * `UPDATING` – The volume is in the process of being updated.
+        * `UPDATE_FAILED` – The update action failed.
+        * `UPDATED` – The volume is successfully updated.
+        * `DELETING` – The volume is in the process of being deleted.
+        * `DELETE_FAILED` – The system failed to delete the volume.
+        * `DELETED` – The volume is successfully deleted.
         """
         return pulumi.get(self, "status")
 

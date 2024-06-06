@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Group("test", GroupArgs.builder()        
+ *         var test = new Group("test", GroupArgs.builder()
  *             .tags(GroupTagArgs.builder()
  *                 .key("AmazonECSManaged")
  *                 .value(true)
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var testCapacityProvider = new CapacityProvider("testCapacityProvider", CapacityProviderArgs.builder()        
+ *         var testCapacityProvider = new CapacityProvider("testCapacityProvider", CapacityProviderArgs.builder()
  *             .name("test")
  *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
  *                 .autoScalingGroupArn(test.arn())

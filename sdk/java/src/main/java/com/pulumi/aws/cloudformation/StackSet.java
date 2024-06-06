@@ -71,12 +71,12 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetAdministrationRole = new Role("aWSCloudFormationStackSetAdministrationRole", RoleArgs.builder()        
+ *         var aWSCloudFormationStackSetAdministrationRole = new Role("aWSCloudFormationStackSetAdministrationRole", RoleArgs.builder()
  *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
  *             .name("AWSCloudFormationStackSetAdministrationRole")
  *             .build());
  * 
- *         var example = new StackSet("example", StackSetArgs.builder()        
+ *         var example = new StackSet("example", StackSetArgs.builder()
  *             .administrationRoleArn(aWSCloudFormationStackSetAdministrationRole.arn())
  *             .name("example")
  *             .parameters(Map.of("VPCCidr", "10.0.0.0/16"))
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", RolePolicyArgs.builder()        
+ *         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", RolePolicyArgs.builder()
  *             .name("ExecutionPolicy")
  *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy -> aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
  *             .role(aWSCloudFormationStackSetAdministrationRole.name())

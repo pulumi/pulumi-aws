@@ -206,7 +206,7 @@ class CustomLogSourceConfigurationCrawlerConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
         """
         pulumi.set(__self__, "role_arn", role_arn)
 
@@ -214,7 +214,7 @@ class CustomLogSourceConfigurationCrawlerConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
         """
         return pulumi.get(self, "role_arn")
 
@@ -228,12 +228,19 @@ class CustomLogSourceConfigurationProviderIdentityArgs:
     def __init__(__self__, *,
                  external_id: pulumi.Input[str],
                  principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] external_id: The external ID used to estalish trust relationship with the AWS identity.
+        :param pulumi.Input[str] principal: The AWS identity principal.
+        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Input[str]:
+        """
+        The external ID used to estalish trust relationship with the AWS identity.
+        """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
@@ -243,6 +250,9 @@ class CustomLogSourceConfigurationProviderIdentityArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        The AWS identity principal.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter

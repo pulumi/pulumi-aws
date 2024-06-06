@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Room("example", RoomArgs.builder()        
+ *         var example = new Room("example", RoomArgs.builder()
  *             .name("tf-room")
  *             .build());
  * 

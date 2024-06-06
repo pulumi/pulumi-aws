@@ -61,6 +61,10 @@ export interface GetLayerVersionResult {
      * ARN of the Lambda Layer with version.
      */
     readonly arn: string;
+    /**
+     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     */
+    readonly codeSha256: string;
     readonly compatibleArchitecture?: string;
     /**
      * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
@@ -101,7 +105,9 @@ export interface GetLayerVersionResult {
      */
     readonly signingProfileVersionArn: string;
     /**
-     * Base64-encoded representation of raw SHA-256 sum of the zip file.
+     * (**Deprecated** use `codeSha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
+     *
+     * @deprecated This attribute is deprecated and will be removed in a future major version. Use `codeSha256` instead.
      */
     readonly sourceCodeHash: string;
     /**
@@ -109,7 +115,7 @@ export interface GetLayerVersionResult {
      */
     readonly sourceCodeSize: number;
     /**
-     * This Lamba Layer version.
+     * This Lambda Layer version.
      */
     readonly version: number;
 }

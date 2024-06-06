@@ -18,14 +18,14 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
     public static final ServiceServiceConnectConfigurationServiceClientAliasArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasArgs();
 
     /**
-     * The name that you use in the applications of client tasks to connect to this service.
+     * Name that you use in the applications of client tasks to connect to this service.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The name that you use in the applications of client tasks to connect to this service.
+     * @return Name that you use in the applications of client tasks to connect to this service.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -33,14 +33,14 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
     }
 
     /**
-     * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     * Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+     * @return Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
      * 
      */
     public Output<Integer> port() {
@@ -73,7 +73,7 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
         }
 
         /**
-         * @param dnsName The name that you use in the applications of client tasks to connect to this service.
+         * @param dnsName Name that you use in the applications of client tasks to connect to this service.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
         }
 
         /**
-         * @param dnsName The name that you use in the applications of client tasks to connect to this service.
+         * @param dnsName Name that you use in the applications of client tasks to connect to this service.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
         }
 
         /**
-         * @param port The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+         * @param port Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
         }
 
         /**
-         * @param port The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
+         * @param port Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
          * 
          * @return builder
          * 

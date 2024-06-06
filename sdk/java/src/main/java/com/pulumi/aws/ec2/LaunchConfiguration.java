@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a resource to create a new launch configuration, used for autoscaling groups.
  * 
- * !&gt; **WARNING:** The use of launch configurations is discouraged in favour of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
+ * !&gt; **WARNING:** The use of launch configurations is discouraged in favor of launch templates. Read more in the [AWS EC2 Documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html).
  * 
  * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
  * 
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .owners("099720109477")
  *             .build());
  * 
- *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()        
+ *         var asConf = new LaunchConfiguration("asConf", LaunchConfigurationArgs.builder()
  *             .name("web_config")
  *             .imageId(ubuntu.applyValue(getAmiResult -> getAmiResult.id()))
  *             .instanceType("t2.micro")

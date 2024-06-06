@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()        
+ *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
  *             .vpcId(main.id())
  *             .serviceName("com.amazonaws.us-west-2.s3")
  *             .build());
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()        
+ *         var s3 = new VpcEndpoint("s3", VpcEndpointArgs.builder()
  *             .vpcId(main.id())
  *             .serviceName("com.amazonaws.us-west-2.s3")
  *             .tags(Map.of("Environment", "test"))
@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()        
+ *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()
  *             .vpcId(main.id())
  *             .serviceName("com.amazonaws.us-west-2.ec2")
  *             .vpcEndpointType("Interface")
@@ -175,13 +175,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()        
+ *         var example = new VpcEndpointService("example", VpcEndpointServiceArgs.builder()
  *             .acceptanceRequired(false)
  *             .allowedPrincipals(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.arn()))
  *             .gatewayLoadBalancerArns(exampleAwsLb.arn())
  *             .build());
  * 
- *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()        
+ *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .serviceName(example.serviceName())
  *             .subnetIds(exampleAwsSubnet.id())
  *             .vpcEndpointType(example.serviceType())
@@ -351,15 +351,15 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> privateDnsEnabled;
+    private Output<Boolean> privateDnsEnabled;
 
     /**
      * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> privateDnsEnabled() {
-        return Codegen.optional(this.privateDnsEnabled);
+    public Output<Boolean> privateDnsEnabled() {
+        return this.privateDnsEnabled;
     }
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.

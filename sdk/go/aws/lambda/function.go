@@ -392,6 +392,8 @@ type Function struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
+	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	CodeSha256 pulumi.StringOutput `pulumi:"codeSha256"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn pulumi.StringPtrOutput `pulumi:"codeSigningConfigArn"`
 	// Configuration block. Detailed below.
@@ -432,13 +434,13 @@ type Function struct {
 	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
-	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+	// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+	// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrOutput `pulumi:"replaceSecurityGroupsOnDestroy"`
-	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+	// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 	ReplacementSecurityGroupIds pulumi.StringArrayOutput `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
@@ -461,9 +463,8 @@ type Function struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
+	SnapStart      FunctionSnapStartPtrOutput `pulumi:"snapStart"`
+	SourceCodeHash pulumi.StringOutput        `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -521,6 +522,8 @@ type functionState struct {
 	Arn *string `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
+	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	CodeSha256 *string `pulumi:"codeSha256"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
 	// Configuration block. Detailed below.
@@ -561,13 +564,13 @@ type functionState struct {
 	QualifiedArn *string `pulumi:"qualifiedArn"`
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
-	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+	// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+	// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	ReplaceSecurityGroupsOnDestroy *bool `pulumi:"replaceSecurityGroupsOnDestroy"`
-	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+	// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 	ReplacementSecurityGroupIds []string `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
@@ -590,9 +593,8 @@ type functionState struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash *string `pulumi:"sourceCodeHash"`
+	SnapStart      *FunctionSnapStart `pulumi:"snapStart"`
+	SourceCodeHash *string            `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -618,6 +620,8 @@ type FunctionState struct {
 	Arn pulumi.StringPtrInput
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
+	// Base64-encoded representation of raw SHA-256 sum of the zip file.
+	CodeSha256 pulumi.StringPtrInput
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 	CodeSigningConfigArn pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -658,13 +662,13 @@ type FunctionState struct {
 	QualifiedArn pulumi.StringPtrInput
 	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 	QualifiedInvokeArn pulumi.StringPtrInput
-	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+	// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+	// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrInput
-	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+	// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 	ReplacementSecurityGroupIds pulumi.StringArrayInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
@@ -687,8 +691,7 @@ type FunctionState struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SnapStart      FunctionSnapStartPtrInput
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
@@ -749,13 +752,13 @@ type functionArgs struct {
 	PackageType *string `pulumi:"packageType"`
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish *bool `pulumi:"publish"`
-	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+	// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+	// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	ReplaceSecurityGroupsOnDestroy *bool `pulumi:"replaceSecurityGroupsOnDestroy"`
-	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+	// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 	ReplacementSecurityGroupIds []string `pulumi:"replacementSecurityGroupIds"`
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
@@ -774,9 +777,8 @@ type functionArgs struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Snap start settings block. Detailed below.
-	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash *string `pulumi:"sourceCodeHash"`
+	SnapStart      *FunctionSnapStart `pulumi:"snapStart"`
+	SourceCodeHash *string            `pulumi:"sourceCodeHash"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
@@ -825,13 +827,13 @@ type FunctionArgs struct {
 	PackageType pulumi.StringPtrInput
 	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 	Publish pulumi.BoolPtrInput
-	// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+	// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+	// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+	// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 	ReplaceSecurityGroupsOnDestroy pulumi.BoolPtrInput
-	// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-	//
-	// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+	// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+	// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 	ReplacementSecurityGroupIds pulumi.StringArrayInput
 	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 	ReservedConcurrentExecutions pulumi.IntPtrInput
@@ -850,8 +852,7 @@ type FunctionArgs struct {
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SnapStart      FunctionSnapStartPtrInput
 	SourceCodeHash pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -965,6 +966,11 @@ func (o FunctionOutput) Code() pulumi.ArchiveOutput {
 	return o.ApplyT(func(v *Function) pulumi.ArchiveOutput { return v.Code }).(pulumi.ArchiveOutput)
 }
 
+// Base64-encoded representation of raw SHA-256 sum of the zip file.
+func (o FunctionOutput) CodeSha256() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.CodeSha256 }).(pulumi.StringOutput)
+}
+
 // To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 func (o FunctionOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
@@ -1065,16 +1071,16 @@ func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
-// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
-//
-// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+// Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
 func (o FunctionOutput) ReplaceSecurityGroupsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.ReplaceSecurityGroupsOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
-//
-// Deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+// `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
 func (o FunctionOutput) ReplacementSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.ReplacementSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -1131,7 +1137,6 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

@@ -21,10 +21,13 @@ class GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
-    def __init__(__self__, arn=None, compatible_architecture=None, compatible_architectures=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
+    def __init__(__self__, arn=None, code_sha256=None, compatible_architecture=None, compatible_architectures=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if code_sha256 and not isinstance(code_sha256, str):
+            raise TypeError("Expected argument 'code_sha256' to be a str")
+        pulumi.set(__self__, "code_sha256", code_sha256)
         if compatible_architecture and not isinstance(compatible_architecture, str):
             raise TypeError("Expected argument 'compatible_architecture' to be a str")
         pulumi.set(__self__, "compatible_architecture", compatible_architecture)
@@ -78,6 +81,14 @@ class GetLayerVersionResult:
         ARN of the Lambda Layer with version.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="codeSha256")
+    def code_sha256(self) -> str:
+        """
+        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        """
+        return pulumi.get(self, "code_sha256")
 
     @property
     @pulumi.getter(name="compatibleArchitecture")
@@ -170,8 +181,11 @@ class GetLayerVersionResult:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> str:
         """
-        Base64-encoded representation of raw SHA-256 sum of the zip file.
+        (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
+        warnings.warn("""This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""", DeprecationWarning)
+        pulumi.log.warn("""source_code_hash is deprecated: This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""")
+
         return pulumi.get(self, "source_code_hash")
 
     @property
@@ -186,7 +200,7 @@ class GetLayerVersionResult:
     @pulumi.getter
     def version(self) -> int:
         """
-        This Lamba Layer version.
+        This Lambda Layer version.
         """
         return pulumi.get(self, "version")
 
@@ -198,6 +212,7 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
             yield self
         return GetLayerVersionResult(
             arn=self.arn,
+            code_sha256=self.code_sha256,
             compatible_architecture=self.compatible_architecture,
             compatible_architectures=self.compatible_architectures,
             compatible_runtime=self.compatible_runtime,
@@ -250,6 +265,7 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
 
     return AwaitableGetLayerVersionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        code_sha256=pulumi.get(__ret__, 'code_sha256'),
         compatible_architecture=pulumi.get(__ret__, 'compatible_architecture'),
         compatible_architectures=pulumi.get(__ret__, 'compatible_architectures'),
         compatible_runtime=pulumi.get(__ret__, 'compatible_runtime'),

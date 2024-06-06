@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new SamlProvider("default", SamlProviderArgs.builder()        
+ *         var default_ = new SamlProvider("default", SamlProviderArgs.builder()
  *             .name("myprovider")
  *             .samlMetadataDocument(StdFunctions.file(FileArgs.builder()
  *                 .input("saml-metadata.xml")

@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         final var current = AwsFunctions.getRegion();
  * 
- *         var exampleProductSubscription = new ProductSubscription("exampleProductSubscription", ProductSubscriptionArgs.builder()        
+ *         var exampleProductSubscription = new ProductSubscription("exampleProductSubscription", ProductSubscriptionArgs.builder()
  *             .productArn(String.format("arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement", current.applyValue(getRegionResult -> getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

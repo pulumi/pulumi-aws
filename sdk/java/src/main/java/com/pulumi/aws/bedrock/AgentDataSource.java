@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()        
+ *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
  *             .knowledgeBaseId("EMDPPAYPZI")
  *             .name("example")
  *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GlobalNetwork("example");
  * 
- *         var exampleSite = new Site("exampleSite", SiteArgs.builder()        
+ *         var exampleSite = new Site("exampleSite", SiteArgs.builder()
  *             .globalNetworkId(example.id())
  *             .build());
  * 

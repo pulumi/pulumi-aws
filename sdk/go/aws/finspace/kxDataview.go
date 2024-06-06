@@ -73,6 +73,8 @@ type KxDataview struct {
 	// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
 	AvailabilityZoneId pulumi.StringPtrOutput `pulumi:"availabilityZoneId"`
 	// The number of availability zones you want to assign per cluster. This can be one of the following:
+	// * `SINGLE` - Assigns one availability zone per cluster.
+	// * `MULTI` - Assigns all the availability zones per cluster.
 	AzMode pulumi.StringOutput `pulumi:"azMode"`
 	// A unique identifier of the changeset of the database that you want to use to ingest data.
 	ChangesetId pulumi.StringPtrOutput `pulumi:"changesetId"`
@@ -155,6 +157,8 @@ type kxDataviewState struct {
 	// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The number of availability zones you want to assign per cluster. This can be one of the following:
+	// * `SINGLE` - Assigns one availability zone per cluster.
+	// * `MULTI` - Assigns all the availability zones per cluster.
 	AzMode *string `pulumi:"azMode"`
 	// A unique identifier of the changeset of the database that you want to use to ingest data.
 	ChangesetId *string `pulumi:"changesetId"`
@@ -196,6 +200,8 @@ type KxDataviewState struct {
 	// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The number of availability zones you want to assign per cluster. This can be one of the following:
+	// * `SINGLE` - Assigns one availability zone per cluster.
+	// * `MULTI` - Assigns all the availability zones per cluster.
 	AzMode pulumi.StringPtrInput
 	// A unique identifier of the changeset of the database that you want to use to ingest data.
 	ChangesetId pulumi.StringPtrInput
@@ -239,6 +245,8 @@ type kxDataviewArgs struct {
 	// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The number of availability zones you want to assign per cluster. This can be one of the following:
+	// * `SINGLE` - Assigns one availability zone per cluster.
+	// * `MULTI` - Assigns all the availability zones per cluster.
 	AzMode string `pulumi:"azMode"`
 	// A unique identifier of the changeset of the database that you want to use to ingest data.
 	ChangesetId *string `pulumi:"changesetId"`
@@ -270,6 +278,8 @@ type KxDataviewArgs struct {
 	// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
 	AvailabilityZoneId pulumi.StringPtrInput
 	// The number of availability zones you want to assign per cluster. This can be one of the following:
+	// * `SINGLE` - Assigns one availability zone per cluster.
+	// * `MULTI` - Assigns all the availability zones per cluster.
 	AzMode pulumi.StringInput
 	// A unique identifier of the changeset of the database that you want to use to ingest data.
 	ChangesetId pulumi.StringPtrInput
@@ -397,6 +407,8 @@ func (o KxDataviewOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
 }
 
 // The number of availability zones you want to assign per cluster. This can be one of the following:
+// * `SINGLE` - Assigns one availability zone per cluster.
+// * `MULTI` - Assigns all the availability zones per cluster.
 func (o KxDataviewOutput) AzMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.AzMode }).(pulumi.StringOutput)
 }

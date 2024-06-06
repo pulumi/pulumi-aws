@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupInstanceRefreshPreferencesAlarmSpecification
     {
+        /// <summary>
+        /// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+        /// </summary>
         public readonly ImmutableArray<string> Alarms;
 
         [OutputConstructor]
