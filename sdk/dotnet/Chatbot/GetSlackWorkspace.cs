@@ -15,6 +15,24 @@ namespace Pulumi.Aws.Chatbot
         /// Data source for managing an AWS Chatbot Slack Workspace.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Chatbot.GetSlackWorkspace.Invoke(new()
+        ///     {
+        ///         SlackTeamName = "abc",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetSlackWorkspaceResult> InvokeAsync(GetSlackWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSlackWorkspaceResult>("aws:chatbot/getSlackWorkspace:getSlackWorkspace", args ?? new GetSlackWorkspaceArgs(), options.WithDefaults());
@@ -23,6 +41,24 @@ namespace Pulumi.Aws.Chatbot
         /// Data source for managing an AWS Chatbot Slack Workspace.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Chatbot.GetSlackWorkspace.Invoke(new()
+        ///     {
+        ///         SlackTeamName = "abc",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetSlackWorkspaceResult> Invoke(GetSlackWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlackWorkspaceResult>("aws:chatbot/getSlackWorkspace:getSlackWorkspace", args ?? new GetSlackWorkspaceInvokeArgs(), options.WithDefaults());
@@ -32,7 +68,7 @@ namespace Pulumi.Aws.Chatbot
     public sealed class GetSlackWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Slack workspace name configured with AWS Chabot.
+        /// Slack workspace name configured with AWS Chatbot.
         /// </summary>
         [Input("slackTeamName", required: true)]
         public string SlackTeamName { get; set; } = null!;
@@ -46,7 +82,7 @@ namespace Pulumi.Aws.Chatbot
     public sealed class GetSlackWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Slack workspace name configured with AWS Chabot.
+        /// Slack workspace name configured with AWS Chatbot.
         /// </summary>
         [Input("slackTeamName", required: true)]
         public Input<string> SlackTeamName { get; set; } = null!;

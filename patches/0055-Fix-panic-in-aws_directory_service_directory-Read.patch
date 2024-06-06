@@ -10,7 +10,7 @@ One case where this seems to happen (but difficult to reproduce) is importing a 
 https://github.com/pulumi/pulumi-aws/issues/1152
 
 diff --git a/internal/service/ds/directory.go b/internal/service/ds/directory.go
-index 15ddbb32be..1a3f200305 100644
+index 4b08a2b7a9..584c095788 100644
 --- a/internal/service/ds/directory.go
 +++ b/internal/service/ds/directory.go
 @@ -295,6 +295,11 @@ func resourceDirectoryRead(ctx context.Context, d *schema.ResourceData, meta int

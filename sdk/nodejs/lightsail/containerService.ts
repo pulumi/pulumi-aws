@@ -180,7 +180,7 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -329,7 +329,7 @@ export interface ContainerServiceState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -386,7 +386,7 @@ export interface ContainerServiceArgs {
      */
     scale: pulumi.Input<number>;
     /**
-     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.

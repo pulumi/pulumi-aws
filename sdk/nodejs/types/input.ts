@@ -1219,6 +1219,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    timestreaminfluxdb?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     timestreamwrite?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL

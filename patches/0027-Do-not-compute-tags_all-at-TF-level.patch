@@ -36,7 +36,7 @@ index 6415ce2355..c80c01b8d1 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index a6bf0eb823..8eebe8e047 100644
+index eae4367349..0c61e9cfd6 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
 @@ -104,7 +104,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
@@ -166,7 +166,7 @@ index ecec56b129..637bbc3595 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/quicksight/namespace.go b/internal/service/quicksight/namespace.go
-index 777329f8ae..4aff3c790d 100644
+index 959c129103..185c8f7d74 100644
 --- a/internal/service/quicksight/namespace.go
 +++ b/internal/service/quicksight/namespace.go
 @@ -93,7 +93,7 @@ func (r *resourceNamespace) Schema(ctx context.Context, req resource.SchemaReque
@@ -179,7 +179,7 @@ index 777329f8ae..4aff3c790d 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 5cc12584dd..a847623e07 100644
+index ac4f6d5e83..059732c2fc 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
 @@ -142,7 +142,7 @@ func (r *resourceVPCConnection) Schema(ctx context.Context, req resource.SchemaR
@@ -218,7 +218,7 @@ index 56e257f3d0..fddc928d9b 100644
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
 diff --git a/internal/service/workspaces/connection_alias.go b/internal/service/workspaces/connection_alias.go
-index 8d2e3d7876..3c56693234 100644
+index a6a9f582fa..77cd122278 100644
 --- a/internal/service/workspaces/connection_alias.go
 +++ b/internal/service/workspaces/connection_alias.go
 @@ -82,7 +82,7 @@ func (r *resourceConnectionAlias) Schema(ctx context.Context, req resource.Schem

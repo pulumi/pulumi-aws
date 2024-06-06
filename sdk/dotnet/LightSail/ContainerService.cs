@@ -237,7 +237,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
         /// configured with a provider
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
         /// configured with a provider
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -468,7 +468,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+        /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
         /// configured with a provider
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.

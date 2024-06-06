@@ -397,7 +397,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `default_tags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
@@ -407,7 +407,7 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+     * @return Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
      * configured with a provider
      * `default_tags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.

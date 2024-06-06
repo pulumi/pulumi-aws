@@ -39,10 +39,7 @@ class DistributionArgs:
         :param pulumi.Input[str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[str] name: Name of the distribution.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
-               configured with a provider
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
@@ -176,10 +173,7 @@ class DistributionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags for the Lightsail Distribution. If
-        configured with a provider
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -233,10 +227,7 @@ class _DistributionState:
         :param pulumi.Input[str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[str] status: The status of the distribution.
         :param pulumi.Input[str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
-               configured with a provider
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alternative_domain_names is not None:
@@ -505,10 +496,7 @@ class _DistributionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags for the Lightsail Distribution. If
-        configured with a provider
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -689,10 +677,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[str] name: Name of the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionOriginArgs']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
-               configured with a provider
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -945,10 +930,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[str] status: The status of the distribution.
         :param pulumi.Input[str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
-               configured with a provider
-               `default_tags` configuration block
-               present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1127,10 +1109,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags for the Lightsail Distribution. If
-        configured with a provider
-        `default_tags` configuration block
-        present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

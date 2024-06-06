@@ -253,10 +253,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
     /**
-     * Map of tags for the Lightsail Distribution. If
-     * configured with a provider
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -415,10 +412,7 @@ export interface DistributionState {
      */
     supportCode?: pulumi.Input<string>;
     /**
-     * Map of tags for the Lightsail Distribution. If
-     * configured with a provider
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -472,10 +466,7 @@ export interface DistributionArgs {
      */
     origin: pulumi.Input<inputs.lightsail.DistributionOrigin>;
     /**
-     * Map of tags for the Lightsail Distribution. If
-     * configured with a provider
-     * `defaultTags` configuration block
-     * present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

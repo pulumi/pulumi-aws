@@ -19,7 +19,7 @@ index e4c13754ab..cb4258a1e8 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/eks/pod_identity_association.go b/internal/service/eks/pod_identity_association.go
-index 0f9499ef34..30407342fd 100644
+index f0a2548c2b..5127cda786 100644
 --- a/internal/service/eks/pod_identity_association.go
 +++ b/internal/service/eks/pod_identity_association.go
 @@ -105,7 +105,7 @@ func (r *podIdentityAssociationResource) Schema(ctx context.Context, req resourc

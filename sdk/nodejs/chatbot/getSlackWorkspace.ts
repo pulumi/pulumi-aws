@@ -8,6 +8,17 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Chatbot Slack Workspace.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.chatbot.getSlackWorkspace({
+ *     slackTeamName: "abc",
+ * });
+ * ```
  */
 export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSlackWorkspaceResult> {
 
@@ -22,7 +33,7 @@ export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.Inv
  */
 export interface GetSlackWorkspaceArgs {
     /**
-     * Slack workspace name configured with AWS Chabot.
+     * Slack workspace name configured with AWS Chatbot.
      */
     slackTeamName: string;
 }
@@ -45,6 +56,17 @@ export interface GetSlackWorkspaceResult {
  * Data source for managing an AWS Chatbot Slack Workspace.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.chatbot.getSlackWorkspace({
+ *     slackTeamName: "abc",
+ * });
+ * ```
  */
 export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getSlackWorkspace(a, opts))
@@ -55,7 +77,7 @@ export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?
  */
 export interface GetSlackWorkspaceOutputArgs {
     /**
-     * Slack workspace name configured with AWS Chabot.
+     * Slack workspace name configured with AWS Chatbot.
      */
     slackTeamName: pulumi.Input<string>;
 }

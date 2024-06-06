@@ -45,7 +45,7 @@ public final class ChatbotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ChatbotFunctions.getSlackWorkspace(GetSlackWorkspaceArgs.builder()
-     *             .teamSlackName("abc")
+     *             .slackTeamName("abc")
      *             .build());
      * 
      *     }
@@ -89,7 +89,7 @@ public final class ChatbotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ChatbotFunctions.getSlackWorkspace(GetSlackWorkspaceArgs.builder()
-     *             .teamSlackName("abc")
+     *             .slackTeamName("abc")
      *             .build());
      * 
      *     }
@@ -133,7 +133,7 @@ public final class ChatbotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ChatbotFunctions.getSlackWorkspace(GetSlackWorkspaceArgs.builder()
-     *             .teamSlackName("abc")
+     *             .slackTeamName("abc")
      *             .build());
      * 
      *     }
@@ -177,7 +177,7 @@ public final class ChatbotFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ChatbotFunctions.getSlackWorkspace(GetSlackWorkspaceArgs.builder()
-     *             .teamSlackName("abc")
+     *             .slackTeamName("abc")
      *             .build());
      * 
      *     }
