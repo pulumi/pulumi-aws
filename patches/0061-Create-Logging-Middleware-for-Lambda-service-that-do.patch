@@ -13,10 +13,10 @@ calls.
 
 diff --git a/internal/service/lambda/request_response_logger.go b/internal/service/lambda/request_response_logger.go
 new file mode 100644
-index 0000000000..58563221ab
+index 0000000000..737faef4a7
 --- /dev/null
 +++ b/internal/service/lambda/request_response_logger.go
-@@ -0,0 +1,107 @@
+@@ -0,0 +1,109 @@
 +package lambda
 +
 +import (
@@ -68,6 +68,8 @@ index 0000000000..58563221ab
 +		}
 +	}
 +
++	// Inlined the logging middleware from https://github.com/hashicorp/aws-sdk-go-base/blob/main/logger.go and patching
++	// out the request body logging
 +	logger := logging.RetrieveLogger(ctx)
 +	region := awsmiddleware.GetRegion(ctx)
 +
@@ -86,7 +88,7 @@ index 0000000000..58563221ab
 +	rc := req.Build(ctx)
 +
 +	originalBody := rc.Body
-+	// remove the body from the logging output
++	// remove the body from the logging output. This is the main change compared to the upstream logging middleware
 +	redactedBody := strings.NewReader("[Redacted]")
 +	rc.Body = io.NopCloser(redactedBody)
 +	rc.ContentLength = redactedBody.Size()
