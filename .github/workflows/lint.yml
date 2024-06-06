@@ -8,15 +8,8 @@ on:
 
 env:
   AWS_REGION: us-west-2
-  DOTNETVERSION: |
-      6.0.x
-      3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.21.x
-  GRADLEVERSION: "7.6"
-  JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NODEVERSION: 20.x
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
@@ -29,13 +22,11 @@ env:
   PULUMI_MISSING_DOCS_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
   PYPI_USERNAME: __token__
-  PYTHONVERSION: 3.11.8
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
-  TRAVIS_OS_NAME: linux
 
 jobs:
   lint:
