@@ -142,7 +142,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name you want to assign to this access point.
+     * Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
      * 
      * The following arguments are optional:
      * 
@@ -151,7 +151,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return Name you want to assign to this access point.
+     * @return Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
      * 
      * The following arguments are optional:
      * 
@@ -427,7 +427,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name you want to assign to this access point.
+         * @param name Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
          * 
          * The following arguments are optional:
          * 
@@ -440,7 +440,7 @@ public final class AccessPointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name you want to assign to this access point.
+         * @param name Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
          * 
          * The following arguments are optional:
          * 

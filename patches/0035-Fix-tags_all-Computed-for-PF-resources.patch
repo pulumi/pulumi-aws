@@ -44,7 +44,7 @@ index 9b0e8fb993..9ec78ba066 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 2e81227cb2..c9c3717d82 100644
+index 5de88df811..ac8533f703 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
 @@ -176,7 +176,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
@@ -70,7 +70,7 @@ index 0c1741f00e..7e1945e19a 100644
  	}
  
 diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
-index 6336ff977e..7744570b26 100644
+index 03094f50e4..07db1312be 100644
 --- a/internal/service/securityhub/automation_rule.go
 +++ b/internal/service/securityhub/automation_rule.go
 @@ -75,7 +75,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
@@ -83,7 +83,7 @@ index 6336ff977e..7744570b26 100644
  		Blocks: map[string]schema.Block{
  			"actions": schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index c62765c101..957acac87c 100644
+index 9ff71fe5d7..faba601773 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -75,7 +75,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe

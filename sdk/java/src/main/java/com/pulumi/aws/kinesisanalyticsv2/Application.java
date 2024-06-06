@@ -386,6 +386,20 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.applicationConfiguration;
     }
     /**
+     * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * 
+     */
+    @Export(name="applicationMode", refs={String.class}, tree="[0]")
+    private Output<String> applicationMode;
+
+    /**
+     * @return The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * 
+     */
+    public Output<String> applicationMode() {
+        return this.applicationMode;
+    }
+    /**
      * The ARN of the application.
      * 
      */

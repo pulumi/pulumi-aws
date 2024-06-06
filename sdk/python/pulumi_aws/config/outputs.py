@@ -504,6 +504,7 @@ class Endpoints(dict):
                  sts: Optional[str] = None,
                  swf: Optional[str] = None,
                  synthetics: Optional[str] = None,
+                 timestreaminfluxdb: Optional[str] = None,
                  timestreamwrite: Optional[str] = None,
                  transcribe: Optional[str] = None,
                  transcribeservice: Optional[str] = None,
@@ -786,6 +787,7 @@ class Endpoints(dict):
         :param str sts: Use this to override the default service endpoint URL
         :param str swf: Use this to override the default service endpoint URL
         :param str synthetics: Use this to override the default service endpoint URL
+        :param str timestreaminfluxdb: Use this to override the default service endpoint URL
         :param str timestreamwrite: Use this to override the default service endpoint URL
         :param str transcribe: Use this to override the default service endpoint URL
         :param str transcribeservice: Use this to override the default service endpoint URL
@@ -1335,6 +1337,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if timestreaminfluxdb is not None:
+            pulumi.set(__self__, "timestreaminfluxdb", timestreaminfluxdb)
         if timestreamwrite is not None:
             pulumi.set(__self__, "timestreamwrite", timestreamwrite)
         if transcribe is not None:
@@ -3499,6 +3503,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "synthetics")
+
+    @property
+    @pulumi.getter
+    def timestreaminfluxdb(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "timestreaminfluxdb")
 
     @property
     @pulumi.getter

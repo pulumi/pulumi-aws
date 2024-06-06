@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags ComputedOnly for m2 resources
 
 
 diff --git a/internal/service/m2/application.go b/internal/service/m2/application.go
-index 10ed533b45..95bda5b44c 100644
+index 6012c186a8..49ccd1c740 100644
 --- a/internal/service/m2/application.go
 +++ b/internal/service/m2/application.go
 @@ -103,7 +103,7 @@ func (r *applicationResource) Schema(ctx context.Context, request resource.Schem

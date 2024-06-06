@@ -15,14 +15,14 @@ public final class GetSlackWorkspaceArgs extends com.pulumi.resources.InvokeArgs
     public static final GetSlackWorkspaceArgs Empty = new GetSlackWorkspaceArgs();
 
     /**
-     * Slack workspace name configured with AWS Chabot.
+     * Slack workspace name configured with AWS Chatbot.
      * 
      */
     @Import(name="slackTeamName", required=true)
     private Output<String> slackTeamName;
 
     /**
-     * @return Slack workspace name configured with AWS Chabot.
+     * @return Slack workspace name configured with AWS Chatbot.
      * 
      */
     public Output<String> slackTeamName() {
@@ -54,7 +54,7 @@ public final class GetSlackWorkspaceArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param slackTeamName Slack workspace name configured with AWS Chabot.
+         * @param slackTeamName Slack workspace name configured with AWS Chatbot.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetSlackWorkspaceArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param slackTeamName Slack workspace name configured with AWS Chabot.
+         * @param slackTeamName Slack workspace name configured with AWS Chatbot.
          * 
          * @return builder
          * 

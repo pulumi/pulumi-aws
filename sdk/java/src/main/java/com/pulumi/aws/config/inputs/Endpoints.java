@@ -1350,6 +1350,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String timestreaminfluxdb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String timestreamwrite;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3291,6 +3296,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> timestreaminfluxdb() {
+        return Optional.ofNullable(this.timestreaminfluxdb);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> timestreamwrite() {
         return Optional.ofNullable(this.timestreamwrite);
     }
@@ -3662,6 +3674,7 @@ public final class Endpoints {
         private @Nullable String sts;
         private @Nullable String swf;
         private @Nullable String synthetics;
+        private @Nullable String timestreaminfluxdb;
         private @Nullable String timestreamwrite;
         private @Nullable String transcribe;
         private @Nullable String transcribeservice;
@@ -3946,6 +3959,7 @@ public final class Endpoints {
     	      this.sts = defaults.sts;
     	      this.swf = defaults.swf;
     	      this.synthetics = defaults.synthetics;
+    	      this.timestreaminfluxdb = defaults.timestreaminfluxdb;
     	      this.timestreamwrite = defaults.timestreamwrite;
     	      this.transcribe = defaults.transcribe;
     	      this.transcribeservice = defaults.transcribeservice;
@@ -5565,6 +5579,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder timestreaminfluxdb(@Nullable String timestreaminfluxdb) {
+
+            this.timestreaminfluxdb = timestreaminfluxdb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timestreamwrite(@Nullable String timestreamwrite) {
 
             this.timestreamwrite = timestreamwrite;
@@ -5917,6 +5937,7 @@ public final class Endpoints {
             _resultValue.sts = sts;
             _resultValue.swf = swf;
             _resultValue.synthetics = synthetics;
+            _resultValue.timestreaminfluxdb = timestreaminfluxdb;
             _resultValue.timestreamwrite = timestreamwrite;
             _resultValue.transcribe = transcribe;
             _resultValue.transcribeservice = transcribeservice;

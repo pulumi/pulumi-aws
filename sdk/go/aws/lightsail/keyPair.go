@@ -130,7 +130,7 @@ type KeyPair struct {
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// The public key material. This public key will be imported into Lightsail
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -185,7 +185,7 @@ type keyPairState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// The public key material. This public key will be imported into Lightsail
 	PublicKey *string `pulumi:"publicKey"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 	Tags map[string]string `pulumi:"tags"`
@@ -211,7 +211,7 @@ type KeyPairState struct {
 	PrivateKey pulumi.StringPtrInput
 	// The public key material. This public key will be imported into Lightsail
 	PublicKey pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 	Tags pulumi.StringMapInput
@@ -231,7 +231,7 @@ type keyPairArgs struct {
 	PgpKey *string `pulumi:"pgpKey"`
 	// The public key material. This public key will be imported into Lightsail
 	PublicKey *string `pulumi:"publicKey"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 	Tags map[string]string `pulumi:"tags"`
@@ -246,7 +246,7 @@ type KeyPairArgs struct {
 	PgpKey pulumi.StringPtrInput
 	// The public key material. This public key will be imported into Lightsail
 	PublicKey pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 	Tags pulumi.StringMapInput
@@ -383,7 +383,7 @@ func (o KeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 //
 // > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
 func (o KeyPairOutput) Tags() pulumi.StringMapOutput {

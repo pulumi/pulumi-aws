@@ -4024,6 +4024,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="timestreaminfluxdb")
+    private @Nullable Output<String> timestreaminfluxdb;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> timestreaminfluxdb() {
+        return Optional.ofNullable(this.timestreaminfluxdb);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="timestreamwrite")
     private @Nullable Output<String> timestreamwrite;
 
@@ -4500,6 +4515,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sts = $.sts;
         this.swf = $.swf;
         this.synthetics = $.synthetics;
+        this.timestreaminfluxdb = $.timestreaminfluxdb;
         this.timestreamwrite = $.timestreamwrite;
         this.transcribe = $.transcribe;
         this.transcribeservice = $.transcribeservice;
@@ -10139,6 +10155,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder synthetics(String synthetics) {
             return synthetics(Output.of(synthetics));
+        }
+
+        /**
+         * @param timestreaminfluxdb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timestreaminfluxdb(@Nullable Output<String> timestreaminfluxdb) {
+            $.timestreaminfluxdb = timestreaminfluxdb;
+            return this;
+        }
+
+        /**
+         * @param timestreaminfluxdb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timestreaminfluxdb(String timestreaminfluxdb) {
+            return timestreaminfluxdb(Output.of(timestreaminfluxdb));
         }
 
         /**

@@ -278,10 +278,7 @@ type Distribution struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
-	// Map of tags for the Lightsail Distribution. If
-	// configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -366,10 +363,7 @@ type distributionState struct {
 	Status *string `pulumi:"status"`
 	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode *string `pulumi:"supportCode"`
-	// Map of tags for the Lightsail Distribution. If
-	// configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -416,10 +410,7 @@ type DistributionState struct {
 	Status pulumi.StringPtrInput
 	// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
 	SupportCode pulumi.StringPtrInput
-	// Map of tags for the Lightsail Distribution. If
-	// configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -452,10 +443,7 @@ type distributionArgs struct {
 	Name *string `pulumi:"name"`
 	// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
 	Origin DistributionOrigin `pulumi:"origin"`
-	// Map of tags for the Lightsail Distribution. If
-	// configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -481,10 +469,7 @@ type DistributionArgs struct {
 	Name pulumi.StringPtrInput
 	// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
 	Origin DistributionOriginInput
-	// Map of tags for the Lightsail Distribution. If
-	// configured with a provider
-	// `defaultTags` configuration block
-	// present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -667,10 +652,7 @@ func (o DistributionOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
-// Map of tags for the Lightsail Distribution. If
-// configured with a provider
-// `defaultTags` configuration block
-// present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -135,7 +135,7 @@ type AccessPoint struct {
 	Endpoints pulumi.StringMapOutput `pulumi:"endpoints"`
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
-	// Name you want to assign to this access point.
+	// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -199,7 +199,7 @@ type accessPointState struct {
 	Endpoints map[string]string `pulumi:"endpoints"`
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
-	// Name you want to assign to this access point.
+	// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -231,7 +231,7 @@ type AccessPointState struct {
 	Endpoints pulumi.StringMapInput
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
-	// Name you want to assign to this access point.
+	// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -256,7 +256,7 @@ type accessPointArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
-	// Name you want to assign to this access point.
+	// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -276,7 +276,7 @@ type AccessPointArgs struct {
 	Bucket pulumi.StringInput
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
-	// Name you want to assign to this access point.
+	// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -416,7 +416,7 @@ func (o AccessPointOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
 }
 
-// Name you want to assign to this access point.
+// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
 //
 // The following arguments are optional:
 func (o AccessPointOutput) Name() pulumi.StringOutput {

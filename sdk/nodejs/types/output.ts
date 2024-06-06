@@ -16671,6 +16671,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        timestreaminfluxdb?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         timestreamwrite?: string;
         /**
          * Use this to override the default service endpoint URL

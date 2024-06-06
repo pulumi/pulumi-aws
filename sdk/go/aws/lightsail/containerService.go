@@ -197,7 +197,7 @@ type ContainerService struct {
 	Scale pulumi.IntOutput `pulumi:"scale"`
 	// The current state of the container service.
 	State pulumi.StringOutput `pulumi:"state"`
-	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 	// configured with a provider
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,7 +286,7 @@ type containerServiceState struct {
 	Scale *int `pulumi:"scale"`
 	// The current state of the container service.
 	State *string `pulumi:"state"`
-	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 	// configured with a provider
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -340,7 +340,7 @@ type ContainerServiceState struct {
 	Scale pulumi.IntPtrInput
 	// The current state of the container service.
 	State pulumi.StringPtrInput
-	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 	// configured with a provider
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -380,7 +380,7 @@ type containerServiceArgs struct {
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
 	Scale int `pulumi:"scale"`
-	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 	// configured with a provider
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -409,7 +409,7 @@ type ContainerServiceArgs struct {
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
 	Scale pulumi.IntInput
-	// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+	// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 	// configured with a provider
 	// `defaultTags` configuration block
 	// present, tags with matching keys will overwrite those defined at the provider-level.
@@ -583,7 +583,7 @@ func (o ContainerServiceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of container service tags. To tag at launch, specify the tags in the Launch Template. If
+// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
 // configured with a provider
 // `defaultTags` configuration block
 // present, tags with matching keys will overwrite those defined at the provider-level.

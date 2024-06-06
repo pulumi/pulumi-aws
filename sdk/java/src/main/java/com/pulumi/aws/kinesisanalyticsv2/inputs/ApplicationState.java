@@ -36,6 +36,21 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * 
+     */
+    @Import(name="applicationMode")
+    private @Nullable Output<String> applicationMode;
+
+    /**
+     * @return The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+     * 
+     */
+    public Optional<Output<String>> applicationMode() {
+        return Optional.ofNullable(this.applicationMode);
+    }
+
+    /**
      * The ARN of the application.
      * 
      */
@@ -257,6 +272,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     private ApplicationState(ApplicationState $) {
         this.applicationConfiguration = $.applicationConfiguration;
+        this.applicationMode = $.applicationMode;
         this.arn = $.arn;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.createTimestamp = $.createTimestamp;
@@ -310,6 +326,27 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder applicationConfiguration(ApplicationApplicationConfigurationArgs applicationConfiguration) {
             return applicationConfiguration(Output.of(applicationConfiguration));
+        }
+
+        /**
+         * @param applicationMode The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationMode(@Nullable Output<String> applicationMode) {
+            $.applicationMode = applicationMode;
+            return this;
+        }
+
+        /**
+         * @param applicationMode The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationMode(String applicationMode) {
+            return applicationMode(Output.of(applicationMode));
         }
 
         /**
