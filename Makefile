@@ -12,6 +12,7 @@ TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
 PULUMI_CONVERT := 1
+PULUMI_MISSING_DOCS_ERROR := true
 
 # Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local & branch builds will just used this fixed default version unless specified
@@ -156,6 +157,7 @@ tfgen_no_deps: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 tfgen_no_deps: export PULUMI_CONVERT := $(PULUMI_CONVERT)
 tfgen_no_deps: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 tfgen_no_deps: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
+tfgen_no_deps: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
 tfgen_no_deps: tfgen_build_only
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION_GENERIC) go generate cmd/$(PROVIDER)/main.go)
