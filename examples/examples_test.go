@@ -3,9 +3,7 @@
 package examples
 
 import (
-	"bytes"
 	"context"
-	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
