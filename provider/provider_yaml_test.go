@@ -375,7 +375,7 @@ func TestIMDSAuth(t *testing.T) {
 //
 // See https://github.com/pulumi/pulumi-aws/issues/2796
 func TestS3BucketObjectDeprecation(t *testing.T) {
-	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2796"))
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2796"), opttest.SkipInstall())
 	result := ptest.Up()
 	t.Logf("STDOUT: %v", result.StdOut)
 	t.Logf("STDERR: %v", result.StdErr)
