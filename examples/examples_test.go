@@ -517,6 +517,7 @@ func TestMigrateRdsInstance(t *testing.T) {
 	  }
 	]`
 
+	t.Setenv("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "false")
 	t.Run("case1", func(t *testing.T) { replay(t, case1) })
 	t.Run("case2", func(t *testing.T) { replay(t, case2) })
 	t.Setenv("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true")

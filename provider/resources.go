@@ -809,6 +809,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
 		shimv2.WithDiffStrategy(shimv2.PlanState),
 		shimv2.WithPlanResourceChange(func(s string) bool {
+			explicit := os.Getenv("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE")
+			if explicit == "false" {
+				return false
+			}
 			return true
 		}))
 
