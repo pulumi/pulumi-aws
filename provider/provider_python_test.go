@@ -105,18 +105,3 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 
 	return pythonBase
 }
-
-func maxDuration(dur time.Duration, t *testing.T, test func(t *testing.T)) {
-	t.Helper()
-	timeout := time.After(dur)
-	done := make(chan bool)
-	go func() {
-		test(t)
-		done <- true
-	}()
-	select {
-	case <-timeout:
-		t.Fatalf("Test timed out after %v", dur)
-	case <-done:
-	}
-}
