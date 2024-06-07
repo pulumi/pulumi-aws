@@ -50,7 +50,7 @@ actions:
       if: ${{ matrix.language == 'dotnet' }}
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: ${{ env.DOTNETVERSION }}
+        dotnet-version: '6.0.x'
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -58,7 +58,7 @@ actions:
         aws-region: ${{ env.AWS_REGION }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
@@ -147,19 +147,19 @@ extraTests:
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ env.NODEVERSION }}
+        node-version: "20.x"
         registry-url: https://registry.npmjs.org
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v4
       with:
-        name: ${{ env.PROVIDER }}-provider.tar.gz
+        name: aws-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
       run: >-
         tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
 
-        find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
     - name: Download SDK
       uses: actions/download-artifact@v4
       with:
@@ -187,7 +187,7 @@ extraTests:
         unset-current-credentials: true
         aws-region: ${{ env.AWS_REGION }}
         role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
     - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
       run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
@@ -246,37 +246,37 @@ extraTests:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODEVERSION }}
+          node-version: "20.x"
           registry-url: https://registry.npmjs.org
       - name: Setup DotNet
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ env.DOTNETVERSION }}
+          dotnet-version: "6.0.x"
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHONVERSION }}
+          python-version: "3.11.8"
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           cache: gradle
           distribution: temurin
-          java-version: ${{ env.JAVAVERSION }}
+          java-version: "11"
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
         with:
-          gradle-version: ${{ env.GRADLEVERSION }}
+          gradle-version: "7.6"
       - name: Download provider + tfgen binaries
         uses: actions/download-artifact@v4
         with:
-          name: ${{ env.PROVIDER }}-provider.tar.gz
+          name: aws-provider.tar.gz
           path: ${{ github.workspace }}/bin
       - name: Untar provider binaries
         run: >-
           tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
           github.workspace}}/bin
 
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+          find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
       - run: dotnet nuget add source ${{ github.workspace }}/nuget
       - name: Download SDK
         uses: actions/download-artifact@v4
@@ -308,7 +308,7 @@ extraTests:
         name: Setup DotNet
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ env.DOTNETVERSION }}
+          dotnet-version: "6.0.x"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -316,7 +316,7 @@ extraTests:
           aws-region: ${{ env.AWS_REGION }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-duration-seconds: 3600
-          role-session-name: ${{ env.PROVIDER }}@githubActions
+          role-session-name: aws@githubActions
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
       - name: Run provider tests
         run: |

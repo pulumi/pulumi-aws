@@ -11,9 +11,9 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v5
       with:
+        go-version: "1.21.x"
         cache-dependency-path: |
-            sdk/go.sum
-        go-version: 1.21.x
+          sdk/go.sum
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
