@@ -369,6 +369,19 @@ func TestIMDSAuth(t *testing.T) {
 	})
 }
 
+// Assert that the provider does not regress on emitting an unexpected deprecation.
+//
+//	use the aws_s3_object resource instead
+//
+// See https://github.com/pulumi/pulumi-aws/issues/2796
+func TestS3BucketObjectDeprecation(t *testing.T) {
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2796"), opttest.SkipInstall())
+	result := ptest.Up()
+	t.Logf("STDOUT: %v", result.StdOut)
+	t.Logf("STDERR: %v", result.StdErr)
+	require.NotContains(t, result.StdOut+result.StdErr, "aws_s3_object")
+}
+
 func configureS3() *s3sdk.Client {
 	loadOpts := []func(*config.LoadOptions) error{}
 	if p, ok := os.LookupEnv("AWS_PROFILE"); ok {
