@@ -202,6 +202,13 @@ func (st tagsState) expectedTags() map[string]string {
 	return r
 }
 
+func normTags(tags map[string]string) map[string]string {
+	if tags == nil {
+		return map[string]string{}
+	}
+	return tags
+}
+
 type tagsFetcher = func() (map[string]string, error)
 
 func (st tagsState) assertTagsEqualWithRetry(
@@ -214,7 +221,7 @@ func (st tagsState) assertTagsEqualWithRetry(
 	for attempt := 0; attempt < 10; attempt++ {
 		var err error = nil
 		actualTags, err = getActualTags()
-		if err == nil && assert.ObjectsAreEqual(expectTags, actualTags) {
+		if err == nil && assert.ObjectsAreEqual(normTags(expectTags), normTags(actualTags)) {
 			break
 		}
 		if err != nil {
@@ -226,7 +233,7 @@ func (st tagsState) assertTagsEqualWithRetry(
 		time.Sleep(5 * time.Second)
 		t.Logf("Trying to fetch tags again, attempt %d", attempt+1)
 	}
-	require.Equalf(t, expectTags, actualTags, msg)
+	require.Equalf(t, normTags(expectTags), normTags(actualTags), msg)
 }
 
 func (st tagsState) validateStateResult(phase int) func(
@@ -247,7 +254,7 @@ func (st tagsState) validateStateResult(phase int) func(
 			require.NoError(t, err)
 			t.Logf("phase: %d", phase)
 			t.Logf("state: %v", st.serialize(t))
-			require.Equalf(t, st.expectedTags(), actualTags, "key=%s", k)
+			require.Equalf(t, normTags(st.expectedTags()), normTags(actualTags), "key=%s", k)
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
 
 			if k == "bucket" {
