@@ -1,0 +1,10 @@
+name: regress-4031
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A minimal AWS Python Pulumi program to reproduce regression 4031
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: ""
