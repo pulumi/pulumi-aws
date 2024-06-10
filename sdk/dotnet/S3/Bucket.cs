@@ -522,7 +522,7 @@ namespace Pulumi.Aws.S3
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Output("bucket")]
-        public Output<string> BucketName { get; private set; } = null!;
+        public Output<string> BucketNameNew { get; private set; } = null!;
 
         /// <summary>
         /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
@@ -723,7 +723,7 @@ namespace Pulumi.Aws.S3
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Input("bucket")]
-        public Input<string>? BucketName { get; set; }
+        public Input<string>? BucketNameNew { get; set; }
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
@@ -892,7 +892,7 @@ namespace Pulumi.Aws.S3
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Input("bucket")]
-        public Input<string>? BucketName { get; set; }
+        public Input<string>? BucketNameNew { get; set; }
 
         /// <summary>
         /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.

@@ -104,6 +104,24 @@ jobs:
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Build SDK
       run: make build_${{ matrix.language }}
+    # Commit all changed files back to the repository
+    # - name: Sync any changes from the remote
+    #   run: git pull origin ${{ github.head_ref }}
+    - name: Commit generated SDK
+      uses: rquitales/git-recommit-action@v1
+      id: recommit
+      with:
+        commit_message: "[automated] Add generated SDKs for ${{ matrix.language }}."
+        file_pattern: sdk/
+        # push_options: --dry-run 
+    - name: Comment PR if changes were made
+      if: steps.recommit.outputs.changes_detected == 'true'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        message: >
+          A new commit was added to this PR as part of the SDK build process.
+          SDKs were recommitted for ${{ matrix.language }}.
     - name: Check worktree clean
       uses: pulumi/git-status-check-action@v1
       with:

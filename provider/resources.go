@@ -5767,7 +5767,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		})
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketNameNew"
 
 	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
 		"aws_auditmanager_account_registration": {
