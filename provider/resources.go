@@ -190,6 +190,7 @@ const (
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
+	paymentCryptographyMod      = "PaymentCryptography"      // Payment Cryptography
 	pinpointMod                 = "Pinpoint"                 // Pinpoint
 	pipesMod                    = "Pipes"                    // Pipes
 	pricingMod                  = "Pricing"                  // Pricing
@@ -405,6 +406,7 @@ var moduleMap = map[string]string{
 	"organizations":                   organizationsMod,
 	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
+	"paymentcryptography":             paymentCryptographyMod,
 	"pinpoint":                        pinpointMod,
 	"pipes":                           pipesMod,
 	"polly":                           "Polly",
@@ -2983,6 +2985,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_organizations_policy":                  {Tok: awsResource(organizationsMod, "Policy")},
 			"aws_organizations_policy_attachment":       {Tok: awsResource(organizationsMod, "PolicyAttachment")},
 			"aws_organizations_delegated_administrator": {Tok: awsResource(organizationsMod, "DelegatedAdministrator")},
+			// Payment Cryptography
+			"aws_paymentcryptography_key": {
+				Tok: awsResource(paymentCryptographyMod, "Key"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"key_state": {
+						CSharpName: "State",
+					},
+				},
+			},
 			// Pinpoint
 			"aws_pinpoint_adm_channel":               {Tok: awsResource(pinpointMod, "AdmChannel")},
 			"aws_pinpoint_apns_channel":              {Tok: awsResource(pinpointMod, "ApnsChannel")},
