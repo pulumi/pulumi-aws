@@ -1,3 +1,12 @@
 import * as aws from "@pulumi/aws";
 
-export const vs = aws.rds.getEngineVersionOutput({engine: "postgres"});
+const output = aws.rds.getEngineVersionOutput({
+  engine: "aurora-postgresql",
+  version: "15.2",
+  filters: [{
+    name: "engine-mode",
+    values: ["provisioned"],
+  }],
+});
+
+export const vs = output.version;

@@ -660,7 +660,7 @@ func TestRdsGetEngineVersion(t *testing.T) {
 	require.NoError(t, err)
 
 	engineVersion := res.Outputs["vs"]
-	require.NotEmpty(t, engineVersion.Value)
+	require.Equal(t, engineVersion.Value, "15.2")
 }
 
 // Checks static get function for ssm.parameter that was broken for versioned IDs.
