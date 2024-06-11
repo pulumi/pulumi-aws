@@ -2495,7 +2495,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						//   inlinePolicies: []
 						// or a list with empty objects
 						//   inlinePolicies: [{}]
-						// In both cases the role will be created _without_ any inline policies attached.
+						// If an empty list is provided for inline policies then the provider will not manage any inline
+						// policies in this resource.
+						// Providing a list with an empty object will cause the provider to remove all inline policies
 						// If a policy is provided, then both the `policy` and the `name` fields are required.
 						// If one is provided and the other is not, then no error will be thrown and no inline policy
 						// will be created.
@@ -2505,7 +2507,13 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 								for _, value := range pv.ArrayValue() {
 									if value.IsObject() {
 										policy := value.ObjectValue()
+										// Filter out policies with no policy document. This can happens due to the auto-naming
+										// of the inline policy. It is not valid and will end up with no policy being created in AWS, but will show
+										// a perpetual diff which is confusing to users.
+										// An absent policy document is the one exception because it is the delete marker.
 										if policy.HasValue("policy") && policy["policy"].IsString() && policy["policy"].StringValue() != "" {
+											inlinePolicy = append(inlinePolicy, value)
+										} else if !policy.HasValue("policy") || policy["policy"].IsNull() {
 											inlinePolicy = append(inlinePolicy, value)
 										}
 									}

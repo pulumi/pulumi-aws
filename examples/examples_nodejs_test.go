@@ -643,7 +643,11 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 
 	policyEmpty := res.Outputs["inlinePolicyEmpty"]
 
-	require.Equal(t, policyEmpty.Value, []interface{}{})
+	// Check that the delete marker is present
+	require.Len(t, policyEmpty.Value, 1)
+	deleteMarker := policyEmpty.Value.([]interface{})[0]
+	require.Empty(t, deleteMarker.(map[string]interface{})["policy"])
+
 	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
 	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
 }
