@@ -187,6 +187,13 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.loggingConfiguration);
     }
 
+    @Import(name="maxWebservers")
+    private @Nullable Output<Integer> maxWebservers;
+
+    public Optional<Output<Integer>> maxWebservers() {
+        return Optional.ofNullable(this.maxWebservers);
+    }
+
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
@@ -200,6 +207,13 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> maxWorkers() {
         return Optional.ofNullable(this.maxWorkers);
+    }
+
+    @Import(name="minWebservers")
+    private @Nullable Output<Integer> minWebservers;
+
+    public Optional<Output<Integer>> minWebservers() {
+        return Optional.ofNullable(this.minWebservers);
     }
 
     /**
@@ -510,7 +524,9 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.kmsKey = $.kmsKey;
         this.lastUpdateds = $.lastUpdateds;
         this.loggingConfiguration = $.loggingConfiguration;
+        this.maxWebservers = $.maxWebservers;
         this.maxWorkers = $.maxWorkers;
+        this.minWebservers = $.minWebservers;
         this.minWorkers = $.minWorkers;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
@@ -784,6 +800,15 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
             return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
+        public Builder maxWebservers(@Nullable Output<Integer> maxWebservers) {
+            $.maxWebservers = maxWebservers;
+            return this;
+        }
+
+        public Builder maxWebservers(Integer maxWebservers) {
+            return maxWebservers(Output.of(maxWebservers));
+        }
+
         /**
          * @param maxWorkers The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
          * 
@@ -803,6 +828,15 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxWorkers(Integer maxWorkers) {
             return maxWorkers(Output.of(maxWorkers));
+        }
+
+        public Builder minWebservers(@Nullable Output<Integer> minWebservers) {
+            $.minWebservers = minWebservers;
+            return this;
+        }
+
+        public Builder minWebservers(Integer minWebservers) {
+            return minWebservers(Output.of(minWebservers));
         }
 
         /**

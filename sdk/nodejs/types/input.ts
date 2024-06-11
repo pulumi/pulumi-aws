@@ -543,6 +543,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    drs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ds?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -27801,6 +27805,19 @@ export namespace fsx {
         level?: pulumi.Input<string>;
     }
 
+    export interface LustreFileSystemMetadataConfiguration {
+        /**
+         * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+         *
+         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         */
+        mode?: pulumi.Input<string>;
+    }
+
     export interface LustreFileSystemRootSquashConfiguration {
         /**
          * When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
@@ -54992,6 +55009,81 @@ export namespace organizations {
     }
 }
 
+export namespace paymentcryptography {
+    export interface KeyKeyAttributes {
+        /**
+         * Key algorithm to be use during creation of an AWS Payment Cryptography key.
+         */
+        keyAlgorithm: pulumi.Input<string>;
+        /**
+         * Type of AWS Payment Cryptography key to create.
+         */
+        keyClass: pulumi.Input<string>;
+        /**
+         * List of cryptographic operations that you can perform using the key.
+         */
+        keyModesOfUse?: pulumi.Input<inputs.paymentcryptography.KeyKeyAttributesKeyModesOfUse>;
+        /**
+         * Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
+         */
+        keyUsage: pulumi.Input<string>;
+    }
+
+    export interface KeyKeyAttributesKeyModesOfUse {
+        /**
+         * Whether an AWS Payment Cryptography key can be used to decrypt data.
+         */
+        decrypt?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to derive new keys.
+         */
+        deriveKey?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to encrypt data.
+         */
+        encrypt?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+         */
+        generate?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
+         */
+        noRestrictions?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used for signing.
+         */
+        sign?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to unwrap other keys.
+         */
+        unwrap?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to verify signatures.
+         */
+        verify?: pulumi.Input<boolean>;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to wrap other keys.
+         */
+        wrap?: pulumi.Input<boolean>;
+    }
+
+    export interface KeyTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace pinpoint {
     export interface AppCampaignHook {
         /**
@@ -55055,6 +55147,40 @@ export namespace pipes {
         headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         pathParameterValues?: pulumi.Input<string>;
         queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface PipeLogConfiguration {
+        /**
+         * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+         */
+        cloudwatchLogsLogDestination?: pulumi.Input<inputs.pipes.PipeLogConfigurationCloudwatchLogsLogDestination>;
+        /**
+         * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+         */
+        firehoseLogDestination?: pulumi.Input<inputs.pipes.PipeLogConfigurationFirehoseLogDestination>;
+        /**
+         * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+         */
+        level: pulumi.Input<string>;
+        /**
+         * Amazon S3 logging configuration settings for the pipe. Detailed below.
+         */
+        s3LogDestination?: pulumi.Input<inputs.pipes.PipeLogConfigurationS3LogDestination>;
+    }
+
+    export interface PipeLogConfigurationCloudwatchLogsLogDestination {
+        logGroupArn: pulumi.Input<string>;
+    }
+
+    export interface PipeLogConfigurationFirehoseLogDestination {
+        deliveryStreamArn: pulumi.Input<string>;
+    }
+
+    export interface PipeLogConfigurationS3LogDestination {
+        bucketName: pulumi.Input<string>;
+        bucketOwner: pulumi.Input<string>;
+        outputFormat?: pulumi.Input<string>;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface PipeSourceParameters {
@@ -55187,7 +55313,7 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
-        basicAuth: pulumi.Input<string>;
+        basicAuth?: pulumi.Input<string>;
         clientCertificateTlsAuth?: pulumi.Input<string>;
         saslScram256Auth?: pulumi.Input<string>;
         saslScram512Auth?: pulumi.Input<string>;

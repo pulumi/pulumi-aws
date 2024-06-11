@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Alb
         public Output<bool> Internal { get; private set; } = null!;
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+        /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

@@ -202,6 +202,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly int BgpAsn;
         /// <summary>
+        /// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// </summary>
+        public readonly int BgpAsnExtended;
+        /// <summary>
         /// ARN for the customer gateway certificate.
         /// </summary>
         public readonly string CertificateArn;
@@ -230,6 +234,8 @@ namespace Pulumi.Aws.Ec2
 
             int bgpAsn,
 
+            int bgpAsnExtended,
+
             string certificateArn,
 
             string deviceName,
@@ -246,6 +252,7 @@ namespace Pulumi.Aws.Ec2
         {
             Arn = arn;
             BgpAsn = bgpAsn;
+            BgpAsnExtended = bgpAsnExtended;
             CertificateArn = certificateArn;
             DeviceName = deviceName;
             Filters = filters;

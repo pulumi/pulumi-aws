@@ -399,6 +399,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool SupportsGlobalDatabases;
         /// <summary>
+        /// Whether the engine version supports Aurora Limitless Database.
+        /// </summary>
+        public readonly bool SupportsLimitlessDatabase;
+        /// <summary>
         /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
         public readonly bool SupportsLogExportsToCloudwatch;
@@ -476,6 +480,8 @@ namespace Pulumi.Aws.Rds
 
             bool supportsGlobalDatabases,
 
+            bool supportsLimitlessDatabase,
+
             bool supportsLogExportsToCloudwatch,
 
             bool supportsParallelQuery,
@@ -515,6 +521,7 @@ namespace Pulumi.Aws.Rds
             SupportedModes = supportedModes;
             SupportedTimezones = supportedTimezones;
             SupportsGlobalDatabases = supportsGlobalDatabases;
+            SupportsLimitlessDatabase = supportsLimitlessDatabase;
             SupportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             SupportsParallelQuery = supportsParallelQuery;
             SupportsReadReplica = supportsReadReplica;

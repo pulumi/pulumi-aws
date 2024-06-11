@@ -82,18 +82,32 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
     @Export(name="bgpAsn", refs={String.class}, tree="[0]")
-    private Output<String> bgpAsn;
+    private Output</* @Nullable */ String> bgpAsn;
 
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
-    public Output<String> bgpAsn() {
-        return this.bgpAsn;
+    public Output<Optional<String>> bgpAsn() {
+        return Codegen.optional(this.bgpAsn);
+    }
+    /**
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * 
+     */
+    @Export(name="bgpAsnExtended", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> bgpAsnExtended;
+
+    /**
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * 
+     */
+    public Output<Optional<String>> bgpAsnExtended() {
+        return Codegen.optional(this.bgpAsnExtended);
     }
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.

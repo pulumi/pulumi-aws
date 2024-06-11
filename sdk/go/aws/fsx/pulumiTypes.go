@@ -1202,6 +1202,170 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LustreFileSystemMetadataConfiguration struct {
+	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+	//
+	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+	Iops *int `pulumi:"iops"`
+	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	Mode *string `pulumi:"mode"`
+}
+
+// LustreFileSystemMetadataConfigurationInput is an input type that accepts LustreFileSystemMetadataConfigurationArgs and LustreFileSystemMetadataConfigurationOutput values.
+// You can construct a concrete instance of `LustreFileSystemMetadataConfigurationInput` via:
+//
+//	LustreFileSystemMetadataConfigurationArgs{...}
+type LustreFileSystemMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemMetadataConfigurationOutput() LustreFileSystemMetadataConfigurationOutput
+	ToLustreFileSystemMetadataConfigurationOutputWithContext(context.Context) LustreFileSystemMetadataConfigurationOutput
+}
+
+type LustreFileSystemMetadataConfigurationArgs struct {
+	// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+	//
+	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (LustreFileSystemMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemMetadataConfiguration)(nil)).Elem()
+}
+
+func (i LustreFileSystemMetadataConfigurationArgs) ToLustreFileSystemMetadataConfigurationOutput() LustreFileSystemMetadataConfigurationOutput {
+	return i.ToLustreFileSystemMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemMetadataConfigurationArgs) ToLustreFileSystemMetadataConfigurationOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMetadataConfigurationOutput)
+}
+
+func (i LustreFileSystemMetadataConfigurationArgs) ToLustreFileSystemMetadataConfigurationPtrOutput() LustreFileSystemMetadataConfigurationPtrOutput {
+	return i.ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemMetadataConfigurationArgs) ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMetadataConfigurationOutput).ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// LustreFileSystemMetadataConfigurationPtrInput is an input type that accepts LustreFileSystemMetadataConfigurationArgs, LustreFileSystemMetadataConfigurationPtr and LustreFileSystemMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `LustreFileSystemMetadataConfigurationPtrInput` via:
+//
+//	        LustreFileSystemMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LustreFileSystemMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemMetadataConfigurationPtrOutput() LustreFileSystemMetadataConfigurationPtrOutput
+	ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(context.Context) LustreFileSystemMetadataConfigurationPtrOutput
+}
+
+type lustreFileSystemMetadataConfigurationPtrType LustreFileSystemMetadataConfigurationArgs
+
+func LustreFileSystemMetadataConfigurationPtr(v *LustreFileSystemMetadataConfigurationArgs) LustreFileSystemMetadataConfigurationPtrInput {
+	return (*lustreFileSystemMetadataConfigurationPtrType)(v)
+}
+
+func (*lustreFileSystemMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *lustreFileSystemMetadataConfigurationPtrType) ToLustreFileSystemMetadataConfigurationPtrOutput() LustreFileSystemMetadataConfigurationPtrOutput {
+	return i.ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *lustreFileSystemMetadataConfigurationPtrType) ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMetadataConfigurationPtrOutput)
+}
+
+type LustreFileSystemMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemMetadataConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataConfigurationOutput() LustreFileSystemMetadataConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataConfigurationOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataConfigurationPtrOutput() LustreFileSystemMetadataConfigurationPtrOutput {
+	return o.ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LustreFileSystemMetadataConfigurationOutput) ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LustreFileSystemMetadataConfiguration) *LustreFileSystemMetadataConfiguration {
+		return &v
+	}).(LustreFileSystemMetadataConfigurationPtrOutput)
+}
+
+// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+//
+// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+func (o LustreFileSystemMetadataConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+func (o LustreFileSystemMetadataConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type LustreFileSystemMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemMetadataConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemMetadataConfigurationPtrOutput) ToLustreFileSystemMetadataConfigurationPtrOutput() LustreFileSystemMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemMetadataConfigurationPtrOutput) ToLustreFileSystemMetadataConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemMetadataConfigurationPtrOutput) Elem() LustreFileSystemMetadataConfigurationOutput {
+	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) LustreFileSystemMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LustreFileSystemMetadataConfiguration
+		return ret
+	}).(LustreFileSystemMetadataConfigurationOutput)
+}
+
+// Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+//
+// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+func (o LustreFileSystemMetadataConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type LustreFileSystemRootSquashConfiguration struct {
 	// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
 	NoSquashNids []string `pulumi:"noSquashNids"`
@@ -7759,6 +7923,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationPtrInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemMetadataConfigurationInput)(nil)).Elem(), LustreFileSystemMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemMetadataConfigurationPtrInput)(nil)).Elem(), LustreFileSystemMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemRootSquashConfigurationInput)(nil)).Elem(), LustreFileSystemRootSquashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemRootSquashConfigurationPtrInput)(nil)).Elem(), LustreFileSystemRootSquashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
@@ -7875,6 +8041,8 @@ func init() {
 	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemRootSquashConfigurationOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemRootSquashConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})

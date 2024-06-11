@@ -152,6 +152,8 @@ type GetEngineVersionResult struct {
 	SupportedTimezones []string `pulumi:"supportedTimezones"`
 	// Whether you can use Aurora global databases with the engine version.
 	SupportsGlobalDatabases bool `pulumi:"supportsGlobalDatabases"`
+	// Whether the engine version supports Aurora Limitless Database.
+	SupportsLimitlessDatabase bool `pulumi:"supportsLimitlessDatabase"`
 	// Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
 	SupportsLogExportsToCloudwatch bool `pulumi:"supportsLogExportsToCloudwatch"`
 	// Whether you can use Aurora parallel query with the engine version.
@@ -324,6 +326,11 @@ func (o GetEngineVersionResultOutput) SupportedTimezones() pulumi.StringArrayOut
 // Whether you can use Aurora global databases with the engine version.
 func (o GetEngineVersionResultOutput) SupportsGlobalDatabases() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsGlobalDatabases }).(pulumi.BoolOutput)
+}
+
+// Whether the engine version supports Aurora Limitless Database.
+func (o GetEngineVersionResultOutput) SupportsLimitlessDatabase() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLimitlessDatabase }).(pulumi.BoolOutput)
 }
 
 // Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.

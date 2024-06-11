@@ -89,6 +89,8 @@ type LustreFileSystem struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 	LogConfiguration LustreFileSystemLogConfigurationOutput `pulumi:"logConfiguration"`
+	// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+	MetadataConfiguration LustreFileSystemMetadataConfigurationOutput `pulumi:"metadataConfiguration"`
 	// The value to be used when mounting the filesystem.
 	MountName pulumi.StringOutput `pulumi:"mountName"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -184,6 +186,8 @@ type lustreFileSystemState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 	LogConfiguration *LustreFileSystemLogConfiguration `pulumi:"logConfiguration"`
+	// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+	MetadataConfiguration *LustreFileSystemMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The value to be used when mounting the filesystem.
 	MountName *string `pulumi:"mountName"`
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -247,6 +251,8 @@ type LustreFileSystemState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 	LogConfiguration LustreFileSystemLogConfigurationPtrInput
+	// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+	MetadataConfiguration LustreFileSystemMetadataConfigurationPtrInput
 	// The value to be used when mounting the filesystem.
 	MountName pulumi.StringPtrInput
 	// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
@@ -310,6 +316,8 @@ type lustreFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 	LogConfiguration *LustreFileSystemLogConfiguration `pulumi:"logConfiguration"`
+	// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+	MetadataConfiguration *LustreFileSystemMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput *int `pulumi:"perUnitStorageThroughput"`
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
@@ -358,6 +366,8 @@ type LustreFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 	LogConfiguration LustreFileSystemLogConfigurationPtrInput
+	// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+	MetadataConfiguration LustreFileSystemMetadataConfigurationPtrInput
 	// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
 	PerUnitStorageThroughput pulumi.IntPtrInput
 	// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
@@ -541,6 +551,11 @@ func (o LustreFileSystemOutput) KmsKeyId() pulumi.StringOutput {
 // The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
 func (o LustreFileSystemOutput) LogConfiguration() LustreFileSystemLogConfigurationOutput {
 	return o.ApplyT(func(v *LustreFileSystem) LustreFileSystemLogConfigurationOutput { return v.LogConfiguration }).(LustreFileSystemLogConfigurationOutput)
+}
+
+// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+func (o LustreFileSystemOutput) MetadataConfiguration() LustreFileSystemMetadataConfigurationOutput {
+	return o.ApplyT(func(v *LustreFileSystem) LustreFileSystemMetadataConfigurationOutput { return v.MetadataConfiguration }).(LustreFileSystemMetadataConfigurationOutput)
 }
 
 // The value to be used when mounting the filesystem.

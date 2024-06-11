@@ -45,6 +45,13 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.serverId);
     }
 
+    @Import(name="sshKeyId")
+    private @Nullable Output<String> sshKeyId;
+
+    public Optional<Output<String>> sshKeyId() {
+        return Optional.ofNullable(this.sshKeyId);
+    }
+
     /**
      * The name of the user account that is assigned to one or more servers.
      * 
@@ -65,6 +72,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
     private SshKeyState(SshKeyState $) {
         this.body = $.body;
         this.serverId = $.serverId;
+        this.sshKeyId = $.sshKeyId;
         this.userName = $.userName;
     }
 
@@ -126,6 +134,15 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
+        }
+
+        public Builder sshKeyId(@Nullable Output<String> sshKeyId) {
+            $.sshKeyId = sshKeyId;
+            return this;
+        }
+
+        public Builder sshKeyId(String sshKeyId) {
+            return sshKeyId(Output.of(sshKeyId));
         }
 
         /**

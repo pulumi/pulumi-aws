@@ -197,10 +197,12 @@ export class Environment extends pulumi.CustomResource {
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration>;
+    public readonly maxWebservers!: pulumi.Output<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     public readonly maxWorkers!: pulumi.Output<number>;
+    public readonly minWebservers!: pulumi.Output<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */
@@ -305,7 +307,9 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
             resourceInputs["lastUpdateds"] = state ? state.lastUpdateds : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
+            resourceInputs["maxWebservers"] = state ? state.maxWebservers : undefined;
             resourceInputs["maxWorkers"] = state ? state.maxWorkers : undefined;
+            resourceInputs["minWebservers"] = state ? state.minWebservers : undefined;
             resourceInputs["minWorkers"] = state ? state.minWorkers : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
@@ -347,7 +351,9 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["maxWebservers"] = args ? args.maxWebservers : undefined;
             resourceInputs["maxWorkers"] = args ? args.maxWorkers : undefined;
+            resourceInputs["minWebservers"] = args ? args.minWebservers : undefined;
             resourceInputs["minWorkers"] = args ? args.minWorkers : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
@@ -426,10 +432,12 @@ export interface EnvironmentState {
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    maxWebservers?: pulumi.Input<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     maxWorkers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */
@@ -543,10 +551,12 @@ export interface EnvironmentArgs {
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfiguration>;
+    maxWebservers?: pulumi.Input<number>;
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      */
     maxWorkers?: pulumi.Input<number>;
+    minWebservers?: pulumi.Input<number>;
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      */

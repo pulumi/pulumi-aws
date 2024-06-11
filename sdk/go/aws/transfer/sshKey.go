@@ -143,6 +143,7 @@ type SshKey struct {
 	Body pulumi.StringOutput `pulumi:"body"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	SshKeyId pulumi.StringOutput `pulumi:"sshKeyId"`
 	// The name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
@@ -190,6 +191,7 @@ type sshKeyState struct {
 	Body *string `pulumi:"body"`
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
+	SshKeyId *string `pulumi:"sshKeyId"`
 	// The name of the user account that is assigned to one or more servers.
 	UserName *string `pulumi:"userName"`
 }
@@ -199,6 +201,7 @@ type SshKeyState struct {
 	Body pulumi.StringPtrInput
 	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
+	SshKeyId pulumi.StringPtrInput
 	// The name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringPtrInput
 }
@@ -321,6 +324,10 @@ func (o SshKeyOutput) Body() pulumi.StringOutput {
 // The Server ID of the Transfer Server (e.g., `s-12345678`)
 func (o SshKeyOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o SshKeyOutput) SshKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.SshKeyId }).(pulumi.StringOutput)
 }
 
 // The name of the user account that is assigned to one or more servers.

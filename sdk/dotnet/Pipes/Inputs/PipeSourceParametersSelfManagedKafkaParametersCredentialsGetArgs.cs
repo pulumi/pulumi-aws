@@ -12,8 +12,8 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersSelfManagedKafkaParametersCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("basicAuth", required: true)]
-        public Input<string> BasicAuth { get; set; } = null!;
+        [Input("basicAuth")]
+        public Input<string>? BasicAuth { get; set; }
 
         [Input("clientCertificateTlsAuth")]
         public Input<string>? ClientCertificateTlsAuth { get; set; }

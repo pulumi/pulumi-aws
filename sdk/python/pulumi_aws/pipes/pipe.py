@@ -23,6 +23,7 @@ class PipeArgs:
                  desired_state: Optional[pulumi.Input[str]] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
@@ -39,6 +40,7 @@ class PipeArgs:
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: Parameters to configure a source for the pipe. Detailed below.
@@ -56,6 +58,8 @@ class PipeArgs:
             pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
             pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -154,6 +158,18 @@ class PipeArgs:
         pulumi.set(self, "enrichment_parameters", value)
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
+        """
+        Logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['PipeLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -222,6 +238,7 @@ class _PipeState:
                  desired_state: Optional[pulumi.Input[str]] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -238,6 +255,7 @@ class _PipeState:
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
@@ -260,6 +278,8 @@ class _PipeState:
             pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
             pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -341,6 +361,18 @@ class _PipeState:
     @enrichment_parameters.setter
     def enrichment_parameters(self, value: Optional[pulumi.Input['PipeEnrichmentParametersArgs']]):
         pulumi.set(self, "enrichment_parameters", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
+        """
+        Logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['PipeLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
 
     @property
     @pulumi.getter
@@ -465,6 +497,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input[str]] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -609,6 +642,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
@@ -774,6 +808,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input[str]] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -795,6 +830,7 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
+            __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             if role_arn is None and not opts.urn:
@@ -826,6 +862,7 @@ class Pipe(pulumi.CustomResource):
             desired_state: Optional[pulumi.Input[str]] = None,
             enrichment: Optional[pulumi.Input[str]] = None,
             enrichment_parameters: Optional[pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']]] = None,
+            log_configuration: Optional[pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
@@ -847,6 +884,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
@@ -868,6 +906,7 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["desired_state"] = desired_state
         __props__.__dict__["enrichment"] = enrichment
         __props__.__dict__["enrichment_parameters"] = enrichment_parameters
+        __props__.__dict__["log_configuration"] = log_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["role_arn"] = role_arn
@@ -918,6 +957,14 @@ class Pipe(pulumi.CustomResource):
         Parameters to configure enrichment for your pipe. Detailed below.
         """
         return pulumi.get(self, "enrichment_parameters")
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Output[Optional['outputs.PipeLogConfiguration']]:
+        """
+        Logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter

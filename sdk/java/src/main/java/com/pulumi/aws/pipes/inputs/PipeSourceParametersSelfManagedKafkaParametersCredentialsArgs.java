@@ -5,7 +5,6 @@ package com.pulumi.aws.pipes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,11 +15,11 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
 
     public static final PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs Empty = new PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs();
 
-    @Import(name="basicAuth", required=true)
-    private Output<String> basicAuth;
+    @Import(name="basicAuth")
+    private @Nullable Output<String> basicAuth;
 
-    public Output<String> basicAuth() {
-        return this.basicAuth;
+    public Optional<Output<String>> basicAuth() {
+        return Optional.ofNullable(this.basicAuth);
     }
 
     @Import(name="clientCertificateTlsAuth")
@@ -71,7 +70,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
             $ = new PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder basicAuth(Output<String> basicAuth) {
+        public Builder basicAuth(@Nullable Output<String> basicAuth) {
             $.basicAuth = basicAuth;
             return this;
         }
@@ -108,9 +107,6 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
         }
 
         public PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs build() {
-            if ($.basicAuth == null) {
-                throw new MissingRequiredPropertyException("PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs", "basicAuth");
-            }
             return $;
         }
     }

@@ -139,7 +139,7 @@ type LoadBalancer struct {
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolOutput `pulumi:"internal"`
-	// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrOutput `pulumi:"loadBalancerType"`
@@ -242,7 +242,7 @@ type loadBalancerState struct {
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
-	// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
@@ -310,7 +310,7 @@ type LoadBalancerState struct {
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
-	// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 	IpAddressType pulumi.StringPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
@@ -376,7 +376,7 @@ type loadBalancerArgs struct {
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
-	// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
@@ -432,7 +432,7 @@ type LoadBalancerArgs struct {
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
-	// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+	// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 	IpAddressType pulumi.StringPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
@@ -638,7 +638,7 @@ func (o LoadBalancerOutput) Internal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolOutput { return v.Internal }).(pulumi.BoolOutput)
 }
 
-// Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
 func (o LoadBalancerOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }

@@ -308,14 +308,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -957,7 +957,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
          * 
          * @return builder
          * 
@@ -968,7 +968,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
          * 
          * @return builder
          * 

@@ -266,6 +266,8 @@ type Pipe struct {
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
+	// Logging configuration settings for the pipe. Detailed below.
+	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -339,6 +341,8 @@ type pipeState struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	// Logging configuration settings for the pipe. Detailed below.
+	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -374,6 +378,8 @@ type PipeState struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	// Logging configuration settings for the pipe. Detailed below.
+	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -411,6 +417,8 @@ type pipeArgs struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	// Logging configuration settings for the pipe. Detailed below.
+	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -441,6 +449,8 @@ type PipeArgs struct {
 	Enrichment pulumi.StringPtrInput
 	// Parameters to configure enrichment for your pipe. Detailed below.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	// Logging configuration settings for the pipe. Detailed below.
+	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -571,6 +581,11 @@ func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 // Parameters to configure enrichment for your pipe. Detailed below.
 func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
+}
+
+// Logging configuration settings for the pipe. Detailed below.
+func (o PipeOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *Pipe) PipeLogConfigurationPtrOutput { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
 
 // Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.

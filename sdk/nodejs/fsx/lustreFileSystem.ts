@@ -127,6 +127,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
     /**
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     */
+    public readonly metadataConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemMetadataConfiguration>;
+    /**
      * The value to be used when mounting the filesystem.
      */
     public /*out*/ readonly mountName!: pulumi.Output<string>;
@@ -210,6 +214,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
+            resourceInputs["metadataConfiguration"] = state ? state.metadataConfiguration : undefined;
             resourceInputs["mountName"] = state ? state.mountName : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
@@ -242,6 +247,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
+            resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
             resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
             resourceInputs["rootSquashConfiguration"] = args ? args.rootSquashConfiguration : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -331,6 +337,10 @@ export interface LustreFileSystemState {
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
     logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
+    /**
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
      * The value to be used when mounting the filesystem.
      */
@@ -447,6 +457,10 @@ export interface LustreFileSystemArgs {
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
      */
     logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
+    /**
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     */
+    metadataConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */

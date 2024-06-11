@@ -54,10 +54,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
         [Output("bgpAsn")]
-        public Output<string> BgpAsn { get; private set; } = null!;
+        public Output<string?> BgpAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        /// </summary>
+        [Output("bgpAsnExtended")]
+        public Output<string?> BgpAsnExtended { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -143,10 +149,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class CustomerGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
-        [Input("bgpAsn", required: true)]
-        public Input<string> BgpAsn { get; set; } = null!;
+        [Input("bgpAsn")]
+        public Input<string>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        /// </summary>
+        [Input("bgpAsnExtended")]
+        public Input<string>? BgpAsnExtended { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -200,10 +212,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
         [Input("bgpAsn")]
         public Input<string>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        /// </summary>
+        [Input("bgpAsnExtended")]
+        public Input<string>? BgpAsnExtended { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.

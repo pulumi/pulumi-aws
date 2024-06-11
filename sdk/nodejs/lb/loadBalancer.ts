@@ -213,7 +213,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly internal!: pulumi.Output<boolean>;
     /**
-     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
@@ -432,7 +432,7 @@ export interface LoadBalancerState {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -553,7 +553,7 @@ export interface LoadBalancerArgs {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
     ipAddressType?: pulumi.Input<string>;
     /**

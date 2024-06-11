@@ -26,7 +26,9 @@ class EnvironmentArgs:
                  environment_class: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
+                 max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
@@ -80,8 +82,12 @@ class EnvironmentArgs:
             pulumi.set(__self__, "kms_key", kms_key)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if max_webservers is not None:
+            pulumi.set(__self__, "max_webservers", max_webservers)
         if max_workers is not None:
             pulumi.set(__self__, "max_workers", max_workers)
+        if min_webservers is not None:
+            pulumi.set(__self__, "min_webservers", min_webservers)
         if min_workers is not None:
             pulumi.set(__self__, "min_workers", min_workers)
         if name is not None:
@@ -225,6 +231,15 @@ class EnvironmentArgs:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="maxWebservers")
+    def max_webservers(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_webservers")
+
+    @max_webservers.setter
+    def max_webservers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_webservers", value)
+
+    @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[pulumi.Input[int]]:
         """
@@ -235,6 +250,15 @@ class EnvironmentArgs:
     @max_workers.setter
     def max_workers(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_workers", value)
+
+    @property
+    @pulumi.getter(name="minWebservers")
+    def min_webservers(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_webservers")
+
+    @min_webservers.setter
+    def min_webservers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_webservers", value)
 
     @property
     @pulumi.getter(name="minWorkers")
@@ -396,7 +420,9 @@ class _EnvironmentState:
                  kms_key: Optional[pulumi.Input[str]] = None,
                  last_updateds: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedArgs']]]] = None,
                  logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
+                 max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']] = None,
@@ -474,8 +500,12 @@ class _EnvironmentState:
             pulumi.set(__self__, "last_updateds", last_updateds)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if max_webservers is not None:
+            pulumi.set(__self__, "max_webservers", max_webservers)
         if max_workers is not None:
             pulumi.set(__self__, "max_workers", max_workers)
+        if min_webservers is not None:
+            pulumi.set(__self__, "min_webservers", min_webservers)
         if min_workers is not None:
             pulumi.set(__self__, "min_workers", min_workers)
         if name is not None:
@@ -658,6 +688,15 @@ class _EnvironmentState:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="maxWebservers")
+    def max_webservers(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_webservers")
+
+    @max_webservers.setter
+    def max_webservers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_webservers", value)
+
+    @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> Optional[pulumi.Input[int]]:
         """
@@ -668,6 +707,15 @@ class _EnvironmentState:
     @max_workers.setter
     def max_workers(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_workers", value)
+
+    @property
+    @pulumi.getter(name="minWebservers")
+    def min_webservers(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_webservers")
+
+    @min_webservers.setter
+    def min_webservers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_webservers", value)
 
     @property
     @pulumi.getter(name="minWorkers")
@@ -914,7 +962,9 @@ class Environment(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
+                 max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
@@ -1214,7 +1264,9 @@ class Environment(pulumi.CustomResource):
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
+                 max_webservers: Optional[pulumi.Input[int]] = None,
                  max_workers: Optional[pulumi.Input[int]] = None,
+                 min_webservers: Optional[pulumi.Input[int]] = None,
                  min_workers: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
@@ -1250,7 +1302,9 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["max_webservers"] = max_webservers
             __props__.__dict__["max_workers"] = max_workers
+            __props__.__dict__["min_webservers"] = min_webservers
             __props__.__dict__["min_workers"] = min_workers
             __props__.__dict__["name"] = name
             if network_configuration is None and not opts.urn:
@@ -1302,7 +1356,9 @@ class Environment(pulumi.CustomResource):
             kms_key: Optional[pulumi.Input[str]] = None,
             last_updateds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentLastUpdatedArgs']]]]] = None,
             logging_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentLoggingConfigurationArgs']]] = None,
+            max_webservers: Optional[pulumi.Input[int]] = None,
             max_workers: Optional[pulumi.Input[int]] = None,
+            min_webservers: Optional[pulumi.Input[int]] = None,
             min_workers: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentNetworkConfigurationArgs']]] = None,
@@ -1377,7 +1433,9 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["kms_key"] = kms_key
         __props__.__dict__["last_updateds"] = last_updateds
         __props__.__dict__["logging_configuration"] = logging_configuration
+        __props__.__dict__["max_webservers"] = max_webservers
         __props__.__dict__["max_workers"] = max_workers
+        __props__.__dict__["min_webservers"] = min_webservers
         __props__.__dict__["min_workers"] = min_workers
         __props__.__dict__["name"] = name
         __props__.__dict__["network_configuration"] = network_configuration
@@ -1491,12 +1549,22 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "logging_configuration")
 
     @property
+    @pulumi.getter(name="maxWebservers")
+    def max_webservers(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "max_webservers")
+
+    @property
     @pulumi.getter(name="maxWorkers")
     def max_workers(self) -> pulumi.Output[int]:
         """
         The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         """
         return pulumi.get(self, "max_workers")
+
+    @property
+    @pulumi.getter(name="minWebservers")
+    def min_webservers(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "min_webservers")
 
     @property
     @pulumi.getter(name="minWorkers")

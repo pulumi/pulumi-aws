@@ -677,7 +677,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Private Certificates
 
-        Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
+        Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
 
         Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
         See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
@@ -818,7 +818,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Private Certificates
 
-        Private certificates are issued by an ACM Private Cerificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
+        Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
 
         Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
         See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.

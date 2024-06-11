@@ -215,8 +215,10 @@ type Environment struct {
 	LastUpdateds EnvironmentLastUpdatedArrayOutput `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
 	LoggingConfiguration EnvironmentLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
+	MaxWebservers        pulumi.IntOutput                      `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers pulumi.IntOutput `pulumi:"maxWorkers"`
+	MaxWorkers    pulumi.IntOutput `pulumi:"maxWorkers"`
+	MinWebservers pulumi.IntOutput `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntOutput `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
@@ -331,8 +333,10 @@ type environmentState struct {
 	LastUpdateds []EnvironmentLastUpdated `pulumi:"lastUpdateds"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWebservers        *int                             `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers *int `pulumi:"maxWorkers"`
+	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
@@ -399,8 +403,10 @@ type EnvironmentState struct {
 	LastUpdateds EnvironmentLastUpdatedArrayInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
+	MaxWebservers        pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers pulumi.IntPtrInput
+	MaxWorkers    pulumi.IntPtrInput
+	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
 	// The name of the Apache Airflow Environment
@@ -463,8 +469,10 @@ type environmentArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
+	MaxWebservers        *int                             `pulumi:"maxWebservers"`
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers *int `pulumi:"maxWorkers"`
+	MaxWorkers    *int `pulumi:"maxWorkers"`
+	MinWebservers *int `pulumi:"minWebservers"`
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers *int `pulumi:"minWorkers"`
 	// The name of the Apache Airflow Environment
@@ -512,8 +520,10 @@ type EnvironmentArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
+	MaxWebservers        pulumi.IntPtrInput
 	// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
-	MaxWorkers pulumi.IntPtrInput
+	MaxWorkers    pulumi.IntPtrInput
+	MinWebservers pulumi.IntPtrInput
 	// The minimum number of workers that you want to run in your environment. Will be `1` by default.
 	MinWorkers pulumi.IntPtrInput
 	// The name of the Apache Airflow Environment
@@ -690,9 +700,17 @@ func (o EnvironmentOutput) LoggingConfiguration() EnvironmentLoggingConfiguratio
 	return o.ApplyT(func(v *Environment) EnvironmentLoggingConfigurationOutput { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationOutput)
 }
 
+func (o EnvironmentOutput) MaxWebservers() pulumi.IntOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWebservers }).(pulumi.IntOutput)
+}
+
 // The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
 func (o EnvironmentOutput) MaxWorkers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MaxWorkers }).(pulumi.IntOutput)
+}
+
+func (o EnvironmentOutput) MinWebservers() pulumi.IntOutput {
+	return o.ApplyT(func(v *Environment) pulumi.IntOutput { return v.MinWebservers }).(pulumi.IntOutput)
 }
 
 // The minimum number of workers that you want to run in your environment. Will be `1` by default.

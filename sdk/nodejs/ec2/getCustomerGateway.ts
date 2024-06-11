@@ -78,6 +78,10 @@ export interface GetCustomerGatewayResult {
      */
     readonly bgpAsn: number;
     /**
+     * Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     */
+    readonly bgpAsnExtended: number;
+    /**
      * ARN for the customer gateway certificate.
      */
     readonly certificateArn: string;

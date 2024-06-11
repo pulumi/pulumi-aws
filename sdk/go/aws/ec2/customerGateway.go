@@ -57,8 +57,10 @@ type CustomerGateway struct {
 
 	// The ARN of the customer gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
+	BgpAsn pulumi.StringPtrOutput `pulumi:"bgpAsn"`
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsnExtended pulumi.StringPtrOutput `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
@@ -83,9 +85,6 @@ func NewCustomerGateway(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BgpAsn == nil {
-		return nil, errors.New("invalid value for required argument 'BgpAsn'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -114,8 +113,10 @@ func GetCustomerGateway(ctx *pulumi.Context,
 type customerGatewayState struct {
 	// The ARN of the customer gateway.
 	Arn *string `pulumi:"arn"`
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
 	BgpAsn *string `pulumi:"bgpAsn"`
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
@@ -136,8 +137,10 @@ type customerGatewayState struct {
 type CustomerGatewayState struct {
 	// The ARN of the customer gateway.
 	Arn pulumi.StringPtrInput
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
 	BgpAsn pulumi.StringPtrInput
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsnExtended pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
@@ -160,8 +163,10 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 }
 
 type customerGatewayArgs struct {
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn string `pulumi:"bgpAsn"`
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
+	BgpAsn *string `pulumi:"bgpAsn"`
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
@@ -177,8 +182,10 @@ type customerGatewayArgs struct {
 
 // The set of arguments for constructing a CustomerGateway resource.
 type CustomerGatewayArgs struct {
-	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-	BgpAsn pulumi.StringInput
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
+	BgpAsn pulumi.StringPtrInput
+	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+	BgpAsnExtended pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
@@ -284,9 +291,14 @@ func (o CustomerGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-func (o CustomerGatewayOutput) BgpAsn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.BgpAsn }).(pulumi.StringOutput)
+// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
+func (o CustomerGatewayOutput) BgpAsn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.BgpAsn }).(pulumi.StringPtrOutput)
+}
+
+// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.BgpAsnExtended }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the customer gateway certificate.
