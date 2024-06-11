@@ -253,32 +253,8 @@ jobs:
 
   sentinel:
     name: sentinel
-    # We would like to be able to specify `sentinel` as the only required job for this
-    # workflow. To do that, we need `sentinel` to succeed only when it is safe to
-    # merge and fail in all other cases.
-    #
-    # We can't use the default `if: success()`, since GitHub interprets a skipped job as a
-    # success, and by default a dependee job failing will skip a dependent job. That means
-    # if a test step fails, then it will skip `sentinel` so GitHub will register
-    # `sentinel` as succeeded.
-    #
-    # GitHub documents `jobs.result` as:
-    #
-    # The result of a job in the reusable workflow. Possible values are success,
-    # failure, cancelled, or skipped.
-    #
-    # GitHub documents `cancelled()` as:
-    #
-    # Returns true if the workflow was canceled.
-    #
-    # Combining these terms gives us an intuitive definition of success:
-    #
-    # We have succeeded when no dependent workflow has failed and the job was
-    # not cancelled.
-    #
-    if: (github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository) &&
-      ! cancelled()
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
     needs:
     - test
     - license_check
@@ -287,23 +263,17 @@ jobs:
     - test_oidc
     runs-on: ubuntu-latest
     steps:
-    - name: Workflow is not a success
-      if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
-      run: exit 1
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76
       with: 
         authToken: ${{secrets.GITHUB_TOKEN}}
         # Write an explicit status check called "Sentinel" which will only pass if this code really runs.
-        # Once rolled out, we can make this the only required check for PRs,
-        # then remove the old conditionals on this job and remove the previous step.
+        # This should always be a required check for PRs.
         context: 'Sentinel'
         description: 'All required checks passed'
         state: 'success'
         # Write to the PR commit SHA if it's available as we don't want the merge commit sha,
         # otherwise use the current SHA for any other type of build.
         sha: ${{ github.event.pull_request.head.sha || github.sha }}
-    - name: Workflow is a success
-      run: echo "🎉🎈🎉🎈🎉"
 
   test:
     if: github.event_name == 'repository_dispatch' ||
