@@ -251,6 +251,44 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Redeploy Service On Every Apply
+ * 
+ * The key used with `triggers` is arbitrary.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Service;
+ * import com.pulumi.aws.ecs.ServiceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Service("example", ServiceArgs.builder()
+ *             .forceNewDeployment(true)
+ *             .triggers(Map.of("redeployment", "plantimestamp()"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
@@ -649,14 +687,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskDefinition);
     }
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. See example above.
      * 
      */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
     /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. See example above.
      * 
      */
     public Output<Map<String,String>> triggers() {

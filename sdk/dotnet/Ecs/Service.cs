@@ -161,6 +161,30 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Redeploy Service On Every Apply
+    /// 
+    /// The key used with `triggers` is arbitrary.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.Service("example", new()
+    ///     {
+    ///         ForceNewDeployment = true,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", "plantimestamp()" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
@@ -337,7 +361,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
@@ -592,7 +616,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -825,7 +849,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
         /// </summary>
         public InputMap<string> Triggers
         {
