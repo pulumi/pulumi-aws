@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.LustreFileSystemArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemState;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemLogConfiguration;
+import com.pulumi.aws.fsx.outputs.LustreFileSystemMetadataConfiguration;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemRootSquashConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -297,6 +298,20 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<LustreFileSystemLogConfiguration> logConfiguration() {
         return this.logConfiguration;
+    }
+    /**
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * 
+     */
+    @Export(name="metadataConfiguration", refs={LustreFileSystemMetadataConfiguration.class}, tree="[0]")
+    private Output<LustreFileSystemMetadataConfiguration> metadataConfiguration;
+
+    /**
+     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * 
+     */
+    public Output<LustreFileSystemMetadataConfiguration> metadataConfiguration() {
+        return this.metadataConfiguration;
     }
     /**
      * The value to be used when mounting the filesystem.

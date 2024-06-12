@@ -603,6 +603,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("drs")]
+        public Input<string>? Drs { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ds")]
         public Input<string>? Ds { get; set; }
 

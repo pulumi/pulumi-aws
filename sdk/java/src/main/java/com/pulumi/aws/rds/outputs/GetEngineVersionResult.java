@@ -77,6 +77,11 @@ public final class GetEngineVersionResult {
      */
     private Boolean supportsGlobalDatabases;
     /**
+     * @return Whether the engine version supports Aurora Limitless Database.
+     * 
+     */
+    private Boolean supportsLimitlessDatabase;
+    /**
      * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
@@ -223,6 +228,13 @@ public final class GetEngineVersionResult {
         return this.supportsGlobalDatabases;
     }
     /**
+     * @return Whether the engine version supports Aurora Limitless Database.
+     * 
+     */
+    public Boolean supportsLimitlessDatabase() {
+        return this.supportsLimitlessDatabase;
+    }
+    /**
      * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
@@ -312,6 +324,7 @@ public final class GetEngineVersionResult {
         private List<String> supportedModes;
         private List<String> supportedTimezones;
         private Boolean supportsGlobalDatabases;
+        private Boolean supportsLimitlessDatabase;
         private Boolean supportsLogExportsToCloudwatch;
         private Boolean supportsParallelQuery;
         private Boolean supportsReadReplica;
@@ -345,6 +358,7 @@ public final class GetEngineVersionResult {
     	      this.supportedModes = defaults.supportedModes;
     	      this.supportedTimezones = defaults.supportedTimezones;
     	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
+    	      this.supportsLimitlessDatabase = defaults.supportsLimitlessDatabase;
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.supportsParallelQuery = defaults.supportsParallelQuery;
     	      this.supportsReadReplica = defaults.supportsReadReplica;
@@ -534,6 +548,14 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder supportsLimitlessDatabase(Boolean supportsLimitlessDatabase) {
+            if (supportsLimitlessDatabase == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLimitlessDatabase");
+            }
+            this.supportsLimitlessDatabase = supportsLimitlessDatabase;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportsLogExportsToCloudwatch(Boolean supportsLogExportsToCloudwatch) {
             if (supportsLogExportsToCloudwatch == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "supportsLogExportsToCloudwatch");
@@ -637,6 +659,7 @@ public final class GetEngineVersionResult {
             _resultValue.supportedModes = supportedModes;
             _resultValue.supportedTimezones = supportedTimezones;
             _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;
+            _resultValue.supportsLimitlessDatabase = supportsLimitlessDatabase;
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.supportsParallelQuery = supportsParallelQuery;
             _resultValue.supportsReadReplica = supportsReadReplica;

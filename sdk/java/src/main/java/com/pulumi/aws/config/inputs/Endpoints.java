@@ -505,6 +505,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String drs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ds;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2113,6 +2118,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> drs() {
+        return Optional.ofNullable(this.drs);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ds() {
         return Optional.ofNullable(this.ds);
     }
@@ -3505,6 +3517,7 @@ public final class Endpoints {
         private @Nullable String dms;
         private @Nullable String docdb;
         private @Nullable String docdbelastic;
+        private @Nullable String drs;
         private @Nullable String ds;
         private @Nullable String dynamodb;
         private @Nullable String ec2;
@@ -3790,6 +3803,7 @@ public final class Endpoints {
     	      this.dms = defaults.dms;
     	      this.docdb = defaults.docdb;
     	      this.docdbelastic = defaults.docdbelastic;
+    	      this.drs = defaults.drs;
     	      this.ds = defaults.ds;
     	      this.dynamodb = defaults.dynamodb;
     	      this.ec2 = defaults.ec2;
@@ -4562,6 +4576,12 @@ public final class Endpoints {
         public Builder docdbelastic(@Nullable String docdbelastic) {
 
             this.docdbelastic = docdbelastic;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder drs(@Nullable String drs) {
+
+            this.drs = drs;
             return this;
         }
         @CustomType.Setter
@@ -5768,6 +5788,7 @@ public final class Endpoints {
             _resultValue.dms = dms;
             _resultValue.docdb = docdb;
             _resultValue.docdbelastic = docdbelastic;
+            _resultValue.drs = drs;
             _resultValue.ds = ds;
             _resultValue.dynamodb = dynamodb;
             _resultValue.ec2 = ec2;

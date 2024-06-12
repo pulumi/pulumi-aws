@@ -14,24 +14,29 @@ __all__ = ['CustomerGatewayArgs', 'CustomerGateway']
 @pulumi.input_type
 class CustomerGatewayArgs:
     def __init__(__self__, *,
-                 bgp_asn: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 bgp_asn: Optional[pulumi.Input[str]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
-        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
+        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        :param pulumi.Input[str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
         pulumi.set(__self__, "type", type)
+        if bgp_asn is not None:
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_extended is not None:
+            pulumi.set(__self__, "bgp_asn_extended", bgp_asn_extended)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name is not None:
@@ -40,18 +45,6 @@ class CustomerGatewayArgs:
             pulumi.set(__self__, "ip_address", ip_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Input[str]:
-        """
-        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-        """
-        return pulumi.get(self, "bgp_asn")
-
-    @bgp_asn.setter
-    def bgp_asn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bgp_asn", value)
 
     @property
     @pulumi.getter
@@ -65,6 +58,30 @@ class CustomerGatewayArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bgpAsn")
+    def bgp_asn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        """
+        return pulumi.get(self, "bgp_asn")
+
+    @bgp_asn.setter
+    def bgp_asn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> Optional[pulumi.Input[str]]:
+        """
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        """
+        return pulumi.get(self, "bgp_asn_extended")
+
+    @bgp_asn_extended.setter
+    def bgp_asn_extended(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_asn_extended", value)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -120,6 +137,7 @@ class _CustomerGatewayState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -129,7 +147,8 @@ class _CustomerGatewayState:
         """
         Input properties used for looking up and filtering CustomerGateway resources.
         :param pulumi.Input[str] arn: The ARN of the customer gateway.
-        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        :param pulumi.Input[str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
@@ -142,6 +161,8 @@ class _CustomerGatewayState:
             pulumi.set(__self__, "arn", arn)
         if bgp_asn is not None:
             pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_extended is not None:
+            pulumi.set(__self__, "bgp_asn_extended", bgp_asn_extended)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if device_name is not None:
@@ -174,13 +195,25 @@ class _CustomerGatewayState:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> Optional[pulumi.Input[str]]:
         """
-        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
     def bgp_asn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bgp_asn", value)
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> Optional[pulumi.Input[str]]:
+        """
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        """
+        return pulumi.get(self, "bgp_asn_extended")
+
+    @bgp_asn_extended.setter
+    def bgp_asn_extended(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_asn_extended", value)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -265,6 +298,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -299,7 +333,8 @@ class CustomerGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        :param pulumi.Input[str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
@@ -355,6 +390,7 @@ class CustomerGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
+                 bgp_asn_extended: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -369,9 +405,8 @@ class CustomerGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
 
-            if bgp_asn is None and not opts.urn:
-                raise TypeError("Missing required property 'bgp_asn'")
             __props__.__dict__["bgp_asn"] = bgp_asn
+            __props__.__dict__["bgp_asn_extended"] = bgp_asn_extended
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["ip_address"] = ip_address
@@ -393,6 +428,7 @@ class CustomerGateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bgp_asn: Optional[pulumi.Input[str]] = None,
+            bgp_asn_extended: Optional[pulumi.Input[str]] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
             device_name: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
@@ -407,7 +443,8 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the customer gateway.
-        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        :param pulumi.Input[str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
         :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
@@ -422,6 +459,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bgp_asn"] = bgp_asn
+        __props__.__dict__["bgp_asn_extended"] = bgp_asn_extended
         __props__.__dict__["certificate_arn"] = certificate_arn
         __props__.__dict__["device_name"] = device_name
         __props__.__dict__["ip_address"] = ip_address
@@ -440,11 +478,19 @@ class CustomerGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpAsn")
-    def bgp_asn(self) -> pulumi.Output[str]:
+    def bgp_asn(self) -> pulumi.Output[Optional[str]]:
         """
-        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> pulumi.Output[Optional[str]]:
+        """
+        The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        """
+        return pulumi.get(self, "bgp_asn_extended")
 
     @property
     @pulumi.getter(name="certificateArn")

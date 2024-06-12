@@ -26,6 +26,11 @@ public final class GetCustomerGatewayResult {
      */
     private Integer bgpAsn;
     /**
+     * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * 
+     */
+    private Integer bgpAsnExtended;
+    /**
      * @return ARN for the customer gateway certificate.
      * 
      */
@@ -67,6 +72,13 @@ public final class GetCustomerGatewayResult {
      */
     public Integer bgpAsn() {
         return this.bgpAsn;
+    }
+    /**
+     * @return Gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * 
+     */
+    public Integer bgpAsnExtended() {
+        return this.bgpAsnExtended;
     }
     /**
      * @return ARN for the customer gateway certificate.
@@ -121,6 +133,7 @@ public final class GetCustomerGatewayResult {
     public static final class Builder {
         private String arn;
         private Integer bgpAsn;
+        private Integer bgpAsnExtended;
         private String certificateArn;
         private String deviceName;
         private @Nullable List<GetCustomerGatewayFilter> filters;
@@ -133,6 +146,7 @@ public final class GetCustomerGatewayResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.bgpAsn = defaults.bgpAsn;
+    	      this.bgpAsnExtended = defaults.bgpAsnExtended;
     	      this.certificateArn = defaults.certificateArn;
     	      this.deviceName = defaults.deviceName;
     	      this.filters = defaults.filters;
@@ -156,6 +170,14 @@ public final class GetCustomerGatewayResult {
               throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "bgpAsn");
             }
             this.bgpAsn = bgpAsn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bgpAsnExtended(Integer bgpAsnExtended) {
+            if (bgpAsnExtended == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "bgpAsnExtended");
+            }
+            this.bgpAsnExtended = bgpAsnExtended;
             return this;
         }
         @CustomType.Setter
@@ -219,6 +241,7 @@ public final class GetCustomerGatewayResult {
             final var _resultValue = new GetCustomerGatewayResult();
             _resultValue.arn = arn;
             _resultValue.bgpAsn = bgpAsn;
+            _resultValue.bgpAsnExtended = bgpAsnExtended;
             _resultValue.certificateArn = certificateArn;
             _resultValue.deviceName = deviceName;
             _resultValue.filters = filters;

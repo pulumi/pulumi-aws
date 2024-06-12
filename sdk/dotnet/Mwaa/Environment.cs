@@ -250,11 +250,17 @@ namespace Pulumi.Aws.Mwaa
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration> LoggingConfiguration { get; private set; } = null!;
 
+        [Output("maxWebservers")]
+        public Output<int> MaxWebservers { get; private set; } = null!;
+
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
         [Output("maxWorkers")]
         public Output<int> MaxWorkers { get; private set; } = null!;
+
+        [Output("minWebservers")]
+        public Output<int> MinWebservers { get; private set; } = null!;
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.
@@ -475,11 +481,17 @@ namespace Pulumi.Aws.Mwaa
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }
 
+        [Input("maxWebservers")]
+        public Input<int>? MaxWebservers { get; set; }
+
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
+
+        [Input("minWebservers")]
+        public Input<int>? MinWebservers { get; set; }
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.
@@ -661,11 +673,17 @@ namespace Pulumi.Aws.Mwaa
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationGetArgs>? LoggingConfiguration { get; set; }
 
+        [Input("maxWebservers")]
+        public Input<int>? MaxWebservers { get; set; }
+
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
         [Input("maxWorkers")]
         public Input<int>? MaxWorkers { get; set; }
+
+        [Input("minWebservers")]
+        public Input<int>? MinWebservers { get; set; }
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.

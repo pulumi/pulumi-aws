@@ -69,6 +69,7 @@ class _SshKeyState:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
+                 ssh_key_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
@@ -80,6 +81,8 @@ class _SshKeyState:
             pulumi.set(__self__, "body", body)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
+        if ssh_key_id is not None:
+            pulumi.set(__self__, "ssh_key_id", ssh_key_id)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -106,6 +109,15 @@ class _SshKeyState:
     @server_id.setter
     def server_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="sshKeyId")
+    def ssh_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssh_key_id")
+
+    @ssh_key_id.setter
+    def ssh_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_key_id", value)
 
     @property
     @pulumi.getter(name="userName")
@@ -299,6 +311,7 @@ class SshKey(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            __props__.__dict__["ssh_key_id"] = None
         super(SshKey, __self__).__init__(
             'aws:transfer/sshKey:SshKey',
             resource_name,
@@ -311,6 +324,7 @@ class SshKey(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             body: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
+            ssh_key_id: Optional[pulumi.Input[str]] = None,
             user_name: Optional[pulumi.Input[str]] = None) -> 'SshKey':
         """
         Get an existing SshKey resource's state with the given name, id, and optional extra
@@ -329,6 +343,7 @@ class SshKey(pulumi.CustomResource):
 
         __props__.__dict__["body"] = body
         __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["ssh_key_id"] = ssh_key_id
         __props__.__dict__["user_name"] = user_name
         return SshKey(resource_name, opts=opts, __props__=__props__)
 
@@ -347,6 +362,11 @@ class SshKey(pulumi.CustomResource):
         The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter(name="sshKeyId")
+    def ssh_key_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "ssh_key_id")
 
     @property
     @pulumi.getter(name="userName")

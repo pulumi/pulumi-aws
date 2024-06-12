@@ -12,6 +12,10 @@ from .. import _utilities
 __all__ = [
     'PipeEnrichmentParametersArgs',
     'PipeEnrichmentParametersHttpParametersArgs',
+    'PipeLogConfigurationArgs',
+    'PipeLogConfigurationCloudwatchLogsLogDestinationArgs',
+    'PipeLogConfigurationFirehoseLogDestinationArgs',
+    'PipeLogConfigurationS3LogDestinationArgs',
     'PipeSourceParametersArgs',
     'PipeSourceParametersActivemqBrokerParametersArgs',
     'PipeSourceParametersActivemqBrokerParametersCredentialsArgs',
@@ -140,6 +144,159 @@ class PipeEnrichmentParametersHttpParametersArgs:
     @query_string_parameters.setter
     def query_string_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "query_string_parameters", value)
+
+
+@pulumi.input_type
+class PipeLogConfigurationArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input[str],
+                 cloudwatch_logs_log_destination: Optional[pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs']] = None,
+                 firehose_log_destination: Optional[pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs']] = None,
+                 s3_log_destination: Optional[pulumi.Input['PipeLogConfigurationS3LogDestinationArgs']] = None):
+        """
+        :param pulumi.Input[str] level: The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        :param pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs'] cloudwatch_logs_log_destination: Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs'] firehose_log_destination: Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input['PipeLogConfigurationS3LogDestinationArgs'] s3_log_destination: Amazon S3 logging configuration settings for the pipe. Detailed below.
+        """
+        pulumi.set(__self__, "level", level)
+        if cloudwatch_logs_log_destination is not None:
+            pulumi.set(__self__, "cloudwatch_logs_log_destination", cloudwatch_logs_log_destination)
+        if firehose_log_destination is not None:
+            pulumi.set(__self__, "firehose_log_destination", firehose_log_destination)
+        if s3_log_destination is not None:
+            pulumi.set(__self__, "s3_log_destination", s3_log_destination)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[str]:
+        """
+        The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogsLogDestination")
+    def cloudwatch_logs_log_destination(self) -> Optional[pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs']]:
+        """
+        Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "cloudwatch_logs_log_destination")
+
+    @cloudwatch_logs_log_destination.setter
+    def cloudwatch_logs_log_destination(self, value: Optional[pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs']]):
+        pulumi.set(self, "cloudwatch_logs_log_destination", value)
+
+    @property
+    @pulumi.getter(name="firehoseLogDestination")
+    def firehose_log_destination(self) -> Optional[pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs']]:
+        """
+        Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "firehose_log_destination")
+
+    @firehose_log_destination.setter
+    def firehose_log_destination(self, value: Optional[pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs']]):
+        pulumi.set(self, "firehose_log_destination", value)
+
+    @property
+    @pulumi.getter(name="s3LogDestination")
+    def s3_log_destination(self) -> Optional[pulumi.Input['PipeLogConfigurationS3LogDestinationArgs']]:
+        """
+        Amazon S3 logging configuration settings for the pipe. Detailed below.
+        """
+        return pulumi.get(self, "s3_log_destination")
+
+    @s3_log_destination.setter
+    def s3_log_destination(self, value: Optional[pulumi.Input['PipeLogConfigurationS3LogDestinationArgs']]):
+        pulumi.set(self, "s3_log_destination", value)
+
+
+@pulumi.input_type
+class PipeLogConfigurationCloudwatchLogsLogDestinationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+@pulumi.input_type
+class PipeLogConfigurationFirehoseLogDestinationArgs:
+    def __init__(__self__, *,
+                 delivery_stream_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+
+    @property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @delivery_stream_arn.setter
+    def delivery_stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delivery_stream_arn", value)
+
+
+@pulumi.input_type
+class PipeLogConfigurationS3LogDestinationArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 bucket_owner: pulumi.Input[str],
+                 output_format: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 
 @pulumi.input_type
@@ -934,11 +1091,12 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
 @pulumi.input_type
 class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     def __init__(__self__, *,
-                 basic_auth: pulumi.Input[str],
+                 basic_auth: Optional[pulumi.Input[str]] = None,
                  client_certificate_tls_auth: Optional[pulumi.Input[str]] = None,
                  sasl_scram256_auth: Optional[pulumi.Input[str]] = None,
                  sasl_scram512_auth: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "basic_auth", basic_auth)
+        if basic_auth is not None:
+            pulumi.set(__self__, "basic_auth", basic_auth)
         if client_certificate_tls_auth is not None:
             pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
         if sasl_scram256_auth is not None:
@@ -948,11 +1106,11 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
 
     @property
     @pulumi.getter(name="basicAuth")
-    def basic_auth(self) -> pulumi.Input[str]:
+    def basic_auth(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "basic_auth")
 
     @basic_auth.setter
-    def basic_auth(self, value: pulumi.Input[str]):
+    def basic_auth(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "basic_auth", value)
 
     @property

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParametersSelfManagedKafkaParametersCredentials
     {
-        public readonly string BasicAuth;
+        public readonly string? BasicAuth;
         public readonly string? ClientCertificateTlsAuth;
         public readonly string? SaslScram256Auth;
         public readonly string? SaslScram512Auth;
 
         [OutputConstructor]
         private PipeSourceParametersSelfManagedKafkaParametersCredentials(
-            string basicAuth,
+            string? basicAuth,
 
             string? clientCertificateTlsAuth,
 

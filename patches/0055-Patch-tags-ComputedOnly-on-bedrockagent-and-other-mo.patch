@@ -18,7 +18,7 @@ index 5e4ffa7b43..8e770f9fef 100644
  		Blocks: map[string]schema.Block{
  			"export": schema.ListNestedBlock{
 diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
-index 152acf0653..6ad3dc1bad 100644
+index f33706ef20..58a4041bb0 100644
 --- a/internal/service/bedrockagent/agent.go
 +++ b/internal/service/bedrockagent/agent.go
 @@ -144,7 +144,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque

@@ -172,6 +172,10 @@ export interface GetEngineVersionResult {
      */
     readonly supportsGlobalDatabases: boolean;
     /**
+     * Whether the engine version supports Aurora Limitless Database.
+     */
+    readonly supportsLimitlessDatabase: boolean;
+    /**
      * Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      */
     readonly supportsLogExportsToCloudwatch: boolean;

@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index fa7e06ae5e..a3b7c9b40a 100644
+index 7af155285d..1d4ecd0a99 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
-@@ -83,7 +83,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
+@@ -84,7 +84,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -70,7 +70,7 @@ index 0c1741f00e..7e1945e19a 100644
  	}
  
 diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
-index 03094f50e4..07db1312be 100644
+index 69d6b912ac..6323d7c399 100644
 --- a/internal/service/securityhub/automation_rule.go
 +++ b/internal/service/securityhub/automation_rule.go
 @@ -75,7 +75,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
@@ -81,7 +81,7 @@ index 03094f50e4..07db1312be 100644
 +			names.AttrTagsAll: tftags.TagsAttribute(),
  		},
  		Blocks: map[string]schema.Block{
- 			"actions": schema.SetNestedBlock{
+ 			names.AttrActions: schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
 index 9ff71fe5d7..faba601773 100644
 --- a/internal/service/securitylake/data_lake.go

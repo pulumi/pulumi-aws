@@ -20,6 +20,7 @@ __all__ = [
     'FileCacheLustreConfigurationLogConfiguration',
     'FileCacheLustreConfigurationMetadataConfiguration',
     'LustreFileSystemLogConfiguration',
+    'LustreFileSystemMetadataConfiguration',
     'LustreFileSystemRootSquashConfiguration',
     'OntapFileSystemDiskIopsConfiguration',
     'OntapFileSystemEndpoint',
@@ -514,6 +515,41 @@ class LustreFileSystemLogConfiguration(dict):
         Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         """
         return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class LustreFileSystemMetadataConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        """
+        :param int iops: Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+               
+               !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+        :param str mode: Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+
+        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

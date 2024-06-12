@@ -335,6 +335,7 @@ class Endpoints(dict):
                  dms: Optional[str] = None,
                  docdb: Optional[str] = None,
                  docdbelastic: Optional[str] = None,
+                 drs: Optional[str] = None,
                  ds: Optional[str] = None,
                  dynamodb: Optional[str] = None,
                  ec2: Optional[str] = None,
@@ -618,6 +619,7 @@ class Endpoints(dict):
         :param str dms: Use this to override the default service endpoint URL
         :param str docdb: Use this to override the default service endpoint URL
         :param str docdbelastic: Use this to override the default service endpoint URL
+        :param str drs: Use this to override the default service endpoint URL
         :param str ds: Use this to override the default service endpoint URL
         :param str dynamodb: Use this to override the default service endpoint URL
         :param str ec2: Use this to override the default service endpoint URL
@@ -999,6 +1001,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "docdb", docdb)
         if docdbelastic is not None:
             pulumi.set(__self__, "docdbelastic", docdbelastic)
+        if drs is not None:
+            pulumi.set(__self__, "drs", drs)
         if ds is not None:
             pulumi.set(__self__, "ds", ds)
         if dynamodb is not None:
@@ -2151,6 +2155,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "docdbelastic")
+
+    @property
+    @pulumi.getter
+    def drs(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "drs")
 
     @property
     @pulumi.getter

@@ -89,6 +89,8 @@ type LookupCustomerGatewayResult struct {
 	Arn string `pulumi:"arn"`
 	// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 	BgpAsn int `pulumi:"bgpAsn"`
+	// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+	BgpAsnExtended int `pulumi:"bgpAsnExtended"`
 	// ARN for the customer gateway certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// Name for the customer gateway device.
@@ -155,6 +157,11 @@ func (o LookupCustomerGatewayResultOutput) Arn() pulumi.StringOutput {
 // Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
 func (o LookupCustomerGatewayResultOutput) BgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) int { return v.BgpAsn }).(pulumi.IntOutput)
+}
+
+// Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+func (o LookupCustomerGatewayResultOutput) BgpAsnExtended() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) int { return v.BgpAsnExtended }).(pulumi.IntOutput)
 }
 
 // ARN for the customer gateway certificate.

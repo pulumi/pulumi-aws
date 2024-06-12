@@ -311,6 +311,8 @@ if typing.TYPE_CHECKING:
     organizations = __organizations
     import pulumi_aws.outposts as __outposts
     outposts = __outposts
+    import pulumi_aws.paymentcryptography as __paymentcryptography
+    paymentcryptography = __paymentcryptography
     import pulumi_aws.pinpoint as __pinpoint
     pinpoint = __pinpoint
     import pulumi_aws.pipes as __pipes
@@ -582,6 +584,7 @@ else:
     opsworks = _utilities.lazy_import('pulumi_aws.opsworks')
     organizations = _utilities.lazy_import('pulumi_aws.organizations')
     outposts = _utilities.lazy_import('pulumi_aws.outposts')
+    paymentcryptography = _utilities.lazy_import('pulumi_aws.paymentcryptography')
     pinpoint = _utilities.lazy_import('pulumi_aws.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws.pipes')
     polly = _utilities.lazy_import('pulumi_aws.polly')
@@ -8207,6 +8210,22 @@ _utilities.register(
   "fqn": "pulumi_aws.organizations",
   "classes": {
    "aws:organizations/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "paymentcryptography/key",
+  "fqn": "pulumi_aws.paymentcryptography",
+  "classes": {
+   "aws:paymentcryptography/key:Key": "Key"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "paymentcryptography/keyAlias",
+  "fqn": "pulumi_aws.paymentcryptography",
+  "classes": {
+   "aws:paymentcryptography/keyAlias:KeyAlias": "KeyAlias"
   }
  },
  {

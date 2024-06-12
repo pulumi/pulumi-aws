@@ -64,9 +64,13 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      */
-    public readonly bgpAsn!: pulumi.Output<string>;
+    public readonly bgpAsn!: pulumi.Output<string | undefined>;
+    /**
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+     */
+    public readonly bgpAsnExtended!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */
@@ -110,6 +114,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             const state = argsOrState as CustomerGatewayState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAsnExtended"] = state ? state.bgpAsnExtended : undefined;
             resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
             resourceInputs["deviceName"] = state ? state.deviceName : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
@@ -118,13 +123,11 @@ export class CustomerGateway extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as CustomerGatewayArgs | undefined;
-            if ((!args || args.bgpAsn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bgpAsn'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAsnExtended"] = args ? args.bgpAsnExtended : undefined;
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
@@ -147,9 +150,13 @@ export interface CustomerGatewayState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      */
     bgpAsn?: pulumi.Input<string>;
+    /**
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+     */
+    bgpAsnExtended?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */
@@ -184,9 +191,13 @@ export interface CustomerGatewayState {
  */
 export interface CustomerGatewayArgs {
     /**
-     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgpAsnExtended`.
      */
-    bgpAsn: pulumi.Input<string>;
+    bgpAsn?: pulumi.Input<string>;
+    /**
+     * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
+     */
+    bgpAsnExtended?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      */

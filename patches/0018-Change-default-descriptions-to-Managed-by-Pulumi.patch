@@ -5,10 +5,10 @@ Subject: [PATCH] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index f68c242fe0..c7be2c51b7 100644
+index abc31f0d40..ebf1de5fb3 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
-@@ -55,7 +55,7 @@ func resourceAPIKey() *schema.Resource {
+@@ -56,7 +56,7 @@ func resourceAPIKey() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -70,10 +70,10 @@ index 333fe4befa..b706339eea 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index d2f71a3305..c650bee4bf 100644
+index 0cf7358bf1..cc30ed661f 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
-@@ -66,7 +66,7 @@ func ResourceSecurityGroup() *schema.Resource {
+@@ -68,7 +68,7 @@ func ResourceSecurityGroup() *schema.Resource {
  				Type:         schema.TypeString,
  				Optional:     true,
  				ForceNew:     true,
@@ -333,10 +333,10 @@ index fc60010e7d..0b213b1bf7 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index ee5f978ef7..a9a5d5d082 100644
+index 257bbb50ea..104bc29a5d 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
-@@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -51,7 +51,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -346,10 +346,10 @@ index ee5f978ef7..a9a5d5d082 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index 76678ca094..774986d77b 100644
+index 0eba392459..397bac3d54 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
-@@ -123,7 +123,7 @@ func ResourceOptionGroup() *schema.Resource {
+@@ -124,7 +124,7 @@ func ResourceOptionGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -359,10 +359,10 @@ index 76678ca094..774986d77b 100644
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 1495ef44cf..82d6784aba 100644
+index 56d433437d..a5fa723e39 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
-@@ -51,7 +51,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -694,10 +694,10 @@ index 0000000000..54d4e61495
 +	return create.StringHashcode(buf.String())
 +}
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index dfc4040034..e044b6a8cf 100644
+index 7cd49d3455..beeb9a4301 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
-@@ -47,7 +47,7 @@ func resourceSubnetGroup() *schema.Resource {
+@@ -48,7 +48,7 @@ func resourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
@@ -1030,7 +1030,7 @@ index 2d1a8f8bcb..47c939f356 100644
  			names.AttrName: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 5362a975a8..36ec6ae24a 100644
+index aeef59b958..abac8702c5 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
 @@ -360,7 +360,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte

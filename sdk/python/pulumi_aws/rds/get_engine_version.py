@@ -23,7 +23,7 @@ class GetEngineVersionResult:
     """
     A collection of values returned by getEngineVersion.
     """
-    def __init__(__self__, default_character_set=None, default_only=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, has_major_target=None, has_minor_target=None, id=None, include_all=None, latest=None, parameter_group_family=None, preferred_major_targets=None, preferred_upgrade_targets=None, preferred_versions=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_global_databases=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_major_targets=None, valid_minor_targets=None, valid_upgrade_targets=None, version=None, version_actual=None, version_description=None):
+    def __init__(__self__, default_character_set=None, default_only=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, has_major_target=None, has_minor_target=None, id=None, include_all=None, latest=None, parameter_group_family=None, preferred_major_targets=None, preferred_upgrade_targets=None, preferred_versions=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_global_databases=None, supports_limitless_database=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_major_targets=None, valid_minor_targets=None, valid_upgrade_targets=None, version=None, version_actual=None, version_description=None):
         if default_character_set and not isinstance(default_character_set, str):
             raise TypeError("Expected argument 'default_character_set' to be a str")
         pulumi.set(__self__, "default_character_set", default_character_set)
@@ -87,6 +87,9 @@ class GetEngineVersionResult:
         if supports_global_databases and not isinstance(supports_global_databases, bool):
             raise TypeError("Expected argument 'supports_global_databases' to be a bool")
         pulumi.set(__self__, "supports_global_databases", supports_global_databases)
+        if supports_limitless_database and not isinstance(supports_limitless_database, bool):
+            raise TypeError("Expected argument 'supports_limitless_database' to be a bool")
+        pulumi.set(__self__, "supports_limitless_database", supports_limitless_database)
         if supports_log_exports_to_cloudwatch and not isinstance(supports_log_exports_to_cloudwatch, bool):
             raise TypeError("Expected argument 'supports_log_exports_to_cloudwatch' to be a bool")
         pulumi.set(__self__, "supports_log_exports_to_cloudwatch", supports_log_exports_to_cloudwatch)
@@ -251,6 +254,14 @@ class GetEngineVersionResult:
         return pulumi.get(self, "supports_global_databases")
 
     @property
+    @pulumi.getter(name="supportsLimitlessDatabase")
+    def supports_limitless_database(self) -> bool:
+        """
+        Whether the engine version supports Aurora Limitless Database.
+        """
+        return pulumi.get(self, "supports_limitless_database")
+
+    @property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> bool:
         """
@@ -347,6 +358,7 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
             supported_modes=self.supported_modes,
             supported_timezones=self.supported_timezones,
             supports_global_databases=self.supports_global_databases,
+            supports_limitless_database=self.supports_limitless_database,
             supports_log_exports_to_cloudwatch=self.supports_log_exports_to_cloudwatch,
             supports_parallel_query=self.supports_parallel_query,
             supports_read_replica=self.supports_read_replica,
@@ -457,6 +469,7 @@ def get_engine_version(default_only: Optional[bool] = None,
         supported_modes=pulumi.get(__ret__, 'supported_modes'),
         supported_timezones=pulumi.get(__ret__, 'supported_timezones'),
         supports_global_databases=pulumi.get(__ret__, 'supports_global_databases'),
+        supports_limitless_database=pulumi.get(__ret__, 'supports_limitless_database'),
         supports_log_exports_to_cloudwatch=pulumi.get(__ret__, 'supports_log_exports_to_cloudwatch'),
         supports_parallel_query=pulumi.get(__ret__, 'supports_parallel_query'),
         supports_read_replica=pulumi.get(__ret__, 'supports_read_replica'),

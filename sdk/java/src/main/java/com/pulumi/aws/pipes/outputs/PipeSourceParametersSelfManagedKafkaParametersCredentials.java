@@ -4,7 +4,6 @@
 package com.pulumi.aws.pipes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,14 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
-    private String basicAuth;
+    private @Nullable String basicAuth;
     private @Nullable String clientCertificateTlsAuth;
     private @Nullable String saslScram256Auth;
     private @Nullable String saslScram512Auth;
 
     private PipeSourceParametersSelfManagedKafkaParametersCredentials() {}
-    public String basicAuth() {
-        return this.basicAuth;
+    public Optional<String> basicAuth() {
+        return Optional.ofNullable(this.basicAuth);
     }
     public Optional<String> clientCertificateTlsAuth() {
         return Optional.ofNullable(this.clientCertificateTlsAuth);
@@ -40,7 +39,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String basicAuth;
+        private @Nullable String basicAuth;
         private @Nullable String clientCertificateTlsAuth;
         private @Nullable String saslScram256Auth;
         private @Nullable String saslScram512Auth;
@@ -54,10 +53,8 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
         }
 
         @CustomType.Setter
-        public Builder basicAuth(String basicAuth) {
-            if (basicAuth == null) {
-              throw new MissingRequiredPropertyException("PipeSourceParametersSelfManagedKafkaParametersCredentials", "basicAuth");
-            }
+        public Builder basicAuth(@Nullable String basicAuth) {
+
             this.basicAuth = basicAuth;
             return this;
         }

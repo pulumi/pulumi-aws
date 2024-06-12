@@ -880,6 +880,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Docdbelastic *string `pulumi:"docdbelastic"`
 	// Use this to override the default service endpoint URL
+	Drs *string `pulumi:"drs"`
+	// Use this to override the default service endpoint URL
 	Ds *string `pulumi:"ds"`
 	// Use this to override the default service endpoint URL
 	Dynamodb *string `pulumi:"dynamodb"`
@@ -1457,6 +1459,8 @@ type ProviderEndpointArgs struct {
 	Docdb pulumi.StringPtrInput `pulumi:"docdb"`
 	// Use this to override the default service endpoint URL
 	Docdbelastic pulumi.StringPtrInput `pulumi:"docdbelastic"`
+	// Use this to override the default service endpoint URL
+	Drs pulumi.StringPtrInput `pulumi:"drs"`
 	// Use this to override the default service endpoint URL
 	Ds pulumi.StringPtrInput `pulumi:"ds"`
 	// Use this to override the default service endpoint URL
@@ -2366,6 +2370,11 @@ func (o ProviderEndpointOutput) Docdb() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Docdbelastic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Docdbelastic }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Drs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Drs }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

@@ -152,6 +152,12 @@ public class SshKey extends com.pulumi.resources.CustomResource {
     public Output<String> serverId() {
         return this.serverId;
     }
+    @Export(name="sshKeyId", refs={String.class}, tree="[0]")
+    private Output<String> sshKeyId;
+
+    public Output<String> sshKeyId() {
+        return this.sshKeyId;
+    }
     /**
      * The name of the user account that is assigned to one or more servers.
      * 

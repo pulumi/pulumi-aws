@@ -4,6 +4,7 @@
 package com.pulumi.aws.pipes;
 
 import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersArgs;
+import com.pulumi.aws.pipes.inputs.PipeLogConfigurationArgs;
 import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
 import com.pulumi.core.Output;
@@ -78,6 +79,21 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<PipeEnrichmentParametersArgs>> enrichmentParameters() {
         return Optional.ofNullable(this.enrichmentParameters);
+    }
+
+    /**
+     * Logging configuration settings for the pipe. Detailed below.
+     * 
+     */
+    @Import(name="logConfiguration")
+    private @Nullable Output<PipeLogConfigurationArgs> logConfiguration;
+
+    /**
+     * @return Logging configuration settings for the pipe. Detailed below.
+     * 
+     */
+    public Optional<Output<PipeLogConfigurationArgs>> logConfiguration() {
+        return Optional.ofNullable(this.logConfiguration);
     }
 
     /**
@@ -211,6 +227,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         this.desiredState = $.desiredState;
         this.enrichment = $.enrichment;
         this.enrichmentParameters = $.enrichmentParameters;
+        this.logConfiguration = $.logConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.roleArn = $.roleArn;
@@ -321,6 +338,27 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enrichmentParameters(PipeEnrichmentParametersArgs enrichmentParameters) {
             return enrichmentParameters(Output.of(enrichmentParameters));
+        }
+
+        /**
+         * @param logConfiguration Logging configuration settings for the pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfiguration(@Nullable Output<PipeLogConfigurationArgs> logConfiguration) {
+            $.logConfiguration = logConfiguration;
+            return this;
+        }
+
+        /**
+         * @param logConfiguration Logging configuration settings for the pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfiguration(PipeLogConfigurationArgs logConfiguration) {
+            return logConfiguration(Output.of(logConfiguration));
         }
 
         /**

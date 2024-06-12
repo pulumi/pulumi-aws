@@ -23,13 +23,16 @@ class GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, certificate_arn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+    def __init__(__self__, arn=None, bgp_asn=None, bgp_asn_extended=None, certificate_arn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bgp_asn and not isinstance(bgp_asn, int):
             raise TypeError("Expected argument 'bgp_asn' to be a int")
         pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_asn_extended and not isinstance(bgp_asn_extended, int):
+            raise TypeError("Expected argument 'bgp_asn_extended' to be a int")
+        pulumi.set(__self__, "bgp_asn_extended", bgp_asn_extended)
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -67,6 +70,14 @@ class GetCustomerGatewayResult:
         Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="bgpAsnExtended")
+    def bgp_asn_extended(self) -> int:
+        """
+        Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+        """
+        return pulumi.get(self, "bgp_asn_extended")
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -127,6 +138,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
         return GetCustomerGatewayResult(
             arn=self.arn,
             bgp_asn=self.bgp_asn,
+            bgp_asn_extended=self.bgp_asn_extended,
             certificate_arn=self.certificate_arn,
             device_name=self.device_name,
             filters=self.filters,
@@ -180,6 +192,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     return AwaitableGetCustomerGatewayResult(
         arn=pulumi.get(__ret__, 'arn'),
         bgp_asn=pulumi.get(__ret__, 'bgp_asn'),
+        bgp_asn_extended=pulumi.get(__ret__, 'bgp_asn_extended'),
         certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
         device_name=pulumi.get(__ret__, 'device_name'),
         filters=pulumi.get(__ret__, 'filters'),

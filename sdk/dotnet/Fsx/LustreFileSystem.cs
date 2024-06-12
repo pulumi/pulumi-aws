@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.LustreFileSystemLogConfiguration> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+        /// </summary>
+        [Output("metadataConfiguration")]
+        public Output<Outputs.LustreFileSystemMetadataConfiguration> MetadataConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The value to be used when mounting the filesystem.
         /// </summary>
         [Output("mountName")]
@@ -351,6 +357,12 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.LustreFileSystemLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
+        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.LustreFileSystemMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
+
+        /// <summary>
         /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
@@ -513,6 +525,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.LustreFileSystemLogConfigurationGetArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
+        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+        /// </summary>
+        [Input("metadataConfiguration")]
+        public Input<Inputs.LustreFileSystemMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
         /// The value to be used when mounting the filesystem.

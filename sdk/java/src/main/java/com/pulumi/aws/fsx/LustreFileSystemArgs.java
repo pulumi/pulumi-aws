@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx;
 
 import com.pulumi.aws.fsx.inputs.LustreFileSystemLogConfigurationArgs;
+import com.pulumi.aws.fsx.inputs.LustreFileSystemMetadataConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemRootSquashConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -233,6 +234,21 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * 
+     */
+    @Import(name="metadataConfiguration")
+    private @Nullable Output<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration;
+
+    /**
+     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * 
+     */
+    public Optional<Output<LustreFileSystemMetadataConfigurationArgs>> metadataConfiguration() {
+        return Optional.ofNullable(this.metadataConfiguration);
+    }
+
+    /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
      * 
      */
@@ -369,6 +385,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.importedFileChunkSize = $.importedFileChunkSize;
         this.kmsKeyId = $.kmsKeyId;
         this.logConfiguration = $.logConfiguration;
+        this.metadataConfiguration = $.metadataConfiguration;
         this.perUnitStorageThroughput = $.perUnitStorageThroughput;
         this.rootSquashConfiguration = $.rootSquashConfiguration;
         this.securityGroupIds = $.securityGroupIds;
@@ -689,6 +706,27 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder logConfiguration(LustreFileSystemLogConfigurationArgs logConfiguration) {
             return logConfiguration(Output.of(logConfiguration));
+        }
+
+        /**
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(@Nullable Output<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration) {
+            $.metadataConfiguration = metadataConfiguration;
+            return this;
+        }
+
+        /**
+         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See Metadata Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataConfiguration(LustreFileSystemMetadataConfigurationArgs metadataConfiguration) {
+            return metadataConfiguration(Output.of(metadataConfiguration));
         }
 
         /**

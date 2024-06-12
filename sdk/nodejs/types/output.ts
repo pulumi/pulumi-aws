@@ -4702,7 +4702,7 @@ export namespace appmesh {
         /**
          * The targeted port of the weighted object.
          */
-        port?: number;
+        port: number;
         /**
          * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
@@ -4882,7 +4882,7 @@ export namespace appmesh {
         /**
          * The targeted port of the weighted object.
          */
-        port?: number;
+        port: number;
         /**
          * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
@@ -5100,7 +5100,7 @@ export namespace appmesh {
         /**
          * The targeted port of the weighted object.
          */
-        port?: number;
+        port: number;
         /**
          * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
@@ -5311,7 +5311,7 @@ export namespace appmesh {
         /**
          * The targeted port of the weighted object.
          */
-        port?: number;
+        port: number;
         /**
          * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
          */
@@ -15992,6 +15992,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         docdbelastic?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        drs?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -32799,6 +32803,19 @@ export namespace fsx {
          * Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
          */
         level?: string;
+    }
+
+    export interface LustreFileSystemMetadataConfiguration {
+        /**
+         * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+         *
+         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+         */
+        iops: number;
+        /**
+         * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         */
+        mode: string;
     }
 
     export interface LustreFileSystemRootSquashConfiguration {
@@ -61797,6 +61814,82 @@ export namespace organizations {
 
 }
 
+export namespace paymentcryptography {
+    export interface KeyKeyAttributes {
+        /**
+         * Key algorithm to be use during creation of an AWS Payment Cryptography key.
+         */
+        keyAlgorithm: string;
+        /**
+         * Type of AWS Payment Cryptography key to create.
+         */
+        keyClass: string;
+        /**
+         * List of cryptographic operations that you can perform using the key.
+         */
+        keyModesOfUse?: outputs.paymentcryptography.KeyKeyAttributesKeyModesOfUse;
+        /**
+         * Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
+         */
+        keyUsage: string;
+    }
+
+    export interface KeyKeyAttributesKeyModesOfUse {
+        /**
+         * Whether an AWS Payment Cryptography key can be used to decrypt data.
+         */
+        decrypt: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to derive new keys.
+         */
+        deriveKey: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to encrypt data.
+         */
+        encrypt: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+         */
+        generate: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
+         */
+        noRestrictions: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used for signing.
+         */
+        sign: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to unwrap other keys.
+         */
+        unwrap: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to verify signatures.
+         */
+        verify: boolean;
+        /**
+         * Whether an AWS Payment Cryptography key can be used to wrap other keys.
+         */
+        wrap: boolean;
+    }
+
+    export interface KeyTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+}
+
 export namespace pinpoint {
     export interface AppCampaignHook {
         /**
@@ -61861,6 +61954,40 @@ export namespace pipes {
         headerParameters?: {[key: string]: string};
         pathParameterValues?: string;
         queryStringParameters?: {[key: string]: string};
+    }
+
+    export interface PipeLogConfiguration {
+        /**
+         * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+         */
+        cloudwatchLogsLogDestination?: outputs.pipes.PipeLogConfigurationCloudwatchLogsLogDestination;
+        /**
+         * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+         */
+        firehoseLogDestination?: outputs.pipes.PipeLogConfigurationFirehoseLogDestination;
+        /**
+         * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+         */
+        level: string;
+        /**
+         * Amazon S3 logging configuration settings for the pipe. Detailed below.
+         */
+        s3LogDestination?: outputs.pipes.PipeLogConfigurationS3LogDestination;
+    }
+
+    export interface PipeLogConfigurationCloudwatchLogsLogDestination {
+        logGroupArn: string;
+    }
+
+    export interface PipeLogConfigurationFirehoseLogDestination {
+        deliveryStreamArn: string;
+    }
+
+    export interface PipeLogConfigurationS3LogDestination {
+        bucketName: string;
+        bucketOwner: string;
+        outputFormat?: string;
+        prefix?: string;
     }
 
     export interface PipeSourceParameters {
@@ -61993,7 +62120,7 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
-        basicAuth: string;
+        basicAuth?: string;
         clientCertificateTlsAuth?: string;
         saslScram256Auth?: string;
         saslScram512Auth?: string;

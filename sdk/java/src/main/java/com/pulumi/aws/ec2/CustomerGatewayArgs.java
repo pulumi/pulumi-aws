@@ -18,18 +18,33 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
     public static final CustomerGatewayArgs Empty = new CustomerGatewayArgs();
 
     /**
-     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
-    @Import(name="bgpAsn", required=true)
-    private Output<String> bgpAsn;
+    @Import(name="bgpAsn")
+    private @Nullable Output<String> bgpAsn;
 
     /**
-     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
-    public Output<String> bgpAsn() {
-        return this.bgpAsn;
+    public Optional<Output<String>> bgpAsn() {
+        return Optional.ofNullable(this.bgpAsn);
+    }
+
+    /**
+     * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * 
+     */
+    @Import(name="bgpAsnExtended")
+    private @Nullable Output<String> bgpAsnExtended;
+
+    /**
+     * @return The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+     * 
+     */
+    public Optional<Output<String>> bgpAsnExtended() {
+        return Optional.ofNullable(this.bgpAsnExtended);
     }
 
     /**
@@ -113,6 +128,7 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
 
     private CustomerGatewayArgs(CustomerGatewayArgs $) {
         this.bgpAsn = $.bgpAsn;
+        this.bgpAsnExtended = $.bgpAsnExtended;
         this.certificateArn = $.certificateArn;
         this.deviceName = $.deviceName;
         this.ipAddress = $.ipAddress;
@@ -139,24 +155,45 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
          * 
          * @return builder
          * 
          */
-        public Builder bgpAsn(Output<String> bgpAsn) {
+        public Builder bgpAsn(@Nullable Output<String> bgpAsn) {
             $.bgpAsn = bgpAsn;
             return this;
         }
 
         /**
-         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+         * @param bgpAsn The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
          * 
          * @return builder
          * 
          */
         public Builder bgpAsn(String bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
+        }
+
+        /**
+         * @param bgpAsnExtended The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnExtended(@Nullable Output<String> bgpAsnExtended) {
+            $.bgpAsnExtended = bgpAsnExtended;
+            return this;
+        }
+
+        /**
+         * @param bgpAsnExtended The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnExtended(String bgpAsnExtended) {
+            return bgpAsnExtended(Output.of(bgpAsnExtended));
         }
 
         /**
@@ -267,9 +304,6 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public CustomerGatewayArgs build() {
-            if ($.bgpAsn == null) {
-                throw new MissingRequiredPropertyException("CustomerGatewayArgs", "bgpAsn");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("CustomerGatewayArgs", "type");
             }

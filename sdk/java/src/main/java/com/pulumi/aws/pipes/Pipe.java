@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.pipes.PipeArgs;
 import com.pulumi.aws.pipes.inputs.PipeState;
 import com.pulumi.aws.pipes.outputs.PipeEnrichmentParameters;
+import com.pulumi.aws.pipes.outputs.PipeLogConfiguration;
 import com.pulumi.aws.pipes.outputs.PipeSourceParameters;
 import com.pulumi.aws.pipes.outputs.PipeTargetParameters;
 import com.pulumi.core.Output;
@@ -370,6 +371,20 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<PipeEnrichmentParameters>> enrichmentParameters() {
         return Codegen.optional(this.enrichmentParameters);
+    }
+    /**
+     * Logging configuration settings for the pipe. Detailed below.
+     * 
+     */
+    @Export(name="logConfiguration", refs={PipeLogConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ PipeLogConfiguration> logConfiguration;
+
+    /**
+     * @return Logging configuration settings for the pipe. Detailed below.
+     * 
+     */
+    public Output<Optional<PipeLogConfiguration>> logConfiguration() {
+        return Codegen.optional(this.logConfiguration);
     }
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

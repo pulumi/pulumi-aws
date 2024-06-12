@@ -402,6 +402,12 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<EnvironmentLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
+    @Export(name="maxWebservers", refs={Integer.class}, tree="[0]")
+    private Output<Integer> maxWebservers;
+
+    public Output<Integer> maxWebservers() {
+        return this.maxWebservers;
+    }
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
@@ -415,6 +421,12 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> maxWorkers() {
         return this.maxWorkers;
+    }
+    @Export(name="minWebservers", refs={Integer.class}, tree="[0]")
+    private Output<Integer> minWebservers;
+
+    public Output<Integer> minWebservers() {
+        return this.minWebservers;
     }
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.

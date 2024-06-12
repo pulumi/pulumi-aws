@@ -218,6 +218,7 @@ import * as opensearchingest from "./opensearchingest";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
+import * as paymentcryptography from "./paymentcryptography";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as polly from "./polly";
@@ -428,6 +429,7 @@ export {
     opsworks,
     organizations,
     outposts,
+    paymentcryptography,
     pinpoint,
     pipes,
     polly,

@@ -21,10 +21,10 @@ index 106f298c02..0000000000
 -resource/aws_lb_listener_rule: Fixes unexpected diff when using `action` parameters which don't match the `type`.
 -```
 diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
-index 181c549470..c16a7351a7 100644
+index 0f5b63d259..ec53bee87d 100644
 --- a/internal/service/elbv2/listener.go
 +++ b/internal/service/elbv2/listener.go
-@@ -75,10 +75,9 @@ func ResourceListener() *schema.Resource {
+@@ -77,10 +77,9 @@ func ResourceListener() *schema.Resource {
  				Elem: &schema.Resource{
  					Schema: map[string]*schema.Schema{
  						"authenticate_cognito": {
@@ -38,7 +38,7 @@ index 181c549470..c16a7351a7 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"authentication_request_extra_params": {
-@@ -124,10 +123,9 @@ func ResourceListener() *schema.Resource {
+@@ -126,10 +125,9 @@ func ResourceListener() *schema.Resource {
  							},
  						},
  						"authenticate_oidc": {
@@ -52,7 +52,7 @@ index 181c549470..c16a7351a7 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"authentication_request_extra_params": {
-@@ -185,10 +183,9 @@ func ResourceListener() *schema.Resource {
+@@ -187,10 +185,9 @@ func ResourceListener() *schema.Resource {
  							},
  						},
  						"fixed_response": {
@@ -66,7 +66,7 @@ index 181c549470..c16a7351a7 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									names.AttrContentType: {
-@@ -217,10 +214,11 @@ func ResourceListener() *schema.Resource {
+@@ -219,10 +216,11 @@ func ResourceListener() *schema.Resource {
  							},
  						},
  						"forward": {
@@ -82,7 +82,7 @@ index 181c549470..c16a7351a7 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"target_group": {
-@@ -274,10 +272,9 @@ func ResourceListener() *schema.Resource {
+@@ -276,10 +274,9 @@ func ResourceListener() *schema.Resource {
  							ValidateFunc: validation.IntBetween(listenerActionOrderMin, listenerActionOrderMax),
  						},
  						"redirect": {
@@ -96,7 +96,7 @@ index 181c549470..c16a7351a7 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"host": {
-@@ -322,10 +319,9 @@ func ResourceListener() *schema.Resource {
+@@ -324,10 +321,9 @@ func ResourceListener() *schema.Resource {
  							},
  						},
  						"target_group_arn": {
@@ -110,7 +110,7 @@ index 181c549470..c16a7351a7 100644
  						},
  						names.AttrType: {
  							Type:             schema.TypeString,
-@@ -397,21 +393,6 @@ func ResourceListener() *schema.Resource {
+@@ -399,21 +395,6 @@ func ResourceListener() *schema.Resource {
  	}
  }
  
@@ -133,7 +133,7 @@ index 181c549470..c16a7351a7 100644
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index 5e4b6c881e..b86c1490f1 100644
+index e66bfd9683..f6913d0027 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
 @@ -11,7 +11,6 @@ import (
@@ -144,7 +144,7 @@ index 5e4b6c881e..b86c1490f1 100644
  	"time"
  
  	"github.com/YakDriver/regexache"
-@@ -94,10 +93,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -96,10 +95,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"target_group_arn": {
@@ -158,7 +158,7 @@ index 5e4b6c881e..b86c1490f1 100644
  						},
  
  						"forward": {
-@@ -154,10 +152,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -156,10 +154,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"redirect": {
@@ -172,7 +172,7 @@ index 5e4b6c881e..b86c1490f1 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"host": {
-@@ -208,10 +205,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -210,10 +207,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"fixed_response": {
@@ -186,7 +186,7 @@ index 5e4b6c881e..b86c1490f1 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									names.AttrContentType: {
-@@ -243,10 +239,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -245,10 +241,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"authenticate_cognito": {
@@ -200,7 +200,7 @@ index 5e4b6c881e..b86c1490f1 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"authentication_request_extra_params": {
-@@ -293,10 +288,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -295,10 +290,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"authenticate_oidc": {
@@ -214,7 +214,7 @@ index 5e4b6c881e..b86c1490f1 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"authentication_request_extra_params": {
-@@ -488,21 +482,6 @@ func ResourceListenerRule() *schema.Resource {
+@@ -490,21 +484,6 @@ func ResourceListenerRule() *schema.Resource {
  	}
  }
  

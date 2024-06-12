@@ -251,6 +251,12 @@ namespace Pulumi.Aws.Pipes
         public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
 
         /// <summary>
+        /// Logging configuration settings for the pipe. Detailed below.
+        /// </summary>
+        [Output("logConfiguration")]
+        public Output<Outputs.PipeLogConfiguration?> LogConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
@@ -377,6 +383,12 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
+        /// Logging configuration settings for the pipe. Detailed below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.PipeLogConfigurationArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
@@ -469,6 +481,12 @@ namespace Pulumi.Aws.Pipes
         /// </summary>
         [Input("enrichmentParameters")]
         public Input<Inputs.PipeEnrichmentParametersGetArgs>? EnrichmentParameters { get; set; }
+
+        /// <summary>
+        /// Logging configuration settings for the pipe. Detailed below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.PipeLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

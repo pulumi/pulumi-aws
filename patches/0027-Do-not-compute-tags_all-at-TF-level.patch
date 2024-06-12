@@ -36,7 +36,7 @@ index 6415ce2355..c80c01b8d1 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index eae4367349..0c61e9cfd6 100644
+index facee5530d..faa7d62e28 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
 @@ -104,7 +104,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
@@ -114,10 +114,10 @@ index e8e1a272eb..a4a1625554 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index 06ac90e481..088c7dcf98 100644
+index f1a198c2d9..25016470af 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
-@@ -117,7 +117,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
+@@ -118,7 +118,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -127,10 +127,10 @@ index 06ac90e481..088c7dcf98 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index f126ed2755..f093404590 100644
+index 9d5de83433..f9d99d2663 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
-@@ -225,7 +225,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
+@@ -226,7 +226,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

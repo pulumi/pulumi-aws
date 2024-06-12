@@ -29,10 +29,10 @@ index 7c9da01c62..0000000000
 -resource/aws_lb_listener_rule: Was incorrectly reporting conflicting `action[].target_group_arn` when `ignore_changes` was set.
 -```
 diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
-index c16a7351a7..99d2d7911f 100644
+index ec53bee87d..5dec03955e 100644
 --- a/internal/service/elbv2/listener.go
 +++ b/internal/service/elbv2/listener.go
-@@ -214,11 +214,9 @@ func ResourceListener() *schema.Resource {
+@@ -216,11 +216,9 @@ func ResourceListener() *schema.Resource {
  							},
  						},
  						"forward": {
@@ -47,7 +47,7 @@ index c16a7351a7..99d2d7911f 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"target_group": {
-@@ -513,7 +511,7 @@ func resourceListenerRead(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -515,7 +513,7 @@ func resourceListenerRead(ctx context.Context, d *schema.ResourceData, meta inte
  	sort.Slice(listener.DefaultActions, func(i, j int) bool {
  		return aws.ToInt32(listener.DefaultActions[i].Order) < aws.ToInt32(listener.DefaultActions[j].Order)
  	})
@@ -56,7 +56,7 @@ index c16a7351a7..99d2d7911f 100644
  		return sdkdiag.AppendErrorf(diags, "setting default_action: %s", err)
  	}
  	d.Set("load_balancer_arn", listener.LoadBalancerArn)
-@@ -930,26 +928,20 @@ func expandLbListenerActionForwardConfigTargetGroupStickinessConfig(l []interfac
+@@ -932,26 +930,20 @@ func expandLbListenerActionForwardConfigTargetGroupStickinessConfig(l []interfac
  		return nil
  	}
  
@@ -87,7 +87,7 @@ index c16a7351a7..99d2d7911f 100644
  		m := map[string]interface{}{
  			names.AttrType: string(action.Type),
  			"order":        aws.ToInt32(action.Order),
-@@ -957,7 +949,11 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
+@@ -959,7 +951,11 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
  
  		switch action.Type {
  		case awstypes.ActionTypeEnumForward:
@@ -100,7 +100,7 @@ index c16a7351a7..99d2d7911f 100644
  
  		case awstypes.ActionTypeEnumRedirect:
  			m["redirect"] = flattenLbListenerActionRedirectConfig(action.RedirectConfig)
-@@ -972,7 +968,7 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
+@@ -974,7 +970,7 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
  			// The LB API currently provides no way to read the ClientSecret
  			// Instead we passthrough the configuration value into the state
  			var clientSecret string
@@ -109,7 +109,7 @@ index c16a7351a7..99d2d7911f 100644
  				clientSecret = v.(string)
  			}
  
-@@ -985,50 +981,6 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
+@@ -987,50 +983,6 @@ func flattenLbListenerActions(d *schema.ResourceData, attrName string, actions [
  	return vActions
  }
  
@@ -160,7 +160,7 @@ index c16a7351a7..99d2d7911f 100644
  func flattenMutualAuthenticationAttributes(description *awstypes.MutualAuthenticationAttributes) []interface{} {
  	if description == nil {
  		return []interface{}{}
-@@ -1243,8 +1195,7 @@ func listenerActionPlantimeValidate(actionPath cty.Path, action cty.Value, diags
+@@ -1245,8 +1197,7 @@ func listenerActionPlantimeValidate(actionPath cty.Path, action cty.Value, diags
  		tga := action.GetAttr("target_group_arn")
  		f := action.GetAttr("forward")
  
@@ -170,7 +170,7 @@ index c16a7351a7..99d2d7911f 100644
  			*diags = append(*diags, errs.NewAttributeErrorDiagnostic(actionPath,
  				"Invalid Attribute Combination",
  				fmt.Sprintf("Only one of %q or %q can be specified.",
-@@ -1370,15 +1321,3 @@ func listenerActionRuntimeValidate(actionPath cty.Path, action map[string]any, d
+@@ -1372,15 +1323,3 @@ func listenerActionRuntimeValidate(actionPath cty.Path, action map[string]any, d
  		}
  	}
  }
@@ -200,10 +200,10 @@ index 20d1c424e1..2531ae0355 100644
  	}
  	d.Set("load_balancer_arn", listener.LoadBalancerArn)
 diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
-index b86c1490f1..fbf7d81896 100644
+index f6913d0027..ed035f2a19 100644
 --- a/internal/service/elbv2/listener_rule.go
 +++ b/internal/service/elbv2/listener_rule.go
-@@ -99,11 +99,9 @@ func ResourceListenerRule() *schema.Resource {
+@@ -101,11 +101,9 @@ func ResourceListenerRule() *schema.Resource {
  						},
  
  						"forward": {
@@ -218,7 +218,7 @@ index b86c1490f1..fbf7d81896 100644
  							Elem: &schema.Resource{
  								Schema: map[string]*schema.Schema{
  									"target_group": {
-@@ -594,9 +592,41 @@ func resourceListenerRuleRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -596,9 +594,41 @@ func resourceListenerRuleRead(ctx context.Context, d *schema.ResourceData, meta
  	sort.Slice(rule.Actions, func(i, j int) bool {
  		return aws.ToInt32(rule.Actions[i].Order) < aws.ToInt32(rule.Actions[j].Order)
  	})

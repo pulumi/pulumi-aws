@@ -189,6 +189,10 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
+     * Logging configuration settings for the pipe. Detailed below.
+     */
+    public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
+    /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -247,6 +251,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["desiredState"] = state ? state.desiredState : undefined;
             resourceInputs["enrichment"] = state ? state.enrichment : undefined;
             resourceInputs["enrichmentParameters"] = state ? state.enrichmentParameters : undefined;
+            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
@@ -271,6 +276,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["enrichment"] = args ? args.enrichment : undefined;
             resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -311,6 +317,10 @@ export interface PipeState {
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    /**
+     * Logging configuration settings for the pipe. Detailed below.
+     */
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -373,6 +383,10 @@ export interface PipeArgs {
      * Parameters to configure enrichment for your pipe. Detailed below.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters>;
+    /**
+     * Logging configuration settings for the pipe. Detailed below.
+     */
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration>;
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */

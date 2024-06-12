@@ -145,6 +145,9 @@ namespace Pulumi.Aws.Transfer
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        [Output("sshKeyId")]
+        public Output<string> SshKeyId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the user account that is assigned to one or more servers.
         /// </summary>
@@ -234,6 +237,9 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
+
+        [Input("sshKeyId")]
+        public Input<string>? SshKeyId { get; set; }
 
         /// <summary>
         /// The name of the user account that is assigned to one or more servers.

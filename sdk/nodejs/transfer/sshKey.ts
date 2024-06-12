@@ -113,6 +113,7 @@ export class SshKey extends pulumi.CustomResource {
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
+    public /*out*/ readonly sshKeyId!: pulumi.Output<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
@@ -133,6 +134,7 @@ export class SshKey extends pulumi.CustomResource {
             const state = argsOrState as SshKeyState | undefined;
             resourceInputs["body"] = state ? state.body : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["sshKeyId"] = state ? state.sshKeyId : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as SshKeyArgs | undefined;
@@ -148,6 +150,7 @@ export class SshKey extends pulumi.CustomResource {
             resourceInputs["body"] = args ? args.body : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["sshKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SshKey.__pulumiType, name, resourceInputs, opts);
@@ -166,6 +169,7 @@ export interface SshKeyState {
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId?: pulumi.Input<string>;
+    sshKeyId?: pulumi.Input<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
