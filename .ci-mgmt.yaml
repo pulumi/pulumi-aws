@@ -68,7 +68,6 @@ actions:
       with:
         tool-cache: false
         swap-storage: false
-        dotnet: ${{ matrix.language != 'dotnet' }}
 
 extraTests:
   go_test_shim:
