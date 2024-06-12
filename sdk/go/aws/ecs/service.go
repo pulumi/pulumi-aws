@@ -189,6 +189,37 @@ import (
 //
 // ```
 //
+// ### Redeploy Service On Every Apply
+//
+// The key used with `triggers` is arbitrary.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
+//				ForceNewDeployment: pulumi.Bool(true),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": pulumi.String("plantimestamp()"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
@@ -257,7 +288,7 @@ type Service struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
-	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrOutput `pulumi:"volumeConfiguration"`
@@ -353,7 +384,7 @@ type serviceState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
@@ -420,7 +451,7 @@ type ServiceState struct {
 	TagsAll pulumi.StringMapInput
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 	Triggers pulumi.StringMapInput
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrInput
@@ -487,7 +518,7 @@ type serviceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
@@ -551,7 +582,7 @@ type ServiceArgs struct {
 	Tags pulumi.StringMapInput
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+	// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 	Triggers pulumi.StringMapInput
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrInput
@@ -785,7 +816,7 @@ func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.TaskDefinition }).(pulumi.StringPtrOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
 func (o ServiceOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

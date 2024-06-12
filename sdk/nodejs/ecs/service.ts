@@ -101,6 +101,22 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Redeploy Service On Every Apply
+ *
+ * The key used with `triggers` is arbitrary.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.Service("example", {
+ *     forceNewDeployment: true,
+ *     triggers: {
+ *         redeployment: "plantimestamp()",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
@@ -250,7 +266,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -460,7 +476,7 @@ export interface ServiceState {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -584,7 +600,7 @@ export interface ServiceArgs {
      */
     taskDefinition?: pulumi.Input<string>;
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `plantimestamp()`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
