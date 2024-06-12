@@ -80,8 +80,9 @@ extraTests:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
+    - uses: pulumi/provider-version-action@v1
+      with:
+        set-env: 'PROVIDER_VERSION'
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
@@ -122,13 +123,9 @@ extraTests:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
+    - uses: pulumi/provider-version-action@v1
       with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
+        set-env: 'PROVIDER_VERSION'
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -221,14 +218,9 @@ extraTests:
         with:
           ref: ${{ env.PR_COMMIT_SHA }}
           submodules: true
-      - name: Checkout Scripts Repo
-        uses: actions/checkout@v4
+      - uses: pulumi/provider-version-action@v1
         with:
-          path: ci-scripts
-          repository: pulumi/scripts
-          ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
-      - name: Unshallow clone for tags
-        run: git fetch --prune --unshallow --tags
+          set-env: 'PROVIDER_VERSION'
       - name: Make upstream
         run: make upstream
       - name: Install Go
