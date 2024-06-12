@@ -11,6 +11,8 @@ env:
   OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
 makeTemplate: bridged
 checkoutSubmodules: true
+freeDiskSpaceBeforeBuild: true
+freeDiskSpaceBeforeTest: true
 # TODO: remove XrunUpstreamTools flag after work to add docs replacement strategies to resources.go is completed
 # Tracked in in https://github.com/pulumi/pulumi-aws/issues/2757
 XrunUpstreamTools: true
@@ -41,16 +43,6 @@ pulumiConvert: 1
 goBuildParallelism: 2
 actions:
   preTest:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        swap-storage: false
-    - name: Setup DotNet
-      if: ${{ matrix.language == 'dotnet' }}
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '6.0.x'
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -62,12 +54,6 @@ actions:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
-  preBuild:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        tool-cache: false
-        swap-storage: false
 
 extraTests:
   go_test_shim:
