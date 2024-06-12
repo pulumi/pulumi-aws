@@ -109,44 +109,10 @@ jobs:
       with:
         repository: pulumi/examples
         path: p-examples
-    - name: Install Go
-      uses: actions/setup-go@v5
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
       with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: "^3"
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: "20.x"
-        registry-url: https://registry.npmjs.org
-    - name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: "6.0.x"
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11.8"
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        cache: gradle
-        distribution: temurin
-        java-version: "11"
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
-      with:
-        gradle-version: "7.6"
+        tools: pulumictl, pulumi, go, node, dotnet, python, java
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v4
       with:
